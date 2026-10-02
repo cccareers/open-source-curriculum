@@ -1,6 +1,37 @@
-# 🎓 GitBook-Style Course Content Player
+# Open Source Curriculum
 
-A modern, fast, zero-dependency course content player for Markdown (`.md`) and MDX (`.mdx`) curriculum files. Built for students and educators with interactive quizzes, 3D flashcards, H5P interactive learning embeds, responsive video players, progress tracking, and GitBook aesthetics.
+This repository contains manifests, curriculum guides, and educational artifacts created and maintained by the Creating Coding Careers Organization.
+
+## About
+The resources in this repository are designed to support learners on their journey into software development and other technology careers. Our mission is to make quality technical education accessible to everyone through open, community-driven content and to continue to build earn-and-learn pathways via registered apprenticeships.
+
+## What's Inside
+- **Curriculum Manifests** — Structured learning paths and course outlines
+- **Educational Resources** — Guides, reference materials, and learning aids
+- **Community Artifacts** — Shared resources developed by and for our community
+
+## Contributing
+We welcome contributions from educators, developers, and learners. If you'd like to contribute, please review our contribution guidelines and submit a pull request.
+
+## License
+This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0).
+
+You are free to:
+- **Share** — copy and redistribute the material in any medium or format
+- **Adapt** — remix, transform, and build upon the material
+
+Under the following terms:
+- **Attribution** — You must give appropriate credit, provide a link to the license, and indicate if changes were made
+- **NonCommercial** — You may not use the material for commercial purposes
+- **ShareAlike** — If you remix, transform, or build upon the material, you must distribute your contributions under the same license
+
+See [LICENSE.md](https://github.com/cccareers/open-source-curriculum/blob/main/LICENSE.md) for the full license text.
+
+---
+
+## 🎓 Course Player
+
+A modern, fast, zero-dependency course content player and catalog for Markdown (`.md`) and MDX (`.mdx`) curriculum files. Built for students and educators with interactive quizzes, 3D flashcards, H5P interactive learning embeds, responsive video players, and progress tracking.
 
 ---
 
