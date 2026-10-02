@@ -37,7 +37,7 @@ A modern, fast, zero-dependency course content player and catalog for Markdown (
 
 ## ✨ Features
 
-- 📖 **GitBook Aesthetics & Typography**: Clean typography, light and dark themes, collapsible module tree, and smooth transitions.
+- 📖 **GitBook Inspired Aesthetics & Typography**: Clean typography, light and dark themes, collapsible module tree, and smooth transitions.
 - ⬅️ ➡️ **Bottom Navigation**: Large **Previous** and **Next** lesson cards at the bottom of every lesson, plus keyboard shortcuts (`Alt + Left` / `Alt + Right`).
 - 🎥 **Smart Video Embeds**: Automatically converts YouTube, Vimeo, Loom, and direct `.mp4` / `.webm` video links into responsive players with custom playback speed controls (0.75x – 2x).
 - 📄 **Frontmatter & MDX Support**: Full support for YAML frontmatter in both `.md` and `.mdx` files (`title`, `order`, `module`, `duration`, `difficulty`, `tags`, `video`).
