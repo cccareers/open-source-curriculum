@@ -1,0 +1,117 @@
+{
+  "course_id": "CHW104",
+  "pathway": "community-healthcare-worker",
+  "title": "Health Issues in Populations",
+  "description": "Builds direct-service competency for working with high-risk and underserved populations: formerly incarcerated individuals, people with chronic disease, older adults, and communities experiencing trauma. Includes chronic disease basics, medication support, nutrition, weight-inclusive care, and trauma-informed approaches.",
+  "hours": 50,
+  "projects": 0,
+  "notes": "Adapted from Calbright College CHW program outline (course 04 / CHW 504), renumbered per CCC convention.",
+  "lesson_length": "Lab-guide lessons, roughly 1500-2000 words each, supporting instructor-led sessions and independent study",
+  "learning_objectives": [
+    "Apply trust-building and culturally responsive approaches with high-risk and underserved populations",
+    "Support clients with chronic disease basics, medication adherence, nutrition, and weight-inclusive care within CHW scope",
+    "Apply trauma-informed principles across CHW services"
+  ],
+  "prerequisites": [
+    "CHW103: Core Skills Competencies"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "CHW104-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 2,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "CHW104-02",
+      "order": 2,
+      "slug": "serving-high-risk-and-underserved-populations",
+      "title": "Serving High-Risk and Underserved Populations",
+      "kind": "lesson",
+      "objectives": [
+        "Apply trust-building and culturally responsive approaches with high-risk and underserved populations",
+        "Adapt services for formerly incarcerated individuals, older adults, and communities experiencing trauma"
+      ],
+      "competency_ids": [
+        "D2-S2-C02",
+        "D1-S3-C02",
+        "D1-S3-C03"
+      ],
+      "hours_estimate": 12,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "CHW104-03",
+      "order": 3,
+      "slug": "chronic-disease-basics-and-medication-support",
+      "title": "Chronic Disease Basics and Medication Support",
+      "kind": "lesson",
+      "objectives": [
+        "Support clients with chronic disease basics, medication adherence, nutrition, and weight-inclusive care within CHW scope",
+        "Teach self-monitoring skills that increase client independence in chronic disease management"
+      ],
+      "competency_ids": [
+        "D3-S2-C01",
+        "D3-S1-C03"
+      ],
+      "hours_estimate": 12,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "CHW104-04",
+      "order": 4,
+      "slug": "nutrition-and-weight-inclusive-care",
+      "title": "Nutrition and Weight-Inclusive Care",
+      "kind": "lesson",
+      "objectives": [
+        "Deliver nutrition education using weight-inclusive, non-judgmental approaches",
+        "Choose education materials appropriate to the audience's culture and literacy"
+      ],
+      "competency_ids": [
+        "D1-S1-C05",
+        "D3-S1-C01"
+      ],
+      "hours_estimate": 12,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "CHW104-05",
+      "order": 5,
+      "slug": "trauma-informed-approaches",
+      "title": "Trauma-Informed Approaches",
+      "kind": "lesson",
+      "objectives": [
+        "Apply trauma-informed principles across CHW services",
+        "Recognize and respond to trauma responses and emotional cues in client interactions"
+      ],
+      "competency_ids": [
+        "D1-S2-C05",
+        "D1-S1-C05"
+      ],
+      "hours_estimate": 12,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Course 4 of 6: direct-service competency with high-risk and underserved populations. Population-specific trust and cultural adaptation first, then the health-content lessons (chronic disease and medication support, nutrition and weight-inclusive care), closing with trauma-informed approaches that wrap all services. Scope assumption: health content stays at CHW support scope — education, adherence support, referral — never diagnosis or medical advice; chronic-disease and trauma-informed content knowledge beyond the skills matrix is raised as proposed competencies.",
+  "proposed_competencies": [
+    {
+      "domain_code": "D3",
+      "subdomain": "D3-S1",
+      "competency_text": "The learner can explain chronic disease basics (diabetes, hypertension, asthma) and common medication-support tasks at CHW scope.",
+      "rationale": "CHW104 lesson 3 teaches disease-specific content knowledge; the skills matrix covers education delivery behavior but not health-content knowledge."
+    },
+    {
+      "domain_code": "D1",
+      "subdomain": "D1-S2",
+      "competency_text": "The learner can apply the core principles of trauma-informed care (safety, trustworthiness, choice, collaboration, empowerment) in CHW services.",
+      "rationale": "CHW104 lesson 5 teaches a trauma-informed framework; the matrix covers emotional-cue response but not the framework itself."
+    }
+  ],
+  "assets": []
+}

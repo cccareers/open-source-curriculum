@@ -1,0 +1,183 @@
+{
+  "course_id": "de210",
+  "pathway": "data-engineer",
+  "title": "Data Pipeline Automation & ETL Best Practices",
+  "description": "This is a competency-based course designed for the indentured Data Engineer apprentice.  Focuses on building automated ETL workflows using Apache Airflow, dbt, and cloud-native tools. Covers scheduling, monitoring, and debugging ETL pipelines.",
+  "hours": 40,
+  "projects": null,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Describe what an orchestrator guarantees that a cron job does not",
+    "Build an Airflow DAG with dependencies, retries, and idempotent tasks",
+    "Automate scheduled ingestion from an API, a file drop, and a source database",
+    "Implement layered dbt models with tests and documentation",
+    "Add validation gates that stop bad data before it reaches a consumer",
+    "Instrument a pipeline so that a failed or late run is detected and diagnosed quickly",
+    "Trigger pipeline work from cloud events instead of a fixed schedule",
+    "Publish lineage and documentation that lets a consumer trace a column back to its source"
+  ],
+  "prerequisites": [
+    "Big Data Processing with Spark & Hadoop (de201), or equivalent batch-processing experience",
+    "Working SQL and Python, and comfort with Git-based workflows"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "de210-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "de210-02",
+      "order": 2,
+      "slug": "pipeline-architecture-and-orchestration-concepts",
+      "title": "Pipeline Architecture and Orchestration Concepts",
+      "kind": "lesson",
+      "objectives": [
+        "Describe what an orchestrator guarantees that a cron job does not"
+      ],
+      "competency_ids": [
+        "D1-S1-C01"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "de210-03",
+      "order": 3,
+      "slug": "building-dags-with-apache-airflow",
+      "title": "Building DAGs with Apache Airflow",
+      "kind": "lesson",
+      "objectives": [
+        "Build an Airflow DAG with dependencies, retries, and idempotent tasks"
+      ],
+      "competency_ids": [
+        "D1-S1-C01",
+        "D1-S1-C02"
+      ],
+      "hours_estimate": 6,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "de210-04",
+      "order": 4,
+      "slug": "automating-ingestion",
+      "title": "Automating Ingestion",
+      "kind": "lesson",
+      "objectives": [
+        "Automate scheduled ingestion from an API, a file drop, and a source database"
+      ],
+      "competency_ids": [
+        "D1-S1-C02"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "de210-05",
+      "order": 5,
+      "slug": "transformations-with-dbt",
+      "title": "Transformations with dbt",
+      "kind": "lesson",
+      "objectives": [
+        "Implement layered dbt models with tests and documentation"
+      ],
+      "competency_ids": [
+        "D1-S1-C01",
+        "D6-S1-C03"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "de210-06",
+      "order": 6,
+      "slug": "validation-and-testing-in-pipelines",
+      "title": "Validation and Testing in Pipelines",
+      "kind": "lesson",
+      "objectives": [
+        "Add validation gates that stop bad data before it reaches a consumer"
+      ],
+      "competency_ids": [
+        "D2-S1-C03",
+        "D2-S1-C01"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "de210-07",
+      "order": 7,
+      "slug": "monitoring-alerting-and-debugging-runs",
+      "title": "Monitoring, Alerting, and Debugging Runs",
+      "kind": "lesson",
+      "objectives": [
+        "Instrument a pipeline so that a failed or late run is detected and diagnosed quickly"
+      ],
+      "competency_ids": [
+        "D5-S2-C03",
+        "D1-S1-C03"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "de210-08",
+      "order": 8,
+      "slug": "cloud-native-and-event-driven-pipelines",
+      "title": "Cloud-Native and Event-Driven Pipelines",
+      "kind": "lesson",
+      "objectives": [
+        "Trigger pipeline work from cloud events instead of a fixed schedule"
+      ],
+      "competency_ids": [
+        "D6-S1-C02",
+        "D6-S2-C03"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "de210-09",
+      "order": 9,
+      "slug": "lineage-auditing-and-documentation",
+      "title": "Lineage, Auditing, and Documentation",
+      "kind": "lesson",
+      "objectives": [
+        "Publish lineage and documentation that lets a consumer trace a column back to its source"
+      ],
+      "competency_ids": [
+        "D5-S1-C03",
+        "D1-S1-C03"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Fourth course in the pathway (de101 -> de102 -> de201 -> de210 -> ds320 -> agile310). It converts the hand-run jobs of de101 and de201 into automated, observable production pipelines. Concepts come first so that Airflow is learned as one implementation of orchestration rather than as the definition of it. DAG authoring precedes ingestion automation because ingestion is taught as tasks inside a DAG. Transformation (dbt) follows ingestion because a model needs a source table to build on. Validation comes after transformation so tests can be written against both raw and modeled layers. Monitoring follows validation because alerting on a failed check requires the check to exist. Event-driven and cloud-native triggering comes late as an alternative to the scheduled model learners now know well, and lineage/documentation closes the course because it summarizes the whole graph the learner has built.\n\nScope assumptions (intake gave one description sentence naming Airflow, dbt, cloud-native tools, scheduling, monitoring and debugging; 40 hours; no objectives or lesson titles): (1) Airflow is taught as an author of DAGs, not as an administrator: executor selection, Kubernetes deployment, and Airflow upgrades are out of scope. (2) dbt is taught in its Core form against a warehouse; dbt Cloud specifics are noted but not required, and dbt is where catalog competency D6-S1-C03 (cloud data warehouses) is first exercised because no other course owns warehouse modeling before the capstone. (3) 'Cloud-native tools' is read as managed schedulers, object-storage event notifications, and serverless functions, taught vendor-neutrally with one worked example on a single provider; multi-cloud comparison is out of scope. (4) Data quality is split deliberately: de101 teaches profiling, this course teaches enforcement gates in a running pipeline (D2-S1-C03). (5) Lineage is taught here as an engineering artifact (column-level provenance, run history) while ds320 teaches it as a governance and audit obligation; the overlap on D5-S1-C03 is intentional and sequenced so that ds320 can assume the mechanics exist. (6) Streaming pipeline implementation lives in de201; this course covers only event-triggered batch work (D6-S2-C03). (7) A reviewer should confirm the intended cloud provider — the pathway does not name one, and lessons 8 uses a single provider only for concreteness.",
+  "proposed_competencies": [],
+  "assets": [
+    {
+      "filename": "cron-vs-orchestrator.png",
+      "description": "Side-by-side comparison of the same three-step pipeline run by cron and by an orchestrator, showing time-guessed dependencies against real ones, per-task retries, and persisted run state.",
+      "suggested_source": "Diagram, drawn in-house"
+    },
+    {
+      "filename": "dbt-model-layers.png",
+      "description": "The three dbt model layers: a raw source table flowing through one staging view, a shared intermediate model, and two mart tables consumed by a dashboard.",
+      "suggested_source": "Diagram, drawn in-house"
+    },
+    {
+      "filename": "event-triggered-batch-flow.png",
+      "description": "An object-storage event flowing through a router and a queue to a serverless function, which deduplicates and triggers an orchestrated batch run, with a dead-letter queue branching off the queue.",
+      "suggested_source": "Diagram, drawn in-house"
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "course_id": "cyb250",
+  "pathway": "cybersecurity-support-technician",
+  "title": "Security Awareness & Social Engineering Defense",
+  "description": "This is a competency-based course designed for the indentured Cybersecurity Support Technician apprentice. Educates on phishing attacks, social engineering tactics, and best practices for end-user security awareness.",
+  "hours": 20,
+  "projects": null,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Explain the psychological levers social engineers use and recognize them in a described interaction",
+    "Analyze a suspicious message, decide what to do with it, and route it to the right people",
+    "Design an awareness curriculum and a reporting procedure that fit a described workforce",
+    "Deliver a short awareness session and choose metrics that show whether behavior actually changed"
+  ],
+  "prerequisites": [
+    "cyb100 Introduction to Cybersecurity",
+    "cyb210 Endpoint Security and Malware Defense",
+    "cyb120 Threat Analysis and Incident Response"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "cyb250-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cyb250-02",
+      "order": 2,
+      "slug": "how-social-engineering-works",
+      "title": "How Social Engineering Works",
+      "kind": "lesson",
+      "objectives": [
+        "Explain the psychological levers social engineers use and recognize them in a described interaction"
+      ],
+      "competency_ids": [
+        "D5-S1-C02"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cyb250-03",
+      "order": 3,
+      "slug": "phishing-vishing-and-business-email-compromise",
+      "title": "Phishing, Vishing, and Business Email Compromise",
+      "kind": "lesson",
+      "objectives": [
+        "Analyze a suspicious message, decide what to do with it, and route it to the right people"
+      ],
+      "competency_ids": [
+        "D5-S1-C02",
+        "D5-S1-C04"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cyb250-04",
+      "order": 4,
+      "slug": "building-an-awareness-program",
+      "title": "Building an Awareness Program",
+      "kind": "lesson",
+      "objectives": [
+        "Design an awareness curriculum and a reporting procedure that fit a described workforce"
+      ],
+      "competency_ids": [
+        "D5-S1-C05",
+        "D4-S1-C03"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cyb250-05",
+      "order": 5,
+      "slug": "delivering-training-and-measuring-behavior-change",
+      "title": "Delivering Training and Measuring Behavior Change",
+      "kind": "lesson",
+      "objectives": [
+        "Deliver a short awareness session and choose metrics that show whether behavior actually changed"
+      ],
+      "competency_ids": [
+        "D5-S1-C05"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cyb250-06",
+      "order": 6,
+      "slug": "project-awareness-campaign-plan",
+      "title": "Project: Awareness Campaign Plan",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D5-S1-C05",
+        "D5-S1-C02"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "The course moves from why people fall for it, to what the attacks look like, to what an organization does about it, to whether it worked. Lesson 02 leads with the psychology because awareness training that lists red flags without explaining pressure, authority, urgency, and reciprocity teaches pattern matching that the next novel lure defeats. Lesson 03 makes it concrete across the channels a technician actually triages, and includes the reporting path, because the measurable outcome of awareness work is report rate, not click rate alone. Program design (04) comes after both so the curriculum the learner designs is built from observed attacker behavior rather than from a compliance checklist, and delivery and measurement (05) closes the teaching sequence because a program with no metric cannot be defended at budget time. The project (06) asks for a campaign plan - audience, content, simulation design, consent and ethics, metrics, follow-up - which is the artifact this role is asked to produce. SCOPE ASSUMPTIONS - the intake description for this course arrived with scan boilerplate appended ('Attachment B-7 Training Schedule and Working Conditions Creating Coding Careers App'), which the importer stripped and warned about; the usable scope evidence is therefore one sentence, and everything below was assumed: (1) The course is entirely defensive. Social engineering techniques are described at the level required to recognize and defeat them; the course does not script pretexts or run manipulation exercises against real people outside a consented, management-approved simulation. (2) Phishing simulations are taught as a program design problem with explicit ethics constraints - management authorization, no punitive use of results, no lures that exploit personal distress such as fake layoffs or bonuses - and the learner plans one rather than firing one. (3) Technical mail controls (SPF, DKIM, DMARC, gateway filtering) are assumed from cyb210 and appear here only where the learner must explain to a user why a message got through; D5-S1-C04 is tagged in lesson 03 at that explanatory depth only. (4) Adult learning theory is used at working depth, not taught as a discipline. (5) D4-S1-C03 is tagged in lesson 04 because an awareness program is written as policy and procedure - acceptable use, reporting duty, escalation - but policy drafting craft belongs to cyb150. (6) Intake records no projects; lesson 06 is added as a low-hour planning artifact so the 20 hours end in something assessable, and a reviewer may cut it. (7) Placement late in the pathway assumes the learner has already seen phishing and ransomware technically in cyb210 and incident reporting in cyb120, so this course can concentrate on the human system; a reviewer who wants awareness taught early could move it after cyb100 at the cost of that grounding.",
+  "proposed_competencies": [
+    {
+      "domain_code": "D5",
+      "subdomain": "D5-S1",
+      "competency_text": "The learner can design, authorize, and measure a security awareness program - including consented phishing simulations - and report behavior change metrics such as report rate and time-to-report.",
+      "rationale": "Lessons 04 and 05 and the project are assessed on program design and measurement. D5-S1-C05 covers educating employees on security awareness and best practices, which is delivery; it does not cover designing a program, obtaining authorization for a simulation, or measuring whether behavior changed, which is what distinguishes an awareness function from a slide deck."
+    }
+  ],
+  "assets": [
+    {
+      "filename": "phishing-triage-flow.png",
+      "description": "Decision flow for triaging a reported message: preserve and handle safely, classify, establish scope, assess exposure per user, contain, communicate, close the loop.",
+      "suggested_source": "Diagram, drawn in-house"
+    }
+  ]
+}

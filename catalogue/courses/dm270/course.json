@@ -1,0 +1,156 @@
+{
+  "course_id": "dm270",
+  "pathway": "digital-marketer",
+  "title": "Content Marketing & Strategy",
+  "description": "This is a competency-based course designed for the indentured Digital Marketer apprentice. This course provides training on developing, distributing, and optimizing digital content for various channels. Apprentices will learn how to craft compelling copy, create multimedia content, and measure conte",
+  "hours": 30,
+  "projects": null,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Build a content strategy from audience research and business goals",
+    "Write clear, persuasive marketing copy for digital channels",
+    "Plan and produce multimedia content appropriate to a channel",
+    "Publish, structure, and maintain content in a CMS",
+    "Distribute and repurpose one piece of content across multiple channels",
+    "Measure content performance and decide what to publish next"
+  ],
+  "prerequisites": [
+    "dm101 Introduction to Digital Marketing",
+    "dm201 Search Engine Optimization (SEO), for the keyword and search-intent inputs to content planning"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "dm270-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "dm270-02",
+      "order": 2,
+      "slug": "content-strategy-and-audience-research",
+      "title": "Content Strategy and Audience Research",
+      "kind": "lesson",
+      "objectives": [
+        "Build a content strategy from audience research and business goals",
+        "Define content pillars tied to audience problems"
+      ],
+      "competency_ids": [
+        "D2-S1-C01"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "dm270-03",
+      "order": 3,
+      "slug": "copywriting-for-digital-channels",
+      "title": "Copywriting for Digital Channels",
+      "kind": "lesson",
+      "objectives": [
+        "Write clear, persuasive marketing copy for digital channels",
+        "Edit copy for clarity, voice, and a single call to action"
+      ],
+      "competency_ids": [
+        "D2-S1-C03"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "dm270-04",
+      "order": 4,
+      "slug": "multimedia-content-production",
+      "title": "Multimedia Content Production",
+      "kind": "lesson",
+      "objectives": [
+        "Plan and produce multimedia content appropriate to a channel"
+      ],
+      "competency_ids": [
+        "D2-S1-C01"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "dm270-05",
+      "order": 5,
+      "slug": "publishing-and-managing-content-in-a-cms",
+      "title": "Publishing and Managing Content in a CMS",
+      "kind": "lesson",
+      "objectives": [
+        "Publish, structure, and maintain content in a CMS",
+        "Use taxonomies, templates, and metadata to keep a content library usable"
+      ],
+      "competency_ids": [
+        "D2-S1-C02"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "dm270-06",
+      "order": 6,
+      "slug": "distribution-and-repurposing",
+      "title": "Distribution and Repurposing",
+      "kind": "lesson",
+      "objectives": [
+        "Distribute and repurpose one piece of content across multiple channels"
+      ],
+      "competency_ids": [
+        "D2-S1-C01"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "dm270-07",
+      "order": 7,
+      "slug": "measuring-content-performance",
+      "title": "Measuring Content Performance",
+      "kind": "lesson",
+      "objectives": [
+        "Measure content performance and decide what to publish next",
+        "Choose content KPIs that reflect the goal of the piece"
+      ],
+      "competency_ids": [
+        "D6-S1-C02",
+        "D6-S1-C03"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "dm270-08",
+      "order": 8,
+      "slug": "project-content-plan-and-flagship-piece",
+      "title": "Project: Content Plan and Flagship Piece",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D2-S1-C01",
+        "D2-S1-C02",
+        "D2-S1-C03"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Strategy before craft before logistics: lesson 02 decides what to say and to whom, 03-04 make it (words, then everything that is not words), 05 puts it somewhere a reader can reach, 06 gets it in front of people, 07 asks whether it worked. Reversing any pair produces the failure mode the industry is famous for - a well-produced piece nobody needed. SCOPE ASSUMPTIONS - the intake description is truncated mid-word (it ends at 'measure conte') and supplied no objectives or lesson titles, so: (1) The cut sentence was read as measuring content performance and lesson 07 is scoped accordingly; no further claim was reconstructed from the fragment. (2) 'Create multimedia content' is taken as planning and producing to a brief at an introductory level - shot lists, scripts, simple edits, accessible captions - NOT professional video/audio production or graphic design, which no catalog competency covers and 30 hours cannot deliver. (3) The CMS is taught generically with WordPress-style concepts (posts, taxonomies, templates, media library) as the worked example; the reviewer should confirm which CMS the program uses. (4) SEO writing overlaps dm201 lesson 09 on purpose - dm201 optimizes an existing page for a query, dm270 decides what to write in the first place. (5) Editorial governance, brand style guide authorship, and localization are OUT of scope. (6) Email as a content channel is named only as a distribution surface in lesson 06; dm350 owns it.",
+  "proposed_competencies": [
+    {
+      "domain_code": "D2",
+      "subdomain": "D2-S1",
+      "competency_text": "The learner can plan and produce multimedia assets (video, audio, graphics) to a brief, including accessibility requirements such as captions, transcripts, and alt text.",
+      "rationale": "Lesson 04 exists because the intake explicitly names multimedia content, but D2-S1-C01 covers developing/optimizing/distributing content in the abstract and no competency mentions production craft or accessibility - which is also the pathway's only touchpoint for accessible content."
+    }
+  ],
+  "assets": []
+}

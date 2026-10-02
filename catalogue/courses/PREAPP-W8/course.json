@@ -1,0 +1,86 @@
+{
+  "course_id": "PREAPP-W8",
+  "pathway": "tech-pre-apprenticeship",
+  "title": "Demo Day & Transition",
+  "description": "Week 8: the network each participant built shows up. Participants build and rehearse a 7-10 minute results presentation with structured peer feedback; present the capstone at Demo Day to CCC staff, regional employer partners, and invited network contacts; and complete transition planning — a 30-day plan for apprenticeship entry and verification that the participant's network is fully theirs (retained CRM, LinkedIn, full data export). Weekly milestone: Demo Day presentation delivered; transition plan on file.",
+  "hours": 20,
+  "projects": 1,
+  "notes": "Weekly milestone: Demo Day presentation delivered; transition plan on file.",
+  "lesson_length": "Lab-guide lessons, roughly 1200-1800 words each, supporting a full week of live instructor-led practice",
+  "learning_objectives": [
+    "Build and rehearse a 7-10 minute results presentation with structured peer feedback",
+    "Present the capstone to staff, employer partners, and network contacts at Demo Day",
+    "Complete a 30-day transition plan and verify ownership of the network and data built"
+  ],
+  "prerequisites": [
+    "Week 7: Pathway Declaration & Capstone Build"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "PREAPP-W8-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 0.5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "PREAPP-W8-02",
+      "order": 2,
+      "slug": "presentation-craft",
+      "title": "Presentation Craft",
+      "kind": "lesson",
+      "objectives": [
+        "Build and rehearse a 7-10 minute results presentation with structured peer feedback",
+        "Give and use structured peer feedback to improve a presentation"
+      ],
+      "competency_ids": [
+        "D6-S3-C01",
+        "D6-S3-C02"
+      ],
+      "hours_estimate": 6.5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "PREAPP-W8-03",
+      "order": 3,
+      "slug": "demo-day",
+      "title": "Demo Day",
+      "kind": "project",
+      "objectives": [
+        "Present the capstone to staff, employer partners, and network contacts at Demo Day",
+        "Deliver a problem, approach, evidence, and ask narrative to a mixed audience"
+      ],
+      "competency_ids": [
+        "D6-S3-C01",
+        "D6-S2-C02"
+      ],
+      "hours_estimate": 6.5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "PREAPP-W8-04",
+      "order": 4,
+      "slug": "transition-planning",
+      "title": "Transition Planning",
+      "kind": "lesson",
+      "objectives": [
+        "Complete a 30-day transition plan and verify ownership of the network and data built",
+        "Export and retain CRM data, LinkedIn connections, and content so the network stays theirs"
+      ],
+      "competency_ids": [
+        "D6-S4-C02",
+        "D6-S4-C03"
+      ],
+      "hours_estimate": 6.5,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Week 8: the network shows up. Presentation craft first (build and rehearse with structured peer feedback), Demo Day second as the program's culminating project presentation to staff, employer partners, and network contacts, transition planning last so participants leave with a 30-day plan and verified ownership of their network and data. Scope assumption: presentation guidance targets the 7-10 minute results format the catalog specifies.",
+  "proposed_competencies": [],
+  "assets": []
+}

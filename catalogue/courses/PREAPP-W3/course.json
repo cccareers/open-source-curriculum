@@ -1,0 +1,87 @@
+{
+  "course_id": "PREAPP-W3",
+  "pathway": "tech-pre-apprenticeship",
+  "title": "Pathway Rotation: Technical Sales",
+  "description": "Week 3 is the Technical Sales rotation: participants see the profession behind the skill they have been practicing for two weeks. They study the SDR/BDR, AE, and sales engineering role landscape and how sales teams are measured; apply a discovery framework in a live mock call with an industry practitioner and score their pipeline against qualification criteria; and handle objections while analyzing the personal pipeline as a funnel and presenting findings. Weekly milestone: recorded mock discovery call completed; pipeline review presented.",
+  "hours": 20,
+  "projects": 0,
+  "notes": "Weekly milestone: recorded mock discovery call completed; pipeline review presented.",
+  "lesson_length": "Lab-guide lessons, roughly 1200-1800 words each, supporting a full week of live instructor-led practice",
+  "learning_objectives": [
+    "Distinguish SDR/BDR, AE, and sales engineering roles and how sales teams are measured",
+    "Apply a discovery framework in a live mock call and score the pipeline against qualification criteria",
+    "Handle objections and analyze the personal pipeline as a funnel"
+  ],
+  "prerequisites": [
+    "Week 2: Prospecting & Business Development Foundations"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "PREAPP-W3-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 0.5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "PREAPP-W3-02",
+      "order": 2,
+      "slug": "the-sales-role-landscape",
+      "title": "The Sales Role Landscape",
+      "kind": "lesson",
+      "objectives": [
+        "Distinguish SDR/BDR, AE, and sales engineering roles and how sales teams are measured",
+        "Relate metrics such as meetings booked and pipeline created to the role that owns them"
+      ],
+      "competency_ids": [
+        "D2-S1-C01",
+        "D2-S1-C02"
+      ],
+      "hours_estimate": 6.5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "PREAPP-W3-03",
+      "order": 3,
+      "slug": "discovery-qualification",
+      "title": "Discovery & Qualification",
+      "kind": "lesson",
+      "objectives": [
+        "Apply a discovery framework in a live mock call and score the pipeline against qualification criteria",
+        "Choose open discovery questions that surface need, authority, and timing"
+      ],
+      "competency_ids": [
+        "D2-S2-C01",
+        "D2-S2-C02"
+      ],
+      "hours_estimate": 6.5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "PREAPP-W3-04",
+      "order": 4,
+      "slug": "objections-pipeline-discipline",
+      "title": "Objections & Pipeline Discipline",
+      "kind": "lesson",
+      "objectives": [
+        "Handle objections and analyze the personal pipeline as a funnel",
+        "Present funnel findings with a corrective plan for the weakest conversion stage"
+      ],
+      "competency_ids": [
+        "D2-S3-C01",
+        "D2-S4-C01",
+        "D2-S4-C02"
+      ],
+      "hours_estimate": 6.5,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Week 3 is the Technical Sales rotation: the profession behind the skill practiced for two weeks. Role landscape first (context), discovery second (the live mock call with a practitioner), objections and funnel discipline third because both apply to the pipeline built so far. Scope assumption: discovery frameworks are taught generically (need, authority, timing) rather than a single branded methodology.",
+  "proposed_competencies": [],
+  "assets": []
+}

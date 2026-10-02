@@ -1,0 +1,227 @@
+{
+  "course_id": "react100",
+  "pathway": "software-developer",
+  "title": "Beginner React JS",
+  "description": "This is a competency-based course designed for the indentured website developer apprentice.  This course provides project-based assignments on the use of the front end library React JS to build advanced websites.",
+  "hours": 100,
+  "projects": null,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Break an interface into a tree of reusable components",
+    "Pass data through a component tree with props and composition",
+    "Manage component state and respond to user events",
+    "Render lists and conditional interfaces correctly",
+    "Build forms with controlled inputs",
+    "Load and display remote data from a component",
+    "Build interfaces that are accessible and responsive",
+    "Prototype a feature before committing to an implementation",
+    "Work from a project plan to deliver a feature increment",
+    "Present a working React application and the reasoning behind it"
+  ],
+  "prerequisites": [
+    "Completed JavaScript Projects (web102) or equivalent",
+    "Comfortable with modern JavaScript: arrow functions, destructuring, array methods, and modules",
+    "Working knowledge of HTML and CSS"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "react100-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 2,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "react100-02",
+      "order": 2,
+      "slug": "thinking-in-components",
+      "title": "Thinking in Components",
+      "kind": "lesson",
+      "objectives": [
+        "Break an interface into a tree of reusable components"
+      ],
+      "competency_ids": [
+        "D5-S1-C02"
+      ],
+      "hours_estimate": 8,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "react100-03",
+      "order": 3,
+      "slug": "jsx-props-and-composition",
+      "title": "JSX, Props, and Composition",
+      "kind": "lesson",
+      "objectives": [
+        "Pass data through a component tree with props and composition"
+      ],
+      "competency_ids": [
+        "D2-S1-C04"
+      ],
+      "hours_estimate": 10,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "react100-04",
+      "order": 4,
+      "slug": "state-and-event-handling",
+      "title": "State and Event Handling",
+      "kind": "lesson",
+      "objectives": [
+        "Manage component state and respond to user events"
+      ],
+      "competency_ids": [
+        "D2-S1-C04"
+      ],
+      "hours_estimate": 12,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "react100-05",
+      "order": 5,
+      "slug": "lists-keys-and-conditional-rendering",
+      "title": "Lists, Keys, and Conditional Rendering",
+      "kind": "lesson",
+      "objectives": [
+        "Render lists and conditional interfaces correctly"
+      ],
+      "competency_ids": [
+        "D2-S1-C04"
+      ],
+      "hours_estimate": 10,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "react100-06",
+      "order": 6,
+      "slug": "forms-and-controlled-inputs",
+      "title": "Forms and Controlled Inputs",
+      "kind": "lesson",
+      "objectives": [
+        "Build forms with controlled inputs"
+      ],
+      "competency_ids": [
+        "D2-S1-C04",
+        "D5-S1-C04"
+      ],
+      "hours_estimate": 10,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "react100-07",
+      "order": 7,
+      "slug": "effects-and-data-fetching",
+      "title": "Effects and Data Fetching",
+      "kind": "lesson",
+      "objectives": [
+        "Load and display remote data from a component"
+      ],
+      "competency_ids": [
+        "D2-S1-C04"
+      ],
+      "hours_estimate": 12,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "react100-08",
+      "order": 8,
+      "slug": "accessible-and-responsive-components",
+      "title": "Accessible and Responsive Components",
+      "kind": "lesson",
+      "objectives": [
+        "Build interfaces that are accessible and responsive"
+      ],
+      "competency_ids": [
+        "D5-S1-C04",
+        "D6-S1-C01"
+      ],
+      "hours_estimate": 10,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "react100-09",
+      "order": 9,
+      "slug": "prototyping-a-feature",
+      "title": "Prototyping a Feature",
+      "kind": "lesson",
+      "objectives": [
+        "Prototype a feature before committing to an implementation"
+      ],
+      "competency_ids": [
+        "D2-S1-C01",
+        "D2-S1-C05"
+      ],
+      "hours_estimate": 10,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "react100-10",
+      "order": 10,
+      "slug": "working-from-a-project-plan",
+      "title": "Working from a Project Plan",
+      "kind": "lesson",
+      "objectives": [
+        "Work from a project plan to deliver a feature increment"
+      ],
+      "competency_ids": [
+        "D2-S1-C02"
+      ],
+      "hours_estimate": 6,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "react100-11",
+      "order": 11,
+      "slug": "project-build-and-demo-a-react-application",
+      "title": "Project: Build and Demo a React Application",
+      "kind": "project",
+      "objectives": [
+        "Present a working React application and the reasoning behind it"
+      ],
+      "competency_ids": [
+        "D2-S1-C04",
+        "D1-S1-C02"
+      ],
+      "hours_estimate": 10,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "The first seven lessons follow React's own dependency order - decomposition, then props, then state, then the rendering patterns state drives, then forms, then effects - because each is unusable without its predecessor and every one of them is a common place for a beginner to form a wrong model. Accessibility and responsiveness come after forms rather than at the end: forms are where the accessibility rules bite hardest, and leaving them to a final lesson teaches learners they are an afterthought. Prototyping and project planning sit late on purpose - they are judgment lessons, and a learner cannot judge between two implementations of a feature until they can build either one. The capstone closes with a demo because the pathway's presentation competency needs a real artifact. SCOPE ASSUMPTIONS: the intake description is short and complete but names only 'project-based assignments on the use of the front end library React JS', with 100 hours as the main evidence of depth - the largest course in the pathway. The outline assumes function components and hooks only (no class components), a single-page app with no router and no external state library (react200 owns both), and client-side data fetching against an existing API rather than one the learner writes. Assumed out of scope: TypeScript, testing libraries, server-side rendering, and build-tool configuration beyond a scaffolded starter.",
+  "proposed_competencies": [
+    {
+      "domain_code": "D2",
+      "subdomain": "D2-S1",
+      "competency_text": "The learner can build a user interface from reusable components that manage local and shared state.",
+      "rationale": "This is the entire subject of the pathway's largest course, and the only tag available is D2-S1-C04, which says 'build program features using appropriate languages and development methods' without distinguishing component-based UI construction from any other kind of feature work."
+    },
+    {
+      "domain_code": "D5",
+      "subdomain": "D5-S1",
+      "competency_text": "The learner can meet WCAG-level accessibility requirements in a component-based interface, including keyboard operation and semantic markup.",
+      "rationale": "D5-S1-C04 covers contributing to accessible and responsive designs and D6-S1-C01 covers monitoring for accessibility compliance, but lesson 08 assesses the learner building to a stated conformance level, which sits between the two and is named by neither."
+    }
+  ],
+  "assets": [
+    {
+      "filename": "component-tree.png",
+      "description": "A component tree for the Toolshare browse screen, showing App at the root with header, page, grid, and card components nested beneath it.",
+      "suggested_source": "Diagram, drawn in-house"
+    },
+    {
+      "filename": "lifting-state-up.png",
+      "description": "Search text stored in a parent component and passed down as a value to one child and as a setter function to another.",
+      "suggested_source": "Diagram, drawn in-house"
+    },
+    {
+      "filename": "fetch-race-timeline.png",
+      "description": "A timeline of two overlapping fetches where the earlier request returns last and overwrites the newer data.",
+      "suggested_source": "Diagram, drawn in-house"
+    }
+  ]
+}

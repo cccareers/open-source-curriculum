@@ -1,0 +1,171 @@
+{
+  "course_id": "cse203",
+  "pathway": "cloud-support-engineer",
+  "title": "Cloud Infrastructure Deployment & Management",
+  "description": "This is a competency-based course designed for the indentured Cloud Support Engineer apprentice. Covers cloud-based virtual machines, storage, and databases. Teaches Infrastructure as Code (IaC) principles and automation using vendor-neutral tools such as Terraform.",
+  "hours": 25,
+  "projects": null,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Provision and manage cloud virtual machines sized for a defined workload",
+    "Configure a virtual private cloud with subnets and security groups for a deployed application",
+    "Select cloud storage and managed database services that fit a workload's durability and access needs",
+    "Explain the principles that make infrastructure declarative, reproducible, and reviewable",
+    "Define and update infrastructure with Terraform, including state, variables, and modules",
+    "Right-size and autoscale provisioned resources against demand and cost",
+    "Deploy a multi-tier environment for a customer entirely from version-controlled code"
+  ],
+  "prerequisites": [
+    "Completed Introduction to Cloud Computing (cse101) or equivalent working knowledge of cloud service models",
+    "Comfortable at a command line and with basic git version control"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "cse203-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cse203-02",
+      "order": 2,
+      "slug": "provisioning-and-managing-virtual-machines",
+      "title": "Provisioning and Managing Virtual Machines",
+      "kind": "lesson",
+      "objectives": [
+        "Provision and manage cloud virtual machines sized for a defined workload"
+      ],
+      "competency_ids": [
+        "D2-S1-C02"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cse203-03",
+      "order": 3,
+      "slug": "cloud-networking-for-deployed-workloads",
+      "title": "Cloud Networking for Deployed Workloads",
+      "kind": "lesson",
+      "objectives": [
+        "Configure a virtual private cloud with subnets and security groups for a deployed application"
+      ],
+      "competency_ids": [
+        "D3-S1-C01"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cse203-04",
+      "order": 4,
+      "slug": "storage-and-managed-databases",
+      "title": "Storage and Managed Databases",
+      "kind": "lesson",
+      "objectives": [
+        "Select cloud storage and managed database services that fit a workload's durability and access needs"
+      ],
+      "competency_ids": [
+        "D2-S1-C03"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cse203-05",
+      "order": 5,
+      "slug": "infrastructure-as-code-principles",
+      "title": "Infrastructure as Code Principles",
+      "kind": "lesson",
+      "objectives": [
+        "Explain the principles that make infrastructure declarative, reproducible, and reviewable"
+      ],
+      "competency_ids": [
+        "D4-S1-C02"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cse203-06",
+      "order": 6,
+      "slug": "declaring-infrastructure-with-terraform",
+      "title": "Declaring Infrastructure with Terraform",
+      "kind": "lesson",
+      "objectives": [
+        "Define and update infrastructure with Terraform, including state, variables, and modules"
+      ],
+      "competency_ids": [
+        "D4-S1-C02"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cse203-07",
+      "order": 7,
+      "slug": "scaling-and-optimizing-provisioned-resources",
+      "title": "Scaling and Optimizing Provisioned Resources",
+      "kind": "lesson",
+      "objectives": [
+        "Right-size and autoscale provisioned resources against demand and cost"
+      ],
+      "competency_ids": [
+        "D4-S1-C04"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cse203-08",
+      "order": 8,
+      "slug": "project-deploy-a-multi-tier-environment",
+      "title": "Project: Deploy a Multi-Tier Environment from Code",
+      "kind": "project",
+      "objectives": [
+        "Deploy a multi-tier environment for a customer entirely from version-controlled code"
+      ],
+      "competency_ids": [
+        "D1-S1-C02",
+        "D2-S1-C02",
+        "D4-S1-C02"
+      ],
+      "hours_estimate": 2,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Manual before declarative, deliberately. Lessons 02 to 04 have the learner provision compute, network, and data by hand, because Terraform code is unreadable to someone who has never seen the resource it describes - a learner who has not sized an instance or opened a security group cannot review a plan diff that changes one. Within that block, virtual machines (02) come before networking (03) because a machine with no network is still inspectable while a network with nothing in it is abstract, and storage and databases (04) come last because both are attached to a machine that already exists inside a network that already routes. Lesson 05 then names the properties that manual provisioning lacks - reproducibility, review, drift detection - which is the argument for 06, where the same three resource types the learner built by hand are rebuilt as code. Scaling (07) is placed after the code exists because autoscaling is a policy attached to a declared resource, not a console button. The project (08) is last and is the only assessment that requires the whole stack at once. SCOPE ASSUMPTIONS - the intake gives three sentences, no objectives, and no lesson titles, so: (1) 'vendor-neutral tools such as Terraform' is read as licence to name and teach Terraform specifically while keeping the target cloud generic; examples describe resources in provider-agnostic terms and the learner may complete the work on any one provider. CloudFormation and Bicep are mentioned once for orientation and are not taught. (2) 'databases' is scoped to selecting and provisioning a managed database service and understanding its durability, backup, and connectivity characteristics - not schema design, query tuning, or SQL, none of which appear in the catalog or in this pathway. (3) Networking is taught only to the depth a deployment needs (VPC, subnets, routing, security groups); traffic analysis belongs to cse220 and firewall and encryption policy to cse280. (4) CI/CD is out of scope and belongs to cse270; this course stops at 'terraform apply run by a human from a reviewed branch'. (5) Monitoring the deployed environment is out of scope and belongs to cse220. (6) The intake records no projects for this course; lesson 08 is included as the terminal assessment because a 25-hour deployment course without a deployment would not be assessable, and its hour budget is kept small so the teaching hours are not squeezed.",
+  "proposed_competencies": [
+    {
+      "domain_code": "D2",
+      "subdomain": "D2-S1",
+      "competency_text": "The learner can select, provision, and connect to a managed cloud database service, and can state its backup, failover, and durability guarantees.",
+      "rationale": "The intake description names databases explicitly and lesson 04 teaches them, but the catalog's data competency, D2-S1-C03, covers object and block storage solutions and data lifecycle management only. Managed databases have distinct concerns - connection limits, failover behaviour, point-in-time recovery - that a cloud support engineer is asked about constantly and that no catalog competency currently expresses."
+    },
+    {
+      "domain_code": "D4",
+      "subdomain": "D4-S1",
+      "competency_text": "The learner can detect and reconcile configuration drift between declared infrastructure code and the resources actually running.",
+      "rationale": "Lessons 05 and 06 make drift the central argument for infrastructure as code, and the project's definition of done requires a clean plan. D4-S1-C02 covers defining and updating infrastructure declaratively, but detecting that reality has diverged from the declaration - and deciding whether to import, re-apply, or amend the code - is a separate skill and the most common real-world failure mode of an IaC estate."
+    }
+  ],
+  "assets": [
+    {
+      "filename": "vpc-subnet-layout.png",
+      "description": "A two-tier virtual private cloud showing public and private subnets across two availability zones, with the security groups that permit traffic between them.",
+      "suggested_source": "Diagram, drawn in-house"
+    },
+    {
+      "filename": "terraform-plan-apply-cycle.png",
+      "description": "How Terraform compares declared configuration against recorded state and live infrastructure to produce a plan, and what apply then changes.",
+      "suggested_source": "Diagram, drawn in-house"
+    }
+  ]
+}

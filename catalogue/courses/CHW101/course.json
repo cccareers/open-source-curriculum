@@ -1,0 +1,120 @@
+{
+  "course_id": "CHW101",
+  "pathway": "community-healthcare-worker",
+  "title": "Introduction to Community Health Work",
+  "description": "Introduces the CHW role, its history, and its public health impact. Covers health equity, social determinants of health (SDOH), the healthcare system, and the policies — including the Affordable Care Act and the Triple Aim — that shape how CHWs work.",
+  "hours": 50,
+  "projects": 0,
+  "notes": "Adapted from Calbright College CHW program outline (course 01 / CHW 501), renumbered per CCC convention.",
+  "lesson_length": "Lab-guide lessons, roughly 1500-2000 words each, supporting instructor-led sessions and independent study",
+  "learning_objectives": [
+    "Describe the CHW role, its history, and its public health impact",
+    "Explain health equity and identify social determinants of health affecting clients and communities",
+    "Describe how the healthcare system and policies like the ACA and Triple Aim shape CHW work"
+  ],
+  "prerequisites": [],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "CHW101-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 2,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "CHW101-02",
+      "order": 2,
+      "slug": "the-chw-role-and-its-history",
+      "title": "The CHW Role and Its History",
+      "kind": "lesson",
+      "objectives": [
+        "Describe the CHW role, its history, and its public health impact",
+        "Locate the CHW role within care teams and community settings"
+      ],
+      "competency_ids": [],
+      "hours_estimate": 9.6,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "CHW101-03",
+      "order": 3,
+      "slug": "health-equity-and-social-determinants-of-health",
+      "title": "Health Equity and Social Determinants of Health",
+      "kind": "lesson",
+      "objectives": [
+        "Explain health equity and identify social determinants of health affecting clients and communities",
+        "Recognize community assets alongside needs when looking at health disparities"
+      ],
+      "competency_ids": [
+        "D4-S2-C02",
+        "D4-S2-C05"
+      ],
+      "hours_estimate": 9.6,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "CHW101-04",
+      "order": 4,
+      "slug": "navigating-the-u-s-healthcare-system",
+      "title": "Navigating the U.S. Healthcare System",
+      "kind": "lesson",
+      "objectives": [
+        "Describe how clients experience the U.S. healthcare system and where CHWs help them navigate it",
+        "Explain coverage basics (Medicaid/Medi-Cal, Medicare, marketplace plans) at a client-support level"
+      ],
+      "competency_ids": [
+        "D2-S1-C02"
+      ],
+      "hours_estimate": 9.6,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "CHW101-05",
+      "order": 5,
+      "slug": "policy-foundations-the-aca-and-the-triple-aim",
+      "title": "Policy Foundations: The ACA and the Triple Aim",
+      "kind": "lesson",
+      "objectives": [
+        "Describe how the healthcare system and policies like the ACA and Triple Aim shape CHW work",
+        "Connect policy-level decisions to the barriers clients experience locally"
+      ],
+      "competency_ids": [
+        "D4-S1-C02"
+      ],
+      "hours_estimate": 9.6,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "CHW101-06",
+      "order": 6,
+      "slug": "the-public-health-impact-of-chws",
+      "title": "The Public Health Impact of CHWs",
+      "kind": "lesson",
+      "objectives": [
+        "Explain the evidence for CHW impact on outcomes, cost, and equity",
+        "Distinguish program outputs from outcomes in CHW impact studies"
+      ],
+      "competency_ids": [
+        "D5-S2-C02",
+        "D5-S2-C04"
+      ],
+      "hours_estimate": 9.6,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Course 1 of 6 (adapted from the Calbright College CHW outline, renumbered CHW101-CHW106). Foundational knowledge course: role and history first, then the equity lens (SDOH), then the system and policy context CHWs operate in, closing with the evidence for CHW impact. Scope assumption: this course is knowledge-heavy while the skills matrix is behavior-based, so lessons tag the matrix competencies they genuinely advance (SDOH identification, system navigation, policy-level advocacy, metrics literacy) and the purely descriptive content (role history, C3 overview) is raised as proposed competencies rather than force-tagged.",
+  "proposed_competencies": [
+    {
+      "domain_code": "D1",
+      "subdomain": "D1-S2",
+      "competency_text": "The learner can describe the CHW role, its history, and the C3 framework that defines its scope of practice.",
+      "rationale": "CHW101 lesson 2 teaches role identity and history; the skills matrix is behavior-based and has no role-knowledge competency."
+    }
+  ],
+  "assets": []
+}

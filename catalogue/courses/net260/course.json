@@ -1,0 +1,233 @@
+{
+  "course_id": "net260",
+  "pathway": "cybersecurity-support-technician",
+  "title": "Cloud Security & Secure Systems Deployment",
+  "description": "Focuses on securing cloud platforms (AWS, Azure, Google Cloud), cloud security best practices, and deployment of secure applications.",
+  "hours": 60,
+  "projects": null,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "State who is responsible for each layer of a cloud workload under IaaS, PaaS, and SaaS, and what that leaves the customer to secure",
+    "Apply least-privilege identity and access policy to a cloud account and detect over-permissive grants",
+    "Configure cloud network isolation for a stated workload using virtual networks, subnets, and security groups",
+    "Choose encryption and key management options that meet a stated data protection requirement in the cloud",
+    "Harden cloud compute and container workloads against the misconfigurations that cause most cloud incidents",
+    "Detect unauthorized access in cloud audit logs and route the signal to a responder",
+    "Assess a deployed application for common vulnerability classes and record the findings",
+    "Insert automated security checks into a delivery pipeline at the stage where each is effective",
+    "Deploy an application to a cloud environment using repeatable, reviewed configuration"
+  ],
+  "prerequisites": [
+    "cyb100 Introduction to Cybersecurity",
+    "net110 Network Security Fundamentals",
+    "cyb130 Access Control and Identity Management",
+    "cyb210 Endpoint Security and Malware Defense",
+    "cyb120 Threat Analysis and Incident Response",
+    "cyb150 Security Compliance and Risk Management"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "net260-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "net260-02",
+      "order": 2,
+      "slug": "cloud-shared-responsibility",
+      "title": "Cloud Shared Responsibility",
+      "kind": "lesson",
+      "objectives": [
+        "State who is responsible for each layer of a cloud workload under IaaS, PaaS, and SaaS, and what that leaves the customer to secure"
+      ],
+      "competency_ids": [
+        "D6-S1-C01"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "net260-03",
+      "order": 3,
+      "slug": "cloud-identity-and-access-management",
+      "title": "Cloud Identity and Access Management",
+      "kind": "lesson",
+      "objectives": [
+        "Apply least-privilege identity and access policy to a cloud account and detect over-permissive grants"
+      ],
+      "competency_ids": [
+        "D6-S1-C01",
+        "D2-S1-C03"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "net260-04",
+      "order": 4,
+      "slug": "securing-cloud-networks",
+      "title": "Securing Cloud Networks",
+      "kind": "lesson",
+      "objectives": [
+        "Configure cloud network isolation for a stated workload using virtual networks, subnets, and security groups"
+      ],
+      "competency_ids": [
+        "D2-S1-C01",
+        "D6-S1-C01"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "net260-05",
+      "order": 5,
+      "slug": "data-protection-and-encryption-in-the-cloud",
+      "title": "Data Protection and Encryption in the Cloud",
+      "kind": "lesson",
+      "objectives": [
+        "Choose encryption and key management options that meet a stated data protection requirement in the cloud"
+      ],
+      "competency_ids": [
+        "D2-S1-C05",
+        "D6-S1-C01"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "net260-06",
+      "order": 6,
+      "slug": "workload-and-container-hardening",
+      "title": "Workload and Container Hardening",
+      "kind": "lesson",
+      "objectives": [
+        "Harden cloud compute and container workloads against the misconfigurations that cause most cloud incidents"
+      ],
+      "competency_ids": [
+        "D6-S1-C01"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "net260-07",
+      "order": 7,
+      "slug": "cloud-logging-and-monitoring",
+      "title": "Cloud Logging and Monitoring",
+      "kind": "lesson",
+      "objectives": [
+        "Detect unauthorized access in cloud audit logs and route the signal to a responder"
+      ],
+      "competency_ids": [
+        "D6-S1-C02",
+        "D1-S1-C04"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "net260-08",
+      "order": 8,
+      "slug": "application-security-assessment",
+      "title": "Application Security Assessment",
+      "kind": "lesson",
+      "objectives": [
+        "Assess a deployed application for common vulnerability classes and record the findings"
+      ],
+      "competency_ids": [
+        "D6-S1-C03"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "net260-09",
+      "order": 9,
+      "slug": "devsecops-security-in-the-pipeline",
+      "title": "DevSecOps: Security in the Pipeline",
+      "kind": "lesson",
+      "objectives": [
+        "Insert automated security checks into a delivery pipeline at the stage where each is effective"
+      ],
+      "competency_ids": [
+        "D6-S1-C04"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "net260-10",
+      "order": 10,
+      "slug": "secure-deployment-and-configuration-management",
+      "title": "Secure Deployment and Configuration Management",
+      "kind": "lesson",
+      "objectives": [
+        "Deploy an application to a cloud environment using repeatable, reviewed configuration"
+      ],
+      "competency_ids": [
+        "D6-S1-C04",
+        "D6-S1-C01"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "net260-11",
+      "order": 11,
+      "slug": "project-cloud-security-posture-review",
+      "title": "Project: Cloud Security Posture Review",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D6-S1-C01",
+        "D6-S1-C02",
+        "D2-S1-C03"
+      ],
+      "hours_estimate": 7,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "net260-12",
+      "order": 12,
+      "slug": "project-secure-deployment-pipeline",
+      "title": "Project: Secure Deployment Pipeline",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D6-S1-C04",
+        "D6-S1-C03"
+      ],
+      "hours_estimate": 7,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "This is the capstone course and it is sequenced by blast radius: identity, then network, then data, then workload, then the pipeline that produces all of them. Lesson 02 fixes the shared responsibility line first because every subsequent question in the course - who patches this, who owns this misconfiguration, who is named in the audit finding - is read off it. Cloud IAM (03) is next and deliberately precedes everything hands-on, so the learner's first deployment is not performed from an over-privileged account; in cloud incidents identity is the perimeter, which inverts the on-premises order taught in net110. Network isolation (04) and data protection (05) follow as the two controls that limit what a compromised identity can reach and read. Workload hardening (06) comes after the environment is safe to build in. Monitoring (07) is placed after the controls it observes, so the learner knows what a normal control plane call looks like before being asked to spot an abnormal one. Application security (08) and DevSecOps (09) then move up the stack from the infrastructure to the code, and secure deployment (10) closes the teaching sequence by making the whole configuration repeatable and reviewable. The two projects split the course's two halves - assessing an environment someone else built (11) and building a pipeline that keeps one secure (12). SCOPE ASSUMPTIONS - the intake description for this course is a single sentence and, unlike the other eight, does not even carry the apprentice preamble; it supplies no objectives and no lesson titles, so correct anything wrong here: (1) The course is taught provider-neutrally. AWS, Azure, and Google Cloud are used as three instances of the same concepts (identity policy, virtual network, key management, audit log); no lesson requires an account on a named provider, and console click-paths are not assessed. (2) The learner's role is assumed to be assisting with cloud security, per competency D6-S1-C01 - applying and verifying controls in an environment an architect designed, not designing a landing zone. (3) 'Secure systems deployment' in the title is read as deploying an application securely and repeatably, with infrastructure as code and pipeline controls, not as building a production platform. (4) Container work is scoped to image provenance, registry scanning, and runtime configuration; Kubernetes administration is named and left out at 60 hours. (5) Application security is scoped to assessing a running application for the common OWASP classes and reading the findings; writing application code and performing manual secure code review are out of scope, as is the offensive testing discipline, which is cyb140 under authorization. (6) Cost, performance, and reliability engineering are out of scope except where a security control has an obvious cost consequence. (7) Compliance framing is assumed from cyb150 and is referenced rather than retaught. (8) Intake records no projects; lessons 11 and 12 are added as the assessable artifacts of a 60-hour capstone, at seven hours each, and a reviewer may cut or merge them. (9) The catalog has no competency for evaluating cloud configuration against a published benchmark, which lessons 06 and 10 and project 11 all lean on - see proposed_competencies.",
+  "proposed_competencies": [
+    {
+      "domain_code": "D6",
+      "subdomain": "D6-S1",
+      "competency_text": "The learner can evaluate cloud configuration and infrastructure-as-code against a published security benchmark (for example a CIS Benchmark or a provider well-architected security pillar) and report each deviation with its risk and remediation.",
+      "rationale": "Lessons 06 and 10 and project 11 are assessed on benchmark-based review, which is how cloud posture is actually measured in practice. D6-S1-C01 covers assisting with securing cloud applications and infrastructure and D6-S1-C04 covers DevSecOps integration; neither names benchmark evaluation of a declared configuration, which is a distinct, evidence-producing task that bridges this course and cyb150's audit work."
+    }
+  ],
+  "assets": [
+    {
+      "filename": "shared-responsibility-layers.png",
+      "description": "Which layers of the stack the provider secures and which the customer secures, compared across on-premises, IaaS, PaaS, and SaaS, with data, identity, and configuration highlighted as always the customer's.",
+      "suggested_source": "Diagram, drawn in-house"
+    },
+    {
+      "filename": "pipeline-security-gates.png",
+      "description": "Security checks placed at each stage of a delivery pipeline from pre-commit through post-deployment, marking which stages block the build and which raise a ticket.",
+      "suggested_source": "Diagram, drawn in-house"
+    }
+  ]
+}

@@ -1,0 +1,167 @@
+{
+  "course_id": "se301",
+  "pathway": "technical-sales-representative",
+  "title": "CRM System Mastery & Sales Automation",
+  "description": "This is a competency-based course designed for the indentured Technical Sales Representative apprentice. In-depth training on platforms for Customer Relationship Management, including GoHighLevel, Salesforce, HubSpot, and automation tools to optimize sales workflow.",
+  "hours": 40,
+  "projects": null,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Explain how a CRM models a sale — objects, records, stages, and their relationships",
+    "Work leads and opportunities through a Salesforce pipeline correctly",
+    "Manage contacts, deals, and activity in HubSpot",
+    "Operate pipelines and campaign automation in GoHighLevel",
+    "Design an automation or workflow that removes manual steps from a sales process",
+    "Apply CRM hygiene rules that keep pipeline data trustworthy",
+    "Produce a defensible forecast from CRM opportunity data"
+  ],
+  "prerequisites": [
+    "Introduction to Sales (se101), or equivalent sales fundamentals",
+    "Mastering Outbound Prospecting (se202), for the lead flow this course records and automates"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "se301-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "se301-02",
+      "order": 2,
+      "slug": "how-a-crm-models-a-sale",
+      "title": "How a CRM Models a Sale",
+      "kind": "lesson",
+      "objectives": [
+        "Explain how a CRM models a sale — objects, records, stages, and their relationships"
+      ],
+      "competency_ids": [
+        "D3-S1-C04"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "se301-03",
+      "order": 3,
+      "slug": "working-leads-and-opportunities-in-salesforce",
+      "title": "Working Leads and Opportunities in Salesforce",
+      "kind": "lesson",
+      "objectives": [
+        "Work leads and opportunities through a Salesforce pipeline correctly"
+      ],
+      "competency_ids": [
+        "D3-S1-C04"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "se301-04",
+      "order": 4,
+      "slug": "contacts-deals-and-activity-in-hubspot",
+      "title": "Contacts, Deals, and Activity in HubSpot",
+      "kind": "lesson",
+      "objectives": [
+        "Manage contacts, deals, and activity in HubSpot"
+      ],
+      "competency_ids": [
+        "D3-S1-C04"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "se301-05",
+      "order": 5,
+      "slug": "pipelines-and-campaigns-in-gohighlevel",
+      "title": "Pipelines and Campaigns in GoHighLevel",
+      "kind": "lesson",
+      "objectives": [
+        "Operate pipelines and campaign automation in GoHighLevel"
+      ],
+      "competency_ids": [
+        "D3-S1-C04"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "se301-06",
+      "order": 6,
+      "slug": "designing-sales-automation-and-workflows",
+      "title": "Designing Sales Automation and Workflows",
+      "kind": "lesson",
+      "objectives": [
+        "Design an automation or workflow that removes manual steps from a sales process"
+      ],
+      "competency_ids": [
+        "D3-S1-C04",
+        "D3-S1-C05"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "se301-07",
+      "order": 7,
+      "slug": "crm-hygiene-and-stage-discipline",
+      "title": "CRM Hygiene and Stage Discipline",
+      "kind": "lesson",
+      "objectives": [
+        "Apply CRM hygiene rules that keep pipeline data trustworthy"
+      ],
+      "competency_ids": [
+        "D4-S1-C03"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "se301-08",
+      "order": 8,
+      "slug": "forecasting-from-the-crm",
+      "title": "Forecasting from the CRM",
+      "kind": "lesson",
+      "objectives": [
+        "Produce a defensible forecast from CRM opportunity data"
+      ],
+      "competency_ids": [
+        "D4-S1-C03"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "se301-09",
+      "order": 9,
+      "slug": "project-configure-and-operate-a-sales-pipeline",
+      "title": "Project: Configure and Operate a Sales Pipeline",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D3-S1-C04",
+        "D3-S1-C05",
+        "D4-S1-C03"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "The data model comes first (2) because every platform lesson afterwards is the same concepts under different names; the three named platforms (3–5) are then taught as variations rather than three unrelated tools. Automation (6) requires knowing what objects it acts on, hygiene (7) requires having entered data badly at least once, and forecasting (8) is last because a forecast is only as good as the hygiene that precedes it. SCOPE ASSUMPTIONS: the intake names GoHighLevel, Salesforce, and HubSpot plus automation tools, and gives 40 hours, so the platform lessons were sized equally (5 hours each) rather than favouring one vendor; the course teaches transferable CRM operation, not vendor certification, because catalog competency D3-S1-C04 is written tool-agnostically. Assumed in scope: rep-level and light admin-level configuration, workflow and sequence automation, data hygiene, and opportunity-based forecasting. Assumed out of scope: CRM development (Apex, custom objects at scale), integration engineering and API work, revenue-operations territory design, and analytics dashboards as an analytical discipline, which is se305's subject — lesson 8 stops at producing the forecast, not at diagnosing the funnel behind it.",
+  "proposed_competencies": [],
+  "assets": [
+    {
+      "filename": "crm-object-model.png",
+      "description": "Entity-relationship diagram of the core CRM objects: an Account with many Contacts, Opportunities linked to an Account and to Contacts through a role junction, Activities attached to any record, and line items attached to an Opportunity.",
+      "suggested_source": "Diagram, drawn in-house"
+    }
+  ]
+}

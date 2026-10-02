@@ -1,0 +1,557 @@
+{
+  "course_id": "DOCKER-AI-101",
+  "pathway": "ai-developer",
+  "title": "Docker & Docker Compose for AI Developer Workflows",
+  "description": "A concise, practical guide for AI developers building and running local-first AI applications. The focus is on containerizing AI services that work on everyday hardware, particularly Mac M-series machines, using tools like Ollama and MLX, without requiring a dedicated GPU or NVIDIA/CUDA setup. Learners move from the reproducibility case for containers, through building lean images for Python AI dependencies, running inference containers with persistent model storage, serving local LLMs with Ollama in Docker, and orchestrating a full multi-service AI stack (LLM server, vector database, API/UI) with Docker Compose.",
+  "hours": 2.5,
+  "projects": 0,
+  "notes": "Elective course. Source outline groups lessons into six modules: Why Docker for AI Developers (15m), Building Images for AI Applications (30m), Running AI Containers Locally (25m), Containerizing Ollama for Local LLM Serving (25m), Orchestrating Multi-Service AI Apps with Docker Compose (40m), Practical Patterns and Next Steps (10m).",
+  "lesson_length": "Concise micro-lessons, roughly 3-8 minutes (300-600 words) each",
+  "learning_objectives": [
+    "Explain the reproducibility and isolation case for containerizing AI development work",
+    "Write a Dockerfile that packages a Python AI service with lean base images and cache-friendly layers",
+    "Run AI containers with persistent model storage, live-mounted code, and published ports",
+    "Serve a local LLM with the official Ollama Docker image and call it from a Python application",
+    "Define and operate a multi-service AI stack (LLM, vector store, API/UI) with Docker Compose",
+    "Apply image-size, config, and sharing best practices that keep an AI Docker workflow reproducible for a team"
+  ],
+  "prerequisites": [
+    "Comfortable running commands in a terminal",
+    "Basic Python familiarity (can read and run a simple script)"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "DOCKER-AI-101-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 0.1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "DOCKER-AI-101-02",
+      "order": 2,
+      "slug": "what-is-docker",
+      "title": "What is Docker?",
+      "kind": "lesson",
+      "objectives": [
+        "Explain the reproducibility and isolation case for containerizing AI development work",
+        "Describe the dependency and environment-drift problems Docker solves for Python AI projects"
+      ],
+      "competency_ids": [
+        "D5-S6-C01"
+      ],
+      "hours_estimate": 0.05,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "DOCKER-AI-101-03",
+      "order": 3,
+      "slug": "containers-vs-virtual-machines",
+      "title": "Containers vs. Virtual Machines",
+      "kind": "lesson",
+      "objectives": [
+        "Contrast containers with virtual machines in terms of isolation, startup time, and resource footprint",
+        "Explain why containers are lightweight enough for everyday laptops such as M-series Macs"
+      ],
+      "competency_ids": [
+        "D5-S6-C01"
+      ],
+      "hours_estimate": 0.05,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "DOCKER-AI-101-04",
+      "order": 4,
+      "slug": "docker-architecture",
+      "title": "Docker Architecture",
+      "kind": "lesson",
+      "objectives": [
+        "Identify the roles of the Docker Engine, images, containers, and registries",
+        "Trace what happens between typing docker run and a process starting in a container"
+      ],
+      "competency_ids": [
+        "D5-S6-C01"
+      ],
+      "hours_estimate": 0.05,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "DOCKER-AI-101-05",
+      "order": 5,
+      "slug": "installing-docker-desktop",
+      "title": "Installing Docker Desktop",
+      "kind": "lesson",
+      "objectives": [
+        "Install and verify Docker Desktop on macOS (Apple Silicon) or Windows",
+        "Confirm a working setup by running a hello-world container"
+      ],
+      "competency_ids": [
+        "D5-S5-C01"
+      ],
+      "hours_estimate": 0.05,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "DOCKER-AI-101-06",
+      "order": 6,
+      "slug": "the-local-ai-developer-workflow",
+      "title": "The Local AI Developer Workflow",
+      "kind": "lesson",
+      "objectives": [
+        "Describe the model-to-container-to-shareable-application workflow for local-first AI development",
+        "Decide when containerizing a local AI project is worth the added complexity"
+      ],
+      "competency_ids": [
+        "D5-S6-C02",
+        "D5-S10-C01"
+      ],
+      "hours_estimate": 0.05,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "DOCKER-AI-101-07",
+      "order": 7,
+      "slug": "choosing-the-right-base-image",
+      "title": "Choosing the Right Base Image",
+      "kind": "lesson",
+      "objectives": [
+        "Select an appropriate Python base image (slim vs. full vs. Alpine) for an AI service",
+        "Explain the tradeoffs of image size against build friction for compiled Python packages"
+      ],
+      "competency_ids": [
+        "D5-S6-C01"
+      ],
+      "hours_estimate": 0.08,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "DOCKER-AI-101-08",
+      "order": 8,
+      "slug": "core-dockerfile-instructions",
+      "title": "Core Dockerfile Instructions",
+      "kind": "lesson",
+      "objectives": [
+        "Use FROM, WORKDIR, COPY, RUN, ENV, EXPOSE, and CMD to define a working image",
+        "Read an existing Dockerfile and predict the image it produces"
+      ],
+      "competency_ids": [
+        "D5-S6-C01"
+      ],
+      "hours_estimate": 0.08,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "DOCKER-AI-101-09",
+      "order": 9,
+      "slug": "managing-python-ai-dependencies",
+      "title": "Managing Python AI Dependencies",
+      "kind": "lesson",
+      "objectives": [
+        "Install large AI packages (torch, transformers, llama-cpp-python) efficiently in a Docker build",
+        "Pin dependencies so the image builds reproducibly on any machine"
+      ],
+      "competency_ids": [
+        "D5-S5-C01"
+      ],
+      "hours_estimate": 0.08,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "DOCKER-AI-101-10",
+      "order": 10,
+      "slug": "handling-model-weights",
+      "title": "Handling Model Weights",
+      "kind": "lesson",
+      "objectives": [
+        "Compare baking model weights into an image against mounting them at runtime",
+        "Choose a weights strategy appropriate to local development versus team sharing"
+      ],
+      "competency_ids": [
+        "D5-S6-C02",
+        "D5-S10-C01"
+      ],
+      "hours_estimate": 0.08,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "DOCKER-AI-101-11",
+      "order": 11,
+      "slug": "layer-caching-for-fast-rebuilds",
+      "title": "Layer Caching for Fast Rebuilds",
+      "kind": "lesson",
+      "objectives": [
+        "Write a Dockerfile that packages a Python AI service with lean base images and cache-friendly layers",
+        "Order Dockerfile instructions so dependency layers are not reinstalled on every code change"
+      ],
+      "competency_ids": [
+        "D5-S6-C01"
+      ],
+      "hours_estimate": 0.08,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "DOCKER-AI-101-12",
+      "order": 12,
+      "slug": "tagging-and-sharing-images",
+      "title": "Tagging and Sharing Images",
+      "kind": "lesson",
+      "objectives": [
+        "Tag images meaningfully and push them to Docker Hub or a private registry",
+        "Explain how a shared image gives teammates an identical runtime environment"
+      ],
+      "competency_ids": [
+        "D5-S6-C01",
+        "D5-S5-C01"
+      ],
+      "hours_estimate": 0.08,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "DOCKER-AI-101-13",
+      "order": 13,
+      "slug": "running-containers",
+      "title": "Running Containers",
+      "kind": "lesson",
+      "objectives": [
+        "Run containers in interactive and detached modes and name them deliberately",
+        "Start, stop, and remove containers as part of a daily development loop"
+      ],
+      "competency_ids": [
+        "D5-S6-C01",
+        "D5-S2-C01"
+      ],
+      "hours_estimate": 0.08,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "DOCKER-AI-101-14",
+      "order": 14,
+      "slug": "persisting-models-and-data-with-volumes",
+      "title": "Persisting Models and Data with Volumes",
+      "kind": "lesson",
+      "objectives": [
+        "Run AI containers with persistent model storage, live-mounted code, and published ports",
+        "Use named volumes so models and data survive container restarts"
+      ],
+      "competency_ids": [
+        "D5-S6-C01"
+      ],
+      "hours_estimate": 0.08,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "DOCKER-AI-101-15",
+      "order": 15,
+      "slug": "bind-mounts-for-live-development",
+      "title": "Bind Mounts for Live Development",
+      "kind": "lesson",
+      "objectives": [
+        "Mount local source code into a container so changes apply without rebuilding the image",
+        "Distinguish bind mounts from named volumes and pick the right one per use case"
+      ],
+      "competency_ids": [
+        "D5-S6-C01"
+      ],
+      "hours_estimate": 0.08,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "DOCKER-AI-101-16",
+      "order": 16,
+      "slug": "publishing-ports",
+      "title": "Publishing Ports",
+      "kind": "lesson",
+      "objectives": [
+        "Publish container ports to expose an inference API or UI to the host machine",
+        "Diagnose the common failure of a service listening inside the container but unreachable from the host"
+      ],
+      "competency_ids": [
+        "D5-S6-C01"
+      ],
+      "hours_estimate": 0.08,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "DOCKER-AI-101-17",
+      "order": 17,
+      "slug": "executing-commands-and-inspecting-containers",
+      "title": "Executing Commands and Inspecting Containers",
+      "kind": "lesson",
+      "objectives": [
+        "Debug a running container with docker exec and docker logs",
+        "Inspect container state to diagnose why a service is failing or misbehaving"
+      ],
+      "competency_ids": [
+        "D5-S2-C01",
+        "D5-S9-C01"
+      ],
+      "hours_estimate": 0.08,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "DOCKER-AI-101-18",
+      "order": 18,
+      "slug": "what-is-ollama-and-why-container-it",
+      "title": "What is Ollama and Why Container It?",
+      "kind": "lesson",
+      "objectives": [
+        "Explain what Ollama does and why it suits local LLM serving on consumer hardware",
+        "Weigh the portability and reproducibility gains of running Ollama in a container"
+      ],
+      "competency_ids": [
+        "D5-S10-C01"
+      ],
+      "hours_estimate": 0.08,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "DOCKER-AI-101-19",
+      "order": 19,
+      "slug": "running-the-official-ollama-docker-image",
+      "title": "Running the Official Ollama Docker Image",
+      "kind": "lesson",
+      "objectives": [
+        "Start the official Ollama Docker image, pull a model, and call its REST API",
+        "Verify the server is healthy from the host before wiring an application to it"
+      ],
+      "competency_ids": [
+        "D5-S10-C02",
+        "D5-S6-C01"
+      ],
+      "hours_estimate": 0.08,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "DOCKER-AI-101-20",
+      "order": 20,
+      "slug": "persisting-the-ollama-model-cache",
+      "title": "Persisting the Ollama Model Cache",
+      "kind": "lesson",
+      "objectives": [
+        "Use a named volume so downloaded Ollama models survive container restarts",
+        "Avoid re-downloading multi-gigabyte models after every docker run"
+      ],
+      "competency_ids": [
+        "D5-S6-C01"
+      ],
+      "hours_estimate": 0.08,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "DOCKER-AI-101-21",
+      "order": 21,
+      "slug": "choosing-models-for-low-memory-hardware",
+      "title": "Choosing Models for Low-Memory Hardware",
+      "kind": "lesson",
+      "objectives": [
+        "Choose a model and quantization level (Q4, Q8) appropriate to 8-16 GB of RAM",
+        "Reason about the capability, speed, and memory tradeoffs of smaller quantized models"
+      ],
+      "competency_ids": [
+        "D2-S5-C01"
+      ],
+      "hours_estimate": 0.08,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "DOCKER-AI-101-22",
+      "order": 22,
+      "slug": "calling-ollama-from-a-python-application",
+      "title": "Calling Ollama from a Python Application",
+      "kind": "lesson",
+      "objectives": [
+        "Serve a local LLM with the official Ollama Docker image and call it from a Python application",
+        "Use the ollama Python library and OpenAI-compatible endpoints against a containerized server"
+      ],
+      "competency_ids": [
+        "D5-S10-C02"
+      ],
+      "hours_estimate": 0.08,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "DOCKER-AI-101-23",
+      "order": 23,
+      "slug": "why-docker-compose-for-ai-stacks",
+      "title": "Why Docker Compose for AI Stacks?",
+      "kind": "lesson",
+      "objectives": [
+        "Explain the multi-service coordination problem Docker Compose solves for local AI development",
+        "Recognize when a project has outgrown single docker run commands"
+      ],
+      "competency_ids": [
+        "D5-S6-C02"
+      ],
+      "hours_estimate": 0.08,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "DOCKER-AI-101-24",
+      "order": 24,
+      "slug": "anatomy-of-a-compose-yaml-file",
+      "title": "Anatomy of a compose.yaml File",
+      "kind": "lesson",
+      "objectives": [
+        "Read and write the services, networks, volumes, and environment sections of a compose.yaml",
+        "Map each Compose concept back to the docker run flags it replaces"
+      ],
+      "competency_ids": [
+        "D5-S6-C01"
+      ],
+      "hours_estimate": 0.1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "DOCKER-AI-101-25",
+      "order": 25,
+      "slug": "building-and-starting-the-stack",
+      "title": "Building and Starting the Stack",
+      "kind": "lesson",
+      "objectives": [
+        "Bring a stack up and down with docker compose up --build and docker compose down",
+        "Understand what state persists across a down/up cycle and what does not"
+      ],
+      "competency_ids": [
+        "D5-S6-C01"
+      ],
+      "hours_estimate": 0.1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "DOCKER-AI-101-26",
+      "order": 26,
+      "slug": "docker-networking-between-services",
+      "title": "Docker Networking Between Services",
+      "kind": "lesson",
+      "objectives": [
+        "Explain how Compose services reach each other by service name on a shared network",
+        "Configure an application container to talk to Ollama or a vector database by hostname"
+      ],
+      "competency_ids": [
+        "D5-S6-C01"
+      ],
+      "hours_estimate": 0.1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "DOCKER-AI-101-27",
+      "order": 27,
+      "slug": "environment-variables-and-env-files",
+      "title": "Environment Variables and .env Files",
+      "kind": "lesson",
+      "objectives": [
+        "Manage API keys and configuration with environment variables and .env files instead of hardcoding",
+        "Keep secrets out of images, source control, and logs while varying config per environment"
+      ],
+      "competency_ids": [
+        "D5-S7-C01",
+        "D5-S8-C02"
+      ],
+      "hours_estimate": 0.1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "DOCKER-AI-101-28",
+      "order": 28,
+      "slug": "viewing-and-filtering-logs",
+      "title": "Viewing and Filtering Logs",
+      "kind": "lesson",
+      "objectives": [
+        "Use docker compose logs to observe and filter output across a multi-service stack",
+        "Diagnose a failing service by following its logs during startup"
+      ],
+      "competency_ids": [
+        "D5-S9-C01"
+      ],
+      "hours_estimate": 0.1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "DOCKER-AI-101-29",
+      "order": 29,
+      "slug": "full-stack-walkthrough",
+      "title": "Full Stack Walkthrough",
+      "kind": "lesson",
+      "objectives": [
+        "Define and operate a multi-service AI stack (LLM, vector store, API/UI) with Docker Compose",
+        "Assemble Ollama, ChromaDB, and a FastAPI or Streamlit front end into one working compose.yaml"
+      ],
+      "competency_ids": [
+        "D5-S6-C02",
+        "D5-S10-C02"
+      ],
+      "hours_estimate": 0.2,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "DOCKER-AI-101-30",
+      "order": 30,
+      "slug": "image-size-and-build-best-practices",
+      "title": "Image Size and Build Best Practices",
+      "kind": "lesson",
+      "objectives": [
+        "Apply image-size, config, and sharing best practices that keep an AI Docker workflow reproducible for a team",
+        "Use multi-stage builds and .dockerignore to keep AI images lean"
+      ],
+      "competency_ids": [
+        "D5-S6-C01"
+      ],
+      "hours_estimate": 0.05,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "DOCKER-AI-101-31",
+      "order": 31,
+      "slug": "sharing-your-stack-with-teammates",
+      "title": "Sharing Your Stack with Teammates",
+      "kind": "lesson",
+      "objectives": [
+        "Commit compose.yaml and document volume setup so a teammate can reproduce the stack",
+        "Treat the Compose file as the shareable definition of the whole development environment"
+      ],
+      "competency_ids": [
+        "D5-S5-C01"
+      ],
+      "hours_estimate": 0.05,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "DOCKER-AI-101-32",
+      "order": 32,
+      "slug": "when-to-move-beyond-docker-compose",
+      "title": "When to Move Beyond Docker Compose",
+      "kind": "lesson",
+      "objectives": [
+        "Recognize the signals that a workload needs Kubernetes, Cloud Run, or a managed inference platform",
+        "Describe how local Compose skills transfer to hosted deployment targets"
+      ],
+      "competency_ids": [
+        "D5-S8-C01",
+        "D5-S6-C02"
+      ],
+      "hours_estimate": 0.05,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Sequence follows the authored source outline (docker_ai_workflow_outline.md), which groups 31 lessons into six modules: concepts (why Docker, containers vs. VMs, architecture, install, workflow), building images (base images, Dockerfile, Python AI dependencies, model weights, caching, sharing), running containers (run modes, volumes, bind mounts, ports, exec/logs), Ollama for local LLM serving, Docker Compose orchestration culminating in a full Ollama + ChromaDB + FastAPI/Streamlit stack, and closing best practices. Concepts precede image building because a learner cannot reason about Dockerfiles without the image/container distinction; running containers precedes Ollama so the volume and port mechanics are in place before the LLM-specific application of them; Compose comes last as it composes everything prior. Scope assumptions: the course targets consumer hardware (Mac M-series, 8-16 GB RAM) and deliberately excludes GPU/CUDA passthrough, Kubernetes depth (mentioned only as a next step in the final lesson), and MLX serving (named in the description as ecosystem context only — Ollama is the serving tool taught). Hours estimates mirror the source outline's module timings (15/30/25/25/40/10 minutes).",
+  "proposed_competencies": [
+    {
+      "domain_code": "D5",
+      "subdomain": "D5-S6",
+      "competency_text": "The learner can define and operate a multi-service application stack with Docker Compose, including service-name networking, shared volumes, and environment-based configuration.",
+      "rationale": "Module 5 (7 lessons, the largest in the course) teaches Compose orchestration, but D5-S6's two competencies cover only the image/container distinction and the decision to containerize — nothing expresses multi-service composition."
+    },
+    {
+      "domain_code": "D5",
+      "subdomain": "D5-S6",
+      "competency_text": "The learner can write a Dockerfile that produces a lean, cache-efficient image for a Python service with heavy dependencies.",
+      "rationale": "Module 2 teaches hands-on Dockerfile authoring (base images, layer ordering, multi-stage builds); D5-S6-C01 is conceptual and does not cover authoring skill."
+    }
+  ],
+  "assets": []
+}

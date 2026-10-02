@@ -1,0 +1,135 @@
+{
+  "course_id": "sn290",
+  "pathway": "servicenow-implementation-specialist",
+  "title": "Service Portal Fundamentals",
+  "description": "This is a competency-based course designed for the indentured ServiceNow Implementation Specialist apprentice. Focuses on learning how to create Service Portals that offer users an intuitive and delightful experience when accessing an organizations services online.",
+  "hours": 16,
+  "projects": null,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Assemble a Service Portal from portal records, pages, containers, rows, and columns",
+    "Build and clone widgets using HTML, CSS, an AngularJS client controller, and a server script",
+    "Lay out a portal that works on a phone and give it navigation a user can follow",
+    "Surface the Knowledge Base and Service Catalog through the portal with the correct permissions",
+    "Diagnose a slow portal page and meet baseline accessibility requirements"
+  ],
+  "prerequisites": [
+    "sn102 Introduction to ServiceNow Platform",
+    "sn201 Application Development Fundamentals (ADF)",
+    "Working knowledge of HTML, CSS, and JavaScript (sn250 or equivalent)"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "sn290-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn290-02",
+      "order": 2,
+      "slug": "service-portal-architecture",
+      "title": "Service Portal Architecture: Portals, Pages, and Containers",
+      "kind": "lesson",
+      "objectives": [
+        "Assemble a Service Portal from portal records, pages, containers, rows, and columns"
+      ],
+      "competency_ids": [
+        "D6-S1-C01"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn290-03",
+      "order": 3,
+      "slug": "widgets-html-css-and-scripts",
+      "title": "Widgets: HTML, CSS, and Scripts",
+      "kind": "lesson",
+      "objectives": [
+        "Build and clone widgets using HTML, CSS, an AngularJS client controller, and a server script"
+      ],
+      "competency_ids": [
+        "D6-S1-C02"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn290-04",
+      "order": 4,
+      "slug": "responsive-layout-and-navigation",
+      "title": "Responsive Layout and Navigation",
+      "kind": "lesson",
+      "objectives": [
+        "Lay out a portal that works on a phone and give it navigation a user can follow"
+      ],
+      "competency_ids": [
+        "D6-S1-C03"
+      ],
+      "hours_estimate": 2,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn290-05",
+      "order": 5,
+      "slug": "knowledge-base-and-catalog-in-the-portal",
+      "title": "Knowledge Base and Catalog in the Portal",
+      "kind": "lesson",
+      "objectives": [
+        "Surface the Knowledge Base and Service Catalog through the portal with the correct permissions"
+      ],
+      "competency_ids": [
+        "D6-S1-C04"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn290-06",
+      "order": 6,
+      "slug": "portal-performance-and-accessibility",
+      "title": "Portal Performance and Accessibility",
+      "kind": "lesson",
+      "objectives": [
+        "Diagnose a slow portal page and meet baseline accessibility requirements"
+      ],
+      "competency_ids": [
+        "D6-S1-C05"
+      ],
+      "hours_estimate": 2,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn290-07",
+      "order": 7,
+      "slug": "project-build-a-branded-service-portal",
+      "title": "Project: Build a Branded Service Portal",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D6-S1-C01",
+        "D6-S1-C02",
+        "D6-S1-C03"
+      ],
+      "hours_estimate": 2,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Sixteen hours is the pathway's shortest course, so the outline maps one lesson to each Service Portal and UI competency in the catalog and adds a build project. Structure comes before content: learners must be able to assemble a page (2) before they can put a widget on it (3), and must have a widget before responsive behaviour (4) means anything. Knowledge Base and Catalog (5) come after layout because both are delivered through widgets already understood by then. Performance and accessibility (6) is placed last because it is a review discipline applied to a portal that exists. Scope assumptions, stated because the intake description is a single aspirational sentence with no objectives or lesson list: this is treated as Service Portal development -- the portal framework with widgets, AngularJS client controllers, and server scripts -- rather than the newer component-based employee experience surfaces, because the pathway catalog's D6 competency explicitly names HTML, CSS, and AngularJS. Learners are assumed to arrive able to read JavaScript, so the course teaches the widget contract rather than the language. Branding and theming are covered at CSS-variable depth, not as a design course. Portal-based Knowledge and Catalog are configured here, but the underlying Knowledge Management and Service Catalog administration belong to sn280 and sn330. Accessibility is taught to WCAG AA intent without claiming a formal audit. No family release is named.",
+  "proposed_competencies": [],
+  "assets": [
+    {
+      "filename": "portal-record-hierarchy.png",
+      "description": "The Service Portal record hierarchy: portal record down through page, container, row, and column to a widget instance, with the key field on each record labelled.",
+      "suggested_source": "Diagram, drawn in-house"
+    }
+  ]
+}

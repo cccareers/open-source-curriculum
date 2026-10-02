@@ -1,0 +1,187 @@
+{
+  "course_id": "node200",
+  "pathway": "software-developer",
+  "title": "Intermediate Express JS",
+  "description": "This is a competency-based course designed for the indentured website developer apprentice.  This course will cover basic application flow with conditional operators, looping methods, variable declarations, functions and objects.  This course includes basic language syntax and break larger problems",
+  "hours": 50,
+  "projects": null,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Structure an Express application into modules with clear responsibilities",
+    "Work from a Software Requirement Specification to record what must be built",
+    "Separate data access from request handling in a service",
+    "Implement authentication and session handling for a web service",
+    "Validate input and assess the quality risks of a feature",
+    "Test a service at unit and integration level and report progress",
+    "Troubleshoot a running service from its logs and symptoms"
+  ],
+  "prerequisites": [
+    "Completed Introduction to Express JS (node101) or equivalent",
+    "Able to run, route, and debug a local Express server",
+    "Completed Relational Databases (db100) or equivalent SQL experience"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "node200-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "node200-02",
+      "order": 2,
+      "slug": "structuring-an-express-application",
+      "title": "Structuring an Express Application",
+      "kind": "lesson",
+      "objectives": [
+        "Structure an Express application into modules with clear responsibilities"
+      ],
+      "competency_ids": [
+        "D5-S1-C02",
+        "D2-S1-C02"
+      ],
+      "hours_estimate": 6,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "node200-03",
+      "order": 3,
+      "slug": "working-from-a-requirement-specification",
+      "title": "Working from a Requirement Specification",
+      "kind": "lesson",
+      "objectives": [
+        "Work from a Software Requirement Specification to record what must be built"
+      ],
+      "competency_ids": [
+        "D3-S1-C01"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "node200-04",
+      "order": 4,
+      "slug": "persistence-and-data-access-layers",
+      "title": "Persistence and Data Access Layers",
+      "kind": "lesson",
+      "objectives": [
+        "Separate data access from request handling in a service"
+      ],
+      "competency_ids": [
+        "D2-S1-C04",
+        "D5-S1-C02"
+      ],
+      "hours_estimate": 7,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "node200-05",
+      "order": 5,
+      "slug": "authentication-and-session-handling",
+      "title": "Authentication and Session Handling",
+      "kind": "lesson",
+      "objectives": [
+        "Implement authentication and session handling for a web service"
+      ],
+      "competency_ids": [
+        "D2-S1-C04"
+      ],
+      "hours_estimate": 7,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "node200-06",
+      "order": 6,
+      "slug": "validation-errors-and-quality-risk",
+      "title": "Validation, Errors, and Quality Risk",
+      "kind": "lesson",
+      "objectives": [
+        "Validate input and assess the quality risks of a feature"
+      ],
+      "competency_ids": [
+        "D4-S1-C01"
+      ],
+      "hours_estimate": 6,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "node200-07",
+      "order": 7,
+      "slug": "testing-and-integration",
+      "title": "Testing and Integration",
+      "kind": "lesson",
+      "objectives": [
+        "Test a service at unit and integration level and report progress"
+      ],
+      "competency_ids": [
+        "D4-S1-C04"
+      ],
+      "hours_estimate": 7,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "node200-08",
+      "order": 8,
+      "slug": "troubleshooting-a-running-service",
+      "title": "Troubleshooting a Running Service",
+      "kind": "lesson",
+      "objectives": [
+        "Troubleshoot a running service from its logs and symptoms"
+      ],
+      "competency_ids": [
+        "D6-S1-C02",
+        "D4-S1-C05"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "node200-09",
+      "order": 9,
+      "slug": "project-extend-a-service-to-spec",
+      "title": "Project: Extend a Service to Spec",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D2-S1-C04",
+        "D4-S1-C02"
+      ],
+      "hours_estimate": 6,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Structure comes first because everything after it - data access, authentication, validation, tests - is placed relative to the module boundaries drawn in lesson 02. Requirements work follows immediately so the rest of the course can be run against a written specification rather than against the instructor's preference. Persistence precedes authentication because a session or credential store is itself persisted data, and validation follows both because the risks worth assessing are concrete once there is a database and a login to get wrong. Testing precedes troubleshooting so learners have a regression net before they start changing a running system, and the capstone is last because it asks for a change delivered to a spec with tests and a defect closed. SCOPE ASSUMPTIONS: the intake description for this course is truncated AND appears mis-mapped - it describes 'conditional operators, looping methods, variable declarations, functions and objects ... basic language syntax', which is JavaScript-fundamentals content, not intermediate Express, and reads like a row that drifted from another course in the spreadsheet. The title, the 50-hour weight and the pathway position were treated as the stronger evidence, so this outline scopes the course as intermediate Express service work; the description's emphasis on breaking larger problems down is honored in lesson 02's module decomposition. Assumed in scope: application structure, a data access layer, session authentication, input validation, automated tests, and operational troubleshooting. Assumed out of scope: JavaScript language fundamentals (web102 owns them), deployment pipelines (ops200), and any front-end framework. THIS IS THE OUTLINE MOST LIKELY TO BE WRONG in this pathway - a reviewer should confirm the intended scope before lesson bodies are written.",
+  "proposed_competencies": [
+    {
+      "domain_code": "D5",
+      "subdomain": "D5-S1",
+      "competency_text": "The learner can implement authentication and session handling for a web service, including safe credential storage.",
+      "rationale": "Lesson 05 is seven hours of authentication work, but no catalog competency mentions authentication, sessions, or credential handling; D2-S1-C04 (build program features) is the only tag available and it says nothing about the security properties the lesson is actually assessed on."
+    },
+    {
+      "domain_code": "D4",
+      "subdomain": "D4-S1",
+      "competency_text": "The learner can write automated unit and integration tests that cover a service's specified behavior.",
+      "rationale": "D4-S1-C04 covers supporting the integration and test phase and reporting progress, which is participation rather than authorship; lesson 07 asks learners to write the tests themselves and nothing in the catalog covers that."
+    }
+  ],
+  "assets": [
+    {
+      "filename": "express-layer-boundaries.png",
+      "description": "The dependency direction between route, service, and repository modules in an Express application, with arrows pointing only downward and the HTTP request entering at the top.",
+      "suggested_source": "Diagram, drawn in-house"
+    },
+    {
+      "filename": "session-login-flow.png",
+      "description": "The session login flow: a browser posts credentials, the server verifies the password hash, creates a session row and sets a signed cookie, and each later request is identified by that cookie.",
+      "suggested_source": "Diagram, drawn in-house"
+    }
+  ]
+}

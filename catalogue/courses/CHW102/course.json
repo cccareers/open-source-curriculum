@@ -1,0 +1,129 @@
+{
+  "course_id": "CHW102",
+  "pathway": "community-healthcare-worker",
+  "title": "Core Roles",
+  "description": "Covers the full scope of CHW practice: cultural mediation and humility (CLAS standards), health education, care coordination, client coaching, advocacy, capacity building, screenings, referrals, community assessments, outreach, and program evaluation. Grounded in the national C3 framework.",
+  "hours": 50,
+  "projects": 0,
+  "notes": "Adapted from Calbright College CHW program outline (course 02 / CHW 502), renumbered per CCC convention.",
+  "lesson_length": "Lab-guide lessons, roughly 1500-2000 words each, supporting instructor-led sessions and independent study",
+  "learning_objectives": [
+    "Describe the C3 framework roles that define the scope of CHW practice",
+    "Explain cultural mediation and humility, including the CLAS standards",
+    "Describe how education, coordination, coaching, advocacy, outreach, and evaluation fit together in practice"
+  ],
+  "prerequisites": [
+    "CHW101: Introduction to Community Health Work"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "CHW102-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 2,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "CHW102-02",
+      "order": 2,
+      "slug": "cultural-mediation-and-humility",
+      "title": "Cultural Mediation and Humility",
+      "kind": "lesson",
+      "objectives": [
+        "Explain cultural mediation and humility, including the CLAS standards",
+        "Use language access resources appropriately in mediation situations"
+      ],
+      "competency_ids": [
+        "D1-S3-C01",
+        "D1-S3-C02",
+        "D1-S3-C03",
+        "D1-S3-C04"
+      ],
+      "hours_estimate": 9.6,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "CHW102-03",
+      "order": 3,
+      "slug": "health-education-and-client-coaching",
+      "title": "Health Education and Client Coaching",
+      "kind": "lesson",
+      "objectives": [
+        "Describe the C3 framework roles that define the scope of CHW practice",
+        "Deliver culturally and literacy-appropriate health education and support client-owned goals"
+      ],
+      "competency_ids": [
+        "D3-S1-C01",
+        "D3-S1-C03",
+        "D3-S2-C04"
+      ],
+      "hours_estimate": 9.6,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "CHW102-04",
+      "order": 4,
+      "slug": "care-coordination-screenings-and-referrals",
+      "title": "Care Coordination, Screenings, and Referrals",
+      "kind": "lesson",
+      "objectives": [
+        "Match client needs to resources and carry referrals through to confirmed connection",
+        "Describe the CHW role in screenings and multi-provider care coordination"
+      ],
+      "competency_ids": [
+        "D2-S1-C01",
+        "D2-S1-C02",
+        "D2-S1-C03",
+        "D2-S1-C05"
+      ],
+      "hours_estimate": 9.6,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "CHW102-05",
+      "order": 5,
+      "slug": "advocacy-and-capacity-building",
+      "title": "Advocacy and Capacity Building",
+      "kind": "lesson",
+      "objectives": [
+        "Advocate for clients facing barriers and coach them toward self-advocacy",
+        "Build on client and community strengths to increase independence"
+      ],
+      "competency_ids": [
+        "D4-S1-C01",
+        "D4-S1-C03",
+        "D3-S2-C01",
+        "D3-S2-C02"
+      ],
+      "hours_estimate": 9.6,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "CHW102-06",
+      "order": 6,
+      "slug": "outreach-assessment-and-program-evaluation",
+      "title": "Outreach, Assessment, and Program Evaluation",
+      "kind": "lesson",
+      "objectives": [
+        "Describe how education, coordination, coaching, advocacy, outreach, and evaluation fit together in practice",
+        "Explain the CHW role in community assessment and program evaluation"
+      ],
+      "competency_ids": [
+        "D2-S2-C01",
+        "D4-S2-C01",
+        "D4-S2-C05",
+        "D5-S2-C04"
+      ],
+      "hours_estimate": 9.6,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Course 2 of 6: the C3 role set. Cultural mediation first because it conditions every other role, then the service roles in client-facing order (education/coaching, coordination/referrals), then advocacy/capacity building, closing with the community-facing roles (outreach, assessment, evaluation). Scope assumption: this course covers roles at orientation depth — what each role is and when it applies; CHW103 drills the skills. CLAS standards taught inside cultural mediation.",
+  "proposed_competencies": [],
+  "assets": []
+}

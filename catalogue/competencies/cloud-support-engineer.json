@@ -1,0 +1,289 @@
+{
+  "version": 1,
+  "domains": [
+    {
+      "code": "D1",
+      "name": "Technical Support and Troubleshooting",
+      "delivered_weight_percent": 15,
+      "description": "Technical support and troubleshooting across cloud network, storage, and compute, including log analysis and incident support."
+    },
+    {
+      "code": "D2",
+      "name": "Cloud Platform and Infrastructure",
+      "delivered_weight_percent": 15,
+      "description": "Cloud platform and infrastructure: platform proficiency, compute (VMs/containers/serverless), storage lifecycle, and IAM."
+    },
+    {
+      "code": "D3",
+      "name": "Networking and Security",
+      "delivered_weight_percent": 14,
+      "description": "Networking and security: VPC/subnets/security groups, firewall/access control, traffic monitoring, and encryption/compliance."
+    },
+    {
+      "code": "D4",
+      "name": "Automation and Scripting",
+      "delivered_weight_percent": 14,
+      "description": "Automation and scripting: scripting, Infrastructure as Code, CI/CD pipelines, and provisioning optimization."
+    },
+    {
+      "code": "D5",
+      "name": "Customer Support and Communication",
+      "delivered_weight_percent": 14,
+      "description": "Customer support and communication: clear communication, escalation, technical training, and documentation."
+    },
+    {
+      "code": "D6",
+      "name": "Incident Response and Monitoring",
+      "delivered_weight_percent": 14,
+      "description": "Incident response and monitoring: monitoring setup, outage response, dashboards, and alerting."
+    },
+    {
+      "code": "D7",
+      "name": "Compliance and Best Practices",
+      "delivered_weight_percent": 14,
+      "description": "Compliance and best practices: security frameworks/standards, audits, high availability/DR, and backup/restore."
+    }
+  ],
+  "subdomains": [
+    {
+      "code": "D1-S1",
+      "domain_code": "D1",
+      "name": "Technical Support and Troubleshooting",
+      "description": "Competencies for technical support and troubleshooting."
+    },
+    {
+      "code": "D2-S1",
+      "domain_code": "D2",
+      "name": "Cloud Platform and Infrastructure",
+      "description": "Competencies for cloud platform and infrastructure."
+    },
+    {
+      "code": "D3-S1",
+      "domain_code": "D3",
+      "name": "Networking and Security",
+      "description": "Competencies for networking and security."
+    },
+    {
+      "code": "D4-S1",
+      "domain_code": "D4",
+      "name": "Automation and Scripting",
+      "description": "Competencies for automation and scripting."
+    },
+    {
+      "code": "D5-S1",
+      "domain_code": "D5",
+      "name": "Customer Support and Communication",
+      "description": "Competencies for customer support and communication."
+    },
+    {
+      "code": "D6-S1",
+      "domain_code": "D6",
+      "name": "Incident Response and Monitoring",
+      "description": "Competencies for incident response and monitoring."
+    },
+    {
+      "code": "D7-S1",
+      "domain_code": "D7",
+      "name": "Compliance and Best Practices",
+      "description": "Competencies for compliance and best practices."
+    }
+  ],
+  "competencies": [
+    {
+      "id": "D1-S1-C01",
+      "subdomain_code": "D1-S1",
+      "domain_code": "D1",
+      "statement": "The learner can diagnose and resolve cloud service issues involving network, storage, and compute resources.",
+      "description": "Isolates and fixes a cloud resource problem across those layers."
+    },
+    {
+      "id": "D1-S1-C02",
+      "subdomain_code": "D1-S1",
+      "domain_code": "D1",
+      "statement": "The learner can assist a customer in deploying an application in a cloud environment.",
+      "description": "Guides a working deployment to a cloud platform."
+    },
+    {
+      "id": "D1-S1-C03",
+      "subdomain_code": "D1-S1",
+      "domain_code": "D1",
+      "statement": "The learner can analyze system logs and monitoring tools to identify performance bottlenecks.",
+      "description": "Reads logs/metrics to locate a bottleneck."
+    },
+    {
+      "id": "D1-S1-C04",
+      "subdomain_code": "D1-S1",
+      "domain_code": "D1",
+      "statement": "The learner can support incident-management processes and document troubleshooting steps.",
+      "description": "Follows an incident process and records clear steps."
+    },
+    {
+      "id": "D2-S1-C01",
+      "subdomain_code": "D2-S1",
+      "domain_code": "D2",
+      "statement": "The learner can use major cloud platforms (AWS, Azure, Google Cloud) proficiently.",
+      "description": "Navigates core services on a major cloud platform."
+    },
+    {
+      "id": "D2-S1-C02",
+      "subdomain_code": "D2-S1",
+      "domain_code": "D2",
+      "statement": "The learner can configure and manage virtual machines, containers, and serverless functions.",
+      "description": "Provisions/manages the right compute abstraction for a need."
+    },
+    {
+      "id": "D2-S1-C03",
+      "subdomain_code": "D2-S1",
+      "domain_code": "D2",
+      "statement": "The learner can explain cloud storage solutions and data lifecycle management.",
+      "description": "Selects appropriate storage tier/lifecycle for a scenario."
+    },
+    {
+      "id": "D2-S1-C04",
+      "subdomain_code": "D2-S1",
+      "domain_code": "D2",
+      "statement": "The learner can implement identity and access management (IAM) best practices.",
+      "description": "Applies least-privilege IAM correctly."
+    },
+    {
+      "id": "D3-S1-C01",
+      "subdomain_code": "D3-S1",
+      "domain_code": "D3",
+      "statement": "The learner can configure a virtual private cloud (VPC), subnets, and security groups.",
+      "description": "Designs a working VPC/subnet/security-group layout."
+    },
+    {
+      "id": "D3-S1-C02",
+      "subdomain_code": "D3-S1",
+      "domain_code": "D3",
+      "statement": "The learner can implement cloud firewall and access-control policies.",
+      "description": "Writes firewall/ACL rules that meet a requirement."
+    },
+    {
+      "id": "D3-S1-C03",
+      "subdomain_code": "D3-S1",
+      "domain_code": "D3",
+      "statement": "The learner can monitor and analyze network traffic using cloud-native tools.",
+      "description": "Uses flow logs/tools to investigate traffic."
+    },
+    {
+      "id": "D3-S1-C04",
+      "subdomain_code": "D3-S1",
+      "domain_code": "D3",
+      "statement": "The learner can apply encryption and compliance policies for data protection.",
+      "description": "Chooses correct encryption in transit/at rest for data."
+    },
+    {
+      "id": "D4-S1-C01",
+      "subdomain_code": "D4-S1",
+      "domain_code": "D4",
+      "statement": "The learner can write scripts in Python, Bash, or PowerShell for cloud automation.",
+      "description": "Automates a cloud task with a correct script."
+    },
+    {
+      "id": "D4-S1-C02",
+      "subdomain_code": "D4-S1",
+      "domain_code": "D4",
+      "statement": "The learner can implement Infrastructure as Code using Terraform, CloudFormation, or Bicep.",
+      "description": "Defines/updates infrastructure declaratively."
+    },
+    {
+      "id": "D4-S1-C03",
+      "subdomain_code": "D4-S1",
+      "domain_code": "D4",
+      "statement": "The learner can automate deployment pipelines using CI/CD tools (Jenkins, GitHub Actions, Azure DevOps).",
+      "description": "Builds a working CI/CD pipeline."
+    },
+    {
+      "id": "D4-S1-C04",
+      "subdomain_code": "D4-S1",
+      "domain_code": "D4",
+      "statement": "The learner can optimize resource provisioning using autoscaling and serverless functions.",
+      "description": "Applies autoscaling/serverless to fit demand and cost."
+    },
+    {
+      "id": "D5-S1-C01",
+      "subdomain_code": "D5-S1",
+      "domain_code": "D5",
+      "statement": "The learner can communicate effectively with customers and internal teams.",
+      "description": "Explains a technical issue clearly to the right audience."
+    },
+    {
+      "id": "D5-S1-C02",
+      "subdomain_code": "D5-S1",
+      "domain_code": "D5",
+      "statement": "The learner can document and escalate unresolved issues to the appropriate teams.",
+      "description": "Escalates with the right detail to the right owner."
+    },
+    {
+      "id": "D5-S1-C03",
+      "subdomain_code": "D5-S1",
+      "domain_code": "D5",
+      "statement": "The learner can conduct a technical training session for customers or internal stakeholders.",
+      "description": "Delivers a clear, level-appropriate training."
+    },
+    {
+      "id": "D5-S1-C04",
+      "subdomain_code": "D5-S1",
+      "domain_code": "D5",
+      "statement": "The learner can write detailed knowledge-base articles and technical documentation.",
+      "description": "Produces accurate, reusable documentation."
+    },
+    {
+      "id": "D6-S1-C01",
+      "subdomain_code": "D6-S1",
+      "domain_code": "D6",
+      "statement": "The learner can set up cloud monitoring solutions (e.g., CloudWatch, Azure Monitor, Cloud Monitoring).",
+      "description": "Configures monitoring for a service."
+    },
+    {
+      "id": "D6-S1-C02",
+      "subdomain_code": "D6-S1",
+      "domain_code": "D6",
+      "statement": "The learner can respond to service outages and escalate critical issues.",
+      "description": "Acts correctly during an outage and escalates appropriately."
+    },
+    {
+      "id": "D6-S1-C03",
+      "subdomain_code": "D6-S1",
+      "domain_code": "D6",
+      "statement": "The learner can create dashboards to track cloud performance and service health.",
+      "description": "Builds a dashboard surfacing the right signals."
+    },
+    {
+      "id": "D6-S1-C04",
+      "subdomain_code": "D6-S1",
+      "domain_code": "D6",
+      "statement": "The learner can implement alerting mechanisms to notify teams of potential incidents.",
+      "description": "Defines actionable alerts with sensible thresholds."
+    },
+    {
+      "id": "D7-S1-C01",
+      "subdomain_code": "D7-S1",
+      "domain_code": "D7",
+      "statement": "The learner can ensure adherence to cloud security frameworks and compliance standards (SOC 2, HIPAA, GDPR).",
+      "description": "Maps a requirement to the right compliance control."
+    },
+    {
+      "id": "D7-S1-C02",
+      "subdomain_code": "D7-S1",
+      "domain_code": "D7",
+      "statement": "The learner can conduct periodic security audits and implement remediation actions.",
+      "description": "Finds and remediates a security gap."
+    },
+    {
+      "id": "D7-S1-C03",
+      "subdomain_code": "D7-S1",
+      "domain_code": "D7",
+      "statement": "The learner can follow cloud-provider best practices for high availability and disaster recovery.",
+      "description": "Designs for HA/DR to meet an RTO/RPO."
+    },
+    {
+      "id": "D7-S1-C04",
+      "subdomain_code": "D7-S1",
+      "domain_code": "D7",
+      "statement": "The learner can implement backup and restoration procedures.",
+      "description": "Sets up and verifies backups/restores."
+    }
+  ]
+}

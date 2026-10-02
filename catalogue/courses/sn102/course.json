@@ -1,0 +1,166 @@
+{
+  "course_id": "sn102",
+  "pathway": "servicenow-implementation-specialist",
+  "title": "Introduction to ServiceNow Platform",
+  "description": "This is a competency-based course designed for the indentured ServiceNow Implementation Specialist apprentice. Covers the fundamentals of ServiceNow, including navigation, key modules (ITSM, HRIS, GRC, and CSM), and an overview of cloud-based workflow automation.",
+  "hours": 24,
+  "projects": null,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Describe the ServiceNow platform architecture and how instances, applications, and the core data model fit together",
+    "Navigate an instance and configure the system settings, lists, and preferences an implementer uses daily",
+    "Explain how tables, records, fields, and table extension organize data on the platform",
+    "Explain how users, groups, roles, and access controls determine who can see and change a record",
+    "Identify the core ITSM processes and the records each one creates",
+    "Describe what the CSM, HRSD, and GRC applications do and which business problem each one solves",
+    "Explain how workflow automation moves work through the platform without manual handoffs"
+  ],
+  "prerequisites": [],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "sn102-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn102-02",
+      "order": 2,
+      "slug": "platform-architecture-and-core-components",
+      "title": "Platform Architecture and Core Components",
+      "kind": "lesson",
+      "objectives": [
+        "Describe the ServiceNow platform architecture and how instances, applications, and the core data model fit together"
+      ],
+      "competency_ids": [
+        "D1-S1-C01"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn102-03",
+      "order": 3,
+      "slug": "navigating-and-configuring-the-instance",
+      "title": "Navigating and Configuring the Instance",
+      "kind": "lesson",
+      "objectives": [
+        "Navigate an instance and configure the system settings, lists, and preferences an implementer uses daily"
+      ],
+      "competency_ids": [
+        "D1-S1-C02"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn102-04",
+      "order": 4,
+      "slug": "tables-records-and-the-data-model",
+      "title": "Tables, Records, and the Data Model",
+      "kind": "lesson",
+      "objectives": [
+        "Explain how tables, records, fields, and table extension organize data on the platform"
+      ],
+      "competency_ids": [
+        "D1-S1-C01",
+        "D1-S1-C02"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn102-05",
+      "order": 5,
+      "slug": "users-roles-and-access-control",
+      "title": "Users, Roles, and Access Control",
+      "kind": "lesson",
+      "objectives": [
+        "Explain how users, groups, roles, and access controls determine who can see and change a record"
+      ],
+      "competency_ids": [
+        "D1-S1-C03"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn102-06",
+      "order": 6,
+      "slug": "a-tour-of-it-service-management",
+      "title": "A Tour of IT Service Management",
+      "kind": "lesson",
+      "objectives": [
+        "Identify the core ITSM processes and the records each one creates"
+      ],
+      "competency_ids": [
+        "D2-S1-C01"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn102-07",
+      "order": 7,
+      "slug": "a-tour-of-csm-hrsd-and-grc",
+      "title": "A Tour of CSM, HRSD, and GRC",
+      "kind": "lesson",
+      "objectives": [
+        "Describe what the CSM, HRSD, and GRC applications do and which business problem each one solves"
+      ],
+      "competency_ids": [
+        "D3-S1-C01",
+        "D4-S1-C01"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn102-08",
+      "order": 8,
+      "slug": "workflow-automation-on-the-platform",
+      "title": "Workflow Automation on the Platform",
+      "kind": "lesson",
+      "objectives": [
+        "Explain how workflow automation moves work through the platform without manual handoffs"
+      ],
+      "competency_ids": [
+        "D2-S1-C05",
+        "D7-S1-C02"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn102-09",
+      "order": 9,
+      "slug": "project-configure-a-developer-instance",
+      "title": "Project: Configure a Developer Instance",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D1-S1-C02",
+        "D1-S1-C03"
+      ],
+      "hours_estimate": 2,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "This is the pathway's entry course, so it moves from the platform outward: what an instance is and how its data is shaped (lessons 2-4), who is allowed to touch that data (lesson 5), what the platform is used for (lessons 6-7), and finally how work moves through it automatically (lesson 8). Security comes before the application tours because every later application is explained in terms of roles and record access. Scope assumptions, stated because the intake description is one sentence and lists no objectives or lessons: the course is treated as a survey, not an implementation course, so every application tour is orientation depth only -- learners identify records and processes but configure nothing beyond their own instance. The intake names 'HRIS' among the key modules; that is read as HR Service Delivery (HRSD), the platform application, rather than an external HRIS product, because HRSD is what the pathway catalog covers and an external HRIS is only integrated with (sn330). Scripting, portal development, and integrations are deliberately excluded here -- they are whole courses later in the sequence (sn250, sn290, sn280). The closing project is a personal developer instance setup rather than a client scenario, because a learner 24 hours into the pathway has no application-configuration skill to demonstrate yet. Content is written against current platform terminology (Flow Designer, App Engine Studio) without naming a family release, so the course does not date on the next upgrade.",
+  "proposed_competencies": [
+    {
+      "domain_code": "D1",
+      "subdomain": "D1-S1",
+      "competency_text": "The learner can describe the purpose and scope of each major ServiceNow product family and choose the right one for a stated business problem.",
+      "rationale": "Lessons 6 and 7 survey ITSM, CSM, HRSD, and GRC at orientation depth. Every catalog competency for those domains is written at implementation depth ('can configure', 'can implement'), so a survey lesson has no honest home in the catalog; it is tagged to the nearest configuration competency, which overstates the depth."
+    }
+  ],
+  "assets": []
+}

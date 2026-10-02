@@ -1,0 +1,229 @@
+{
+  "course_id": "sn280",
+  "pathway": "servicenow-implementation-specialist",
+  "title": "IT Service Management (ITSM) Implementation",
+  "description": "This is a competency-based course designed for the indentured ServiceNow Implementation Specialist apprentice. Teaches configuration and implementation of IT Service Management (ITSM) modules, including Incident, Problem, Change, and Service Catalog Management.",
+  "hours": 40,
+  "projects": null,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Map the ITIL practices an organization runs onto the ServiceNow tables that support them",
+    "Configure incident management including states, priority, assignment, and major incident handling",
+    "Configure problem management and connect it to incident and change records",
+    "Configure change management with change types, approvals, and a change schedule",
+    "Customize forms, fields, and tables for an ITSM requirement without breaking upgradeability",
+    "Build catalog items, variables, and order guides that produce correct request and task records",
+    "Define SLAs, OLAs, and schedules that measure the commitment the business actually made",
+    "Automate an ITSM process end to end with Flow Designer and business rules",
+    "Model configuration items, relationships, discovery, and asset lifecycle so ITSM processes can rely on the CMDB",
+    "Integrate ITSM with an external system and monitor the integration once it is live"
+  ],
+  "prerequisites": [
+    "sn102 Introduction to ServiceNow Platform",
+    "sn201 Application Development Fundamentals (ADF)",
+    "sn250 Scripting in ServiceNow"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "sn280-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn280-02",
+      "order": 2,
+      "slug": "itil-practices-and-the-itsm-data-model",
+      "title": "ITIL Practices and the ITSM Data Model",
+      "kind": "lesson",
+      "objectives": [
+        "Map the ITIL practices an organization runs onto the ServiceNow tables that support them"
+      ],
+      "competency_ids": [
+        "D10-S1-C03",
+        "D2-S1-C01"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn280-03",
+      "order": 3,
+      "slug": "incident-management-configuration",
+      "title": "Incident Management Configuration",
+      "kind": "lesson",
+      "objectives": [
+        "Configure incident management including states, priority, assignment, and major incident handling"
+      ],
+      "competency_ids": [
+        "D2-S1-C01"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn280-04",
+      "order": 4,
+      "slug": "problem-management-configuration",
+      "title": "Problem Management Configuration",
+      "kind": "lesson",
+      "objectives": [
+        "Configure problem management and connect it to incident and change records"
+      ],
+      "competency_ids": [
+        "D2-S1-C01"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn280-05",
+      "order": 5,
+      "slug": "change-and-release-management",
+      "title": "Change and Release Management",
+      "kind": "lesson",
+      "objectives": [
+        "Configure change management with change types, approvals, and a change schedule"
+      ],
+      "competency_ids": [
+        "D2-S1-C01",
+        "D10-S1-C02"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn280-06",
+      "order": 6,
+      "slug": "customizing-forms-fields-and-tables-for-itsm",
+      "title": "Customizing Forms, Fields, and Tables for ITSM",
+      "kind": "lesson",
+      "objectives": [
+        "Customize forms, fields, and tables for an ITSM requirement without breaking upgradeability"
+      ],
+      "competency_ids": [
+        "D2-S1-C02"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn280-07",
+      "order": 7,
+      "slug": "service-catalog-and-request-management",
+      "title": "Service Catalog and Request Management",
+      "kind": "lesson",
+      "objectives": [
+        "Build catalog items, variables, and order guides that produce correct request and task records"
+      ],
+      "competency_ids": [
+        "D2-S1-C04",
+        "D2-S1-C01"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn280-08",
+      "order": 8,
+      "slug": "service-level-agreements",
+      "title": "Service Level Agreements",
+      "kind": "lesson",
+      "objectives": [
+        "Define SLAs, OLAs, and schedules that measure the commitment the business actually made"
+      ],
+      "competency_ids": [
+        "D2-S1-C04"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn280-09",
+      "order": 9,
+      "slug": "automating-itsm-with-flow-designer",
+      "title": "Automating ITSM with Flow Designer",
+      "kind": "lesson",
+      "objectives": [
+        "Automate an ITSM process end to end with Flow Designer and business rules"
+      ],
+      "competency_ids": [
+        "D2-S1-C05"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn280-10",
+      "order": 10,
+      "slug": "cmdb-and-asset-foundations-for-itsm",
+      "title": "CMDB and Asset Foundations for ITSM",
+      "kind": "lesson",
+      "objectives": [
+        "Model configuration items, relationships, discovery, and asset lifecycle so ITSM processes can rely on the CMDB"
+      ],
+      "competency_ids": [
+        "D5-S1-C01",
+        "D5-S1-C02",
+        "D5-S1-C03",
+        "D5-S1-C04"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn280-11",
+      "order": 11,
+      "slug": "integrating-itsm-with-external-systems",
+      "title": "Integrating ITSM with External Systems",
+      "kind": "lesson",
+      "objectives": [
+        "Integrate ITSM with an external system and monitor the integration once it is live"
+      ],
+      "competency_ids": [
+        "D2-S1-C03",
+        "D8-S1-C03",
+        "D8-S1-C05"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn280-12",
+      "order": 12,
+      "slug": "project-implement-an-itsm-process-end-to-end",
+      "title": "Project: Implement an ITSM Process End to End",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D2-S1-C01",
+        "D2-S1-C04",
+        "D2-S1-C05",
+        "D10-S1-C01"
+      ],
+      "hours_estimate": 2,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "The intake names Incident, Problem, Change, and Service Catalog, and those four sit at lessons 3, 4, 5, and 7 in that order because it is the order the processes depend on each other: incidents feed problems, problems raise changes, and the catalog is a separate demand channel that produces its own request and task records. Lesson 2 establishes ITIL vocabulary first, because 'configure incident management' is meaningless without agreement on what an incident is. Form and table customization (6) is placed between the process modules and the catalog so learners have real forms to customize. SLAs follow the catalog because catalog items are the most common thing an SLA is attached to. Automation (9) comes after every process exists, so the flows automate something real. CMDB (10) is late and deliberately foundational-only, and integrations (11) are last because both are supporting concerns for ITSM rather than the subject. Scope assumptions, stated because the intake gives four module names and nothing else: this is a configuration and implementation course at the depth of the ServiceNow Certified Implementation Specialist -- ITSM exam, not an ITIL certification course, so ITIL is covered only as the vocabulary the platform's tables encode. Request Management is taught as part of the Service Catalog lesson rather than separately, because on the platform they are one flow. The CMDB lesson is an ITSM-facing foundation, not a full CMDB implementation course: it covers CI classes, relationships, discovery and reconciliation at concept-plus-configuration depth, dependency mapping, and asset lifecycle, but not a Discovery deployment or a Service Mapping project. Knowledge Management, Virtual Agent, and portal work are excluded here; they belong to sn290 and sn360. Terminology is kept release-neutral.",
+  "proposed_competencies": [],
+  "assets": [
+    {
+      "filename": "itsm-task-table-inheritance.png",
+      "description": "Task table inheritance across the ITSM process tables, showing incident, problem, change request, and requested item as extensions of a common task base, with their child task tables beneath them.",
+      "suggested_source": "Diagram, drawn in-house"
+    },
+    {
+      "filename": "cmdb-service-dependency-map.png",
+      "description": "A business service dependency map resolving through application services to database and server configuration items, with a shared identity provider affecting several branches.",
+      "suggested_source": "Diagram, drawn in-house"
+    }
+  ]
+}

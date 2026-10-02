@@ -1,0 +1,121 @@
+{
+  "course_id": "se101",
+  "pathway": "technical-sales-representative",
+  "title": "Introduction to Sales",
+  "description": "This is a competency-based course designed for the indentured Technical Sales Representative apprentice. An introduction to sales to equip individuals with fundamental knowledge and skills in sales, covering topics like communication, understanding customer needs, sales strategies, and closing techn",
+  "hours": 8,
+  "projects": null,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Describe the stages of a business software sales cycle and the roles involved at each stage",
+    "Use open questions and active listening to surface what a customer actually needs",
+    "Translate a customer's stated problem into a matching software capability",
+    "Respond to a routine objection without discounting or arguing",
+    "Ask for a specific, dated next step at the end of a sales conversation"
+  ],
+  "prerequisites": [],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "se101-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 0.5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "se101-02",
+      "order": 2,
+      "slug": "how-a-software-sale-works",
+      "title": "How a Software Sale Works",
+      "kind": "lesson",
+      "objectives": [
+        "Describe the stages of a business software sales cycle and the roles involved at each stage"
+      ],
+      "competency_ids": [],
+      "hours_estimate": 1.5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "se101-03",
+      "order": 3,
+      "slug": "questions-and-active-listening",
+      "title": "Questions and Active Listening",
+      "kind": "lesson",
+      "objectives": [
+        "Use open questions and active listening to surface what a customer actually needs"
+      ],
+      "competency_ids": [
+        "D4-S1-C02"
+      ],
+      "hours_estimate": 1.5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "se101-04",
+      "order": 4,
+      "slug": "from-customer-problem-to-product-fit",
+      "title": "From Customer Problem to Product Fit",
+      "kind": "lesson",
+      "objectives": [
+        "Translate a customer's stated problem into a matching software capability"
+      ],
+      "competency_ids": [
+        "D1-S1-C02"
+      ],
+      "hours_estimate": 1.5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "se101-05",
+      "order": 5,
+      "slug": "handling-everyday-objections",
+      "title": "Handling Everyday Objections",
+      "kind": "lesson",
+      "objectives": [
+        "Respond to a routine objection without discounting or arguing"
+      ],
+      "competency_ids": [
+        "D2-S1-C01"
+      ],
+      "hours_estimate": 1.5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "se101-06",
+      "order": 6,
+      "slug": "closing-asking-for-the-next-step",
+      "title": "Closing: Asking for the Next Step",
+      "kind": "lesson",
+      "objectives": [
+        "Ask for a specific, dated next step at the end of a sales conversation"
+      ],
+      "competency_ids": [
+        "D2-S1-C05"
+      ],
+      "hours_estimate": 1.5,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "The course walks one conversation from beginning to end: understand the machine (lesson 2), then listen (3), then diagnose (4), then defend the recommendation (5), then advance it (6). Listening precedes needs analysis because a learner cannot map a pain point they never elicited, and objection handling precedes closing because most failed closes in an entry-level rep's calls are unaddressed objections surfacing late. SCOPE ASSUMPTIONS, from a sparse intake: the imported description is truncated mid-word (\"closing techn\") and the importer flagged it, so scope was reconstructed from the title, the 8-hour budget, and the four named themes that survived the truncation — communication, understanding customer needs, sales strategies, closing. This course is therefore treated as the pathway's non-technical, non-tool foundation: no CRM operation (se301), no prospecting tools or outbound sequences (se202), no named methodology drills such as SPIN or Sandler (se203), and no SaaS unit economics (se201). Objection handling here is deliberately the everyday, low-stakes kind; commercial negotiation and pricing are left to se203. Lesson 2 is intentionally untagged: the catalog has no competency for sales-cycle structure and role handoffs, and inventing one is not permitted, so it is raised in proposed_competencies instead.",
+  "proposed_competencies": [
+    {
+      "domain_code": "D1",
+      "subdomain": "D1-S1",
+      "competency_text": "The learner can describe the stages of a business software sales cycle and the handoffs between prospecting, selling, and post-sale roles.",
+      "rationale": "Lesson 02 teaches the shape of the sales cycle and who owns each stage — the orienting knowledge every later course assumes — but the catalog's D1 competencies all begin at methodology or economics, so no existing id covers it. Raised rather than force-fitted onto D1-S1-C02."
+    }
+  ],
+  "assets": [
+    {
+      "filename": "software-sales-cycle-stages.png",
+      "description": "The stages of a business software sales cycle, from prospecting through renewal, with the handoffs between roles marked.",
+      "suggested_source": "Diagram, drawn in-house"
+    }
+  ]
+}

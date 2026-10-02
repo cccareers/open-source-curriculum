@@ -1,0 +1,129 @@
+{
+  "course_id": "cyb130",
+  "pathway": "cybersecurity-support-technician",
+  "title": "Access Control & Identity Management",
+  "description": "This is a competency-based course designed for the indentured Cybersecurity Support Technician apprentice. Covers authentication methods, multi-factor authentication (MFA), role-based access control (RBAC), and identity and access management (IAM).",
+  "hours": 20,
+  "projects": null,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Distinguish authentication, authorization, and accounting, and name the factor type any given credential belongs to",
+    "Select and roll out an MFA method appropriate to a stated user population and risk level",
+    "Model roles and permissions that grant least privilege for a described organization",
+    "Trace an identity through joiner, mover, and leaver events and identify where privilege accumulates"
+  ],
+  "prerequisites": [
+    "cyb100 Introduction to Cybersecurity",
+    "net110 Network Security Fundamentals, or equivalent comfort with network zones and access paths"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "cyb130-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cyb130-02",
+      "order": 2,
+      "slug": "authentication-authorization-and-identity",
+      "title": "Authentication, Authorization, and Identity",
+      "kind": "lesson",
+      "objectives": [
+        "Distinguish authentication, authorization, and accounting, and name the factor type any given credential belongs to"
+      ],
+      "competency_ids": [
+        "D2-S1-C04"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cyb130-03",
+      "order": 3,
+      "slug": "multi-factor-authentication-in-practice",
+      "title": "Multi-Factor Authentication in Practice",
+      "kind": "lesson",
+      "objectives": [
+        "Select and roll out an MFA method appropriate to a stated user population and risk level"
+      ],
+      "competency_ids": [
+        "D2-S1-C04"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cyb130-04",
+      "order": 4,
+      "slug": "rbac-and-least-privilege",
+      "title": "RBAC and Least Privilege",
+      "kind": "lesson",
+      "objectives": [
+        "Model roles and permissions that grant least privilege for a described organization"
+      ],
+      "competency_ids": [
+        "D2-S1-C03"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cyb130-05",
+      "order": 5,
+      "slug": "identity-lifecycle-joiners-movers-leavers",
+      "title": "Identity Lifecycle: Joiners, Movers, and Leavers",
+      "kind": "lesson",
+      "objectives": [
+        "Trace an identity through joiner, mover, and leaver events and identify where privilege accumulates"
+      ],
+      "competency_ids": [
+        "D2-S1-C03"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cyb130-06",
+      "order": 6,
+      "slug": "project-access-control-audit",
+      "title": "Project: Access Control Audit",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D2-S1-C03",
+        "D2-S1-C04"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Identity is taught in the order an account experiences it: proving who you are (02), proving it harder (03), being granted what you may do (04), and having that grant change over time (05). Lesson 02 comes first because the single most common learner error in this area is collapsing authentication and authorization, which then makes every RBAC discussion incoherent. MFA (03) sits immediately after authentication because it is an extension of it, and before RBAC because a role model is worthless if the front door only needs a reused password. RBAC (04) precedes the lifecycle lesson (05) because privilege creep can only be recognized against a defined role model. The audit project (06) is last because auditing is the act of comparing 03, 04, and 05 against reality. SCOPE ASSUMPTIONS - intake supplies one sentence, no objectives, no lesson titles, and records no projects; correct anything below that is wrong: (1) The course is taught vendor-neutrally against generic directory and IAM concepts, with Active Directory and a cloud directory used as illustrations rather than as required platforms. (2) 'IAM' is read as enterprise workforce identity, not customer identity (CIAM); federation is covered conceptually (SAML/OIDC roles in a login flow) but building an identity provider is out of scope. (3) Cloud-native IAM policy authoring is deliberately left to net260 to avoid teaching the same permission model twice; this course teaches the model, net260 applies it to a cloud account. (4) Privileged access management and secrets vaulting are named in lesson 04 as the next control up, but are not taught in depth at 20 hours. (5) Credential storage is discussed only to the extent a technician must recognize bad practice (plaintext, reversible encryption, unsalted hashes); cryptographic depth belongs to net110's encryption lesson, which is why no D2-S1-C05 tag appears here. (6) Intake records no projects for this course; lesson 06 is added anyway as a low-hour paper audit so the 20 hours end in an assessable artifact, and a reviewer may cut it without disturbing the sequence. (7) The catalog covers auditing access and deploying MFA but has no competency for provisioning and deprovisioning identities across the employment lifecycle, which lesson 05 teaches - see proposed_competencies.",
+  "proposed_competencies": [
+    {
+      "domain_code": "D2",
+      "subdomain": "D2-S1",
+      "competency_text": "The learner can execute identity lifecycle operations - provisioning, entitlement change on role transfer, and timely deprovisioning - and detect accounts that outlived their business need.",
+      "rationale": "Lesson 05 is assessed on tracing joiner/mover/leaver events and finding orphaned and over-entitled accounts. D2-S1-C03 covers auditing access controls for correct authentication and role-based permissions, which is the detection half; nothing in the catalog covers the provisioning and deprovisioning work that creates the condition being audited, and it is routine day-one support-technician work."
+    }
+  ],
+  "assets": [
+    {
+      "filename": "federated-login-flow.png",
+      "description": "Federated login flow between the user, the service provider, and the identity provider: the redirect to the identity provider, authentication there, and the signed assertion returned to the application.",
+      "suggested_source": "Diagram, drawn in-house"
+    },
+    {
+      "filename": "identity-lifecycle-stages.png",
+      "description": "The joiner, mover, and leaver stages of an identity lifecycle, showing entitlements granted at joining, added but rarely removed at each move, and revoked at leaving.",
+      "suggested_source": "Diagram, drawn in-house"
+    }
+  ]
+}

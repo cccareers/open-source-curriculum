@@ -1,0 +1,127 @@
+{
+  "course_id": "cyb100",
+  "pathway": "cybersecurity-support-technician",
+  "title": "Introduction to Cybersecurity",
+  "description": "This is a competency-based course designed for the indentured Cybersecurity Support Technician apprentice. Covers the fundamentals of cybersecurity, including security principles, risk management, and basic attack methodologies.",
+  "hours": 20,
+  "projects": 1,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Explain confidentiality, integrity, and availability, and use them to describe what a security control is protecting",
+    "Identify common threats and vulnerabilities in a described network or information system",
+    "Rate a risk by likelihood and impact and choose a mitigation strategy for it",
+    "Match a monitoring or response task to the right category of security tooling and to the framework function it serves"
+  ],
+  "prerequisites": [],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "cyb100-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cyb100-02",
+      "order": 2,
+      "slug": "security-principles-and-terminology",
+      "title": "Security Principles and Terminology",
+      "kind": "lesson",
+      "objectives": [
+        "Explain confidentiality, integrity, and availability, and use them to describe what a security control is protecting"
+      ],
+      "competency_ids": [
+        "D1-S1-C03"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cyb100-03",
+      "order": 3,
+      "slug": "threats-vulnerabilities-and-attack-methods",
+      "title": "Threats, Vulnerabilities, and Attack Methods",
+      "kind": "lesson",
+      "objectives": [
+        "Identify common threats and vulnerabilities in a described network or information system"
+      ],
+      "competency_ids": [
+        "D1-S1-C01"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cyb100-04",
+      "order": 4,
+      "slug": "risk-and-mitigation-basics",
+      "title": "Risk and Mitigation Basics",
+      "kind": "lesson",
+      "objectives": [
+        "Rate a risk by likelihood and impact and choose a mitigation strategy for it"
+      ],
+      "competency_ids": [
+        "D1-S1-C02"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cyb100-05",
+      "order": 5,
+      "slug": "security-tools-and-frameworks",
+      "title": "Security Tools and Frameworks",
+      "kind": "lesson",
+      "objectives": [
+        "Match a monitoring or response task to the right category of security tooling and to the framework function it serves"
+      ],
+      "competency_ids": [
+        "D1-S1-C04"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cyb100-06",
+      "order": 6,
+      "slug": "project-baseline-security-review",
+      "title": "Project: Baseline Security Review of a Small Office",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D1-S1-C01",
+        "D1-S1-C02",
+        "D1-S1-C03"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "This is the pathway's entry course, so it moves from vocabulary, to what goes wrong, to how the organization decides what to do about it, to what a technician actually touches. Lesson 02 establishes confidentiality, integrity, and availability first because every later judgement in the pathway - whether a firewall rule is too broad, whether an incident is severe, whether a control passes an audit - is stated in those terms. Lesson 03 introduces threats, vulnerabilities, and attack methods only after the learner has language for what is being attacked, so an attack is described by the property it breaks rather than by its brand name. Lesson 04 puts risk after threats because likelihood and impact are meaningless until the learner can name a specific threat acting on a specific asset. Lesson 05 closes the teaching sequence with tooling and frameworks so the learner leaves with a map of the categories (firewall, IDS/IPS, SIEM, EDR, vulnerability scanner) that the rest of the pathway fills in, and the project (06) is a written baseline review rather than a hands-on build, because no networking or endpoint coursework has happened yet. SCOPE ASSUMPTIONS - the intake supplies three sentences, no learning objectives and no lesson titles, so everything below was assumed and a reviewer should correct anything wrong: (1) The intake phrase 'basic attack methodologies' is read as attacker taxonomy and the phases of an intrusion at a conceptual level, taught defensively; no offensive tooling appears here - that is cyb140, under authorization. (2) 'Risk management' is scoped here to the vocabulary and the accept/avoid/transfer/reduce decision only; formal risk assessment methodology, registers, and frameworks belong to cyb150 and are deliberately not duplicated. (3) Network specifics (protocols, firewall rule syntax, segmentation) are out of scope and belong to net110; endpoint and malware specifics belong to cyb210. (4) Competency D1-S1-C03 (evaluate security controls) is scoped here to recognizing which security property a control protects, not to audit-grade control testing, which is cyb150. (5) The intake records one project; lesson 06 is it, and it is deliberately paper-based. (6) The catalog has no competency for the foundational principles themselves (CIA, least privilege, defense in depth), which is why lesson 02 is tagged to the nearest fit and a proposed competency is raised.",
+  "proposed_competencies": [
+    {
+      "domain_code": "D1",
+      "subdomain": "D1-S1",
+      "competency_text": "The learner can explain the core security principles - confidentiality, integrity, availability, least privilege, and defense in depth - and use them to describe what a given control protects.",
+      "rationale": "Lesson 02 is assessed on exactly this and it is the vocabulary every other course in the pathway depends on, but the catalog's closest competency (D1-S1-C03) is about evaluating a control's effectiveness, which presumes the principles rather than teaching them."
+    }
+  ],
+  "assets": [
+    {
+      "filename": "intrusion-phases-defensive-opportunities.png",
+      "description": "The phases of an intrusion, from reconnaissance through to impact, with the defensive opportunity available at each phase.",
+      "suggested_source": "Diagram, drawn in-house"
+    },
+    {
+      "filename": "csf-functions-tool-categories.png",
+      "description": "The six NIST Cybersecurity Framework functions with the categories of security tooling that serve each one.",
+      "suggested_source": "Diagram, drawn in-house"
+    }
+  ]
+}

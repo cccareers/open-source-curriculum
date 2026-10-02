@@ -1,0 +1,188 @@
+{
+  "course_id": "agile100",
+  "pathway": "quality-assurance-software-engineer",
+  "title": "Introduction to Agile Projects",
+  "description": "This is a competency-based course designed for the indentured website developer apprentice.  In this course, the apprentices will organize, participate, and work in a one (1) week \"sprint\" as a small team on a legacy (existing) code base. Apprentices will learn and practice an Agile workflow, ap",
+  "hours": 50,
+  "projects": null,
+  "notes": null,
+  "lesson_length": "Roughly 1,200 to 1,800 words of instructional prose per lesson, plus worked examples, templates, and the exercise. Most of this course's 50 hours are supervised team sprint work on a legacy codebase, not reading, so lesson bodies are deliberately shorter than the hours_estimate alone would suggest.",
+  "learning_objectives": [
+    "Explain Agile values and the QA engineer's role in each ceremony",
+    "Orient yourself in an unfamiliar legacy codebase and its documentation",
+    "Turn a user story's acceptance criteria into testable checks",
+    "Plan a sprint's testing work against scope and delivery dates",
+    "Collaborate daily with a team and escalate issues clearly",
+    "Track defects from discovery through verified closure",
+    "Demonstrate completed work and give useful retrospective input"
+  ],
+  "prerequisites": [
+    "ops100 Git / Chrome Devtools, or equivalent fluency with Git, pull requests, and browser debugging",
+    "Enough programming background to read an unfamiliar JavaScript codebase (web101, node100, alg100 or equivalent)"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "agile100-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "agile100-02",
+      "order": 2,
+      "slug": "agile-values-frameworks-and-the-qa-role",
+      "title": "Agile Values, Frameworks, and the QA Role",
+      "kind": "lesson",
+      "objectives": [
+        "Explain Agile values and the QA engineer's role in each ceremony"
+      ],
+      "competency_ids": [
+        "D1-S1-C01",
+        "D5-S1-C04"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "agile100-03",
+      "order": 3,
+      "slug": "reading-a-legacy-codebase-and-its-documentation",
+      "title": "Reading a Legacy Codebase and Its Documentation",
+      "kind": "lesson",
+      "objectives": [
+        "Orient yourself in an unfamiliar legacy codebase and its documentation"
+      ],
+      "competency_ids": [
+        "D3-S1-C02",
+        "D4-S1-C01",
+        "D4-S1-C02"
+      ],
+      "hours_estimate": 6,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "agile100-04",
+      "order": 4,
+      "slug": "backlog-user-stories-and-acceptance-criteria",
+      "title": "Backlog, User Stories, and Acceptance Criteria",
+      "kind": "lesson",
+      "objectives": [
+        "Turn a user story's acceptance criteria into testable checks"
+      ],
+      "competency_ids": [
+        "D1-S1-C02",
+        "D5-S1-C03"
+      ],
+      "hours_estimate": 6,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "agile100-05",
+      "order": 5,
+      "slug": "sprint-planning-and-the-sprint-test-plan",
+      "title": "Sprint Planning and the Sprint Test Plan",
+      "kind": "lesson",
+      "objectives": [
+        "Plan a sprint's testing work against scope and delivery dates"
+      ],
+      "competency_ids": [
+        "D1-S1-C02",
+        "D4-S1-C04",
+        "D5-S1-C03"
+      ],
+      "hours_estimate": 6,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "agile100-06",
+      "order": 6,
+      "slug": "daily-standups-collaboration-and-escalation",
+      "title": "Daily Standups, Collaboration, and Escalation",
+      "kind": "lesson",
+      "objectives": [
+        "Collaborate daily with a team and escalate issues clearly"
+      ],
+      "competency_ids": [
+        "D1-S1-C04",
+        "D2-S1-C05",
+        "D5-S1-C04"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "agile100-07",
+      "order": 7,
+      "slug": "bug-triage-and-tracking-through-the-sprint",
+      "title": "Bug Triage and Tracking Through the Sprint",
+      "kind": "lesson",
+      "objectives": [
+        "Track defects from discovery through verified closure"
+      ],
+      "competency_ids": [
+        "D2-S1-C01",
+        "D2-S1-C04",
+        "D3-S1-C05"
+      ],
+      "hours_estimate": 6,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "agile100-08",
+      "order": 8,
+      "slug": "sprint-review-demo-and-retrospective",
+      "title": "Sprint Review, Demo, and Retrospective",
+      "kind": "lesson",
+      "objectives": [
+        "Demonstrate completed work and give useful retrospective input"
+      ],
+      "competency_ids": [
+        "D1-S1-C03",
+        "D1-S1-C04",
+        "D2-S1-C02"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "agile100-09",
+      "order": 9,
+      "slug": "one-week-sprint-on-a-legacy-codebase",
+      "title": "One-Week Sprint on a Legacy Codebase",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D1-S1-C04",
+        "D2-S1-C01",
+        "D2-S1-C04",
+        "D4-S1-C01",
+        "D4-S1-C03",
+        "D5-S1-C04"
+      ],
+      "hours_estimate": 10,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "QA REFRAMING (stated explicitly because the intake evidence is borrowed): the intake describes this as a course for the 'indentured website developer apprentice'. It is a shared course repurposed for the Quality Assurance Software Engineer pathway, so this outline teaches toward the QA catalog rather than toward a developer's sprint experience. Every ceremony is taught from the QA seat: the QA engineer in backlog refinement is the person who turns an acceptance criterion into a testable check (D5-S1-C03), in planning is the person who owns the sprint test plan against the delivery date (D4-S1-C04), in standup is the person who escalates a blocking defect with the right clarity and detail (D2-S1-C05), through the sprint is the person who keeps the defect record honest from discovery to verified closure (D2-S1-C01, D2-S1-C04, D3-S1-C05), and in the review is the person who reports what was and was not verified (D1-S1-C03, D2-S1-C02). Lesson 03 exists because a QA engineer joining a legacy codebase reads code and documentation to locate breakdowns and to find where the documentation is wrong (D3-S1-C02, D4-S1-C02) before they can test anything. SEQUENCE: values and roles, then orientation in the codebase, then backlog and acceptance criteria, then planning, then daily collaboration, then triage, then review and retrospective, then the sprint itself. The ceremonies are taught in the order a sprint actually runs so the project lesson is a rehearsal of the sequence rather than a new topic; codebase orientation precedes backlog work because you cannot estimate or scope a check against code you have never opened. SCOPE ASSUMPTIONS: the intake description is truncated mid-word ('an Agile workflow, ap' - most likely 'appropriate' or 'application', which has deliberately NOT been guessed into any lesson) and contained mojibake around the word sprint, which has been re-encoded to plain double quotes rather than rewritten. What survives is firm on three points and they drive the outline: a one-week sprint, a small team, and an existing legacy codebase. Assumed in scope: Agile values and a Scrum-shaped ceremony set, backlog and user stories, acceptance criteria, estimation and sprint planning, a sprint test plan, standups, bug triage and tracking in an issue tracker, sprint review and demo, and retrospectives. Assumed out of scope and deliberately left out: SAFe or other scaled frameworks, release-train planning, formal certification content, and contract or vendor management. The framework is presented as Scrum-flavoured because a one-week sprint implies it, and Kanban is contrasted only briefly. HOURS: 1h overview, seven teaching lessons of 5 to 6h, and a 10h sprint project, summing to exactly 50. Because most of those hours are supervised team work rather than reading, lesson_length is set so lesson bodies stay at roughly 1,200 to 1,800 words rather than the default word-per-hour budget; a reviewer who disagrees should clear lesson_length and regenerate. LESSON KINDS: intake records no project count for this course, but the description explicitly requires the team to 'organize, participate, and work in a one (1) week sprint', so lesson 09 is written as a kind 'project' brief. That is the one place this outline overrides the missing intake project count, and it is called out here so a reviewer can reverse it.",
+  "proposed_competencies": [
+    {
+      "domain_code": "D4",
+      "subdomain": "D4-S1",
+      "competency_text": "The learner can translate a user story's acceptance criteria into concrete, executable test cases before development starts.",
+      "rationale": "Lesson 04 is built on this skill and lesson 05 depends on it. D5-S1-C03 covers giving input in design reviews and D4-S1-C04 covers planning test schedules and strategies, but neither names the specific act of converting acceptance criteria into test cases, which is the single most common day-one task for an apprentice QA engineer on an Agile team."
+    }
+  ],
+  "assets": [
+    {
+      "filename": "sprint-cycle.png",
+      "description": "One sprint cycle with the QA touchpoints marked: refinement, planning, daily standup, testing and triage, review and demo, retrospective.",
+      "suggested_source": "Diagram, drawn in-house"
+    }
+  ]
+}

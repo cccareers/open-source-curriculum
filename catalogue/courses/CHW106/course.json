@@ -1,0 +1,109 @@
+{
+  "course_id": "CHW106",
+  "pathway": "community-healthcare-worker",
+  "title": "Internship Completion and Career Readiness",
+  "description": "Capstone course combining active internship hours with career launch preparation. Students work directly with real clients, demonstrate all CHW roles in practice, refine resumes, cover letters, and bios, and develop professional workplace skills.",
+  "hours": 50,
+  "projects": 1,
+  "notes": "Adapted from Calbright College CHW program outline (course 06 / CHW 506), renumbered per CCC convention.",
+  "lesson_length": "Lab-guide lessons, roughly 1500-2000 words each, supporting instructor-led sessions and independent study",
+  "learning_objectives": [
+    "Demonstrate CHW roles in practice with real clients under supervision",
+    "Refine a resume, cover letter, and professional bio for CHW roles",
+    "Demonstrate professional workplace skills: reliability, documentation, boundaries, and teamwork"
+  ],
+  "prerequisites": [
+    "CHW105: Internship Placement"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "CHW106-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 2,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "CHW106-02",
+      "order": 2,
+      "slug": "demonstrating-chw-roles-in-practice",
+      "title": "Demonstrating CHW Roles in Practice",
+      "kind": "lesson",
+      "objectives": [
+        "Demonstrate CHW roles in practice with real clients under supervision",
+        "Map internship activities to the C3 roles they evidence"
+      ],
+      "competency_ids": [
+        "D2-S1-C03",
+        "D3-S2-C04",
+        "D4-S1-C01"
+      ],
+      "hours_estimate": 12,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "CHW106-03",
+      "order": 3,
+      "slug": "working-with-real-clients-under-supervision",
+      "title": "Working with Real Clients Under Supervision",
+      "kind": "project",
+      "objectives": [
+        "Work with real clients while maintaining confidentiality, boundaries, and supervision practices",
+        "Bring boundary and safety concerns to a field mentor early"
+      ],
+      "competency_ids": [
+        "D5-S1-C01",
+        "D5-S1-C03",
+        "D5-S1-C04"
+      ],
+      "hours_estimate": 12,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "CHW106-04",
+      "order": 4,
+      "slug": "resume-cover-letter-and-professional-bio",
+      "title": "Resume, Cover Letter, and Professional Bio",
+      "kind": "lesson",
+      "objectives": [
+        "Refine a resume, cover letter, and professional bio for CHW roles",
+        "Translate internship experience into quantified, verifiable statements"
+      ],
+      "competency_ids": [],
+      "hours_estimate": 12,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "CHW106-05",
+      "order": 5,
+      "slug": "professional-workplace-skills",
+      "title": "Professional Workplace Skills",
+      "kind": "lesson",
+      "objectives": [
+        "Demonstrate professional workplace skills: reliability, documentation, boundaries, and teamwork",
+        "Complete workplace documentation accurately and within required timeframes"
+      ],
+      "competency_ids": [
+        "D5-S1-C02",
+        "D5-S1-C04"
+      ],
+      "hours_estimate": 12,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Course 6 of 6: the capstone — active internship hours plus career launch. Role demonstration first (what the internship must evidence), the supervised client-work project second as the heart of the course, then career materials and workplace professionalism to close the program. Scope assumption: this course assesses transfer — competencies already taught in CHW102-104 now demonstrated with real clients under supervision — so lessons re-tag a representative cross-domain sample rather than re-teaching; resume/cover-letter content is raised as a proposed competency.",
+  "proposed_competencies": [
+    {
+      "domain_code": "D5",
+      "subdomain": "D5-S1",
+      "competency_text": "The learner can produce a resume, cover letter, and professional bio that present CHW experience in employer-ready form.",
+      "rationale": "CHW106 lesson 4 is career-materials content; the skills matrix has no career-readiness competency."
+    }
+  ],
+  "assets": []
+}

@@ -1,0 +1,86 @@
+{
+  "course_id": "PREAPP-W5",
+  "pathway": "tech-pre-apprenticeship",
+  "title": "Pathway Rotation: Software Development",
+  "description": "Week 5 is the Software Development rotation: scripting in service of real work, code as another lever on the same engine. Participants apply core programming concepts (variables, functions, loops, data structures) to contact-list tasks in TypeScript; learn what APIs are and use a script to pull and transform their own pipeline data; and learn Git fundamentals, publishing working code to GitHub with a plain-language README while pairing with a current CCC software apprentice. Weekly milestone: working script published to GitHub.",
+  "hours": 20,
+  "projects": 1,
+  "notes": "Weekly milestone: working script published to GitHub. Participants pair with a current CCC software apprentice.",
+  "lesson_length": "Lab-guide lessons, roughly 1200-1800 words each, supporting a full week of live instructor-led practice",
+  "learning_objectives": [
+    "Apply core programming concepts to contact-list tasks in TypeScript",
+    "Explain what APIs are and use a script to pull and transform pipeline data",
+    "Use Git fundamentals and publish working code to GitHub with a plain-language README"
+  ],
+  "prerequisites": [
+    "Week 4: Pathway Rotation: AI Prompt Engineering & Automation"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "PREAPP-W5-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 0.5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "PREAPP-W5-02",
+      "order": 2,
+      "slug": "programming-concepts-through-real-tasks",
+      "title": "Programming Concepts Through Real Tasks",
+      "kind": "lesson",
+      "objectives": [
+        "Apply core programming concepts to contact-list tasks in TypeScript",
+        "Trace what a short program does and predict its output"
+      ],
+      "competency_ids": [
+        "D4-S1-C01",
+        "D4-S1-C02"
+      ],
+      "hours_estimate": 6.5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "PREAPP-W5-03",
+      "order": 3,
+      "slug": "data-apis",
+      "title": "Data & APIs",
+      "kind": "lesson",
+      "objectives": [
+        "Explain what APIs are and use a script to pull and transform pipeline data",
+        "Order fetch, parse, transform, and output steps in a working data script"
+      ],
+      "competency_ids": [
+        "D4-S2-C01",
+        "D4-S2-C02"
+      ],
+      "hours_estimate": 6.5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "PREAPP-W5-04",
+      "order": 4,
+      "slug": "version-control-shipping",
+      "title": "Version Control & Shipping",
+      "kind": "project",
+      "objectives": [
+        "Use Git fundamentals and publish working code to GitHub with a plain-language README",
+        "Write a README a non-expert can use to understand and run the project"
+      ],
+      "competency_ids": [
+        "D4-S3-C01",
+        "D4-S3-C02"
+      ],
+      "hours_estimate": 6.5,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Week 5 is the Software Development rotation: scripting in service of the same outreach engine. Programming concepts first on contact-list tasks, data and APIs second so the script works on the participant's own pipeline data, version control last so the finished script ships to GitHub as the weekly milestone. Scope assumption: TypeScript is the taught language (per the program catalog); depth is one-week rotation level, not a full programming course. Participants pair with a current CCC software apprentice.",
+  "proposed_competencies": [],
+  "assets": []
+}

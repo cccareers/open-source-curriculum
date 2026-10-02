@@ -1,0 +1,171 @@
+{
+  "course_id": "dm301",
+  "pathway": "digital-marketer",
+  "title": "Web Analytics & Data Analysis",
+  "description": "This is a competency-based course designed for the indentured Digital Marketer apprentice. This course focuses on using data to inform marketing decisions. Apprentices will learn to track and analyze key performance indicators (KPIs), set up Google Analytics, interpret reports, and optimize marketin",
+  "hours": 25,
+  "projects": null,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Set up a GA4 property and verify that it collects the events a business cares about",
+    "Choose KPIs for a marketing goal and read behavior reports against them",
+    "Combine Search Console and analytics data to answer a measurement question",
+    "Turn an analytics finding into a specific marketing decision",
+    "Run a usability test and report what it reveals",
+    "Use heatmaps, session recordings, and user feedback to locate experience problems",
+    "Propose and justify a change intended to lift conversion rate"
+  ],
+  "prerequisites": [
+    "dm101 Introduction to Digital Marketing",
+    "At least one channel course (dm201, dm230, dm250, or dm270), so there is campaign data worth analyzing"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "dm301-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "dm301-02",
+      "order": 2,
+      "slug": "analytics-foundations-and-ga4-setup",
+      "title": "Analytics Foundations and GA4 Setup",
+      "kind": "lesson",
+      "objectives": [
+        "Set up a GA4 property and verify that it collects the events a business cares about",
+        "Explain how events, sessions, and users are counted"
+      ],
+      "competency_ids": [
+        "D6-S1-C01"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "dm301-03",
+      "order": 3,
+      "slug": "kpis-and-user-behavior-reports",
+      "title": "KPIs and User Behavior Reports",
+      "kind": "lesson",
+      "objectives": [
+        "Choose KPIs for a marketing goal and read behavior reports against them",
+        "Segment a report to compare audiences, channels, or landing pages"
+      ],
+      "competency_ids": [
+        "D6-S1-C02"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "dm301-04",
+      "order": 4,
+      "slug": "search-console-and-cross-tool-reporting",
+      "title": "Search Console and Cross-Tool Reporting",
+      "kind": "lesson",
+      "objectives": [
+        "Combine Search Console and analytics data to answer a measurement question",
+        "Build a report a non-technical stakeholder can act on"
+      ],
+      "competency_ids": [
+        "D6-S1-C01"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "dm301-05",
+      "order": 5,
+      "slug": "from-data-to-decisions",
+      "title": "From Data to Decisions",
+      "kind": "lesson",
+      "objectives": [
+        "Turn an analytics finding into a specific marketing decision",
+        "Separate a real signal from normal variation"
+      ],
+      "competency_ids": [
+        "D6-S1-C03"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "dm301-06",
+      "order": 6,
+      "slug": "usability-testing-and-ux-analysis",
+      "title": "Usability Testing and UX Analysis",
+      "kind": "lesson",
+      "objectives": [
+        "Run a usability test and report what it reveals"
+      ],
+      "competency_ids": [
+        "D6-S2-C01"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "dm301-07",
+      "order": 7,
+      "slug": "heatmaps-recordings-and-user-feedback",
+      "title": "Heatmaps, Recordings, and User Feedback",
+      "kind": "lesson",
+      "objectives": [
+        "Use heatmaps, session recordings, and user feedback to locate experience problems"
+      ],
+      "competency_ids": [
+        "D6-S2-C03"
+      ],
+      "hours_estimate": 2,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "dm301-08",
+      "order": 8,
+      "slug": "conversion-rate-optimization",
+      "title": "Conversion Rate Optimization",
+      "kind": "lesson",
+      "objectives": [
+        "Propose and justify a change intended to lift conversion rate"
+      ],
+      "competency_ids": [
+        "D6-S2-C02"
+      ],
+      "hours_estimate": 2,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "dm301-09",
+      "order": 9,
+      "slug": "project-analytics-audit-and-cro-plan",
+      "title": "Project: Analytics Audit and CRO Experiment Plan",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D6-S1-C03",
+        "D6-S2-C02",
+        "D6-S2-C03"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Collection before reporting before interpretation before intervention. Lessons 02-04 establish that the numbers are trustworthy and where they come from; 05 is the hinge lesson that turns a number into a decision; 06-08 are the intervention half, moving from qualitative evidence (usability testing) through behavioral evidence (heatmaps, recordings) to the change itself (CRO), because a conversion hypothesis with no evidence behind it is guessing. The project makes the learner walk the whole arc once. SCOPE ASSUMPTIONS - the intake description is truncated mid-word (it ends at 'optimize marketin') and supplied no objectives or lesson titles, so: (1) The cut phrase was read as optimizing marketing performance, which is what lessons 05 and 08 teach; nothing further was invented. (2) Google Analytics is named in the intake, so GA4 is the primary teaching tool and Google Search Console the secondary; heatmap and session-recording tools are taught as a category with no vendor assumed - the reviewer should confirm what the program licenses. (3) The catalog puts CRO and UX (D6-S2) in the same domain as analytics, so this course carries all six D6 competencies; that makes it dense for 25 hours and lessons 06-08 are deliberately introductory. If the program wants real CRO depth, this course needs more hours or a companion course. (4) SQL, BigQuery exports, data warehousing, attribution modeling and marketing-mix modeling are OUT of scope. (5) Tag management is covered only as far as verifying that an event fires. (6) Landing-page CRO for paid traffic is dm230 lesson 09; this course generalizes it beyond paid.",
+  "proposed_competencies": [
+    {
+      "domain_code": "D6",
+      "subdomain": "D6-S1",
+      "competency_text": "The learner can build and present a marketing performance report or dashboard for a non-technical stakeholder, stating the data's limitations honestly.",
+      "rationale": "Lesson 04 and the capstone both end in a stakeholder deliverable, and reporting to non-analysts is the daily task in this role, but D6-S1-C01 covers navigating tools and D6-S1-C03 covers interpreting data - neither covers communicating it."
+    }
+  ],
+  "assets": []
+}

@@ -1,0 +1,159 @@
+{
+  "course_id": "se250",
+  "pathway": "technical-sales-representative",
+  "title": "Advanced Sales Presentations & Storytelling",
+  "description": "This is a competency-based course designed for the indentured Technical Sales Representative apprentice. Enhancing sales presentations using presentation software and storytelling techniques to engage prospects.",
+  "hours": 32,
+  "projects": null,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Decide what a specific sales presentation must accomplish before designing a single slide",
+    "Structure a sales narrative with a protagonist, a conflict, and a resolution the product enables",
+    "Turn a data set into a visual argument a buyer can read in seconds",
+    "Build a deck in presentation software that survives being read without you in the room",
+    "Deliver a presentation with presence and absorb interruptions without losing the thread",
+    "Lead a presentation with an insight that reframes the buyer's view of their situation"
+  ],
+  "prerequisites": [
+    "Introduction to Sales (se101), or equivalent sales fundamentals",
+    "Advanced SaaS Sales Strategies (se201), for the metrics the data slides argue with"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "se250-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "se250-02",
+      "order": 2,
+      "slug": "what-a-sales-presentation-has-to-do",
+      "title": "What a Sales Presentation Has to Do",
+      "kind": "lesson",
+      "objectives": [
+        "Decide what a specific sales presentation must accomplish before designing a single slide"
+      ],
+      "competency_ids": [
+        "D2-S1-C04"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "se250-03",
+      "order": 3,
+      "slug": "story-structure-for-a-sales-narrative",
+      "title": "Story Structure for a Sales Narrative",
+      "kind": "lesson",
+      "objectives": [
+        "Structure a sales narrative with a protagonist, a conflict, and a resolution the product enables"
+      ],
+      "competency_ids": [
+        "D2-S1-C04"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "se250-04",
+      "order": 4,
+      "slug": "turning-data-into-a-visual-argument",
+      "title": "Turning Data into a Visual Argument",
+      "kind": "lesson",
+      "objectives": [
+        "Turn a data set into a visual argument a buyer can read in seconds"
+      ],
+      "competency_ids": [
+        "D2-S1-C04"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "se250-05",
+      "order": 5,
+      "slug": "building-the-deck",
+      "title": "Building the Deck",
+      "kind": "lesson",
+      "objectives": [
+        "Build a deck in presentation software that survives being read without you in the room"
+      ],
+      "competency_ids": [
+        "D2-S1-C04"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "se250-06",
+      "order": 6,
+      "slug": "delivery-presence-and-interruptions",
+      "title": "Delivery, Presence, and Interruptions",
+      "kind": "lesson",
+      "objectives": [
+        "Deliver a presentation with presence and absorb interruptions without losing the thread"
+      ],
+      "competency_ids": [
+        "D2-S1-C05"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "se250-07",
+      "order": 7,
+      "slug": "insight-led-presenting",
+      "title": "Insight-Led Presenting",
+      "kind": "lesson",
+      "objectives": [
+        "Lead a presentation with an insight that reframes the buyer's view of their situation"
+      ],
+      "competency_ids": [
+        "D2-S1-C03"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "se250-08",
+      "order": 8,
+      "slug": "project-deliver-a-recorded-customer-presentation",
+      "title": "Project: Deliver a Recorded Customer Presentation",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D2-S1-C04",
+        "D2-S1-C05"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Purpose, then narrative, then evidence, then artifact, then delivery: the deck is built last among the design lessons (5) on purpose, because learners who open presentation software first produce slide decoration instead of an argument. Delivery (6) and insight-led presenting (7) follow the artifact because both are performed against it, and the recorded project (8) is the only assessable evidence of the two together. SCOPE ASSUMPTIONS: the imported description was contaminated with xlsx scan boilerplate (\"Attachment B-9 Training Schedule and Working Conditions…\"), which the importer stripped and warned about; the surviving sentence names only presentation software and storytelling to engage prospects. Scope was therefore reconstructed from the title plus catalog competency D2-S1-C04, which explicitly pairs data visualization with storytelling — that pairing is the spine of the course. Assumed in scope: narrative structure, chart and slide design, deck craft in a generic presentation tool, live delivery, and insight-led framing. Assumed out of scope: video production and editing beyond a simple screen recording, brand and marketing collateral design, demo engineering of the product itself, and pricing negotiation inside the meeting (se203). No specific presentation product is named because the intake names none.",
+  "proposed_competencies": [],
+  "assets": [
+    {
+      "filename": "narrative-arc.png",
+      "description": "The six beats of a sales narrative — world as it is, the change, the stakes, the struggle, the turn, the new normal — shown as a left-to-right arc with the product entering only at the turn.",
+      "suggested_source": "Diagram, drawn in-house"
+    },
+    {
+      "filename": "chart-choice.png",
+      "description": "Decision guide mapping the shape of a claim (comparison, change over time, composition, distribution, relationship, single number) to the chart form that encodes it.",
+      "suggested_source": "Diagram, drawn in-house"
+    },
+    {
+      "filename": "slide-anatomy.png",
+      "description": "The four parts of a content slide: assertion headline, single evidence body, source line, and edge furniture, with the assertion headline called out as the largest element.",
+      "suggested_source": "Diagram, drawn in-house"
+    }
+  ]
+}

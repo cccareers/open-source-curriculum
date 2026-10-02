@@ -1,0 +1,177 @@
+{
+  "course_id": "de102",
+  "pathway": "data-engineer",
+  "title": "SQL & NoSQL Databases",
+  "description": "This is a competency-based course designed for the indentured Data Engineer apprentice.  Hands-on training on relational databases (PostgreSQL, MySQL) and NoSQL databases (MongoDB, Cassandra). Covers data storage, indexing, and query optimization techniques.",
+  "hours": 40,
+  "projects": null,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Model a relational schema whose integrity is enforced by keys and constraints",
+    "Write analytical SQL using joins, subqueries, common table expressions, and window functions",
+    "Explain how an isolation level changes what a concurrent transaction can observe",
+    "Choose an index type and column order that a given query can actually use",
+    "Read an execution plan and name the operator responsible for a slow query",
+    "Partition a large table so that queries prune the partitions they do not need",
+    "Design a MongoDB document model and a Cassandra table around their access patterns",
+    "Diagnose and reduce read and write latency in a NoSQL deployment"
+  ],
+  "prerequisites": [
+    "Data Engineering Fundamentals (de101), or equivalent experience writing single-table and simple join queries",
+    "Ability to run a local database with Docker or a package manager"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "de102-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "de102-02",
+      "order": 2,
+      "slug": "relational-modeling-in-postgresql-and-mysql",
+      "title": "Relational Modeling in PostgreSQL and MySQL",
+      "kind": "lesson",
+      "objectives": [
+        "Model a relational schema whose integrity is enforced by keys and constraints"
+      ],
+      "competency_ids": [
+        "D3-S1-C01"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "de102-03",
+      "order": 3,
+      "slug": "advanced-sql-joins-subqueries-and-window-functions",
+      "title": "Advanced SQL: Joins, Subqueries, and Window Functions",
+      "kind": "lesson",
+      "objectives": [
+        "Write analytical SQL using joins, subqueries, common table expressions, and window functions"
+      ],
+      "competency_ids": [
+        "D3-S1-C02"
+      ],
+      "hours_estimate": 6,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "de102-04",
+      "order": 4,
+      "slug": "transactions-isolation-and-concurrency",
+      "title": "Transactions, Isolation, and Concurrency",
+      "kind": "lesson",
+      "objectives": [
+        "Explain how an isolation level changes what a concurrent transaction can observe"
+      ],
+      "competency_ids": [
+        "D3-S1-C01",
+        "D3-S1-C02"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "de102-05",
+      "order": 5,
+      "slug": "indexing-strategies",
+      "title": "Indexing Strategies",
+      "kind": "lesson",
+      "objectives": [
+        "Choose an index type and column order that a given query can actually use"
+      ],
+      "competency_ids": [
+        "D3-S1-C03"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "de102-06",
+      "order": 6,
+      "slug": "reading-query-execution-plans",
+      "title": "Reading Query Execution Plans",
+      "kind": "lesson",
+      "objectives": [
+        "Read an execution plan and name the operator responsible for a slow query"
+      ],
+      "competency_ids": [
+        "D3-S1-C03",
+        "D5-S2-C01"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "de102-07",
+      "order": 7,
+      "slug": "partitioning-and-storage-layout",
+      "title": "Partitioning and Storage Layout",
+      "kind": "lesson",
+      "objectives": [
+        "Partition a large table so that queries prune the partitions they do not need"
+      ],
+      "competency_ids": [
+        "D3-S1-C03",
+        "D5-S2-C02"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "de102-08",
+      "order": 8,
+      "slug": "document-and-wide-column-stores",
+      "title": "Document and Wide-Column Stores",
+      "kind": "lesson",
+      "objectives": [
+        "Design a MongoDB document model and a Cassandra table around their access patterns"
+      ],
+      "competency_ids": [
+        "D3-S1-C01",
+        "D3-S1-C02"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "de102-09",
+      "order": 9,
+      "slug": "tuning-nosql-reads-and-writes",
+      "title": "Tuning NoSQL Reads and Writes",
+      "kind": "lesson",
+      "objectives": [
+        "Diagnose and reduce read and write latency in a NoSQL deployment"
+      ],
+      "competency_ids": [
+        "D5-S2-C01",
+        "D5-S2-C02"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Second course in the pathway (de101 -> de102 -> de201 -> de210 -> ds320 -> agile310); it turns de101's storage survey into working database skill. The relational half comes first and in a strict dependency chain: model, then query, then the concurrency semantics that queries run under, then indexing, then plans (which are only readable once indexes are understood), then partitioning (an index-and-layout decision at scale). The NoSQL half comes second so document and wide-column modeling can be taught as a deliberate departure from the relational norms just established, and NoSQL tuning closes the course because it reuses the plan-reading and layout instincts from lessons 6 and 7.\n\nScope assumptions (intake gave one description sentence naming PostgreSQL, MySQL, MongoDB and Cassandra, plus 40 hours; no objectives or lesson titles were supplied): (1) PostgreSQL is treated as the primary teaching engine with MySQL differences called out, because the two diverge enough that teaching both symmetrically would halve the depth. (2) 'Data storage, indexing, and query optimization' is read as single-node performance work — B-tree and specialized index types, execution plans, table partitioning, and compression/format choices. Distributed query engines are out of scope and covered by de201. (3) Database administration (backup, replication topology, failover, upgrades) is treated as out of scope: the catalog competencies here are about managing data and queries, not operating a cluster. (4) Cassandra is taught as a modeling and tuning exercise against a small local cluster; multi-datacenter operations are excluded. (5) Security, encryption, and access control appear in ds320 and are deliberately not repeated here. (6) Hours skew toward lessons 3, 5, 6 and 7 because query authoring and optimization are where the catalog's D3 and D5-S2 competencies actually live.",
+  "proposed_competencies": [],
+  "assets": [
+    {
+      "filename": "btree-index-lookup.png",
+      "description": "A B-tree index traversal from the root page through internal pages to a linked leaf page, then a lookup into the table heap, showing why lookups are logarithmic and why leaves being sorted and linked enables range scans.",
+      "suggested_source": "Diagram, drawn in-house"
+    },
+    {
+      "filename": "range-partition-pruning.png",
+      "description": "A range-partitioned orders table with twelve monthly partitions where a date-filtered query touches only two of them, illustrating partition pruning.",
+      "suggested_source": "Diagram, drawn in-house"
+    }
+  ]
+}

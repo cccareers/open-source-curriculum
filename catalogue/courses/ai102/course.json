@@ -1,0 +1,303 @@
+{
+  "course_id": "ai102",
+  "pathway": "prompt-engineer",
+  "title": "No-Code & Low-Code AI Integration",
+  "description": "This is a competency-based course designed for the indentured Prompt Engineer apprentice.  Explores platforms like Zapier, Make, and other low-code tools to integrate AI capabilities. Focuses on building automated workflows and connecting AI services without extensive coding.",
+  "hours": 80,
+  "projects": null,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Describe the no-code and low-code landscape and choose a class of tool that fits a stated automation need",
+    "Build a working multi-step automation in Zapier from a trigger through to a completed action",
+    "Build the same class of automation in Make using scenarios, modules, and routers, and explain the trade-offs against Zapier",
+    "Model records, fields, relations, and views in a no-code database so it can serve as an application backend",
+    "Assemble a working interface on top of a no-code database for a defined user task",
+    "Add branching, filters, retries, and explicit error paths so an automation behaves predictably when a step fails",
+    "Embed a prompt inside an automation step so the model receives clean input and returns output the next step can consume",
+    "Connect a tool that has no prebuilt integration by calling its REST API from an HTTP step",
+    "Receive and send events with webhooks, including verifying and shaping an inbound payload",
+    "Configure and manage credentials for connected tools without exposing secrets",
+    "Design a business chatbot's scope, conversation flow, and escalation path before building it",
+    "Build a chatbot that answers from your own content rather than from the model's general knowledge",
+    "Deploy a chatbot to a real channel with human handoff and usage monitoring in place",
+    "Test a no-code AI build and account for its running cost, quota limits, and failure modes before handing it over",
+    "Deliver an integrated no-code AI solution that combines a database, an interface, an automation, and an AI step"
+  ],
+  "prerequisites": [
+    "Completion of ai101, or equivalent ability to write and refine a structured prompt",
+    "Comfort with spreadsheets, web applications, and moving data between systems"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "ai102-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ai102-02",
+      "order": 2,
+      "slug": "the-no-code-and-low-code-landscape",
+      "title": "The No-Code and Low-Code Landscape",
+      "kind": "lesson",
+      "objectives": [
+        "Describe the no-code and low-code landscape and choose a class of tool that fits a stated automation need"
+      ],
+      "competency_ids": [
+        "D2-S1-C01"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ai102-03",
+      "order": 3,
+      "slug": "your-first-automation-in-zapier",
+      "title": "Your First Automation in Zapier",
+      "kind": "lesson",
+      "objectives": [
+        "Build a working multi-step automation in Zapier from a trigger through to a completed action"
+      ],
+      "competency_ids": [
+        "D2-S1-C01",
+        "D2-S1-C02"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ai102-04",
+      "order": 4,
+      "slug": "scenarios-modules-and-routers-in-make",
+      "title": "Scenarios, Modules, and Routers in Make",
+      "kind": "lesson",
+      "objectives": [
+        "Build the same class of automation in Make using scenarios, modules, and routers, and explain the trade-offs against Zapier"
+      ],
+      "competency_ids": [
+        "D2-S1-C01",
+        "D2-S1-C02"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ai102-05",
+      "order": 5,
+      "slug": "no-code-databases-as-an-application-backend",
+      "title": "No-Code Databases as an Application Backend",
+      "kind": "lesson",
+      "objectives": [
+        "Model records, fields, relations, and views in a no-code database so it can serve as an application backend"
+      ],
+      "competency_ids": [
+        "D2-S1-C01"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ai102-06",
+      "order": 6,
+      "slug": "building-an-interface-on-a-no-code-database",
+      "title": "Building an Interface on a No-Code Database",
+      "kind": "lesson",
+      "objectives": [
+        "Assemble a working interface on top of a no-code database for a defined user task"
+      ],
+      "competency_ids": [
+        "D2-S1-C01"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ai102-07",
+      "order": 7,
+      "slug": "logic-branching-and-error-paths",
+      "title": "Logic, Branching, and Error Paths",
+      "kind": "lesson",
+      "objectives": [
+        "Add branching, filters, retries, and explicit error paths so an automation behaves predictably when a step fails"
+      ],
+      "competency_ids": [
+        "D2-S1-C02"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ai102-08",
+      "order": 8,
+      "slug": "adding-an-ai-step-to-an-automation",
+      "title": "Adding an AI Step to an Automation",
+      "kind": "lesson",
+      "objectives": [
+        "Embed a prompt inside an automation step so the model receives clean input and returns output the next step can consume"
+      ],
+      "competency_ids": [
+        "D2-S1-C02",
+        "D1-S1-C02"
+      ],
+      "hours_estimate": 6,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ai102-09",
+      "order": 9,
+      "slug": "connecting-tools-with-rest-apis",
+      "title": "Connecting Tools with REST APIs",
+      "kind": "lesson",
+      "objectives": [
+        "Connect a tool that has no prebuilt integration by calling its REST API from an HTTP step"
+      ],
+      "competency_ids": [
+        "D2-S1-C03"
+      ],
+      "hours_estimate": 6,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ai102-10",
+      "order": 10,
+      "slug": "webhooks-receiving-and-sending-events",
+      "title": "Webhooks: Receiving and Sending Events",
+      "kind": "lesson",
+      "objectives": [
+        "Receive and send events with webhooks, including verifying and shaping an inbound payload"
+      ],
+      "competency_ids": [
+        "D2-S1-C03"
+      ],
+      "hours_estimate": 6,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ai102-11",
+      "order": 11,
+      "slug": "authentication-and-credential-management",
+      "title": "Authentication and Credential Management",
+      "kind": "lesson",
+      "objectives": [
+        "Configure and manage credentials for connected tools without exposing secrets"
+      ],
+      "competency_ids": [
+        "D2-S1-C03"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ai102-12",
+      "order": 12,
+      "slug": "designing-a-business-chatbot",
+      "title": "Designing a Business Chatbot",
+      "kind": "lesson",
+      "objectives": [
+        "Design a business chatbot's scope, conversation flow, and escalation path before building it"
+      ],
+      "competency_ids": [
+        "D2-S1-C04"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ai102-13",
+      "order": 13,
+      "slug": "grounding-a-chatbot-in-your-own-content",
+      "title": "Grounding a Chatbot in Your Own Content",
+      "kind": "lesson",
+      "objectives": [
+        "Build a chatbot that answers from your own content rather than from the model's general knowledge"
+      ],
+      "competency_ids": [
+        "D2-S1-C04"
+      ],
+      "hours_estimate": 6,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ai102-14",
+      "order": 14,
+      "slug": "deploying-a-chatbot-with-handoff-and-monitoring",
+      "title": "Deploying a Chatbot with Handoff and Monitoring",
+      "kind": "lesson",
+      "objectives": [
+        "Deploy a chatbot to a real channel with human handoff and usage monitoring in place"
+      ],
+      "competency_ids": [
+        "D2-S1-C04"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ai102-15",
+      "order": 15,
+      "slug": "testing-cost-and-reliability",
+      "title": "Testing, Cost, and Reliability",
+      "kind": "lesson",
+      "objectives": [
+        "Test a no-code AI build and account for its running cost, quota limits, and failure modes before handing it over"
+      ],
+      "competency_ids": [
+        "D2-S1-C02"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ai102-16",
+      "order": 16,
+      "slug": "project-an-integrated-no-code-ai-solution",
+      "title": "Project: An Integrated No-Code AI Solution",
+      "kind": "project",
+      "objectives": [
+        "Deliver an integrated no-code AI solution that combines a database, an interface, an automation, and an AI step"
+      ],
+      "competency_ids": [
+        "D2-S1-C01",
+        "D2-S1-C02",
+        "D2-S1-C03",
+        "D2-S1-C04"
+      ],
+      "hours_estimate": 6,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Sequence: ai102 follows ai101 because every AI step in this course is a prompt, and it precedes ai201 because ai201 automates whole business processes on top of the platform skill built here. Within the course the order is build, then connect, then ship. Lessons 02 and 03 establish a working automation on the two platforms the intake names by name (Zapier and Make) before any AI is involved, so a failure is attributable to the workflow rather than the model. Lessons 05 and 06 add persistent data and an interface, because an automation with nowhere to write is a demo rather than a solution. Lesson 07 (logic and error paths) precedes the AI step so learners already know how to contain a failing step when the failing step is a model. Lesson 08 introduces the AI step only once clean input and a consumer for the output both exist. Lessons 09 through 11 cover the escape hatch from prebuilt connectors (REST, webhooks, credentials) and are grouped after the AI step because that is when learners first hit a tool with no connector. Lessons 12 through 14 treat the chatbot as a designed product rather than a feature: scope and flow first, grounding second, deployment and handoff third. Lesson 15 covers testing and running cost before the project so the project can be judged on reliability. Lesson 16 is a project because D2-S1-C01 through D2-S1-C04 are build competencies that cannot be demonstrated by prose. SCOPE ASSUMPTIONS (intake supplies no objectives and no lesson titles; the description names Zapier, Make, 'other low-code tools', 'building automated workflows', and 'connecting AI services without extensive coding'): we assume Zapier and Make are taught as the two named platforms and everything else (Airtable-style databases, no-code app builders, n8n, Softr) is taught as a tool class with one representative, so the course survives a vendor change; catalog competency D2-S1-C01 names Airtable, Make.com, n8n, Zapier, and Softr, which we read as a class list rather than a required tool checklist. We assume 80 hours at this level means breadth across all four D2 competencies plus a substantial build, not depth in one platform's advanced features. We assume 'without extensive coding' permits JSON, expressions, and HTTP request configuration but not writing application code; custom connector development, self-hosted n8n operations, and paid-plan-only enterprise features are out of scope. Retrieval-based grounding is taught at the platform level in lesson 13; the infrastructure underneath it belongs to db305. Reviewers should correct these assumptions before content approval.",
+  "proposed_competencies": [
+    {
+      "domain_code": "D2",
+      "subdomain": "D2-S1",
+      "competency_text": "The learner can estimate and control the running cost of a no-code AI build, including platform task or operation quotas and model token spend.",
+      "rationale": "Lesson 15 teaches cost and quota reasoning because a no-code AI automation that silently exhausts a plan is a common real-world failure, but the catalog's D2 competencies cover building, automating, integrating, and deploying with no competency addressing operating cost."
+    },
+    {
+      "domain_code": "D2",
+      "subdomain": "D2-S1",
+      "competency_text": "The learner can document and hand over a no-code build so another practitioner can maintain, modify, and troubleshoot it without the original author.",
+      "rationale": "Lessons 14 and 16 both require handover and apprentices ship into employers' accounts, but the catalog has no competency covering documentation or maintainability of a no-code solution."
+    }
+  ],
+  "assets": [
+    {
+      "filename": "webhook-handshake.png",
+      "description": "Sequence diagram of a webhook delivery: the source system posts an event to the automation platform's catch URL, the platform acknowledges with 200 immediately, then processes the event asynchronously; a failed or slow acknowledgement causes the sender to retry, producing a duplicate.",
+      "suggested_source": "Diagram, drawn in-house"
+    },
+    {
+      "filename": "chatbot-conversation-flow.png",
+      "description": "Chatbot conversation stages from greeting through intent capture, slot filling, confirmation, and resolution, with escalation branches leaving from every stage into a human queue.",
+      "suggested_source": "Diagram, drawn in-house"
+    }
+  ]
+}

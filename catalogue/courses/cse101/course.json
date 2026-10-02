@@ -1,0 +1,199 @@
+{
+  "course_id": "cse101",
+  "pathway": "cloud-support-engineer",
+  "title": "Introduction to Cloud Computing",
+  "description": "This is a competency-based course designed for the indentured Cloud Support Engineer apprentice. Covers fundamental cloud concepts, including computing models (IaaS, PaaS, SaaS), virtualization, and key cloud benefits. Discusses different cloud providers without a platform bias.",
+  "hours": 40,
+  "projects": null,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Distinguish IaaS, PaaS, and SaaS by what the provider operates and what the customer remains responsible for",
+    "Explain how virtualization, containers, and serverless functions divide physical hardware into usable compute",
+    "Compare the core service families of the major cloud providers without depending on any one platform",
+    "Choose a cloud storage class and lifecycle policy that fits a workload's access pattern",
+    "Apply least-privilege identity and access management to a cloud account",
+    "Estimate what a cloud workload costs and explain the business case for running it in the cloud",
+    "Deploy a simple application to a cloud environment and verify it is serving traffic",
+    "Explain a cloud concept or a cloud bill to a non-technical customer in plain language"
+  ],
+  "prerequisites": [],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "cse101-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cse101-02",
+      "order": 2,
+      "slug": "service-models-and-shared-responsibility",
+      "title": "Service Models and Shared Responsibility",
+      "kind": "lesson",
+      "objectives": [
+        "Distinguish IaaS, PaaS, and SaaS by what the provider operates and what the customer remains responsible for"
+      ],
+      "competency_ids": [
+        "D2-S1-C01"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cse101-03",
+      "order": 3,
+      "slug": "virtualization-and-compute-abstractions",
+      "title": "Virtualization and the Compute Abstractions",
+      "kind": "lesson",
+      "objectives": [
+        "Explain how virtualization, containers, and serverless functions divide physical hardware into usable compute"
+      ],
+      "competency_ids": [
+        "D2-S1-C02"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cse101-04",
+      "order": 4,
+      "slug": "working-across-major-cloud-providers",
+      "title": "Working Across Major Cloud Providers",
+      "kind": "lesson",
+      "objectives": [
+        "Compare the core service families of the major cloud providers without depending on any one platform"
+      ],
+      "competency_ids": [
+        "D2-S1-C01"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cse101-05",
+      "order": 5,
+      "slug": "cloud-storage-and-the-data-lifecycle",
+      "title": "Cloud Storage and the Data Lifecycle",
+      "kind": "lesson",
+      "objectives": [
+        "Choose a cloud storage class and lifecycle policy that fits a workload's access pattern"
+      ],
+      "competency_ids": [
+        "D2-S1-C03"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cse101-06",
+      "order": 6,
+      "slug": "identity-and-access-management-fundamentals",
+      "title": "Identity and Access Management Fundamentals",
+      "kind": "lesson",
+      "objectives": [
+        "Apply least-privilege identity and access management to a cloud account"
+      ],
+      "competency_ids": [
+        "D2-S1-C04"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cse101-07",
+      "order": 7,
+      "slug": "cloud-economics-and-the-business-case",
+      "title": "Cloud Economics and the Business Case",
+      "kind": "lesson",
+      "objectives": [
+        "Estimate what a cloud workload costs and explain the business case for running it in the cloud"
+      ],
+      "competency_ids": [
+        "D2-S1-C02",
+        "D2-S1-C03"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cse101-08",
+      "order": 8,
+      "slug": "deploying-your-first-cloud-application",
+      "title": "Deploying Your First Cloud Application",
+      "kind": "lesson",
+      "objectives": [
+        "Deploy a simple application to a cloud environment and verify it is serving traffic"
+      ],
+      "competency_ids": [
+        "D1-S1-C02"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cse101-09",
+      "order": 9,
+      "slug": "explaining-cloud-concepts-to-customers",
+      "title": "Explaining Cloud Concepts to Customers",
+      "kind": "lesson",
+      "objectives": [
+        "Explain a cloud concept or a cloud bill to a non-technical customer in plain language"
+      ],
+      "competency_ids": [
+        "D5-S1-C01"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cse101-10",
+      "order": 10,
+      "slug": "project-design-a-cloud-solution",
+      "title": "Project: Design a Cloud Solution for a Small Business",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D2-S1-C01",
+        "D2-S1-C02",
+        "D2-S1-C03",
+        "D2-S1-C04"
+      ],
+      "hours_estimate": 2,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "The order moves from what the cloud is, to what it is made of, to what it costs, to using it. Lesson 02 establishes the service models and the shared responsibility line first because every later decision in this pathway - who patches the operating system, who owns an IAM misconfiguration, who is accountable in an audit - is read off that line. Virtualization (03) comes next because a learner cannot reason about a virtual machine, a container, or a function until they understand that all three are ways of subdividing one physical machine. Provider comparison (04) follows the abstractions rather than preceding them, so the learner compares like for like instead of memorizing three service catalogs. Storage (05) and IAM (06) are the two service families every cloud workload touches regardless of provider, and IAM is placed before any deployment so the learner's first deployment is not performed from an over-privileged account. Cost (07) sits after compute and storage because the bill is largely a function of those two choices. Deployment (08) is deliberately near the end: it is the first time the learner composes the preceding six lessons, and it is scoped to a single application on a single provider. Customer communication (09) closes the teaching sequence because explaining a design is easier once the learner has built one, and the project (10) asks for a written design rather than a running system, which is the artifact an entry-level support engineer is most often asked to review. SCOPE ASSUMPTIONS - the intake description is three sentences and supplies no objectives and no lesson titles, so the following were assumed and a reviewer should correct anything that is wrong: (1) 'Discusses different cloud providers without a platform bias' is read as a hard constraint, so the course teaches concepts and treats AWS, Azure, and Google Cloud as instances of those concepts; no lesson requires an account on a named provider and no console click-path is assessed. (2) Competency D2-S1-C01 ('use major cloud platforms proficiently') is scoped here to orientation-level fluency - naming the right service family and locating it in any of the three consoles - not depth in one platform; cse203 builds the depth. (3) Networking is out of scope beyond what a first deployment strictly requires; VPCs, subnets, and security groups belong to cse203 and firewall and access-control policy to cse280. (4) Automation, monitoring, and compliance are entirely out of scope here; they are cse270, cse220, and cse280 respectively. (5) Cost management is taught because it is inseparable from the 'key cloud benefits' the description names, but the catalog has no competency for it - see proposed_competencies. (6) The intake records no projects for this course; lesson 10 is included anyway as a low-hour written design exercise so that 40 hours end in an assessable artifact, and a reviewer may cut it without disturbing the rest of the sequence.",
+  "proposed_competencies": [
+    {
+      "domain_code": "D2",
+      "subdomain": "D2-S1",
+      "competency_text": "The learner can estimate the running cost of a cloud workload and compare pricing models (on-demand, reserved, spot, and consumption-based) to justify a choice.",
+      "rationale": "Lesson 07 is assessed on producing a defensible cost estimate, and the intake description names 'key cloud benefits', which in practice means the economic argument. The closest catalog competency, D4-S1-C04, covers cost only as a by-product of autoscaling and serverless provisioning; nothing in the catalog covers reading a price sheet, estimating a bill, or explaining a cost variance, which is routine cloud support work."
+    },
+    {
+      "domain_code": "D5",
+      "subdomain": "D5-S1",
+      "competency_text": "The learner can translate a cloud invoice or usage report into plain-language terms a non-technical stakeholder can act on.",
+      "rationale": "Lesson 09 practises this directly. D5-S1-C01 covers communicating effectively about a technical issue, but a billing conversation is a distinct and very common support interaction with its own failure mode - the customer does not dispute the technology, they dispute the number - and no catalog competency names it."
+    }
+  ],
+  "assets": [
+    {
+      "filename": "shared-responsibility-line.png",
+      "description": "Where the responsibility boundary between provider and customer sits under IaaS, PaaS, and SaaS, layer by layer from the physical facility up to the data.",
+      "suggested_source": "Diagram, drawn in-house"
+    },
+    {
+      "filename": "compute-abstractions.png",
+      "description": "One physical server subdivided three ways: virtual machines on a hypervisor, containers sharing a kernel, and functions invoked per request.",
+      "suggested_source": "Diagram, drawn in-house"
+    }
+  ]
+}

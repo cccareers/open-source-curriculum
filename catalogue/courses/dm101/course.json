@@ -1,0 +1,172 @@
+{
+  "course_id": "dm101",
+  "pathway": "digital-marketer",
+  "title": "Introduction to Digital Marketing",
+  "description": "This is a competency-based course designed for the indentured Digital Marketer apprentice. This course provides an overview of digital marketing, including key channels such as search engines, social media, and email marketing. Apprentices will learn foundational concepts in branding, customer engag",
+  "hours": 30,
+  "projects": null,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Describe the main digital marketing channels and how they map to stages of a customer journey",
+    "Write a positioning statement and on-brand messaging for a defined audience",
+    "Explain how search engines decide which pages to rank",
+    "Plan an organic social presence and respond to audience conversation appropriately",
+    "Design a basic email lifecycle sequence for a new subscriber",
+    "Select the right KPIs for a campaign goal and read a basic performance report",
+    "Apply data-privacy and advertising-policy requirements to a marketing plan"
+  ],
+  "prerequisites": [
+    "Basic computer literacy: web browsing, spreadsheets, and a word processor"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "dm101-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "dm101-02",
+      "order": 2,
+      "slug": "digital-marketing-landscape",
+      "title": "The Digital Marketing Landscape",
+      "kind": "lesson",
+      "objectives": [
+        "Describe the main digital marketing channels and how they map to stages of a customer journey",
+        "Compare owned, earned, and paid media and judge when each is appropriate"
+      ],
+      "competency_ids": [],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "dm101-03",
+      "order": 3,
+      "slug": "brand-foundations-and-marketing-copy",
+      "title": "Brand Foundations and Marketing Copy",
+      "kind": "lesson",
+      "objectives": [
+        "Write a positioning statement and on-brand messaging for a defined audience",
+        "Apply copywriting best practices to a headline and a call to action"
+      ],
+      "competency_ids": [
+        "D2-S1-C03"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "dm101-04",
+      "order": 4,
+      "slug": "how-search-marketing-works",
+      "title": "How Search Marketing Works",
+      "kind": "lesson",
+      "objectives": [
+        "Explain how search engines decide which pages to rank",
+        "Distinguish organic search work from paid search work"
+      ],
+      "competency_ids": [
+        "D1-S1-C03"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "dm101-05",
+      "order": 5,
+      "slug": "social-media-and-audience-engagement",
+      "title": "Social Media and Audience Engagement Basics",
+      "kind": "lesson",
+      "objectives": [
+        "Plan an organic social presence and respond to audience conversation appropriately",
+        "Recognize signals of brand sentiment on a social channel"
+      ],
+      "competency_ids": [
+        "D4-S1-C02"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "dm101-06",
+      "order": 6,
+      "slug": "email-marketing-basics",
+      "title": "Email Marketing Basics",
+      "kind": "lesson",
+      "objectives": [
+        "Design a basic email lifecycle sequence for a new subscriber",
+        "Identify the parts of an email campaign that drive opens and clicks"
+      ],
+      "competency_ids": [
+        "D5-S1-C01"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "dm101-07",
+      "order": 7,
+      "slug": "marketing-measurement-fundamentals",
+      "title": "Marketing Measurement Fundamentals",
+      "kind": "lesson",
+      "objectives": [
+        "Select the right KPIs for a campaign goal and read a basic performance report",
+        "Trace a conversion back through the channels that contributed to it"
+      ],
+      "competency_ids": [
+        "D6-S1-C02"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "dm101-08",
+      "order": 8,
+      "slug": "privacy-ethics-and-advertising-policy",
+      "title": "Privacy, Ethics, and Advertising Policy",
+      "kind": "lesson",
+      "objectives": [
+        "Apply data-privacy and advertising-policy requirements to a marketing plan",
+        "Identify an unethical or non-compliant marketing practice and propose a correction"
+      ],
+      "competency_ids": [
+        "D7-S2-C01",
+        "D7-S2-C02"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "dm101-09",
+      "order": 9,
+      "slug": "project-integrated-channel-plan",
+      "title": "Project: Integrated Channel Plan",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D2-S1-C03",
+        "D6-S1-C02",
+        "D7-S2-C02"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "This is the pathway's entry course, so it surveys every channel the later courses go deep on and teaches none of them to working depth. The order is landscape first (learners need the vocabulary and the funnel model before any single channel makes sense), then brand and copy (every channel is a delivery mechanism for a message, so the message comes first), then a one-lesson pass over each major channel in the order the pathway teaches them (search, social, email), then measurement (which only means something once the learner knows what is being measured), then privacy and ethics, and finally an integrating project. SCOPE ASSUMPTIONS - the intake description is truncated mid-word (it ends at 'customer engag') and supplied no objectives or lesson titles, so the following scope was inferred and needs reviewer confirmation: (1) 'customer engag[ement]' was read as engagement across the funnel - audience research, value proposition, and community response - and is taught conceptually in lessons 02, 03 and 05, not as CRM work (CRM is dm350). (2) 'branding' was scoped to positioning, voice, and messaging, not to visual identity, logo design, or brand asset production - no design competency exists in the catalog. (3) The named channels (search engines, social media, email) each get exactly one awareness-level lesson; the deep versions live in dm201, dm250 and dm350. (4) Privacy, ethics and ad policy were sited here because no other course in the pathway owns them end to end and every later course assumes them; if the reviewer would rather site them in dm350, lesson 08 moves. (5) Measurement here is KPI literacy only - tool work is dm301. Nothing in the truncated sentence was invented to complete it.",
+  "proposed_competencies": [
+    {
+      "domain_code": "D2",
+      "subdomain": "D2-S1",
+      "competency_text": "The learner can map digital marketing channels to the stages of a customer journey and select a channel mix for a stated campaign goal.",
+      "rationale": "Lesson 02 and the lesson 09 project both require cross-channel selection, but every catalog competency is scoped to a single channel; nothing covers choosing between them."
+    }
+  ],
+  "assets": []
+}

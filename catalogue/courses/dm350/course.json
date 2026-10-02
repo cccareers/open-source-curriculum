@@ -1,0 +1,189 @@
+{
+  "course_id": "dm350",
+  "pathway": "digital-marketer",
+  "title": "CRM & Marketing Automation",
+  "description": "This is a competency-based course designed for the indentured Digital Marketer apprentice. This course provides an in-depth understanding of CRMs, including lead generation, automation workflows, and client relationship management. Apprentices will learn to set up and optimize funnels for marketing",
+  "hours": 40,
+  "projects": null,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Model contacts, companies, and activities in a CRM so the data stays usable",
+    "Design a lead capture path and qualify the leads it produces",
+    "Design an email campaign with a clear goal, structure, and call to action",
+    "Segment an audience and personalize content for each segment",
+    "Build an automated nurture workflow with entry criteria, branching, and exits",
+    "Diagnose email deliverability and performance problems and fix them",
+    "Apply an AI-driven or conversational martech capability to a marketing task",
+    "Handle consent, retention, and data-subject requests in a CRM lawfully"
+  ],
+  "prerequisites": [
+    "dm101 Introduction to Digital Marketing",
+    "dm301 Web Analytics & Data Analysis, for the measurement vocabulary automation reporting assumes"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "dm350-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "dm350-02",
+      "order": 2,
+      "slug": "crm-fundamentals-and-data-model",
+      "title": "CRM Fundamentals and the Customer Data Model",
+      "kind": "lesson",
+      "objectives": [
+        "Model contacts, companies, and activities in a CRM so the data stays usable",
+        "Keep CRM data clean through import, deduplication, and field discipline"
+      ],
+      "competency_ids": [
+        "D7-S1-C01"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "dm350-03",
+      "order": 3,
+      "slug": "lead-generation-capture-and-qualification",
+      "title": "Lead Generation, Capture, and Qualification",
+      "kind": "lesson",
+      "objectives": [
+        "Design a lead capture path and qualify the leads it produces"
+      ],
+      "competency_ids": [
+        "D7-S1-C01",
+        "D6-S2-C02"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "dm350-04",
+      "order": 4,
+      "slug": "designing-an-email-campaign",
+      "title": "Designing an Email Campaign",
+      "kind": "lesson",
+      "objectives": [
+        "Design an email campaign with a clear goal, structure, and call to action",
+        "Write subject lines and preview text that set accurate expectations"
+      ],
+      "competency_ids": [
+        "D5-S1-C01"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "dm350-05",
+      "order": 5,
+      "slug": "segmentation-and-personalization",
+      "title": "Segmentation and Personalization",
+      "kind": "lesson",
+      "objectives": [
+        "Segment an audience and personalize content for each segment"
+      ],
+      "competency_ids": [
+        "D5-S1-C02",
+        "D7-S1-C02"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "dm350-06",
+      "order": 6,
+      "slug": "automation-workflows-and-funnels",
+      "title": "Automation Workflows and Funnels",
+      "kind": "lesson",
+      "objectives": [
+        "Build an automated nurture workflow with entry criteria, branching, and exits",
+        "Map a funnel from first touch to closed customer"
+      ],
+      "competency_ids": [
+        "D7-S1-C02"
+      ],
+      "hours_estimate": 6,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "dm350-07",
+      "order": 7,
+      "slug": "deliverability-and-email-performance",
+      "title": "Deliverability and Email Performance",
+      "kind": "lesson",
+      "objectives": [
+        "Diagnose email deliverability and performance problems and fix them",
+        "Read open, click, bounce, and unsubscribe metrics correctly"
+      ],
+      "competency_ids": [
+        "D5-S1-C03"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "dm350-08",
+      "order": 8,
+      "slug": "chatbots-ai-insights-and-emerging-martech",
+      "title": "Chatbots, AI Insights, and Emerging Martech",
+      "kind": "lesson",
+      "objectives": [
+        "Apply an AI-driven or conversational martech capability to a marketing task"
+      ],
+      "competency_ids": [
+        "D7-S1-C03"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "dm350-09",
+      "order": 9,
+      "slug": "privacy-consent-and-data-governance",
+      "title": "Privacy, Consent, and Data Governance in a CRM",
+      "kind": "lesson",
+      "objectives": [
+        "Handle consent, retention, and data-subject requests in a CRM lawfully"
+      ],
+      "competency_ids": [
+        "D7-S2-C01"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "dm350-10",
+      "order": 10,
+      "slug": "project-build-an-automated-funnel",
+      "title": "Project: Build an Automated Funnel",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D7-S1-C01",
+        "D7-S1-C02",
+        "D5-S1-C01"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Automation is only as good as the data underneath it, so the course starts with the CRM data model (02) and how records get created (03) before any message is sent. Email then builds in the order a practitioner learns it: a single campaign (04), the same campaign made relevant (05), the campaign made automatic (06), and then why it lands in spam anyway (07). Emerging martech (08) comes after the fundamentals so learners can judge what a chatbot or AI tool is replacing, and governance (09) comes immediately before the capstone so the funnel they build is lawful by construction. SCOPE ASSUMPTIONS - the intake description is truncated mid-sentence (it ends at 'optimize funnels for marketing') and supplied no objectives or lesson titles, so: (1) The cut phrase was read as funnels for marketing and sales alignment; lesson 06 covers funnel mapping and lesson 03 the handoff, and nothing beyond that was reconstructed. (2) THE BIGGEST ASSUMPTION IN THIS PATHWAY: the catalog contains a full email marketing domain (D5) but the intake has NO email marketing course, so this course carries email campaign design, segmentation and deliverability (lessons 04, 05, 07) alongside CRM. That is a deliberate placement, not an oversight - if the program has a separate email course that did not reach the intake spreadsheet, those three lessons belong there instead and this course shrinks. (3) 'Client relationship management' is scoped to CRM operations, not to account management or client communication skills. (4) The CRM is taught generically with HubSpot-style concepts (objects, properties, lists, workflows) as the worked example; the reviewer should confirm the platform. (5) Sales-side CRM (pipeline management, forecasting, quotas) is OUT of scope. (6) Chatbot work is scoped to configuring one, not to development.",
+  "proposed_competencies": [
+    {
+      "domain_code": "D7",
+      "subdomain": "D7-S1",
+      "competency_text": "The learner can define lifecycle stages and a lead-scoring model that routes qualified leads into a sales process.",
+      "rationale": "Lessons 03 and 06 both depend on lifecycle stages and scoring to decide when a contact enters or exits a workflow, but D7-S1-C01 covers CRM use for engagement and D7-S1-C02 covers automation tooling; neither covers qualification models."
+    }
+  ],
+  "assets": []
+}

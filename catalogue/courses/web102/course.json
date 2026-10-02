@@ -1,0 +1,153 @@
+{
+  "course_id": "web102",
+  "pathway": "software-developer",
+  "title": "JavaScript Projects",
+  "description": "This is a competency-based course designed for the indentured website developer apprentice.  This course will cover programming projects using JavaScript.  These projects will build the knowledgebase in the fundamentals of programming and web page construction as well as apply techniques to manage t",
+  "hours": 30,
+  "projects": 3,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Plan a JavaScript project as a sequence of deliverable increments",
+    "Use a team source-control workflow to manage project work",
+    "Build working browser features in JavaScript from a written specification",
+    "Track a reported defect from report through fix to verification",
+    "Present a finished project and explain the decisions behind it"
+  ],
+  "prerequisites": [
+    "Working knowledge of HTML and CSS",
+    "Able to write basic JavaScript: variables, functions, arrays, and objects"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "web102-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "web102-02",
+      "order": 2,
+      "slug": "planning-a-javascript-project",
+      "title": "Planning a JavaScript Project",
+      "kind": "lesson",
+      "objectives": [
+        "Plan a JavaScript project as a sequence of deliverable increments",
+        "Choose the tools and libraries a project deliverable needs"
+      ],
+      "competency_ids": [
+        "D2-S1-C02",
+        "D2-S1-C03"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "web102-03",
+      "order": 3,
+      "slug": "source-control-for-project-work",
+      "title": "Source Control for Project Work",
+      "kind": "lesson",
+      "objectives": [
+        "Use a team source-control workflow to manage project work"
+      ],
+      "competency_ids": [
+        "D5-S1-C01"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "web102-04",
+      "order": 4,
+      "slug": "project-interactive-page-widget",
+      "title": "Project: Interactive Page Widget",
+      "kind": "project",
+      "objectives": [
+        "Build working browser features in JavaScript from a written specification"
+      ],
+      "competency_ids": [
+        "D2-S1-C04",
+        "D5-S1-C01"
+      ],
+      "hours_estimate": 6,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "web102-05",
+      "order": 5,
+      "slug": "debugging-and-fixing-reported-issues",
+      "title": "Debugging and Fixing Reported Issues",
+      "kind": "lesson",
+      "objectives": [
+        "Track a reported defect from report through fix to verification",
+        "Report a defect with enough detail for someone else to reproduce it"
+      ],
+      "competency_ids": [
+        "D4-S1-C02",
+        "D4-S1-C05"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "web102-06",
+      "order": 6,
+      "slug": "project-data-driven-dashboard",
+      "title": "Project: Data-Driven Dashboard",
+      "kind": "project",
+      "objectives": [
+        "Build working browser features in JavaScript from a written specification"
+      ],
+      "competency_ids": [
+        "D2-S1-C04",
+        "D4-S1-C02"
+      ],
+      "hours_estimate": 6,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "web102-07",
+      "order": 7,
+      "slug": "project-portfolio-build-and-demo",
+      "title": "Project: Portfolio Build and Demo",
+      "kind": "project",
+      "objectives": [
+        "Present a finished project and explain the decisions behind it"
+      ],
+      "competency_ids": [
+        "D2-S1-C04",
+        "D1-S1-C02"
+      ],
+      "hours_estimate": 7,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Planning and source control come first because both projects that follow are graded on increments landed in version control, not on a single final commit; a learner who cannot branch and commit cannot show the work the later lessons ask for. Defect handling sits between the first and second project so the second project can be run as a report-fix-verify loop against real reported issues. The three projects grow in scope (single widget, data-driven page, portfolio piece) so the same skills are exercised at increasing independence, and the final one adds the demo because the catalog's presentation competency needs a real artifact to present. SCOPE ASSUMPTIONS: the intake description is truncated mid-word and names only \"programming projects using JavaScript ... fundamentals of programming and web page construction\", with three projects and 30 hours as the only firm evidence, so the outline assumes browser JavaScript against the DOM with no framework and no build tooling beyond a package manager. Assumed in scope: DOM work, fetching and rendering remote data, module organization, git workflow, debugging, and a presented portfolio piece. Assumed out of scope: React (react100 owns it), server-side JavaScript (node101 owns it), and automated test frameworks (node200 owns them). A reviewer who knows what the cut-off sentence said should correct the project briefs first.",
+  "proposed_competencies": [
+    {
+      "domain_code": "D2",
+      "subdomain": "D2-S1",
+      "competency_text": "The learner can decompose a larger programming problem into functions and modules with single responsibilities.",
+      "rationale": "Every project in this course is graded partly on decomposition, but the catalog's D2-S1 competencies stop at 'build program features' and never name breaking a problem down, which the truncated intake description appears to have been describing when it was cut off."
+    }
+  ],
+  "assets": [
+    {
+      "filename": "branch-and-merge-flow.png",
+      "description": "A feature branch created from main, receiving three commits, then merging back through a reviewed pull request.",
+      "suggested_source": "Diagram, drawn in-house"
+    },
+    {
+      "filename": "defect-lifecycle.png",
+      "description": "The states a reported defect moves through from report to verified closure, including the paths back when it cannot be reproduced and when a fix fails verification.",
+      "suggested_source": "Diagram, drawn in-house"
+    }
+  ]
+}

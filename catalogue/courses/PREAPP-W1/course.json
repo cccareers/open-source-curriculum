@@ -1,0 +1,86 @@
+{
+  "course_id": "PREAPP-W1",
+  "pathway": "tech-pre-apprenticeship",
+  "title": "Launch: The Outreach Engine",
+  "description": "Week 1 of the CCC pre-apprenticeship. Participants arrive with pre-work complete (resume, LinkedIn profile, employer target list) and day one is a sending day, not a setup day. They stand up a live prospecting pipeline in an industry-standard CRM, stage and prioritize the pre-work target list with employer-partner contacts flagged first, write personalized connection requests and follow-ups, execute a daily outreach routine at quota, and publish a skills-first LinkedIn presence with a first public post. Weekly milestone: outreach engine running — CRM active, 50+ contacts initiated, first post live.",
+  "hours": 20,
+  "projects": 0,
+  "notes": "Weekly milestone gates pacing and stipend disbursement: CRM active, 50+ contacts initiated, first post live.",
+  "lesson_length": "Lab-guide lessons, roughly 1200-1800 words each, supporting a full week of live instructor-led practice",
+  "learning_objectives": [
+    "Stand up a live prospecting pipeline in a CRM with the target list staged and prioritized",
+    "Write personalized connection requests and follow-ups and run a daily outreach routine at quota",
+    "Publish a skills-first LinkedIn presence and first public post"
+  ],
+  "prerequisites": [
+    "Completion of the five-day pre-work challenge (professional resume, LinkedIn profile, employer target list)"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "PREAPP-W1-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 0.5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "PREAPP-W1-02",
+      "order": 2,
+      "slug": "pipeline-crm-operations",
+      "title": "Pipeline & CRM Operations",
+      "kind": "lesson",
+      "objectives": [
+        "Stand up a live prospecting pipeline in a CRM with the target list staged and prioritized",
+        "Flag employer-partner contacts first and choose the highest-value next action from the pipeline"
+      ],
+      "competency_ids": [
+        "D1-S5-C01",
+        "D1-S5-C02"
+      ],
+      "hours_estimate": 6.5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "PREAPP-W1-03",
+      "order": 3,
+      "slug": "outreach-fundamentals",
+      "title": "Outreach Fundamentals",
+      "kind": "lesson",
+      "objectives": [
+        "Write personalized connection requests and follow-ups and run a daily outreach routine at quota",
+        "Sequence a daily send, follow-up, and logging routine with disciplined timing"
+      ],
+      "competency_ids": [
+        "D1-S1-C01",
+        "D1-S1-C02"
+      ],
+      "hours_estimate": 6.5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "PREAPP-W1-04",
+      "order": 4,
+      "slug": "personal-brand-going-live",
+      "title": "Personal Brand: Going Live",
+      "kind": "lesson",
+      "objectives": [
+        "Publish a skills-first LinkedIn presence and first public post",
+        "Align profile content with the outreach a prospect will receive"
+      ],
+      "competency_ids": [
+        "D1-S6-C01",
+        "D1-S6-C02"
+      ],
+      "hours_estimate": 6.5,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Week 1 of the eight-week program (source: CCC Pre-Apprenticeship Program Catalog). Day one is a sending day: CRM pipeline setup comes first because every later activity logs into it, outreach fundamentals second so sends start immediately, personal brand third so the public profile supports the outreach already in flight. Scope assumption: lessons are lab guides supporting ~20 hours of live instructor-led practice, not self-paced tutorials; the CRM is taught vendor-neutrally.",
+  "proposed_competencies": [],
+  "assets": []
+}

@@ -1,0 +1,137 @@
+{
+  "course_id": "db200",
+  "pathway": "software-developer",
+  "title": "No-SQL Databases",
+  "description": "This is a competency-based course designed for the indentured website developer apprentice.  This course will cover various popular NoSQL systems and their feature sets, as well as an understanding of CAP theorem. Apprentices will practice database development skills using projects with NoSQL databa",
+  "hours": 20,
+  "projects": null,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Compare the NoSQL data-store families and the workloads each suits",
+    "Explain the consistency and availability trade-offs described by CAP",
+    "Model data around an application's access patterns",
+    "Build an application feature against a document database",
+    "Justify a data-store choice on technical and operational grounds"
+  ],
+  "prerequisites": [
+    "Completed Relational Databases (db100) or equivalent SQL experience",
+    "Comfortable reading and writing JSON"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "db200-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "db200-02",
+      "order": 2,
+      "slug": "the-nosql-families-and-their-feature-sets",
+      "title": "The NoSQL Families and Their Feature Sets",
+      "kind": "lesson",
+      "objectives": [
+        "Compare the NoSQL data-store families and the workloads each suits"
+      ],
+      "competency_ids": [
+        "D5-S1-C02"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "db200-03",
+      "order": 3,
+      "slug": "cap-theorem-and-consistency-trade-offs",
+      "title": "CAP Theorem and Consistency Trade-offs",
+      "kind": "lesson",
+      "objectives": [
+        "Explain the consistency and availability trade-offs described by CAP"
+      ],
+      "competency_ids": [
+        "D3-S1-C03"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "db200-04",
+      "order": 4,
+      "slug": "modeling-for-access-patterns",
+      "title": "Modeling for Access Patterns",
+      "kind": "lesson",
+      "objectives": [
+        "Model data around an application's access patterns"
+      ],
+      "competency_ids": [
+        "D5-S1-C02"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "db200-05",
+      "order": 5,
+      "slug": "building-against-a-document-database",
+      "title": "Building Against a Document Database",
+      "kind": "lesson",
+      "objectives": [
+        "Build an application feature against a document database"
+      ],
+      "competency_ids": [
+        "D2-S1-C04"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "db200-06",
+      "order": 6,
+      "slug": "project-choose-and-justify-a-data-store",
+      "title": "Project: Choose and Justify a Data Store",
+      "kind": "project",
+      "objectives": [
+        "Justify a data-store choice on technical and operational grounds"
+      ],
+      "competency_ids": [
+        "D3-S1-C03",
+        "D5-S1-C02"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "The survey of families comes first because CAP is an abstraction over choices the learner has to have seen named; teaching the theorem before the stores it explains produces recitation, not judgment. Access-pattern modeling follows CAP because the modeling advice ('write the queries first, then the documents') only makes sense once a learner accepts that joins are not coming back. Hands-on work against one document store then grounds the abstractions, and the closing project asks for a defended recommendation, which is where the feasibility competency is actually assessed. SCOPE ASSUMPTIONS: the intake description is truncated at 'projects with NoSQL databa', so the exact stores intended are unknown. The outline assumes breadth across the four families (document, key-value, wide-column, graph) with hands-on depth in one document store, MongoDB by default. Assumed out of scope: operating a cluster, sharding and replication administration, and any specific cloud vendor's managed service. A reviewer with the partner's store list should pin lesson 05 to it.",
+  "proposed_competencies": [
+    {
+      "domain_code": "D5",
+      "subdomain": "D5-S1",
+      "competency_text": "The learner can select a data-store family appropriate to an application's access patterns and consistency requirements.",
+      "rationale": "The closing project is graded on exactly this judgment. D3-S1-C03 (support feasibility consultations) is the nearest tag but frames the learner as a contributor to someone else's assessment, and D5-S1-C02 covers design support generally; neither names data-store selection."
+    }
+  ],
+  "assets": [
+    {
+      "filename": "nosql-families-same-data.png",
+      "description": "The same customer order represented four ways: as one nested document, as an opaque value under a composite key, as partition-keyed rows in a wide-column table, and as nodes and edges in a graph.",
+      "suggested_source": "Diagram, drawn in-house"
+    },
+    {
+      "filename": "cap-partition-choice.png",
+      "description": "A two-region cluster during a network partition, showing the CP path where the minority side refuses writes and the AP path where both sides accept writes and diverge.",
+      "suggested_source": "Diagram, drawn in-house"
+    },
+    {
+      "filename": "embed-vs-reference.png",
+      "description": "A one-to-many relationship modeled two ways: children embedded as an array inside the parent document, and children as separate documents holding a reference to the parent's id.",
+      "suggested_source": "Diagram, drawn in-house"
+    }
+  ]
+}

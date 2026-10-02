@@ -1,0 +1,115 @@
+{
+  "course_id": "se305",
+  "pathway": "technical-sales-representative",
+  "title": "Data-Driven Selling & Analytics",
+  "description": "This is a competency-based course designed for the indentured Technical Sales Representative apprentice.",
+  "hours": 16,
+  "projects": null,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Choose the small set of sales metrics that should drive a rep's weekly decisions",
+    "Read a pipeline report for conversion, velocity, and coverage, and say what it implies",
+    "Diagnose where a personal funnel is leaking and name the likely cause",
+    "Build a CRM dashboard that answers a stated question rather than displaying everything",
+    "Turn an analysis of sales data into a changed plan with a measurable target"
+  ],
+  "prerequisites": [
+    "Advanced SaaS Sales Strategies (se201), for SaaS metric definitions",
+    "CRM System Mastery & Sales Automation (se301), for the CRM data this course reads"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "se305-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "se305-02",
+      "order": 2,
+      "slug": "the-metrics-that-drive-decisions",
+      "title": "The Metrics That Drive Decisions",
+      "kind": "lesson",
+      "objectives": [
+        "Choose the small set of sales metrics that should drive a rep's weekly decisions"
+      ],
+      "competency_ids": [
+        "D1-S1-C01",
+        "D4-S1-C04"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "se305-03",
+      "order": 3,
+      "slug": "reading-a-pipeline-report",
+      "title": "Reading a Pipeline Report",
+      "kind": "lesson",
+      "objectives": [
+        "Read a pipeline report for conversion, velocity, and coverage, and say what it implies"
+      ],
+      "competency_ids": [
+        "D4-S1-C04"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "se305-04",
+      "order": 4,
+      "slug": "diagnosing-your-own-funnel",
+      "title": "Diagnosing Your Own Funnel",
+      "kind": "lesson",
+      "objectives": [
+        "Diagnose where a personal funnel is leaking and name the likely cause"
+      ],
+      "competency_ids": [
+        "D4-S1-C04"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "se305-05",
+      "order": 5,
+      "slug": "dashboards-and-reporting",
+      "title": "Dashboards and Reporting",
+      "kind": "lesson",
+      "objectives": [
+        "Build a CRM dashboard that answers a stated question rather than displaying everything"
+      ],
+      "competency_ids": [
+        "D4-S1-C03",
+        "D4-S1-C04"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "se305-06",
+      "order": 6,
+      "slug": "project-territory-analysis-and-action-plan",
+      "title": "Project: Territory Analysis and Action Plan",
+      "kind": "project",
+      "objectives": [
+        "Turn an analysis of sales data into a changed plan with a measurable target"
+      ],
+      "competency_ids": [
+        "D4-S1-C04"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Metric literacy (2) precedes report reading (3), which precedes self-diagnosis (4); dashboards (5) come only after the learner knows which question a dashboard should answer, and the project (6) forces the analysis to end in a decision rather than a chart. INTAKE DEFECT — READ THIS FIRST: se305's intake description contains ONLY the generic pathway preamble sentence (\"This is a competency-based course designed for the indentured Technical Sales Representative apprentice.\") and zero course-specific content; the importer flagged it as \"description is only the generic course preamble\". There is no authored description, no objectives, and no lesson titles for this course anywhere in the intake. Its entire scope below was inferred from two things only: the course title \"Data-Driven Selling & Analytics\" and the pathway catalog, principally D4-S1-C04 (analyze sales data to identify trends and adjust strategy). Everything here is therefore an assumption a reviewer should check line by line. Assumed in scope: rep-facing sales analytics — metric selection, pipeline report interpretation, funnel diagnosis, dashboard building, and translating analysis into a changed plan. Assumed out of scope: SaaS metric definitions themselves (taught in se201 and only recalled here), CRM configuration and automation (se301), forecasting mechanics as a management ritual (se301 lesson 8), data engineering, SQL, and business-intelligence tooling beyond native CRM reporting. Also assumed: 16 hours signals a compact analytical course, not a data-science unit, so no statistical modelling is included. If the real course was intended to cover, say, revenue-operations analytics or BI tooling, this outline is wrong in kind and should be rebuilt rather than edited.",
+  "proposed_competencies": [],
+  "assets": []
+}

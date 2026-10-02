@@ -1,0 +1,201 @@
+{
+  "course_id": "cse270",
+  "pathway": "cloud-support-engineer",
+  "title": "Scripting & Automation for Cloud Operations",
+  "description": "This is a competency-based course designed for the indentured Cloud Support Engineer apprentice. Focuses on scripting languages such as Python and Bash to automate common cloud tasks, implement CI/CD workflows, and manage cloud resources.",
+  "hours": 25,
+  "projects": 5,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Write Bash scripts that automate repetitive cloud operations tasks safely",
+    "Write Python scripts that query and manage cloud resources through a provider CLI or SDK",
+    "Automate a deployment with a continuous integration and delivery pipeline",
+    "Trigger operational work from events and schedules using serverless functions",
+    "Combine scripting, pipelines, and infrastructure code into a reusable operations toolkit"
+  ],
+  "prerequisites": [
+    "Completed Introduction to Cloud Computing (cse101) or equivalent working knowledge of cloud service models",
+    "Completed Cloud Infrastructure Deployment & Management (cse203) or equivalent experience provisioning cloud resources",
+    "Able to read and modify simple code in any language, and to use git branches and pull requests"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "cse270-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cse270-02",
+      "order": 2,
+      "slug": "shell-scripting-for-cloud-operations",
+      "title": "Shell Scripting for Cloud Operations",
+      "kind": "lesson",
+      "objectives": [
+        "Write Bash scripts that automate repetitive cloud operations tasks safely"
+      ],
+      "competency_ids": [
+        "D4-S1-C01"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cse270-03",
+      "order": 3,
+      "slug": "project-automate-a-routine-task-with-bash",
+      "title": "Project: Automate a Routine Task with Bash",
+      "kind": "project",
+      "objectives": [
+        "Write Bash scripts that automate repetitive cloud operations tasks safely"
+      ],
+      "competency_ids": [
+        "D4-S1-C01"
+      ],
+      "hours_estimate": 2,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cse270-04",
+      "order": 4,
+      "slug": "python-for-cloud-automation",
+      "title": "Python for Cloud Automation",
+      "kind": "lesson",
+      "objectives": [
+        "Write Python scripts that query and manage cloud resources through a provider CLI or SDK"
+      ],
+      "competency_ids": [
+        "D4-S1-C01"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cse270-05",
+      "order": 5,
+      "slug": "project-inventory-cloud-resources-with-python",
+      "title": "Project: Inventory Cloud Resources with Python",
+      "kind": "project",
+      "objectives": [
+        "Write Python scripts that query and manage cloud resources through a provider CLI or SDK"
+      ],
+      "competency_ids": [
+        "D4-S1-C01"
+      ],
+      "hours_estimate": 2,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cse270-06",
+      "order": 6,
+      "slug": "continuous-integration-and-delivery-pipelines",
+      "title": "Continuous Integration and Delivery Pipelines",
+      "kind": "lesson",
+      "objectives": [
+        "Automate a deployment with a continuous integration and delivery pipeline"
+      ],
+      "competency_ids": [
+        "D4-S1-C03"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cse270-07",
+      "order": 7,
+      "slug": "project-build-a-deployment-pipeline",
+      "title": "Project: Build a Deployment Pipeline",
+      "kind": "project",
+      "objectives": [
+        "Automate a deployment with a continuous integration and delivery pipeline"
+      ],
+      "competency_ids": [
+        "D4-S1-C03"
+      ],
+      "hours_estimate": 2,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cse270-08",
+      "order": 8,
+      "slug": "event-driven-automation-with-serverless-functions",
+      "title": "Event-Driven Automation with Serverless Functions",
+      "kind": "lesson",
+      "objectives": [
+        "Trigger operational work from events and schedules using serverless functions"
+      ],
+      "competency_ids": [
+        "D4-S1-C04"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cse270-09",
+      "order": 9,
+      "slug": "project-schedule-and-scale-with-serverless",
+      "title": "Project: Schedule and Scale with Serverless",
+      "kind": "project",
+      "objectives": [
+        "Trigger operational work from events and schedules using serverless functions"
+      ],
+      "competency_ids": [
+        "D4-S1-C04"
+      ],
+      "hours_estimate": 2,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cse270-10",
+      "order": 10,
+      "slug": "project-automated-operations-toolkit",
+      "title": "Project: Automated Operations Toolkit",
+      "kind": "project",
+      "objectives": [
+        "Combine scripting, pipelines, and infrastructure code into a reusable operations toolkit"
+      ],
+      "competency_ids": [
+        "D4-S1-C01",
+        "D4-S1-C02",
+        "D4-S1-C03",
+        "D4-S1-C04"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "The intake specifies five projects for this course, so the outline is built as four teach-then-build pairs plus a capstone, and every project immediately follows the lesson it exercises rather than being banked until the end - automation is a motor skill and the gap between reading a script and writing one closes fastest when it is measured in minutes. The teaching order runs from the smallest unit of automation to the largest: Bash (02) first because it is the language the learner is already half-writing every time they type a command, and because its failure modes - unquoted variables, no error checking, a destructive command with no dry run - are the safety lessons the rest of the course depends on. Python (04) follows because the moment a task needs structured data, pagination, retries, or a provider SDK, shell scripting stops paying; teaching it second lets the lesson argue from a Bash script the learner has already outgrown. Pipelines (06) come next because CI/CD is where scripts stop being run by a person, which raises new requirements the learner has now felt the absence of: idempotency, secrets handling, and a reliable exit code. Event-driven and scheduled serverless automation (08) is last of the teaching lessons because it removes the last human trigger, and it also carries the cost and scaling angle of D4-S1-C04. The capstone (10) is the only assessment that requires all four together. SCOPE ASSUMPTIONS - the intake gives three sentences, no objectives, and no lesson titles, so: (1) the description names Python and Bash, so PowerShell is named once for orientation but not taught, and the course is assessed in Python and Bash only. (2) The five projects are interpreted as five graded, hands-on deliverables inside this course - four scoped exercises plus a capstone - since the intake gives no project descriptions. A reviewer who intended five larger standalone portfolio projects should re-scope lessons 03, 05, 07, 09, and 10 accordingly. (3) Infrastructure as Code is taught in cse203; this course only consumes it, and D4-S1-C02 is tagged solely on the capstone, where the toolkit has to invoke existing infrastructure code rather than author a new estate. (4) The course stays vendor-neutral in prose and asks the learner to complete the work against whichever single provider they used in cse203; pipeline examples use a generic YAML-configured runner and name GitHub Actions, Jenkins, and Azure DevOps as instances. (5) Application programming - frameworks, test suites, packaging for distribution - is out of scope; all code written here is operational glue. (6) Monitoring and alerting are out of scope and belong to cse220, though the capstone may emit to them.",
+  "proposed_competencies": [
+    {
+      "domain_code": "D4",
+      "subdomain": "D4-S1",
+      "competency_text": "The learner can make an automation script safe to re-run, using idempotent operations, dry-run modes, and explicit error handling before it is allowed to act on production resources.",
+      "rationale": "This is the safety spine of every lesson and every project in this course, and it is the single largest cause of self-inflicted cloud incidents by junior engineers. D4-S1-C01 covers writing a script that automates a cloud task correctly, which is satisfied by a script that works once; nothing in the catalog covers the difference between a script that works and a script that is safe to hand to someone else or to a scheduler."
+    },
+    {
+      "domain_code": "D4",
+      "subdomain": "D4-S1",
+      "competency_text": "The learner can manage secrets and credentials used by automation, keeping them out of source control and scoping them to the minimum the job requires.",
+      "rationale": "Lesson 06 and its project cannot deploy anything without credentials, and the capstone requires several. D2-S1-C04 covers IAM best practice for human and role identities and D3-S1-C04 covers data encryption, but neither covers the specific pipeline-and-script problem of injecting a credential at run time, rotating it, and keeping it out of a repository - which is where these leaks actually happen."
+    }
+  ],
+  "assets": [
+    {
+      "filename": "automation-safety-ladder.png",
+      "description": "The progression from a one-off command to a safe automation: manual run, scripted run with a dry-run flag, idempotent re-runnable script, scheduled or event-triggered execution.",
+      "suggested_source": "Diagram, drawn in-house"
+    },
+    {
+      "filename": "cicd-pipeline-stages.png",
+      "description": "A deployment pipeline from commit through build, test, and approval to deploy, showing what each stage guarantees before the next one runs.",
+      "suggested_source": "Diagram, drawn in-house"
+    }
+  ]
+}

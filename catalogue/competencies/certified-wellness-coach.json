@@ -1,0 +1,261 @@
+{
+  "version": 1,
+  "domains": [
+    {
+      "code": "D1",
+      "name": "Communication & Interpersonal Skills",
+      "delivered_weight_percent": 17,
+      "description": "Communication and interpersonal skills: active listening, open-ended questioning, empathy/rapport, and non-judgmental communication."
+    },
+    {
+      "code": "D2",
+      "name": "Coaching Process & Structure",
+      "delivered_weight_percent": 12,
+      "description": "Coaching process and structure: session flow, collaborative agenda setting, and staying within coaching scope."
+    },
+    {
+      "code": "D3",
+      "name": "Behavior Change & Goal Setting",
+      "delivered_weight_percent": 17,
+      "description": "Behavior change and goal setting: SMART goals, identifying barriers, habit formation, and behavior-change models."
+    },
+    {
+      "code": "D4",
+      "name": "Health Knowledge (Lifestyle Medicine Basics)",
+      "delivered_weight_percent": 8,
+      "description": "Health knowledge (lifestyle medicine basics): nutrition/activity/stress/sleep fundamentals and educating without prescribing."
+    },
+    {
+      "code": "D5",
+      "name": "Ethics & Professional Practice",
+      "delivered_weight_percent": 17,
+      "description": "Ethics and professional practice: scope of practice, confidentiality, boundaries, and knowing when to refer out."
+    },
+    {
+      "code": "D6",
+      "name": "Accountability & Client Progress Tracking",
+      "delivered_weight_percent": 12,
+      "description": "Accountability and client progress tracking: tracking progress, adjusting plans, and supporting accountability without pressure."
+    },
+    {
+      "code": "D7",
+      "name": "Professional Development",
+      "delivered_weight_percent": 17,
+      "description": "Professional development: self-reflection, receiving feedback, growth mindset, and building a coaching identity."
+    }
+  ],
+  "subdomains": [
+    {
+      "code": "D1-S1",
+      "domain_code": "D1",
+      "name": "Communication & Interpersonal Skills",
+      "description": "Competencies for communication & interpersonal skills."
+    },
+    {
+      "code": "D2-S1",
+      "domain_code": "D2",
+      "name": "Coaching Process & Structure",
+      "description": "Competencies for coaching process & structure."
+    },
+    {
+      "code": "D3-S1",
+      "domain_code": "D3",
+      "name": "Behavior Change & Goal Setting",
+      "description": "Competencies for behavior change & goal setting."
+    },
+    {
+      "code": "D4-S1",
+      "domain_code": "D4",
+      "name": "Health Knowledge (Lifestyle Medicine Basics)",
+      "description": "Competencies for health knowledge (lifestyle medicine basics)."
+    },
+    {
+      "code": "D5-S1",
+      "domain_code": "D5",
+      "name": "Ethics & Professional Practice",
+      "description": "Competencies for ethics & professional practice."
+    },
+    {
+      "code": "D6-S1",
+      "domain_code": "D6",
+      "name": "Accountability & Client Progress Tracking",
+      "description": "Competencies for accountability & client progress tracking."
+    },
+    {
+      "code": "D7-S1",
+      "domain_code": "D7",
+      "name": "Professional Development",
+      "description": "Competencies for professional development."
+    }
+  ],
+  "competencies": [
+    {
+      "id": "D1-S1-C01",
+      "subdomain_code": "D1-S1",
+      "domain_code": "D1",
+      "statement": "The learner can demonstrate active listening, including reflective statements and not interrupting.",
+      "description": "Reflects/paraphrases and gives space in a session."
+    },
+    {
+      "id": "D1-S1-C02",
+      "subdomain_code": "D1-S1",
+      "domain_code": "D1",
+      "statement": "The learner can use open-ended questions to explore a client's perspective.",
+      "description": "Chooses open over closed/leading questions."
+    },
+    {
+      "id": "D1-S1-C03",
+      "subdomain_code": "D1-S1",
+      "domain_code": "D1",
+      "statement": "The learner can build rapport and demonstrate empathy with clients.",
+      "description": "Responds in ways that build trust and understanding."
+    },
+    {
+      "id": "D1-S1-C04",
+      "subdomain_code": "D1-S1",
+      "domain_code": "D1",
+      "statement": "The learner can communicate in a non-judgmental way.",
+      "description": "Avoids judgment/advice-giving language."
+    },
+    {
+      "id": "D2-S1-C01",
+      "subdomain_code": "D2-S1",
+      "domain_code": "D2",
+      "statement": "The learner can structure a coaching session (opening, goal, exploration, action, close).",
+      "description": "Moves a session through the standard arc."
+    },
+    {
+      "id": "D2-S1-C02",
+      "subdomain_code": "D2-S1",
+      "domain_code": "D2",
+      "statement": "The learner can set a session agenda collaboratively with the client.",
+      "description": "Co-creates the session focus with the client."
+    },
+    {
+      "id": "D2-S1-C03",
+      "subdomain_code": "D2-S1",
+      "domain_code": "D2",
+      "statement": "The learner can stay within coaching scope and avoid giving medical advice.",
+      "description": "Recognizes and holds the coaching/clinical boundary."
+    },
+    {
+      "id": "D3-S1-C01",
+      "subdomain_code": "D3-S1",
+      "domain_code": "D3",
+      "statement": "The learner can help a client set SMART goals (specific, measurable, achievable, realistic, time-bound).",
+      "description": "Turns a vague aim into a SMART goal."
+    },
+    {
+      "id": "D3-S1-C02",
+      "subdomain_code": "D3-S1",
+      "domain_code": "D3",
+      "statement": "The learner can help a client identify barriers to change.",
+      "description": "Surfaces obstacles that affect a goal."
+    },
+    {
+      "id": "D3-S1-C03",
+      "subdomain_code": "D3-S1",
+      "domain_code": "D3",
+      "statement": "The learner can support a client in forming sustainable habits.",
+      "description": "Applies habit-formation principles (cues, small steps)."
+    },
+    {
+      "id": "D3-S1-C04",
+      "subdomain_code": "D3-S1",
+      "domain_code": "D3",
+      "statement": "The learner can apply behavior-change models such as the Transtheoretical (Stages of Change) Model.",
+      "description": "Matches an approach to a client's stage of change."
+    },
+    {
+      "id": "D4-S1-C01",
+      "subdomain_code": "D4-S1",
+      "domain_code": "D4",
+      "statement": "The learner can apply basic knowledge of nutrition, physical activity, stress management, and sleep in a coaching context.",
+      "description": "Uses general wellness knowledge appropriately."
+    },
+    {
+      "id": "D4-S1-C02",
+      "subdomain_code": "D4-S1",
+      "domain_code": "D4",
+      "statement": "The learner can educate clients on wellness topics without prescribing or diagnosing.",
+      "description": "Shares general information, not a prescription/diagnosis."
+    },
+    {
+      "id": "D5-S1-C01",
+      "subdomain_code": "D5-S1",
+      "domain_code": "D5",
+      "statement": "The learner can describe and work within a wellness coach's scope of practice.",
+      "description": "Identifies what is/ isn't within scope."
+    },
+    {
+      "id": "D5-S1-C02",
+      "subdomain_code": "D5-S1",
+      "domain_code": "D5",
+      "statement": "The learner can maintain client confidentiality.",
+      "description": "Handles client information appropriately."
+    },
+    {
+      "id": "D5-S1-C03",
+      "subdomain_code": "D5-S1",
+      "domain_code": "D5",
+      "statement": "The learner can maintain professional boundaries with clients.",
+      "description": "Sets/holds appropriate boundaries."
+    },
+    {
+      "id": "D5-S1-C04",
+      "subdomain_code": "D5-S1",
+      "domain_code": "D5",
+      "statement": "The learner can recognize when to refer a client out for mental health or medical issues.",
+      "description": "Identifies red flags that require referral."
+    },
+    {
+      "id": "D6-S1-C01",
+      "subdomain_code": "D6-S1",
+      "domain_code": "D6",
+      "statement": "The learner can track a client's progress toward goals.",
+      "description": "Uses a method to monitor progress over time."
+    },
+    {
+      "id": "D6-S1-C02",
+      "subdomain_code": "D6-S1",
+      "domain_code": "D6",
+      "statement": "The learner can adjust a client's plan based on progress.",
+      "description": "Adapts the plan when progress stalls/changes."
+    },
+    {
+      "id": "D6-S1-C03",
+      "subdomain_code": "D6-S1",
+      "domain_code": "D6",
+      "statement": "The learner can support client accountability without pressure or judgment.",
+      "description": "Encourages follow-through respectfully."
+    },
+    {
+      "id": "D7-S1-C01",
+      "subdomain_code": "D7-S1",
+      "domain_code": "D7",
+      "statement": "The learner can engage in self-reflection on their coaching practice.",
+      "description": "Reviews their own sessions to improve."
+    },
+    {
+      "id": "D7-S1-C02",
+      "subdomain_code": "D7-S1",
+      "domain_code": "D7",
+      "statement": "The learner can receive and apply feedback constructively.",
+      "description": "Uses feedback to change practice."
+    },
+    {
+      "id": "D7-S1-C03",
+      "subdomain_code": "D7-S1",
+      "domain_code": "D7",
+      "statement": "The learner can demonstrate a growth mindset in their professional development.",
+      "description": "Frames challenges as learning opportunities."
+    },
+    {
+      "id": "D7-S1-C04",
+      "subdomain_code": "D7-S1",
+      "domain_code": "D7",
+      "statement": "The learner can develop a professional coaching identity.",
+      "description": "Articulates values/approach as a coach."
+    }
+  ]
+}

@@ -1,0 +1,176 @@
+{
+  "course_id": "cyb150",
+  "pathway": "cybersecurity-support-technician",
+  "title": "Security Compliance & Risk Management",
+  "description": "This is a competency-based course designed for the indentured Cybersecurity Support Technician apprentice. Covers compliance frameworks such as NIST, ISO 27001, HIPAA, and SOC 2. Includes security policy development and regulatory requirements.",
+  "hours": 30,
+  "projects": 3,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Map a stated security requirement to the right control in NIST, ISO 27001, HIPAA, or SOC 2",
+    "Rate a risk by likelihood and impact and defend its priority against the rest of the register",
+    "Draft a security policy that is specific, enforceable, and traceable to a control requirement",
+    "Collect the evidence an auditor needs to confirm that a control operates as written",
+    "Write a security posture report a non-technical stakeholder can act on"
+  ],
+  "prerequisites": [
+    "cyb100 Introduction to Cybersecurity",
+    "net110 Network Security Fundamentals",
+    "cyb130 Access Control and Identity Management",
+    "cyb210 Endpoint Security and Malware Defense",
+    "cyb120 Threat Analysis and Incident Response"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "cyb150-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cyb150-02",
+      "order": 2,
+      "slug": "regulatory-frameworks-and-control-catalogs",
+      "title": "Regulatory Frameworks and Control Catalogs",
+      "kind": "lesson",
+      "objectives": [
+        "Map a stated security requirement to the right control in NIST, ISO 27001, HIPAA, or SOC 2"
+      ],
+      "competency_ids": [
+        "D4-S1-C01"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cyb150-03",
+      "order": 3,
+      "slug": "risk-assessment-methods",
+      "title": "Risk Assessment Methods",
+      "kind": "lesson",
+      "objectives": [
+        "Rate a risk by likelihood and impact and defend its priority against the rest of the register"
+      ],
+      "competency_ids": [
+        "D4-S1-C02"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cyb150-04",
+      "order": 4,
+      "slug": "security-policy-development",
+      "title": "Security Policy Development",
+      "kind": "lesson",
+      "objectives": [
+        "Draft a security policy that is specific, enforceable, and traceable to a control requirement"
+      ],
+      "competency_ids": [
+        "D4-S1-C03"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cyb150-05",
+      "order": 5,
+      "slug": "audit-evidence-and-control-testing",
+      "title": "Audit Evidence and Control Testing",
+      "kind": "lesson",
+      "objectives": [
+        "Collect the evidence an auditor needs to confirm that a control operates as written"
+      ],
+      "competency_ids": [
+        "D4-S1-C05",
+        "D4-S1-C01"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cyb150-06",
+      "order": 6,
+      "slug": "reporting-security-posture",
+      "title": "Reporting Security Posture",
+      "kind": "lesson",
+      "objectives": [
+        "Write a security posture report a non-technical stakeholder can act on"
+      ],
+      "competency_ids": [
+        "D4-S1-C04"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cyb150-07",
+      "order": 7,
+      "slug": "project-risk-register",
+      "title": "Project: Risk Register for a Small Organization",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D4-S1-C02"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cyb150-08",
+      "order": 8,
+      "slug": "project-policy-set-draft",
+      "title": "Project: Policy Set Draft",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D4-S1-C03",
+        "D4-S1-C01"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cyb150-09",
+      "order": 9,
+      "slug": "project-compliance-gap-report",
+      "title": "Project: Compliance Gap Report",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D4-S1-C05",
+        "D4-S1-C04"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Compliance work runs requirement, risk, rule, evidence, report, and the course follows that chain. Lesson 02 starts with the frameworks because they are the source of the obligation, and because a learner who meets risk assessment first tends to invent priorities that no external requirement supports. Risk (03) comes second so the learner can explain why a control exists in this organization and not merely that a framework listed it. Policy (04) follows risk because a policy is the written response to an accepted risk, and evidence (05) follows policy because auditors test what the policy claims. Reporting (06) closes the teaching sequence: it is where the four preceding lessons become a management decision. The three projects are sequenced to build on each other - the register (07) feeds the policy set (08), and both feed the gap report (09) - so the learner leaves with one coherent compliance package rather than three unrelated documents. SCOPE ASSUMPTIONS - intake gives two sentences, no objectives, no lesson titles; correct anything wrong: (1) Framework coverage is orientation depth, not certification depth: the learner should be able to locate an obligation in NIST CSF/800-53, ISO 27001 Annex A, HIPAA Security Rule, and SOC 2 Trust Services Criteria and map it to a control, not recite them. PCI DSS, GDPR, CMMC, and state privacy law are named as neighbours and not taught. (2) The course is written for a technician who supports compliance, not a compliance officer who owns it: the learner drafts, evidences, and reports; an accountable owner approves. (3) No legal advice is given or implied; where an obligation depends on jurisdiction or contract, the lesson says to escalate. (4) Technical controls themselves are assumed from the earlier courses and are not retaught; this course is about proving they exist and work. (5) Vendor and third-party risk is introduced inside the risk lesson as a category rather than given its own lesson at 30 hours. (6) Business continuity and disaster recovery planning are named in the risk lesson but are not taught in depth. (7) Intake records three projects, and lessons 07, 08, and 09 are those three - deliberately kept at three hours each so the five teaching lessons keep their depth.",
+  "proposed_competencies": [
+    {
+      "domain_code": "D4",
+      "subdomain": "D4-S1",
+      "competency_text": "The learner can produce and package audit evidence - screenshots, exports, ticket records, and configuration listings - that demonstrates a control operated over an audit period, not merely that it exists today.",
+      "rationale": "Lesson 05 and project 09 are assessed on this. D4-S1-C05 covers collaborating with compliance teams to meet standards and D4-S1-C01 covers supporting compliance with frameworks, but neither names the evidence-production work, which is the bulk of what a support technician is actually asked to do during an audit and has a specific failure mode: point-in-time evidence for a period-of-time control."
+    }
+  ],
+  "assets": [
+    {
+      "filename": "framework-landscape.png",
+      "description": "How a single security obligation reaches one organization through four different instruments - a regulation (HIPAA), a certifiable standard (ISO 27001), an attestation report (SOC 2), and a customer contract - with NIST CSF and SP 800-53 shown as the shared organizing vocabulary underneath.",
+      "suggested_source": "Diagram, drawn in-house"
+    },
+    {
+      "filename": "risk-heat-map.png",
+      "description": "A five by five likelihood and impact grid with the four risk bands shaded (Critical, High, Medium, Low), showing where each of the six worked-example Meridian risks lands.",
+      "suggested_source": "Diagram, drawn in-house"
+    }
+  ]
+}

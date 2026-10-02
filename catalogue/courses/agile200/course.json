@@ -1,0 +1,230 @@
+{
+  "course_id": "agile200",
+  "pathway": "quality-assurance-software-engineer",
+  "title": "Agile Project Implementation",
+  "description": "This is a competency-based course designed for the indentured website developer apprentice.  This course will cover a team or an individual capstone project. The apprentice(s) will select a project using Agile Methodologies, project management software. The project is a sprint for three (3) weeks to",
+  "hours": 150,
+  "projects": null,
+  "notes": null,
+  "lesson_length": "Roughly 1,200 to 1,800 words of instructional prose per lesson, plus worked examples, templates, and the exercise. The bulk of this course's 150 hours is the three-week capstone sprint itself, not reading, so lesson bodies are deliberately shorter than the hours_estimate alone would suggest.",
+  "learning_objectives": [
+    "Scope a capstone project and write a definition of done the team agrees on",
+    "Run a sprint board in project management software and keep it truthful",
+    "Stand up a test environment that represents how the project will really run",
+    "Write a test strategy that matches the project's risk and timeline",
+    "Write and maintain automated test scripts as the code changes",
+    "Keep a defect database a team can actually use",
+    "Work with users and stakeholders to diagnose reported problems",
+    "Verify a release and hand it over with accurate documentation",
+    "Present finished work and run a retrospective"
+  ],
+  "prerequisites": [
+    "agile100 Introduction to Agile Projects, or equivalent experience of a full sprint cycle",
+    "ops100 Git / Chrome Devtools and node100 Introduction to Programming with Node JS, or equivalent"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "agile200-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "agile200-02",
+      "order": 2,
+      "slug": "scoping-a-capstone-and-defining-done",
+      "title": "Scoping a Capstone and Defining Done",
+      "kind": "lesson",
+      "objectives": [
+        "Scope a capstone project and write a definition of done the team agrees on"
+      ],
+      "competency_ids": [
+        "D1-S1-C02",
+        "D4-S1-C04",
+        "D5-S1-C03"
+      ],
+      "hours_estimate": 12,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "agile200-03",
+      "order": 3,
+      "slug": "project-management-tooling-and-the-sprint-board",
+      "title": "Project Management Tooling and the Sprint Board",
+      "kind": "lesson",
+      "objectives": [
+        "Run a sprint board in project management software and keep it truthful"
+      ],
+      "competency_ids": [
+        "D1-S1-C02",
+        "D2-S1-C04",
+        "D5-S1-C04"
+      ],
+      "hours_estimate": 12,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "agile200-04",
+      "order": 4,
+      "slug": "building-the-test-environment",
+      "title": "Building the Test Environment",
+      "kind": "lesson",
+      "objectives": [
+        "Stand up a test environment that represents how the project will really run"
+      ],
+      "competency_ids": [
+        "D3-S1-C01",
+        "D3-S1-C03"
+      ],
+      "hours_estimate": 14,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "agile200-05",
+      "order": 5,
+      "slug": "test-strategy-levels-and-risk",
+      "title": "Test Strategy, Levels, and Risk",
+      "kind": "lesson",
+      "objectives": [
+        "Write a test strategy that matches the project's risk and timeline"
+      ],
+      "competency_ids": [
+        "D4-S1-C03",
+        "D4-S1-C04"
+      ],
+      "hours_estimate": 14,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "agile200-06",
+      "order": 6,
+      "slug": "writing-and-maintaining-automated-test-scripts",
+      "title": "Writing and Maintaining Automated Test Scripts",
+      "kind": "lesson",
+      "objectives": [
+        "Write and maintain automated test scripts as the code changes"
+      ],
+      "competency_ids": [
+        "D3-S1-C03",
+        "D3-S1-C04",
+        "D3-S1-C06"
+      ],
+      "hours_estimate": 18,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "agile200-07",
+      "order": 7,
+      "slug": "defect-database-triage-and-regression-suites",
+      "title": "The Defect Database, Triage, and Regression Suites",
+      "kind": "lesson",
+      "objectives": [
+        "Keep a defect database a team can actually use"
+      ],
+      "competency_ids": [
+        "D2-S1-C01",
+        "D2-S1-C04",
+        "D3-S1-C05"
+      ],
+      "hours_estimate": 14,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "agile200-08",
+      "order": 8,
+      "slug": "diagnosing-problems-reported-by-users",
+      "title": "Diagnosing Problems Reported by Users and Stakeholders",
+      "kind": "lesson",
+      "objectives": [
+        "Work with users and stakeholders to diagnose reported problems"
+      ],
+      "competency_ids": [
+        "D1-S1-C01",
+        "D2-S1-C02",
+        "D2-S1-C03"
+      ],
+      "hours_estimate": 12,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "agile200-09",
+      "order": 9,
+      "slug": "release-verification-and-handoff-documentation",
+      "title": "Release Verification and Handoff Documentation",
+      "kind": "lesson",
+      "objectives": [
+        "Verify a release and hand it over with accurate documentation"
+      ],
+      "competency_ids": [
+        "D4-S1-C01",
+        "D4-S1-C02",
+        "D4-S1-C03"
+      ],
+      "hours_estimate": 12,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "agile200-10",
+      "order": 10,
+      "slug": "demo-presentation-and-retrospective",
+      "title": "Demo, Presentation, and Retrospective",
+      "kind": "lesson",
+      "objectives": [
+        "Present finished work and run a retrospective"
+      ],
+      "competency_ids": [
+        "D1-S1-C03",
+        "D1-S1-C04",
+        "D2-S1-C02"
+      ],
+      "hours_estimate": 10,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "agile200-11",
+      "order": 11,
+      "slug": "capstone-sprint-over-three-weeks",
+      "title": "Capstone Sprint Over Three Weeks",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D1-S1-C04",
+        "D2-S1-C04",
+        "D3-S1-C04",
+        "D4-S1-C03",
+        "D5-S1-C02",
+        "D5-S1-C04"
+      ],
+      "hours_estimate": 29,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "QA REFRAMING (stated explicitly because the intake evidence is borrowed): the intake describes this as a course for the 'indentured website developer apprentice' and its capstone as a project the apprentice selects and builds. It is a shared course repurposed for the Quality Assurance Software Engineer pathway, so this outline reframes the capstone as a QA capstone: the apprentice still ships a working product, but the assessed artifacts are the test environment, the test strategy, the automated test suite, the defect database, and the verified release, not the feature list. This is also the terminal course in the pathway and therefore carries every competency no earlier course could reach, most importantly D3-S1-C04 (maintaining automated test scripts, which needs a codebase that changes under you over three weeks) and D2-S1-C03 (diagnosing problems with field staff or customers, which needs a real user of a real deliverable). Lesson 08 exists solely for that second one; a developer-facing version of this course would not have it. SEQUENCE: scope and definition of done, then the board, then the environment, then the strategy, then automation, then the defect database, then user-reported diagnosis, then release verification, then demo, then the sprint. Scope precedes strategy because a test strategy is meaningless without a definition of done; the environment precedes automation because scripts need somewhere to run; the defect database follows automation because most of its entries will come from failing tests; release verification and demo come last because they are the closing acts of a sprint, and the three-week capstone then re-runs the whole sequence for real. SCOPE ASSUMPTIONS: the intake description is truncated mid-sentence ('a sprint for three (3) weeks to') and nothing was invented to complete it. What survives is firm on four points and they drive the outline: a capstone, team or individual, project management software, and three weeks. Assumed in scope: project scoping and definition of done, an issue tracker or board tool, a locally reproduced test environment, test levels and risk-based strategy, automated test scripts and their maintenance, a defect database and regression suite, stakeholder and user diagnosis, release verification, handoff documentation, and a demo plus retrospective. Assumed out of scope and deliberately left out: performance and load testing at scale, security testing, contract or acceptance testing with an external client, CI/CD platform administration, and any specific commercial tool being mandated. Tooling is named generically (an issue tracker, a test runner, a browser automation library) so a reviewer can bind it to whatever the cohort actually uses. HOURS: 3h overview, nine teaching lessons of 10 to 18h, and a 29h capstone project, summing to exactly 150. Because the great majority of those hours are supervised project work rather than reading, lesson_length is set so lesson bodies stay at roughly 1,200 to 1,800 words rather than the default word-per-hour budget; a reviewer who disagrees should clear lesson_length and regenerate. LESSON KINDS: intake records no project count for this course, but the description is explicit that the course IS a capstone project, so lesson 11 is written as a kind 'project' brief. That is the one place this outline overrides the missing intake project count, and it is called out here so a reviewer can reverse it.",
+  "proposed_competencies": [
+    {
+      "domain_code": "D3",
+      "subdomain": "D3-S1",
+      "competency_text": "The learner can carry out exploratory testing without a scripted test case and record what they found in a way others can reproduce.",
+      "rationale": "Lessons 05 and 07 both lean on exploratory testing to find the defects a written test plan did not anticipate, and it is how most real apprentice QA work starts. Every D3 competency in the catalog is about tooling or scripted automation, and D4-S1-C04 is about planning, so unscripted, session-based testing has no home in the catalog at all."
+    },
+    {
+      "domain_code": "D4",
+      "subdomain": "D4-S1",
+      "competency_text": "The learner can decide whether a release meets its exit criteria and communicate a go or no-go recommendation with the evidence behind it.",
+      "rationale": "Lesson 09 asks the learner to make and defend a release call. D4-S1-C03 covers testing system modifications to prepare for implementation, which is the work leading up to the decision, but the catalog has no competency for the judgement and communication of the decision itself, which is what a QA engineer is actually accountable for at a release gate."
+    }
+  ],
+  "assets": [
+    {
+      "filename": "test-strategy-levels.png",
+      "description": "Test levels from unit through integration to end-to-end, showing the trade-off between how many tests run at each level and what each one costs to write and maintain.",
+      "suggested_source": "Diagram, drawn in-house"
+    }
+  ]
+}

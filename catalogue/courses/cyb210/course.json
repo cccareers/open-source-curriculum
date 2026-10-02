@@ -1,0 +1,147 @@
+{
+  "course_id": "cyb210",
+  "pathway": "cybersecurity-support-technician",
+  "title": "Endpoint Security & Malware Defense",
+  "description": "This is a competency-based course designed for the indentured Cybersecurity Support Technician apprentice. Covers endpoint protection strategies, antivirus solutions, malware analysis, and incident containment techniques.",
+  "hours": 30,
+  "projects": 2,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Deploy and tune endpoint protection so that it detects malicious behavior without burying the analyst in false positives",
+    "Classify a malware sample by its observed behavior and name the indicators it leaves on an endpoint",
+    "Prioritize a patch backlog using severity, exposure, and business impact",
+    "Configure email authentication and filtering to block spoofed, malicious, and unwanted mail"
+  ],
+  "prerequisites": [
+    "cyb100 Introduction to Cybersecurity",
+    "net110 Network Security Fundamentals",
+    "cyb130 Access Control and Identity Management"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "cyb210-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cyb210-02",
+      "order": 2,
+      "slug": "endpoint-protection-and-edr",
+      "title": "Endpoint Protection and EDR",
+      "kind": "lesson",
+      "objectives": [
+        "Deploy and tune endpoint protection so that it detects malicious behavior without burying the analyst in false positives"
+      ],
+      "competency_ids": [
+        "D5-S1-C01"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cyb210-03",
+      "order": 3,
+      "slug": "malware-behavior-and-triage",
+      "title": "Malware Behavior and Triage",
+      "kind": "lesson",
+      "objectives": [
+        "Classify a malware sample by its observed behavior and name the indicators it leaves on an endpoint"
+      ],
+      "competency_ids": [
+        "D3-S1-C03",
+        "D5-S1-C01"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cyb210-04",
+      "order": 4,
+      "slug": "patch-and-vulnerability-management",
+      "title": "Patch and Vulnerability Management",
+      "kind": "lesson",
+      "objectives": [
+        "Prioritize a patch backlog using severity, exposure, and business impact"
+      ],
+      "competency_ids": [
+        "D5-S1-C03"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cyb210-05",
+      "order": 5,
+      "slug": "email-security-and-phishing-defense",
+      "title": "Email Security and Phishing Defense",
+      "kind": "lesson",
+      "objectives": [
+        "Configure email authentication and filtering to block spoofed, malicious, and unwanted mail"
+      ],
+      "competency_ids": [
+        "D5-S1-C04",
+        "D5-S1-C02"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cyb210-06",
+      "order": 6,
+      "slug": "project-endpoint-containment-runbook",
+      "title": "Project: Endpoint Containment Runbook",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D3-S1-C05",
+        "D5-S1-C02",
+        "D5-S1-C01"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cyb210-07",
+      "order": 7,
+      "slug": "project-malware-triage-lab-report",
+      "title": "Project: Malware Triage Lab Report",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D3-S1-C03",
+        "D5-S1-C01"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "The course follows the endpoint's own risk surface: the agent that watches it (02), the thing the agent is watching for (03), the holes that let that thing in (04), and the delivery channel it most often arrives through (05). Lesson 02 is first because everything after it is read through EDR telemetry, and a learner who has not seen what an agent records cannot interpret a detection. Malware behavior (03) follows immediately, because tuning in 02 is only defensible once the learner knows which behaviors matter. Patching (04) is placed after both, so the learner meets vulnerability management as prevention for the attacks they have just studied rather than as an inventory chore. Email security (05) closes the teaching sequence as the highest-volume initial access path. The two projects split containment (06, procedural, written as a runbook a peer could follow) from analysis (07, evidence-based, written as a report), which are the two artifacts an endpoint technician is actually asked for. SCOPE ASSUMPTIONS - intake gives one sentence, no objectives, no lesson titles; correct anything wrong: (1) All malware work is defensive and lab-scoped: analysis is performed on instructor-supplied samples in an isolated, non-networked virtual machine, and the course neither writes nor modifies malicious code. (2) 'Malware analysis' is scoped to behavioral and basic static triage - strings, hashes, file metadata, process and network behavior, indicator extraction - not to reverse engineering, unpacking, or disassembly. Deeper responder-side analysis is cyb120. (3) 'Incident containment' is scoped to the endpoint (isolate the host, kill and quarantine, revoke sessions, preserve volatile evidence); the full incident lifecycle, forensics discipline, and post-incident reporting are cyb120, which follows this course. (4) Endpoint hardening baselines are taught as a concept in 02 and 04 but the catalog has no competency for them - see proposed_competencies. (5) Mobile device management is named but not taught at 30 hours. (6) User-facing awareness training is out of scope here and is cyb250; this course covers the technical mail controls (SPF, DKIM, DMARC, filtering), cyb250 covers the human ones. (7) Intake records two projects, and lessons 06 and 07 are those two.",
+  "proposed_competencies": [
+    {
+      "domain_code": "D5",
+      "subdomain": "D5-S1",
+      "competency_text": "The learner can apply and verify a secure configuration baseline (for example a CIS Benchmark) on a workstation or server, and explain each deviation that is accepted.",
+      "rationale": "Lessons 02 and 04 both depend on a hardened baseline - EDR tuning assumes a known-good configuration, and patch prioritization assumes a known exposure surface - but the catalog's endpoint competencies cover protection software (D5-S1-C01) and patching (D5-S1-C03) only. Configuration hardening is a distinct and very common technician task with its own evidence trail."
+    }
+  ],
+  "assets": [
+    {
+      "filename": "edr-detection-pipeline.png",
+      "description": "The endpoint detection pipeline, from raw agent telemetry (process, file, configuration, network, authentication events) through detection logic layers to alert triage and response actions.",
+      "suggested_source": "Diagram, drawn in-house"
+    },
+    {
+      "filename": "mail-authentication-flow.png",
+      "description": "How a receiving mail server evaluates SPF, DKIM, and DMARC alignment against the envelope sender (5321.From) and the header From (5322.From) address.",
+      "suggested_source": "Diagram, drawn in-house"
+    }
+  ]
+}

@@ -1,0 +1,183 @@
+{
+  "version": 1,
+  "domains": [
+    {
+      "code": "D1",
+      "name": "Sales Methodologies and Consultative Selling",
+      "delivered_weight_percent": 22,
+      "description": "Sales methodologies and consultative selling: SaaS economics/KPIs, pain-point diagnosis, and structured discovery (Sandler, SPIN)."
+    },
+    {
+      "code": "D2",
+      "name": "Negotiation and Closing Techniques",
+      "delivered_weight_percent": 28,
+      "description": "Negotiation and closing: objection handling, pricing/contract strategy, commercial insight, and persuasive presentation and closing."
+    },
+    {
+      "code": "D3",
+      "name": "Lead Generation, Prospecting, and Tracking",
+      "delivered_weight_percent": 28,
+      "description": "Lead generation, prospecting, and tracking: research, cold outreach, email sequences, CRM operation, and pipeline qualification."
+    },
+    {
+      "code": "D4",
+      "name": "Relationship Management and Customer Success",
+      "delivered_weight_percent": 22,
+      "description": "Relationship management and customer success: long-term relationships, active listening, CRM hygiene/forecasting, and data-driven adjustment."
+    }
+  ],
+  "subdomains": [
+    {
+      "code": "D1-S1",
+      "domain_code": "D1",
+      "name": "Sales Methodologies and Consultative Selling",
+      "description": "Competencies for sales methodologies and consultative selling."
+    },
+    {
+      "code": "D2-S1",
+      "domain_code": "D2",
+      "name": "Negotiation and Closing Techniques",
+      "description": "Competencies for negotiation and closing techniques."
+    },
+    {
+      "code": "D3-S1",
+      "domain_code": "D3",
+      "name": "Lead Generation, Prospecting, and Tracking",
+      "description": "Competencies for lead generation, prospecting, and tracking."
+    },
+    {
+      "code": "D4-S1",
+      "domain_code": "D4",
+      "name": "Relationship Management and Customer Success",
+      "description": "Competencies for relationship management and customer success."
+    }
+  ],
+  "competencies": [
+    {
+      "id": "D1-S1-C01",
+      "subdomain_code": "D1-S1",
+      "domain_code": "D1",
+      "statement": "The learner can explain SaaS revenue models, customer acquisition cost, and key sales KPIs, and use them to frame a deal.",
+      "description": "Interprets SaaS economics/KPIs and applies them in qualifying or positioning a sale."
+    },
+    {
+      "id": "D1-S1-C02",
+      "subdomain_code": "D1-S1",
+      "domain_code": "D1",
+      "statement": "The learner can analyze a customer's pain points and match them to appropriate software solutions.",
+      "description": "Diagnoses a stated business problem and maps it to a product capability."
+    },
+    {
+      "id": "D1-S1-C03",
+      "subdomain_code": "D1-S1",
+      "domain_code": "D1",
+      "statement": "The learner can apply the Sandler method — including rapport-building and pain-point discovery — in a sales conversation.",
+      "description": "Runs a Sandler-style discovery conversation correctly."
+    },
+    {
+      "id": "D1-S1-C04",
+      "subdomain_code": "D1-S1",
+      "domain_code": "D1",
+      "statement": "The learner can use SPIN Selling (Situation, Problem, Implication, Need-Payoff) to guide a consultative conversation.",
+      "description": "Sequences SPIN questions appropriately to surface need."
+    },
+    {
+      "id": "D2-S1-C01",
+      "subdomain_code": "D2-S1",
+      "domain_code": "D2",
+      "statement": "The learner can apply negotiation tactics to handle objections and secure favorable deals.",
+      "description": "Chooses an effective response to a negotiation objection."
+    },
+    {
+      "id": "D2-S1-C02",
+      "subdomain_code": "D2-S1",
+      "domain_code": "D2",
+      "statement": "The learner can develop a strategy for a contract negotiation and pricing discussion.",
+      "description": "Plans concessions/anchors for a pricing negotiation."
+    },
+    {
+      "id": "D2-S1-C03",
+      "subdomain_code": "D2-S1",
+      "domain_code": "D2",
+      "statement": "The learner can reframe a customer's thinking and present a commercial insight effectively.",
+      "description": "Delivers a challenger-style insight that reframes the buyer's view."
+    },
+    {
+      "id": "D2-S1-C04",
+      "subdomain_code": "D2-S1",
+      "domain_code": "D2",
+      "statement": "The learner can design a compelling sales presentation that uses data visualization and storytelling.",
+      "description": "Structures a deck that pairs a narrative with clear visuals."
+    },
+    {
+      "id": "D2-S1-C05",
+      "subdomain_code": "D2-S1",
+      "domain_code": "D2",
+      "statement": "The learner can deliver a persuasive sales pitch, handle objections, and move toward a close.",
+      "description": "Advances a pitch to a clear next step or close."
+    },
+    {
+      "id": "D3-S1-C01",
+      "subdomain_code": "D3-S1",
+      "domain_code": "D3",
+      "statement": "The learner can identify and research potential leads using market analysis and prospecting techniques.",
+      "description": "Builds a qualified target list from market signals."
+    },
+    {
+      "id": "D3-S1-C02",
+      "subdomain_code": "D3-S1",
+      "domain_code": "D3",
+      "statement": "The learner can conduct an effective cold call and handle objections during it.",
+      "description": "Opens, navigates, and recovers a cold call."
+    },
+    {
+      "id": "D3-S1-C03",
+      "subdomain_code": "D3-S1",
+      "domain_code": "D3",
+      "statement": "The learner can craft an email outreach sequence that sets appointments.",
+      "description": "Writes a multi-touch sequence with a clear call to action."
+    },
+    {
+      "id": "D3-S1-C04",
+      "subdomain_code": "D3-S1",
+      "domain_code": "D3",
+      "statement": "The learner can operate a CRM (e.g., Salesforce, HubSpot) to track leads and sales conversion.",
+      "description": "Records and advances opportunities correctly in a CRM."
+    },
+    {
+      "id": "D3-S1-C05",
+      "subdomain_code": "D3-S1",
+      "domain_code": "D3",
+      "statement": "The learner can use prospecting tools to build and qualify a sales pipeline.",
+      "description": "Applies a qualification framework to build pipeline."
+    },
+    {
+      "id": "D4-S1-C01",
+      "subdomain_code": "D4-S1",
+      "domain_code": "D4",
+      "statement": "The learner can build long-term relationships with prospects and customers to sustain success.",
+      "description": "Plans touchpoints that maintain a customer relationship over time."
+    },
+    {
+      "id": "D4-S1-C02",
+      "subdomain_code": "D4-S1",
+      "domain_code": "D4",
+      "statement": "The learner can use active listening and consultative discussion to align solutions with customer needs.",
+      "description": "Demonstrates listening that surfaces and confirms need."
+    },
+    {
+      "id": "D4-S1-C03",
+      "subdomain_code": "D4-S1",
+      "domain_code": "D4",
+      "statement": "The learner can maintain and update sales opportunities in a CRM to support accurate forecasting.",
+      "description": "Keeps opportunity stages/data current for a reliable forecast."
+    },
+    {
+      "id": "D4-S1-C04",
+      "subdomain_code": "D4-S1",
+      "domain_code": "D4",
+      "statement": "The learner can analyze sales data to identify trends and adjust strategy.",
+      "description": "Reads pipeline/performance data and adapts approach."
+    }
+  ]
+}

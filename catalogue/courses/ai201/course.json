@@ -1,0 +1,252 @@
+{
+  "course_id": "ai201",
+  "pathway": "prompt-engineer",
+  "title": "AI-Powered Automation & Workflows",
+  "description": "This is a competency-based course designed for the indentured Prompt Engineer apprentice.  Practical hands-on training for creating end-to-end AI-driven workflows. Includes combining APIs, triggers, and AI services to automate repetitive tasks and streamline business processes.",
+  "hours": 60,
+  "projects": null,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Map an existing business process end to end and identify which steps are worth automating",
+    "Design a workflow's triggers, actions, and state so it runs correctly across systems and repeated executions",
+    "Build a workflow that ingests, cleans, and routes business data without manual handling",
+    "Produce an automated report that assembles data, adds AI-generated narrative, and delivers on a schedule",
+    "Generate documents from structured data using templates and AI-written sections",
+    "Extract and summarize the contents of inbound documents into structured fields a workflow can act on",
+    "Build an email triage workflow that classifies, routes, and drafts responses under human review",
+    "Design a customer-service automation with explicit confidence thresholds and escalation to a person",
+    "Integrate an AI workflow into an existing operation with a rollout plan people will actually adopt",
+    "Diagnose an automation failure from logs and execution history and repair the underlying cause",
+    "Refine a working automation for reliability, latency, and cost, and prove the improvement",
+    "Deliver an end-to-end automated business process with monitoring, escalation, and a rollback path"
+  ],
+  "prerequisites": [
+    "Completion of ai102, or equivalent ability to build a multi-step automation containing an AI step",
+    "Completion of ai101, or equivalent prompting and evaluation skill"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "ai201-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ai201-02",
+      "order": 2,
+      "slug": "mapping-a-business-process-for-automation",
+      "title": "Mapping a Business Process for Automation",
+      "kind": "lesson",
+      "objectives": [
+        "Map an existing business process end to end and identify which steps are worth automating"
+      ],
+      "competency_ids": [
+        "D3-S1-C04"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ai201-03",
+      "order": 3,
+      "slug": "workflow-architecture-triggers-actions-and-state",
+      "title": "Workflow Architecture: Triggers, Actions, and State",
+      "kind": "lesson",
+      "objectives": [
+        "Design a workflow's triggers, actions, and state so it runs correctly across systems and repeated executions"
+      ],
+      "competency_ids": [
+        "D3-S1-C01"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ai201-04",
+      "order": 4,
+      "slug": "data-processing-workflows",
+      "title": "Data Processing Workflows",
+      "kind": "lesson",
+      "objectives": [
+        "Build a workflow that ingests, cleans, and routes business data without manual handling"
+      ],
+      "competency_ids": [
+        "D3-S1-C01"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ai201-05",
+      "order": 5,
+      "slug": "automated-reporting-and-decision-support",
+      "title": "Automated Reporting and Decision Support",
+      "kind": "lesson",
+      "objectives": [
+        "Produce an automated report that assembles data, adds AI-generated narrative, and delivers on a schedule"
+      ],
+      "competency_ids": [
+        "D3-S1-C01"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ai201-06",
+      "order": 6,
+      "slug": "document-generation-and-assembly",
+      "title": "Document Generation and Assembly",
+      "kind": "lesson",
+      "objectives": [
+        "Generate documents from structured data using templates and AI-written sections"
+      ],
+      "competency_ids": [
+        "D3-S1-C02"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ai201-07",
+      "order": 7,
+      "slug": "document-extraction-and-summarization",
+      "title": "Document Extraction and Summarization",
+      "kind": "lesson",
+      "objectives": [
+        "Extract and summarize the contents of inbound documents into structured fields a workflow can act on"
+      ],
+      "competency_ids": [
+        "D3-S1-C02"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ai201-08",
+      "order": 8,
+      "slug": "intelligent-email-triage-and-routing",
+      "title": "Intelligent Email Triage and Routing",
+      "kind": "lesson",
+      "objectives": [
+        "Build an email triage workflow that classifies, routes, and drafts responses under human review"
+      ],
+      "competency_ids": [
+        "D3-S1-C03"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ai201-09",
+      "order": 9,
+      "slug": "customer-service-automation-and-escalation",
+      "title": "Customer-Service Automation and Escalation",
+      "kind": "lesson",
+      "objectives": [
+        "Design a customer-service automation with explicit confidence thresholds and escalation to a person"
+      ],
+      "competency_ids": [
+        "D3-S1-C03"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ai201-10",
+      "order": 10,
+      "slug": "integrating-ai-into-existing-operations",
+      "title": "Integrating AI into Existing Operations",
+      "kind": "lesson",
+      "objectives": [
+        "Integrate an AI workflow into an existing operation with a rollout plan people will actually adopt"
+      ],
+      "competency_ids": [
+        "D3-S1-C04"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ai201-11",
+      "order": 11,
+      "slug": "troubleshooting-automation-failures",
+      "title": "Troubleshooting Automation Failures",
+      "kind": "lesson",
+      "objectives": [
+        "Diagnose an automation failure from logs and execution history and repair the underlying cause"
+      ],
+      "competency_ids": [
+        "D3-S1-C05"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ai201-12",
+      "order": 12,
+      "slug": "refining-workflows-for-performance-and-cost",
+      "title": "Refining Workflows for Performance and Cost",
+      "kind": "lesson",
+      "objectives": [
+        "Refine a working automation for reliability, latency, and cost, and prove the improvement"
+      ],
+      "competency_ids": [
+        "D3-S1-C05"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ai201-13",
+      "order": 13,
+      "slug": "project-automate-a-business-process-end-to-end",
+      "title": "Project: Automate a Business Process End to End",
+      "kind": "project",
+      "objectives": [
+        "Deliver an end-to-end automated business process with monitoring, escalation, and a rollback path"
+      ],
+      "competency_ids": [
+        "D3-S1-C01",
+        "D3-S1-C02",
+        "D3-S1-C03",
+        "D3-S1-C04",
+        "D3-S1-C05"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Sequence: ai201 follows ai102 because it assumes a learner can already build, connect, and debug an automation on a no-code platform; this course is about what to automate in a business, not how to operate the tool. It precedes db305 in the natural order because the data and infrastructure course is easier to motivate once learners have hit the limits of platform-native data handling here. Within the course, process mapping (02) is first because automating an unexamined process automates its waste; architecture (03) follows so the map can be expressed as triggers, actions, and state. Lessons 04 and 05 cover the data-in and reporting-out ends of competency D3-S1-C01. Documents (06 and 07) come before communications (08 and 09) because document generation and extraction are the lower-risk, more deterministic applications, and the confidence thresholds learned there are what make the customer-facing lessons safe. Integration into existing operations (10) is placed after the build lessons because adoption planning needs a concrete thing to adopt. Troubleshooting (11) and refinement (12) close the teaching sequence: both require a workflow that already exists and has run in anger. The project (13) is deliberately small at four hours because agile210 is the pathway's real capstone; this project proves one process rather than a whole solution. SCOPE ASSUMPTIONS (intake supplies no objectives or lesson titles; its description gives 'end-to-end AI-driven workflows', 'combining APIs, triggers, and AI services', 'automate repetitive tasks', and 'streamline business processes'): we assume the course is platform-agnostic hands-on work continuing on the tools from ai102 rather than introducing new ones, and that 'business processes' means the common back-office set (intake, reporting, documents, email, service requests) rather than any one industry's regulated workflow. We assume human-in-the-loop review is mandatory in every customer-facing automation taught here, which is an authoring judgement rather than something the intake states. Agentic multi-step planners, RPA or screen-scraping of desktop software, and telephony or voice channels are deliberately out of scope. Reviewers should correct these assumptions before content approval.",
+  "proposed_competencies": [
+    {
+      "domain_code": "D3",
+      "subdomain": "D3-S1",
+      "competency_text": "The learner can define human-in-the-loop checkpoints for an AI workflow, specifying which decisions require human approval and what evidence the reviewer is shown.",
+      "rationale": "Lessons 08, 09, and 13 all depend on placing a human review gate correctly, and it is the main control preventing an AI automation from causing customer harm, but the catalog's D3 competencies cover building, implementing, designing, optimizing, and troubleshooting without addressing the human checkpoint itself."
+    }
+  ],
+  "assets": [
+    {
+      "filename": "process-map-swimlane.png",
+      "description": "Swimlane map of a vendor invoice process, showing the clerk, approver, and system lanes with the handoffs and wait times between them.",
+      "suggested_source": "Diagram, drawn in-house"
+    },
+    {
+      "filename": "workflow-state-machine.png",
+      "description": "Status state machine for an AI workflow: received, validated, enriched, awaiting_review, approved, completed, with the quarantined, failed, and rejected branches and the human review gate marked.",
+      "suggested_source": "Diagram, drawn in-house"
+    },
+    {
+      "filename": "confidence-routing-thresholds.png",
+      "description": "Confidence thresholds routing customer-service requests into auto-draft, assisted, and escalate tiers, showing the escalate-wins override conditions checked first.",
+      "suggested_source": "Diagram, drawn in-house"
+    }
+  ]
+}

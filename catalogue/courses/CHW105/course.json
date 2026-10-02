@@ -1,0 +1,86 @@
+{
+  "course_id": "CHW105",
+  "pathway": "community-healthcare-worker",
+  "title": "Internship Placement",
+  "description": "Bridges classroom to real-world practice. Covers researching California CHW workforce settings, building a LinkedIn profile and professional portfolio, selecting a field mentor, and submitting internship planning documentation.",
+  "hours": 50,
+  "projects": 1,
+  "notes": "Adapted from Calbright College CHW program outline (course 05 / CHW 505), renumbered per CCC convention.",
+  "lesson_length": "Lab-guide lessons, roughly 1500-2000 words each, supporting instructor-led sessions and independent study",
+  "learning_objectives": [
+    "Research California CHW workforce settings and identify a fit for internship placement",
+    "Build a LinkedIn profile and professional portfolio that evidence CHW skills",
+    "Select a field mentor and submit complete internship planning documentation"
+  ],
+  "prerequisites": [
+    "CHW104: Health Issues in Populations"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "CHW105-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 2,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "CHW105-02",
+      "order": 2,
+      "slug": "the-california-chw-workforce-landscape",
+      "title": "The California CHW Workforce Landscape",
+      "kind": "lesson",
+      "objectives": [
+        "Research California CHW workforce settings and identify a fit for internship placement",
+        "Compare CHW employment settings: clinics, health plans, community-based organizations, public health departments"
+      ],
+      "competency_ids": [],
+      "hours_estimate": 16,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "CHW105-03",
+      "order": 3,
+      "slug": "linkedin-and-professional-portfolio",
+      "title": "LinkedIn and Professional Portfolio",
+      "kind": "lesson",
+      "objectives": [
+        "Build a LinkedIn profile and professional portfolio that evidence CHW skills",
+        "Select artifacts that demonstrate skills rather than list coursework"
+      ],
+      "competency_ids": [],
+      "hours_estimate": 16,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "CHW105-04",
+      "order": 4,
+      "slug": "field-mentor-selection-and-internship-planning",
+      "title": "Field Mentor Selection and Internship Planning",
+      "kind": "project",
+      "objectives": [
+        "Select a field mentor and submit complete internship planning documentation",
+        "Complete required planning documentation accurately and on time"
+      ],
+      "competency_ids": [
+        "D5-S1-C02"
+      ],
+      "hours_estimate": 16,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Course 5 of 6: the classroom-to-field bridge. Workforce landscape first so placement choices are informed, professional presence second (LinkedIn, portfolio), and the internship-planning project last, gated on the first two. Scope assumption: this is a career-preparation course; most content (workforce research, portfolio building) has no behavior in the clinical skills matrix, so it is raised as proposed competencies, with documentation timeliness the one matrix competency the planning project genuinely exercises.",
+  "proposed_competencies": [
+    {
+      "domain_code": "D5",
+      "subdomain": "D5-S1",
+      "competency_text": "The learner can research the CHW workforce landscape and assemble a professional portfolio and online presence that evidence CHW skills.",
+      "rationale": "CHW105 is career preparation; the skills matrix has no career-readiness competencies, so the course's core outcomes are unexpressible without this addition."
+    }
+  ],
+  "assets": []
+}

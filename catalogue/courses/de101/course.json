@@ -1,0 +1,158 @@
+{
+  "course_id": "de101",
+  "pathway": "data-engineer",
+  "title": "Data Engineering Fundamentals",
+  "description": "This is a competency-based course designed for the indentured Data Engineer apprentice.  Introduction to data engineering concepts, including data pipelines, ETL processes, and database management. Covers fundamental tools like SQL, NoSQL, and data modeling best practices.",
+  "hours": 30,
+  "projects": null,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Describe what a data engineer does and how the role relates to analysts, scientists, and software engineers",
+    "Design a normalized transactional schema and a denormalized analytical model for the same subject area",
+    "Write SQL that joins, filters, and aggregates data across several tables",
+    "Choose between a relational store and a NoSQL store for a stated workload",
+    "Explain the difference between ETL and ELT and when each is appropriate",
+    "Build a repeatable ingestion job that reads from a file, an HTTP API, and a database",
+    "Apply profiling and quality checks to a raw dataset before it is used downstream"
+  ],
+  "prerequisites": [
+    "Comfort with a command line, a text editor, and version control basics",
+    "Introductory programming in Python or a comparable language"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "de101-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "de101-02",
+      "order": 2,
+      "slug": "the-data-engineering-role",
+      "title": "The Data Engineering Role",
+      "kind": "lesson",
+      "objectives": [
+        "Describe what a data engineer does and how the role relates to analysts, scientists, and software engineers"
+      ],
+      "competency_ids": [
+        "D7-S1-C01"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "de101-03",
+      "order": 3,
+      "slug": "data-modeling-foundations",
+      "title": "Data Modeling Foundations",
+      "kind": "lesson",
+      "objectives": [
+        "Design a normalized transactional schema and a denormalized analytical model for the same subject area"
+      ],
+      "competency_ids": [
+        "D3-S1-C01",
+        "D7-S1-C02"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "de101-04",
+      "order": 4,
+      "slug": "relational-databases-and-sql",
+      "title": "Relational Databases and SQL",
+      "kind": "lesson",
+      "objectives": [
+        "Write SQL that joins, filters, and aggregates data across several tables"
+      ],
+      "competency_ids": [
+        "D3-S1-C01",
+        "D3-S1-C02"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "de101-05",
+      "order": 5,
+      "slug": "nosql-data-stores",
+      "title": "NoSQL Data Stores",
+      "kind": "lesson",
+      "objectives": [
+        "Choose between a relational store and a NoSQL store for a stated workload"
+      ],
+      "competency_ids": [
+        "D3-S1-C01"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "de101-06",
+      "order": 6,
+      "slug": "etl-and-elt-pipelines",
+      "title": "ETL and ELT Pipelines",
+      "kind": "lesson",
+      "objectives": [
+        "Explain the difference between ETL and ELT and when each is appropriate"
+      ],
+      "competency_ids": [
+        "D1-S1-C01"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "de101-07",
+      "order": 7,
+      "slug": "ingesting-data-from-multiple-sources",
+      "title": "Ingesting Data from Multiple Sources",
+      "kind": "lesson",
+      "objectives": [
+        "Build a repeatable ingestion job that reads from a file, an HTTP API, and a database"
+      ],
+      "competency_ids": [
+        "D1-S1-C02"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "de101-08",
+      "order": 8,
+      "slug": "data-quality-fundamentals",
+      "title": "Data Quality Fundamentals",
+      "kind": "lesson",
+      "objectives": [
+        "Apply profiling and quality checks to a raw dataset before it is used downstream"
+      ],
+      "competency_ids": [
+        "D2-S1-C01"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "This is the entry course of the Data Engineer pathway and every later course assumes it: de101 -> de102 -> de201 -> de210 -> ds320 -> agile310. Sequencing follows dependency order. The role lesson comes first because it frames who consumes the pipelines built in the rest of the pathway. Modeling precedes SQL because a learner cannot write a meaningful join before understanding keys and grain. Relational comes before NoSQL so that NoSQL can be taught as a set of trade-offs against a known baseline. Pipelines (ETL/ELT, then ingestion) come after storage because a pipeline's destination has to exist conceptually before its movement makes sense. Quality closes the course because profiling and validation depend on being able to query the data that was just ingested.\n\nScope assumptions (intake supplied only a two-sentence description, no objectives and no lesson titles, so scope is inferred from the title, the 30 hours, and the pathway catalog): (1) This is a breadth-first survey — SQL is taught to the level of multi-table joins and aggregates, with depth deferred to de102, and NoSQL is taught conceptually rather than as operations of a specific cluster. (2) 'Data modeling best practices' from the description is read as normalization plus dimensional modeling for analytics; data vault and other advanced patterns are out of scope. (3) 'Data pipelines and ETL processes' is read as concepts plus a hand-written ingestion job; orchestration tooling (Airflow, dbt) is deliberately deferred to de210 so that the fundamentals course stays tool-light. (4) Big data frameworks, cloud platforms, streaming, and governance are excluded here and covered in de201, agile310, and ds320 respectively. (5) Python is assumed as the ingestion language because the pathway does not name one; a reviewer should correct this if the program standardizes on something else. (6) The course carries no project lesson — hands-on work sits in each lesson's Practice section, and the pathway's portfolio artifact is agile310.",
+  "proposed_competencies": [],
+  "assets": [
+    {
+      "filename": "star-schema-vs-normalized.png",
+      "description": "Side-by-side comparison of a normalized order schema and the equivalent star schema, showing one central fact table joined to date, customer, and product dimensions.",
+      "suggested_source": "Diagram, drawn in-house"
+    },
+    {
+      "filename": "etl-vs-elt.png",
+      "description": "Two pipeline diagrams compared: ETL transforming data in a separate engine before loading only curated output, and ELT loading raw data into the warehouse and transforming it there into curated tables.",
+      "suggested_source": "Diagram, drawn in-house"
+    }
+  ]
+}

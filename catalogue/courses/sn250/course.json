@@ -1,0 +1,205 @@
+{
+  "course_id": "sn250",
+  "pathway": "servicenow-implementation-specialist",
+  "title": "Scripting in ServiceNow",
+  "description": "This is a competency-based course designed for the indentured ServiceNow Implementation Specialist apprentice. Covers JavaScript programming fundamentals, scripting in JavaScript on the ServiceNow Platform, business rules, client scripts, and automation using Flow Designer and ServiceNow APIs.",
+  "hours": 40,
+  "projects": null,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Write JavaScript variables, control flow, functions, objects, and arrays that run on the ServiceNow platform",
+    "Query, create, and update records from server-side script using GlideRecord and GlideSystem",
+    "Choose the correct business rule type and timing for a server-side requirement",
+    "Decide between a client script and a UI policy, and write client-side logic that does not slow the form",
+    "Package reusable server logic in a script include and call it from other scripts",
+    "Build a flow with actions and subflows, and judge when a flow is a better choice than a script",
+    "Expose a Scripted REST API and call an external REST or SOAP service from the platform",
+    "Schedule recurring work and trigger script logic from platform events",
+    "Debug a failing script and reduce the cost of an expensive query"
+  ],
+  "prerequisites": [
+    "sn102 Introduction to ServiceNow Platform",
+    "sn201 Application Development Fundamentals (ADF), or equivalent experience building a scoped application"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "sn250-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn250-02",
+      "order": 2,
+      "slug": "javascript-fundamentals-for-the-platform",
+      "title": "JavaScript Fundamentals for the Platform",
+      "kind": "lesson",
+      "objectives": [
+        "Write JavaScript variables, control flow, functions, objects, and arrays that run on the ServiceNow platform"
+      ],
+      "competency_ids": [
+        "D7-S1-C01"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn250-03",
+      "order": 3,
+      "slug": "server-side-scripting-with-gliderecord",
+      "title": "Server-Side Scripting with GlideRecord",
+      "kind": "lesson",
+      "objectives": [
+        "Query, create, and update records from server-side script using GlideRecord and GlideSystem"
+      ],
+      "competency_ids": [
+        "D7-S1-C01",
+        "D7-S1-C04"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn250-04",
+      "order": 4,
+      "slug": "business-rules-and-execution-order",
+      "title": "Business Rules and Execution Order",
+      "kind": "lesson",
+      "objectives": [
+        "Choose the correct business rule type and timing for a server-side requirement"
+      ],
+      "competency_ids": [
+        "D7-S1-C01"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn250-05",
+      "order": 5,
+      "slug": "client-scripts-ui-policies-and-the-client-api",
+      "title": "Client Scripts, UI Policies, and the Client API",
+      "kind": "lesson",
+      "objectives": [
+        "Decide between a client script and a UI policy, and write client-side logic that does not slow the form"
+      ],
+      "competency_ids": [
+        "D7-S1-C01"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn250-06",
+      "order": 6,
+      "slug": "script-includes-and-reusable-server-logic",
+      "title": "Script Includes and Reusable Server Logic",
+      "kind": "lesson",
+      "objectives": [
+        "Package reusable server logic in a script include and call it from other scripts"
+      ],
+      "competency_ids": [
+        "D7-S1-C01",
+        "D7-S1-C04"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn250-07",
+      "order": 7,
+      "slug": "flow-designer-actions-and-subflows",
+      "title": "Flow Designer, Actions, and Subflows",
+      "kind": "lesson",
+      "objectives": [
+        "Build a flow with actions and subflows, and judge when a flow is a better choice than a script"
+      ],
+      "competency_ids": [
+        "D7-S1-C02",
+        "D2-S1-C05"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn250-08",
+      "order": 8,
+      "slug": "scripted-rest-apis-and-outbound-web-services",
+      "title": "Scripted REST APIs and Outbound Web Services",
+      "kind": "lesson",
+      "objectives": [
+        "Expose a Scripted REST API and call an external REST or SOAP service from the platform"
+      ],
+      "competency_ids": [
+        "D7-S1-C04",
+        "D7-S1-C02",
+        "D8-S1-C03"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn250-09",
+      "order": 9,
+      "slug": "scheduled-jobs-and-event-driven-automation",
+      "title": "Scheduled Jobs and Event-Driven Automation",
+      "kind": "lesson",
+      "objectives": [
+        "Schedule recurring work and trigger script logic from platform events"
+      ],
+      "competency_ids": [
+        "D7-S1-C03"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn250-10",
+      "order": 10,
+      "slug": "debugging-logging-and-script-performance",
+      "title": "Debugging, Logging, and Script Performance",
+      "kind": "lesson",
+      "objectives": [
+        "Debug a failing script and reduce the cost of an expensive query"
+      ],
+      "competency_ids": [
+        "D7-S1-C01"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn250-11",
+      "order": 11,
+      "slug": "project-automate-a-process-end-to-end",
+      "title": "Project: Automate a Process End to End",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D7-S1-C01",
+        "D7-S1-C02",
+        "D7-S1-C03",
+        "D7-S1-C04"
+      ],
+      "hours_estimate": 2,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "The intake description lists the syllabus in order -- JavaScript fundamentals, scripting on the platform, business rules, client scripts, Flow Designer, APIs -- and the outline keeps that order because it is also the correct dependency order. Language before API (2 before 3), server before client (3-4 before 5) because client scripts are taught partly as a warning about what belongs on the server, reuse after the primitives (6), declarative automation after imperative (7) so learners can judge the trade-off rather than take it on faith, and integration and scheduling (8-9) last because both assume reusable server logic already exists. Debugging is placed at the end, once there is enough surface area for it to be about real failures rather than syntax errors. Scope assumptions, stated because the intake gives no objectives or lesson titles: the 40 hours are split roughly one quarter language fundamentals and three quarters platform scripting, on the assumption that apprentices arrive without prior JavaScript. Modern platform practice is assumed -- server scripts are written with the current GlideRecord and GlideAggregate APIs, and Flow Designer is presented as the default automation tool with the legacy Workflow Editor covered only as maintenance context. Integration depth stops at exposing and consuming a service; Integration Hub spokes, transform maps, and integration monitoring belong to sn280, sn330, and sn360. Portal widget scripting is sn290's. No family release is named.",
+  "proposed_competencies": [
+    {
+      "domain_code": "D7",
+      "subdomain": "D7-S1",
+      "competency_text": "The learner can write core JavaScript -- variables, control flow, functions, objects, and arrays -- independently of the ServiceNow scripting APIs.",
+      "rationale": "Lesson 2 spends five hours on language fundamentals because apprentices arrive without JavaScript. Every D7 competency presupposes that ability rather than assessing it, so a learner who cannot write a loop is indistinguishable in the catalog from one who can."
+    }
+  ],
+  "assets": []
+}

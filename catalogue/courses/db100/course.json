@@ -1,0 +1,131 @@
+{
+  "course_id": "db100",
+  "pathway": "software-developer",
+  "title": "Relational Databases",
+  "description": "This is a competency-based course designed for the indentured website developer apprentice.  This course will cover a strong foundation in relational database systems including elementary foundations and the common query language SQL.  Apprentices will use a sample database to practice queries inclu",
+  "hours": 20,
+  "projects": null,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Model a domain as tables, keys, and relationships",
+    "Retrieve data from a relational database with SQL",
+    "Combine and summarize data across tables with joins and aggregation",
+    "Apply constraints and normalization to keep data correct through change",
+    "Document a schema so a teammate can work against it"
+  ],
+  "prerequisites": [
+    "Comfortable working at a command line",
+    "Basic programming experience in any language"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "db100-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "db100-02",
+      "order": 2,
+      "slug": "relational-foundations-and-data-modeling",
+      "title": "Relational Foundations and Data Modeling",
+      "kind": "lesson",
+      "objectives": [
+        "Model a domain as tables, keys, and relationships"
+      ],
+      "competency_ids": [
+        "D5-S1-C02"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "db100-03",
+      "order": 3,
+      "slug": "querying-with-sql",
+      "title": "Querying with SQL",
+      "kind": "lesson",
+      "objectives": [
+        "Retrieve data from a relational database with SQL"
+      ],
+      "competency_ids": [
+        "D2-S1-C04"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "db100-04",
+      "order": 4,
+      "slug": "joins-and-aggregation",
+      "title": "Joins and Aggregation",
+      "kind": "lesson",
+      "objectives": [
+        "Combine and summarize data across tables with joins and aggregation"
+      ],
+      "competency_ids": [
+        "D2-S1-C04"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "db100-05",
+      "order": 5,
+      "slug": "constraints-normalization-and-schema-change",
+      "title": "Constraints, Normalization, and Schema Change",
+      "kind": "lesson",
+      "objectives": [
+        "Apply constraints and normalization to keep data correct through change"
+      ],
+      "competency_ids": [
+        "D5-S1-C03"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "db100-06",
+      "order": 6,
+      "slug": "documenting-a-schema-for-the-team",
+      "title": "Documenting a Schema for the Team",
+      "kind": "lesson",
+      "objectives": [
+        "Document a schema so a teammate can work against it"
+      ],
+      "competency_ids": [
+        "D1-S1-C01"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "The model comes before the query language because a learner who cannot read a table's keys and relationships writes joins by trial and error. Single-table SELECT work precedes joins and aggregation so filtering and projection are automatic before cardinality is introduced. Constraints and normalization come after querying rather than with modeling: their cost is only visible to someone who has already queried denormalized data. Documentation is last because there is then a real schema to document, and it is the lesson that carries the pathway's office-tools competency. SCOPE ASSUMPTIONS: the intake description is truncated mid-word at 'practice queries inclu', so the list of query types the course was meant to cover is unknown. The outline assumes a standard first SQL course against a sample database: SELECT/WHERE/ORDER BY, inner and outer joins, GROUP BY aggregation, primary and foreign keys, normal forms up to 3NF, and schema change. Assumed out of scope: stored procedures, query-plan tuning, replication, and database administration. Which SQL engine is used is left open; the lessons assume ANSI SQL against any of SQLite, PostgreSQL, or MySQL.",
+  "proposed_competencies": [
+    {
+      "domain_code": "D2",
+      "subdomain": "D2-S1",
+      "competency_text": "The learner can write SQL queries that filter, join, and aggregate data in a relational database.",
+      "rationale": "Nine of this course's twenty hours are query authoring, and the only available tag (D2-S1-C04) is language-agnostic feature building; the catalog names no data-query competency anywhere, even though two courses in the pathway are database courses."
+    }
+  ],
+  "assets": [
+    {
+      "filename": "events-board-erd.png",
+      "description": "Entity-relationship diagram of the community events board schema: venues, organizers, events, attendees, categories, and the registrations and event_categories junction tables, with crow's foot cardinality on each relationship.",
+      "suggested_source": "Diagram, drawn in-house"
+    },
+    {
+      "filename": "crows-foot-notation.png",
+      "description": "Crow's foot notation legend showing the line-end symbols for exactly one, zero or one, one or many, and zero or many, with one worked example relationship between two tables.",
+      "suggested_source": "Diagram, drawn in-house"
+    }
+  ]
+}

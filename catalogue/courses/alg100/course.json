@@ -1,0 +1,145 @@
+{
+  "course_id": "alg100",
+  "pathway": "quality-assurance-software-engineer",
+  "title": "Intro to Data Structures and Algorithms",
+  "description": "This is a competency-based course designed for the indentured website developer apprentice.  This course will cover the use of HTML, CSS, and JavaScript to learn data structures and algorithms.  The course will examine closely on data sorting, computational thinking, graph transversals, binary searc",
+  "hours": 20,
+  "projects": null,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Decompose a problem into steps a computer can follow",
+    "Choose a data structure that fits the data you are holding",
+    "Implement and compare linear and binary search",
+    "Implement a sort and explain what it costs",
+    "Traverse a tree or graph structure",
+    "Use complexity and edge-case reasoning to design test data"
+  ],
+  "prerequisites": [
+    "node100 Introduction to Programming with Node JS, or equivalent comfort with functions, loops, arrays, and objects"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "alg100-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "alg100-02",
+      "order": 2,
+      "slug": "computational-thinking-and-problem-decomposition",
+      "title": "Computational Thinking and Problem Decomposition",
+      "kind": "lesson",
+      "objectives": [
+        "Decompose a problem into steps a computer can follow"
+      ],
+      "competency_ids": [
+        "D5-S1-C02"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "alg100-03",
+      "order": 3,
+      "slug": "arrays-lists-and-maps-in-javascript",
+      "title": "Arrays, Lists, and Maps in JavaScript",
+      "kind": "lesson",
+      "objectives": [
+        "Choose a data structure that fits the data you are holding"
+      ],
+      "competency_ids": [
+        "D3-S1-C05",
+        "D5-S1-C02"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "alg100-04",
+      "order": 4,
+      "slug": "linear-and-binary-search",
+      "title": "Linear and Binary Search",
+      "kind": "lesson",
+      "objectives": [
+        "Implement and compare linear and binary search"
+      ],
+      "competency_ids": [
+        "D5-S1-C02"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "alg100-05",
+      "order": 5,
+      "slug": "sorting-and-comparing-approaches",
+      "title": "Sorting and Comparing Approaches",
+      "kind": "lesson",
+      "objectives": [
+        "Implement a sort and explain what it costs"
+      ],
+      "competency_ids": [
+        "D5-S1-C02"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "alg100-06",
+      "order": 6,
+      "slug": "trees-and-graph-traversal",
+      "title": "Trees and Graph Traversal",
+      "kind": "lesson",
+      "objectives": [
+        "Traverse a tree or graph structure"
+      ],
+      "competency_ids": [
+        "D3-S1-C02",
+        "D5-S1-C02"
+      ],
+      "hours_estimate": 3.5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "alg100-07",
+      "order": 7,
+      "slug": "complexity-edge-cases-and-test-data-design",
+      "title": "Complexity, Edge Cases, and Test Data Design",
+      "kind": "lesson",
+      "objectives": [
+        "Use complexity and edge-case reasoning to design test data"
+      ],
+      "competency_ids": [
+        "D3-S1-C05",
+        "D3-S1-C06",
+        "D4-S1-C03"
+      ],
+      "hours_estimate": 3.5,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "QA REFRAMING (stated explicitly because the intake evidence is borrowed): the intake describes this as a course for the 'indentured website developer apprentice'. It is a shared web-development course repurposed for the Quality Assurance Software Engineer pathway, so this outline teaches toward the QA catalog. The QA framing is that computational thinking is test-design thinking: partitioning an input space is the same skill as choosing equivalence classes, boundary reasoning around a binary search midpoint is the same skill as boundary-value analysis, complexity is how you predict where a performance test will hurt, and the data structures in lesson 03 are framed as the shapes a defect record or a test-data fixture is actually stored in (D3-S1-C05). Lesson 06 frames traversal as walking a DOM or dependency tree to isolate a failure (D3-S1-C02), and lesson 07 turns the whole course into deliberate test-data design ahead of a change being validated (D4-S1-C03). SEQUENCE: thinking, then structures, then search, then sort, then traversal, then complexity and test data. Structures precede algorithms because an algorithm's cost is a property of the structure it runs over; complexity comes last so it can be stated over algorithms the learner has already implemented. SCOPE ASSUMPTIONS, derived from the title, the 20 authored hours, and the surviving description fragment: the description is truncated mid-word ('binary searc'), and 'graph transversals' is read as 'graph traversals'. The fragment names data sorting, computational thinking, graph traversal, and binary search, and those four drive lessons 02 and 04 to 06; nothing was invented to complete the cut-off sentence. The intake says the course uses HTML, CSS, and JavaScript to teach these topics, so all worked examples are plain JavaScript, with the browser used only for display. Assumed in scope: decomposition and pseudocode, arrays, linked lists, maps and sets, linear and binary search, at least one quadratic and one divide-and-conquer sort, tree and graph traversal (depth-first and breadth-first), and big-O reasoning at an introductory level. Assumed out of scope and deliberately left out: heaps, tries, dynamic programming, amortized analysis, and formal proofs of correctness. HOURS: 1h overview plus six lessons of 3 to 3.5h, summing to exactly 20. LESSON KINDS: intake records no project count for this course, so lesson 07 is a taught lesson with an extended hands-on Practice rather than a graded project brief.",
+  "proposed_competencies": [
+    {
+      "domain_code": "D4",
+      "subdomain": "D4-S1",
+      "competency_text": "The learner can reason about an algorithm's cost to predict where a change carries performance risk and target testing accordingly.",
+      "rationale": "Lesson 07 uses complexity to decide what to test and with how much data. D4-S1-C04 covers planning test schedules and strategies against scope and delivery dates, but the catalog has no competency about risk-based prioritisation driven by how the code will actually behave at scale."
+    }
+  ],
+  "assets": [
+    {
+      "filename": "binary-search-steps.png",
+      "description": "How binary search halves the candidate range on a sorted array, step by step, with the low, mid, and high pointers marked at each iteration.",
+      "suggested_source": "Diagram, drawn in-house"
+    }
+  ]
+}

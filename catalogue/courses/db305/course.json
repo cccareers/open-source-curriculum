@@ -1,0 +1,153 @@
+{
+  "course_id": "db305",
+  "pathway": "prompt-engineer",
+  "title": "Data Handling, APIs & AI Infrastructure",
+  "description": "This is a competency-based course designed for the indentured Prompt Engineer apprentice.  Delves into managing data pipelines, connecting to APIs, and setting up AI infrastructure. Explores how to handle large datasets, maintain data quality, and optimize AI performance in production environments.",
+  "hours": 30,
+  "projects": null,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Work with structured and unstructured sources in an AI workflow and choose the right handling for each",
+    "Pull data from an API into a workflow, handling pagination, rate limits, and error responses",
+    "Build an AI workflow that reads from and writes to a SQL database safely",
+    "Build an AI workflow against a NoSQL or spreadsheet-style store and explain when that model is the better fit",
+    "Apply validation, transformation, and storage practices that keep workflow data trustworthy",
+    "Configure and deploy an AI model or endpoint on a cloud service with sane defaults for access and scaling",
+    "Monitor a deployed AI workflow's accuracy, latency, and cost, and act on what the monitoring shows"
+  ],
+  "prerequisites": [
+    "Completion of ai201, or equivalent experience building multi-step AI workflows",
+    "Comfort reading JSON and configuring an HTTP request"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "db305-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "db305-02",
+      "order": 2,
+      "slug": "structured-and-unstructured-data-for-ai",
+      "title": "Structured and Unstructured Data for AI",
+      "kind": "lesson",
+      "objectives": [
+        "Work with structured and unstructured sources in an AI workflow and choose the right handling for each"
+      ],
+      "competency_ids": [
+        "D5-S1-C01"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "db305-03",
+      "order": 3,
+      "slug": "apis-as-data-sources",
+      "title": "APIs as Data Sources",
+      "kind": "lesson",
+      "objectives": [
+        "Pull data from an API into a workflow, handling pagination, rate limits, and error responses"
+      ],
+      "competency_ids": [
+        "D5-S1-C01",
+        "D5-S1-C03"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "db305-04",
+      "order": 4,
+      "slug": "ai-workflows-over-sql-databases",
+      "title": "AI Workflows over SQL Databases",
+      "kind": "lesson",
+      "objectives": [
+        "Build an AI workflow that reads from and writes to a SQL database safely"
+      ],
+      "competency_ids": [
+        "D5-S1-C02"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "db305-05",
+      "order": 5,
+      "slug": "nosql-and-spreadsheet-style-data-stores",
+      "title": "NoSQL and Spreadsheet-Style Data Stores",
+      "kind": "lesson",
+      "objectives": [
+        "Build an AI workflow against a NoSQL or spreadsheet-style store and explain when that model is the better fit"
+      ],
+      "competency_ids": [
+        "D5-S1-C02"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "db305-06",
+      "order": 6,
+      "slug": "validation-transformation-and-storage",
+      "title": "Validation, Transformation, and Storage",
+      "kind": "lesson",
+      "objectives": [
+        "Apply validation, transformation, and storage practices that keep workflow data trustworthy"
+      ],
+      "competency_ids": [
+        "D5-S1-C03"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "db305-07",
+      "order": 7,
+      "slug": "deploying-ai-models-on-cloud-services",
+      "title": "Deploying AI Models on Cloud Services",
+      "kind": "lesson",
+      "objectives": [
+        "Configure and deploy an AI model or endpoint on a cloud service with sane defaults for access and scaling"
+      ],
+      "competency_ids": [
+        "D5-S1-C04"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "db305-08",
+      "order": 8,
+      "slug": "monitoring-and-optimizing-ai-performance",
+      "title": "Monitoring and Optimizing AI Performance",
+      "kind": "lesson",
+      "objectives": [
+        "Monitor a deployed AI workflow's accuracy, latency, and cost, and act on what the monitoring shows"
+      ],
+      "competency_ids": [
+        "D5-S1-C05"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Sequence: db305 is placed after ai201 rather than before it. The natural pull is to teach data first, but a learner who has already hit a platform's data limits in ai102 and ai201 (a spreadsheet that will not scale, an API with no prebuilt connector, an AI step whose accuracy nobody is measuring) arrives here with a reason to care, and the pathway's earlier courses are deliberately survivable with platform-native storage. db305 precedes ai210 and ai350 because both reason about systems that are already running, and precedes agile210 because the capstone's data and integration layer is built with this material. Within the course, lesson 02 sets the structured versus unstructured distinction every later lesson depends on. APIs (03) come next because in this pathway an API is usually where the data actually lives. SQL (04) precedes NoSQL and spreadsheet-style stores (05) because the relational model is the reference point against which the alternatives are explained. Validation and transformation (06) follow the store lessons because constraints and schema drift cannot be discussed before there is a schema. Deployment (07) and monitoring (08) close the course in operating order: deploy, then observe. SCOPE ASSUMPTIONS (intake supplies no objectives or lesson titles; the description gives 'managing data pipelines', 'connecting to APIs', 'setting up AI infrastructure', 'handle large datasets', 'maintain data quality', and 'optimize AI performance in production environments'): at 30 hours inside a prompt-engineering pathway we assume this is a practitioner-level tour rather than a data-engineering course, so learners consume and operate infrastructure rather than architect it. We assume SQL is taught to the level of reading and writing the single-table and joined queries a workflow issues, not schema design or query optimization. We assume 'setting up AI infrastructure' and catalog competency D5-S1-C04 mean deploying a managed model endpoint or hosted inference service on one cloud, taught vendor-neutrally with one worked example, not provisioning GPU clusters, training infrastructure, or infrastructure-as-code. 'Large datasets' is read as batching, pagination, and chunking, not distributed processing. Vector stores and retrieval indexes are touched only where lesson 06 discusses storing embeddings, and are raised as a catalog gap below rather than taught as their own lesson. Reviewers should correct these assumptions before content approval.",
+  "proposed_competencies": [
+    {
+      "domain_code": "D5",
+      "subdomain": "D5-S1",
+      "competency_text": "The learner can build and query a retrieval index (vector store) so AI outputs are grounded in an organization's own documents.",
+      "rationale": "Grounding is assumed by ai102 lesson 13 and by the capstone, and lesson 06 has to explain how embeddings are stored, but the catalog's D5 competencies name structured and unstructured sources, SQL/NoSQL/Airtable, validation, cloud deployment, and monitoring, with nothing covering retrieval indexes."
+    }
+  ],
+  "assets": []
+}

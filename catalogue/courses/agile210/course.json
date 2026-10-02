@@ -1,0 +1,176 @@
+{
+  "course_id": "agile210",
+  "pathway": "prompt-engineer",
+  "title": "Capstone Project",
+  "description": "This is a competency-based course designed for the indentured Prompt Engineer apprentice.  A final, project-based experience where learners apply prompt engineering, no-code tools, and AI design principles to build a fully functional AI solution, demonstrating all skills acquired throughout the progam",
+  "hours": 40,
+  "projects": null,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Scope a capstone around a real client problem and write a solution brief with measurable success criteria",
+    "Design the solution and plan the prototype, showing how each component meets a stated requirement",
+    "Build the capstone's data and integration layer, connecting the sources and stores the solution depends on",
+    "Build the capstone's AI workflow, with prompts, chaining, and automation logic that meet the brief",
+    "Review the capstone for security, privacy, and responsible-AI risk and remediate what the review finds",
+    "Test, troubleshoot, and harden the capstone until it survives realistic use",
+    "Demonstrate the capstone, hand it over with documentation, and write it up for a portfolio"
+  ],
+  "prerequisites": [
+    "Completion of ai101, ai102, ai201, db305, ai210, and ai350",
+    "A client problem, or an instructor-assigned realistic scenario, to build against"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "agile210-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "agile210-02",
+      "order": 2,
+      "slug": "scoping-the-capstone-client-problem-and-solution-brief",
+      "title": "Scoping the Capstone: Client Problem and Solution Brief",
+      "kind": "lesson",
+      "objectives": [
+        "Scope a capstone around a real client problem and write a solution brief with measurable success criteria"
+      ],
+      "competency_ids": [
+        "D4-S1-C01",
+        "D4-S1-C05"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "agile210-03",
+      "order": 3,
+      "slug": "project-solution-design-and-prototype-plan",
+      "title": "Project: Solution Design and Prototype Plan",
+      "kind": "project",
+      "objectives": [
+        "Design the solution and plan the prototype, showing how each component meets a stated requirement"
+      ],
+      "competency_ids": [
+        "D4-S1-C02",
+        "D4-S1-C03"
+      ],
+      "hours_estimate": 6,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "agile210-04",
+      "order": 4,
+      "slug": "project-build-the-data-and-integration-layer",
+      "title": "Project: Build the Data and Integration Layer",
+      "kind": "project",
+      "objectives": [
+        "Build the capstone's data and integration layer, connecting the sources and stores the solution depends on"
+      ],
+      "competency_ids": [
+        "D5-S1-C01",
+        "D5-S1-C02",
+        "D2-S1-C03"
+      ],
+      "hours_estimate": 7,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "agile210-05",
+      "order": 5,
+      "slug": "project-build-the-ai-workflow",
+      "title": "Project: Build the AI Workflow",
+      "kind": "project",
+      "objectives": [
+        "Build the capstone's AI workflow, with prompts, chaining, and automation logic that meet the brief"
+      ],
+      "competency_ids": [
+        "D1-S1-C02",
+        "D1-S1-C03",
+        "D2-S1-C02",
+        "D3-S1-C01"
+      ],
+      "hours_estimate": 8,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "agile210-06",
+      "order": 6,
+      "slug": "project-security-privacy-and-responsible-ai-review",
+      "title": "Project: Security, Privacy, and Responsible-AI Review",
+      "kind": "project",
+      "objectives": [
+        "Review the capstone for security, privacy, and responsible-AI risk and remediate what the review finds"
+      ],
+      "competency_ids": [
+        "D6-S1-C02",
+        "D6-S1-C03",
+        "D6-S1-C04"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "agile210-07",
+      "order": 7,
+      "slug": "project-test-troubleshoot-and-harden",
+      "title": "Project: Test, Troubleshoot, and Harden",
+      "kind": "project",
+      "objectives": [
+        "Test, troubleshoot, and harden the capstone until it survives realistic use"
+      ],
+      "competency_ids": [
+        "D1-S1-C04",
+        "D3-S1-C05",
+        "D5-S1-C05"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "agile210-08",
+      "order": 8,
+      "slug": "project-demo-handoff-and-portfolio-write-up",
+      "title": "Project: Demo, Handoff, and Portfolio Write-Up",
+      "kind": "project",
+      "objectives": [
+        "Demonstrate the capstone, hand it over with documentation, and write it up for a portfolio"
+      ],
+      "competency_ids": [
+        "D4-S1-C04",
+        "D4-S1-C05"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Sequence: agile210 is last in the pathway by design. It is the only course whose competency tags are drawn from all six domains, and each of its stages consumes a prior course (02 uses ai210's discovery and requirements work, 03 uses ai210's prototyping, 04 uses db305, 05 uses ai101, ai102, and ai201, 06 uses ai350, 07 uses ai101 evaluation plus ai201 troubleshooting plus db305 monitoring, and 08 returns to ai210's feedback and stakeholder material). Within the course, only lesson 02 is a teaching lesson: it is the one place a learner needs instruction rather than a brief, because scoping is where capstones fail and a learner who starts building against a vague brief loses all 40 hours. Lessons 03 through 08 are project briefs in delivery order: design, then data layer, then AI workflow, then security review, then hardening, then demo and handoff. The data and integration layer precedes the AI workflow because an AI step with no real input can only be demonstrated on fixtures. The security review is a gate placed before hardening rather than after, so remediation is part of the build rather than an afterthought. Hours are weighted toward the two build stages (7 and 8 hours) because that is where the demonstrable work is. SCOPE ASSUMPTIONS (intake supplies no objectives or lesson titles, and the importer flagged this course's description as truncated: it ends mid-thought at 'demonstrating all skills acquired throughout the progam', with 'program' misspelled in the source, and nothing was invented to complete it): we assume the capstone is individual rather than team-based, that learners bring or are assigned a real or realistic client problem, and that 'fully functional AI solution' means a working no-code or low-code build in the learner's own accounts rather than production software deployed into a client's environment. We assume the 40 hours are learner build time with instructor checkpoints at each stage boundary, and that assessment is by demonstration and portfolio artifact. We assume no new tools or concepts are introduced here at all; anything a learner needs was taught in ai101 through ai350. Team delivery, live client engagements with contractual obligations, and formal Agile ceremony instruction are out of scope despite the course id's 'agile' prefix: the intake description says nothing about Agile method, and inventing a Scrum curriculum from a course code would be a fabrication. Reviewers should correct these assumptions, and especially the Agile question, before content approval.",
+  "proposed_competencies": [
+    {
+      "domain_code": "D4",
+      "subdomain": "D4-S1",
+      "competency_text": "The learner can present and defend an AI solution to a non-technical audience, explaining what it does, what it costs, and where it can be wrong.",
+      "rationale": "Lesson 08 is a demo and portfolio stage and the capstone is assessed by demonstration, but the catalog's closest competency, D4-S1-C05, covers collaborating with stakeholders to align on business goals rather than presenting and defending a finished solution."
+    },
+    {
+      "domain_code": "D3",
+      "subdomain": "D3-S1",
+      "competency_text": "The learner can scope a client-facing AI project into deliverable stages with measurable acceptance criteria and a realistic effort estimate.",
+      "rationale": "Lesson 02 is the capstone's scoping lesson and the single highest-risk step in a 40-hour build, but no catalog competency covers project scoping or estimation; D4-S1-C01 stops at identifying needs and requirements."
+    }
+  ],
+  "assets": [
+    {
+      "filename": "capstone-solution-architecture.png",
+      "description": "Reference layout for a capstone solution architecture: trigger and data sources on the left, the data and integration layer, the AI workflow chain, the record store, the human review touchpoint, the output, and monitoring spanning the whole flow.",
+      "suggested_source": "Diagram, drawn in-house"
+    }
+  ]
+}

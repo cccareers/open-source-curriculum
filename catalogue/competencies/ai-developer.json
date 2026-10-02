@@ -1,0 +1,712 @@
+{
+  "version": 1,
+  "domains": [
+    {
+      "code": "D1",
+      "name": "Conceptual Literacy",
+      "delivered_weight_percent": 15,
+      "description": "Measures whether the learner understands the language, structure, and foundational concepts of AI. Covers the ability to speak clearly about AI ideas and distinguish related terms accurately."
+    },
+    {
+      "code": "D2",
+      "name": "LLM Mechanics",
+      "delivered_weight_percent": 20,
+      "description": "Measures whether the learner understands how modern language models behave in practice, including their constraints, reliability characteristics, and cost and latency tradeoffs."
+    },
+    {
+      "code": "D3",
+      "name": "AI-Assisted Development Workflow",
+      "delivered_weight_percent": 25,
+      "description": "Measures how effectively the learner uses AI tools in day-to-day software development, from autocomplete through full coding agents, and how safely they verify AI output."
+    },
+    {
+      "code": "D4",
+      "name": "AI System Design",
+      "delivered_weight_percent": 25,
+      "description": "Measures the learner's ability to design and build systems that use AI rather than merely consuming AI outputs, including retrieval, tool use, orchestration, and evaluation."
+    },
+    {
+      "code": "D5",
+      "name": "Operational Readiness",
+      "delivered_weight_percent": 15,
+      "description": "Measures the surrounding engineering maturity needed to work effectively with AI systems, spanning the shell, version control, environments, containers, secrets, deployment, and observability."
+    }
+  ],
+  "subdomains": [
+    {
+      "code": "D1-S1",
+      "domain_code": "D1",
+      "name": "AI, ML, DL, NLP, and LLM distinctions",
+      "description": "The nested relationships among artificial intelligence, machine learning, deep learning, natural language processing, and large language models."
+    },
+    {
+      "code": "D1-S2",
+      "domain_code": "D1",
+      "name": "Training versus inference",
+      "description": "What differs between the training phase, where a model learns from data, and the inference phase, where a deployed model produces outputs."
+    },
+    {
+      "code": "D1-S3",
+      "domain_code": "D1",
+      "name": "Neural networks and transformers",
+      "description": "The conceptual role of neural networks and the transformer architecture that underpins modern language models."
+    },
+    {
+      "code": "D1-S4",
+      "domain_code": "D1",
+      "name": "Tokens and embeddings (conceptual)",
+      "description": "A conceptual understanding of how text is broken into tokens and represented as embeddings, without requiring implementation detail."
+    },
+    {
+      "code": "D1-S5",
+      "domain_code": "D1",
+      "name": "Vector concepts and retrieval basics",
+      "description": "The conceptual basis of vector representations, similarity, and how they enable retrieval of relevant information."
+    },
+    {
+      "code": "D1-S6",
+      "domain_code": "D1",
+      "name": "Relationships between major AI terms",
+      "description": "How the major AI terms fit together into a coherent mental model rather than a list of isolated buzzwords."
+    },
+    {
+      "code": "D2-S1",
+      "domain_code": "D2",
+      "name": "Tokens and token limits",
+      "description": "How tokenization works in practice and how token limits constrain inputs, outputs, and cost."
+    },
+    {
+      "code": "D2-S2",
+      "domain_code": "D2",
+      "name": "Context windows",
+      "description": "How the finite context window governs what a model can attend to and how content is truncated or dropped."
+    },
+    {
+      "code": "D2-S3",
+      "domain_code": "D2",
+      "name": "Prompt structure",
+      "description": "How the arrangement of instructions, context, and examples in a prompt shapes model behavior and output quality."
+    },
+    {
+      "code": "D2-S4",
+      "domain_code": "D2",
+      "name": "Memory limitations",
+      "description": "Why models do not inherently remember prior turns beyond the supplied context and how apparent memory is engineered."
+    },
+    {
+      "code": "D2-S5",
+      "domain_code": "D2",
+      "name": "Model size tradeoffs",
+      "description": "How model size relates to capability, speed, and cost, and when a smaller model is the better choice."
+    },
+    {
+      "code": "D2-S6",
+      "domain_code": "D2",
+      "name": "Latency and cost",
+      "description": "The practical latency and cost drivers of LLM usage and the levers available to manage them."
+    },
+    {
+      "code": "D2-S7",
+      "domain_code": "D2",
+      "name": "Temperature and output control",
+      "description": "How sampling parameters such as temperature influence determinism, creativity, and reliability of outputs."
+    },
+    {
+      "code": "D2-S8",
+      "domain_code": "D2",
+      "name": "Hallucinations and reliability",
+      "description": "Why models produce confident but incorrect output and how reliability can be assessed and improved."
+    },
+    {
+      "code": "D3-S1",
+      "domain_code": "D3",
+      "name": "Autocomplete",
+      "description": "Using inline AI autocomplete suggestions effectively while retaining control over correctness."
+    },
+    {
+      "code": "D3-S2",
+      "domain_code": "D3",
+      "name": "Code generation",
+      "description": "Prompting AI tools to generate larger blocks of code and integrating that code responsibly."
+    },
+    {
+      "code": "D3-S3",
+      "domain_code": "D3",
+      "name": "Debugging with AI",
+      "description": "Using AI assistance to localize, explain, and resolve defects."
+    },
+    {
+      "code": "D3-S4",
+      "domain_code": "D3",
+      "name": "Test generation",
+      "description": "Using AI to generate and strengthen automated tests while ensuring they are meaningful."
+    },
+    {
+      "code": "D3-S5",
+      "domain_code": "D3",
+      "name": "Refactoring support",
+      "description": "Using AI to restructure existing code safely without changing its behavior."
+    },
+    {
+      "code": "D3-S6",
+      "domain_code": "D3",
+      "name": "AI-assisted documentation",
+      "description": "Using AI to draft and maintain documentation that stays accurate and useful."
+    },
+    {
+      "code": "D3-S7",
+      "domain_code": "D3",
+      "name": "Review and verification workflows",
+      "description": "Establishing habits that verify AI-generated changes before they are trusted or merged."
+    },
+    {
+      "code": "D3-S8",
+      "domain_code": "D3",
+      "name": "AI coding agents",
+      "description": "Directing autonomous or semi-autonomous coding agents that can plan and execute multi-step tasks."
+    },
+    {
+      "code": "D4-S1",
+      "domain_code": "D4",
+      "name": "Retrieval-augmented generation (RAG)",
+      "description": "Grounding model responses in retrieved external content and knowing when this pattern applies."
+    },
+    {
+      "code": "D4-S2",
+      "domain_code": "D4",
+      "name": "Embeddings and chunking",
+      "description": "Producing embeddings and splitting source content into chunks suitable for retrieval."
+    },
+    {
+      "code": "D4-S3",
+      "domain_code": "D4",
+      "name": "Vector search",
+      "description": "Storing and querying embeddings to find semantically relevant content."
+    },
+    {
+      "code": "D4-S4",
+      "domain_code": "D4",
+      "name": "Tool calling",
+      "description": "Enabling a model to invoke external functions or tools and use their results."
+    },
+    {
+      "code": "D4-S5",
+      "domain_code": "D4",
+      "name": "Structured output",
+      "description": "Constraining model output to reliable, machine-parseable structures such as JSON schemas."
+    },
+    {
+      "code": "D4-S6",
+      "domain_code": "D4",
+      "name": "Memory patterns",
+      "description": "Engineering persistence of relevant state across turns or sessions in an AI application."
+    },
+    {
+      "code": "D4-S7",
+      "domain_code": "D4",
+      "name": "Orchestration and agent loops",
+      "description": "Coordinating multi-step reasoning, tool use, and control flow in agentic systems."
+    },
+    {
+      "code": "D4-S8",
+      "domain_code": "D4",
+      "name": "Evaluation patterns",
+      "description": "Measuring the quality, correctness, and regressions of AI system behavior."
+    },
+    {
+      "code": "D4-S9",
+      "domain_code": "D4",
+      "name": "Human-in-the-loop design",
+      "description": "Designing checkpoints where humans review, approve, or correct AI actions."
+    },
+    {
+      "code": "D5-S1",
+      "domain_code": "D5",
+      "name": "Shell fluency",
+      "description": "Comfortably composing shell commands, pipes, and scripts to accomplish engineering tasks."
+    },
+    {
+      "code": "D5-S2",
+      "domain_code": "D5",
+      "name": "Terminal usage",
+      "description": "Working productively in a terminal environment, including navigation and process control."
+    },
+    {
+      "code": "D5-S3",
+      "domain_code": "D5",
+      "name": "tmux and terminal multiplexing",
+      "description": "Using terminal multiplexers to manage multiple sessions and long-running work."
+    },
+    {
+      "code": "D5-S4",
+      "domain_code": "D5",
+      "name": "Git and worktrees",
+      "description": "Using version control effectively, including branching and worktree-based isolation."
+    },
+    {
+      "code": "D5-S5",
+      "domain_code": "D5",
+      "name": "Package and environment management",
+      "description": "Managing dependencies and reproducible environments across projects and machines."
+    },
+    {
+      "code": "D5-S6",
+      "domain_code": "D5",
+      "name": "Containers",
+      "description": "Using containers to package and isolate applications and their dependencies."
+    },
+    {
+      "code": "D5-S7",
+      "domain_code": "D5",
+      "name": "Secrets handling",
+      "description": "Managing API keys and credentials securely rather than exposing them in code or logs."
+    },
+    {
+      "code": "D5-S8",
+      "domain_code": "D5",
+      "name": "Deployment basics",
+      "description": "Getting an application running in a hosted environment and understanding release fundamentals."
+    },
+    {
+      "code": "D5-S9",
+      "domain_code": "D5",
+      "name": "Monitoring and logs",
+      "description": "Observing running systems through logs and metrics to detect and diagnose problems."
+    },
+    {
+      "code": "D5-S10",
+      "domain_code": "D5",
+      "name": "Local versus hosted model workflows",
+      "description": "Choosing between running models locally and using hosted APIs based on the tradeoffs involved."
+    }
+  ],
+  "competencies": [
+    {
+      "id": "D1-S1-C01",
+      "subdomain_code": "D1-S1",
+      "domain_code": "D1",
+      "statement": "The learner can distinguish AI, machine learning, deep learning, NLP, and LLMs and describe how they relate.",
+      "description": "Demonstrated by correctly placing each term in its nested relationship and selecting accurate definitions over conflated ones."
+    },
+    {
+      "id": "D1-S1-C02",
+      "subdomain_code": "D1-S1",
+      "domain_code": "D1",
+      "statement": "The learner can classify a given example system or technique under the correct AI category.",
+      "description": "Demonstrated by mapping concrete examples, such as a spam filter or a chatbot, to the appropriate field like ML or NLP without over-generalizing to AI."
+    },
+    {
+      "id": "D1-S2-C01",
+      "subdomain_code": "D1-S2",
+      "domain_code": "D1",
+      "statement": "The learner can explain the difference between training and inference and identify which phase a described activity belongs to.",
+      "description": "Demonstrated by distinguishing model-development activities from deployment-time activities and recognizing that inference does not update the model's weights."
+    },
+    {
+      "id": "D1-S3-C01",
+      "subdomain_code": "D1-S3",
+      "domain_code": "D1",
+      "statement": "The learner can describe at a conceptual level what neural networks and transformers do and why transformers enabled modern LLMs.",
+      "description": "Demonstrated by explaining ideas such as learned parameters and attention in plain language without requiring mathematical detail."
+    },
+    {
+      "id": "D1-S4-C01",
+      "subdomain_code": "D1-S4",
+      "domain_code": "D1",
+      "statement": "The learner can explain conceptually what tokens and embeddings are and how they differ.",
+      "description": "Demonstrated by describing tokens as units of text and embeddings as numeric meaning representations, and identifying which is relevant to a scenario."
+    },
+    {
+      "id": "D1-S5-C01",
+      "subdomain_code": "D1-S5",
+      "domain_code": "D1",
+      "statement": "The learner can explain how vector similarity enables retrieval of relevant information.",
+      "description": "Demonstrated by describing why semantically similar items sit close together in vector space and how that supports search."
+    },
+    {
+      "id": "D1-S5-C02",
+      "subdomain_code": "D1-S5",
+      "domain_code": "D1",
+      "statement": "The learner can distinguish semantic (vector) retrieval from exact keyword lookup at a conceptual level.",
+      "description": "Demonstrated by identifying when meaning-based matching is preferable to literal string matching and vice versa."
+    },
+    {
+      "id": "D1-S6-C01",
+      "subdomain_code": "D1-S6",
+      "domain_code": "D1",
+      "statement": "The learner can assemble the major AI terms into a coherent mental model and identify inaccurate relationships between them.",
+      "description": "Demonstrated by selecting statements that correctly relate terms and rejecting ones that misstate how the concepts connect."
+    },
+    {
+      "id": "D2-S1-C01",
+      "subdomain_code": "D2-S1",
+      "domain_code": "D2",
+      "statement": "The learner can explain what tokens are and how token limits constrain prompts and responses.",
+      "description": "Demonstrated by relating text length to token counts and predicting when input or output will exceed a limit."
+    },
+    {
+      "id": "D2-S1-C02",
+      "subdomain_code": "D2-S1",
+      "domain_code": "D2",
+      "statement": "The learner can estimate the cost and feasibility implications of token usage for a given task.",
+      "description": "Demonstrated by reasoning about how larger inputs or outputs increase cost and choosing token-efficient approaches."
+    },
+    {
+      "id": "D2-S2-C01",
+      "subdomain_code": "D2-S2",
+      "domain_code": "D2",
+      "statement": "The learner can explain what a context window is and how it bounds what the model can consider.",
+      "description": "Demonstrated by describing the window as the total tokens available for input plus output and its practical limits."
+    },
+    {
+      "id": "D2-S2-C02",
+      "subdomain_code": "D2-S2",
+      "domain_code": "D2",
+      "statement": "The learner can diagnose degraded behavior in long conversations as a context-window limitation.",
+      "description": "Demonstrated by attributing dropped or inconsistent earlier content to truncation or window overflow rather than unrelated causes."
+    },
+    {
+      "id": "D2-S3-C01",
+      "subdomain_code": "D2-S3",
+      "domain_code": "D2",
+      "statement": "The learner can structure a prompt with clear instructions, context, and examples to improve output quality.",
+      "description": "Demonstrated by selecting or composing prompts whose organization reliably produces the intended result."
+    },
+    {
+      "id": "D2-S4-C01",
+      "subdomain_code": "D2-S4",
+      "domain_code": "D2",
+      "statement": "The learner can explain why a stateless model does not inherently remember prior interactions and how apparent memory is provided.",
+      "description": "Demonstrated by recognizing that history must be re-supplied in context and distinguishing true persistence from re-sent context."
+    },
+    {
+      "id": "D2-S5-C01",
+      "subdomain_code": "D2-S5",
+      "domain_code": "D2",
+      "statement": "The learner can reason about tradeoffs between larger and smaller models for capability, speed, and cost.",
+      "description": "Demonstrated by choosing an appropriately sized model for a scenario and justifying the tradeoff."
+    },
+    {
+      "id": "D2-S6-C01",
+      "subdomain_code": "D2-S6",
+      "domain_code": "D2",
+      "statement": "The learner can identify the primary drivers of LLM latency and cost in an application.",
+      "description": "Demonstrated by attributing slowness or expense to factors such as model choice, token volume, or call frequency."
+    },
+    {
+      "id": "D2-S6-C02",
+      "subdomain_code": "D2-S6",
+      "domain_code": "D2",
+      "statement": "The learner can select practical levers to reduce cost or latency without unacceptable quality loss.",
+      "description": "Demonstrated by choosing tactics such as smaller models, caching, shorter context, or batching appropriate to a scenario."
+    },
+    {
+      "id": "D2-S7-C01",
+      "subdomain_code": "D2-S7",
+      "domain_code": "D2",
+      "statement": "The learner can explain how temperature and related sampling controls affect output determinism and variability.",
+      "description": "Demonstrated by predicting how raising or lowering temperature changes results and choosing a setting fit for a task."
+    },
+    {
+      "id": "D2-S8-C01",
+      "subdomain_code": "D2-S8",
+      "domain_code": "D2",
+      "statement": "The learner can explain why LLMs hallucinate and recognize outputs that require verification.",
+      "description": "Demonstrated by identifying confident but unfounded output and describing the conditions that make hallucination more likely."
+    },
+    {
+      "id": "D2-S8-C02",
+      "subdomain_code": "D2-S8",
+      "domain_code": "D2",
+      "statement": "The learner can select strategies to improve reliability and reduce hallucination risk.",
+      "description": "Demonstrated by choosing mitigations such as grounding, retrieval, citations, or verification steps appropriate to a scenario."
+    },
+    {
+      "id": "D3-S1-C01",
+      "subdomain_code": "D3-S1",
+      "domain_code": "D3",
+      "statement": "The learner can use inline autocomplete suggestions productively while judging when to accept, edit, or reject them.",
+      "description": "Demonstrated by selecting workflows that leverage suggestions without blindly accepting incorrect completions."
+    },
+    {
+      "id": "D3-S2-C01",
+      "subdomain_code": "D3-S2",
+      "domain_code": "D3",
+      "statement": "The learner can prompt an AI tool to generate a code block that meets stated requirements.",
+      "description": "Demonstrated by framing requirements and constraints so generated code is usable with minimal rework."
+    },
+    {
+      "id": "D3-S2-C02",
+      "subdomain_code": "D3-S2",
+      "domain_code": "D3",
+      "statement": "The learner can integrate and adapt AI-generated code safely into an existing codebase.",
+      "description": "Demonstrated by reconciling generated code with existing conventions, interfaces, and constraints rather than pasting it verbatim."
+    },
+    {
+      "id": "D3-S3-C01",
+      "subdomain_code": "D3-S3",
+      "domain_code": "D3",
+      "statement": "The learner can use AI assistance to localize and explain a defect from an error or symptom.",
+      "description": "Demonstrated by supplying the right context to an AI tool and interpreting its explanation to narrow down a bug."
+    },
+    {
+      "id": "D3-S3-C02",
+      "subdomain_code": "D3-S3",
+      "domain_code": "D3",
+      "statement": "The learner can validate an AI-proposed fix before applying it.",
+      "description": "Demonstrated by reasoning about whether a suggested fix addresses the root cause and confirming it through tests or inspection."
+    },
+    {
+      "id": "D3-S4-C01",
+      "subdomain_code": "D3-S4",
+      "domain_code": "D3",
+      "statement": "The learner can use AI to generate tests and judge whether those tests are meaningful.",
+      "description": "Demonstrated by directing test generation toward important behavior and rejecting trivial or tautological tests."
+    },
+    {
+      "id": "D3-S5-C01",
+      "subdomain_code": "D3-S5",
+      "domain_code": "D3",
+      "statement": "The learner can use AI to refactor code while preserving behavior.",
+      "description": "Demonstrated by scoping refactors, relying on tests, and confirming that behavior is unchanged after AI-assisted restructuring."
+    },
+    {
+      "id": "D3-S6-C01",
+      "subdomain_code": "D3-S6",
+      "domain_code": "D3",
+      "statement": "The learner can use AI to draft documentation and verify its accuracy against the code.",
+      "description": "Demonstrated by generating docs and correcting statements that do not match actual behavior or interfaces."
+    },
+    {
+      "id": "D3-S7-C01",
+      "subdomain_code": "D3-S7",
+      "domain_code": "D3",
+      "statement": "The learner can apply a review and verification workflow before trusting AI-generated changes.",
+      "description": "Demonstrated by selecting steps such as reading the diff, running tests, and checking edge cases before accepting or merging."
+    },
+    {
+      "id": "D3-S7-C02",
+      "subdomain_code": "D3-S7",
+      "domain_code": "D3",
+      "statement": "The learner can identify what to verify first when AI output looks plausible but may be wrong.",
+      "description": "Demonstrated by prioritizing checks on correctness-critical assumptions rather than superficial style when reviewing AI output."
+    },
+    {
+      "id": "D3-S8-C01",
+      "subdomain_code": "D3-S8",
+      "domain_code": "D3",
+      "statement": "The learner can direct an AI coding agent to complete a multi-step task with appropriate scoping and guardrails.",
+      "description": "Demonstrated by giving an agent a clear goal, constraints, and checkpoints rather than an open-ended instruction."
+    },
+    {
+      "id": "D3-S8-C02",
+      "subdomain_code": "D3-S8",
+      "domain_code": "D3",
+      "statement": "The learner can evaluate when using an autonomous coding agent is appropriate versus a more manual approach.",
+      "description": "Demonstrated by weighing task risk, verifiability, and cost to decide how much autonomy to grant."
+    },
+    {
+      "id": "D4-S1-C01",
+      "subdomain_code": "D4-S1",
+      "domain_code": "D4",
+      "statement": "The learner can explain how retrieval-augmented generation grounds responses in external content.",
+      "description": "Demonstrated by describing the retrieve-then-generate flow and how retrieved context reduces reliance on parametric knowledge."
+    },
+    {
+      "id": "D4-S1-C02",
+      "subdomain_code": "D4-S1",
+      "domain_code": "D4",
+      "statement": "The learner can decide when RAG is the appropriate approach versus fine-tuning or a plain prompt.",
+      "description": "Demonstrated by matching RAG to problems involving changing or proprietary knowledge and choosing alternatives when better suited."
+    },
+    {
+      "id": "D4-S2-C01",
+      "subdomain_code": "D4-S2",
+      "domain_code": "D4",
+      "statement": "The learner can explain the role of embeddings and chunking in a retrieval pipeline.",
+      "description": "Demonstrated by describing how source content is split and embedded so it can later be retrieved by similarity."
+    },
+    {
+      "id": "D4-S2-C02",
+      "subdomain_code": "D4-S2",
+      "domain_code": "D4",
+      "statement": "The learner can choose a chunking strategy appropriate to the content and retrieval goal.",
+      "description": "Demonstrated by reasoning about chunk size and overlap tradeoffs and their effect on retrieval quality."
+    },
+    {
+      "id": "D4-S3-C01",
+      "subdomain_code": "D4-S3",
+      "domain_code": "D4",
+      "statement": "The learner can describe how a vector store indexes and returns the most relevant results for a query.",
+      "description": "Demonstrated by explaining nearest-neighbor retrieval over embeddings and the role of top-k selection."
+    },
+    {
+      "id": "D4-S4-C01",
+      "subdomain_code": "D4-S4",
+      "domain_code": "D4",
+      "statement": "The learner can explain what problem tool calling solves and how a model invokes an external tool.",
+      "description": "Demonstrated by describing how a model requests a function with arguments and incorporates the returned result."
+    },
+    {
+      "id": "D4-S4-C02",
+      "subdomain_code": "D4-S4",
+      "domain_code": "D4",
+      "statement": "The learner can design a tool interface a model can call reliably.",
+      "description": "Demonstrated by defining clear tool names, parameters, and descriptions that reduce misuse and ambiguity."
+    },
+    {
+      "id": "D4-S5-C01",
+      "subdomain_code": "D4-S5",
+      "domain_code": "D4",
+      "statement": "The learner can constrain model output to a structured, machine-parseable format and handle failures.",
+      "description": "Demonstrated by specifying a schema, validating output, and planning for cases where the model deviates from it."
+    },
+    {
+      "id": "D4-S6-C01",
+      "subdomain_code": "D4-S6",
+      "domain_code": "D4",
+      "statement": "The learner can select a memory pattern to persist relevant state across turns or sessions.",
+      "description": "Demonstrated by choosing between approaches such as summarization, storage, and retrieval to maintain continuity."
+    },
+    {
+      "id": "D4-S7-C01",
+      "subdomain_code": "D4-S7",
+      "domain_code": "D4",
+      "statement": "The learner can describe how an agent loop coordinates reasoning, tool calls, and control flow.",
+      "description": "Demonstrated by explaining the observe-decide-act cycle and how a loop terminates or escalates."
+    },
+    {
+      "id": "D4-S7-C02",
+      "subdomain_code": "D4-S7",
+      "domain_code": "D4",
+      "statement": "The learner can identify failure modes in agent orchestration and select mitigations.",
+      "description": "Demonstrated by recognizing risks such as infinite loops, runaway cost, or compounding errors and choosing safeguards."
+    },
+    {
+      "id": "D4-S8-C01",
+      "subdomain_code": "D4-S8",
+      "domain_code": "D4",
+      "statement": "The learner can choose an evaluation approach to measure the quality of an AI system's output.",
+      "description": "Demonstrated by selecting suitable evaluation methods such as reference comparison, rubric scoring, or human review for a scenario."
+    },
+    {
+      "id": "D4-S8-C02",
+      "subdomain_code": "D4-S8",
+      "domain_code": "D4",
+      "statement": "The learner can design an evaluation that detects regressions as an AI system changes.",
+      "description": "Demonstrated by defining representative test cases and metrics that catch quality drops when prompts or models change."
+    },
+    {
+      "id": "D4-S9-C01",
+      "subdomain_code": "D4-S9",
+      "domain_code": "D4",
+      "statement": "The learner can design human-in-the-loop checkpoints for high-risk AI actions.",
+      "description": "Demonstrated by placing review or approval steps where the cost of an unchecked error is highest."
+    },
+    {
+      "id": "D5-S1-C01",
+      "subdomain_code": "D5-S1",
+      "domain_code": "D5",
+      "statement": "The learner can compose shell commands, pipes, and redirection to accomplish common tasks.",
+      "description": "Demonstrated by chaining commands to filter, transform, and move data without resorting to manual steps."
+    },
+    {
+      "id": "D5-S1-C02",
+      "subdomain_code": "D5-S1",
+      "domain_code": "D5",
+      "statement": "The learner can write a simple shell script to automate a repetitive workflow.",
+      "description": "Demonstrated by combining commands, variables, and control flow into a reusable script."
+    },
+    {
+      "id": "D5-S2-C01",
+      "subdomain_code": "D5-S2",
+      "domain_code": "D5",
+      "statement": "The learner can navigate the filesystem and manage processes productively in a terminal.",
+      "description": "Demonstrated by moving between directories, inspecting files, and starting, backgrounding, or stopping processes."
+    },
+    {
+      "id": "D5-S3-C01",
+      "subdomain_code": "D5-S3",
+      "domain_code": "D5",
+      "statement": "The learner can use a terminal multiplexer to manage multiple sessions and long-running work.",
+      "description": "Demonstrated by creating and switching between panes or windows and keeping processes alive across disconnects."
+    },
+    {
+      "id": "D5-S4-C01",
+      "subdomain_code": "D5-S4",
+      "domain_code": "D5",
+      "statement": "The learner can use git branching and commits to isolate and review changes safely.",
+      "description": "Demonstrated by structuring work into branches and commits that keep changes reviewable and reversible."
+    },
+    {
+      "id": "D5-S4-C02",
+      "subdomain_code": "D5-S4",
+      "domain_code": "D5",
+      "statement": "The learner can explain how git worktrees support parallel work, including parallel AI-assisted development.",
+      "description": "Demonstrated by describing how worktrees provide isolated checkouts so multiple efforts proceed without interfering."
+    },
+    {
+      "id": "D5-S5-C01",
+      "subdomain_code": "D5-S5",
+      "domain_code": "D5",
+      "statement": "The learner can manage dependencies and reproducible environments across machines.",
+      "description": "Demonstrated by using lockfiles or environment definitions so a project installs consistently for others."
+    },
+    {
+      "id": "D5-S6-C01",
+      "subdomain_code": "D5-S6",
+      "domain_code": "D5",
+      "statement": "The learner can explain how containers package and isolate an application with its dependencies.",
+      "description": "Demonstrated by describing the difference between an image and a running container and why isolation aids reproducibility."
+    },
+    {
+      "id": "D5-S6-C02",
+      "subdomain_code": "D5-S6",
+      "domain_code": "D5",
+      "statement": "The learner can decide when containerizing a workload is worthwhile.",
+      "description": "Demonstrated by weighing portability and consistency benefits against added complexity for a given scenario."
+    },
+    {
+      "id": "D5-S7-C01",
+      "subdomain_code": "D5-S7",
+      "domain_code": "D5",
+      "statement": "The learner can handle secrets such as API keys securely rather than exposing them.",
+      "description": "Demonstrated by using environment variables or secret stores and keeping credentials out of source control and logs."
+    },
+    {
+      "id": "D5-S8-C01",
+      "subdomain_code": "D5-S8",
+      "domain_code": "D5",
+      "statement": "The learner can deploy an application to a hosted environment and describe the basic release steps.",
+      "description": "Demonstrated by getting an app running remotely and explaining build, configuration, and rollout fundamentals."
+    },
+    {
+      "id": "D5-S8-C02",
+      "subdomain_code": "D5-S8",
+      "domain_code": "D5",
+      "statement": "The learner can identify configuration and environment differences that affect a deployed application.",
+      "description": "Demonstrated by recognizing how environment variables, dependencies, and resources differ between local and hosted runs."
+    },
+    {
+      "id": "D5-S9-C01",
+      "subdomain_code": "D5-S9",
+      "domain_code": "D5",
+      "statement": "The learner can use logs and basic metrics to detect and diagnose problems in a running system.",
+      "description": "Demonstrated by locating relevant log output and interpreting signals to identify the source of an issue."
+    },
+    {
+      "id": "D5-S10-C01",
+      "subdomain_code": "D5-S10",
+      "domain_code": "D5",
+      "statement": "The learner can explain the tradeoffs between running models locally and using hosted model APIs.",
+      "description": "Demonstrated by comparing factors such as cost, latency, privacy, and control when choosing an approach."
+    },
+    {
+      "id": "D5-S10-C02",
+      "subdomain_code": "D5-S10",
+      "domain_code": "D5",
+      "statement": "The learner can select a local or hosted model workflow appropriate to a given constraint.",
+      "description": "Demonstrated by matching a workflow to requirements such as data privacy, offline use, or scale."
+    }
+  ]
+}

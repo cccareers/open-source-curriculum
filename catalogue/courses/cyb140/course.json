@@ -1,0 +1,150 @@
+{
+  "course_id": "cyb140",
+  "pathway": "cybersecurity-support-technician",
+  "title": "Ethical Hacking & Penetration Testing",
+  "description": "This is a competency-based course designed for the indentured Cybersecurity Support Technician apprentice. Explores ethical hacking methodologies, vulnerability scanning, and penetration testing tools like Kali Linux and Metasploit.",
+  "hours": 30,
+  "projects": null,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Read and write the authorization and scope documents that make a security test lawful and bounded",
+    "Describe each phase of a supervised penetration test and what the tester is accountable for in it",
+    "Run an authorized vulnerability scan in a lab environment and separate true findings from false positives",
+    "Identify common web application vulnerability classes and describe the evidence that confirms each one",
+    "Translate a test finding into a control weakness and a prioritized remediation recommendation"
+  ],
+  "prerequisites": [
+    "cyb100 Introduction to Cybersecurity",
+    "net110 Network Security Fundamentals",
+    "cyb130 Access Control and Identity Management",
+    "cyb210 Endpoint Security and Malware Defense",
+    "cyb120 Threat Analysis and Incident Response"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "cyb140-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cyb140-02",
+      "order": 2,
+      "slug": "authorization-scope-and-rules-of-engagement",
+      "title": "Authorization, Scope, and Rules of Engagement",
+      "kind": "lesson",
+      "objectives": [
+        "Read and write the authorization and scope documents that make a security test lawful and bounded"
+      ],
+      "competency_ids": [
+        "D3-S1-C04"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cyb140-03",
+      "order": 3,
+      "slug": "the-assessment-methodology",
+      "title": "The Assessment Methodology",
+      "kind": "lesson",
+      "objectives": [
+        "Describe each phase of a supervised penetration test and what the tester is accountable for in it"
+      ],
+      "competency_ids": [
+        "D3-S1-C04"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cyb140-04",
+      "order": 4,
+      "slug": "vulnerability-scanning-and-validating-findings",
+      "title": "Vulnerability Scanning and Validating Findings",
+      "kind": "lesson",
+      "objectives": [
+        "Run an authorized vulnerability scan in a lab environment and separate true findings from false positives"
+      ],
+      "competency_ids": [
+        "D1-S1-C01",
+        "D3-S1-C04"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cyb140-05",
+      "order": 5,
+      "slug": "common-application-weaknesses",
+      "title": "Common Application Weaknesses",
+      "kind": "lesson",
+      "objectives": [
+        "Identify common web application vulnerability classes and describe the evidence that confirms each one"
+      ],
+      "competency_ids": [
+        "D6-S1-C03"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cyb140-06",
+      "order": 6,
+      "slug": "reading-findings-as-a-defender",
+      "title": "Reading Findings as a Defender",
+      "kind": "lesson",
+      "objectives": [
+        "Translate a test finding into a control weakness and a prioritized remediation recommendation"
+      ],
+      "competency_ids": [
+        "D1-S1-C03"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cyb140-07",
+      "order": 7,
+      "slug": "project-lab-vulnerability-assessment-report",
+      "title": "Project: Lab Vulnerability Assessment Report",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D3-S1-C04",
+        "D1-S1-C01",
+        "D1-S1-C03"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Authorization comes first, deliberately and non-negotiably. Lesson 02 teaches the paperwork - written authorization, scope boundaries, exclusion lists, testing windows, escalation and stop conditions - before any technique appears, because an unauthorized test is not a technical mistake but a crime, and because the catalog competency this course serves (D3-S1-C04) is explicitly about assisting under supervision. Methodology (03) follows so the learner has a phase model to hang findings on. Scanning (04) is the first hands-on activity and is confined to the instructor-provided lab range, and it is taught with validation attached, because an unvalidated scanner report is the most common junk artifact in this field. Application weaknesses (05) come after infrastructure scanning because they require reading application behavior rather than service banners. Lesson 06 turns the whole course around to face the defender: a support technician's actual job is receiving a report, judging which control failed, and sequencing the fix. The project (07) is a written assessment report on the lab range, which is the deliverable the role is graded on. SCOPE ASSUMPTIONS - intake gives one sentence, no objectives, no lesson titles, and records no projects; correct anything wrong: (1) This course is defensive education about how testing works, taught inside an authorized, isolated lab. Every exercise targets instructor-provided, intentionally vulnerable systems on an isolated network. Nothing in this course is to be run against any system the learner does not own or has not been given written authorization to test, and no lesson provides a playbook against real or named third-party targets. (2) Named intake tools (Kali Linux, Metasploit) are taught as categories a supervised assistant must recognize and operate within a lab - what a scanner claims, what a framework module does, what evidence each produces - rather than as an exploit catalog. Exploit development, evasion of security controls, and anti-forensics are out of scope. (3) The learner's target role is assistant, not lead tester: every exercise assumes a supervisor who owns the engagement, and reporting weight is deliberately higher than execution weight. (4) Social engineering as an assessment technique is out of scope; the human attack surface is treated in cyb250 defensively. (5) Web application testing is limited to recognizing and evidencing the common OWASP classes; secure code review and remediation implementation belong to net260's application security and DevSecOps lessons. (6) Physical security testing and wireless attacks are out of scope. (7) Intake records no projects; lesson 07 is added as a written lab report so the 30 hours end in an assessable artifact, and a reviewer may cut it. (8) The catalog covers assisting with penetration testing but has no competency for the authorization and scoping discipline that lesson 02 spends five hours on - see proposed_competencies.",
+  "proposed_competencies": [
+    {
+      "domain_code": "D3",
+      "subdomain": "D3-S1",
+      "competency_text": "The learner can verify that written authorization, scope, exclusions, testing window, and stop conditions are in place before any security testing activity begins, and can halt testing when a boundary is reached.",
+      "rationale": "Lesson 02 exists because this is the single highest-consequence competency in the course and the one an entry-level assistant is most likely to get wrong. D3-S1-C04 covers assisting with penetration testing and vulnerability assessment under supervision and interpreting findings, but it does not name the authorization discipline itself, which is what separates a legal test from an offense."
+    }
+  ],
+  "assets": [
+    {
+      "filename": "assessment-phases.png",
+      "description": "The phases of a supervised assessment, from pre-engagement through reporting and retest, showing the inputs and artifacts of each phase and where the supervisor's approval gates sit.",
+      "suggested_source": "Diagram, drawn in-house"
+    },
+    {
+      "filename": "finding-to-control.png",
+      "description": "How a single finding is traced back to the control that should have prevented it, the way that control failed, and the systemic cause it shares with other findings.",
+      "suggested_source": "Diagram, drawn in-house"
+    }
+  ]
+}

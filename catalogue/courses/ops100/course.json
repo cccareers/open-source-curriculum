@@ -1,0 +1,191 @@
+{
+  "course_id": "ops100",
+  "pathway": "quality-assurance-software-engineer",
+  "title": "Git / Chrome Devtools",
+  "description": "This is a competency-based course designed for the indentured website developer apprentice.  This course will cover the tool set required to develop websites and modern software projects. Apprentices will practice with collaboration tools and deploy a website to the public.",
+  "hours": 30,
+  "projects": 1,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Set up a local development environment that mirrors how the project really runs",
+    "Use Git to record, inspect, and recover work",
+    "Work on a shared repository using branches, merges, and pull requests",
+    "Review a change and its documentation for accuracy and completeness",
+    "Use Chrome DevTools to inspect and debug a running page",
+    "Audit a page's network activity, performance, and accessibility from the browser",
+    "Turn what DevTools shows you into a defect report a developer can act on",
+    "Deploy a site publicly and verify it behaves as expected"
+  ],
+  "prerequisites": [
+    "web100 HTML / CSS Basics and web101 JavaScript in the DOM, or equivalent",
+    "Comfort running commands in a terminal is helpful but is taught in lesson 02"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "ops100-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ops100-02",
+      "order": 2,
+      "slug": "command-line-and-local-development-setup",
+      "title": "Command Line and Local Development Setup",
+      "kind": "lesson",
+      "objectives": [
+        "Set up a local development environment that mirrors how the project really runs"
+      ],
+      "competency_ids": [
+        "D3-S1-C01",
+        "D3-S1-C03"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ops100-03",
+      "order": 3,
+      "slug": "git-fundamentals",
+      "title": "Git Fundamentals for Recording and Recovering Work",
+      "kind": "lesson",
+      "objectives": [
+        "Use Git to record, inspect, and recover work"
+      ],
+      "competency_ids": [
+        "D4-S1-C01"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ops100-04",
+      "order": 4,
+      "slug": "branching-merging-and-team-workflow",
+      "title": "Branching, Merging, and Team Workflow",
+      "kind": "lesson",
+      "objectives": [
+        "Work on a shared repository using branches, merges, and pull requests"
+      ],
+      "competency_ids": [
+        "D1-S1-C04",
+        "D4-S1-C01"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ops100-05",
+      "order": 5,
+      "slug": "pull-requests-and-documentation-review",
+      "title": "Pull Requests, Code Review, and Documentation Review",
+      "kind": "lesson",
+      "objectives": [
+        "Review a change and its documentation for accuracy and completeness"
+      ],
+      "competency_ids": [
+        "D1-S1-C04",
+        "D4-S1-C02",
+        "D5-S1-C03"
+      ],
+      "hours_estimate": 3.5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ops100-06",
+      "order": 6,
+      "slug": "devtools-elements-console-and-sources",
+      "title": "DevTools Elements, Console, and Sources",
+      "kind": "lesson",
+      "objectives": [
+        "Use Chrome DevTools to inspect and debug a running page"
+      ],
+      "competency_ids": [
+        "D3-S1-C02",
+        "D3-S1-C03"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ops100-07",
+      "order": 7,
+      "slug": "devtools-network-performance-and-accessibility",
+      "title": "DevTools Network, Performance, and Accessibility Audits",
+      "kind": "lesson",
+      "objectives": [
+        "Audit a page's network activity, performance, and accessibility from the browser"
+      ],
+      "competency_ids": [
+        "D2-S1-C02",
+        "D3-S1-C02",
+        "D5-S1-C01"
+      ],
+      "hours_estimate": 3.5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ops100-08",
+      "order": 8,
+      "slug": "turning-devtools-evidence-into-a-defect-report",
+      "title": "Turning DevTools Evidence into a Defect Report",
+      "kind": "lesson",
+      "objectives": [
+        "Turn what DevTools shows you into a defect report a developer can act on"
+      ],
+      "competency_ids": [
+        "D2-S1-C01",
+        "D2-S1-C05",
+        "D3-S1-C02"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ops100-09",
+      "order": 9,
+      "slug": "deploy-and-verify-a-public-site",
+      "title": "Deploy and Verify a Public Site",
+      "kind": "project",
+      "objectives": [
+        "Deploy a site publicly and verify it behaves as expected"
+      ],
+      "competency_ids": [
+        "D2-S1-C04",
+        "D3-S1-C01",
+        "D4-S1-C03",
+        "D5-S1-C04"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "QA REFRAMING (stated explicitly because the intake evidence is borrowed): the intake describes this as a course for the 'indentured website developer apprentice'. It is a shared web-development course repurposed for the Quality Assurance Software Engineer pathway, so this outline teaches toward the QA catalog. This is the course where the QA lens changes the content most, and it does so in two places. First, Git is taught as source-code management discipline (D4-S1-C01) and as the review surface where a QA engineer reads a change and its documentation before it ships (D4-S1-C02, D5-S1-C03), not as a solo save button. Second, Chrome DevTools is taught as the QA engineer's primary instrument: Elements and Sources for isolating a breakdown in config, logs, or code (D3-S1-C02), Network and Lighthouse for performance and accessibility auditing (D5-S1-C01, D2-S1-C02), and lesson 08 exists purely to convert that evidence into a reproducible, well-categorised defect report and a clear escalation (D2-S1-C01, D2-S1-C05). A developer-facing version of this course would not contain lesson 08 at all. SEQUENCE: environment, then Git, then collaboration, then review, then DevTools inspection, then DevTools auditing, then defect reporting, then deploy and verify. Version control comes before review because you cannot review what is not on a branch; DevTools comes before defect reporting because a defect report is only as good as the evidence attached to it; deployment closes the course because verifying a real public deployment needs every earlier skill. SCOPE ASSUMPTIONS: this is the one course in the pathway whose intake description is complete rather than truncated, but it is also very thin ('the tool set required to develop websites and modern software projects'), so the specific tool set is an assumption. Assumed in scope: a POSIX-style shell, local environment setup, Git and a hosted remote (GitHub-style pull requests), code and documentation review, Chrome DevTools across the Elements, Console, Sources, Network, Performance, and Lighthouse panels, and a static-site deployment to a public host with post-deploy verification. Assumed out of scope and deliberately left out: CI/CD pipeline authoring, containers, cloud infrastructure, server administration, and Git internals beyond what recovery requires. HOURS: 1h overview plus seven teaching lessons of 3 to 4h and a 4h project, summing to exactly 30. LESSON KINDS: intake records projects = 1 for this course, which is why lesson 09 is the pathway's first kind 'project' brief and every other lesson is a taught lesson.",
+  "proposed_competencies": [
+    {
+      "domain_code": "D5",
+      "subdomain": "D5-S1",
+      "competency_text": "The learner can audit an existing interface against basic accessibility criteria and report the failures with enough detail to be fixed.",
+      "rationale": "Lesson 07 has the learner run an accessibility audit over software someone else built. D5-S1-C01 covers contributing to implementing accessible and responsive designs, which is the builder's side of the same topic; the catalog has no competency for auditing accessibility as a QA activity, which is what a QA software engineer is far more likely to be asked to do."
+    }
+  ],
+  "assets": [
+    {
+      "filename": "git-branch-merge.png",
+      "description": "A feature branch diverging from main, receiving review comments, and merging back after approval.",
+      "suggested_source": "Diagram, drawn in-house"
+    },
+    {
+      "filename": "devtools-panels.png",
+      "description": "The Chrome DevTools panels a QA engineer uses most, labelled: Elements, Console, Sources, Network, Performance, and Lighthouse.",
+      "suggested_source": "Annotated screenshot of Chrome DevTools, captured in-house"
+    }
+  ]
+}

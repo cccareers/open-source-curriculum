@@ -1,0 +1,129 @@
+{
+  "course_id": "se202",
+  "pathway": "technical-sales-representative",
+  "title": "Mastering Outbound Prospecting",
+  "description": "This is a competency-based course designed for the indentured Technical Sales Representative apprentice. Advanced techniques for lead generation, cold calling, and email outreach using Apollo and LinkedIn Sales Navigator.",
+  "hours": 16,
+  "projects": null,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Define an ideal customer profile and build a qualified target list from market signals",
+    "Use prospecting tools to research an account and its buying committee before outreach",
+    "Open, navigate, and recover a cold call, including its predictable objections",
+    "Write a multi-touch email sequence that asks for a specific meeting",
+    "Qualify an outbound pipeline against a stated framework and decide what to work next"
+  ],
+  "prerequisites": [
+    "Introduction to Sales (se101), or equivalent sales fundamentals"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "se202-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "se202-02",
+      "order": 2,
+      "slug": "ideal-customer-profile-and-target-lists",
+      "title": "Ideal Customer Profile and Target Lists",
+      "kind": "lesson",
+      "objectives": [
+        "Define an ideal customer profile and build a qualified target list from market signals"
+      ],
+      "competency_ids": [
+        "D3-S1-C01"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "se202-03",
+      "order": 3,
+      "slug": "account-research-with-prospecting-tools",
+      "title": "Account Research with Prospecting Tools",
+      "kind": "lesson",
+      "objectives": [
+        "Use prospecting tools to research an account and its buying committee before outreach"
+      ],
+      "competency_ids": [
+        "D3-S1-C01",
+        "D3-S1-C05"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "se202-04",
+      "order": 4,
+      "slug": "cold-calling-openers-flow-and-objections",
+      "title": "Cold Calling: Openers, Flow, and Objections",
+      "kind": "lesson",
+      "objectives": [
+        "Open, navigate, and recover a cold call, including its predictable objections"
+      ],
+      "competency_ids": [
+        "D3-S1-C02"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "se202-05",
+      "order": 5,
+      "slug": "email-sequences-that-set-meetings",
+      "title": "Email Sequences That Set Meetings",
+      "kind": "lesson",
+      "objectives": [
+        "Write a multi-touch email sequence that asks for a specific meeting"
+      ],
+      "competency_ids": [
+        "D3-S1-C03"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "se202-06",
+      "order": 6,
+      "slug": "qualifying-an-outbound-pipeline",
+      "title": "Qualifying an Outbound Pipeline",
+      "kind": "lesson",
+      "objectives": [
+        "Qualify an outbound pipeline against a stated framework and decide what to work next"
+      ],
+      "competency_ids": [
+        "D3-S1-C05"
+      ],
+      "hours_estimate": 2,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "se202-07",
+      "order": 7,
+      "slug": "project-run-a-two-week-outbound-campaign",
+      "title": "Project: Run a Two-Week Outbound Campaign",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D3-S1-C01",
+        "D3-S1-C02",
+        "D3-S1-C03",
+        "D3-S1-C05"
+      ],
+      "hours_estimate": 1,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Targeting precedes touching: lessons 2–3 decide who is worth contacting, 4–5 are the two outbound channels themselves, and 6 closes with the discipline that decides what to do with the replies. Calls come before email because the objections a rep hears live are the raw material for the written sequence. SCOPE ASSUMPTIONS: the intake names lead generation, cold calling, email outreach, and two products — Apollo and LinkedIn Sales Navigator — so those two tools are used as the worked examples in lesson 3, taught as representatives of a category rather than as vendor certification, since the catalog competency (D3-S1-C05) is tool-agnostic. Assumed out of scope: CRM data entry and automation, which is se301's subject even though outbound work touches a CRM; social selling as a discipline of its own; and inbound or partner-sourced lead flow, which the intake never mentions. The project is deliberately small in hours (1) because it is a campaign the learner runs against the work already produced in lessons 2–5 rather than new material.",
+  "proposed_competencies": [],
+  "assets": []
+}

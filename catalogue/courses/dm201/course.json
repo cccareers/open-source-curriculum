@@ -1,0 +1,228 @@
+{
+  "course_id": "dm201",
+  "pathway": "digital-marketer",
+  "title": "Search Engine Optimization (SEO)",
+  "description": "This is a competency-based course designed for the indentured Digital Marketer apprentice. This course covers the fundamentals of SEO, including keyword research, on-page and off-page optimization, and technical SEO. Apprentices will learn how to analyze search intent and leverage SEO tools to impro",
+  "hours": 80,
+  "projects": null,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Explain how crawling, indexing, and ranking determine whether a page can appear in search results",
+    "Classify the search intent behind a query and match it to an appropriate page type",
+    "Build a prioritized keyword map from research data",
+    "Analyze competing sites to find realistic ranking opportunities",
+    "Optimize a page's title, headings, metadata, and body copy for a target query",
+    "Design a site structure and internal linking plan that distributes authority",
+    "Diagnose crawlability, speed, and mobile issues that suppress rankings",
+    "Publish and optimize SEO content in a content management system",
+    "Plan an ethical off-page and link acquisition strategy",
+    "Measure organic performance in Search Console and analytics and act on what it shows"
+  ],
+  "prerequisites": [
+    "dm101 Introduction to Digital Marketing, or equivalent familiarity with digital marketing channels",
+    "Comfortable editing page content and metadata in a website or CMS"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "dm201-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 2,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "dm201-02",
+      "order": 2,
+      "slug": "how-search-engines-work",
+      "title": "How Search Engines Crawl, Index, and Rank",
+      "kind": "lesson",
+      "objectives": [
+        "Explain how crawling, indexing, and ranking determine whether a page can appear in search results",
+        "Describe the major categories of ranking factors and their relative weight"
+      ],
+      "competency_ids": [
+        "D1-S1-C03"
+      ],
+      "hours_estimate": 6,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "dm201-03",
+      "order": 3,
+      "slug": "search-intent-and-the-serp",
+      "title": "Search Intent and the Modern SERP",
+      "kind": "lesson",
+      "objectives": [
+        "Classify the search intent behind a query and match it to an appropriate page type",
+        "Read a SERP layout to judge the real opportunity for a query"
+      ],
+      "competency_ids": [
+        "D1-S1-C03"
+      ],
+      "hours_estimate": 6,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "dm201-04",
+      "order": 4,
+      "slug": "keyword-research",
+      "title": "Keyword Research",
+      "kind": "lesson",
+      "objectives": [
+        "Build a prioritized keyword map from research data",
+        "Evaluate keywords on volume, difficulty, and business value"
+      ],
+      "competency_ids": [
+        "D1-S1-C01"
+      ],
+      "hours_estimate": 8,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "dm201-05",
+      "order": 5,
+      "slug": "competitive-and-gap-analysis",
+      "title": "Competitive and Content Gap Analysis",
+      "kind": "lesson",
+      "objectives": [
+        "Analyze competing sites to find realistic ranking opportunities",
+        "Produce a content gap list from a competitor comparison"
+      ],
+      "competency_ids": [
+        "D1-S1-C01"
+      ],
+      "hours_estimate": 6,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "dm201-06",
+      "order": 6,
+      "slug": "on-page-optimization",
+      "title": "On-Page Optimization",
+      "kind": "lesson",
+      "objectives": [
+        "Optimize a page's title, headings, metadata, and body copy for a target query",
+        "Apply structured data markup where a rich result is warranted"
+      ],
+      "competency_ids": [
+        "D1-S1-C02"
+      ],
+      "hours_estimate": 8,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "dm201-07",
+      "order": 7,
+      "slug": "site-architecture-and-internal-linking",
+      "title": "Site Architecture and Internal Linking",
+      "kind": "lesson",
+      "objectives": [
+        "Design a site structure and internal linking plan that distributes authority"
+      ],
+      "competency_ids": [
+        "D1-S1-C02"
+      ],
+      "hours_estimate": 6,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "dm201-08",
+      "order": 8,
+      "slug": "technical-seo",
+      "title": "Technical SEO: Crawlability, Speed, and Mobile",
+      "kind": "lesson",
+      "objectives": [
+        "Diagnose crawlability, speed, and mobile issues that suppress rankings",
+        "Audit robots directives, sitemaps, and canonical tags on a live site"
+      ],
+      "competency_ids": [
+        "D1-S1-C02",
+        "D1-S1-C03"
+      ],
+      "hours_estimate": 8,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "dm201-09",
+      "order": 9,
+      "slug": "publishing-seo-content-in-a-cms",
+      "title": "Publishing SEO Content in a CMS",
+      "kind": "lesson",
+      "objectives": [
+        "Publish and optimize SEO content in a content management system",
+        "Adapt one piece of content for search and for other distribution channels"
+      ],
+      "competency_ids": [
+        "D2-S1-C02",
+        "D2-S1-C01"
+      ],
+      "hours_estimate": 6,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "dm201-10",
+      "order": 10,
+      "slug": "off-page-seo-and-link-acquisition",
+      "title": "Off-Page SEO and Link Acquisition",
+      "kind": "lesson",
+      "objectives": [
+        "Plan an ethical off-page and link acquisition strategy",
+        "Evaluate the quality of a referring domain"
+      ],
+      "competency_ids": [
+        "D1-S1-C02"
+      ],
+      "hours_estimate": 6,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "dm201-11",
+      "order": 11,
+      "slug": "measuring-organic-performance",
+      "title": "Measuring Organic Performance",
+      "kind": "lesson",
+      "objectives": [
+        "Measure organic performance in Search Console and analytics and act on what it shows",
+        "Turn an organic traffic finding into a prioritized action"
+      ],
+      "competency_ids": [
+        "D6-S1-C01",
+        "D6-S1-C03"
+      ],
+      "hours_estimate": 8,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "dm201-12",
+      "order": 12,
+      "slug": "project-seo-audit-and-plan",
+      "title": "Project: SEO Audit and 90-Day Plan",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D1-S1-C01",
+        "D1-S1-C02",
+        "D1-S1-C03",
+        "D6-S1-C01"
+      ],
+      "hours_estimate": 10,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "At 80 hours this is the largest course in the pathway, so it is the one that can afford to teach SEO in its natural dependency order rather than as a tactics list. Mechanism first (lessons 02-03: nothing about optimization is meaningful until the learner knows what indexing and intent are), then research (04-05: you cannot optimize for a target you have not chosen), then implementation in increasing scope - page (06), site (07), infrastructure (08) - then publishing workflow (09), then off-page (10, deliberately last of the tactics because link acquisition without a worthwhile page is wasted effort), then measurement (11), then a capstone audit that exercises all of it. SCOPE ASSUMPTIONS - the intake description is truncated mid-word (it ends at 'leverage SEO tools to impro') and supplied no objectives or lesson titles, so: (1) The cut sentence was read as improving organic visibility, and lesson 11 is scoped to measurement and iteration; no specific claim from the truncated text was reconstructed. (2) The named topics - keyword research, on-page, off-page, technical SEO, search intent, SEO tools - are treated as the required spine, and everything else here is connective tissue. (3) Tools are taught tool-agnostically with Google Search Console as the one assumed-available tool; paid suites (Ahrefs, Semrush, Screaming Frog) are referenced as categories, and the reviewer should confirm which the program actually licenses. (4) Local SEO, international/hreflang, and e-commerce product-feed SEO are OUT of scope at this hour budget - flag if they are expected. (5) Content production beyond SEO writing is dm270's job; lesson 09 covers only the publish-and-optimize step. (6) Paid search is dm230's; lesson 03 draws the boundary but does not cross it.",
+  "proposed_competencies": [
+    {
+      "domain_code": "D1",
+      "subdomain": "D1-S1",
+      "competency_text": "The learner can diagnose and remediate technical SEO defects, including crawl directives, indexation problems, page performance, mobile rendering, and structured data.",
+      "rationale": "Lesson 08 is eight hours of technical SEO and the capstone audit depends on it, but D1-S1-C02 is scoped to on-page and off-page tactics and D1-S1-C03 to ranking factors; neither covers diagnosis and remediation of technical defects."
+    }
+  ],
+  "assets": []
+}

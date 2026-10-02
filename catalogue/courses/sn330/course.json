@@ -1,0 +1,195 @@
+{
+  "course_id": "sn330",
+  "pathway": "servicenow-implementation-specialist",
+  "title": "HR Service Delivery (HRSD) Implementation",
+  "description": "This is a competency-based course designed for the indentured ServiceNow Implementation Specialist apprentice. Explores Human Resources Service Delivery (HRSD) module setup, configuration, and automation of HR case management, onboarding, and employee self-service portals. This course will prepare p",
+  "hours": 40,
+  "projects": null,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Describe HRSD's scoped application structure and how HR services, COEs, and scoped data separation work",
+    "Configure HR cases, templates, and assignment so requests reach the right HR team",
+    "Configure scoped HR knowledge bases so employees see only the articles that apply to them",
+    "Configure the Employee Center so employees can serve themselves without contacting HR directly",
+    "Design a lifecycle event that coordinates onboarding or offboarding activities across departments",
+    "Automate an HR process with Flow Designer, including approvals and notifications",
+    "Apply access controls and data-privacy practices that keep sensitive HR data restricted",
+    "Integrate HRSD with an HRIS or payroll system using import sets, transform maps, and error handling"
+  ],
+  "prerequisites": [
+    "sn102 Introduction to ServiceNow Platform",
+    "sn201 Application Development Fundamentals (ADF)",
+    "sn250 Scripting in ServiceNow",
+    "sn290 Service Portal Fundamentals"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "sn330-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn330-02",
+      "order": 2,
+      "slug": "hrsd-architecture-and-hr-services",
+      "title": "HRSD Architecture and HR Services",
+      "kind": "lesson",
+      "objectives": [
+        "Describe HRSD's scoped application structure and how HR services, COEs, and scoped data separation work"
+      ],
+      "competency_ids": [
+        "D4-S1-C01"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn330-03",
+      "order": 3,
+      "slug": "hr-case-management-configuration",
+      "title": "HR Case Management Configuration",
+      "kind": "lesson",
+      "objectives": [
+        "Configure HR cases, templates, and assignment so requests reach the right HR team"
+      ],
+      "competency_ids": [
+        "D4-S1-C01"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn330-04",
+      "order": 4,
+      "slug": "hr-knowledge-management",
+      "title": "HR Knowledge Management",
+      "kind": "lesson",
+      "objectives": [
+        "Configure scoped HR knowledge bases so employees see only the articles that apply to them"
+      ],
+      "competency_ids": [
+        "D4-S1-C01",
+        "D6-S1-C04"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn330-05",
+      "order": 5,
+      "slug": "employee-center-and-hr-portal-configuration",
+      "title": "Employee Center and HR Portal Configuration",
+      "kind": "lesson",
+      "objectives": [
+        "Configure the Employee Center so employees can serve themselves without contacting HR directly"
+      ],
+      "competency_ids": [
+        "D4-S1-C02",
+        "D6-S1-C01"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn330-06",
+      "order": 6,
+      "slug": "lifecycle-events-onboarding-and-offboarding",
+      "title": "Lifecycle Events: Onboarding and Offboarding",
+      "kind": "lesson",
+      "objectives": [
+        "Design a lifecycle event that coordinates onboarding or offboarding activities across departments"
+      ],
+      "competency_ids": [
+        "D4-S1-C03"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn330-07",
+      "order": 7,
+      "slug": "automating-hr-workflows",
+      "title": "Automating HR Workflows",
+      "kind": "lesson",
+      "objectives": [
+        "Automate an HR process with Flow Designer, including approvals and notifications"
+      ],
+      "competency_ids": [
+        "D4-S1-C03",
+        "D2-S1-C05"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn330-08",
+      "order": 8,
+      "slug": "data-privacy-security-and-compliance-in-hr",
+      "title": "Data Privacy, Security, and Compliance in HR",
+      "kind": "lesson",
+      "objectives": [
+        "Apply access controls and data-privacy practices that keep sensitive HR data restricted"
+      ],
+      "competency_ids": [
+        "D4-S1-C04",
+        "D1-S1-C03"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn330-09",
+      "order": 9,
+      "slug": "integrating-hrsd-with-hris-and-payroll",
+      "title": "Integrating HRSD with HRIS and Payroll",
+      "kind": "lesson",
+      "objectives": [
+        "Integrate HRSD with an HRIS or payroll system using import sets, transform maps, and error handling"
+      ],
+      "competency_ids": [
+        "D4-S1-C05",
+        "D8-S1-C02",
+        "D8-S1-C04"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn330-10",
+      "order": 10,
+      "slug": "project-implement-an-hr-onboarding-service",
+      "title": "Project: Implement an HR Onboarding Service",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D4-S1-C01",
+        "D4-S1-C02",
+        "D4-S1-C03"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "The intake description names HRSD setup, configuration, HR case management, onboarding, and employee self-service portals, and the outline sequences them as the platform's own dependency chain: architecture and services (2) define what a case is about, cases (3) are the unit of HR work, knowledge (4) deflects cases, the portal (5) is where employees meet both, lifecycle events (6) orchestrate many cases at once, and automation (7) is what makes a lifecycle event run unattended. Privacy (8) follows rather than precedes configuration so it can be taught against real HR tables and real profile data. The HRIS and payroll integration (9) is last because it is the only lesson that depends on a system outside the platform. Scope assumptions, stated loudly because this course's intake description is truncated mid-word ('This course will prepare p') and nothing was invented to complete it: the cut sentence has been ignored entirely, and scope is derived from the intact first half plus the pathway catalog's five D4 competencies, each of which gets at least one lesson. The course is treated as an HRSD implementation course at Certified Implementation Specialist -- HR depth, covering HR Case Management, HR Knowledge, Employee Center, and Lifecycle Events. Employee Center is taught as the current self-service surface, with the underlying portal-building skill assumed from sn290 rather than retaught. Integration is taught with import sets, transform maps, and error handling -- the pattern an HRIS feed actually uses -- rather than as an Integration Hub spoke build, which belongs to sn360. Employee Document Management, HR agent workspace customization, and payroll processing itself are out of scope. Terminology is kept release-neutral.",
+  "proposed_competencies": [],
+  "assets": [
+    {
+      "filename": "hrsd-data-model.png",
+      "description": "Layered view of the HRSD scoped applications: the core HR layer holding HR profile, HR services, and HR criteria; per-COE case tables extending the base HR case table in their own scopes; and the delivery applications (lifecycle events, self-service, integrations) on top.",
+      "suggested_source": "Diagram, drawn in-house"
+    },
+    {
+      "filename": "lifecycle-event-structure.png",
+      "description": "A lifecycle event definition containing conditional activity sets, each holding activities with owners, activity types, and due dates anchored relative to the event date, alongside the lifecycle event case generated for one employee.",
+      "suggested_source": "Diagram, drawn in-house"
+    }
+  ]
+}

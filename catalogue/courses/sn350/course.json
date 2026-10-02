@@ -1,0 +1,229 @@
+{
+  "course_id": "sn350",
+  "pathway": "servicenow-implementation-specialist",
+  "title": "GRC: Integrate Risk Management (IRM)",
+  "description": "This is a competency-based course designed for the indentured ServiceNow Implementation Specialist apprentice. Focuses on Governance, Risk, and Compliance (GRC) module implementation, including risk assessment, compliance tracking, and policy automation.",
+  "hours": 40,
+  "projects": null,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Explain what an integrated risk management program does and which platform applications support it",
+    "Model authority documents, citations, policies, and control objectives in the compliance application",
+    "Configure controls and attestations that produce audit-ready evidence on a schedule",
+    "Build a risk register with a scoring methodology and run a risk assessment against it",
+    "Scope a compliance or risk program to the right entities using CMDB data",
+    "Configure indicators that test control effectiveness continuously instead of once a year",
+    "Automate policy review, risk acceptance, and attestation campaigns with Flow Designer",
+    "Route a failed control into an issue and a remediation task, and support an audit engagement",
+    "Build risk and compliance dashboards that perform well and expose data only to authorized readers"
+  ],
+  "prerequisites": [
+    "sn102 Introduction to ServiceNow Platform",
+    "sn201 Application Development Fundamentals (ADF)",
+    "sn250 Scripting in ServiceNow",
+    "sn280 IT Service Management (ITSM) Implementation"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "sn350-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn350-02",
+      "order": 2,
+      "slug": "governance-risk-and-compliance-on-the-platform",
+      "title": "Governance, Risk, and Compliance on the Platform",
+      "kind": "lesson",
+      "objectives": [
+        "Explain what an integrated risk management program does and which platform applications support it"
+      ],
+      "competency_ids": [
+        "D10-S1-C05"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn350-03",
+      "order": 3,
+      "slug": "the-policy-and-compliance-data-model",
+      "title": "The Policy and Compliance Data Model",
+      "kind": "lesson",
+      "objectives": [
+        "Model authority documents, citations, policies, and control objectives in the compliance application"
+      ],
+      "competency_ids": [
+        "D10-S1-C05"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn350-04",
+      "order": 4,
+      "slug": "controls-attestations-and-evidence",
+      "title": "Controls, Attestations, and Evidence",
+      "kind": "lesson",
+      "objectives": [
+        "Configure controls and attestations that produce audit-ready evidence on a schedule"
+      ],
+      "competency_ids": [
+        "D10-S1-C05"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn350-05",
+      "order": 5,
+      "slug": "the-risk-register-and-risk-assessment",
+      "title": "The Risk Register and Risk Assessment",
+      "kind": "lesson",
+      "objectives": [
+        "Build a risk register with a scoring methodology and run a risk assessment against it"
+      ],
+      "competency_ids": [
+        "D10-S1-C05"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn350-06",
+      "order": 6,
+      "slug": "entities-entity-types-and-cmdb-scoping",
+      "title": "Entities, Entity Types, and CMDB Scoping",
+      "kind": "lesson",
+      "objectives": [
+        "Scope a compliance or risk program to the right entities using CMDB data"
+      ],
+      "competency_ids": [
+        "D5-S1-C01",
+        "D5-S1-C05"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn350-07",
+      "order": 7,
+      "slug": "continuous-monitoring-and-indicators",
+      "title": "Continuous Monitoring and Indicators",
+      "kind": "lesson",
+      "objectives": [
+        "Configure indicators that test control effectiveness continuously instead of once a year"
+      ],
+      "competency_ids": [
+        "D10-S1-C05",
+        "D9-S1-C03"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn350-08",
+      "order": 8,
+      "slug": "automating-policy-and-risk-workflows",
+      "title": "Automating Policy and Risk Workflows",
+      "kind": "lesson",
+      "objectives": [
+        "Automate policy review, risk acceptance, and attestation campaigns with Flow Designer"
+      ],
+      "competency_ids": [
+        "D2-S1-C05",
+        "D7-S1-C02"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn350-09",
+      "order": 9,
+      "slug": "issues-remediation-and-audit-management",
+      "title": "Issues, Remediation, and Audit Management",
+      "kind": "lesson",
+      "objectives": [
+        "Route a failed control into an issue and a remediation task, and support an audit engagement"
+      ],
+      "competency_ids": [
+        "D10-S1-C05"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn350-10",
+      "order": 10,
+      "slug": "grc-reporting-and-executive-dashboards",
+      "title": "GRC Reporting and Executive Dashboards",
+      "kind": "lesson",
+      "objectives": [
+        "Build risk and compliance dashboards that perform well and expose data only to authorized readers"
+      ],
+      "competency_ids": [
+        "D9-S1-C01",
+        "D9-S1-C02",
+        "D9-S1-C05"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn350-11",
+      "order": 11,
+      "slug": "project-stand-up-a-compliance-program",
+      "title": "Project: Stand Up a Compliance Program",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D10-S1-C05",
+        "D9-S1-C01"
+      ],
+      "hours_estimate": 2,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "The intake names risk assessment, compliance tracking, and policy automation. The outline puts compliance before risk (3-4 before 5) because the policy and control data model is the concrete half of GRC and gives learners records to point at before the more abstract risk register arrives. Entities and CMDB scoping (6) sit in the middle because both compliance and risk attach to something, and the something is usually a configuration item -- which is why sn280 is a prerequisite. Continuous monitoring (7) needs controls to monitor; automation (8) needs processes to automate; issue and audit management (9) is the consequence of a control failing, so it cannot precede control testing. Reporting (10) is last because GRC's output is an executive view. Scope assumptions, and this course carries the most of them: the intake title reads 'GRC: Integrate Risk Management (IRM)', which is read as the platform's Integrated Risk Management product family; the course is treated as covering Policy and Compliance Management and Risk Management, with Audit Management at supporting depth. Vendor Risk Management, Business Continuity Management, Operational Resilience, and Privacy Management are explicitly excluded -- 40 hours cannot carry them and the intake does not name them. The course teaches the platform's implementation of GRC, not the underlying frameworks: SOX, ISO 27001, NIST, and similar authority documents appear as data to be loaded, not as curricula. A reviewer should check this framing first, because the pathway catalog has no GRC or risk domain at all -- see the four proposed competencies below, which is an unusually high number and reflects a real catalog gap rather than an authoring shortcut. Terminology is kept release-neutral.",
+  "proposed_competencies": [
+    {
+      "domain_code": "D10",
+      "subdomain": "D10-S1",
+      "competency_text": "The learner can model an organization's compliance obligations on the platform, including authority documents, citations, policies, control objectives, and controls.",
+      "rationale": "Lessons 3 and 4 are entirely about the policy and compliance data model. The pathway catalog has no GRC domain; the nearest competency, D10-S1-C05 ('ensure compliance with enterprise governance policies and security standards'), describes complying with governance rather than implementing a compliance application, so four lessons are tagged to one competency that does not describe what they teach."
+    },
+    {
+      "domain_code": "D10",
+      "subdomain": "D10-S1",
+      "competency_text": "The learner can configure a risk register, risk statements, and a risk scoring and assessment methodology in an integrated risk management application.",
+      "rationale": "Lesson 5 is the largest single block in the course and has no catalog competency at all. Risk assessment is named directly in the intake description, so this is a gap in the catalog rather than an optional extension."
+    },
+    {
+      "domain_code": "D10",
+      "subdomain": "D10-S1",
+      "competency_text": "The learner can configure control attestations, continuous-monitoring indicators, and issue remediation so that control failures are detected and routed automatically.",
+      "rationale": "Lessons 4, 7, and 9 cover the operating half of a GRC program. D9-S1-C03 (KPIs) is close for indicators but is a reporting competency, not a control-effectiveness one, and nothing in the catalog covers attestation campaigns or issue remediation."
+    },
+    {
+      "domain_code": "D5",
+      "subdomain": "D5-S1",
+      "competency_text": "The learner can scope a risk or compliance program to CMDB entities and entity types so that controls and risks apply to the correct assets and services.",
+      "rationale": "Lesson 6 uses the CMDB in a way D5-S1-C01 and D5-S1-C05 only partly describe: those competencies cover maintaining the CMDB and its governance, not consuming it as the scoping layer for a GRC program, which is the specific skill an IRM implementer needs."
+    }
+  ],
+  "assets": [
+    {
+      "filename": "compliance-data-model.png",
+      "description": "The chain from authority document through citation, policy statement, and control objective to controls generated per entity, showing the many-to-many mapping between citations and policy statements.",
+      "suggested_source": "Diagram, drawn in-house"
+    }
+  ]
+}

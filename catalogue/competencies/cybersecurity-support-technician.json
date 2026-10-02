@@ -1,0 +1,284 @@
+{
+  "version": 1,
+  "domains": [
+    {
+      "code": "D1",
+      "name": "Fundamentals of Cybersecurity & Threat Mitigation",
+      "delivered_weight_percent": 18,
+      "description": "Fundamentals of cybersecurity and threat mitigation: identifying threats/vulns, IR/risk basics, control evaluation, security tooling, and firewall/IDS configuration."
+    },
+    {
+      "code": "D2",
+      "name": "Network Security & Access Control",
+      "delivered_weight_percent": 17,
+      "description": "Network security and access control: secure network config/VPN/segmentation, traffic monitoring, access-control audits, MFA, and encryption."
+    },
+    {
+      "code": "D3",
+      "name": "Incident Response & Threat Analysis",
+      "delivered_weight_percent": 17,
+      "description": "Incident response and threat analysis: incident triage/documentation, digital forensics, malware analysis, supervised pen-testing, and remediation."
+    },
+    {
+      "code": "D4",
+      "name": "Security Compliance & Risk Management",
+      "delivered_weight_percent": 17,
+      "description": "Security compliance and risk management: regulatory frameworks, risk assessment, policy development, reporting, and compliance collaboration."
+    },
+    {
+      "code": "D5",
+      "name": "Endpoint Security & Malware Defense",
+      "delivered_weight_percent": 17,
+      "description": "Endpoint security and malware defense: endpoint protection/EDR, phishing/ransomware defense, patch management, email security, and awareness training."
+    },
+    {
+      "code": "D6",
+      "name": "Cloud & Application Security",
+      "delivered_weight_percent": 14,
+      "description": "Cloud and application security: cloud workload protection, cloud log monitoring, application security assessment, and DevSecOps."
+    }
+  ],
+  "subdomains": [
+    {
+      "code": "D1-S1",
+      "domain_code": "D1",
+      "name": "Fundamentals of Cybersecurity & Threat Mitigation",
+      "description": "Competencies for fundamentals of cybersecurity & threat mitigation."
+    },
+    {
+      "code": "D2-S1",
+      "domain_code": "D2",
+      "name": "Network Security & Access Control",
+      "description": "Competencies for network security & access control."
+    },
+    {
+      "code": "D3-S1",
+      "domain_code": "D3",
+      "name": "Incident Response & Threat Analysis",
+      "description": "Competencies for incident response & threat analysis."
+    },
+    {
+      "code": "D4-S1",
+      "domain_code": "D4",
+      "name": "Security Compliance & Risk Management",
+      "description": "Competencies for security compliance & risk management."
+    },
+    {
+      "code": "D5-S1",
+      "domain_code": "D5",
+      "name": "Endpoint Security & Malware Defense",
+      "description": "Competencies for endpoint security & malware defense."
+    },
+    {
+      "code": "D6-S1",
+      "domain_code": "D6",
+      "name": "Cloud & Application Security",
+      "description": "Competencies for cloud & application security."
+    }
+  ],
+  "competencies": [
+    {
+      "id": "D1-S1-C01",
+      "subdomain_code": "D1-S1",
+      "domain_code": "D1",
+      "statement": "The learner can identify security threats and vulnerabilities in networks and information systems.",
+      "description": "Spots common threats/vulns in a described environment."
+    },
+    {
+      "id": "D1-S1-C02",
+      "subdomain_code": "D1-S1",
+      "domain_code": "D1",
+      "statement": "The learner can contribute to incident response plans and risk-mitigation strategies to protect sensitive data.",
+      "description": "Helps draft/apply an IR or mitigation step."
+    },
+    {
+      "id": "D1-S1-C03",
+      "subdomain_code": "D1-S1",
+      "domain_code": "D1",
+      "statement": "The learner can evaluate security controls for effectiveness, compliance, and weaknesses.",
+      "description": "Assesses whether a control adequately addresses a risk."
+    },
+    {
+      "id": "D1-S1-C04",
+      "subdomain_code": "D1-S1",
+      "domain_code": "D1",
+      "statement": "The learner can use security tools and frameworks to monitor, detect, and respond to cyber threats.",
+      "description": "Applies the right tool/framework to a monitoring/response task."
+    },
+    {
+      "id": "D1-S1-C05",
+      "subdomain_code": "D1-S1",
+      "domain_code": "D1",
+      "statement": "The learner can assist in configuring firewalls, intrusion detection/prevention systems, and security policies.",
+      "description": "Helps configure a firewall/IDS-IPS rule or policy correctly."
+    },
+    {
+      "id": "D2-S1-C01",
+      "subdomain_code": "D2-S1",
+      "domain_code": "D2",
+      "statement": "The learner can implement and maintain secure network configurations, including VPNs and segmentation.",
+      "description": "Applies segmentation/VPN correctly for a requirement."
+    },
+    {
+      "id": "D2-S1-C02",
+      "subdomain_code": "D2-S1",
+      "domain_code": "D2",
+      "statement": "The learner can monitor network traffic for suspicious activity and potential breaches.",
+      "description": "Identifies anomalous traffic indicative of a breach."
+    },
+    {
+      "id": "D2-S1-C03",
+      "subdomain_code": "D2-S1",
+      "domain_code": "D2",
+      "statement": "The learner can conduct access-control audits for proper authentication and role-based permissions.",
+      "description": "Finds an access/permission misconfiguration."
+    },
+    {
+      "id": "D2-S1-C04",
+      "subdomain_code": "D2-S1",
+      "domain_code": "D2",
+      "statement": "The learner can implement multi-factor authentication (MFA) and other access-security mechanisms.",
+      "description": "Chooses/deploys appropriate access controls."
+    },
+    {
+      "id": "D2-S1-C05",
+      "subdomain_code": "D2-S1",
+      "domain_code": "D2",
+      "statement": "The learner can apply encryption techniques to safeguard communications and data storage.",
+      "description": "Selects correct encryption in transit/at rest."
+    },
+    {
+      "id": "D3-S1-C01",
+      "subdomain_code": "D3-S1",
+      "domain_code": "D3",
+      "statement": "The learner can help identify, document, and mitigate security incidents and breaches.",
+      "description": "Triages and documents an incident correctly."
+    },
+    {
+      "id": "D3-S1-C02",
+      "subdomain_code": "D3-S1",
+      "domain_code": "D3",
+      "statement": "The learner can support forensic investigations by collecting, preserving, and analyzing digital evidence.",
+      "description": "Preserves evidence following chain-of-custody basics."
+    },
+    {
+      "id": "D3-S1-C03",
+      "subdomain_code": "D3-S1",
+      "domain_code": "D3",
+      "statement": "The learner can perform malware analysis to detect, isolate, and mitigate cyber threats.",
+      "description": "Identifies and contains a malware sample/behavior."
+    },
+    {
+      "id": "D3-S1-C04",
+      "subdomain_code": "D3-S1",
+      "domain_code": "D3",
+      "statement": "The learner can assist in penetration testing and vulnerability assessments under supervision.",
+      "description": "Supports a scoped test and interprets findings."
+    },
+    {
+      "id": "D3-S1-C05",
+      "subdomain_code": "D3-S1",
+      "domain_code": "D3",
+      "statement": "The learner can work with security teams to remediate incidents and restore system integrity.",
+      "description": "Executes a remediation/recovery step correctly."
+    },
+    {
+      "id": "D4-S1-C01",
+      "subdomain_code": "D4-S1",
+      "domain_code": "D4",
+      "statement": "The learner can support compliance with cybersecurity regulations and frameworks (NIST, ISO 27001, HIPAA).",
+      "description": "Maps a requirement to the right framework control."
+    },
+    {
+      "id": "D4-S1-C02",
+      "subdomain_code": "D4-S1",
+      "domain_code": "D4",
+      "statement": "The learner can conduct risk assessments to identify and evaluate security risks in IT environments.",
+      "description": "Rates likelihood/impact and prioritizes a risk."
+    },
+    {
+      "id": "D4-S1-C03",
+      "subdomain_code": "D4-S1",
+      "domain_code": "D4",
+      "statement": "The learner can develop and maintain security policies, procedures, and best practices.",
+      "description": "Drafts a usable, correct security policy."
+    },
+    {
+      "id": "D4-S1-C04",
+      "subdomain_code": "D4-S1",
+      "domain_code": "D4",
+      "statement": "The learner can prepare reports on security posture and risk-management efforts.",
+      "description": "Summarizes posture/risk clearly for stakeholders."
+    },
+    {
+      "id": "D4-S1-C05",
+      "subdomain_code": "D4-S1",
+      "domain_code": "D4",
+      "statement": "The learner can collaborate with compliance teams to meet industry security standards.",
+      "description": "Coordinates to close a compliance gap."
+    },
+    {
+      "id": "D5-S1-C01",
+      "subdomain_code": "D5-S1",
+      "domain_code": "D5",
+      "statement": "The learner can implement endpoint protection such as antivirus and endpoint detection & response (EDR).",
+      "description": "Deploys/tunes endpoint protection appropriately."
+    },
+    {
+      "id": "D5-S1-C02",
+      "subdomain_code": "D5-S1",
+      "domain_code": "D5",
+      "statement": "The learner can analyze and mitigate phishing, ransomware, and social-engineering attacks.",
+      "description": "Recognizes and responds to a social-engineering/malware attack."
+    },
+    {
+      "id": "D5-S1-C03",
+      "subdomain_code": "D5-S1",
+      "domain_code": "D5",
+      "statement": "The learner can support OS and software patch management to prevent vulnerabilities.",
+      "description": "Prioritizes/handles patching to close a vuln."
+    },
+    {
+      "id": "D5-S1-C04",
+      "subdomain_code": "D5-S1",
+      "domain_code": "D5",
+      "statement": "The learner can configure and maintain email security to block spam, malware, and phishing.",
+      "description": "Sets up email security controls (SPF/DKIM/DMARC, filtering)."
+    },
+    {
+      "id": "D5-S1-C05",
+      "subdomain_code": "D5-S1",
+      "domain_code": "D5",
+      "statement": "The learner can educate employees on security awareness and best practices.",
+      "description": "Delivers effective, accurate awareness guidance."
+    },
+    {
+      "id": "D6-S1-C01",
+      "subdomain_code": "D6-S1",
+      "domain_code": "D6",
+      "statement": "The learner can assist in securing cloud applications and infrastructure (AWS, Azure, Google Cloud).",
+      "description": "Applies a cloud security control correctly."
+    },
+    {
+      "id": "D6-S1-C02",
+      "subdomain_code": "D6-S1",
+      "domain_code": "D6",
+      "statement": "The learner can monitor cloud security logs for unauthorized access and threats.",
+      "description": "Detects a threat signal in cloud logs."
+    },
+    {
+      "id": "D6-S1-C03",
+      "subdomain_code": "D6-S1",
+      "domain_code": "D6",
+      "statement": "The learner can conduct security assessments of applications to identify vulnerabilities.",
+      "description": "Finds a common app vulnerability (e.g., OWASP)."
+    },
+    {
+      "id": "D6-S1-C04",
+      "subdomain_code": "D6-S1",
+      "domain_code": "D6",
+      "statement": "The learner can support DevSecOps by integrating security into the software development lifecycle.",
+      "description": "Inserts a security check into a pipeline/SDLC stage."
+    }
+  ]
+}

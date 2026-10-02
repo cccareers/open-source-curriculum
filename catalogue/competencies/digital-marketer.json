@@ -1,0 +1,287 @@
+{
+  "version": 1,
+  "domains": [
+    {
+      "code": "D1",
+      "name": "Search Engine Optimization (SEO)",
+      "delivered_weight_percent": 11,
+      "description": "Search engine optimization: research, on/off-page tactics, and ranking factors."
+    },
+    {
+      "code": "D2",
+      "name": "Content Marketing & Strategy",
+      "delivered_weight_percent": 11,
+      "description": "Content marketing and strategy: content development/distribution, CMS, and copywriting."
+    },
+    {
+      "code": "D3",
+      "name": "Pay-Per-Click (PPC) & Paid Advertising",
+      "delivered_weight_percent": 11,
+      "description": "Pay-per-click and paid advertising: campaign management, testing/CRO, and ROI."
+    },
+    {
+      "code": "D4",
+      "name": "Social Media Marketing",
+      "delivered_weight_percent": 11,
+      "description": "Social media marketing: organic/paid campaigns, engagement, and measurement."
+    },
+    {
+      "code": "D5",
+      "name": "Email Marketing & Automation",
+      "delivered_weight_percent": 10,
+      "description": "Email marketing and automation: campaign design, segmentation, and deliverability."
+    },
+    {
+      "code": "D6",
+      "name": "Web Analytics & Data Analysis",
+      "delivered_weight_percent": 25,
+      "description": "Web analytics and data analysis, including conversion-rate optimization and UX."
+    },
+    {
+      "code": "D7",
+      "name": "Marketing Technology & Tools",
+      "delivered_weight_percent": 21,
+      "description": "Marketing technology and tools, including regulatory compliance and ethics."
+    }
+  ],
+  "subdomains": [
+    {
+      "code": "D1-S1",
+      "domain_code": "D1",
+      "name": "Search Engine Optimization",
+      "description": "Keyword research, on/off-page SEO, and ranking factors."
+    },
+    {
+      "code": "D2-S1",
+      "domain_code": "D2",
+      "name": "Content Marketing & Strategy",
+      "description": "Content development/distribution, CMS use, and copywriting."
+    },
+    {
+      "code": "D3-S1",
+      "domain_code": "D3",
+      "name": "Pay-Per-Click & Paid Advertising",
+      "description": "PPC campaign management, A/B testing/CRO, and ROI tracking."
+    },
+    {
+      "code": "D4-S1",
+      "domain_code": "D4",
+      "name": "Social Media Marketing",
+      "description": "Organic/paid social campaigns, engagement, and measurement."
+    },
+    {
+      "code": "D5-S1",
+      "domain_code": "D5",
+      "name": "Email Marketing & Automation",
+      "description": "Email campaign design, segmentation/personalization, and deliverability."
+    },
+    {
+      "code": "D6-S1",
+      "domain_code": "D6",
+      "name": "Web Analytics & Data Analysis",
+      "description": "Analytics tools, KPIs/user behavior, and data-driven optimization."
+    },
+    {
+      "code": "D6-S2",
+      "domain_code": "D6",
+      "name": "Conversion Rate Optimization & UX",
+      "description": "Usability testing, conversion optimization, and experience testing."
+    },
+    {
+      "code": "D7-S1",
+      "domain_code": "D7",
+      "name": "Marketing Technology & Tools",
+      "description": "CRM, marketing automation/personalization, and emerging martech."
+    },
+    {
+      "code": "D7-S2",
+      "domain_code": "D7",
+      "name": "Regulatory Compliance & Ethics",
+      "description": "Data-privacy regulation and ethical/ad-policy compliance."
+    }
+  ],
+  "competencies": [
+    {
+      "id": "D1-S1-C01",
+      "subdomain_code": "D1-S1",
+      "domain_code": "D1",
+      "statement": "The learner can conduct keyword research and competitive analysis to inform an SEO plan.",
+      "description": "Produces a keyword/competitor analysis that guides targeting."
+    },
+    {
+      "id": "D1-S1-C02",
+      "subdomain_code": "D1-S1",
+      "domain_code": "D1",
+      "statement": "The learner can implement on-page and off-page SEO strategies.",
+      "description": "Applies title/meta/structure and link-building tactics correctly."
+    },
+    {
+      "id": "D1-S1-C03",
+      "subdomain_code": "D1-S1",
+      "domain_code": "D1",
+      "statement": "The learner can explain and apply major search-engine ranking factors.",
+      "description": "Identifies which factors affect ranking in a given scenario."
+    },
+    {
+      "id": "D2-S1-C01",
+      "subdomain_code": "D2-S1",
+      "domain_code": "D2",
+      "statement": "The learner can develop, optimize, and distribute content across digital platforms.",
+      "description": "Plans and adapts a content piece for multiple channels."
+    },
+    {
+      "id": "D2-S1-C02",
+      "subdomain_code": "D2-S1",
+      "domain_code": "D2",
+      "statement": "The learner can use a content management system (CMS) effectively to publish and manage content.",
+      "description": "Publishes/organizes content and settings in a CMS."
+    },
+    {
+      "id": "D2-S1-C03",
+      "subdomain_code": "D2-S1",
+      "domain_code": "D2",
+      "statement": "The learner can apply copywriting best practices for digital marketing.",
+      "description": "Writes clear, persuasive on-brand marketing copy."
+    },
+    {
+      "id": "D3-S1-C01",
+      "subdomain_code": "D3-S1",
+      "domain_code": "D3",
+      "statement": "The learner can build and manage PPC campaigns (e.g., Google Ads, social media ads).",
+      "description": "Structures campaigns, ad groups, bids, and targeting."
+    },
+    {
+      "id": "D3-S1-C02",
+      "subdomain_code": "D3-S1",
+      "domain_code": "D3",
+      "statement": "The learner can run A/B tests and conversion-rate optimization on campaigns.",
+      "description": "Designs a valid A/B test and interprets the result."
+    },
+    {
+      "id": "D3-S1-C03",
+      "subdomain_code": "D3-S1",
+      "domain_code": "D3",
+      "statement": "The learner can use analytics tools to track ROI and PPC campaign performance.",
+      "description": "Reads spend/return metrics and judges performance."
+    },
+    {
+      "id": "D4-S1-C01",
+      "subdomain_code": "D4-S1",
+      "domain_code": "D4",
+      "statement": "The learner can develop and execute organic and paid social media campaigns.",
+      "description": "Plans and runs a coordinated organic+paid social effort."
+    },
+    {
+      "id": "D4-S1-C02",
+      "subdomain_code": "D4-S1",
+      "domain_code": "D4",
+      "statement": "The learner can engage an audience and monitor brand sentiment on social channels.",
+      "description": "Responds appropriately and tracks sentiment signals."
+    },
+    {
+      "id": "D4-S1-C03",
+      "subdomain_code": "D4-S1",
+      "domain_code": "D4",
+      "statement": "The learner can use analytics tools to measure social campaign effectiveness.",
+      "description": "Selects and interprets the right social metrics."
+    },
+    {
+      "id": "D5-S1-C01",
+      "subdomain_code": "D5-S1",
+      "domain_code": "D5",
+      "statement": "The learner can design and optimize an email marketing campaign.",
+      "description": "Builds an email campaign with a clear goal and structure."
+    },
+    {
+      "id": "D5-S1-C02",
+      "subdomain_code": "D5-S1",
+      "domain_code": "D5",
+      "statement": "The learner can segment audiences and personalize email content.",
+      "description": "Defines segments and tailors content to them."
+    },
+    {
+      "id": "D5-S1-C03",
+      "subdomain_code": "D5-S1",
+      "domain_code": "D5",
+      "statement": "The learner can analyze email campaign performance and improve deliverability.",
+      "description": "Reads open/click/bounce metrics and improves deliverability."
+    },
+    {
+      "id": "D6-S1-C01",
+      "subdomain_code": "D6-S1",
+      "domain_code": "D6",
+      "statement": "The learner can use Google Analytics, Google Search Console, and other reporting tools.",
+      "description": "Navigates analytics tools to answer a measurement question."
+    },
+    {
+      "id": "D6-S1-C02",
+      "subdomain_code": "D6-S1",
+      "domain_code": "D6",
+      "statement": "The learner can track key performance indicators (KPIs) and user behavior.",
+      "description": "Chooses appropriate KPIs and reads behavior reports."
+    },
+    {
+      "id": "D6-S1-C03",
+      "subdomain_code": "D6-S1",
+      "domain_code": "D6",
+      "statement": "The learner can interpret analytics data to optimize marketing strategy.",
+      "description": "Turns a data finding into a strategy adjustment."
+    },
+    {
+      "id": "D6-S2-C01",
+      "subdomain_code": "D6-S2",
+      "domain_code": "D6",
+      "statement": "The learner can conduct usability testing and user-experience analysis.",
+      "description": "Runs a usability check and identifies UX issues."
+    },
+    {
+      "id": "D6-S2-C02",
+      "subdomain_code": "D6-S2",
+      "domain_code": "D6",
+      "statement": "The learner can implement strategies to improve website conversion rates.",
+      "description": "Proposes a change likely to lift conversion, with rationale."
+    },
+    {
+      "id": "D6-S2-C03",
+      "subdomain_code": "D6-S2",
+      "domain_code": "D6",
+      "statement": "The learner can use heatmaps, A/B testing, and user feedback to enhance the digital experience.",
+      "description": "Combines qualitative/quantitative signals to improve UX."
+    },
+    {
+      "id": "D7-S1-C01",
+      "subdomain_code": "D7-S1",
+      "domain_code": "D7",
+      "statement": "The learner can use CRM platforms to support customer engagement.",
+      "description": "Manages contacts/activities in a CRM to drive engagement."
+    },
+    {
+      "id": "D7-S1-C02",
+      "subdomain_code": "D7-S1",
+      "domain_code": "D7",
+      "statement": "The learner can apply marketing automation and personalization tools.",
+      "description": "Builds an automated, personalized marketing flow."
+    },
+    {
+      "id": "D7-S1-C03",
+      "subdomain_code": "D7-S1",
+      "domain_code": "D7",
+      "statement": "The learner can implement chatbots, AI-driven insights, and emerging marketing technologies.",
+      "description": "Applies an emerging martech capability to a task."
+    },
+    {
+      "id": "D7-S2-C01",
+      "subdomain_code": "D7-S2",
+      "domain_code": "D7",
+      "statement": "The learner can apply data-privacy regulations (GDPR, CCPA) to marketing activities.",
+      "description": "Identifies compliant handling of data in a scenario."
+    },
+    {
+      "id": "D7-S2-C02",
+      "subdomain_code": "D7-S2",
+      "domain_code": "D7",
+      "statement": "The learner can ensure ethical marketing practices and compliance with advertising policies.",
+      "description": "Flags an unethical/non-compliant practice and corrects it."
+    }
+  ]
+}

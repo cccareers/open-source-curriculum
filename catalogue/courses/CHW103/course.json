@@ -1,0 +1,156 @@
+{
+  "course_id": "CHW103",
+  "pathway": "community-healthcare-worker",
+  "title": "Core Skills Competencies",
+  "description": "Hands-on skill building across all 11 C3 competencies. Covers communication, relationship-building, service navigation, coaching, advocacy, health education, assessment, outreach, professional ethics, documentation, and evaluation and research methods (CBPR/PAR).",
+  "hours": 50,
+  "projects": 0,
+  "notes": "Adapted from Calbright College CHW program outline (course 03 / CHW 503), renumbered per CCC convention.",
+  "lesson_length": "Lab-guide lessons, roughly 1500-2000 words each, supporting instructor-led sessions and independent study",
+  "learning_objectives": [
+    "Apply plain-language communication, active listening, and teach-back with clients",
+    "Use motivational interviewing and relationship-building skills while maintaining boundaries",
+    "Apply navigation, advocacy, education, assessment, outreach, documentation, and evaluation skills in practice scenarios"
+  ],
+  "prerequisites": [
+    "CHW102: Core Roles"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "CHW103-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 2,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "CHW103-02",
+      "order": 2,
+      "slug": "communication-skills-in-practice",
+      "title": "Communication Skills in Practice",
+      "kind": "lesson",
+      "objectives": [
+        "Apply plain-language communication, active listening, and teach-back with clients",
+        "Adapt communication mode to client needs with empathy on sensitive topics"
+      ],
+      "competency_ids": [
+        "D1-S1-C01",
+        "D1-S1-C02",
+        "D1-S1-C03",
+        "D1-S1-C04",
+        "D1-S1-C05"
+      ],
+      "hours_estimate": 8,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "CHW103-03",
+      "order": 3,
+      "slug": "relationship-building-and-motivational-interviewing",
+      "title": "Relationship Building and Motivational Interviewing",
+      "kind": "lesson",
+      "objectives": [
+        "Use motivational interviewing and relationship-building skills while maintaining boundaries",
+        "Work with ambivalence and respond to emotional cues without pressuring"
+      ],
+      "competency_ids": [
+        "D1-S2-C01",
+        "D1-S2-C02",
+        "D1-S2-C03",
+        "D1-S2-C04",
+        "D1-S2-C05"
+      ],
+      "hours_estimate": 8,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "CHW103-04",
+      "order": 4,
+      "slug": "service-navigation-and-coaching-skills",
+      "title": "Service Navigation and Coaching Skills",
+      "kind": "lesson",
+      "objectives": [
+        "Help clients schedule, complete referrals, and navigate systems while building their independence",
+        "Maintain a current resource directory and step back as client capacity grows"
+      ],
+      "competency_ids": [
+        "D2-S1-C02",
+        "D2-S1-C04",
+        "D3-S2-C01",
+        "D3-S2-C05"
+      ],
+      "hours_estimate": 8,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "CHW103-05",
+      "order": 5,
+      "slug": "advocacy-and-health-education-skills",
+      "title": "Advocacy and Health Education Skills",
+      "kind": "lesson",
+      "objectives": [
+        "Apply navigation, advocacy, education, assessment, outreach, documentation, and evaluation skills in practice scenarios",
+        "Facilitate participatory education sessions and adjust delivery in real time"
+      ],
+      "competency_ids": [
+        "D4-S1-C01",
+        "D4-S1-C03",
+        "D4-S1-C04",
+        "D3-S1-C02",
+        "D3-S1-C04",
+        "D3-S1-C05"
+      ],
+      "hours_estimate": 8,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "CHW103-06",
+      "order": 6,
+      "slug": "assessment-outreach-and-documentation",
+      "title": "Assessment, Outreach, and Documentation",
+      "kind": "lesson",
+      "objectives": [
+        "Conduct needs assessments, document findings confidentially, and triage immediate versus long-term needs",
+        "Run field outreach with accurate contact tracking"
+      ],
+      "competency_ids": [
+        "D4-S2-C01",
+        "D4-S2-C03",
+        "D4-S2-C04",
+        "D2-S2-C03",
+        "D2-S2-C05"
+      ],
+      "hours_estimate": 8,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "CHW103-07",
+      "order": 7,
+      "slug": "ethics-evaluation-and-research-methods",
+      "title": "Ethics, Evaluation, and Research Methods",
+      "kind": "lesson",
+      "objectives": [
+        "Apply confidentiality, boundary management, and mandated reporting in practice scenarios",
+        "Collect program data accurately and participate in evaluation, including CBPR/PAR methods"
+      ],
+      "competency_ids": [
+        "D5-S1-C01",
+        "D5-S1-C03",
+        "D5-S1-C05",
+        "D5-S2-C01",
+        "D5-S2-C03",
+        "D5-S2-C05"
+      ],
+      "hours_estimate": 8,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Course 3 of 6: hands-on skills across all 11 C3 competencies — the practice core of the pathway and the course that carries most of the skills matrix. Communication first (foundation for everything), then relationship building and MI, then the applied service skills, closing with ethics, evaluation, and research methods (CBPR/PAR at awareness level). Scope assumption: every lesson is drill-and-practice against observable behaviors from the skills matrix, not theory.",
+  "proposed_competencies": [],
+  "assets": []
+}

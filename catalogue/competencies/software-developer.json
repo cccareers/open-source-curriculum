@@ -1,0 +1,242 @@
+{
+  "version": 1,
+  "domains": [
+    {
+      "code": "D1",
+      "name": "Workplace Readiness and Professional Communication",
+      "delivered_weight_percent": 9,
+      "description": "Workplace readiness and professional communication: office tools and clear spoken/written communication in a software team."
+    },
+    {
+      "code": "D2",
+      "name": "Software Development Fundamentals",
+      "delivered_weight_percent": 22,
+      "description": "Software development fundamentals: prototyping, following an SDLC, tooling, and building features from a work plan."
+    },
+    {
+      "code": "D3",
+      "name": "Requirements, Planning, and Team Collaboration",
+      "delivered_weight_percent": 17,
+      "description": "Requirements, planning, and team collaboration: working from an SRS, planning, feasibility input, and stakeholder coordination."
+    },
+    {
+      "code": "D4",
+      "name": "Quality Assurance and Issue Tracking",
+      "delivered_weight_percent": 22,
+      "description": "Quality assurance and issue tracking: QA/risk support, issue lifecycle, change documentation, and clear defect reporting."
+    },
+    {
+      "code": "D5",
+      "name": "Software Architecture and Design Support",
+      "delivered_weight_percent": 17,
+      "description": "Software architecture and design support: source-control practice, design contribution, change implementation, and accessible/responsive UI."
+    },
+    {
+      "code": "D6",
+      "name": "DevOps, Deployment, and Maintenance",
+      "delivered_weight_percent": 13,
+      "description": "DevOps, deployment, and maintenance: monitoring, maintenance/troubleshooting, and CI/CD support."
+    }
+  ],
+  "subdomains": [
+    {
+      "code": "D1-S1",
+      "domain_code": "D1",
+      "name": "Workplace Readiness and Professional Communication",
+      "description": "Apprentice-level competencies for workplace readiness and professional communication."
+    },
+    {
+      "code": "D2-S1",
+      "domain_code": "D2",
+      "name": "Software Development Fundamentals",
+      "description": "Apprentice-level competencies for software development fundamentals."
+    },
+    {
+      "code": "D3-S1",
+      "domain_code": "D3",
+      "name": "Requirements, Planning, and Team Collaboration",
+      "description": "Apprentice-level competencies for requirements, planning, and team collaboration."
+    },
+    {
+      "code": "D4-S1",
+      "domain_code": "D4",
+      "name": "Quality Assurance and Issue Tracking",
+      "description": "Apprentice-level competencies for quality assurance and issue tracking."
+    },
+    {
+      "code": "D5-S1",
+      "domain_code": "D5",
+      "name": "Software Architecture and Design Support",
+      "description": "Apprentice-level competencies for software architecture and design support."
+    },
+    {
+      "code": "D6-S1",
+      "domain_code": "D6",
+      "name": "DevOps, Deployment, and Maintenance",
+      "description": "Apprentice-level competencies for devops, deployment, and maintenance."
+    }
+  ],
+  "competencies": [
+    {
+      "id": "D1-S1-C01",
+      "subdomain_code": "D1-S1",
+      "domain_code": "D1",
+      "statement": "The learner can use common office tools (word processing, spreadsheets, presentations) to produce clear workplace documents.",
+      "description": "Produces a correctly formatted document, spreadsheet, or slide deck fit for a workplace audience."
+    },
+    {
+      "id": "D1-S1-C02",
+      "subdomain_code": "D1-S1",
+      "domain_code": "D1",
+      "statement": "The learner can prepare and deliver an oral presentation that clearly conveys information, concepts, and ideas.",
+      "description": "Plans and delivers a concise, well-structured spoken explanation to a team."
+    },
+    {
+      "id": "D2-S1-C01",
+      "subdomain_code": "D2-S1",
+      "domain_code": "D2",
+      "statement": "The learner can support the application of prototyping methods during development when appropriate.",
+      "description": "Chooses and applies a suitable prototyping approach to explore a design."
+    },
+    {
+      "id": "D2-S1-C02",
+      "subdomain_code": "D2-S1",
+      "domain_code": "D2",
+      "statement": "The learner can contribute to implementing a development lifecycle and specifications, including helping map out a work plan under supervision.",
+      "description": "Follows an SDLC and helps translate specifications into a work plan."
+    },
+    {
+      "id": "D2-S1-C03",
+      "subdomain_code": "D2-S1",
+      "domain_code": "D2",
+      "statement": "The learner can help select and set up the tools and languages needed to produce the outputs in a work plan, under supervision.",
+      "description": "Identifies appropriate tools/languages for a given deliverable."
+    },
+    {
+      "id": "D2-S1-C04",
+      "subdomain_code": "D2-S1",
+      "domain_code": "D2",
+      "statement": "The learner can build program features using appropriate languages and development methods as part of a team.",
+      "description": "Implements working features that meet a specification using suitable methods."
+    },
+    {
+      "id": "D2-S1-C05",
+      "subdomain_code": "D2-S1",
+      "domain_code": "D2",
+      "statement": "The learner can help identify and develop the prototype best suited to a project's needs.",
+      "description": "Evaluates prototype options and advances the most fitting one."
+    },
+    {
+      "id": "D3-S1-C01",
+      "subdomain_code": "D3-S1",
+      "domain_code": "D3",
+      "statement": "The learner can apply a Software Requirement Specification (SRS) and document product requirements under supervision.",
+      "description": "Reads an SRS correctly and records requirements accurately."
+    },
+    {
+      "id": "D3-S1-C02",
+      "subdomain_code": "D3-S1",
+      "domain_code": "D3",
+      "statement": "The learner can contribute to preparing implementation planning documents.",
+      "description": "Produces or updates a usable implementation plan artifact."
+    },
+    {
+      "id": "D3-S1-C03",
+      "subdomain_code": "D3-S1",
+      "domain_code": "D3",
+      "statement": "The learner can support team consultations that assess a product's economic, operational, and technical feasibility.",
+      "description": "Identifies feasibility considerations across those dimensions in a scenario."
+    },
+    {
+      "id": "D3-S1-C04",
+      "subdomain_code": "D3-S1",
+      "domain_code": "D3",
+      "statement": "The learner can coordinate with a project manager to communicate requirements and objectives clearly to other team members such as UX and QA.",
+      "description": "Relays requirements accurately to the right stakeholders."
+    },
+    {
+      "id": "D4-S1-C01",
+      "subdomain_code": "D4-S1",
+      "domain_code": "D4",
+      "statement": "The learner can support QA and risk assessments of quality-assurance requirements under supervision.",
+      "description": "Helps identify QA requirements and risks for a feature."
+    },
+    {
+      "id": "D4-S1-C02",
+      "subdomain_code": "D4-S1",
+      "domain_code": "D4",
+      "statement": "The learner can track a reported issue and work with the team to fix and re-test it until quality standards are met.",
+      "description": "Manages an issue through fix and verification to closure."
+    },
+    {
+      "id": "D4-S1-C03",
+      "subdomain_code": "D4-S1",
+      "domain_code": "D4",
+      "statement": "The learner can keep detailed notes documenting code changes and functions that must remain unchanged.",
+      "description": "Records change notes precise enough for a teammate to follow."
+    },
+    {
+      "id": "D4-S1-C04",
+      "subdomain_code": "D4-S1",
+      "domain_code": "D4",
+      "statement": "The learner can support the integration and test phase and record progress relevant to project success.",
+      "description": "Contributes to integration/testing and reports progress."
+    },
+    {
+      "id": "D4-S1-C05",
+      "subdomain_code": "D4-S1",
+      "domain_code": "D4",
+      "statement": "The learner can monitor software to identify issues and report them clearly to senior team members.",
+      "description": "Detects an issue and communicates it with the right detail."
+    },
+    {
+      "id": "D5-S1-C01",
+      "subdomain_code": "D5-S1",
+      "domain_code": "D5",
+      "statement": "The learner can follow company-specific source-code management practices.",
+      "description": "Uses the team's version-control workflow correctly."
+    },
+    {
+      "id": "D5-S1-C02",
+      "subdomain_code": "D5-S1",
+      "domain_code": "D5",
+      "statement": "The learner can support software design and system-structure work (data models, interfaces, algorithms) under supervision.",
+      "description": "Contributes to a design artifact under guidance."
+    },
+    {
+      "id": "D5-S1-C03",
+      "subdomain_code": "D5-S1",
+      "domain_code": "D5",
+      "statement": "The learner can help identify needed changes and apply them under direction from senior team members.",
+      "description": "Recognizes a needed change and implements it as directed."
+    },
+    {
+      "id": "D5-S1-C04",
+      "subdomain_code": "D5-S1",
+      "domain_code": "D5",
+      "statement": "The learner can contribute to implementing accessible and responsive web designs and applications.",
+      "description": "Applies responsive/accessible practices to a UI task."
+    },
+    {
+      "id": "D6-S1-C01",
+      "subdomain_code": "D6-S1",
+      "domain_code": "D6",
+      "statement": "The learner can participate in ongoing monitoring of platforms and applications for accessibility and compliance.",
+      "description": "Uses monitoring signals to flag accessibility/compliance gaps."
+    },
+    {
+      "id": "D6-S1-C02",
+      "subdomain_code": "D6-S1",
+      "domain_code": "D6",
+      "statement": "The learner can support maintenance, troubleshooting, and problem-solving under supervision.",
+      "description": "Diagnoses and helps resolve a maintenance issue."
+    },
+    {
+      "id": "D6-S1-C03",
+      "subdomain_code": "D6-S1",
+      "domain_code": "D6",
+      "statement": "The learner can recognize CI/CD concepts and support CI/CD configuration and integration.",
+      "description": "Explains CI/CD purpose and assists with pipeline setup."
+    }
+  ]
+}

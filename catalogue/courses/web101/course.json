@@ -1,0 +1,154 @@
+{
+  "course_id": "web101",
+  "pathway": "quality-assurance-software-engineer",
+  "title": "JavaScript in the DOM",
+  "description": "This is a competency-based course designed for the indentured website developer apprentice.  This course will cover interactivity to websites, basics of JavaScript and the function of Document Object Model (DOM) allowing access to change a document's contents inside the browser.  Apprentices will",
+  "hours": 27,
+  "projects": null,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Use JavaScript variables, functions, and control flow in the browser",
+    "Select and modify DOM nodes with the standard browser APIs",
+    "Handle user events while keeping interactive behaviour reachable from the keyboard",
+    "Validate form input and report errors to the user clearly",
+    "Fetch data asynchronously and handle the failure cases",
+    "Debug a broken page in the browser and describe the defect precisely"
+  ],
+  "prerequisites": [
+    "web100 HTML / CSS Basics, or equivalent comfort with semantic markup and CSS selectors"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "web101-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "web101-02",
+      "order": 2,
+      "slug": "javascript-essentials-for-the-browser",
+      "title": "JavaScript Essentials for the Browser",
+      "kind": "lesson",
+      "objectives": [
+        "Use JavaScript variables, functions, and control flow in the browser"
+      ],
+      "competency_ids": [
+        "D5-S1-C02"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "web101-03",
+      "order": 3,
+      "slug": "selecting-and-changing-dom-nodes",
+      "title": "Selecting and Changing DOM Nodes",
+      "kind": "lesson",
+      "objectives": [
+        "Select and modify DOM nodes with the standard browser APIs"
+      ],
+      "competency_ids": [
+        "D5-S1-C02"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "web101-04",
+      "order": 4,
+      "slug": "events-and-user-interaction",
+      "title": "Events and User Interaction",
+      "kind": "lesson",
+      "objectives": [
+        "Handle user events while keeping interactive behaviour reachable from the keyboard"
+      ],
+      "competency_ids": [
+        "D5-S1-C01",
+        "D5-S1-C02"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "web101-05",
+      "order": 5,
+      "slug": "forms-validation-and-error-messages",
+      "title": "Forms, Validation, and Error Messages",
+      "kind": "lesson",
+      "objectives": [
+        "Validate form input and report errors to the user clearly"
+      ],
+      "competency_ids": [
+        "D5-S1-C01",
+        "D5-S1-C02"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "web101-06",
+      "order": 6,
+      "slug": "asynchronous-javascript-and-fetching-data",
+      "title": "Asynchronous JavaScript and Fetching Data",
+      "kind": "lesson",
+      "objectives": [
+        "Fetch data asynchronously and handle the failure cases"
+      ],
+      "competency_ids": [
+        "D5-S1-C02"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "web101-07",
+      "order": 7,
+      "slug": "debugging-javascript-in-the-browser",
+      "title": "Debugging JavaScript in the Browser",
+      "kind": "lesson",
+      "objectives": [
+        "Debug a broken page in the browser and describe the defect precisely"
+      ],
+      "competency_ids": [
+        "D2-S1-C01",
+        "D3-S1-C02"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "web101-08",
+      "order": 8,
+      "slug": "build-and-verify-an-interactive-page",
+      "title": "Build and Verify an Interactive Page",
+      "kind": "lesson",
+      "objectives": [
+        "Check your own interactive page against its expected behaviour and record what fails"
+      ],
+      "competency_ids": [
+        "D2-S1-C02",
+        "D3-S1-C02",
+        "D5-S1-C02"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "QA REFRAMING (stated explicitly because the intake evidence is borrowed): the intake describes this as a course for the 'indentured website developer apprentice'. It is a shared web-development course repurposed for the Quality Assurance Software Engineer pathway, so this outline teaches toward the QA catalog. The QA framing is that a tester must understand the runtime they are testing: the DOM is the object model an automated test walks, events are the interactions a test simulates, asynchronous work is where flaky tests are born, and the browser debugger is the QA engineer's primary instrument for turning 'it is broken' into a located, reproducible defect (D3-S1-C02) that can then be filed properly (D2-S1-C01). Lesson 08 deliberately asks the learner to verify their own work and record what failed rather than to demo a finished feature (D2-S1-C02). SEQUENCE: language basics, then the DOM API, then events, then forms, then async, then debugging, then verification. Debugging is only teachable once there is a stack of abstractions that can plausibly break, so it comes late; verification closes the course because it draws on all of it. SCOPE ASSUMPTIONS, derived from the title, the 27 authored hours, and the surviving description fragment: the description is truncated mid-sentence ('Apprentices will') and contained mojibake in the word 'document's', which has been re-encoded to a plain apostrophe rather than rewritten. Nothing was invented to complete the cut-off sentence. Assumed in scope: modern JavaScript syntax at an introductory level, DOM query and mutation, event handling and delegation, keyboard reachability, form validation, fetch and promises, and browser debugging with breakpoints, the console, and the call stack. Assumed out of scope and deliberately left out: front-end frameworks such as React, Vue, or Angular; bundlers and build pipelines; TypeScript; server-side JavaScript (that is node100); and browser automation frameworks such as Selenium, Cypress, or Playwright, which the pathway reaches in agile200. HOURS: 1h overview plus seven lessons of 3 to 4h, summing to exactly 27. LESSON KINDS: intake records no project count for this course, so lesson 08 is a taught lesson with an extended hands-on Practice rather than a graded project brief.",
+  "proposed_competencies": [],
+  "assets": [
+    {
+      "filename": "dom-event-flow.png",
+      "description": "Event capture, target, and bubble phases travelling through a DOM tree, with handler positions marked at each phase.",
+      "suggested_source": "Diagram, drawn in-house"
+    }
+  ]
+}

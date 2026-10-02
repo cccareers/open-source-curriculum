@@ -1,0 +1,131 @@
+{
+  "course_id": "dm250",
+  "pathway": "digital-marketer",
+  "title": "Social Media Marketing",
+  "description": "This is a competency-based course designed for the indentured Digital Marketer apprentice. This course explores strategies for leveraging social media platforms to build brand awareness and engage audiences. Apprentices will learn content creation, paid ad strategies, and social media analytics.",
+  "hours": 25,
+  "projects": null,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Choose social platforms that fit a brand's audience and objective",
+    "Build a content calendar with formats suited to each platform",
+    "Manage a community and monitor brand sentiment",
+    "Plan and target a paid social campaign that supports an organic strategy",
+    "Measure social campaign effectiveness with platform and web analytics"
+  ],
+  "prerequisites": [
+    "dm101 Introduction to Digital Marketing"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "dm250-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "dm250-02",
+      "order": 2,
+      "slug": "platforms-audiences-and-objectives",
+      "title": "Platforms, Audiences, and Objectives",
+      "kind": "lesson",
+      "objectives": [
+        "Choose social platforms that fit a brand's audience and objective"
+      ],
+      "competency_ids": [
+        "D4-S1-C01"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "dm250-03",
+      "order": 3,
+      "slug": "social-content-planning-and-creation",
+      "title": "Social Content Planning and Creation",
+      "kind": "lesson",
+      "objectives": [
+        "Build a content calendar with formats suited to each platform",
+        "Adapt one content idea across several social formats"
+      ],
+      "competency_ids": [
+        "D4-S1-C01",
+        "D2-S1-C01"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "dm250-04",
+      "order": 4,
+      "slug": "community-management-and-sentiment",
+      "title": "Community Management and Brand Sentiment",
+      "kind": "lesson",
+      "objectives": [
+        "Manage a community and monitor brand sentiment",
+        "Respond to negative feedback without escalating it"
+      ],
+      "competency_ids": [
+        "D4-S1-C02"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "dm250-05",
+      "order": 5,
+      "slug": "paid-social-campaigns",
+      "title": "Paid Social Campaigns",
+      "kind": "lesson",
+      "objectives": [
+        "Plan and target a paid social campaign that supports an organic strategy"
+      ],
+      "competency_ids": [
+        "D4-S1-C01"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "dm250-06",
+      "order": 6,
+      "slug": "social-media-analytics",
+      "title": "Social Media Analytics",
+      "kind": "lesson",
+      "objectives": [
+        "Measure social campaign effectiveness with platform and web analytics",
+        "Distinguish vanity metrics from metrics tied to business outcomes"
+      ],
+      "competency_ids": [
+        "D4-S1-C03"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "dm250-07",
+      "order": 7,
+      "slug": "project-30-day-social-campaign",
+      "title": "Project: 30-Day Social Campaign",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D4-S1-C01",
+        "D4-S1-C02",
+        "D4-S1-C03"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Twenty-five hours is enough for one pass per catalog competency plus a real project, so the course follows the order a social manager actually works in: pick the platforms (02), plan and make the content (03), run the community that content attracts (04), amplify it with spend (05), then measure and report (06). Paid social sits after organic deliberately - boosting content that has not earned organic engagement is the classic beginner error, and lesson 05 says so. The project is a fifth of the course because employers judge this competency on a portfolio calendar, not a quiz. SCOPE ASSUMPTIONS - the intake description is complete (not truncated) but supplied no objectives or lesson titles: (1) 'Content creation' is scoped to planning, adaptation and copy for social formats, NOT to video editing or graphic design production - no production competency exists in the catalog and dm270 owns multimedia. (2) Platforms are taught as a comparison framework rather than click-by-click, because the platform set changes faster than a course revision cycle; worked examples use Instagram, TikTok, LinkedIn and Facebook. (3) Paid social appears in both this course and dm230; here it is planned from the organic strategy outward at an awareness level, in dm230 it is built and optimized as a media buy - the reviewer should confirm that overlap is wanted. (4) Influencer marketing, affiliate programs and social commerce/shops are OUT of scope at 25 hours. (5) Crisis communications is touched only as 'do not escalate' inside lesson 04.",
+  "proposed_competencies": [],
+  "assets": []
+}

@@ -1,0 +1,237 @@
+{
+  "version": 1,
+  "domains": [
+    {
+      "code": "D1",
+      "name": "Screening",
+      "delivered_weight_percent": 9,
+      "description": "Screening: determining a client's appropriateness/eligibility for admission (Core Function 1)."
+    },
+    {
+      "code": "D2",
+      "name": "Intake",
+      "delivered_weight_percent": 9,
+      "description": "Intake: administrative and assessment procedures for admission (Core Function 2)."
+    },
+    {
+      "code": "D3",
+      "name": "Orientation",
+      "delivered_weight_percent": 9,
+      "description": "Orientation: informing the client of rules, services, goals, costs, and rights (Core Function 3)."
+    },
+    {
+      "code": "D4",
+      "name": "Assessment",
+      "delivered_weight_percent": 9,
+      "description": "Assessment: evaluating strengths, needs, and problems to inform treatment (Core Function 4)."
+    },
+    {
+      "code": "D5",
+      "name": "Treatment Planning",
+      "delivered_weight_percent": 8,
+      "description": "Treatment Planning: collaboratively setting problems, goals, methods, and timetables (Core Function 5)."
+    },
+    {
+      "code": "D6",
+      "name": "Counseling",
+      "delivered_weight_percent": 8,
+      "description": "Counseling: applying individual, group, and family methods toward treatment goals (Core Function 6)."
+    },
+    {
+      "code": "D7",
+      "name": "Case Management",
+      "delivered_weight_percent": 8,
+      "description": "Case Management: coordinating services on the client's behalf (Core Function 7)."
+    },
+    {
+      "code": "D8",
+      "name": "Crisis Intervention",
+      "delivered_weight_percent": 8,
+      "description": "Crisis Intervention: responding to acute emotional/physical distress and ensuring safety (Core Function 8)."
+    },
+    {
+      "code": "D9",
+      "name": "Client Education",
+      "delivered_weight_percent": 8,
+      "description": "Client Education: information on addiction, services, and prevention/recovery (Core Function 9)."
+    },
+    {
+      "code": "D10",
+      "name": "Referral",
+      "delivered_weight_percent": 8,
+      "description": "Referral: connecting clients to resources for needs the program cannot meet (Core Function 10)."
+    },
+    {
+      "code": "D11",
+      "name": "Reports and Recordkeeping",
+      "delivered_weight_percent": 8,
+      "description": "Reports and Recordkeeping: charting, documentation, and required reports (Core Function 11)."
+    },
+    {
+      "code": "D12",
+      "name": "Consultation",
+      "delivered_weight_percent": 8,
+      "description": "Consultation: collaborating with other professionals for comprehensive, quality care (Core Function 12)."
+    }
+  ],
+  "subdomains": [
+    {
+      "code": "D1-S1",
+      "domain_code": "D1",
+      "name": "Screening",
+      "description": "Competency for the Screening core function."
+    },
+    {
+      "code": "D2-S1",
+      "domain_code": "D2",
+      "name": "Intake",
+      "description": "Competency for the Intake core function."
+    },
+    {
+      "code": "D3-S1",
+      "domain_code": "D3",
+      "name": "Orientation",
+      "description": "Competency for the Orientation core function."
+    },
+    {
+      "code": "D4-S1",
+      "domain_code": "D4",
+      "name": "Assessment",
+      "description": "Competency for the Assessment core function."
+    },
+    {
+      "code": "D5-S1",
+      "domain_code": "D5",
+      "name": "Treatment Planning",
+      "description": "Competency for the Treatment Planning core function."
+    },
+    {
+      "code": "D6-S1",
+      "domain_code": "D6",
+      "name": "Counseling",
+      "description": "Competency for the Counseling core function."
+    },
+    {
+      "code": "D7-S1",
+      "domain_code": "D7",
+      "name": "Case Management",
+      "description": "Competency for the Case Management core function."
+    },
+    {
+      "code": "D8-S1",
+      "domain_code": "D8",
+      "name": "Crisis Intervention",
+      "description": "Competency for the Crisis Intervention core function."
+    },
+    {
+      "code": "D9-S1",
+      "domain_code": "D9",
+      "name": "Client Education",
+      "description": "Competency for the Client Education core function."
+    },
+    {
+      "code": "D10-S1",
+      "domain_code": "D10",
+      "name": "Referral",
+      "description": "Competency for the Referral core function."
+    },
+    {
+      "code": "D11-S1",
+      "domain_code": "D11",
+      "name": "Reports and Recordkeeping",
+      "description": "Competency for the Reports and Recordkeeping core function."
+    },
+    {
+      "code": "D12-S1",
+      "domain_code": "D12",
+      "name": "Consultation",
+      "description": "Competency for the Consultation core function."
+    }
+  ],
+  "competencies": [
+    {
+      "id": "D1-S1-C01",
+      "subdomain_code": "D1-S1",
+      "domain_code": "D1",
+      "statement": "The learner can screen a client to determine appropriateness and eligibility for admission to a program.",
+      "description": "Applies screening criteria/tools to an admission decision."
+    },
+    {
+      "id": "D2-S1-C01",
+      "subdomain_code": "D2-S1",
+      "domain_code": "D2",
+      "statement": "The learner can carry out the administrative and assessment procedures for program admission (intake).",
+      "description": "Completes intake steps and required paperwork correctly."
+    },
+    {
+      "id": "D3-S1-C01",
+      "subdomain_code": "D3-S1",
+      "domain_code": "D3",
+      "statement": "The learner can orient a client to program rules, services, goals, costs, and client rights.",
+      "description": "Conveys orientation information clearly and completely."
+    },
+    {
+      "id": "D4-S1-C01",
+      "subdomain_code": "D4-S1",
+      "domain_code": "D4",
+      "statement": "The learner can assess a client's strengths, needs, and problems to inform a treatment plan.",
+      "description": "Gathers and organizes assessment information appropriately."
+    },
+    {
+      "id": "D5-S1-C01",
+      "subdomain_code": "D5-S1",
+      "domain_code": "D5",
+      "statement": "The learner can develop a treatment plan with the client, identifying problems, setting goals, and agreeing on steps, methods, and timetables.",
+      "description": "Builds a collaborative, measurable treatment plan."
+    },
+    {
+      "id": "D6-S1-C01",
+      "subdomain_code": "D6-S1",
+      "domain_code": "D6",
+      "statement": "The learner can apply appropriate individual, group, and family counseling methods to help a client work toward treatment goals.",
+      "description": "Selects/uses a suitable, evidence-based counseling approach."
+    },
+    {
+      "id": "D7-S1-C01",
+      "subdomain_code": "D7-S1",
+      "domain_code": "D7",
+      "statement": "The learner can coordinate services and activities on a client's behalf (case management).",
+      "description": "Coordinates care across providers/resources."
+    },
+    {
+      "id": "D8-S1-C01",
+      "subdomain_code": "D8-S1",
+      "domain_code": "D8",
+      "statement": "The learner can respond appropriately to a client in acute emotional or physical distress (crisis intervention).",
+      "description": "Prioritizes safety and takes appropriate escalation steps."
+    },
+    {
+      "id": "D9-S1-C01",
+      "subdomain_code": "D9-S1",
+      "domain_code": "D9",
+      "statement": "The learner can educate clients about addiction, available services, and prevention/recovery.",
+      "description": "Delivers accurate, non-stigmatizing client education."
+    },
+    {
+      "id": "D10-S1-C01",
+      "subdomain_code": "D10-S1",
+      "domain_code": "D10",
+      "statement": "The learner can refer clients to community resources that meet needs the program cannot.",
+      "description": "Makes appropriate, well-matched referrals with follow-through."
+    },
+    {
+      "id": "D11-S1-C01",
+      "subdomain_code": "D11-S1",
+      "domain_code": "D11",
+      "statement": "The learner can chart, document, and prepare required reports accurately (recordkeeping).",
+      "description": "Documents completely, objectively, and within confidentiality rules."
+    },
+    {
+      "id": "D12-S1-C01",
+      "subdomain_code": "D12-S1",
+      "domain_code": "D12",
+      "statement": "The learner can consult and collaborate with other professionals to ensure comprehensive, quality care.",
+      "description": "Uses consultation/supervision appropriately."
+    }
+  ]
+}

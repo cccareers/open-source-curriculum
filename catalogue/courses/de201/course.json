@@ -1,0 +1,180 @@
+{
+  "course_id": "de201",
+  "pathway": "data-engineer",
+  "title": "Big Data Processing with Spark & Hadoop",
+  "description": "This is a competency-based course designed for the indentured Data Engineer apprentice.  Practical experience in big data frameworks such as Apache Spark and Hadoop. Covers distributed computing, data partitioning, and performance optimization strategies.",
+  "hours": 40,
+  "projects": null,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Explain how a distributed file system stores and replicates a large dataset",
+    "Predict which operations in a job will trigger a shuffle and why that matters",
+    "Write Spark DataFrame code that reads, transforms, and writes a large dataset",
+    "Engineer analytical features over a distributed dataset without collecting it to one machine",
+    "Choose a file format, partition layout, and compression codec for a given query pattern",
+    "Diagnose a slow or failing Spark job from its execution metrics and fix the root cause",
+    "Build a streaming job that consumes from Kafka and writes results continuously"
+  ],
+  "prerequisites": [
+    "SQL & NoSQL Databases (de102), or equivalent fluency with SQL and query plans",
+    "Working knowledge of Python or Scala"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "de201-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "de201-02",
+      "order": 2,
+      "slug": "distributed-storage-and-the-hadoop-ecosystem",
+      "title": "Distributed Storage and the Hadoop Ecosystem",
+      "kind": "lesson",
+      "objectives": [
+        "Explain how a distributed file system stores and replicates a large dataset"
+      ],
+      "competency_ids": [
+        "D4-S1-C01"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "de201-03",
+      "order": 3,
+      "slug": "partitions-shuffles-and-parallelism",
+      "title": "Partitions, Shuffles, and Parallelism",
+      "kind": "lesson",
+      "objectives": [
+        "Predict which operations in a job will trigger a shuffle and why that matters"
+      ],
+      "competency_ids": [
+        "D4-S1-C02"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "de201-04",
+      "order": 4,
+      "slug": "spark-fundamentals-and-the-execution-model",
+      "title": "Spark Fundamentals and the Execution Model",
+      "kind": "lesson",
+      "objectives": [
+        "Write Spark DataFrame code that reads, transforms, and writes a large dataset"
+      ],
+      "competency_ids": [
+        "D4-S1-C01",
+        "D4-S1-C02"
+      ],
+      "hours_estimate": 6,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "de201-05",
+      "order": 5,
+      "slug": "transformation-and-feature-engineering-at-scale",
+      "title": "Transformation and Feature Engineering at Scale",
+      "kind": "lesson",
+      "objectives": [
+        "Engineer analytical features over a distributed dataset without collecting it to one machine"
+      ],
+      "competency_ids": [
+        "D2-S1-C02"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "de201-06",
+      "order": 6,
+      "slug": "storage-formats-and-compression",
+      "title": "Storage Formats and Compression",
+      "kind": "lesson",
+      "objectives": [
+        "Choose a file format, partition layout, and compression codec for a given query pattern"
+      ],
+      "competency_ids": [
+        "D5-S2-C02",
+        "D4-S1-C03"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "de201-07",
+      "order": 7,
+      "slug": "tuning-spark-jobs-for-scale",
+      "title": "Tuning Spark Jobs for Scale",
+      "kind": "lesson",
+      "objectives": [
+        "Diagnose a slow or failing Spark job from its execution metrics and fix the root cause"
+      ],
+      "competency_ids": [
+        "D4-S1-C03",
+        "D4-S1-C02"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "de201-08",
+      "order": 8,
+      "slug": "streaming-with-kafka-and-structured-streaming",
+      "title": "Streaming with Kafka and Structured Streaming",
+      "kind": "lesson",
+      "objectives": [
+        "Build a streaming job that consumes from Kafka and writes results continuously"
+      ],
+      "competency_ids": [
+        "D6-S2-C01",
+        "D6-S2-C02"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "de201-09",
+      "order": 9,
+      "slug": "big-data-processing-lab",
+      "title": "Big Data Processing Lab",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D4-S1-C01",
+        "D4-S1-C03",
+        "D2-S1-C02"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Third course in the pathway (de101 -> de102 -> de201 -> de210 -> ds320 -> agile310). Storage precedes computation: lesson 2 establishes how a dataset is split and replicated across machines, which is the fact lesson 3's shuffle model depends on, which in turn is what makes Spark's execution model in lesson 4 legible rather than magical. Applied transformation work (lesson 5) follows the execution model so learners can reason about cost while writing it. Formats and compression (lesson 6) come before tuning (lesson 7) because the most common fix for a slow job is a layout change, not a config change. Streaming is placed at lesson 8, after batch is solid, because Structured Streaming is taught as the batch API applied to an unbounded table. The lab closes the course and is the only place all three big-data competencies are exercised together.\n\nScope assumptions (intake gave one description sentence naming Spark and Hadoop plus distributed computing, partitioning and performance; 40 hours; no objectives or lesson titles): (1) Spark is the primary engine and Hadoop is taught mainly as HDFS/YARN context plus the MapReduce model needed to explain shuffles; MapReduce is not taught as a programming target. (2) PySpark is assumed as the teaching API because the pathway is Python-leaning; Scala equivalents are mentioned but not drilled. A reviewer should correct this if the program standardizes on Scala. (3) Hive, Pig, HBase and Impala are treated as ecosystem awareness only, not as hands-on tools. (4) Kafka appears here because catalog competency D4-S1-C01 names it and because streaming has no other natural home in the pathway; event-driven pipeline architecture is left to de210. (5) Cluster provisioning and cloud-managed Spark services are out of scope here and belong to agile310; lessons assume a local or pre-provisioned cluster. (6) Machine learning with MLlib is excluded — feature engineering is taught as a data-transformation skill (D2-S1-C02), not as modeling. (7) The lab is scoped at three hours as an in-course exercise, not a portfolio piece; the pathway's portfolio artifact is agile310.",
+  "proposed_competencies": [],
+  "assets": [
+    {
+      "filename": "hdfs-block-replication.png",
+      "description": "A large file split into 128 MB blocks, with three replicas of each block distributed across DataNodes on two racks, and the NameNode holding the block-to-node map.",
+      "suggested_source": "Diagram, drawn in-house"
+    },
+    {
+      "filename": "shuffle-map-reduce.png",
+      "description": "A shuffle boundary: map-side tasks partition records by key into local shuffle files, and reduce-side tasks fetch their slice of every shuffle file across the network.",
+      "suggested_source": "Diagram, drawn in-house"
+    },
+    {
+      "filename": "parquet-file-layout.png",
+      "description": "Internal structure of a Parquet file: row groups containing one column chunk per column, pages within each chunk, and a footer holding schema plus per-chunk min/max statistics.",
+      "suggested_source": "Diagram, drawn in-house"
+    }
+  ]
+}

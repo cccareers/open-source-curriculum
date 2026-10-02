@@ -1,0 +1,294 @@
+{
+  "version": 1,
+  "domains": [
+    {
+      "code": "D1",
+      "name": "Design and Develop Data Pipelines",
+      "delivered_weight_percent": 11,
+      "description": "Design and develop data pipelines: ETL processes, ingestion automation, and workflow optimization."
+    },
+    {
+      "code": "D2",
+      "name": "Data Cleaning and Wrangling",
+      "delivered_weight_percent": 11,
+      "description": "Data cleaning and wrangling: quality/consistency, transformation and feature engineering, and validation."
+    },
+    {
+      "code": "D3",
+      "name": "Database Management",
+      "delivered_weight_percent": 11,
+      "description": "Database management: SQL/NoSQL operation, complex querying, and index/partition/plan optimization."
+    },
+    {
+      "code": "D4",
+      "name": "Big Data Framework Implementation",
+      "delivered_weight_percent": 11,
+      "description": "Big data framework implementation: Spark/Hadoop/Kafka, distributed/parallel processing, and scalable design."
+    },
+    {
+      "code": "D5",
+      "name": "Data Governance, Security & Performance",
+      "delivered_weight_percent": 25,
+      "description": "Data governance, security, and performance: encryption/access/compliance/lineage plus query and storage performance optimization."
+    },
+    {
+      "code": "D6",
+      "name": "Cloud Data Engineering",
+      "delivered_weight_percent": 21,
+      "description": "Cloud data engineering: cloud data platforms/warehouses and streaming/real-time data processing."
+    },
+    {
+      "code": "D7",
+      "name": "Collaboration and Documentation",
+      "delivered_weight_percent": 10,
+      "description": "Collaboration and documentation: cross-functional work, documentation, and stakeholder communication."
+    }
+  ],
+  "subdomains": [
+    {
+      "code": "D1-S1",
+      "domain_code": "D1",
+      "name": "Design and Develop Data Pipelines",
+      "description": "ETL design, ingestion automation, and workflow optimization."
+    },
+    {
+      "code": "D2-S1",
+      "domain_code": "D2",
+      "name": "Data Cleaning and Wrangling",
+      "description": "Cleaning, transformation/feature engineering, and validation."
+    },
+    {
+      "code": "D3-S1",
+      "domain_code": "D3",
+      "name": "Database Management",
+      "description": "SQL/NoSQL management, querying, and query/index optimization."
+    },
+    {
+      "code": "D4-S1",
+      "domain_code": "D4",
+      "name": "Big Data Framework Implementation",
+      "description": "Big-data frameworks, distributed/parallel processing, and scale."
+    },
+    {
+      "code": "D5-S1",
+      "domain_code": "D5",
+      "name": "Data Governance & Security",
+      "description": "Encryption/access control, privacy/compliance, and lineage/auditing."
+    },
+    {
+      "code": "D5-S2",
+      "domain_code": "D5",
+      "name": "Performance Optimization",
+      "description": "Query performance, storage/compression, and performance monitoring/scaling."
+    },
+    {
+      "code": "D6-S1",
+      "domain_code": "D6",
+      "name": "Cloud Data Platforms",
+      "description": "Cloud deployment, serverless/containerized workflows, and cloud-native warehouses."
+    },
+    {
+      "code": "D6-S2",
+      "domain_code": "D6",
+      "name": "Streaming & Real-Time Data",
+      "description": "Streaming pipelines, streaming tools, and event-driven architectures."
+    },
+    {
+      "code": "D7-S1",
+      "domain_code": "D7",
+      "name": "Collaboration and Documentation",
+      "description": "Cross-functional collaboration, documentation, and stakeholder communication."
+    }
+  ],
+  "competencies": [
+    {
+      "id": "D1-S1-C01",
+      "subdomain_code": "D1-S1",
+      "domain_code": "D1",
+      "statement": "The learner can build efficient, scalable ETL (extract, transform, load) processes.",
+      "description": "Designs an ETL flow that scales and is maintainable."
+    },
+    {
+      "id": "D1-S1-C02",
+      "subdomain_code": "D1-S1",
+      "domain_code": "D1",
+      "statement": "The learner can automate data ingestion from multiple sources.",
+      "description": "Sets up automated ingestion from varied sources."
+    },
+    {
+      "id": "D1-S1-C03",
+      "subdomain_code": "D1-S1",
+      "domain_code": "D1",
+      "statement": "The learner can optimize data workflows for performance and reliability.",
+      "description": "Improves throughput/reliability of a pipeline."
+    },
+    {
+      "id": "D2-S1-C01",
+      "subdomain_code": "D2-S1",
+      "domain_code": "D2",
+      "statement": "The learner can process and clean raw data to ensure quality and consistency.",
+      "description": "Applies cleaning steps that fix quality issues."
+    },
+    {
+      "id": "D2-S1-C02",
+      "subdomain_code": "D2-S1",
+      "domain_code": "D2",
+      "statement": "The learner can perform data transformation and feature engineering for analytics.",
+      "description": "Transforms/derives features suited to analysis."
+    },
+    {
+      "id": "D2-S1-C03",
+      "subdomain_code": "D2-S1",
+      "domain_code": "D2",
+      "statement": "The learner can implement data validation techniques to identify and resolve anomalies.",
+      "description": "Adds validation that catches and handles anomalies."
+    },
+    {
+      "id": "D3-S1-C01",
+      "subdomain_code": "D3-S1",
+      "domain_code": "D3",
+      "statement": "The learner can manage SQL and NoSQL databases for structured and unstructured data.",
+      "description": "Chooses/operates the right store for the data shape."
+    },
+    {
+      "id": "D3-S1-C02",
+      "subdomain_code": "D3-S1",
+      "domain_code": "D3",
+      "statement": "The learner can write complex queries for data retrieval and processing.",
+      "description": "Writes correct multi-join/aggregate queries."
+    },
+    {
+      "id": "D3-S1-C03",
+      "subdomain_code": "D3-S1",
+      "domain_code": "D3",
+      "statement": "The learner can optimize indexing, partitioning, and query execution plans.",
+      "description": "Reads a plan and improves query performance."
+    },
+    {
+      "id": "D4-S1-C01",
+      "subdomain_code": "D4-S1",
+      "domain_code": "D4",
+      "statement": "The learner can use frameworks such as Apache Spark, Hadoop, or Kafka for big-data processing.",
+      "description": "Applies the right big-data framework to a workload."
+    },
+    {
+      "id": "D4-S1-C02",
+      "subdomain_code": "D4-S1",
+      "domain_code": "D4",
+      "statement": "The learner can implement distributed computing and parallel-processing techniques.",
+      "description": "Parallelizes a job correctly (partitioning/shuffles)."
+    },
+    {
+      "id": "D4-S1-C03",
+      "subdomain_code": "D4-S1",
+      "domain_code": "D4",
+      "statement": "The learner can develop scalable solutions for handling large data volumes.",
+      "description": "Designs for volume without bottlenecks."
+    },
+    {
+      "id": "D5-S1-C01",
+      "subdomain_code": "D5-S1",
+      "domain_code": "D5",
+      "statement": "The learner can implement encryption and access-control policies for data.",
+      "description": "Applies encryption + least-privilege access correctly."
+    },
+    {
+      "id": "D5-S1-C02",
+      "subdomain_code": "D5-S1",
+      "domain_code": "D5",
+      "statement": "The learner can monitor and enforce data-privacy and compliance standards (GDPR, CCPA).",
+      "description": "Identifies compliant handling of regulated data."
+    },
+    {
+      "id": "D5-S1-C03",
+      "subdomain_code": "D5-S1",
+      "domain_code": "D5",
+      "statement": "The learner can manage data lineage and auditing for traceability.",
+      "description": "Tracks lineage so data flow is auditable."
+    },
+    {
+      "id": "D5-S2-C01",
+      "subdomain_code": "D5-S2",
+      "domain_code": "D5",
+      "statement": "The learner can analyze and improve query performance in relational and NoSQL databases.",
+      "description": "Diagnoses and speeds up a slow query."
+    },
+    {
+      "id": "D5-S2-C02",
+      "subdomain_code": "D5-S2",
+      "domain_code": "D5",
+      "statement": "The learner can optimize data storage formats and compression techniques.",
+      "description": "Picks formats/compression suited to access patterns."
+    },
+    {
+      "id": "D5-S2-C03",
+      "subdomain_code": "D5-S2",
+      "domain_code": "D5",
+      "statement": "The learner can automate performance monitoring and scaling.",
+      "description": "Sets up monitoring/autoscaling for a data system."
+    },
+    {
+      "id": "D6-S1-C01",
+      "subdomain_code": "D6-S1",
+      "domain_code": "D6",
+      "statement": "The learner can deploy and manage cloud-based data solutions (AWS, GCP, Azure).",
+      "description": "Stands up/operates a managed cloud data service."
+    },
+    {
+      "id": "D6-S1-C02",
+      "subdomain_code": "D6-S1",
+      "domain_code": "D6",
+      "statement": "The learner can implement serverless and containerized data workflows.",
+      "description": "Chooses serverless/containers appropriately."
+    },
+    {
+      "id": "D6-S1-C03",
+      "subdomain_code": "D6-S1",
+      "domain_code": "D6",
+      "statement": "The learner can use cloud-native data-warehouse services such as BigQuery, Redshift, or Snowflake.",
+      "description": "Uses a cloud warehouse effectively for a workload."
+    },
+    {
+      "id": "D6-S2-C01",
+      "subdomain_code": "D6-S2",
+      "domain_code": "D6",
+      "statement": "The learner can develop streaming data pipelines for real-time analytics.",
+      "description": "Builds a streaming pipeline with correct semantics."
+    },
+    {
+      "id": "D6-S2-C02",
+      "subdomain_code": "D6-S2",
+      "domain_code": "D6",
+      "statement": "The learner can use streaming tools such as Apache Flink, Kafka Streams, or Spark Streaming.",
+      "description": "Applies a streaming framework to a real-time need."
+    },
+    {
+      "id": "D6-S2-C03",
+      "subdomain_code": "D6-S2",
+      "domain_code": "D6",
+      "statement": "The learner can implement event-driven architectures for data processing.",
+      "description": "Designs an event-driven data flow."
+    },
+    {
+      "id": "D7-S1-C01",
+      "subdomain_code": "D7-S1",
+      "domain_code": "D7",
+      "statement": "The learner can work effectively with data analysts, scientists, and software engineers.",
+      "description": "Collaborates to meet downstream data needs."
+    },
+    {
+      "id": "D7-S1-C02",
+      "subdomain_code": "D7-S1",
+      "domain_code": "D7",
+      "statement": "The learner can document data models, pipelines, and system architecture.",
+      "description": "Produces clear, accurate data documentation."
+    },
+    {
+      "id": "D7-S1-C03",
+      "subdomain_code": "D7-S1",
+      "domain_code": "D7",
+      "statement": "The learner can present findings and improvements to stakeholders.",
+      "description": "Communicates data work clearly to stakeholders."
+    }
+  ]
+}

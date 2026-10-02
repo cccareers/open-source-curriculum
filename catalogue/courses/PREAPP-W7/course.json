@@ -1,0 +1,85 @@
+{
+  "course_id": "PREAPP-W7",
+  "pathway": "tech-pre-apprenticeship",
+  "title": "Pathway Declaration & Capstone Build",
+  "description": "Week 7: decide with evidence, then package the proof. Participants evaluate fit for each pathway using rotation performance, reflections, interview intelligence, and coach input, justifying the choice in writing; synthesize eight weeks of pipeline data into a metrics story, creating a Personal Prospecting Playbook and assembling best artifacts from each rotation into the Outreach Portfolio capstone; and submit an apprenticeship application for the declared pathway citing portfolio evidence, updating resume and LinkedIn with real results. Weekly milestone: pathway declared; capstone draft complete; apprenticeship application submitted.",
+  "hours": 20,
+  "projects": 1,
+  "notes": "Weekly milestone: pathway declared; capstone draft complete; apprenticeship application submitted.",
+  "lesson_length": "Lab-guide lessons, roughly 1200-1800 words each, supporting a full week of live instructor-led practice",
+  "learning_objectives": [
+    "Evaluate pathway fit with evidence and justify the choice in writing",
+    "Synthesize pipeline data into a metrics story, playbook, and portfolio of best artifacts",
+    "Submit an apprenticeship application citing portfolio evidence, with updated resume and LinkedIn"
+  ],
+  "prerequisites": [
+    "Week 6: Pathway Rotation: Digital Marketing"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "PREAPP-W7-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 0.5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "PREAPP-W7-02",
+      "order": 2,
+      "slug": "pathway-decision",
+      "title": "Pathway Decision",
+      "kind": "lesson",
+      "objectives": [
+        "Evaluate pathway fit with evidence and justify the choice in writing",
+        "Weigh rotation performance, reflections, interview intelligence, and coach input"
+      ],
+      "competency_ids": [
+        "D6-S1-C01",
+        "D6-S1-C02"
+      ],
+      "hours_estimate": 6.5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "PREAPP-W7-03",
+      "order": 3,
+      "slug": "the-outreach-portfolio-capstone",
+      "title": "The Outreach Portfolio (Capstone)",
+      "kind": "project",
+      "objectives": [
+        "Synthesize pipeline data into a metrics story, playbook, and portfolio of best artifacts",
+        "Assemble a Personal Prospecting Playbook and best artifacts from each rotation"
+      ],
+      "competency_ids": [
+        "D6-S2-C01",
+        "D6-S2-C02"
+      ],
+      "hours_estimate": 6.5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "PREAPP-W7-04",
+      "order": 4,
+      "slug": "apprenticeship-application",
+      "title": "Apprenticeship Application",
+      "kind": "lesson",
+      "objectives": [
+        "Submit an apprenticeship application citing portfolio evidence, with updated resume and LinkedIn",
+        "Convert program outcomes into concrete, quantified statements a recruiter can verify"
+      ],
+      "competency_ids": [
+        "D6-S4-C01"
+      ],
+      "hours_estimate": 6.5,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Week 7: decide with evidence, then package the proof. Pathway decision first because the capstone and application both depend on the declared pathway; the Outreach Portfolio capstone second as the week's project; the apprenticeship application last because it cites the portfolio. Scope assumption: the decision framework weighs rotation performance, reflections, interview intelligence, and coach input — enthusiasm alone is explicitly insufficient.",
+  "proposed_competencies": [],
+  "assets": []
+}

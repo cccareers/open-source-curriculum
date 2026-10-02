@@ -1,0 +1,193 @@
+{
+  "course_id": "node101",
+  "pathway": "software-developer",
+  "title": "Introduction to Express JS",
+  "description": "This is a competency-based course designed for the indentured website developer apprentice.  This course will cover back end technologies with Node and Express. This includes building a server and prepare to spin up a website that will be publically accessible on the web.",
+  "hours": 40,
+  "projects": null,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Set up a Node and Express project with the tooling a server needs",
+    "Serve HTTP responses from an Express application",
+    "Route requests to handlers using paths, parameters, and methods",
+    "Compose middleware to handle cross-cutting request concerns",
+    "Serve static assets and rendered views to a browser",
+    "Build a JSON API that other clients can consume",
+    "Handle and log errors so failures are diagnosable",
+    "Prepare an Express application to run on a publicly accessible host"
+  ],
+  "prerequisites": [
+    "Comfortable writing JavaScript functions, objects, and arrays",
+    "Completed JavaScript Projects (web102) or equivalent browser JavaScript experience",
+    "Able to work at a command line and use git"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "node101-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "node101-02",
+      "order": 2,
+      "slug": "the-node-runtime-and-npm",
+      "title": "The Node Runtime and npm",
+      "kind": "lesson",
+      "objectives": [
+        "Set up a Node and Express project with the tooling a server needs"
+      ],
+      "competency_ids": [
+        "D2-S1-C03"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "node101-03",
+      "order": 3,
+      "slug": "serving-http-with-express",
+      "title": "Serving HTTP with Express",
+      "kind": "lesson",
+      "objectives": [
+        "Serve HTTP responses from an Express application"
+      ],
+      "competency_ids": [
+        "D2-S1-C04"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "node101-04",
+      "order": 4,
+      "slug": "routing-and-route-parameters",
+      "title": "Routing and Route Parameters",
+      "kind": "lesson",
+      "objectives": [
+        "Route requests to handlers using paths, parameters, and methods"
+      ],
+      "competency_ids": [
+        "D2-S1-C04"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "node101-05",
+      "order": 5,
+      "slug": "middleware-and-the-request-pipeline",
+      "title": "Middleware and the Request Pipeline",
+      "kind": "lesson",
+      "objectives": [
+        "Compose middleware to handle cross-cutting request concerns"
+      ],
+      "competency_ids": [
+        "D2-S1-C04",
+        "D5-S1-C02"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "node101-06",
+      "order": 6,
+      "slug": "static-assets-and-rendered-views",
+      "title": "Static Assets and Rendered Views",
+      "kind": "lesson",
+      "objectives": [
+        "Serve static assets and rendered views to a browser"
+      ],
+      "competency_ids": [
+        "D5-S1-C04"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "node101-07",
+      "order": 7,
+      "slug": "building-a-json-api",
+      "title": "Building a JSON API",
+      "kind": "lesson",
+      "objectives": [
+        "Build a JSON API that other clients can consume"
+      ],
+      "competency_ids": [
+        "D5-S1-C02"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "node101-08",
+      "order": 8,
+      "slug": "error-handling-and-logging",
+      "title": "Error Handling and Logging",
+      "kind": "lesson",
+      "objectives": [
+        "Handle and log errors so failures are diagnosable"
+      ],
+      "competency_ids": [
+        "D4-S1-C05"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "node101-09",
+      "order": 9,
+      "slug": "project-publish-a-public-express-site",
+      "title": "Project: Publish a Public Express Site",
+      "kind": "project",
+      "objectives": [
+        "Prepare an Express application to run on a publicly accessible host"
+      ],
+      "competency_ids": [
+        "D2-S1-C04",
+        "D2-S1-C03"
+      ],
+      "hours_estimate": 6,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "The order follows the path a request takes, because each stage depends on the one before it: the runtime and package tooling have to exist before a server can be started, a server has to answer before routing means anything, routing has to resolve to a handler before middleware has a pipeline to sit in, and only then can the same application serve two different response shapes - rendered HTML for browsers and JSON for clients. Error handling comes second to last deliberately: Express error middleware is only comprehensible once the learner has seen the ordinary middleware stack it terminates, and the capstone's definition of done depends on failures being visible in logs. The project is last because it composes every prior lesson into one publicly reachable deployment. SCOPE ASSUMPTIONS: the intake description is complete for this course and names 'back end technologies with Node and Express ... building a server and prepare to spin up a website that will be publically accessible on the web', so the outline assumes a single Express application, no database (db100/db200 and node200 own persistence), no authentication (node200 owns it), and no container orchestration. Deployment is scoped to a managed host running the process directly, with environment configuration and a health check as the definition of done; pipeline automation belongs to ops200.",
+  "proposed_competencies": [
+    {
+      "domain_code": "D5",
+      "subdomain": "D5-S1",
+      "competency_text": "The learner can design and implement HTTP endpoints that follow REST conventions for resource naming, methods, and status codes.",
+      "rationale": "Lessons 04 and 07 are graded on endpoint design, but the catalog's closest competency (D5-S1-C02) covers design support in general terms - data models, interfaces, algorithms - and nothing in the catalog names the HTTP contract a web service publishes."
+    },
+    {
+      "domain_code": "D6",
+      "subdomain": "D6-S1",
+      "competency_text": "The learner can deploy a web application to a publicly reachable host and verify it is serving traffic.",
+      "rationale": "The 09 capstone's definition of done is a live URL, which the intake description explicitly asks for, but D6-S1-C03 covers only CI/CD configuration and D6-S1-C02 covers maintenance; no catalog competency covers performing a deployment."
+    }
+  ],
+  "assets": [
+    {
+      "filename": "request-response-cycle.png",
+      "description": "The path an HTTP request takes from the browser through an Express application and back as a response.",
+      "suggested_source": "Diagram, drawn in-house"
+    },
+    {
+      "filename": "middleware-pipeline.png",
+      "description": "How Express passes a request through an ordered stack of middleware before it reaches a route handler.",
+      "suggested_source": "Diagram, drawn in-house"
+    },
+    {
+      "filename": "express-error-flow.png",
+      "description": "How an error thrown or forwarded in a handler skips the remaining middleware and reaches the error handler.",
+      "suggested_source": "Diagram, drawn in-house"
+    }
+  ]
+}

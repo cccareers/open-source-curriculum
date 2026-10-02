@@ -1,0 +1,158 @@
+{
+  "course_id": "agile310",
+  "pathway": "data-engineer",
+  "title": "Data Engineering Capstone Project",
+  "description": "This is a competency-based course designed for the indentured Data Engineer apprentice. A final project where learners apply data engineering principles to build an end-to-end data pipeline, integrating data ingestion, processing, and storage in a cloud environment.",
+  "hours": 40,
+  "projects": null,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Scope an end-to-end pipeline against a stated business question and document the architecture",
+    "Stand up a cloud data environment with sensible cost and access controls",
+    "Ingest source data into a landing zone reliably and repeatably",
+    "Model ingested data into a warehouse layer that answers the business question",
+    "Orchestrate, monitor, and harden the pipeline so it survives a bad run",
+    "Collaborate through reviews, working agreements, and handoff documentation",
+    "Present the finished pipeline and its findings to a non-engineering audience"
+  ],
+  "prerequisites": [
+    "All prior Data Engineer pathway coursework: de101, de102, de201, de210, and ds320",
+    "A cloud account with a spending limit, provided by the program"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "agile310-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "agile310-02",
+      "order": 2,
+      "slug": "capstone-scoping-and-architecture-design",
+      "title": "Capstone Scoping and Architecture Design",
+      "kind": "lesson",
+      "objectives": [
+        "Scope an end-to-end pipeline against a stated business question and document the architecture"
+      ],
+      "competency_ids": [
+        "D7-S1-C02",
+        "D6-S1-C01"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "agile310-03",
+      "order": 3,
+      "slug": "cloud-environment-setup-and-cost-aware-design",
+      "title": "Cloud Environment Setup and Cost-Aware Design",
+      "kind": "lesson",
+      "objectives": [
+        "Stand up a cloud data environment with sensible cost and access controls"
+      ],
+      "competency_ids": [
+        "D6-S1-C01",
+        "D6-S1-C02"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "agile310-04",
+      "order": 4,
+      "slug": "milestone-1-ingestion-and-landing-zone",
+      "title": "Milestone 1: Ingestion and Landing Zone",
+      "kind": "project",
+      "objectives": [
+        "Ingest source data into a landing zone reliably and repeatably"
+      ],
+      "competency_ids": [
+        "D1-S1-C02",
+        "D6-S1-C01"
+      ],
+      "hours_estimate": 7,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "agile310-05",
+      "order": 5,
+      "slug": "milestone-2-transformation-and-warehouse-modeling",
+      "title": "Milestone 2: Transformation and Warehouse Modeling",
+      "kind": "project",
+      "objectives": [
+        "Model ingested data into a warehouse layer that answers the business question"
+      ],
+      "competency_ids": [
+        "D1-S1-C01",
+        "D6-S1-C03"
+      ],
+      "hours_estimate": 8,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "agile310-06",
+      "order": 6,
+      "slug": "milestone-3-orchestration-and-reliability",
+      "title": "Milestone 3: Orchestration and Reliability",
+      "kind": "project",
+      "objectives": [
+        "Orchestrate, monitor, and harden the pipeline so it survives a bad run"
+      ],
+      "competency_ids": [
+        "D1-S1-C03",
+        "D6-S1-C02"
+      ],
+      "hours_estimate": 7,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "agile310-07",
+      "order": 7,
+      "slug": "reviews-working-agreements-and-handoff",
+      "title": "Reviews, Working Agreements, and Handoff",
+      "kind": "lesson",
+      "objectives": [
+        "Collaborate through reviews, working agreements, and handoff documentation"
+      ],
+      "competency_ids": [
+        "D7-S1-C01",
+        "D7-S1-C02"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "agile310-08",
+      "order": 8,
+      "slug": "final-delivery-and-stakeholder-presentation",
+      "title": "Final Delivery and Stakeholder Presentation",
+      "kind": "project",
+      "objectives": [
+        "Present the finished pipeline and its findings to a non-engineering audience"
+      ],
+      "competency_ids": [
+        "D7-S1-C03",
+        "D7-S1-C01"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Capstone, and last in the pathway (de101 -> de102 -> de201 -> de210 -> ds320 -> agile310). It teaches almost nothing new: its job is to make the apprentice assemble what the five prior courses taught into one deployed artifact, so it is weighted heavily toward project work — three of its eight lessons are graded milestones and a fourth is the delivery. Two short teaching lessons open the course because a capstone fails most often at scoping and at an unmanaged cloud bill, and both are cheaper to fix before any code exists. The milestones then follow the natural build order of a pipeline — land, model, orchestrate — which is also the order in which failure compounds. Collaboration and handoff sit at lesson 7, deliberately between the last build milestone and delivery, so that review practice and documentation are applied to real work in flight rather than taught in the abstract. Delivery closes the course.\n\nScope assumptions (intake gave two sentences describing an end-to-end pipeline with ingestion, processing and storage in a cloud environment, plus trailing scan boilerplate that the importer stripped; 40 hours; no objectives, no lesson titles, and `projects` was null in intake so the count of graded projects here is our proposal, not the program's): (1) The capstone is one continuous project delivered in three milestones plus a final presentation, rather than several unrelated small projects. (2) The cloud provider is left unnamed in the lesson bodies wherever possible and made concrete only in worked examples; the program must fix a provider and a budget before delivery. (3) The dataset is learner-chosen from a program-approved list and must be public or synthetic — no learner brings real customer data into a training account. (4) 'Agile' in the course id is read as the program's delivery cadence (milestones, reviews, a demo), not as a separate Scrum curriculum; Scrum ceremonies are referenced but not taught as their own unit. (5) Streaming is optional in the capstone rather than required, because de201 already assesses it and requiring it would crowd out the warehouse modeling milestone. (6) Governance controls from ds320 are applied as acceptance criteria on the milestones rather than as their own lesson, so D5 competencies are exercised but tagged where they were taught. (7) All three D7 collaboration competencies are tagged here because this is the only course in the pathway where the apprentice works against reviewers and a stakeholder audience.",
+  "proposed_competencies": [],
+  "assets": [
+    {
+      "filename": "capstone-reference-architecture.png",
+      "description": "Four-layer capstone reference architecture: two sources feeding a landing zone in object storage, then a staging layer, then a warehouse-modelled layer of facts and dimensions, then a serving layer of query views, with an orchestrator spanning all stages.",
+      "suggested_source": "Diagram, drawn in-house"
+    }
+  ]
+}

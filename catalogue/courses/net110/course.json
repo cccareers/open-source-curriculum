@@ -1,0 +1,169 @@
+{
+  "course_id": "net110",
+  "pathway": "cybersecurity-support-technician",
+  "title": "Network Security Fundamentals",
+  "description": "This is a competency-based course designed for the indentured Cybersecurity Support Technician apprentice. Introduces network protocols, firewalls, VPNs, intrusion detection/prevention systems (IDS/IPS), and secure network architecture.",
+  "hours": 40,
+  "projects": 2,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Read addressing, ports, and protocol behavior well enough to say what a captured network conversation is doing",
+    "Design a segmented network that places each asset in a zone matching its trust level",
+    "Write and order firewall rules that implement a stated access requirement without opening unintended paths",
+    "Choose detection or prevention placement for an IDS/IPS sensor and interpret the alerts it produces",
+    "Select and configure a remote-access or site-to-site VPN appropriate to a stated requirement",
+    "Choose encryption and key-handling appropriate to data in transit and data at rest"
+  ],
+  "prerequisites": [
+    "cyb100 Introduction to Cybersecurity, or equivalent familiarity with security vocabulary and risk basics"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "net110-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "net110-02",
+      "order": 2,
+      "slug": "networking-refresher-for-defenders",
+      "title": "Networking Refresher for Defenders",
+      "kind": "lesson",
+      "objectives": [
+        "Read addressing, ports, and protocol behavior well enough to say what a captured network conversation is doing"
+      ],
+      "competency_ids": [
+        "D2-S1-C02"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "net110-03",
+      "order": 3,
+      "slug": "secure-network-architecture-and-segmentation",
+      "title": "Secure Network Architecture and Segmentation",
+      "kind": "lesson",
+      "objectives": [
+        "Design a segmented network that places each asset in a zone matching its trust level"
+      ],
+      "competency_ids": [
+        "D2-S1-C01"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "net110-04",
+      "order": 4,
+      "slug": "firewalls-and-rule-design",
+      "title": "Firewalls and Rule Design",
+      "kind": "lesson",
+      "objectives": [
+        "Write and order firewall rules that implement a stated access requirement without opening unintended paths"
+      ],
+      "competency_ids": [
+        "D1-S1-C05"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "net110-05",
+      "order": 5,
+      "slug": "intrusion-detection-and-prevention",
+      "title": "Intrusion Detection and Prevention",
+      "kind": "lesson",
+      "objectives": [
+        "Choose detection or prevention placement for an IDS/IPS sensor and interpret the alerts it produces"
+      ],
+      "competency_ids": [
+        "D1-S1-C05",
+        "D1-S1-C04"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "net110-06",
+      "order": 6,
+      "slug": "vpns-and-remote-access",
+      "title": "VPNs and Remote Access",
+      "kind": "lesson",
+      "objectives": [
+        "Select and configure a remote-access or site-to-site VPN appropriate to a stated requirement"
+      ],
+      "competency_ids": [
+        "D2-S1-C01"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "net110-07",
+      "order": 7,
+      "slug": "encryption-in-transit-and-at-rest",
+      "title": "Encryption in Transit and at Rest",
+      "kind": "lesson",
+      "objectives": [
+        "Choose encryption and key-handling appropriate to data in transit and data at rest"
+      ],
+      "competency_ids": [
+        "D2-S1-C05"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "net110-08",
+      "order": 8,
+      "slug": "project-traffic-monitoring-and-anomaly-triage",
+      "title": "Project: Traffic Monitoring and Anomaly Triage",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D2-S1-C02",
+        "D1-S1-C04"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "net110-09",
+      "order": 9,
+      "slug": "project-secure-network-design-for-a-branch-office",
+      "title": "Project: Secure Network Design for a Branch Office",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D2-S1-C01",
+        "D1-S1-C05",
+        "D2-S1-C05"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "The order is read-the-network, then shape-the-network, then watch-the-network. Lesson 02 is a defender's protocol refresher because every control later in the course is expressed in the same terms - address, port, protocol, direction - and a learner who cannot read a flow record cannot judge whether a rule or an alert is right. Segmentation (03) precedes firewalls (04) deliberately: a firewall rule set is only meaningful once zones exist to write rules between, and beginners who learn rules first tend to produce flat networks with elaborate rule sets. IDS/IPS (05) follows the firewall because detection tuning is easiest to explain against traffic that policy already narrowed. VPNs (06) are the controlled exception to segmentation and so come after it, and encryption (07) closes the teaching sequence because the VPN lesson raises exactly the key-management questions it answers. The two projects mirror the two halves: 08 is observational (triage traffic you did not design), 09 is constructive (design a network and the rules that enforce it). SCOPE ASSUMPTIONS - intake gives one sentence of scope, no objectives and no lesson titles; a reviewer should correct any of the following: (1) The course is taught vendor-neutrally. Rule syntax is shown in generic and open-source forms (iptables/nftables-style rules, Suricata-style signatures, WireGuard and IPsec concepts); no lesson requires a specific commercial appliance. (2) 'Network protocols' is scoped to what a defender must interpret - IP, TCP/UDP, DNS, HTTP/TLS, DHCP, ARP - not to routing protocol design or switching hardware. (3) Wireless security is covered only as a trust zone in lesson 03; 802.1X supplicant configuration is out of scope. (4) Identity, MFA, and RBAC are out of scope here and belong to cyb130, even though access control is unavoidable in the segmentation lesson; the boundary is that net110 decides which network zones may talk and cyb130 decides which people may act. (5) Cloud networking (VPCs, security groups) is out of scope; it is net260. (6) D2-S1-C02 (traffic monitoring) is tagged in this course at 'recognize anomalous traffic' depth; SIEM correlation and alert triage as an incident-response workflow are cyb120. (7) Intake records two projects, and lessons 08 and 09 are those two.",
+  "proposed_competencies": [],
+  "assets": [
+    {
+      "filename": "segmentation-zones.png",
+      "description": "Zone diagram showing untrusted internet, DMZ, internal user, server, data, management, guest wireless, and IoT zones with the permitted traffic directions between them.",
+      "suggested_source": "Diagram, drawn in-house"
+    },
+    {
+      "filename": "ids-sensor-placement.png",
+      "description": "Sensor placement options on one network: an inline IPS at the internet edge, an out-of-band IDS fed by a TAP on the DMZ link, and a SPAN-fed IDS watching the inter-zone chokepoint.",
+      "suggested_source": "Diagram, drawn in-house"
+    }
+  ]
+}

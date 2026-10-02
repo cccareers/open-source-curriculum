@@ -1,0 +1,175 @@
+{
+  "course_id": "sn201",
+  "pathway": "servicenow-implementation-specialist",
+  "title": "Application Development Fundamentals (ADF)",
+  "description": "This is a competency-based course designed for the indentured ServiceNow Implementation Specialist apprentice. Participants will learn how to design, build, develop, and deploy an application in ServiceNow.",
+  "hours": 24,
+  "projects": null,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Scope a custom application and create it with App Engine Studio",
+    "Design an application data model using tables, fields, and table extension",
+    "Build forms, views, and UI policies that present the right fields to the right user",
+    "Add application logic with business rules and client scripts",
+    "Automate an application process with Flow Designer",
+    "Secure an application with roles and access control rules",
+    "Move an application between instances using update sets and source control"
+  ],
+  "prerequisites": [
+    "sn102 Introduction to ServiceNow Platform, or equivalent familiarity with instance navigation and the platform data model"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "sn201-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn201-02",
+      "order": 2,
+      "slug": "scoped-applications-and-app-engine-studio",
+      "title": "Scoped Applications and App Engine Studio",
+      "kind": "lesson",
+      "objectives": [
+        "Scope a custom application and create it with App Engine Studio"
+      ],
+      "competency_ids": [
+        "D1-S1-C01"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn201-03",
+      "order": 3,
+      "slug": "designing-the-application-data-model",
+      "title": "Designing the Application Data Model",
+      "kind": "lesson",
+      "objectives": [
+        "Design an application data model using tables, fields, and table extension"
+      ],
+      "competency_ids": [
+        "D2-S1-C02",
+        "D1-S1-C01"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn201-04",
+      "order": 4,
+      "slug": "forms-views-and-ui-policies",
+      "title": "Forms, Views, and UI Policies",
+      "kind": "lesson",
+      "objectives": [
+        "Build forms, views, and UI policies that present the right fields to the right user"
+      ],
+      "competency_ids": [
+        "D2-S1-C02",
+        "D7-S1-C01"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn201-05",
+      "order": 5,
+      "slug": "application-logic-business-rules-and-client-scripts",
+      "title": "Application Logic: Business Rules and Client Scripts",
+      "kind": "lesson",
+      "objectives": [
+        "Add application logic with business rules and client scripts"
+      ],
+      "competency_ids": [
+        "D7-S1-C01"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn201-06",
+      "order": 6,
+      "slug": "automating-the-application-with-flow-designer",
+      "title": "Automating the Application with Flow Designer",
+      "kind": "lesson",
+      "objectives": [
+        "Automate an application process with Flow Designer"
+      ],
+      "competency_ids": [
+        "D7-S1-C02",
+        "D2-S1-C05"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn201-07",
+      "order": 7,
+      "slug": "securing-the-application-with-roles-and-acls",
+      "title": "Securing the Application with Roles and ACLs",
+      "kind": "lesson",
+      "objectives": [
+        "Secure an application with roles and access control rules"
+      ],
+      "competency_ids": [
+        "D1-S1-C03"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn201-08",
+      "order": 8,
+      "slug": "update-sets-source-control-and-deployment",
+      "title": "Update Sets, Source Control, and Deployment",
+      "kind": "lesson",
+      "objectives": [
+        "Move an application between instances using update sets and source control"
+      ],
+      "competency_ids": [
+        "D10-S1-C02"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn201-09",
+      "order": 9,
+      "slug": "project-build-and-deploy-a-custom-application",
+      "title": "Project: Build and Deploy a Custom Application",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D1-S1-C01",
+        "D7-S1-C02",
+        "D10-S1-C02"
+      ],
+      "hours_estimate": 2,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "The intake description names four verbs -- design, build, develop, deploy -- and the lesson order follows them literally: scope and create the application (2), design its data (3), build its interface (4), develop its logic (5-6), secure it (7), and deploy it (8). Data modelling precedes forms because a form is a view of a table; logic precedes automation because a learner needs to feel where a business rule stops being the right tool before Flow Designer is offered as the alternative. Security sits after the application works, which matches how apprentices actually build, and deployment is last because there is nothing to move until then. Scope assumptions, stated because the intake supplies no objectives or lesson titles: this is treated as low-code application development in a scoped application, using App Engine Studio and the platform's developer studio, at the depth a ServiceNow Certified Application Developer path expects. Scripting is introduced only as far as an application needs it -- the JavaScript and API depth is sn250's job, and this course deliberately shows single-purpose business rules and client scripts rather than teaching script architecture. Service Portal front ends (sn290), integrations (sn280, sn330, sn360), and automated testing (sn301) are out of scope. Deployment is taught with update sets and source-control integration, not a full CI/CD pipeline, because release engineering belongs to the deployment and governance work later in the pathway. Terminology is kept release-neutral.",
+  "proposed_competencies": [
+    {
+      "domain_code": "D1",
+      "subdomain": "D1-S1",
+      "competency_text": "The learner can scope, build, and deploy a custom application on the ServiceNow platform, including its data model, forms, logic, and packaging.",
+      "rationale": "Custom application development is the entire subject of this 24-hour course, but the catalog has no competency for it. D1 covers architecture, navigation, and security; D2 covers ITSM configuration; D7 covers scripting. The application-development lifecycle itself falls between them, so the course's lessons are tagged to adjacent competencies that each describe only a fragment of the work."
+    }
+  ],
+  "assets": [
+    {
+      "filename": "acl-evaluation-order.png",
+      "description": "The order in which the platform evaluates field-level and record-level access control rules for a single field on a record, showing the walk from table.field to table.* up the table hierarchy, then the separate table.None pass, with both passes required to grant access.",
+      "suggested_source": "Diagram, drawn in-house"
+    }
+  ]
+}

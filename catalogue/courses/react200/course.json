@@ -1,0 +1,165 @@
+{
+  "course_id": "react200",
+  "pathway": "software-developer",
+  "title": "Intermediate ReactJS",
+  "description": "This is a competency-based course designed for the indentured website developer apprentice.  This course will continue familiarization with ReactJS by implementing routing and state management using Redux and React-Router. Apprentices through project-based assignments will begin building more comple",
+  "hours": 50,
+  "projects": null,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Add client-side routing to a React application",
+    "Compose nested routes and layouts around shared data",
+    "Manage application state in a central store",
+    "Handle asynchronous work and side effects in a state container",
+    "Produce an implementation plan for a multi-feature application",
+    "Relay requirements between a project manager, UX, and QA",
+    "Apply a directed change to an existing application"
+  ],
+  "prerequisites": [
+    "Completed Beginner React JS (react100) or equivalent",
+    "Comfortable building components with props, state, and effects",
+    "Able to consume a JSON API from the browser"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "react200-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "react200-02",
+      "order": 2,
+      "slug": "routing-with-react-router",
+      "title": "Routing with React Router",
+      "kind": "lesson",
+      "objectives": [
+        "Add client-side routing to a React application"
+      ],
+      "competency_ids": [
+        "D2-S1-C04"
+      ],
+      "hours_estimate": 8,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "react200-03",
+      "order": 3,
+      "slug": "nested-routes-layouts-and-route-data",
+      "title": "Nested Routes, Layouts, and Route Data",
+      "kind": "lesson",
+      "objectives": [
+        "Compose nested routes and layouts around shared data"
+      ],
+      "competency_ids": [
+        "D2-S1-C04",
+        "D5-S1-C02"
+      ],
+      "hours_estimate": 7,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "react200-04",
+      "order": 4,
+      "slug": "state-management-with-redux",
+      "title": "State Management with Redux",
+      "kind": "lesson",
+      "objectives": [
+        "Manage application state in a central store"
+      ],
+      "competency_ids": [
+        "D5-S1-C02"
+      ],
+      "hours_estimate": 9,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "react200-05",
+      "order": 5,
+      "slug": "async-flows-and-side-effects",
+      "title": "Async Flows and Side Effects",
+      "kind": "lesson",
+      "objectives": [
+        "Handle asynchronous work and side effects in a state container"
+      ],
+      "competency_ids": [
+        "D2-S1-C04"
+      ],
+      "hours_estimate": 8,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "react200-06",
+      "order": 6,
+      "slug": "planning-an-implementation",
+      "title": "Planning an Implementation",
+      "kind": "lesson",
+      "objectives": [
+        "Produce an implementation plan for a multi-feature application"
+      ],
+      "competency_ids": [
+        "D3-S1-C02"
+      ],
+      "hours_estimate": 6,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "react200-07",
+      "order": 7,
+      "slug": "coordinating-requirements-with-pm-ux-and-qa",
+      "title": "Coordinating Requirements with PM, UX, and QA",
+      "kind": "lesson",
+      "objectives": [
+        "Relay requirements between a project manager, UX, and QA"
+      ],
+      "competency_ids": [
+        "D3-S1-C04"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "react200-08",
+      "order": 8,
+      "slug": "applying-directed-changes-to-an-existing-app",
+      "title": "Applying Directed Changes to an Existing App",
+      "kind": "lesson",
+      "objectives": [
+        "Apply a directed change to an existing application"
+      ],
+      "competency_ids": [
+        "D5-S1-C03"
+      ],
+      "hours_estimate": 7,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Routing precedes state management because routes are the first thing that forces state out of a single component tree, which is the motivation for a store; introducing Redux first produces boilerplate a learner cannot yet justify. Nested routes follow basic routing immediately since layouts and route data are the shape most real applications actually use. Async flows come after the synchronous store because a thunk is unreadable before the action-reducer cycle is automatic. The last three lessons deliberately shift from building to collaborating - planning, relaying requirements, and applying someone else's directed change - because that is the working posture the pathway's D3 and D5 competencies describe, and an apprentice more often joins a codebase than starts one. SCOPE ASSUMPTIONS: the intake description is truncated at 'begin building more comple', but names Redux and React-Router explicitly, so those two libraries are treated as fixed. The outline assumes modern Redux Toolkit patterns and the data-router API rather than the legacy connect/createStore style; a reviewer should confirm this against what the partner's codebases use, since it changes every code sample. Assumed out of scope: server-side rendering, alternative state libraries, testing, and any backend work.",
+  "proposed_competencies": [
+    {
+      "domain_code": "D5",
+      "subdomain": "D5-S1",
+      "competency_text": "The learner can implement client-side routing and centralized state management in a single-page application.",
+      "rationale": "Thirty-two of this course's fifty hours are routing and store work, tagged against D5-S1-C02 (support design and system-structure work) and D2-S1-C04 (build features) for lack of anything closer; neither names application-level state architecture."
+    }
+  ],
+  "assets": [
+    {
+      "filename": "route-tree-and-outlets.png",
+      "description": "A route tree showing a root layout containing an events layout, which contains an index list route and a detail route, with arrows marking which outlet each child fills.",
+      "suggested_source": "Diagram, drawn in-house"
+    },
+    {
+      "filename": "redux-data-flow.png",
+      "description": "The one-way Redux cycle: a component dispatches an action, middleware passes it to the reducers, the store produces new state, and subscribed selectors re-render the components that read the changed data.",
+      "suggested_source": "Diagram, drawn in-house"
+    }
+  ]
+}

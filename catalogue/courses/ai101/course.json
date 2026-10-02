@@ -1,0 +1,168 @@
+{
+  "course_id": "ai101",
+  "pathway": "prompt-engineer",
+  "title": "Fundamentals of AI & Prompt Engineering",
+  "description": "This is a competency-based course designed for the indentured Prompt Engineer apprentice. Introduction to core AI concepts and prompt engineering strategies. Covers understanding how generative AI models interpret prompts, best practices for refining prompts, and an overview of various AI use cases.",
+  "hours": 30,
+  "projects": null,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Explain in plain language how a generative AI model turns a prompt into a response, and what a token, a context window, and a temperature setting each control",
+    "Describe what current generative models are reliably good at, where they fail, and how to choose a model for a task",
+    "Write a structured prompt using role, task, context, constraints, and output format",
+    "Adapt prompting technique to the task type, including text generation, summarization, extraction, and image creation",
+    "Apply few-shot examples and multi-step prompt chains to tasks a single prompt cannot do well",
+    "Evaluate an AI response for factual accuracy, relevance to the request, and bias, and act on what the evaluation shows",
+    "Call a hosted model API from a simple script and describe when fine-tuning or a tuned system prompt is the right adaptation"
+  ],
+  "prerequisites": [
+    "No prior AI or programming coursework is assumed",
+    "Comfort using a web browser, a text editor, and a spreadsheet"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "ai101-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ai101-02",
+      "order": 2,
+      "slug": "how-generative-ai-models-work",
+      "title": "How Generative AI Models Work",
+      "kind": "lesson",
+      "objectives": [
+        "Explain in plain language how a generative AI model turns a prompt into a response, and what a token, a context window, and a temperature setting each control"
+      ],
+      "competency_ids": [
+        "D1-S1-C01"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ai101-03",
+      "order": 3,
+      "slug": "capabilities-limitations-and-model-choice",
+      "title": "Capabilities, Limitations, and Model Choice",
+      "kind": "lesson",
+      "objectives": [
+        "Describe what current generative models are reliably good at, where they fail, and how to choose a model for a task"
+      ],
+      "competency_ids": [
+        "D1-S1-C01"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ai101-04",
+      "order": 4,
+      "slug": "prompt-anatomy-and-core-patterns",
+      "title": "Prompt Anatomy and Core Patterns",
+      "kind": "lesson",
+      "objectives": [
+        "Write a structured prompt using role, task, context, constraints, and output format"
+      ],
+      "competency_ids": [
+        "D1-S1-C02"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ai101-05",
+      "order": 5,
+      "slug": "prompting-across-task-types",
+      "title": "Prompting Across Task Types",
+      "kind": "lesson",
+      "objectives": [
+        "Adapt prompting technique to the task type, including text generation, summarization, extraction, and image creation"
+      ],
+      "competency_ids": [
+        "D1-S1-C02"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ai101-06",
+      "order": 6,
+      "slug": "few-shot-examples-and-prompt-chaining",
+      "title": "Few-Shot Examples and Prompt Chaining",
+      "kind": "lesson",
+      "objectives": [
+        "Apply few-shot examples and multi-step prompt chains to tasks a single prompt cannot do well"
+      ],
+      "competency_ids": [
+        "D1-S1-C03"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ai101-07",
+      "order": 7,
+      "slug": "evaluating-ai-responses",
+      "title": "Evaluating AI Responses",
+      "kind": "lesson",
+      "objectives": [
+        "Evaluate an AI response for factual accuracy, relevance to the request, and bias, and act on what the evaluation shows"
+      ],
+      "competency_ids": [
+        "D1-S1-C04"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ai101-08",
+      "order": 8,
+      "slug": "working-with-model-apis",
+      "title": "Working with Model APIs",
+      "kind": "lesson",
+      "objectives": [
+        "Call a hosted model API from a simple script and describe when fine-tuning or a tuned system prompt is the right adaptation"
+      ],
+      "competency_ids": [
+        "D1-S1-C05"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Sequence: ai101 is the first course in the Prompt Engineer pathway and assumes no prior AI coursework; everything downstream (ai102 no-code integration, ai201 workflows, db305 data and infrastructure, ai210 human-centered design, ai350 security, agile210 capstone) depends on the prompting and evaluation skill built here. Within the course, mental model comes before technique: learners cannot reason about why a prompt failed until they know what a token, a context window, and a sampling temperature do (02), and they cannot choose a technique until they know what models can and cannot do (03). Prompt construction (04) precedes task-specific variation (05) because the same skeleton is being varied. Few-shot and chaining (06) are deliberately last of the authoring lessons because they are compositions of single-prompt skill. Evaluation (07) comes after generation because there must be output to judge, and it is placed before the API lesson (08) so learners automate a prompt they have already learned to check. SCOPE ASSUMPTIONS (intake gives no learning objectives and no lesson titles; the description supplies only 'core AI concepts', 'prompt engineering strategies', 'how generative AI models interpret prompts', 'best practices for refining prompts', and 'an overview of various AI use cases'): we assume the course is conceptual-plus-hands-on at an entry level, tool-agnostic across the major chat assistants, and that 'AI use cases' means a survey woven through the task-type lesson rather than a separate industry tour. We assume no programming prerequisite beyond reading a short script, so the API lesson (08) teaches request and response shape plus cost and latency reasoning rather than software engineering. Catalog competency D1-S1-C05 also names fine-tuning; it is covered conceptually (when to tune versus when to prompt) rather than as a hands-on training run, because four hours cannot support a real fine-tune and the pathway has no ML prerequisite. Model internals below the token level (attention, training objectives), open-weight self-hosting, and agent frameworks are deliberately out of scope. Reviewers should correct any of these assumptions before lesson content is approved.",
+  "proposed_competencies": [
+    {
+      "domain_code": "D1",
+      "subdomain": "D1-S1",
+      "competency_text": "The learner can select an appropriate model for a given task by weighing cost, context window, latency, and modality against the task's requirements.",
+      "rationale": "Lesson 03 teaches model selection explicitly and every later course depends on it (ai102 picks a model per automation step, ai201 picks per workflow stage), but the catalog's D1 competencies cover explaining capabilities and limitations rather than making a selection decision under cost and latency constraints."
+    }
+  ],
+  "assets": [
+    {
+      "filename": "next-token-prediction.png",
+      "description": "The generation loop: a prompt is split into tokens, the model produces a probability distribution over the next token, one token is sampled, and the loop repeats with that token appended to the sequence.",
+      "suggested_source": "Diagram, drawn in-house"
+    },
+    {
+      "filename": "prompt-skeleton.png",
+      "description": "The five prompt blocks stacked in order - role, task, context, constraints, output format - with the supplied source text shown last inside delimiters.",
+      "suggested_source": "Diagram, drawn in-house"
+    },
+    {
+      "filename": "prompt-chain-flow.png",
+      "description": "A three-step prompt chain: an extract step feeding a decide step feeding a draft step, with the structured intermediate output shown between each pair and a human review gate before the final step.",
+      "suggested_source": "Diagram, drawn in-house"
+    }
+  ]
+}

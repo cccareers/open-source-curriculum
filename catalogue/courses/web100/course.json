@@ -1,0 +1,127 @@
+{
+  "course_id": "web100",
+  "pathway": "quality-assurance-software-engineer",
+  "title": "HTML / CSS Basics",
+  "description": "This is a competency-based course designed for the indentured website developer apprentice.  This course will cover the syntax to create Symantec html websites and begin familiarize with common page elements used to design modern websites.  This course also covers the rules that define how the conte",
+  "hours": 15,
+  "projects": null,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Write semantic HTML that gives a page a testable, accessible structure",
+    "Use common page elements such as text, links, media, and tables correctly",
+    "Apply CSS selectors, the cascade, and the box model to control page layout",
+    "Build a responsive layout and check it against basic accessibility expectations",
+    "Inspect a rendered page and describe what is wrong with it in reproducible terms"
+  ],
+  "prerequisites": [],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "web100-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 0.5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "web100-02",
+      "order": 2,
+      "slug": "semantic-html-and-document-structure",
+      "title": "Semantic HTML and Document Structure",
+      "kind": "lesson",
+      "objectives": [
+        "Write semantic HTML that gives a page a testable, accessible structure"
+      ],
+      "competency_ids": [
+        "D5-S1-C01",
+        "D5-S1-C02"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "web100-03",
+      "order": 3,
+      "slug": "text-links-media-and-tables",
+      "title": "Text, Links, Media, and Tables",
+      "kind": "lesson",
+      "objectives": [
+        "Use common page elements such as text, links, media, and tables correctly"
+      ],
+      "competency_ids": [
+        "D5-S1-C02"
+      ],
+      "hours_estimate": 2.5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "web100-04",
+      "order": 4,
+      "slug": "forms-labels-and-accessible-inputs",
+      "title": "Forms, Labels, and Accessible Inputs",
+      "kind": "lesson",
+      "objectives": [
+        "Build form controls that are labelled, keyboard reachable, and straightforward to identify in a test"
+      ],
+      "competency_ids": [
+        "D5-S1-C01",
+        "D5-S1-C02"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "web100-05",
+      "order": 5,
+      "slug": "css-selectors-cascade-and-box-model",
+      "title": "CSS Selectors, the Cascade, and the Box Model",
+      "kind": "lesson",
+      "objectives": [
+        "Apply CSS selectors, the cascade, and the box model to control page layout"
+      ],
+      "competency_ids": [
+        "D5-S1-C02"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "web100-06",
+      "order": 6,
+      "slug": "responsive-layout-and-accessibility-pass",
+      "title": "Responsive Layout and an Accessibility Pass",
+      "kind": "lesson",
+      "objectives": [
+        "Build a responsive layout and check it against basic accessibility expectations",
+        "Inspect a rendered page and describe what is wrong with it in reproducible terms"
+      ],
+      "competency_ids": [
+        "D2-S1-C02",
+        "D5-S1-C01"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "QA REFRAMING (stated explicitly because the intake evidence is borrowed): every course description in this pathway's intake says it is 'designed for the indentured website developer apprentice'. These are shared web-development courses repurposed for the Quality Assurance Software Engineer pathway, so this outline teaches toward the QA catalog rather than toward a builder's portfolio. The QA framing here is that markup and styling are the surface a tester works against: semantic structure and labelled controls are what make a page inspectable, automatable, and accessible, and the closing lesson asks the learner to critique a rendered page and describe its defects reproducibly (D2-S1-C02) rather than only to build one. SEQUENCE: structure, then content elements, then forms, then styling, then responsive layout with an accessibility pass. You cannot select or assert on what you have not marked up, and you cannot judge a broken responsive breakpoint without the box model, so the critique lesson comes last. This is the first course in the pathway's natural order (web100, web101, node100, alg100, ops100, agile100, agile200), which is why prerequisites are empty. SCOPE ASSUMPTIONS, all derived from the title, the 15 authored hours, and the surviving description fragment rather than from a syllabus: the intake description is truncated mid-word ('how the conte'), and 'Symantec html' is read as a typo for 'semantic HTML'. Nothing was invented to complete the cut-off sentence. Assumed in scope: document structure and landmark elements, text/link/media/table markup, forms and labels, CSS selectors and specificity, the box model, flexbox-or-grid-level responsive layout, and a manual accessibility pass. Assumed out of scope and deliberately left out: CSS preprocessors, utility or component frameworks such as Tailwind or Bootstrap, animation, and build tooling (tooling is ops100). No JavaScript appears here; that starts in web101. HOURS: 0.5h overview plus five teaching lessons of 2.5 to 3h, summing to exactly 15. LESSON KINDS: intake records no project count for this course, so the final lesson is a taught lesson with an extended hands-on Practice rather than a graded project brief; a reviewer who wants a graded artifact here should promote lesson 06 to kind 'project'.",
+  "proposed_competencies": [
+    {
+      "domain_code": "D3",
+      "subdomain": "D3-S1",
+      "competency_text": "The learner can choose element identifiers and selectors that automated tests can rely on as a page changes.",
+      "rationale": "Lessons 02 and 04 teach the markup habits (stable ids, roles, labels) that decide whether an automated test can locate an element at all, but the catalog's D3 competencies cover operating and maintaining test tooling, not the authoring practice that makes a page automatable in the first place."
+    }
+  ],
+  "assets": [
+    {
+      "filename": "box-model.png",
+      "description": "The CSS box model: content, padding, border, and margin, and how each contributes to an element's rendered size.",
+      "suggested_source": "Diagram, drawn in-house"
+    }
+  ]
+}

@@ -1,0 +1,170 @@
+{
+  "course_id": "ai210",
+  "pathway": "prompt-engineer",
+  "title": "Human-Centered AI Desig",
+  "description": "This is a competency-based course designed for the indentured Prompt Engineer apprentice.  Practical hands-on training for creating end-to-end AI-driven workflows. Includes combining APIs, triggers, and AI services to automate repetitive tasks and streamline business processes.",
+  "hours": 25,
+  "projects": null,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Run a discovery conversation that surfaces a client's real AI automation needs rather than their first stated request",
+    "Turn discovery findings into written requirements and success criteria a build can be judged against",
+    "Produce a low-fidelity prototype of an AI-powered solution quickly and iterate it on evidence",
+    "Apply interface patterns that suit AI's probabilistic behavior, including latency, uncertainty, and error states",
+    "Design AI-powered interfaces for trust, transparency, and accessibility, including disclosure and correction paths",
+    "Plan and run a usability session on an AI prototype and turn the feedback into specific changes",
+    "Align stakeholders on an AI solution's goals, trade-offs, and handoff so the build survives contact with the organization"
+  ],
+  "prerequisites": [
+    "Completion of ai201, or equivalent experience building AI workflows a client would use",
+    "No design or front-end coursework is assumed"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "ai210-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ai210-02",
+      "order": 2,
+      "slug": "discovery-identifying-ai-needs-with-clients",
+      "title": "Discovery: Identifying AI Needs with Clients",
+      "kind": "lesson",
+      "objectives": [
+        "Run a discovery conversation that surfaces a client's real AI automation needs rather than their first stated request"
+      ],
+      "competency_ids": [
+        "D4-S1-C01"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ai210-03",
+      "order": 3,
+      "slug": "from-needs-to-requirements-and-success-criteria",
+      "title": "From Needs to Requirements and Success Criteria",
+      "kind": "lesson",
+      "objectives": [
+        "Turn discovery findings into written requirements and success criteria a build can be judged against"
+      ],
+      "competency_ids": [
+        "D4-S1-C01",
+        "D4-S1-C05"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ai210-04",
+      "order": 4,
+      "slug": "rapid-prototyping-with-ai-tools",
+      "title": "Rapid Prototyping with AI Tools",
+      "kind": "lesson",
+      "objectives": [
+        "Produce a low-fidelity prototype of an AI-powered solution quickly and iterate it on evidence"
+      ],
+      "competency_ids": [
+        "D4-S1-C02"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ai210-05",
+      "order": 5,
+      "slug": "ui-ux-patterns-for-ai-powered-products",
+      "title": "UI/UX Patterns for AI-Powered Products",
+      "kind": "lesson",
+      "objectives": [
+        "Apply interface patterns that suit AI's probabilistic behavior, including latency, uncertainty, and error states"
+      ],
+      "competency_ids": [
+        "D4-S1-C03"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ai210-06",
+      "order": 6,
+      "slug": "designing-for-trust-transparency-and-accessibility",
+      "title": "Designing for Trust, Transparency, and Accessibility",
+      "kind": "lesson",
+      "objectives": [
+        "Design AI-powered interfaces for trust, transparency, and accessibility, including disclosure and correction paths"
+      ],
+      "competency_ids": [
+        "D4-S1-C03"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ai210-07",
+      "order": 7,
+      "slug": "feedback-loops-testing-prototypes-with-users",
+      "title": "Feedback Loops: Testing Prototypes with Users",
+      "kind": "lesson",
+      "objectives": [
+        "Plan and run a usability session on an AI prototype and turn the feedback into specific changes"
+      ],
+      "competency_ids": [
+        "D4-S1-C04"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ai210-08",
+      "order": 8,
+      "slug": "stakeholder-alignment-and-handoff",
+      "title": "Stakeholder Alignment and Handoff",
+      "kind": "lesson",
+      "objectives": [
+        "Align stakeholders on an AI solution's goals, trade-offs, and handoff so the build survives contact with the organization"
+      ],
+      "competency_ids": [
+        "D4-S1-C05"
+      ],
+      "hours_estimate": 2,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "INTAKE DEFECT, STATED LOUDLY: the intake record for ai210 carries a description that is a verbatim copy-paste duplicate of ai201's ('Practical hands-on training for creating end-to-end AI-driven workflows. Includes combining APIs, triggers, and AI services to automate repetitive tasks and streamline business processes.'). The importer flagged it as duplicated across ai201 and ai210. That description is NOT evidence of this course's scope and has been ignored entirely. The course NAME in the intake is 'Human-Centered AI Desig' (itself truncated, evidently 'Human-Centered AI Design'), and the pathway catalog's matching domain is D4, 'Human-Centered AI Design & Prototyping'. THIS OUTLINE IS SCOPED FROM THE TITLE AND THE D4 COMPETENCIES ONLY: the UX of AI systems, trust and transparency, feedback loops, accessibility, and responsible design. A reviewer who knows the intended scope should check this outline first, because the intake gives no usable description for this course. Sequence: ai210 is placed after db305 and before ai350 and agile210. It comes after the three build courses because human-centered design is taught here against systems learners can actually build (a discovery conversation about an AI automation is hollow if the apprentice cannot yet estimate what is buildable), and it comes before the capstone because agile210's solution brief, prototype, and demo all use this material. It sits before ai350 so the responsible-design vocabulary introduced here (disclosure, correction paths, transparency) is available when ai350 formalizes it into policy and law. Within the course the order follows a project's own arc: discovery (02), requirements (03), prototype (04), interface design (05 and 06), user feedback (07), stakeholder alignment and handoff (08). Trust, transparency, and accessibility get their own lesson (06) rather than being folded into the general UI/UX lesson because they are the part of AI interface design with no equivalent in conventional software UX, and they are the reason the course exists. The alignment lesson is last and shortest because it is a communication skill applied to work already done. FURTHER SCOPE ASSUMPTIONS: we assume 25 hours means a design-thinking course for practitioners rather than a visual-design or front-end course, so learners produce wireframes and clickable low-fidelity prototypes, not production UI. We assume no design-tool prerequisite, so prototyping is taught tool-neutrally. Accessibility is taught as evaluation against recognized standards at an awareness level; formal accessibility auditing, design systems, brand work, and quantitative UX research (A/B testing, analytics instrumentation) are out of scope. Reviewers should correct these assumptions before content approval.",
+  "proposed_competencies": [
+    {
+      "domain_code": "D4",
+      "subdomain": "D4-S1",
+      "competency_text": "The learner can evaluate an AI-powered interface against recognized accessibility standards (such as WCAG), including how it behaves for assistive-technology users.",
+      "rationale": "Lesson 06 teaches accessibility as a first-class part of human-centered AI design and the pathway's employers ship to public-facing users, but catalog competency D4-S1-C03 says only 'apply UI/UX best practices', which does not name accessibility and would let it be skipped."
+    },
+    {
+      "domain_code": "D4",
+      "subdomain": "D4-S1",
+      "competency_text": "The learner can disclose AI involvement to end users and provide a correction or override path when the system is wrong.",
+      "rationale": "Disclosure and correction are the concrete practices behind lesson 06's trust and transparency material. D6-S1-C04 covers writing responsible-AI policy and D4-S1-C03 covers UI/UX practice, but no catalog competency covers the user-facing disclosure and override design itself."
+    }
+  ],
+  "assets": [
+    {
+      "filename": "prototype-fidelity-ladder.png",
+      "description": "A ladder of prototype fidelity — sketch, wireframe, clickable low-fidelity, wizard of Oz, content prototype, functional slice — with the question each rung answers and its rough cost.",
+      "suggested_source": "Diagram, drawn in-house"
+    },
+    {
+      "filename": "ai-interaction-states.png",
+      "description": "The state model of an AI-powered interaction: idle, submitted, working, streaming, then branching to answered-confident, answered-uncertain, multiple candidates, empty, refused, failed, or interrupted.",
+      "suggested_source": "Diagram, drawn in-house"
+    }
+  ]
+}

@@ -1,0 +1,200 @@
+{
+  "course_id": "sn360",
+  "pathway": "servicenow-implementation-specialist",
+  "title": "Customer Service Management (CSM) Implementation",
+  "description": "This is a competency-based course designed for the indentured ServiceNow Implementation Specialist apprentice. Teaches Customer Service Management (CSM) setup, case management, virtual agents, and customer portals.",
+  "hours": 40,
+  "projects": null,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Model accounts, contacts, consumers, and installed products so cases attach to the right customer",
+    "Configure case types, states, and the case lifecycle so support work follows a defined process",
+    "Configure entitlements and service contracts that drive customer-facing SLAs",
+    "Customize the customer service portal so external customers can serve themselves securely",
+    "Publish customer-facing knowledge with the access controls external users require",
+    "Build a Virtual Agent topic that resolves a common customer request without a human agent",
+    "Automate case routing and assignment using matching rules, queues, and agent capacity",
+    "Integrate CSM with a CRM or support tool and handle synchronization failures safely",
+    "Automate the collection of customer service KPIs and present them on a dashboard"
+  ],
+  "prerequisites": [
+    "sn102 Introduction to ServiceNow Platform",
+    "sn201 Application Development Fundamentals (ADF)",
+    "sn250 Scripting in ServiceNow",
+    "sn290 Service Portal Fundamentals"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "sn360-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn360-02",
+      "order": 2,
+      "slug": "csm-architecture-accounts-contacts-and-products",
+      "title": "CSM Architecture: Accounts, Contacts, and Products",
+      "kind": "lesson",
+      "objectives": [
+        "Model accounts, contacts, consumers, and installed products so cases attach to the right customer"
+      ],
+      "competency_ids": [
+        "D3-S1-C01"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn360-03",
+      "order": 3,
+      "slug": "case-management-configuration",
+      "title": "Case Management Configuration",
+      "kind": "lesson",
+      "objectives": [
+        "Configure case types, states, and the case lifecycle so support work follows a defined process"
+      ],
+      "competency_ids": [
+        "D3-S1-C01"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn360-04",
+      "order": 4,
+      "slug": "entitlements-contracts-and-customer-slas",
+      "title": "Entitlements, Contracts, and Customer SLAs",
+      "kind": "lesson",
+      "objectives": [
+        "Configure entitlements and service contracts that drive customer-facing SLAs"
+      ],
+      "competency_ids": [
+        "D3-S1-C01",
+        "D2-S1-C04"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn360-05",
+      "order": 5,
+      "slug": "the-customer-service-portal",
+      "title": "The Customer Service Portal",
+      "kind": "lesson",
+      "objectives": [
+        "Customize the customer service portal so external customers can serve themselves securely"
+      ],
+      "competency_ids": [
+        "D3-S1-C02",
+        "D6-S1-C01"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn360-06",
+      "order": 6,
+      "slug": "knowledge-and-communities-for-self-service",
+      "title": "Knowledge and Communities for Self-Service",
+      "kind": "lesson",
+      "objectives": [
+        "Publish customer-facing knowledge with the access controls external users require"
+      ],
+      "competency_ids": [
+        "D6-S1-C04"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn360-07",
+      "order": 7,
+      "slug": "virtual-agent-and-conversational-automation",
+      "title": "Virtual Agent and Conversational Automation",
+      "kind": "lesson",
+      "objectives": [
+        "Build a Virtual Agent topic that resolves a common customer request without a human agent"
+      ],
+      "competency_ids": [
+        "D3-S1-C03"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn360-08",
+      "order": 8,
+      "slug": "advanced-work-assignment-and-case-routing",
+      "title": "Advanced Work Assignment and Case Routing",
+      "kind": "lesson",
+      "objectives": [
+        "Automate case routing and assignment using matching rules, queues, and agent capacity"
+      ],
+      "competency_ids": [
+        "D3-S1-C04"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn360-09",
+      "order": 9,
+      "slug": "integrating-csm-with-crm-and-support-tools",
+      "title": "Integrating CSM with CRM and Support Tools",
+      "kind": "lesson",
+      "objectives": [
+        "Integrate CSM with a CRM or support tool and handle synchronization failures safely"
+      ],
+      "competency_ids": [
+        "D3-S1-C05",
+        "D8-S1-C01",
+        "D8-S1-C04"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn360-10",
+      "order": 10,
+      "slug": "measuring-customer-service-performance",
+      "title": "Measuring Customer Service Performance",
+      "kind": "lesson",
+      "objectives": [
+        "Automate the collection of customer service KPIs and present them on a dashboard"
+      ],
+      "competency_ids": [
+        "D9-S1-C01",
+        "D9-S1-C03",
+        "D9-S1-C04"
+      ],
+      "hours_estimate": 2,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn360-11",
+      "order": 11,
+      "slug": "project-implement-a-customer-service-solution",
+      "title": "Project: Implement a Customer Service Solution",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D3-S1-C01",
+        "D3-S1-C02",
+        "D3-S1-C04"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "The intake names CSM setup, case management, virtual agents, and customer portals. Sequencing follows the record chain: a case is meaningless without an account and a contact (2), so the customer data model comes first; the case lifecycle (3) follows; entitlements (4) decide whether that case is even supported and what SLA it earns. The portal (5) and knowledge (6) are the self-service surface, and Virtual Agent (7) is placed immediately after knowledge because a well-built topic deflects to an article. Routing (8) comes once cases exist to route, integration (9) once the internal picture is complete, and measurement (10) last. Scope assumptions, stated because the intake description is one sentence -- and note that trailing spreadsheet-scan boilerplate ('Attachment B-8 Training Schedule and Working Conditions...') was stripped from it at import and contributed nothing to scope: the course is treated as a CSM implementation course at Certified Implementation Specialist -- CSM depth, covering the B2B account and contact model with the B2C consumer model shown as a variation rather than taught twice. Field Service Management, Order Management, and Customer Service Playbooks are excluded; they are separate products the intake does not name. Virtual Agent is taught as topic design in the conversational designer, with predictive intelligence and generative features mentioned as configuration options rather than built, because their behaviour changes between releases and this course is written release-neutral. Portal work assumes sn290: the lesson customizes the shipped customer service portal rather than reteaching widget development. Community is covered at configuration-awareness depth only, since it is a separately licensed application.",
+  "proposed_competencies": [],
+  "assets": []
+}

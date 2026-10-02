@@ -1,0 +1,498 @@
+{
+  "version": 1,
+  "domains": [
+    {
+      "code": "D1",
+      "name": "Prospecting, Outreach & Pipeline Operations",
+      "delivered_weight_percent": 30,
+      "description": "Measures the program's spine: conducting professional outreach at scale, researching and qualifying targets, crafting and testing messages, booking and running informational interviews, operating a CRM pipeline with funnel discipline, and maintaining a skills-first public presence."
+    },
+    {
+      "code": "D2",
+      "name": "Sales Fundamentals",
+      "delivered_weight_percent": 15,
+      "description": "Measures understanding of sales roles and metrics, discovery and qualification technique, objection handling, and reading a personal pipeline as a funnel."
+    },
+    {
+      "code": "D3",
+      "name": "Applied AI & Automation",
+      "delivered_weight_percent": 15,
+      "description": "Measures practical AI skill: structured prompting across leading LLMs, judging output fitness, using AI to accelerate research and personalization without losing accuracy or authenticity, and building simple workflow automations that save measurable time."
+    },
+    {
+      "code": "D4",
+      "name": "Software Development Fundamentals",
+      "delivered_weight_percent": 12,
+      "description": "Measures entry-level programming literacy: core concepts applied to real data tasks, understanding and calling APIs, and version control with Git and GitHub through to a published, documented script."
+    },
+    {
+      "code": "D5",
+      "name": "Digital Marketing Fundamentals",
+      "delivered_weight_percent": 12,
+      "description": "Measures positioning and content strategy, interpreting engagement analytics on real posts, and designing a simple campaign with a clear audience, message, channel, cadence, and metric."
+    },
+    {
+      "code": "D6",
+      "name": "Professional Communication & Career Readiness",
+      "delivered_weight_percent": 16,
+      "description": "Measures evidence-based pathway decision-making, synthesizing work into a portfolio and metrics story, delivering a results presentation, and managing the transition into an apprenticeship with professional assets the participant owns."
+    }
+  ],
+  "subdomains": [
+    {
+      "code": "D1-S1",
+      "domain_code": "D1",
+      "name": "Outreach fundamentals and daily routine",
+      "description": "Writing personalized connection requests and follow-ups and sustaining a daily outreach routine at quota."
+    },
+    {
+      "code": "D1-S2",
+      "domain_code": "D1",
+      "name": "Target research and list building",
+      "description": "Defining ideal contact profiles, researching and qualifying prospects, and mapping multiple contacts inside priority organizations."
+    },
+    {
+      "code": "D1-S3",
+      "domain_code": "D1",
+      "name": "Messaging craft and testing",
+      "description": "Testing message variants against real reply data and adapting tone and ask to the audience."
+    },
+    {
+      "code": "D1-S4",
+      "domain_code": "D1",
+      "name": "Informational interviews",
+      "description": "Converting replies into scheduled conversations and conducting structured informational interviews with useful debriefs."
+    },
+    {
+      "code": "D1-S5",
+      "domain_code": "D1",
+      "name": "CRM and pipeline operations",
+      "description": "Operating a live prospecting pipeline in an industry-standard CRM: stages, prioritization, funnel metrics, and follow-up discipline."
+    },
+    {
+      "code": "D1-S6",
+      "domain_code": "D1",
+      "name": "Personal brand and public presence",
+      "description": "Maintaining a skills-first LinkedIn presence and publishing posts that support outreach goals."
+    },
+    {
+      "code": "D2-S1",
+      "domain_code": "D2",
+      "name": "Sales roles and team metrics",
+      "description": "The SDR/BDR, AE, and sales engineering role landscape and how sales teams are measured."
+    },
+    {
+      "code": "D2-S2",
+      "domain_code": "D2",
+      "name": "Discovery and qualification",
+      "description": "Applying a discovery framework in live conversations and scoring a pipeline against qualification criteria."
+    },
+    {
+      "code": "D2-S3",
+      "domain_code": "D2",
+      "name": "Objection handling",
+      "description": "Recognizing common objections and responding in ways that keep conversations alive without being pushy."
+    },
+    {
+      "code": "D2-S4",
+      "domain_code": "D2",
+      "name": "Funnel analysis and pipeline discipline",
+      "description": "Analyzing a personal pipeline as a funnel, spotting stage-conversion problems, and presenting findings."
+    },
+    {
+      "code": "D3-S1",
+      "domain_code": "D3",
+      "name": "Structured prompting across LLMs",
+      "description": "Prompting Claude and ChatGPT with structure, comparing model outputs, and judging fitness for purpose."
+    },
+    {
+      "code": "D3-S2",
+      "domain_code": "D3",
+      "name": "AI-assisted research and personalization",
+      "description": "Using AI to accelerate prospect research and message personalization while critiquing drafts for accuracy and authenticity."
+    },
+    {
+      "code": "D3-S3",
+      "domain_code": "D3",
+      "name": "Workflow automation",
+      "description": "Designing and building a working automation that saves measurable time in a real workflow."
+    },
+    {
+      "code": "D4-S1",
+      "domain_code": "D4",
+      "name": "Programming concepts through real tasks",
+      "description": "Core programming concepts — variables, functions, loops, data structures — applied to practical contact-list tasks in TypeScript."
+    },
+    {
+      "code": "D4-S2",
+      "domain_code": "D4",
+      "name": "Data and APIs",
+      "description": "What APIs are and using a script to pull and transform real pipeline data."
+    },
+    {
+      "code": "D4-S3",
+      "domain_code": "D4",
+      "name": "Version control and shipping",
+      "description": "Git fundamentals and publishing working code to GitHub with a plain-language README."
+    },
+    {
+      "code": "D5-S1",
+      "domain_code": "D5",
+      "name": "Positioning and content strategy",
+      "description": "Crafting a positioning statement and deconstructing high-performing content into hook, structure, and call to action."
+    },
+    {
+      "code": "D5-S2",
+      "domain_code": "D5",
+      "name": "Analytics and attribution",
+      "description": "Interpreting impressions and engagement on real posts and identifying what actually generated conversations."
+    },
+    {
+      "code": "D5-S3",
+      "domain_code": "D5",
+      "name": "Campaign thinking",
+      "description": "Designing a simple campaign: audience, message, channel, cadence, and success metric."
+    },
+    {
+      "code": "D6-S1",
+      "domain_code": "D6",
+      "name": "Pathway decision-making",
+      "description": "Evaluating pathway fit using rotation performance, reflections, interview intelligence, and coach input, and justifying the choice in writing."
+    },
+    {
+      "code": "D6-S2",
+      "domain_code": "D6",
+      "name": "Portfolio and metrics storytelling",
+      "description": "Synthesizing weeks of pipeline data into a metrics story, a personal playbook, and a portfolio of best artifacts."
+    },
+    {
+      "code": "D6-S3",
+      "domain_code": "D6",
+      "name": "Presentation craft",
+      "description": "Building, rehearsing, and delivering a short results presentation and giving structured peer feedback."
+    },
+    {
+      "code": "D6-S4",
+      "domain_code": "D6",
+      "name": "Career transition and professional assets",
+      "description": "Apprenticeship application with portfolio evidence, resume and LinkedIn updates with real results, a 30-day transition plan, and ownership of the network and data built during the program."
+    }
+  ],
+  "competencies": [
+    {
+      "id": "D1-S1-C01",
+      "subdomain_code": "D1-S1",
+      "domain_code": "D1",
+      "statement": "The learner can write a personalized connection request and follow-up sequence tailored to a specific contact.",
+      "description": "Demonstrated by selecting or composing outreach messages that reference the contact's context and make a clear, low-friction ask, rather than generic blasts."
+    },
+    {
+      "id": "D1-S1-C02",
+      "subdomain_code": "D1-S1",
+      "domain_code": "D1",
+      "statement": "The learner can execute and sustain a daily outreach routine at quota with disciplined follow-up timing.",
+      "description": "Demonstrated by sequencing a daily send/follow-up/log routine and choosing appropriate follow-up cadence when contacts do not reply."
+    },
+    {
+      "id": "D1-S2-C01",
+      "subdomain_code": "D1-S2",
+      "domain_code": "D1",
+      "statement": "The learner can define an ideal contact profile and qualify prospects against it.",
+      "description": "Demonstrated by distinguishing high-fit from low-fit prospects using role, company, and relevance criteria before spending outreach effort."
+    },
+    {
+      "id": "D1-S2-C02",
+      "subdomain_code": "D1-S2",
+      "domain_code": "D1",
+      "statement": "The learner can map multiple contacts inside a priority organization to build redundancy into an account.",
+      "description": "Demonstrated by identifying 2-3 relevant roles inside a target employer and explaining why multi-threading an account beats a single contact."
+    },
+    {
+      "id": "D1-S3-C01",
+      "subdomain_code": "D1-S3",
+      "domain_code": "D1",
+      "statement": "The learner can test message variants against real reply data and keep the better performer.",
+      "description": "Demonstrated by setting up a simple A/B comparison, reading reply-rate evidence correctly, and avoiding conclusions from tiny samples."
+    },
+    {
+      "id": "D1-S3-C02",
+      "subdomain_code": "D1-S3",
+      "domain_code": "D1",
+      "statement": "The learner can adapt message tone and ask to different audiences.",
+      "description": "Demonstrated by matching formality, length, and the size of the ask to the recipient's seniority and relationship stage."
+    },
+    {
+      "id": "D1-S4-C01",
+      "subdomain_code": "D1-S4",
+      "domain_code": "D1",
+      "statement": "The learner can convert a positive reply into a scheduled conversation.",
+      "description": "Demonstrated by responding to interest with concrete times, a calendar link, and a confirmed meeting rather than an open-ended thread."
+    },
+    {
+      "id": "D1-S4-C02",
+      "subdomain_code": "D1-S4",
+      "domain_code": "D1",
+      "statement": "The learner can conduct a structured 20-minute informational interview and debrief it usefully.",
+      "description": "Demonstrated by ordering an interview's phases (rapport, prepared questions, insight capture, next-step ask, thank-you) and extracting actionable intelligence afterward."
+    },
+    {
+      "id": "D1-S5-C01",
+      "subdomain_code": "D1-S5",
+      "domain_code": "D1",
+      "statement": "The learner can operate a CRM pipeline: stage contacts correctly and prioritize the next action.",
+      "description": "Demonstrated by placing contacts in the right funnel stage, flagging priority accounts, and choosing the highest-value next activity from a working pipeline."
+    },
+    {
+      "id": "D1-S5-C02",
+      "subdomain_code": "D1-S5",
+      "domain_code": "D1",
+      "statement": "The learner can read basic funnel metrics from a CRM and act on them.",
+      "description": "Demonstrated by interpreting counts and conversion between stages and identifying where follow-up discipline is slipping."
+    },
+    {
+      "id": "D1-S6-C01",
+      "subdomain_code": "D1-S6",
+      "domain_code": "D1",
+      "statement": "The learner can maintain a skills-first public profile that supports active outreach.",
+      "description": "Demonstrated by choosing profile content that leads with demonstrable skills and work products, aligned with the outreach the contact will receive."
+    },
+    {
+      "id": "D1-S6-C02",
+      "subdomain_code": "D1-S6",
+      "domain_code": "D1",
+      "statement": "The learner can publish public posts that reinforce outreach goals.",
+      "description": "Demonstrated by selecting post topics and timing that give prospects evidence of skill and momentum when they check the sender's profile."
+    },
+    {
+      "id": "D2-S1-C01",
+      "subdomain_code": "D2-S1",
+      "domain_code": "D2",
+      "statement": "The learner can distinguish SDR/BDR, AE, and sales engineering roles and what each is responsible for.",
+      "description": "Demonstrated by matching responsibilities like prospecting, closing, and technical validation to the correct role."
+    },
+    {
+      "id": "D2-S1-C02",
+      "subdomain_code": "D2-S1",
+      "domain_code": "D2",
+      "statement": "The learner can explain how sales teams are measured and how metrics shape behavior.",
+      "description": "Demonstrated by relating metrics such as meetings booked, pipeline created, and quota attainment to the role that owns them."
+    },
+    {
+      "id": "D2-S2-C01",
+      "subdomain_code": "D2-S2",
+      "domain_code": "D2",
+      "statement": "The learner can apply a discovery framework to structure a qualification conversation.",
+      "description": "Demonstrated by choosing open discovery questions that surface need, authority, and timing rather than pitching features."
+    },
+    {
+      "id": "D2-S2-C02",
+      "subdomain_code": "D2-S2",
+      "domain_code": "D2",
+      "statement": "The learner can score pipeline contacts against qualification criteria.",
+      "description": "Demonstrated by applying explicit criteria to decide which conversations deserve continued investment and which should be deprioritized."
+    },
+    {
+      "id": "D2-S3-C01",
+      "subdomain_code": "D2-S3",
+      "domain_code": "D2",
+      "statement": "The learner can respond to common objections in ways that keep the conversation alive.",
+      "description": "Demonstrated by selecting responses that acknowledge, explore, and reframe objections such as no-time, no-budget, or send-me-an-email."
+    },
+    {
+      "id": "D2-S4-C01",
+      "subdomain_code": "D2-S4",
+      "domain_code": "D2",
+      "statement": "The learner can analyze a personal pipeline as a funnel and identify the weakest conversion stage.",
+      "description": "Demonstrated by computing stage-to-stage conversion from raw counts and locating where prospects stall."
+    },
+    {
+      "id": "D2-S4-C02",
+      "subdomain_code": "D2-S4",
+      "domain_code": "D2",
+      "statement": "The learner can present funnel findings and a corrective plan.",
+      "description": "Demonstrated by pairing an observed funnel weakness with a plausible corrective action, such as changing messaging at the stalled stage."
+    },
+    {
+      "id": "D3-S1-C01",
+      "subdomain_code": "D3-S1",
+      "domain_code": "D3",
+      "statement": "The learner can write a structured prompt with role, context, task, and output format.",
+      "description": "Demonstrated by composing or selecting prompts whose structure reliably produces the intended output versus vague single-line asks."
+    },
+    {
+      "id": "D3-S1-C02",
+      "subdomain_code": "D3-S1",
+      "domain_code": "D3",
+      "statement": "The learner can compare outputs across models and judge fitness for purpose.",
+      "description": "Demonstrated by evaluating two model responses against task requirements and choosing based on accuracy and fit rather than fluency alone."
+    },
+    {
+      "id": "D3-S2-C01",
+      "subdomain_code": "D3-S2",
+      "domain_code": "D3",
+      "statement": "The learner can use AI to accelerate prospect research and message personalization.",
+      "description": "Demonstrated by choosing effective AI workflows for research summarization and draft personalization that save time over manual work."
+    },
+    {
+      "id": "D3-S2-C02",
+      "subdomain_code": "D3-S2",
+      "domain_code": "D3",
+      "statement": "The learner can critique AI-drafted outreach for accuracy and authenticity before sending.",
+      "description": "Demonstrated by catching fabricated details, generic filler, and off-tone phrasing in AI drafts and knowing what must be verified."
+    },
+    {
+      "id": "D3-S3-C01",
+      "subdomain_code": "D3-S3",
+      "domain_code": "D3",
+      "statement": "The learner can identify a repetitive workflow step worth automating.",
+      "description": "Demonstrated by selecting automation candidates by frequency, time cost, and rule-based repeatability."
+    },
+    {
+      "id": "D3-S3-C02",
+      "subdomain_code": "D3-S3",
+      "domain_code": "D3",
+      "statement": "The learner can design a simple automation and estimate the time it saves.",
+      "description": "Demonstrated by decomposing a workflow into trigger, steps, and output, and producing a defensible time-saved estimate."
+    },
+    {
+      "id": "D4-S1-C01",
+      "subdomain_code": "D4-S1",
+      "domain_code": "D4",
+      "statement": "The learner can apply variables, functions, loops, and basic data structures to a practical data task.",
+      "description": "Demonstrated by reading or completing short TypeScript snippets that filter, count, or transform contact-list data."
+    },
+    {
+      "id": "D4-S1-C02",
+      "subdomain_code": "D4-S1",
+      "domain_code": "D4",
+      "statement": "The learner can trace what a short program does and predict its output.",
+      "description": "Demonstrated by stepping through simple control flow and array operations without running the code."
+    },
+    {
+      "id": "D4-S2-C01",
+      "subdomain_code": "D4-S2",
+      "domain_code": "D4",
+      "statement": "The learner can explain what an API is and what a request/response exchange contains.",
+      "description": "Demonstrated by identifying the roles of endpoint, request, response, and status in plain terms."
+    },
+    {
+      "id": "D4-S2-C02",
+      "subdomain_code": "D4-S2",
+      "domain_code": "D4",
+      "statement": "The learner can use a script to pull and transform data from a source such as a CRM export.",
+      "description": "Demonstrated by ordering fetch-parse-transform-output steps and recognizing what a given transformation does to real records."
+    },
+    {
+      "id": "D4-S3-C01",
+      "subdomain_code": "D4-S3",
+      "domain_code": "D4",
+      "statement": "The learner can use Git fundamentals to save and share work in versioned steps.",
+      "description": "Demonstrated by sequencing init/add/commit/push correctly and explaining what a commit represents."
+    },
+    {
+      "id": "D4-S3-C02",
+      "subdomain_code": "D4-S3",
+      "domain_code": "D4",
+      "statement": "The learner can publish working code to GitHub with a plain-language README.",
+      "description": "Demonstrated by identifying what a README must contain for a non-expert to understand and run the project."
+    },
+    {
+      "id": "D5-S1-C01",
+      "subdomain_code": "D5-S1",
+      "domain_code": "D5",
+      "statement": "The learner can craft a positioning statement for a specific audience.",
+      "description": "Demonstrated by selecting or composing statements that name the audience, the value offered, and the differentiator without jargon."
+    },
+    {
+      "id": "D5-S1-C02",
+      "subdomain_code": "D5-S1",
+      "domain_code": "D5",
+      "statement": "The learner can deconstruct high-performing content into hook, structure, and call to action.",
+      "description": "Demonstrated by identifying which element of a post drives attention, retention, and response, and why."
+    },
+    {
+      "id": "D5-S2-C01",
+      "subdomain_code": "D5-S2",
+      "domain_code": "D5",
+      "statement": "The learner can interpret impressions and engagement metrics on real posts.",
+      "description": "Demonstrated by reading a set of post metrics and distinguishing reach from engagement from conversation-generating performance."
+    },
+    {
+      "id": "D5-S2-C02",
+      "subdomain_code": "D5-S2",
+      "domain_code": "D5",
+      "statement": "The learner can attribute outcomes to content and identify what actually generated conversations.",
+      "description": "Demonstrated by connecting replies and booked meetings back to the content or activity that caused them, resisting vanity-metric conclusions."
+    },
+    {
+      "id": "D5-S3-C01",
+      "subdomain_code": "D5-S3",
+      "domain_code": "D5",
+      "statement": "The learner can design a simple campaign with audience, message, channel, cadence, and metric.",
+      "description": "Demonstrated by assembling a coherent mini-campaign plan where each element supports a stated goal such as event turnout."
+    },
+    {
+      "id": "D6-S1-C01",
+      "subdomain_code": "D6-S1",
+      "domain_code": "D6",
+      "statement": "The learner can evaluate pathway fit using evidence from rotations, reflections, and coach input.",
+      "description": "Demonstrated by weighing performance signals against preference and market evidence rather than choosing on enthusiasm alone."
+    },
+    {
+      "id": "D6-S1-C02",
+      "subdomain_code": "D6-S1",
+      "domain_code": "D6",
+      "statement": "The learner can justify a pathway choice in writing with specific evidence.",
+      "description": "Demonstrated by recognizing a well-evidenced justification versus one built on generic claims."
+    },
+    {
+      "id": "D6-S2-C01",
+      "subdomain_code": "D6-S2",
+      "domain_code": "D6",
+      "statement": "The learner can synthesize weeks of pipeline data into a coherent metrics story.",
+      "description": "Demonstrated by selecting the metrics and narrative arc that honestly represent effort, learning, and results over time."
+    },
+    {
+      "id": "D6-S2-C02",
+      "subdomain_code": "D6-S2",
+      "domain_code": "D6",
+      "statement": "The learner can assemble a portfolio of best artifacts with a personal playbook.",
+      "description": "Demonstrated by choosing artifacts that evidence each claimed skill and documenting a repeatable personal process."
+    },
+    {
+      "id": "D6-S3-C01",
+      "subdomain_code": "D6-S3",
+      "domain_code": "D6",
+      "statement": "The learner can structure a short results presentation for a mixed audience.",
+      "description": "Demonstrated by ordering problem, approach, evidence, and ask for a 7-10 minute presentation to staff and employer partners."
+    },
+    {
+      "id": "D6-S3-C02",
+      "subdomain_code": "D6-S3",
+      "domain_code": "D6",
+      "statement": "The learner can give and use structured peer feedback to improve a presentation.",
+      "description": "Demonstrated by applying specific, actionable feedback criteria rather than generic praise or criticism."
+    },
+    {
+      "id": "D6-S4-C01",
+      "subdomain_code": "D6-S4",
+      "domain_code": "D6",
+      "statement": "The learner can update professional assets — resume and LinkedIn — with real, verifiable results.",
+      "description": "Demonstrated by converting program outcomes into concrete, quantified statements a recruiter can check."
+    },
+    {
+      "id": "D6-S4-C02",
+      "subdomain_code": "D6-S4",
+      "domain_code": "D6",
+      "statement": "The learner can build a 30-day transition plan into an apprenticeship.",
+      "description": "Demonstrated by sequencing application, network follow-up, and skill-maintenance actions with realistic milestones."
+    },
+    {
+      "id": "D6-S4-C03",
+      "subdomain_code": "D6-S4",
+      "domain_code": "D6",
+      "statement": "The learner can verify ownership and portability of the network and data built during the program.",
+      "description": "Demonstrated by knowing what to export and retain — CRM data, LinkedIn connections, content — so the professional network remains theirs."
+    }
+  ]
+}

@@ -1,0 +1,160 @@
+{
+  "course_id": "se203",
+  "pathway": "technical-sales-representative",
+  "title": "Sales Negotiation & Closing Tactics",
+  "description": "This is a competency-based course designed for the indentured Technical Sales Representative apprentice. Participants will focus on negotiation strategies, handling objections, and closing deals with confidence.",
+  "hours": 40,
+  "projects": null,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Run a SPIN-structured discovery conversation that surfaces implication and need-payoff",
+    "Apply the Sandler method's rapport-building, up-front contract, and pain funnel in a live conversation",
+    "Diagnose an objection before answering it, and choose a response that keeps the deal on merit",
+    "Deliver a commercial insight that reframes how the buyer sees their own situation",
+    "Plan anchors, concessions, and trades for a pricing discussion before it starts",
+    "Negotiate non-price contract terms without giving away margin",
+    "Close on a mutual action plan with named owners and dates"
+  ],
+  "prerequisites": [
+    "Introduction to Sales (se101), or equivalent sales fundamentals",
+    "Advanced SaaS Sales Strategies (se201), for the pricing and unit-economics vocabulary"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "se203-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "se203-02",
+      "order": 2,
+      "slug": "consultative-discovery-with-spin",
+      "title": "Consultative Discovery with SPIN",
+      "kind": "lesson",
+      "objectives": [
+        "Run a SPIN-structured discovery conversation that surfaces implication and need-payoff"
+      ],
+      "competency_ids": [
+        "D1-S1-C04"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "se203-03",
+      "order": 3,
+      "slug": "the-sandler-method-rapport-pain-and-up-front-contracts",
+      "title": "The Sandler Method: Rapport, Pain, and Up-Front Contracts",
+      "kind": "lesson",
+      "objectives": [
+        "Apply the Sandler method's rapport-building, up-front contract, and pain funnel in a live conversation"
+      ],
+      "competency_ids": [
+        "D1-S1-C03"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "se203-04",
+      "order": 4,
+      "slug": "objection-handling-diagnose-before-you-answer",
+      "title": "Objection Handling: Diagnose Before You Answer",
+      "kind": "lesson",
+      "objectives": [
+        "Diagnose an objection before answering it, and choose a response that keeps the deal on merit"
+      ],
+      "competency_ids": [
+        "D2-S1-C01"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "se203-05",
+      "order": 5,
+      "slug": "commercial-insight-and-reframing",
+      "title": "Commercial Insight and Reframing",
+      "kind": "lesson",
+      "objectives": [
+        "Deliver a commercial insight that reframes how the buyer sees their own situation"
+      ],
+      "competency_ids": [
+        "D2-S1-C03"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "se203-06",
+      "order": 6,
+      "slug": "pricing-strategy-anchors-concessions-and-trades",
+      "title": "Pricing Strategy: Anchors, Concessions, and Trades",
+      "kind": "lesson",
+      "objectives": [
+        "Plan anchors, concessions, and trades for a pricing discussion before it starts"
+      ],
+      "competency_ids": [
+        "D2-S1-C02"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "se203-07",
+      "order": 7,
+      "slug": "negotiating-contract-terms-beyond-price",
+      "title": "Negotiating Contract Terms Beyond Price",
+      "kind": "lesson",
+      "objectives": [
+        "Negotiate non-price contract terms without giving away margin"
+      ],
+      "competency_ids": [
+        "D2-S1-C02"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "se203-08",
+      "order": 8,
+      "slug": "closing-and-mutual-action-plans",
+      "title": "Closing and Mutual Action Plans",
+      "kind": "lesson",
+      "objectives": [
+        "Close on a mutual action plan with named owners and dates"
+      ],
+      "competency_ids": [
+        "D2-S1-C05"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "se203-09",
+      "order": 9,
+      "slug": "project-live-negotiation-simulation",
+      "title": "Project: Live Negotiation Simulation",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D2-S1-C01",
+        "D2-S1-C02",
+        "D2-S1-C05"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Negotiation is downstream of discovery, so the two named methodologies come first: a rep who has not established pain (SPIN, Sandler) has nothing to negotiate with and will concede on price by default. Objection handling (4) and reframing (5) then precede commercial terms (6–7), because both are the tools that keep a deal on value rather than on discount; closing (8) is last because it is the act of banking everything before it, and the simulation (9) is the only place the whole chain runs live. SCOPE ASSUMPTIONS: the intake gives one sentence — negotiation strategies, handling objections, closing with confidence — for 40 hours, the pathway's joint-largest course, so the block had to be widened deliberately. The consultative-discovery block (lessons 2–3, 10 of the 40 hours) is a scope decision, not an intake instruction: the pathway catalog contains D1-S1-C03 (Sandler) and D1-S1-C04 (SPIN) and no other course in the pathway is a plausible home for them, so this course adopts them as the foundation the negotiation half stands on. A reviewer who disagrees should move lessons 2–3 into se101 or se201 and re-balance hours. Also assumed: pricing and contract work is B2B SaaS subscription-shaped (term, seats, ramp, discount schedule), legal review is out of scope, and multi-threading a complex buying committee is only touched inside the mutual action plan rather than taught as its own unit.",
+  "proposed_competencies": [],
+  "assets": []
+}

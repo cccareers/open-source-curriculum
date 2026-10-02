@@ -1,0 +1,490 @@
+{
+  "version": 1,
+  "domains": [
+    {
+      "code": "D1",
+      "name": "Communication, Relationships & Cultural Humility",
+      "delivered_weight_percent": 30,
+      "description": "Measures the interpersonal core of CHW practice: plain-language health communication, active listening and comprehension checks, trust and rapport with professional boundaries, motivational interviewing, and cultural responsiveness and humility in every client interaction."
+    },
+    {
+      "code": "D2",
+      "name": "Outreach & Service Navigation",
+      "delivered_weight_percent": 20,
+      "description": "Measures connecting people to care: field-based outreach to communities with historical mistrust of systems, matching client needs to community resources, referrals and follow-up, resource directories, and coordinating care across providers and agencies."
+    },
+    {
+      "code": "D3",
+      "name": "Education & Capacity Building",
+      "delivered_weight_percent": 20,
+      "description": "Measures teaching and empowerment: delivering culturally and literacy-appropriate health education, facilitating participatory group learning, conveying evidence-based information without bias, and building client and community capacity toward independence."
+    },
+    {
+      "code": "D4",
+      "name": "Advocacy & Assessment",
+      "delivered_weight_percent": 15,
+      "description": "Measures speaking up and seeing clearly: individual and systems-level advocacy, coaching clients toward self-advocacy, structured and informal needs assessment, identifying social determinants of health, and recognizing community assets alongside gaps."
+    },
+    {
+      "code": "D5",
+      "name": "Professional Practice, Ethics & Evaluation",
+      "delivered_weight_percent": 15,
+      "description": "Measures the professional foundation: confidentiality, documentation accuracy and timeliness, boundary management and supervision, reliability, mandated reporting, program data collection, and understanding evaluation — outputs versus outcomes and data quality."
+    }
+  ],
+  "subdomains": [
+    {
+      "code": "D1-S1",
+      "domain_code": "D1",
+      "name": "Communication",
+      "description": "Plain-language explanation, active listening, comprehension confirmation, adapting communication mode, and empathetic non-judgmental language."
+    },
+    {
+      "code": "D1-S2",
+      "domain_code": "D1",
+      "name": "Interpersonal and relationship building",
+      "description": "Trust through consistency and follow-through, motivational interviewing, working with ambivalence, professional boundaries with genuine rapport, and reading emotional cues."
+    },
+    {
+      "code": "D1-S3",
+      "domain_code": "D1",
+      "name": "Cultural responsiveness and humility",
+      "description": "Awareness of one's own cultural identity and biases, understanding each client's values without assumptions, culturally adapting services, language access, and ongoing self-reflection."
+    },
+    {
+      "code": "D2-S1",
+      "domain_code": "D2",
+      "name": "Service coordination and navigation",
+      "description": "Matching needs to resources, helping clients schedule and complete referrals, follow-up to confirm connection, resource directories, and multi-agency care coordination."
+    },
+    {
+      "code": "D2-S2",
+      "domain_code": "D2",
+      "name": "Outreach",
+      "description": "Field-based engagement where people live, work, and gather; trust-building with populations that mistrust systems; motivating enrollment; overcoming outreach barriers; and accurate contact tracking."
+    },
+    {
+      "code": "D3-S1",
+      "domain_code": "D3",
+      "name": "Education and facilitation",
+      "description": "Culture- and literacy-appropriate health education, participatory group facilitation, unbiased evidence-based content, real-time delivery adjustment, and evaluating whether sessions met objectives."
+    },
+    {
+      "code": "D3-S2",
+      "domain_code": "D3",
+      "name": "Capacity building",
+      "description": "Teaching independence skills, strengths-based practice, facilitating community participation, supporting client-owned goals, and stepping back as capacity grows."
+    },
+    {
+      "code": "D4-S1",
+      "domain_code": "D4",
+      "name": "Advocacy",
+      "description": "Speaking up for clients facing barriers, surfacing systemic issues to supervisors, coaching self-advocacy, documenting service gaps and inequities, and representing client interests in community settings."
+    },
+    {
+      "code": "D4-S2",
+      "domain_code": "D4",
+      "name": "Individual and community assessment",
+      "description": "Structured and informal needs assessment, identifying social determinants of health, clear and confidential documentation of findings, triaging immediate versus long-term needs, and mapping community assets."
+    },
+    {
+      "code": "D5-S1",
+      "domain_code": "D5",
+      "name": "Professional skills and ethical conduct",
+      "description": "Confidentiality across all channels, accurate and timely documentation, boundary management with supervision, reliability, and mandated reporting."
+    },
+    {
+      "code": "D5-S2",
+      "domain_code": "D5",
+      "name": "Evaluation and research",
+      "description": "Accurate program data collection, understanding metrics and their purpose, participating in evaluation activities, outputs versus outcomes, and flagging data quality issues."
+    }
+  ],
+  "competencies": [
+    {
+      "id": "D1-S1-C01",
+      "subdomain_code": "D1-S1",
+      "domain_code": "D1",
+      "statement": "The learner can explain health information using plain, jargon-free language appropriate to the client's literacy level.",
+      "description": "Demonstrated by choosing wording a client can act on and recognizing when medical jargon or reading level blocks understanding."
+    },
+    {
+      "id": "D1-S1-C02",
+      "subdomain_code": "D1-S1",
+      "domain_code": "D1",
+      "statement": "The learner can use active listening techniques — eye contact, paraphrasing, open-ended questions — during client interactions.",
+      "description": "Demonstrated by selecting listening behaviors that draw the client out rather than closed questions or premature advice."
+    },
+    {
+      "id": "D1-S1-C03",
+      "subdomain_code": "D1-S1",
+      "domain_code": "D1",
+      "statement": "The learner can confirm client understanding by asking the client to restate key information.",
+      "description": "Demonstrated by applying teach-back correctly and distinguishing it from simply asking \"do you understand?\"."
+    },
+    {
+      "id": "D1-S1-C04",
+      "subdomain_code": "D1-S1",
+      "domain_code": "D1",
+      "statement": "The learner can adapt communication style — verbal, written, visual — based on client needs and preferences.",
+      "description": "Demonstrated by matching the communication mode to the client's literacy, language, sensory, and situational needs."
+    },
+    {
+      "id": "D1-S1-C05",
+      "subdomain_code": "D1-S1",
+      "domain_code": "D1",
+      "statement": "The learner can demonstrate empathy and non-judgmental language when discussing sensitive topics.",
+      "description": "Demonstrated by choosing responses that normalize and support rather than shame, lecture, or minimize."
+    },
+    {
+      "id": "D1-S2-C01",
+      "subdomain_code": "D1-S2",
+      "domain_code": "D1",
+      "statement": "The learner can establish trust with clients through consistent, respectful, follow-through behavior.",
+      "description": "Demonstrated by recognizing that kept commitments and reliability, not credentials, build trust with clients."
+    },
+    {
+      "id": "D1-S2-C02",
+      "subdomain_code": "D1-S2",
+      "domain_code": "D1",
+      "statement": "The learner can use motivational interviewing techniques: reflective listening, affirmations, and change talk.",
+      "description": "Demonstrated by identifying and applying MI responses that evoke the client's own motivation rather than directing."
+    },
+    {
+      "id": "D1-S2-C03",
+      "subdomain_code": "D1-S2",
+      "domain_code": "D1",
+      "statement": "The learner can identify and address client ambivalence toward behavior change without directing or pressuring.",
+      "description": "Demonstrated by rolling with ambivalence, exploring both sides, and avoiding the righting reflex."
+    },
+    {
+      "id": "D1-S2-C04",
+      "subdomain_code": "D1-S2",
+      "domain_code": "D1",
+      "statement": "The learner can maintain appropriate professional boundaries while building genuine rapport.",
+      "description": "Demonstrated by distinguishing warmth from over-involvement, such as gifts, personal loans, or off-hours contact."
+    },
+    {
+      "id": "D1-S2-C05",
+      "subdomain_code": "D1-S2",
+      "domain_code": "D1",
+      "statement": "The learner can recognize and respond appropriately to client emotional cues and body language.",
+      "description": "Demonstrated by noticing nonverbal signals of distress, withdrawal, or discomfort and adjusting the interaction."
+    },
+    {
+      "id": "D1-S3-C01",
+      "subdomain_code": "D1-S3",
+      "domain_code": "D1",
+      "statement": "The learner can demonstrate awareness of their own cultural identity, biases, and how these affect client interactions.",
+      "description": "Demonstrated by recognizing bias in scenarios and describing how the CHW's own lens shapes what they assume."
+    },
+    {
+      "id": "D1-S3-C02",
+      "subdomain_code": "D1-S3",
+      "domain_code": "D1",
+      "statement": "The learner can seek to understand each client's cultural values, beliefs, and practices without making assumptions.",
+      "description": "Demonstrated by asking rather than assuming, and avoiding stereotype-based service decisions."
+    },
+    {
+      "id": "D1-S3-C03",
+      "subdomain_code": "D1-S3",
+      "domain_code": "D1",
+      "statement": "The learner can adapt services — education, outreach, navigation — to reflect the cultural context of the population served.",
+      "description": "Demonstrated by adjusting materials, examples, settings, and messengers to fit the community's cultural context."
+    },
+    {
+      "id": "D1-S3-C04",
+      "subdomain_code": "D1-S3",
+      "domain_code": "D1",
+      "statement": "The learner can use language access resources — interpretation and translation — appropriately and consistently.",
+      "description": "Demonstrated by choosing qualified interpretation over ad-hoc solutions like family members, especially children."
+    },
+    {
+      "id": "D1-S3-C05",
+      "subdomain_code": "D1-S3",
+      "domain_code": "D1",
+      "statement": "The learner can commit to ongoing self-reflection and learning about cultures represented in the service community.",
+      "description": "Demonstrated by treating cultural humility as continuous practice rather than a completed training."
+    },
+    {
+      "id": "D2-S1-C01",
+      "subdomain_code": "D2-S1",
+      "domain_code": "D2",
+      "statement": "The learner can accurately identify client needs and match them to appropriate community resources.",
+      "description": "Demonstrated by selecting the resource that fits the client's actual need, eligibility, and access constraints."
+    },
+    {
+      "id": "D2-S1-C02",
+      "subdomain_code": "D2-S1",
+      "domain_code": "D2",
+      "statement": "The learner can assist clients in scheduling appointments, completing referral forms, and navigating systems.",
+      "description": "Demonstrated by walking a client through concrete navigation steps while building their ability to do it themselves."
+    },
+    {
+      "id": "D2-S1-C03",
+      "subdomain_code": "D2-S1",
+      "domain_code": "D2",
+      "statement": "The learner can follow up on referrals to confirm client connection and address barriers.",
+      "description": "Demonstrated by treating a referral as complete only when the client connected, and troubleshooting when they did not."
+    },
+    {
+      "id": "D2-S1-C04",
+      "subdomain_code": "D2-S1",
+      "domain_code": "D2",
+      "statement": "The learner can maintain a current, organized resource directory relevant to the service population.",
+      "description": "Demonstrated by keeping resource information verified and current rather than passing on stale or wrong details."
+    },
+    {
+      "id": "D2-S1-C05",
+      "subdomain_code": "D2-S1",
+      "domain_code": "D2",
+      "statement": "The learner can coordinate care across multiple providers or agencies on behalf of the client.",
+      "description": "Demonstrated by sequencing communication among providers, with consent, so services connect instead of duplicating."
+    },
+    {
+      "id": "D2-S2-C01",
+      "subdomain_code": "D2-S2",
+      "domain_code": "D2",
+      "statement": "The learner can engage community members in settings where they live, work, or gather.",
+      "description": "Demonstrated by choosing field-based engagement approaches suited to the setting and population."
+    },
+    {
+      "id": "D2-S2-C02",
+      "subdomain_code": "D2-S2",
+      "domain_code": "D2",
+      "statement": "The learner can use trust-building strategies appropriate for populations with historical mistrust of systems.",
+      "description": "Demonstrated by recognizing why mistrust is reasonable and selecting approaches that earn credibility over time."
+    },
+    {
+      "id": "D2-S2-C03",
+      "subdomain_code": "D2-S2",
+      "domain_code": "D2",
+      "statement": "The learner can communicate program offerings clearly and motivate eligible individuals to enroll or engage.",
+      "description": "Demonstrated by framing benefits concretely and honestly without overpromising or pressuring."
+    },
+    {
+      "id": "D2-S2-C04",
+      "subdomain_code": "D2-S2",
+      "domain_code": "D2",
+      "statement": "The learner can overcome common outreach barriers — language, transportation, mistrust — with appropriate strategies.",
+      "description": "Demonstrated by matching a barrier to a workable strategy rather than treating non-engagement as client failure."
+    },
+    {
+      "id": "D2-S2-C05",
+      "subdomain_code": "D2-S2",
+      "domain_code": "D2",
+      "statement": "The learner can track outreach contacts, encounters, and follow-ups accurately in program records.",
+      "description": "Demonstrated by recording encounters completely and promptly so the program's outreach picture stays true."
+    },
+    {
+      "id": "D3-S1-C01",
+      "subdomain_code": "D3-S1",
+      "domain_code": "D3",
+      "statement": "The learner can deliver health education using materials and methods appropriate to the audience's culture and literacy.",
+      "description": "Demonstrated by selecting materials and delivery methods that fit the audience rather than defaulting to clinical handouts."
+    },
+    {
+      "id": "D3-S1-C02",
+      "subdomain_code": "D3-S1",
+      "domain_code": "D3",
+      "statement": "The learner can facilitate group learning sessions using participatory techniques — discussion, role-play, Q&A.",
+      "description": "Demonstrated by choosing facilitation moves that make participants active contributors rather than passive listeners."
+    },
+    {
+      "id": "D3-S1-C03",
+      "subdomain_code": "D3-S1",
+      "domain_code": "D3",
+      "statement": "The learner can accurately convey evidence-based health information without adding personal bias.",
+      "description": "Demonstrated by separating evidence from opinion and referring questions beyond CHW scope to licensed providers."
+    },
+    {
+      "id": "D3-S1-C04",
+      "subdomain_code": "D3-S1",
+      "domain_code": "D3",
+      "statement": "The learner can adjust content delivery in real time based on participant response or comprehension.",
+      "description": "Demonstrated by reading confusion or disengagement mid-session and changing pace, examples, or method."
+    },
+    {
+      "id": "D3-S1-C05",
+      "subdomain_code": "D3-S1",
+      "domain_code": "D3",
+      "statement": "The learner can evaluate whether education sessions met learning objectives using pre/post questions or observation.",
+      "description": "Demonstrated by choosing a feasible check of learning rather than assuming attendance equals understanding."
+    },
+    {
+      "id": "D3-S2-C01",
+      "subdomain_code": "D3-S2",
+      "domain_code": "D3",
+      "statement": "The learner can teach clients skills that increase their independence, such as self-monitoring and system navigation.",
+      "description": "Demonstrated by doing with rather than doing for, so the client can repeat the skill without the CHW."
+    },
+    {
+      "id": "D3-S2-C02",
+      "subdomain_code": "D3-S2",
+      "domain_code": "D3",
+      "statement": "The learner can identify and build on client and community strengths rather than focusing solely on deficits.",
+      "description": "Demonstrated by naming existing assets and skills as the foundation of a plan instead of leading with problems."
+    },
+    {
+      "id": "D3-S2-C03",
+      "subdomain_code": "D3-S2",
+      "domain_code": "D3",
+      "statement": "The learner can facilitate community members' participation in planning or problem-solving processes.",
+      "description": "Demonstrated by structuring processes so community members shape decisions rather than receive them."
+    },
+    {
+      "id": "D3-S2-C04",
+      "subdomain_code": "D3-S2",
+      "domain_code": "D3",
+      "statement": "The learner can support clients in setting and tracking their own health or wellness goals.",
+      "description": "Demonstrated by eliciting client-owned goals and simple tracking rather than assigning CHW-chosen targets."
+    },
+    {
+      "id": "D3-S2-C05",
+      "subdomain_code": "D3-S2",
+      "domain_code": "D3",
+      "statement": "The learner can recognize when a client has built capacity and adjust the level of support accordingly.",
+      "description": "Demonstrated by stepping back as independence grows instead of maintaining dependence on the CHW."
+    },
+    {
+      "id": "D4-S1-C01",
+      "subdomain_code": "D4-S1",
+      "domain_code": "D4",
+      "statement": "The learner can speak up on behalf of individual clients when they face barriers to care or services.",
+      "description": "Demonstrated by advocating effectively and respectfully within systems when a client is wrongly denied or delayed."
+    },
+    {
+      "id": "D4-S1-C02",
+      "subdomain_code": "D4-S1",
+      "domain_code": "D4",
+      "statement": "The learner can identify systemic or policy-level issues affecting the community and communicate them to supervisors.",
+      "description": "Demonstrated by distinguishing one-off problems from patterns and routing patterns to the right level."
+    },
+    {
+      "id": "D4-S1-C03",
+      "subdomain_code": "D4-S1",
+      "domain_code": "D4",
+      "statement": "The learner can support clients in self-advocacy by coaching them before appointments or interactions.",
+      "description": "Demonstrated by preparing clients to speak for themselves rather than speaking in their place by default."
+    },
+    {
+      "id": "D4-S1-C04",
+      "subdomain_code": "D4-S1",
+      "domain_code": "D4",
+      "statement": "The learner can document and report patterns of service gaps or inequities appropriately.",
+      "description": "Demonstrated by recording gaps factually and reporting them through appropriate channels."
+    },
+    {
+      "id": "D4-S1-C05",
+      "subdomain_code": "D4-S1",
+      "domain_code": "D4",
+      "statement": "The learner can participate in community meetings or coalitions as a representative of client interests.",
+      "description": "Demonstrated by carrying client and community perspectives into coalition settings within the CHW role."
+    },
+    {
+      "id": "D4-S2-C01",
+      "subdomain_code": "D4-S2",
+      "domain_code": "D4",
+      "statement": "The learner can conduct structured or informal needs assessments using validated tools or guided questions.",
+      "description": "Demonstrated by selecting and applying an assessment approach suited to the client and setting."
+    },
+    {
+      "id": "D4-S2-C02",
+      "subdomain_code": "D4-S2",
+      "domain_code": "D4",
+      "statement": "The learner can identify social determinants of health affecting the client or community.",
+      "description": "Demonstrated by recognizing housing, food, transportation, income, and safety factors behind presenting problems."
+    },
+    {
+      "id": "D4-S2-C03",
+      "subdomain_code": "D4-S2",
+      "domain_code": "D4",
+      "statement": "The learner can document assessment findings clearly, accurately, and confidentially.",
+      "description": "Demonstrated by writing findings that are factual and complete while protecting client privacy."
+    },
+    {
+      "id": "D4-S2-C04",
+      "subdomain_code": "D4-S2",
+      "domain_code": "D4",
+      "statement": "The learner can distinguish between immediate needs and longer-term social or health barriers.",
+      "description": "Demonstrated by triaging urgent needs first while keeping longer-term barriers on the plan."
+    },
+    {
+      "id": "D4-S2-C05",
+      "subdomain_code": "D4-S2",
+      "domain_code": "D4",
+      "statement": "The learner can identify community assets — organizations, leaders, programs — alongside gaps and needs.",
+      "description": "Demonstrated by mapping what a community has, not only what it lacks."
+    },
+    {
+      "id": "D5-S1-C01",
+      "subdomain_code": "D5-S1",
+      "domain_code": "D5",
+      "statement": "The learner can maintain strict client confidentiality in all written, verbal, and digital communications.",
+      "description": "Demonstrated by recognizing confidentiality breaches across channels — hallway talk, texts, social media, records."
+    },
+    {
+      "id": "D5-S1-C02",
+      "subdomain_code": "D5-S1",
+      "domain_code": "D5",
+      "statement": "The learner can complete required documentation accurately and within designated timeframes.",
+      "description": "Demonstrated by documenting encounters factually and on time so records support care and program integrity."
+    },
+    {
+      "id": "D5-S1-C03",
+      "subdomain_code": "D5-S1",
+      "domain_code": "D5",
+      "statement": "The learner can recognize and manage professional boundary issues, seeking supervision when needed.",
+      "description": "Demonstrated by spotting boundary drift early and bringing it to supervision rather than handling it alone."
+    },
+    {
+      "id": "D5-S1-C04",
+      "subdomain_code": "D5-S1",
+      "domain_code": "D5",
+      "statement": "The learner can demonstrate reliability: punctual, prepared, and following through on commitments to clients and team.",
+      "description": "Demonstrated by treating reliability as a clinical skill — missed commitments damage client trust and care."
+    },
+    {
+      "id": "D5-S1-C05",
+      "subdomain_code": "D5-S1",
+      "domain_code": "D5",
+      "statement": "The learner can apply mandated reporting requirements appropriately and without hesitation when required.",
+      "description": "Demonstrated by recognizing reportable situations and following the required process even when relationships are at stake."
+    },
+    {
+      "id": "D5-S2-C01",
+      "subdomain_code": "D5-S2",
+      "domain_code": "D5",
+      "statement": "The learner can collect program data accurately using required forms, databases, or electronic systems.",
+      "description": "Demonstrated by entering complete, correct data in the required system at the required time."
+    },
+    {
+      "id": "D5-S2-C02",
+      "subdomain_code": "D5-S2",
+      "domain_code": "D5",
+      "statement": "The learner can explain the purpose of program metrics and how individual data contributes to outcomes.",
+      "description": "Demonstrated by connecting their own data entry to program funding, quality, and community impact."
+    },
+    {
+      "id": "D5-S2-C03",
+      "subdomain_code": "D5-S2",
+      "domain_code": "D5",
+      "statement": "The learner can participate in program evaluation activities such as surveys, focus groups, and data review meetings.",
+      "description": "Demonstrated by contributing field insight to evaluation activities constructively."
+    },
+    {
+      "id": "D5-S2-C04",
+      "subdomain_code": "D5-S2",
+      "domain_code": "D5",
+      "statement": "The learner can describe the difference between outputs (activities) and outcomes (changes) in CHW programs.",
+      "description": "Demonstrated by classifying examples correctly — encounters and classes held versus blood pressure controlled or housing secured."
+    },
+    {
+      "id": "D5-S2-C05",
+      "subdomain_code": "D5-S2",
+      "domain_code": "D5",
+      "statement": "The learner can identify and communicate data quality issues — missing data, errors — to the appropriate person.",
+      "description": "Demonstrated by flagging rather than ignoring or silently fixing suspect data."
+    }
+  ]
+}

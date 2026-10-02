@@ -1,0 +1,230 @@
+{
+  "course_id": "cse280",
+  "pathway": "cloud-support-engineer",
+  "title": "Cloud Compliance & Governance",
+  "description": "This is a competency-based course designed for the indentured Cloud Support Engineer apprentice. Covers regulatory compliance, risk management, and security frameworks applicable across cloud environments (e.g., SOC 2, HIPAA, GDPR, NIST).",
+  "hours": 40,
+  "projects": null,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Explain how the shared responsibility model divides compliance obligations between a cloud provider and its customer",
+    "Distinguish SOC 2, HIPAA, GDPR, and NIST by what each governs and who it applies to",
+    "Map a written compliance requirement to a specific, testable cloud control",
+    "Govern identity and access at organization scale using least privilege and periodic review",
+    "Protect data with encryption, classification, and residency controls appropriate to its sensitivity",
+    "Conduct a periodic security audit and drive its findings to remediation",
+    "Design a cloud architecture that meets a stated recovery time and recovery point objective",
+    "Implement and verify backup and restoration procedures",
+    "Write policy, runbook, and evidence documentation an auditor can follow",
+    "Deliver a compliance training session to a technical or non-technical audience"
+  ],
+  "prerequisites": [
+    "Completed Introduction to Cloud Computing (cse101) or equivalent working knowledge of cloud service models and IAM",
+    "Completed Cloud Infrastructure Deployment & Management (cse203) or equivalent experience with cloud networking and storage",
+    "Completed Monitoring, Troubleshooting, & Incident Response (cse220) or equivalent incident-handling experience"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "cse280-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cse280-02",
+      "order": 2,
+      "slug": "why-cloud-governance-exists",
+      "title": "Why Cloud Governance Exists",
+      "kind": "lesson",
+      "objectives": [
+        "Explain how the shared responsibility model divides compliance obligations between a cloud provider and its customer"
+      ],
+      "competency_ids": [
+        "D7-S1-C01"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cse280-03",
+      "order": 3,
+      "slug": "the-framework-landscape",
+      "title": "The Framework Landscape: SOC 2, HIPAA, GDPR, and NIST",
+      "kind": "lesson",
+      "objectives": [
+        "Distinguish SOC 2, HIPAA, GDPR, and NIST by what each governs and who it applies to"
+      ],
+      "competency_ids": [
+        "D7-S1-C01"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cse280-04",
+      "order": 4,
+      "slug": "mapping-requirements-to-cloud-controls",
+      "title": "Mapping Requirements to Cloud Controls",
+      "kind": "lesson",
+      "objectives": [
+        "Map a written compliance requirement to a specific, testable cloud control"
+      ],
+      "competency_ids": [
+        "D3-S1-C02",
+        "D7-S1-C01"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cse280-05",
+      "order": 5,
+      "slug": "identity-governance-and-least-privilege",
+      "title": "Identity Governance and Least Privilege at Scale",
+      "kind": "lesson",
+      "objectives": [
+        "Govern identity and access at organization scale using least privilege and periodic review"
+      ],
+      "competency_ids": [
+        "D2-S1-C04"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cse280-06",
+      "order": 6,
+      "slug": "data-protection-encryption-and-residency",
+      "title": "Data Protection: Encryption, Classification, and Residency",
+      "kind": "lesson",
+      "objectives": [
+        "Protect data with encryption, classification, and residency controls appropriate to its sensitivity"
+      ],
+      "competency_ids": [
+        "D3-S1-C04"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cse280-07",
+      "order": 7,
+      "slug": "conducting-a-security-audit",
+      "title": "Conducting a Security Audit and Remediating Findings",
+      "kind": "lesson",
+      "objectives": [
+        "Conduct a periodic security audit and drive its findings to remediation"
+      ],
+      "competency_ids": [
+        "D7-S1-C02"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cse280-08",
+      "order": 8,
+      "slug": "high-availability-and-disaster-recovery",
+      "title": "High Availability and Disaster Recovery",
+      "kind": "lesson",
+      "objectives": [
+        "Design a cloud architecture that meets a stated recovery time and recovery point objective"
+      ],
+      "competency_ids": [
+        "D7-S1-C03"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cse280-09",
+      "order": 9,
+      "slug": "backup-and-restoration-procedures",
+      "title": "Backup and Restoration Procedures",
+      "kind": "lesson",
+      "objectives": [
+        "Implement and verify backup and restoration procedures"
+      ],
+      "competency_ids": [
+        "D7-S1-C04"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cse280-10",
+      "order": 10,
+      "slug": "policy-runbooks-and-audit-evidence",
+      "title": "Policy, Runbooks, and Audit Evidence",
+      "kind": "lesson",
+      "objectives": [
+        "Write policy, runbook, and evidence documentation an auditor can follow"
+      ],
+      "competency_ids": [
+        "D5-S1-C04"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cse280-11",
+      "order": 11,
+      "slug": "delivering-a-compliance-training-session",
+      "title": "Delivering a Compliance Training Session",
+      "kind": "lesson",
+      "objectives": [
+        "Deliver a compliance training session to a technical or non-technical audience"
+      ],
+      "competency_ids": [
+        "D5-S1-C03"
+      ],
+      "hours_estimate": 2,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "The course runs from why, to what, to how, to proving it. Lesson 02 opens on the shared responsibility model rather than on any framework, because the single most expensive misunderstanding in cloud compliance is a customer assuming the provider's certification covers the customer's configuration; every later lesson refers back to that line. The framework survey (03) comes before control mapping (04) so the learner knows which rulebook applies before trying to satisfy it, and 04 is the hinge of the course: it converts prose obligations into things that can actually be checked in a cloud account. Lessons 05 and 06 are the two control families that carry the most audit weight in practice - who can reach the data, and what state the data is in - and they sit immediately after the mapping lesson so the learner implements controls they have just learned to justify. The audit (07) can only be taught once there are controls to audit, and it is where the learner switches from building to inspecting. Availability (08) and backup and restore (09) follow because resilience obligations appear in every framework surveyed in 03, and because a restore is the one control that is worthless until it has been tested. Documentation (10) and training delivery (11) close the course: an unevidenced control fails an audit, and an undelivered policy is not a control at all, so these are the lessons that convert technical work into organizational fact. SCOPE ASSUMPTIONS - this course's intake description is the weakest evidence in the pathway. It arrived with trailing xlsx scan boilerplate ('Attachment B-6 Training Schedule and Working Conditions Creat'), which the importer stripped and flagged; the sentence that boilerplate truncated is unrecoverable and nothing was invented to complete it. What remains is two sentences and a parenthetical list of four frameworks. The outline therefore assumes: (1) this is a cloud governance course taught from the practitioner's seat, not a legal or audit-certification course; no lesson trains toward a compliance certification exam and no lesson gives legal advice. (2) 'Risk management', named in the description, is taught inside lessons 04 and 07 as control selection and finding triage, because the catalog contains no risk competency at all - see proposed_competencies. If the intended meaning was a formal risk-register discipline, a reviewer should add a lesson for it. (3) SOC 2, HIPAA, GDPR, and NIST are taught comparatively, at the level a support engineer needs in order to route a customer question correctly and identify which controls a request implicates - not clause by clause. (4) High availability, disaster recovery, and backup are included because catalog competencies D7-S1-C03 and D7-S1-C04 sit in this course's domain and no other course in the pathway covers them; the intake description does not name them, so this is the largest scope assumption in the outline and the most important one for a reviewer to confirm or reject. (5) Firewall and access-control policy (D3-S1-C02) is taught here as a compliance control in lesson 04, not as network design, which belongs to cse203. (6) The intake records no projects, and this course's terminal artifacts are written and delivered ones - a control mapping, an audit report, a restore-test record, a policy set, and a training session - so no kind:project lesson is included. A reviewer who wants a capstone should consider converting lesson 07 or adding a twelfth item. (7) At 40 hours this is the joint-largest course in the pathway on the thinnest scope evidence; the hour split favours lessons 03, 04, and 07, which carry the assessable work.",
+  "proposed_competencies": [
+    {
+      "domain_code": "D7",
+      "subdomain": "D7-S1",
+      "competency_text": "The learner can assess and record the risk of a cloud configuration or third-party vendor, rating likelihood and impact and recommending accept, mitigate, or transfer.",
+      "rationale": "The intake description names 'risk management' as a first-class topic of this course, and lessons 04 and 07 both require the learner to decide which gaps matter most. The catalog's D7 competencies cover adhering to frameworks, auditing, HA/DR, and backup - all of which presuppose that someone has already decided what is worth controlling. No competency anywhere in the catalog covers the risk judgement itself, which is the gap this course exposes most clearly."
+    },
+    {
+      "domain_code": "D7",
+      "subdomain": "D7-S1",
+      "competency_text": "The learner can collect and present evidence that a control operated as designed over a period, in the form an auditor will accept.",
+      "rationale": "Lesson 10 teaches this and lesson 07 depends on it. D7-S1-C02 covers conducting audits and remediating findings, and D5-S1-C04 covers writing technical documentation, but neither covers evidence as a distinct artifact with its own rules - continuity over a period, tamper resistance, and traceability from a control statement to a log entry. In practice this is what a cloud support engineer is most often asked to produce during someone else's audit."
+    },
+    {
+      "domain_code": "D7",
+      "subdomain": "D7-S1",
+      "competency_text": "The learner can execute and document a restore test that proves a backup meets its stated recovery point and recovery time objective.",
+      "rationale": "Lesson 09's definition of done is a tested restore, not a configured backup. D7-S1-C04 covers implementing backup and restoration procedures and its description mentions verification, but the catalog does not separate 'the backup job is green' from 'a restore was performed end to end and timed against an objective' - a distinction that is the difference between passing and failing a real disaster-recovery audit."
+    }
+  ],
+  "assets": [
+    {
+      "filename": "compliance-responsibility-split.png",
+      "description": "A compliance obligation traced down through the shared responsibility model, showing which parts the provider's own certification covers and which parts remain the customer's to evidence.",
+      "suggested_source": "Diagram, drawn in-house"
+    },
+    {
+      "filename": "requirement-to-control-mapping.png",
+      "description": "How one written framework requirement decomposes into named cloud controls, the configuration that implements each, and the evidence each produces.",
+      "suggested_source": "Diagram, drawn in-house"
+    },
+    {
+      "filename": "rto-rpo-timeline.png",
+      "description": "A failure event on a timeline, with the recovery point objective measured backward to the last recoverable data and the recovery time objective measured forward to service restoration.",
+      "suggested_source": "Diagram, drawn in-house"
+    }
+  ]
+}

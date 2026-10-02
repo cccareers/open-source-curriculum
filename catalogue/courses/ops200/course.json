@@ -1,0 +1,146 @@
+{
+  "course_id": "ops200",
+  "pathway": "software-developer",
+  "title": "Building and Deploying Apps",
+  "description": "This is a competency-based course designed for the indentured website developer apprentice.  This course will cover building artifacts and assets for websites, the use of task runners and deployment workflows to deploy a website to the public using 12-factor application development patterns.",
+  "hours": 16,
+  "projects": 3,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Produce the build artifacts and assets a website deploys",
+    "Automate a repeatable build with a task runner and twelve-factor configuration",
+    "Explain what each stage of a CI/CD pipeline guarantees",
+    "Document a release so its changes can be traced",
+    "Monitor a deployed application and report what it reveals"
+  ],
+  "prerequisites": [
+    "Completed at least one project-based course in this pathway",
+    "Comfortable using git and a command line",
+    "Able to run a local web application"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "ops200-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ops200-02",
+      "order": 2,
+      "slug": "build-artifacts-and-asset-pipelines",
+      "title": "Build Artifacts and Asset Pipelines",
+      "kind": "lesson",
+      "objectives": [
+        "Produce the build artifacts and assets a website deploys"
+      ],
+      "competency_ids": [
+        "D2-S1-C03"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ops200-03",
+      "order": 3,
+      "slug": "task-runners-and-twelve-factor-configuration",
+      "title": "Task Runners and Twelve-Factor Configuration",
+      "kind": "lesson",
+      "objectives": [
+        "Automate a repeatable build with a task runner and twelve-factor configuration"
+      ],
+      "competency_ids": [
+        "D2-S1-C03",
+        "D5-S1-C01"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ops200-04",
+      "order": 4,
+      "slug": "ci-cd-pipelines",
+      "title": "CI/CD Pipelines",
+      "kind": "lesson",
+      "objectives": [
+        "Explain what each stage of a CI/CD pipeline guarantees"
+      ],
+      "competency_ids": [
+        "D6-S1-C03"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ops200-05",
+      "order": 5,
+      "slug": "deploying-and-documenting-a-release",
+      "title": "Deploying and Documenting a Release",
+      "kind": "lesson",
+      "objectives": [
+        "Document a release so its changes can be traced"
+      ],
+      "competency_ids": [
+        "D4-S1-C03",
+        "D4-S1-C04"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ops200-06",
+      "order": 6,
+      "slug": "monitoring-a-deployed-application",
+      "title": "Monitoring a Deployed Application",
+      "kind": "lesson",
+      "objectives": [
+        "Monitor a deployed application and report what it reveals"
+      ],
+      "competency_ids": [
+        "D6-S1-C01",
+        "D4-S1-C05"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "The course follows one artifact through its life: built, automated, promoted by a pipeline, released with notes, then watched in production. Artifacts come first because a pipeline has nothing to move until a build produces something reproducible, and twelve-factor configuration is taught with the task runner rather than at deployment time because the point of it is that the same artifact runs in every environment. Release documentation is paired with deployment so change notes are written where they are actually needed, and monitoring closes the loop by feeding real signals back to the issue-reporting competency the pathway already carries. SCOPE ASSUMPTIONS: the intake description is complete and names build artifacts, task runners, deployment workflows and twelve-factor patterns, and the intake records three projects for only sixteen hours - so the outline assumes three short applied exercises embedded in lessons 04, 05 and 06 rather than three standalone project lessons, which sixteen hours cannot carry. A reviewer who expects three separate graded projects should restructure the back half. Assumed out of scope: container orchestration, infrastructure as code, and cloud-provider-specific services; the pipeline lesson assumes a hosted CI service with a YAML workflow file.",
+  "proposed_competencies": [
+    {
+      "domain_code": "D6",
+      "subdomain": "D6-S1",
+      "competency_text": "The learner can package an application's build artifacts and environment configuration so that one build runs unchanged in every environment.",
+      "rationale": "This is the twelve-factor core of lessons 02 and 03 and the intake description names it explicitly, but the catalog's D6 competencies cover monitoring, maintenance, and CI/CD recognition only - nothing covers producing the deployable artifact itself."
+    },
+    {
+      "domain_code": "D6",
+      "subdomain": "D6-S1",
+      "competency_text": "The learner can roll back a failed release to the previous known-good version.",
+      "rationale": "Lesson 05's definition of done includes a rollback path; the catalog has no competency for reversing a deployment, only for supporting maintenance after one."
+    }
+  ],
+  "assets": [
+    {
+      "filename": "build-artifact-anatomy.png",
+      "description": "Which files a production build reads from source and which files it emits into the deployable dist directory.",
+      "suggested_source": "Diagram, drawn in-house"
+    },
+    {
+      "filename": "pipeline-stages.png",
+      "description": "The ordered stages of a CI/CD pipeline, showing what each stage guarantees and where the build artifact is created and reused.",
+      "suggested_source": "Diagram, drawn in-house"
+    },
+    {
+      "filename": "release-traceability-chain.png",
+      "description": "The chain linking a commit to a pull request, a version tag, a pipeline run, release notes, and the version reported by the running application.",
+      "suggested_source": "Diagram, drawn in-house"
+    }
+  ]
+}

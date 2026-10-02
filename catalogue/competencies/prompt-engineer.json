@@ -1,0 +1,284 @@
+{
+  "version": 1,
+  "domains": [
+    {
+      "code": "D1",
+      "name": "Fundamentals of AI & Prompt Engineering",
+      "delivered_weight_percent": 18,
+      "description": "Fundamentals of AI and prompt engineering: model capabilities/limits, prompt craft, chaining/few-shot, evaluation, and API/fine-tuning basics."
+    },
+    {
+      "code": "D2",
+      "name": "No-Code and Low Code AI Integration",
+      "delivered_weight_percent": 14,
+      "description": "No-code and low-code AI integration: building apps, automating workflows, API/webhook integration, and chatbot deployment."
+    },
+    {
+      "code": "D3",
+      "name": "AI-Powered Automation & Business Workflows",
+      "delivered_weight_percent": 17,
+      "description": "AI-powered automation and business workflows: data/reporting/decision flows, document automation, service automation, process optimization, and troubleshooting."
+    },
+    {
+      "code": "D4",
+      "name": "Human-Centered AI Design & Prototyping",
+      "delivered_weight_percent": 17,
+      "description": "Human-centered AI design and prototyping: requirements, rapid prototyping, UI/UX, user feedback, and stakeholder alignment."
+    },
+    {
+      "code": "D5",
+      "name": "Data Handling, APIs & AI Infrastructure",
+      "delivered_weight_percent": 17,
+      "description": "Data handling, APIs, and AI infrastructure: data sources, databases, data-quality practice, cloud deployment, and performance monitoring."
+    },
+    {
+      "code": "D6",
+      "name": "AI Security, Compliance & Ethical Considerations",
+      "delivered_weight_percent": 17,
+      "description": "AI security, compliance, and ethics: bias/ethics, data security, privacy law, responsible-AI policy, and content monitoring."
+    }
+  ],
+  "subdomains": [
+    {
+      "code": "D1-S1",
+      "domain_code": "D1",
+      "name": "Fundamentals of AI & Prompt Engineering",
+      "description": "Competencies for fundamentals of ai & prompt engineering."
+    },
+    {
+      "code": "D2-S1",
+      "domain_code": "D2",
+      "name": "No-Code and Low Code AI Integration",
+      "description": "Competencies for no-code and low code ai integration."
+    },
+    {
+      "code": "D3-S1",
+      "domain_code": "D3",
+      "name": "AI-Powered Automation & Business Workflows",
+      "description": "Competencies for ai-powered automation & business workflows."
+    },
+    {
+      "code": "D4-S1",
+      "domain_code": "D4",
+      "name": "Human-Centered AI Design & Prototyping",
+      "description": "Competencies for human-centered ai design & prototyping."
+    },
+    {
+      "code": "D5-S1",
+      "domain_code": "D5",
+      "name": "Data Handling, APIs & AI Infrastructure",
+      "description": "Competencies for data handling, apis & ai infrastructure."
+    },
+    {
+      "code": "D6-S1",
+      "domain_code": "D6",
+      "name": "AI Security, Compliance & Ethical Considerations",
+      "description": "Competencies for ai security, compliance & ethical considerations."
+    }
+  ],
+  "competencies": [
+    {
+      "id": "D1-S1-C01",
+      "subdomain_code": "D1-S1",
+      "domain_code": "D1",
+      "statement": "The learner can explain the capabilities and limitations of generative AI models (e.g., ChatGPT, Claude, Gemini).",
+      "description": "Describes what current LLMs can/can't do and why."
+    },
+    {
+      "id": "D1-S1-C02",
+      "subdomain_code": "D1-S1",
+      "domain_code": "D1",
+      "statement": "The learner can craft effective prompts for different AI tasks (text generation, summarization, image creation).",
+      "description": "Writes a task-appropriate prompt that produces the intended output."
+    },
+    {
+      "id": "D1-S1-C03",
+      "subdomain_code": "D1-S1",
+      "domain_code": "D1",
+      "statement": "The learner can apply advanced prompt chaining and few-shot learning techniques.",
+      "description": "Structures multi-step or exemplar-based prompts for a complex task."
+    },
+    {
+      "id": "D1-S1-C04",
+      "subdomain_code": "D1-S1",
+      "domain_code": "D1",
+      "statement": "The learner can evaluate AI responses for accuracy, relevance, and bias.",
+      "description": "Judges an AI output and identifies errors or bias."
+    },
+    {
+      "id": "D1-S1-C05",
+      "subdomain_code": "D1-S1",
+      "domain_code": "D1",
+      "statement": "The learner can use AI APIs and fine-tune models via platforms such as the OpenAI or Claude APIs.",
+      "description": "Calls an LLM API correctly and knows when/how fine-tuning applies."
+    },
+    {
+      "id": "D2-S1-C01",
+      "subdomain_code": "D2-S1",
+      "domain_code": "D2",
+      "statement": "The learner can build applications using no-code/low-code tools (e.g., Airtable, Make.com, n8n, Zapier, Softr).",
+      "description": "Assembles a working app/automation in a no-code platform."
+    },
+    {
+      "id": "D2-S1-C02",
+      "subdomain_code": "D2-S1",
+      "domain_code": "D2",
+      "statement": "The learner can design and automate workflows using AI and logic-based automation.",
+      "description": "Models a workflow with branching logic and an AI step."
+    },
+    {
+      "id": "D2-S1-C03",
+      "subdomain_code": "D2-S1",
+      "domain_code": "D2",
+      "statement": "The learner can configure API integrations and webhooks to connect different tools.",
+      "description": "Wires two tools together via API/webhook correctly."
+    },
+    {
+      "id": "D2-S1-C04",
+      "subdomain_code": "D2-S1",
+      "domain_code": "D2",
+      "statement": "The learner can deploy an AI-powered chatbot solution for business use.",
+      "description": "Stands up and configures a functional business chatbot."
+    },
+    {
+      "id": "D3-S1-C01",
+      "subdomain_code": "D3-S1",
+      "domain_code": "D3",
+      "statement": "The learner can build AI-driven business workflows for data processing, reporting, and decision-making.",
+      "description": "Designs a workflow that turns inputs into a decision/report."
+    },
+    {
+      "id": "D3-S1-C02",
+      "subdomain_code": "D3-S1",
+      "domain_code": "D3",
+      "statement": "The learner can implement document automation using AI (e.g., contract generation, summarization).",
+      "description": "Automates a document task end to end."
+    },
+    {
+      "id": "D3-S1-C03",
+      "subdomain_code": "D3-S1",
+      "domain_code": "D3",
+      "statement": "The learner can design intelligent email and customer-service automation systems.",
+      "description": "Builds an automated triage/response flow."
+    },
+    {
+      "id": "D3-S1-C04",
+      "subdomain_code": "D3-S1",
+      "domain_code": "D3",
+      "statement": "The learner can optimize business processes by integrating AI into existing operations.",
+      "description": "Identifies where AI improves a process and integrates it."
+    },
+    {
+      "id": "D3-S1-C05",
+      "subdomain_code": "D3-S1",
+      "domain_code": "D3",
+      "statement": "The learner can troubleshoot automation failures and refine workflows to improve performance.",
+      "description": "Diagnoses a broken automation and fixes it."
+    },
+    {
+      "id": "D4-S1-C01",
+      "subdomain_code": "D4-S1",
+      "domain_code": "D4",
+      "statement": "The learner can work with clients to identify AI automation needs and requirements.",
+      "description": "Elicits and documents requirements from a stakeholder."
+    },
+    {
+      "id": "D4-S1-C02",
+      "subdomain_code": "D4-S1",
+      "domain_code": "D4",
+      "statement": "The learner can conduct rapid prototyping and iteration using AI tools.",
+      "description": "Produces and iterates a prototype quickly."
+    },
+    {
+      "id": "D4-S1-C03",
+      "subdomain_code": "D4-S1",
+      "domain_code": "D4",
+      "statement": "The learner can apply UI/UX best practices to AI-powered solutions.",
+      "description": "Designs a usable interface for an AI feature."
+    },
+    {
+      "id": "D4-S1-C04",
+      "subdomain_code": "D4-S1",
+      "domain_code": "D4",
+      "statement": "The learner can collect user feedback to refine and improve AI-powered prototypes.",
+      "description": "Gathers and acts on user feedback."
+    },
+    {
+      "id": "D4-S1-C05",
+      "subdomain_code": "D4-S1",
+      "domain_code": "D4",
+      "statement": "The learner can collaborate with stakeholders to align AI solutions with business goals.",
+      "description": "Keeps a solution aligned to stated goals."
+    },
+    {
+      "id": "D5-S1-C01",
+      "subdomain_code": "D5-S1",
+      "domain_code": "D5",
+      "statement": "The learner can work with structured and unstructured data sources for AI-powered automation.",
+      "description": "Prepares varied data sources for use in a workflow."
+    },
+    {
+      "id": "D5-S1-C02",
+      "subdomain_code": "D5-S1",
+      "domain_code": "D5",
+      "statement": "The learner can develop AI workflows that interact with databases (SQL, NoSQL, Airtable).",
+      "description": "Reads/writes data from a database in a workflow."
+    },
+    {
+      "id": "D5-S1-C03",
+      "subdomain_code": "D5-S1",
+      "domain_code": "D5",
+      "statement": "The learner can apply data validation, transformation, and storage best practices.",
+      "description": "Validates and transforms data correctly before storage."
+    },
+    {
+      "id": "D5-S1-C04",
+      "subdomain_code": "D5-S1",
+      "domain_code": "D5",
+      "statement": "The learner can configure and deploy AI models using cloud services (AWS, Azure, GCP).",
+      "description": "Deploys a model/endpoint on a cloud platform."
+    },
+    {
+      "id": "D5-S1-C05",
+      "subdomain_code": "D5-S1",
+      "domain_code": "D5",
+      "statement": "The learner can monitor AI performance and optimize models for accuracy and efficiency.",
+      "description": "Tracks performance metrics and tunes for improvement."
+    },
+    {
+      "id": "D6-S1-C01",
+      "subdomain_code": "D6-S1",
+      "domain_code": "D6",
+      "statement": "The learner can ensure AI automation follows ethical AI principles and mitigates bias.",
+      "description": "Applies fairness/ethics checks to an automation."
+    },
+    {
+      "id": "D6-S1-C02",
+      "subdomain_code": "D6-S1",
+      "domain_code": "D6",
+      "statement": "The learner can implement data-security best practices in AI workflows.",
+      "description": "Protects secrets/PII and secures data flow."
+    },
+    {
+      "id": "D6-S1-C03",
+      "subdomain_code": "D6-S1",
+      "domain_code": "D6",
+      "statement": "The learner can apply data-privacy laws (GDPR, CCPA) to AI workflows.",
+      "description": "Identifies compliant data handling in a scenario."
+    },
+    {
+      "id": "D6-S1-C04",
+      "subdomain_code": "D6-S1",
+      "domain_code": "D6",
+      "statement": "The learner can develop responsible-AI policies for automation and decision-making.",
+      "description": "Drafts a usable responsible-AI guideline."
+    },
+    {
+      "id": "D6-S1-C05",
+      "subdomain_code": "D6-S1",
+      "domain_code": "D6",
+      "statement": "The learner can monitor AI-generated content to avoid misinformation and compliance risks.",
+      "description": "Reviews AI output for misinformation/compliance issues."
+    }
+  ]
+}

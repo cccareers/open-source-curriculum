@@ -1,0 +1,86 @@
+{
+  "course_id": "PREAPP-W4",
+  "pathway": "tech-pre-apprenticeship",
+  "title": "Pathway Rotation: AI Prompt Engineering & Automation",
+  "description": "Week 4 is the AI Prompt Engineering rotation, where every AI skill learned is applied to the participant's live pipeline the same day. They practice structured prompting across Claude and ChatGPT, comparing model outputs and judging fitness for purpose; accelerate research and personalization with AI while critiquing AI drafts for accuracy and authenticity; and design and build a working automation that saves measurable time in their own workflow. Weekly milestone: one working automation demoed to the cohort with a time-saved estimate.",
+  "hours": 20,
+  "projects": 1,
+  "notes": "Weekly milestone: one working automation demoed to the cohort with a time-saved estimate.",
+  "lesson_length": "Lab-guide lessons, roughly 1200-1800 words each, supporting a full week of live instructor-led practice",
+  "learning_objectives": [
+    "Prompt Claude and ChatGPT with structure, comparing outputs and judging fitness for purpose",
+    "Use AI to accelerate research and personalization while critiquing drafts for accuracy and authenticity",
+    "Design and build a working automation with a measurable time-saved estimate"
+  ],
+  "prerequisites": [
+    "Week 3: Pathway Rotation: Technical Sales"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "PREAPP-W4-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 0.5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "PREAPP-W4-02",
+      "order": 2,
+      "slug": "working-with-llms",
+      "title": "Working with LLMs",
+      "kind": "lesson",
+      "objectives": [
+        "Prompt Claude and ChatGPT with structure, comparing outputs and judging fitness for purpose",
+        "Structure prompts with role, context, task, and output format"
+      ],
+      "competency_ids": [
+        "D3-S1-C01",
+        "D3-S1-C02"
+      ],
+      "hours_estimate": 6.5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "PREAPP-W4-03",
+      "order": 3,
+      "slug": "ai-assisted-prospecting",
+      "title": "AI-Assisted Prospecting",
+      "kind": "lesson",
+      "objectives": [
+        "Use AI to accelerate research and personalization while critiquing drafts for accuracy and authenticity",
+        "Catch fabricated details and generic filler in AI drafts before sending"
+      ],
+      "competency_ids": [
+        "D3-S2-C01",
+        "D3-S2-C02"
+      ],
+      "hours_estimate": 6.5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "PREAPP-W4-04",
+      "order": 4,
+      "slug": "build-an-automation",
+      "title": "Build an Automation",
+      "kind": "project",
+      "objectives": [
+        "Design and build a working automation with a measurable time-saved estimate",
+        "Select an automation candidate by frequency, time cost, and repeatability"
+      ],
+      "competency_ids": [
+        "D3-S3-C01",
+        "D3-S3-C02"
+      ],
+      "hours_estimate": 6.5,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Week 4 is the AI Prompt Engineering rotation; every skill is applied to the live pipeline the same day. Structured prompting first (foundation), AI-assisted prospecting second (applies prompting to research and personalization with accuracy critique), the automation build last as the week's project deliverable demoed to the cohort. Scope assumption: Claude and ChatGPT are named because the program names them; automation tooling stays vendor-neutral.",
+  "proposed_competencies": [],
+  "assets": []
+}

@@ -1,0 +1,137 @@
+{
+  "course_id": "node100",
+  "pathway": "quality-assurance-software-engineer",
+  "title": "Introduction to Programming with Node JS",
+  "description": "This is a competency-based course designed for the indentured website developer apprentice.  This course will cover basic application flow with conditional operators, looping methods, variable declarations, functions and objects.  This course will also cover basic language syntax and breaking larger",
+  "hours": 18,
+  "projects": null,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Run JavaScript with Node and declare variables with the right scope",
+    "Express decisions with conditional operators and boolean logic",
+    "Repeat work with the looping constructs Node provides",
+    "Break a larger problem into small, independently testable functions",
+    "Model data with objects and arrays",
+    "Write a small assertion script that checks another program's behaviour"
+  ],
+  "prerequisites": [
+    "web101 JavaScript in the DOM, or equivalent comfort reading and writing small JavaScript programs"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "node100-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "node100-02",
+      "order": 2,
+      "slug": "running-node-and-declaring-variables",
+      "title": "Running Node and Declaring Variables",
+      "kind": "lesson",
+      "objectives": [
+        "Run JavaScript with Node and declare variables with the right scope"
+      ],
+      "competency_ids": [
+        "D5-S1-C02"
+      ],
+      "hours_estimate": 2.5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "node100-03",
+      "order": 3,
+      "slug": "conditional-logic-and-boolean-expressions",
+      "title": "Conditional Logic and Boolean Expressions",
+      "kind": "lesson",
+      "objectives": [
+        "Express decisions with conditional operators and boolean logic"
+      ],
+      "competency_ids": [
+        "D5-S1-C02"
+      ],
+      "hours_estimate": 2.5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "node100-04",
+      "order": 4,
+      "slug": "loops-and-iteration",
+      "title": "Loops and Iteration",
+      "kind": "lesson",
+      "objectives": [
+        "Repeat work with the looping constructs Node provides"
+      ],
+      "competency_ids": [
+        "D5-S1-C02"
+      ],
+      "hours_estimate": 2.5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "node100-05",
+      "order": 5,
+      "slug": "functions-and-decomposing-a-problem",
+      "title": "Functions and Decomposing a Problem",
+      "kind": "lesson",
+      "objectives": [
+        "Break a larger problem into small, independently testable functions"
+      ],
+      "competency_ids": [
+        "D5-S1-C02"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "node100-06",
+      "order": 6,
+      "slug": "objects-arrays-and-modeling-data",
+      "title": "Objects, Arrays, and Modeling Data",
+      "kind": "lesson",
+      "objectives": [
+        "Model data with objects and arrays"
+      ],
+      "competency_ids": [
+        "D5-S1-C02"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "node100-07",
+      "order": 7,
+      "slug": "your-first-assertion-script",
+      "title": "Your First Assertion Script",
+      "kind": "lesson",
+      "objectives": [
+        "Write a small assertion script that checks another program's behaviour"
+      ],
+      "competency_ids": [
+        "D3-S1-C03",
+        "D3-S1-C06",
+        "D5-S1-C02"
+      ],
+      "hours_estimate": 3.5,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "QA REFRAMING (stated explicitly because the intake evidence is borrowed): the intake describes this as a course for the 'indentured website developer apprentice'. It is a shared web-development course repurposed for the Quality Assurance Software Engineer pathway, so this outline teaches toward the QA catalog. The QA framing is that Node is the language runtime a QA engineer writes tooling in: the programming fundamentals are taught with an explicit bias toward testability (small pure functions, explicit boolean conditions, predictable data shapes), and the course lands on lesson 07, where the learner writes their first assertion script and so touches D3-S1-C03 (using testing programs) and D3-S1-C06 (developing automated testing tools) at an introductory level. Every earlier lesson is framed as 'code you will later have to test', not 'code you will ship'. SEQUENCE: variables, conditionals, loops, functions, data modelling, assertions. Assertions come last because an assertion script is only meaningful once the learner can write, decompose, and run a program worth asserting on; functions precede assertions specifically because a function boundary is the unit a test targets. SCOPE ASSUMPTIONS, derived from the title, the 18 authored hours, and the surviving description fragment: the description is truncated mid-sentence ('breaking larger'), which is read as 'breaking larger problems into smaller pieces' and drives lesson 05, but nothing was invented to complete the cut-off sentence and no wording from it appears in a lesson title. Assumed in scope: running Node from the command line, variable declaration and scope, operators and control flow, loops and array iteration, function definition and decomposition, objects and arrays, and hand-rolled assertions using Node's built-in assert module. Assumed out of scope and deliberately left out: npm package publishing, HTTP servers and Express, databases, asynchronous I/O beyond a brief mention (async is taught in web101 in its browser form), and third-party test runners such as Jest or Mocha, which the pathway reaches in agile200. HOURS: 1h overview plus six lessons of 2.5 to 3.5h, summing to exactly 18. LESSON KINDS: intake records no project count for this course, so lesson 07 is a taught lesson with an extended hands-on Practice rather than a graded project brief.",
+  "proposed_competencies": [
+    {
+      "domain_code": "D3",
+      "subdomain": "D3-S1",
+      "competency_text": "The learner can write unit-level tests for code they wrote themselves, not only operate test tooling built by others.",
+      "rationale": "Lesson 07 has the learner write assertions against their own functions. D3-S1-C03 covers installing and using testing programs and D3-S1-C06 covers designing automated testing tools, but neither states the everyday practice of a QA engineer unit-testing their own utility code, which is the habit this lesson is actually building."
+    }
+  ],
+  "assets": []
+}

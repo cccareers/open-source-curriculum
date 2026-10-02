@@ -1,0 +1,152 @@
+{
+  "course_id": "ds320",
+  "pathway": "data-engineer",
+  "title": "Data Governance & Security",
+  "description": "This is a competency-based course designed for the indentured Data Engineer apprentice. Covers data privacy regulations (GDPR, CCPA), encryption, and access control strategies. Includes best practices for securing enterprise data assets.",
+  "hours": 25,
+  "projects": null,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Explain what a data governance program owns and who is accountable for each part",
+    "Map GDPR and CCPA obligations onto the data a pipeline actually holds",
+    "Classify a dataset and grant access according to least privilege",
+    "Apply encryption in transit and at rest, and manage the keys that make it meaningful",
+    "Produce lineage and audit evidence that answers a regulator's or auditor's question"
+  ],
+  "prerequisites": [
+    "Data Pipeline Automation & ETL Best Practices (de210), or equivalent experience operating a pipeline in production",
+    "Familiarity with relational and cloud storage from earlier pathway courses"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "ds320-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ds320-02",
+      "order": 2,
+      "slug": "data-governance-foundations",
+      "title": "Data Governance Foundations",
+      "kind": "lesson",
+      "objectives": [
+        "Explain what a data governance program owns and who is accountable for each part"
+      ],
+      "competency_ids": [
+        "D5-S1-C02"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ds320-03",
+      "order": 3,
+      "slug": "privacy-regulation-in-practice",
+      "title": "Privacy Regulation in Practice",
+      "kind": "lesson",
+      "objectives": [
+        "Map GDPR and CCPA obligations onto the data a pipeline actually holds"
+      ],
+      "competency_ids": [
+        "D5-S1-C02"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ds320-04",
+      "order": 4,
+      "slug": "classification-and-access-control",
+      "title": "Classification and Access Control",
+      "kind": "lesson",
+      "objectives": [
+        "Classify a dataset and grant access according to least privilege"
+      ],
+      "competency_ids": [
+        "D5-S1-C01"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ds320-05",
+      "order": 5,
+      "slug": "encryption-and-key-management",
+      "title": "Encryption and Key Management",
+      "kind": "lesson",
+      "objectives": [
+        "Apply encryption in transit and at rest, and manage the keys that make it meaningful"
+      ],
+      "competency_ids": [
+        "D5-S1-C01"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ds320-06",
+      "order": 6,
+      "slug": "data-lineage-and-audit-trails",
+      "title": "Data Lineage and Audit Trails",
+      "kind": "lesson",
+      "objectives": [
+        "Produce lineage and audit evidence that answers a regulator's or auditor's question"
+      ],
+      "competency_ids": [
+        "D5-S1-C03"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ds320-07",
+      "order": 7,
+      "slug": "securing-an-enterprise-data-asset",
+      "title": "Securing an Enterprise Data Asset",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D5-S1-C01",
+        "D5-S1-C02",
+        "D5-S1-C03"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Fifth course in the pathway (de101 -> de102 -> de201 -> de210 -> ds320 -> agile310). It is placed after de210 on purpose: governance controls are taught as constraints applied to pipelines the learner has already built, not as abstractions. Governance foundations come first because classification, access, and audit are all instruments of a governance program and are hard to motivate without it. Regulation follows foundations because GDPR and CCPA are the obligations that make the program mandatory. Classification precedes encryption because you cannot decide what to encrypt or who may decrypt it before you have decided what the data is. Lineage and audit come last of the teaching lessons because audit evidence is assembled from the controls in lessons 4 and 5. The course ends with a project so that all three D5-S1 competencies are exercised on one asset.\n\nScope assumptions (intake gave one description sentence naming GDPR, CCPA, encryption, access control and enterprise data asset security; 25 hours; no objectives or lesson titles): (1) This is engineer-facing governance, not legal training. Regulation is taught as engineering obligations (data subject requests, retention, deletion, lawful basis records) and the course states plainly that it is not legal advice. (2) GDPR and CCPA are covered because intake names them; HIPAA, PCI-DSS, FERPA and SOC 2 are mentioned only as pointers, since the pathway does not name an industry. A reviewer should tell us if a sector-specific regime must be added. (3) Controls are taught vendor-neutrally with concrete examples on one cloud provider and one relational engine; no single vendor's certification path is targeted. (4) Key management is taught at the level of a managed KMS plus rotation and envelope encryption; implementing cryptographic primitives is out of scope. (5) Lineage overlaps with de210 lesson 9 by design — de210 builds the lineage, this course uses it as audit evidence. (6) Performance optimization, the other half of catalog domain D5, is not taught here; it lives in de102 and de201, so this course covers only the D5-S1 subdomain. (7) The project is a written and configured data-protection plan for a sample asset, not a penetration test; offensive security is out of scope for the pathway.",
+  "proposed_competencies": [
+    {
+      "domain_code": "D5",
+      "subdomain": "D5-S1",
+      "competency_text": "The learner can execute a data subject access, correction, or deletion request end to end across the systems that hold the subject's data.",
+      "rationale": "Lesson 3 teaches GDPR and CCPA obligations, and the single hardest engineering task those regulations create is fulfilling a data subject request across a warehouse, a lake, and backups. The catalog's D5-S1-C02 covers monitoring and enforcing compliance standards generally, but nothing covers the concrete fulfilment workflow, which is what an apprentice is most likely to be handed."
+    },
+    {
+      "domain_code": "D5",
+      "subdomain": "D5-S1",
+      "competency_text": "The learner can apply de-identification techniques such as masking, tokenization, and pseudonymization to a dataset while preserving its analytical usefulness.",
+      "rationale": "Lessons 4 and 5 teach classification and encryption, but de-identification is a distinct control that sits between them and is how most non-production data is made safe. No existing D5-S1 competency covers it, so it is raised here rather than tagged onto the encryption competency."
+    }
+  ],
+  "assets": [
+    {
+      "filename": "governance-accountability-model.png",
+      "description": "Accountability model showing how a policy decision flows from data owner through steward to custodian and back as evidence.",
+      "suggested_source": "Diagram, drawn in-house"
+    },
+    {
+      "filename": "envelope-encryption.png",
+      "description": "Envelope encryption flow showing a data key generated under a key-encryption key, used locally, and stored as ciphertext beside the data.",
+      "suggested_source": "Diagram, drawn in-house"
+    }
+  ]
+}

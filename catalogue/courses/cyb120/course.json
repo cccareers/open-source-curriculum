@@ -1,0 +1,218 @@
+{
+  "course_id": "cyb120",
+  "pathway": "cybersecurity-support-technician",
+  "title": "Threat Analysis & Incident Response",
+  "description": "This is a competency-based course designed for the indentured Cybersecurity Support Technician apprentice. Focuses on identifying, analyzing, and responding to cyber threats, malware, and security breaches. Includes forensic analysis and reporting.",
+  "hours": 50,
+  "projects": 3,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Walk an incident through preparation, detection, containment, eradication, recovery, and lessons learned, naming the decision made at each handoff",
+    "Triage an alert queue and decide which alerts become incidents",
+    "Use indicators of compromise and an adversary behavior framework to characterize what an attacker did",
+    "Document an incident timeline and preserve evidence so that it survives later review",
+    "Collect and analyze host and network artifacts without altering the evidence",
+    "Analyze a suspicious file in an isolated lab environment and extract indicators to hunt with",
+    "Choose containment, eradication, and recovery actions that stop an incident without destroying evidence or the business"
+  ],
+  "prerequisites": [
+    "cyb100 Introduction to Cybersecurity",
+    "net110 Network Security Fundamentals",
+    "cyb130 Access Control and Identity Management",
+    "cyb210 Endpoint Security and Malware Defense"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "cyb120-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cyb120-02",
+      "order": 2,
+      "slug": "the-incident-response-lifecycle",
+      "title": "The Incident Response Lifecycle",
+      "kind": "lesson",
+      "objectives": [
+        "Walk an incident through preparation, detection, containment, eradication, recovery, and lessons learned, naming the decision made at each handoff"
+      ],
+      "competency_ids": [
+        "D3-S1-C01",
+        "D1-S1-C02"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cyb120-03",
+      "order": 3,
+      "slug": "detection-sources-logs-and-alert-triage",
+      "title": "Detection Sources, Logs, and Alert Triage",
+      "kind": "lesson",
+      "objectives": [
+        "Triage an alert queue and decide which alerts become incidents"
+      ],
+      "competency_ids": [
+        "D1-S1-C04",
+        "D2-S1-C02"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cyb120-04",
+      "order": 4,
+      "slug": "threat-intelligence-and-indicators-of-compromise",
+      "title": "Threat Intelligence and Indicators of Compromise",
+      "kind": "lesson",
+      "objectives": [
+        "Use indicators of compromise and an adversary behavior framework to characterize what an attacker did"
+      ],
+      "competency_ids": [
+        "D1-S1-C04",
+        "D1-S1-C01"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cyb120-05",
+      "order": 5,
+      "slug": "incident-documentation-and-chain-of-custody",
+      "title": "Incident Documentation and Chain of Custody",
+      "kind": "lesson",
+      "objectives": [
+        "Document an incident timeline and preserve evidence so that it survives later review"
+      ],
+      "competency_ids": [
+        "D3-S1-C01",
+        "D3-S1-C02"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cyb120-06",
+      "order": 6,
+      "slug": "digital-forensics-fundamentals",
+      "title": "Digital Forensics Fundamentals",
+      "kind": "lesson",
+      "objectives": [
+        "Collect and analyze host and network artifacts without altering the evidence"
+      ],
+      "competency_ids": [
+        "D3-S1-C02"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cyb120-07",
+      "order": 7,
+      "slug": "malware-analysis-for-responders",
+      "title": "Malware Analysis for Responders",
+      "kind": "lesson",
+      "objectives": [
+        "Analyze a suspicious file in an isolated lab environment and extract indicators to hunt with"
+      ],
+      "competency_ids": [
+        "D3-S1-C03"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cyb120-08",
+      "order": 8,
+      "slug": "containment-eradication-and-recovery",
+      "title": "Containment, Eradication, and Recovery",
+      "kind": "lesson",
+      "objectives": [
+        "Choose containment, eradication, and recovery actions that stop an incident without destroying evidence or the business"
+      ],
+      "competency_ids": [
+        "D3-S1-C05"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cyb120-09",
+      "order": 9,
+      "slug": "project-incident-triage-and-timeline",
+      "title": "Project: Incident Triage and Timeline",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D3-S1-C01",
+        "D2-S1-C02"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cyb120-10",
+      "order": 10,
+      "slug": "project-forensic-evidence-handling-exercise",
+      "title": "Project: Forensic Evidence Handling Exercise",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D3-S1-C02",
+        "D3-S1-C03"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cyb120-11",
+      "order": 11,
+      "slug": "project-post-incident-report",
+      "title": "Project: Post-Incident Report",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D4-S1-C04",
+        "D3-S1-C05",
+        "D3-S1-C01"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "The teaching sequence is the incident itself, in order. Lesson 02 lays down the lifecycle so every later lesson can be located in a phase. Detection and triage (03) comes next because an incident begins as an alert, and most of the job is deciding which alerts are incidents. Threat intelligence (04) follows triage rather than preceding it, so indicators arrive as an answer to a question the learner has already felt - 'is this the same activity I saw yesterday?'. Documentation and chain of custody (05) is deliberately placed before the forensics and malware lessons, not after: evidence handling has to be a habit before the learner touches evidence, and a responder who learns to collect first and document later produces unusable findings. Forensics (06) and responder-side malware analysis (07) then supply the depth, and containment, eradication, and recovery (08) closes the teaching sequence with the decisions that end the incident. The three projects are the three artifacts of a real case, in the order they are produced: a triage timeline (09), an evidence handling record (10), and the post-incident report to management (11). SCOPE ASSUMPTIONS - intake gives two sentences, no objectives, no lesson titles; correct anything wrong: (1) The course is taught as blue-team work throughout. All malware and artifact analysis happens on instructor-supplied samples in an isolated lab VM; the course never writes, modifies, or deploys malicious code, and never tests against systems the learner does not own. (2) 'Forensic analysis' is scoped to first-responder forensics - sound acquisition, hashing, chain of custody, timeline building from readily available host and network artifacts. Court-qualified expert practice, filesystem carving at the block level, and memory reverse engineering are named as escalation paths and left out. (3) 'Malware analysis' here is a level up from cyb210's triage: static and dynamic analysis in a sandbox to extract indicators. Disassembly and unpacking remain out of scope. (4) SIEM work is taught vendor-neutrally against generic log schemas and query concepts; no specific SIEM product is required. (5) Legal process (subpoenas, notification deadlines, regulator obligations) is flagged where it constrains a responder but the compliance and reporting discipline itself is cyb150. (6) Endpoint containment mechanics are assumed known from cyb210 and are not retaught; lesson 08 covers the decision, not the button. (7) Intake records three projects, and lessons 09, 10, and 11 are those three. (8) The catalog has no competency for adversary behavior frameworks such as MITRE ATT&CK, which lesson 04 is assessed on - see proposed_competencies.",
+  "proposed_competencies": [
+    {
+      "domain_code": "D3",
+      "subdomain": "D3-S1",
+      "competency_text": "The learner can map observed attacker activity to an adversary behavior framework (for example MITRE ATT&CK) and use that mapping to predict and hunt for related activity.",
+      "rationale": "Lesson 04 is assessed on characterizing an intrusion with indicators and technique mappings, which is how modern SOC handoffs are written. The catalog's closest fits are D1-S1-C04 (use security tools and frameworks) and D3-S1-C01 (identify and document incidents); neither names the analytic step of classifying behavior into techniques, which is what makes a finding comparable across incidents."
+    },
+    {
+      "domain_code": "D3",
+      "subdomain": "D3-S1",
+      "competency_text": "The learner can communicate incident status, impact, and required decisions to non-technical stakeholders while an incident is still open.",
+      "rationale": "Project 11 covers the written post-incident report, which D4-S1-C04 supports, but the live communication that occurs during an incident - status cadence, what is known versus suspected, what decision is being requested - is a separate skill with a different failure mode, and no catalog competency covers it."
+    }
+  ],
+  "assets": [
+    {
+      "filename": "ir-lifecycle-phases.png",
+      "description": "The six phases of the incident response lifecycle arranged as a loop, with the decision made at each phase boundary labelled.",
+      "suggested_source": "Diagram, drawn in-house"
+    },
+    {
+      "filename": "order-of-volatility.png",
+      "description": "Digital evidence arranged from most volatile to least volatile, from CPU registers and cache through memory, network state, running processes, disk, and finally archived backups.",
+      "suggested_source": "Diagram, drawn in-house"
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "course_id": "ai350",
+  "pathway": "prompt-engineer",
+  "title": "AI Security & Compliance",
+  "description": "This is a competency-based course designed for the indentured Prompt Engineer apprentice.  Focuses on protecting AI models and data from threats. Discusses regulatory compliance, data privacy, and best practices for securing AI-driven applications against emerging cyber risks.",
+  "hours": 25,
+  "projects": null,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Describe the threats specific to AI-powered systems, including prompt injection, data exfiltration, and model misuse",
+    "Apply data-security practices to an AI workflow, covering secrets, least privilege, logging, and third-party model exposure",
+    "Apply GDPR and CCPA obligations to a concrete AI workflow that processes personal data",
+    "Identify bias and fairness risks in an AI automation and apply ethical AI principles to mitigate them",
+    "Write a responsible-AI policy stating what an automation may decide, what a human must decide, and how decisions are recorded",
+    "Monitor AI-generated content for misinformation and compliance risk and respond when monitoring fires"
+  ],
+  "prerequisites": [
+    "Completion of db305, or equivalent experience with data sources and deployed AI workflows",
+    "Completion of ai201, or equivalent experience building business automations"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "ai350-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ai350-02",
+      "order": 2,
+      "slug": "threats-to-ai-powered-systems",
+      "title": "Threats to AI-Powered Systems",
+      "kind": "lesson",
+      "objectives": [
+        "Describe the threats specific to AI-powered systems, including prompt injection, data exfiltration, and model misuse"
+      ],
+      "competency_ids": [
+        "D6-S1-C02"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ai350-03",
+      "order": 3,
+      "slug": "data-security-in-ai-workflows",
+      "title": "Data Security in AI Workflows",
+      "kind": "lesson",
+      "objectives": [
+        "Apply data-security practices to an AI workflow, covering secrets, least privilege, logging, and third-party model exposure"
+      ],
+      "competency_ids": [
+        "D6-S1-C02"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ai350-04",
+      "order": 4,
+      "slug": "data-privacy-law-in-practice",
+      "title": "Data Privacy Law in Practice",
+      "kind": "lesson",
+      "objectives": [
+        "Apply GDPR and CCPA obligations to a concrete AI workflow that processes personal data"
+      ],
+      "competency_ids": [
+        "D6-S1-C03"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ai350-05",
+      "order": 5,
+      "slug": "bias-fairness-and-ethical-ai",
+      "title": "Bias, Fairness, and Ethical AI",
+      "kind": "lesson",
+      "objectives": [
+        "Identify bias and fairness risks in an AI automation and apply ethical AI principles to mitigate them"
+      ],
+      "competency_ids": [
+        "D6-S1-C01"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ai350-06",
+      "order": 6,
+      "slug": "responsible-ai-policy-for-automated-decisions",
+      "title": "Responsible-AI Policy for Automated Decisions",
+      "kind": "lesson",
+      "objectives": [
+        "Write a responsible-AI policy stating what an automation may decide, what a human must decide, and how decisions are recorded"
+      ],
+      "competency_ids": [
+        "D6-S1-C04"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "ai350-07",
+      "order": 7,
+      "slug": "monitoring-ai-output-for-misinformation-and-compliance-risk",
+      "title": "Monitoring AI Output for Misinformation and Compliance Risk",
+      "kind": "lesson",
+      "objectives": [
+        "Monitor AI-generated content for misinformation and compliance risk and respond when monitoring fires"
+      ],
+      "competency_ids": [
+        "D6-S1-C05"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Sequence: ai350 is placed second to last, after ai210 and before agile210. It deliberately follows the build courses rather than preceding them: every lesson here is a control applied to a system, and learners who have already built automations in ai102, ai201, and db305 can point at their own workflow's credentials, logs, personal data, and model outputs. Placing it immediately before the capstone means the capstone's security, privacy, and responsible-AI review is done with the material fresh. Within the course, threats (02) come before controls (03) because a control with no threat model is cargo cult. Security (03) precedes privacy (04) because privacy obligations assume you can already protect data technically. Bias and ethics (05) follow the legal material so learners can distinguish what the law requires from what responsibility requires beyond it, a distinction that fails if ethics is taught first. Policy (06) is the synthesis lesson and needs the security, privacy, and fairness vocabulary already in place. Monitoring (07) is last because it is the operational practice that keeps the policy honest after launch. SCOPE ASSUMPTIONS (intake supplies no objectives or lesson titles; the description gives 'protecting AI models and data from threats', 'regulatory compliance, data privacy', and 'best practices for securing AI-driven applications against emerging cyber risks'): we assume the audience is a prompt engineer operating third-party AI services rather than a security engineer or a lawyer, so the course teaches the practitioner's controls and obligations rather than offensive security or legal interpretation, and it states explicitly that it is not legal advice. We assume GDPR and CCPA are the named regimes because catalog competency D6-S1-C03 names them; sector regimes (HIPAA, FERPA, PCI) and the EU AI Act are mentioned as existing and left out of scope. We assume 'protecting AI models' means protecting the workflows and data around hosted models, since nobody in this pathway trains or hosts their own model; adversarial machine learning, model extraction, and red-teaming model weights are out of scope. Reviewers should correct these assumptions before content approval.",
+  "proposed_competencies": [
+    {
+      "domain_code": "D6",
+      "subdomain": "D6-S1",
+      "competency_text": "The learner can follow an incident-response runbook for an AI security or compliance incident, containing the issue, notifying the right people, and documenting what happened.",
+      "rationale": "Lessons 02 and 07 both end at the moment something goes wrong, and prompt injection or data leakage is a realistic outcome for an apprentice-run automation, but the catalog's D6 competencies cover prevention, compliance, policy, and monitoring with nothing covering response after detection."
+    }
+  ],
+  "assets": []
+}

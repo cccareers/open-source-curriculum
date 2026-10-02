@@ -1,0 +1,230 @@
+{
+  "version": 1,
+  "domains": [
+    {
+      "code": "D1",
+      "name": "Workplace Readiness and Professional Communication",
+      "delivered_weight_percent": 18,
+      "description": "Workplace readiness and professional communication: interpersonal communication, office tools, presentations, and collaboration."
+    },
+    {
+      "code": "D2",
+      "name": "Bug Tracking and Issue Resolution",
+      "delivered_weight_percent": 22,
+      "description": "Bug tracking and issue resolution: defect reporting, developer feedback, problem diagnosis, and resolution tracking/escalation."
+    },
+    {
+      "code": "D3",
+      "name": "Testing and QA Automation",
+      "delivered_weight_percent": 26,
+      "description": "Testing and QA automation: test environments, debugging, test tooling, automated-test maintenance, defect databases, and building test tools."
+    },
+    {
+      "code": "D4",
+      "name": "Code Quality and Documentation",
+      "delivered_weight_percent": 17,
+      "description": "Code quality and documentation: source-control practice, documentation review, change testing, and test planning."
+    },
+    {
+      "code": "D5",
+      "name": "Development and Design Collaboration",
+      "delivered_weight_percent": 17,
+      "description": "Development and design collaboration: accessible/responsive implementation, contributing to the build, design reviews, and cross-functional collaboration."
+    }
+  ],
+  "subdomains": [
+    {
+      "code": "D1-S1",
+      "domain_code": "D1",
+      "name": "Workplace Readiness and Professional Communication",
+      "description": "Apprentice/associate-level competencies for workplace readiness and professional communication."
+    },
+    {
+      "code": "D2-S1",
+      "domain_code": "D2",
+      "name": "Bug Tracking and Issue Resolution",
+      "description": "Apprentice/associate-level competencies for bug tracking and issue resolution."
+    },
+    {
+      "code": "D3-S1",
+      "domain_code": "D3",
+      "name": "Testing and QA Automation",
+      "description": "Apprentice/associate-level competencies for testing and qa automation."
+    },
+    {
+      "code": "D4-S1",
+      "domain_code": "D4",
+      "name": "Code Quality and Documentation",
+      "description": "Apprentice/associate-level competencies for code quality and documentation."
+    },
+    {
+      "code": "D5-S1",
+      "domain_code": "D5",
+      "name": "Development and Design Collaboration",
+      "description": "Apprentice/associate-level competencies for development and design collaboration."
+    }
+  ],
+  "competencies": [
+    {
+      "id": "D1-S1-C01",
+      "subdomain_code": "D1-S1",
+      "domain_code": "D1",
+      "statement": "The learner can apply basic interpersonal communication principles and describe an organization's basic structure and functions.",
+      "description": "Communicates professionally and situates work within org structure."
+    },
+    {
+      "id": "D1-S1-C02",
+      "subdomain_code": "D1-S1",
+      "domain_code": "D1",
+      "statement": "The learner can use common office tools to produce documents, spreadsheets, and presentations.",
+      "description": "Produces a correct workplace document/spreadsheet/deck."
+    },
+    {
+      "id": "D1-S1-C03",
+      "subdomain_code": "D1-S1",
+      "domain_code": "D1",
+      "statement": "The learner can prepare and deliver an oral presentation that clearly conveys information, concepts, and ideas.",
+      "description": "Delivers a clear, structured spoken explanation."
+    },
+    {
+      "id": "D1-S1-C04",
+      "subdomain_code": "D1-S1",
+      "domain_code": "D1",
+      "statement": "The learner can communicate with team members effectively and work collaboratively.",
+      "description": "Coordinates and collaborates effectively on a team task."
+    },
+    {
+      "id": "D2-S1-C01",
+      "subdomain_code": "D2-S1",
+      "domain_code": "D2",
+      "statement": "The learner can use a bug-tracking system to document and report defects.",
+      "description": "Files a clear, reproducible, well-categorized defect."
+    },
+    {
+      "id": "D2-S1-C02",
+      "subdomain_code": "D2-S1",
+      "domain_code": "D2",
+      "statement": "The learner can provide feedback and recommendations to developers on software usability and functionality.",
+      "description": "Gives actionable usability/functionality feedback."
+    },
+    {
+      "id": "D2-S1-C03",
+      "subdomain_code": "D2-S1",
+      "domain_code": "D2",
+      "statement": "The learner can collaborate with field staff or customers to diagnose problems and recommend solutions.",
+      "description": "Diagnoses a reported problem and proposes a fix."
+    },
+    {
+      "id": "D2-S1-C04",
+      "subdomain_code": "D2-S1",
+      "domain_code": "D2",
+      "statement": "The learner can monitor bug-resolution efforts and track outcomes.",
+      "description": "Tracks defects through resolution and verifies closure."
+    },
+    {
+      "id": "D2-S1-C05",
+      "subdomain_code": "D2-S1",
+      "domain_code": "D2",
+      "statement": "The learner can identify issues through close monitoring and report them clearly to senior team members.",
+      "description": "Escalates an issue with the right clarity and detail."
+    },
+    {
+      "id": "D3-S1-C01",
+      "subdomain_code": "D3-S1",
+      "domain_code": "D3",
+      "statement": "The learner can install and configure recreations of production environments to test software performance, under supervision.",
+      "description": "Sets up a representative test environment."
+    },
+    {
+      "id": "D3-S1-C02",
+      "subdomain_code": "D3-S1",
+      "domain_code": "D3",
+      "statement": "The learner can perform initial debugging by reviewing configuration files, logs, or code to locate a breakdown's source.",
+      "description": "Uses logs/config/code to isolate a failure."
+    },
+    {
+      "id": "D3-S1-C03",
+      "subdomain_code": "D3-S1",
+      "domain_code": "D3",
+      "statement": "The learner can install, maintain, and use software testing programs.",
+      "description": "Operates test tooling correctly for a task."
+    },
+    {
+      "id": "D3-S1-C04",
+      "subdomain_code": "D3-S1",
+      "domain_code": "D3",
+      "statement": "The learner can maintain automated test scripts to keep them current.",
+      "description": "Updates a flaky/outdated automated test appropriately."
+    },
+    {
+      "id": "D3-S1-C05",
+      "subdomain_code": "D3-S1",
+      "domain_code": "D3",
+      "statement": "The learner can help maintain a database of known test defects.",
+      "description": "Records/organizes known defects for reuse."
+    },
+    {
+      "id": "D3-S1-C06",
+      "subdomain_code": "D3-S1",
+      "domain_code": "D3",
+      "statement": "The learner can design or develop automated testing tools.",
+      "description": "Builds a small test utility/automation."
+    },
+    {
+      "id": "D4-S1-C01",
+      "subdomain_code": "D4-S1",
+      "domain_code": "D4",
+      "statement": "The learner can apply company-specific source-code management best practices.",
+      "description": "Follows the team's version-control workflow."
+    },
+    {
+      "id": "D4-S1-C02",
+      "subdomain_code": "D4-S1",
+      "domain_code": "D4",
+      "statement": "The learner can review software documentation for technical accuracy, compliance, and completeness to mitigate risks.",
+      "description": "Reviews docs and flags gaps/risks."
+    },
+    {
+      "id": "D4-S1-C03",
+      "subdomain_code": "D4-S1",
+      "domain_code": "D4",
+      "statement": "The learner can test system modifications to prepare for implementation.",
+      "description": "Validates a change before release (regression/smoke)."
+    },
+    {
+      "id": "D4-S1-C04",
+      "subdomain_code": "D4-S1",
+      "domain_code": "D4",
+      "statement": "The learner can plan test schedules and strategies in accordance with project scope and delivery dates.",
+      "description": "Builds a test plan that fits scope and timeline."
+    },
+    {
+      "id": "D5-S1-C01",
+      "subdomain_code": "D5-S1",
+      "domain_code": "D5",
+      "statement": "The learner can contribute to implementing accessible and responsive website designs and applications.",
+      "description": "Applies accessibility/responsiveness to a UI task."
+    },
+    {
+      "id": "D5-S1-C02",
+      "subdomain_code": "D5-S1",
+      "domain_code": "D5",
+      "statement": "The learner can contribute to building the program using appropriate languages and development methods.",
+      "description": "Implements a feature with suitable methods."
+    },
+    {
+      "id": "D5-S1-C03",
+      "subdomain_code": "D5-S1",
+      "domain_code": "D5",
+      "statement": "The learner can participate in product design reviews, providing input on requirements, designs, schedules, or potential problems.",
+      "description": "Gives useful review input that catches issues early."
+    },
+    {
+      "id": "D5-S1-C04",
+      "subdomain_code": "D5-S1",
+      "domain_code": "D5",
+      "statement": "The learner can collaborate with cross-functional teams during design and implementation.",
+      "description": "Works across roles to deliver a feature."
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "course_id": "sn301",
+  "pathway": "servicenow-implementation-specialist",
+  "title": "Automated Test Framework (ATF) Essentials",
+  "description": "This is a competency-based course designed for the indentured ServiceNow Implementation Specialist apprentice. Covers using Automated Test Framework (ATF) to create and run automated tests to confirm an instance works after making a change.",
+  "hours": 8,
+  "projects": null,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Explain what automated testing protects on a platform that changes with every upgrade",
+    "Build an ATF test with steps, assertions, and test data that cleans up after itself",
+    "Organize tests into suites and run them on a schedule with the client test runner",
+    "Fit automated tests into an update set, UAT, and upgrade cycle"
+  ],
+  "prerequisites": [
+    "sn102 Introduction to ServiceNow Platform",
+    "sn201 Application Development Fundamentals (ADF), or equivalent configuration experience"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "sn301-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn301-02",
+      "order": 2,
+      "slug": "why-automated-testing-belongs-in-platform-work",
+      "title": "Why Automated Testing Belongs in Platform Work",
+      "kind": "lesson",
+      "objectives": [
+        "Explain what automated testing protects on a platform that changes with every upgrade"
+      ],
+      "competency_ids": [
+        "D10-S1-C04"
+      ],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn301-03",
+      "order": 3,
+      "slug": "building-your-first-atf-test",
+      "title": "Building Your First ATF Test",
+      "kind": "lesson",
+      "objectives": [
+        "Build an ATF test with steps, assertions, and test data that cleans up after itself"
+      ],
+      "competency_ids": [
+        "D10-S1-C04"
+      ],
+      "hours_estimate": 2,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn301-04",
+      "order": 4,
+      "slug": "test-suites-scheduling-and-the-client-test-runner",
+      "title": "Test Suites, Scheduling, and the Client Test Runner",
+      "kind": "lesson",
+      "objectives": [
+        "Organize tests into suites and run them on a schedule with the client test runner"
+      ],
+      "competency_ids": [
+        "D10-S1-C04",
+        "D7-S1-C03"
+      ],
+      "hours_estimate": 2,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn301-05",
+      "order": 5,
+      "slug": "testing-through-change-and-upgrade-cycles",
+      "title": "Testing Through Change and Upgrade Cycles",
+      "kind": "lesson",
+      "objectives": [
+        "Fit automated tests into an update set, UAT, and upgrade cycle"
+      ],
+      "competency_ids": [
+        "D10-S1-C02",
+        "D10-S1-C04"
+      ],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "sn301-06",
+      "order": 6,
+      "slug": "project-regression-suite-for-a-catalog-item",
+      "title": "Project: Regression Suite for a Catalog Item",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D10-S1-C04"
+      ],
+      "hours_estimate": 1,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Eight hours is enough for one honest arc: why (2), how (3), at scale (4), and in the release process (5), closed by a small regression suite the learner builds themselves. The motivation lesson is kept to one hour but not dropped, because apprentices who do not believe in the tests write brittle ones. Suites and scheduling follow single tests because a suite is meaningless without tests to put in it, and the release-cycle lesson is last so that it can talk about a suite the learner can already build. Scope assumptions, stated because the intake description is two sentences with no objectives or lesson list: the course is treated as ATF operation and test authoring for an implementer, not test strategy for a QA organization, and not a general software-testing course -- unit testing, load testing, and security testing are out of scope. Tests are built with the platform's shipped step configurations; custom test steps are mentioned as an extension point but not taught, because eight hours does not support it. Running ATF on a production instance is treated as something to warn against rather than a procedure to teach. The course assumes a sub-production instance the learner may safely break, and assumes the reader has configured a catalog item or a form before, which is why sn201 is listed as a prerequisite. Terminology is kept release-neutral.",
+  "proposed_competencies": [
+    {
+      "domain_code": "D10",
+      "subdomain": "D10-S1",
+      "competency_text": "The learner can author, organize, and maintain automated regression tests with the Automated Test Framework (ATF), including test steps, assertions, suites, and scheduled runs.",
+      "rationale": "D10-S1-C04 covers managing testing, UAT, and production deployment cycles -- the process around testing -- but no catalog competency covers authoring an automated test, which is the entire subject of this eight-hour course. Every lesson here is tagged to C04, which flattens test authoring into release management."
+    }
+  ],
+  "assets": []
+}

@@ -1,0 +1,86 @@
+{
+  "course_id": "PREAPP-W2",
+  "pathway": "tech-pre-apprenticeship",
+  "title": "Prospecting & Business Development Foundations",
+  "description": "Week 2 moves participants from sending messages to building a system that books conversations. They define ideal contact profiles, research and qualify prospects, and map 2-3 contacts inside each priority employer-partner organization; A/B test message variants against real reply data and adapt tone and ask by audience; and convert replies into scheduled conversations, conducting structured 20-minute informational interviews. Weekly milestone: 2+ conversations booked; first informational interview completed and debriefed.",
+  "hours": 20,
+  "projects": 0,
+  "notes": "Weekly milestone: 2+ conversations booked; first informational interview completed and debriefed.",
+  "lesson_length": "Lab-guide lessons, roughly 1200-1800 words each, supporting a full week of live instructor-led practice",
+  "learning_objectives": [
+    "Define ideal contact profiles and qualify prospects, mapping multiple contacts per priority organization",
+    "A/B test message variants against real reply data and adapt tone and ask by audience",
+    "Convert replies into scheduled conversations and run structured informational interviews"
+  ],
+  "prerequisites": [
+    "Week 1: Launch: The Outreach Engine"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "PREAPP-W2-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 0.5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "PREAPP-W2-02",
+      "order": 2,
+      "slug": "target-research-list-building",
+      "title": "Target Research & List Building",
+      "kind": "lesson",
+      "objectives": [
+        "Define ideal contact profiles and qualify prospects, mapping multiple contacts per priority organization",
+        "Map 2-3 contacts inside each priority employer-partner organization"
+      ],
+      "competency_ids": [
+        "D1-S2-C01",
+        "D1-S2-C02"
+      ],
+      "hours_estimate": 6.5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "PREAPP-W2-03",
+      "order": 3,
+      "slug": "messaging-craft-testing",
+      "title": "Messaging Craft & Testing",
+      "kind": "lesson",
+      "objectives": [
+        "A/B test message variants against real reply data and adapt tone and ask by audience",
+        "Adapt tone, length, and the size of the ask to the recipient and relationship stage"
+      ],
+      "competency_ids": [
+        "D1-S3-C01",
+        "D1-S3-C02"
+      ],
+      "hours_estimate": 6.5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "PREAPP-W2-04",
+      "order": 4,
+      "slug": "booking-running-informational-interviews",
+      "title": "Booking & Running Informational Interviews",
+      "kind": "lesson",
+      "objectives": [
+        "Convert replies into scheduled conversations and run structured informational interviews",
+        "Conduct a structured 20-minute informational interview and debrief it into actionable intelligence"
+      ],
+      "competency_ids": [
+        "D1-S4-C01",
+        "D1-S4-C02"
+      ],
+      "hours_estimate": 6.5,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Week 2 moves from sending to a system that books conversations. Target research precedes messaging because message quality depends on knowing the audience; interviews come last because they consume the replies the first two lessons generate. Scope assumption: A/B testing is taught against real reply data at novice scale (small samples, directional reads), not statistical significance.",
+  "proposed_competencies": [],
+  "assets": []
+}

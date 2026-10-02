@@ -1,0 +1,138 @@
+{
+  "course_id": "se201",
+  "pathway": "technical-sales-representative",
+  "title": "Advanced SaaS Sales Strategies",
+  "description": "This is a competency-based course designed for the indentured Technical Sales Representative apprentice. Deep dive into SaaS business models, key sales metrics, and customer retention strategies.",
+  "hours": 23,
+  "projects": null,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Explain how subscription, usage-based, and hybrid revenue models change what a SaaS deal is worth",
+    "Calculate customer acquisition cost, lifetime value, and payback period from account data",
+    "Interpret ARR, net revenue retention, and churn to judge the health of a book of business",
+    "Frame a deal using the prospect's own cost and revenue numbers",
+    "Design a retention and expansion plan for an existing account"
+  ],
+  "prerequisites": [
+    "Introduction to Sales (se101), or equivalent sales fundamentals"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "se201-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "se201-02",
+      "order": 2,
+      "slug": "saas-revenue-models",
+      "title": "SaaS Revenue Models",
+      "kind": "lesson",
+      "objectives": [
+        "Explain how subscription, usage-based, and hybrid revenue models change what a SaaS deal is worth"
+      ],
+      "competency_ids": [
+        "D1-S1-C01"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "se201-03",
+      "order": 3,
+      "slug": "unit-economics-cac-ltv-and-payback",
+      "title": "Unit Economics: CAC, LTV, and Payback",
+      "kind": "lesson",
+      "objectives": [
+        "Calculate customer acquisition cost, lifetime value, and payback period from account data"
+      ],
+      "competency_ids": [
+        "D1-S1-C01"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "se201-04",
+      "order": 4,
+      "slug": "growth-and-retention-metrics",
+      "title": "Growth and Retention Metrics",
+      "kind": "lesson",
+      "objectives": [
+        "Interpret ARR, net revenue retention, and churn to judge the health of a book of business"
+      ],
+      "competency_ids": [
+        "D1-S1-C01"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "se201-05",
+      "order": 5,
+      "slug": "framing-a-deal-with-the-customers-numbers",
+      "title": "Framing a Deal with the Customer's Numbers",
+      "kind": "lesson",
+      "objectives": [
+        "Frame a deal using the prospect's own cost and revenue numbers"
+      ],
+      "competency_ids": [
+        "D1-S1-C01",
+        "D1-S1-C02"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "se201-06",
+      "order": 6,
+      "slug": "retention-and-expansion-strategy",
+      "title": "Retention and Expansion Strategy",
+      "kind": "lesson",
+      "objectives": [
+        "Design a retention and expansion plan for an existing account"
+      ],
+      "competency_ids": [
+        "D4-S1-C01"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "se201-07",
+      "order": 7,
+      "slug": "project-build-a-business-case-for-a-saas-deal",
+      "title": "Project: Build a Business Case for a SaaS Deal",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D1-S1-C01",
+        "D1-S1-C02"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Economics before application: a rep cannot frame a deal in the buyer's numbers (lesson 5) until they can read their own (lessons 2–4), and retention strategy (6) only makes sense once churn and net revenue retention have been defined (4). The project closes the loop by making the learner produce the artifact the whole course is aimed at — a defensible business case. SCOPE ASSUMPTIONS: the intake description names exactly three things — SaaS business models, key sales metrics, customer retention strategies — and nothing else, so the 23 hours were split as roughly one third models, one third metrics, one third retention plus application. Assumed in scope: revenue model comparison, the standard SaaS unit-economics vocabulary, and account-level retention planning. Assumed out of scope and left to sibling courses: reading live pipeline analytics and dashboards (se305), CRM configuration and forecasting mechanics (se301), and the customer-success motion after renewal (se310). This course teaches the numbers a seller argues with; se305 teaches the numbers a seller is measured by. Lesson 6 is tagged to the relationship competency rather than a metrics one because its assessable output is a plan for sustaining an account, not a calculation.",
+  "proposed_competencies": [],
+  "assets": [
+    {
+      "filename": "cac-payback-timeline.png",
+      "description": "Cumulative gross profit from a single customer plotted month by month, crossing the flat CAC line at the payback month, with the LTV horizon marked beyond it.",
+      "suggested_source": "Diagram, drawn in-house"
+    },
+    {
+      "filename": "arr-bridge.png",
+      "description": "Waterfall chart of the ARR bridge: beginning ARR, plus new and expansion, minus contraction and churn, equals ending ARR.",
+      "suggested_source": "Diagram, drawn in-house"
+    }
+  ]
+}

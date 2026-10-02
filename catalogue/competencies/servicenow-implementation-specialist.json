@@ -1,0 +1,458 @@
+{
+  "version": 1,
+  "domains": [
+    {
+      "code": "D1",
+      "name": "ServiceNow Fundamentals",
+      "delivered_weight_percent": 6,
+      "description": "ServiceNow fundamentals: platform architecture/data model, navigation/system settings, and instance security."
+    },
+    {
+      "code": "D2",
+      "name": "IT Service Management (ITSM) Implementation",
+      "delivered_weight_percent": 11,
+      "description": "IT Service Management (ITSM) implementation: core process modules, form/table customization, integrations, SLAs/catalogs, and workflow automation."
+    },
+    {
+      "code": "D3",
+      "name": "Customer Service Management (CSM) Implementation",
+      "delivered_weight_percent": 11,
+      "description": "Customer Service Management (CSM) implementation: case management, portals, Virtual Agent, routing automation, and CRM integration."
+    },
+    {
+      "code": "D4",
+      "name": "HR Service Delivery (HRSD) Implementation",
+      "delivered_weight_percent": 11,
+      "description": "HR Service Delivery (HRSD) implementation: HR case/knowledge, self-service portals, lifecycle automation, compliance, and HRIS/payroll integration."
+    },
+    {
+      "code": "D5",
+      "name": "Configuration Management Database (CMDB) and Asset Management",
+      "delivered_weight_percent": 10,
+      "description": "CMDB and asset management: CI/relationship modeling, discovery/reconciliation, dependency mapping, asset lifecycle, and governance."
+    },
+    {
+      "code": "D6",
+      "name": "Service Portal and UI Customization",
+      "delivered_weight_percent": 10,
+      "description": "Service Portal and UI customization: portal design, widgets (HTML/CSS/AngularJS), responsive/navigation, Knowledge Base, and performance/accessibility."
+    },
+    {
+      "code": "D7",
+      "name": "Automation and Scripting",
+      "delivered_weight_percent": 8,
+      "description": "Automation and scripting: business rules/client scripts/UI policies, Flow Designer/Scripted REST, scheduled jobs/events, and ServiceNow APIs."
+    },
+    {
+      "code": "D8",
+      "name": "Integrations and Data Management",
+      "delivered_weight_percent": 13,
+      "description": "Integrations and data management: Integration Hub, imports/transform maps, REST/SOAP middleware, data integrity, and integration monitoring."
+    },
+    {
+      "code": "D9",
+      "name": "Performance Analytics and Reporting",
+      "delivered_weight_percent": 10,
+      "description": "Performance analytics and reporting: reports/dashboards/indicators, operational/executive reporting, KPIs, automation, and report performance/access."
+    },
+    {
+      "code": "D10",
+      "name": "Deployment and Governance",
+      "delivered_weight_percent": 10,
+      "description": "Deployment and governance: roadmaps/plans, DevOps/release management, Agile/ITIL, test/UAT/prod cycles, and enterprise governance/compliance."
+    }
+  ],
+  "subdomains": [
+    {
+      "code": "D1-S1",
+      "domain_code": "D1",
+      "name": "ServiceNow Fundamentals",
+      "description": "Competencies for servicenow fundamentals."
+    },
+    {
+      "code": "D2-S1",
+      "domain_code": "D2",
+      "name": "IT Service Management (ITSM) Implementation",
+      "description": "Competencies for it service management (itsm) implementation."
+    },
+    {
+      "code": "D3-S1",
+      "domain_code": "D3",
+      "name": "Customer Service Management (CSM) Implementation",
+      "description": "Competencies for customer service management (csm) implementation."
+    },
+    {
+      "code": "D4-S1",
+      "domain_code": "D4",
+      "name": "HR Service Delivery (HRSD) Implementation",
+      "description": "Competencies for hr service delivery (hrsd) implementation."
+    },
+    {
+      "code": "D5-S1",
+      "domain_code": "D5",
+      "name": "Configuration Management Database (CMDB) and Asset Management",
+      "description": "Competencies for configuration management database (cmdb) and asset management."
+    },
+    {
+      "code": "D6-S1",
+      "domain_code": "D6",
+      "name": "Service Portal and UI Customization",
+      "description": "Competencies for service portal and ui customization."
+    },
+    {
+      "code": "D7-S1",
+      "domain_code": "D7",
+      "name": "Automation and Scripting",
+      "description": "Competencies for automation and scripting."
+    },
+    {
+      "code": "D8-S1",
+      "domain_code": "D8",
+      "name": "Integrations and Data Management",
+      "description": "Competencies for integrations and data management."
+    },
+    {
+      "code": "D9-S1",
+      "domain_code": "D9",
+      "name": "Performance Analytics and Reporting",
+      "description": "Competencies for performance analytics and reporting."
+    },
+    {
+      "code": "D10-S1",
+      "domain_code": "D10",
+      "name": "Deployment and Governance",
+      "description": "Competencies for deployment and governance."
+    }
+  ],
+  "competencies": [
+    {
+      "id": "D1-S1-C01",
+      "subdomain_code": "D1-S1",
+      "domain_code": "D1",
+      "statement": "The learner can work with ServiceNow architecture, data models, and core components.",
+      "description": "Explains platform structure and core tables/relationships."
+    },
+    {
+      "id": "D1-S1-C02",
+      "subdomain_code": "D1-S1",
+      "domain_code": "D1",
+      "statement": "The learner can navigate the ServiceNow platform to configure and manage system settings.",
+      "description": "Finds and adjusts the right settings in the platform."
+    },
+    {
+      "id": "D1-S1-C03",
+      "subdomain_code": "D1-S1",
+      "domain_code": "D1",
+      "statement": "The learner can implement instance security controls and user authentication methods.",
+      "description": "Configures ACLs/roles and an authentication method."
+    },
+    {
+      "id": "D2-S1-C01",
+      "subdomain_code": "D2-S1",
+      "domain_code": "D2",
+      "statement": "The learner can configure ITSM modules including Incident, Problem, Change, and Request Management.",
+      "description": "Sets up the correct ITSM process for a scenario."
+    },
+    {
+      "id": "D2-S1-C02",
+      "subdomain_code": "D2-S1",
+      "domain_code": "D2",
+      "statement": "The learner can customize forms, fields, and tables to align with ITSM best practices.",
+      "description": "Adds/adjusts form and table elements correctly."
+    },
+    {
+      "id": "D2-S1-C03",
+      "subdomain_code": "D2-S1",
+      "domain_code": "D2",
+      "statement": "The learner can integrate ITSM with third-party applications and external data sources.",
+      "description": "Connects ITSM to an external system."
+    },
+    {
+      "id": "D2-S1-C04",
+      "subdomain_code": "D2-S1",
+      "domain_code": "D2",
+      "statement": "The learner can implement Service Level Agreements (SLAs) and Service Catalogs.",
+      "description": "Configures an SLA/catalog item to a requirement."
+    },
+    {
+      "id": "D2-S1-C05",
+      "subdomain_code": "D2-S1",
+      "domain_code": "D2",
+      "statement": "The learner can develop automated workflows using Flow Designer and Business Rules.",
+      "description": "Builds a flow/business rule to automate a process."
+    },
+    {
+      "id": "D3-S1-C01",
+      "subdomain_code": "D3-S1",
+      "domain_code": "D3",
+      "statement": "The learner can configure CSM for case management and customer-interaction tracking.",
+      "description": "Sets up case management appropriately."
+    },
+    {
+      "id": "D3-S1-C02",
+      "subdomain_code": "D3-S1",
+      "domain_code": "D3",
+      "statement": "The learner can customize ServiceNow CSM portals for an enhanced user experience.",
+      "description": "Tailors a CSM portal to user needs."
+    },
+    {
+      "id": "D3-S1-C03",
+      "subdomain_code": "D3-S1",
+      "domain_code": "D3",
+      "statement": "The learner can implement Virtual Agent and AI-driven chatbots for customer-service automation.",
+      "description": "Configures a Virtual Agent topic/flow."
+    },
+    {
+      "id": "D3-S1-C04",
+      "subdomain_code": "D3-S1",
+      "domain_code": "D3",
+      "statement": "The learner can develop workflow automations for case routing and resolution.",
+      "description": "Automates routing/assignment for cases."
+    },
+    {
+      "id": "D3-S1-C05",
+      "subdomain_code": "D3-S1",
+      "domain_code": "D3",
+      "statement": "The learner can integrate CSM with CRM and support tools.",
+      "description": "Connects CSM to a CRM/support system."
+    },
+    {
+      "id": "D4-S1-C01",
+      "subdomain_code": "D4-S1",
+      "domain_code": "D4",
+      "statement": "The learner can implement HR case and knowledge-management workflows.",
+      "description": "Configures HR case and knowledge flows."
+    },
+    {
+      "id": "D4-S1-C02",
+      "subdomain_code": "D4-S1",
+      "domain_code": "D4",
+      "statement": "The learner can configure the Employee Service Center and HR portals for self-service access.",
+      "description": "Sets up self-service HR access."
+    },
+    {
+      "id": "D4-S1-C03",
+      "subdomain_code": "D4-S1",
+      "domain_code": "D4",
+      "statement": "The learner can design and automate HR onboarding, offboarding, and lifecycle events.",
+      "description": "Automates a lifecycle event correctly."
+    },
+    {
+      "id": "D4-S1-C04",
+      "subdomain_code": "D4-S1",
+      "domain_code": "D4",
+      "statement": "The learner can ensure compliance with data-privacy and security regulations in HR applications.",
+      "description": "Applies privacy/security controls to HR data."
+    },
+    {
+      "id": "D4-S1-C05",
+      "subdomain_code": "D4-S1",
+      "domain_code": "D4",
+      "statement": "The learner can integrate HRSD with enterprise HRIS and payroll systems.",
+      "description": "Connects HRSD to HRIS/payroll."
+    },
+    {
+      "id": "D5-S1-C01",
+      "subdomain_code": "D5-S1",
+      "domain_code": "D5",
+      "statement": "The learner can configure and maintain the CMDB to track IT assets, services, and dependencies.",
+      "description": "Models CIs/relationships in the CMDB."
+    },
+    {
+      "id": "D5-S1-C02",
+      "subdomain_code": "D5-S1",
+      "domain_code": "D5",
+      "statement": "The learner can implement automated discovery and reconciliation for data integrity.",
+      "description": "Sets up discovery/reconciliation correctly."
+    },
+    {
+      "id": "D5-S1-C03",
+      "subdomain_code": "D5-S1",
+      "domain_code": "D5",
+      "statement": "The learner can develop dependency maps for business services and infrastructure components.",
+      "description": "Builds an accurate service dependency map."
+    },
+    {
+      "id": "D5-S1-C04",
+      "subdomain_code": "D5-S1",
+      "domain_code": "D5",
+      "statement": "The learner can automate IT asset-lifecycle management workflows.",
+      "description": "Automates an asset lifecycle stage."
+    },
+    {
+      "id": "D5-S1-C05",
+      "subdomain_code": "D5-S1",
+      "domain_code": "D5",
+      "statement": "The learner can ensure compliance with CMDB best practices and governance frameworks.",
+      "description": "Applies CMDB governance/health practices."
+    },
+    {
+      "id": "D6-S1-C01",
+      "subdomain_code": "D6-S1",
+      "domain_code": "D6",
+      "statement": "The learner can design and customize ServiceNow Service Portals to improve user experience.",
+      "description": "Configures a Service Portal to a need."
+    },
+    {
+      "id": "D6-S1-C02",
+      "subdomain_code": "D6-S1",
+      "domain_code": "D6",
+      "statement": "The learner can develop UI pages and widgets using HTML, CSS, and AngularJS.",
+      "description": "Builds/edits a portal widget correctly."
+    },
+    {
+      "id": "D6-S1-C03",
+      "subdomain_code": "D6-S1",
+      "domain_code": "D6",
+      "statement": "The learner can implement responsive layouts and user-friendly navigation.",
+      "description": "Applies responsive/navigation best practices."
+    },
+    {
+      "id": "D6-S1-C04",
+      "subdomain_code": "D6-S1",
+      "domain_code": "D6",
+      "statement": "The learner can configure the Knowledge Base for self-service support and documentation.",
+      "description": "Sets up KB categories/articles/permissions."
+    },
+    {
+      "id": "D6-S1-C05",
+      "subdomain_code": "D6-S1",
+      "domain_code": "D6",
+      "statement": "The learner can optimize portal performance and accessibility for diverse user needs.",
+      "description": "Improves portal speed/accessibility."
+    },
+    {
+      "id": "D7-S1-C01",
+      "subdomain_code": "D7-S1",
+      "domain_code": "D7",
+      "statement": "The learner can develop and deploy Business Rules, Client Scripts, and UI Policies to automate processes.",
+      "description": "Chooses/writes the right server/client script."
+    },
+    {
+      "id": "D7-S1-C02",
+      "subdomain_code": "D7-S1",
+      "domain_code": "D7",
+      "statement": "The learner can implement the Workflow Editor, Flow Designer, and Scripted REST APIs for automation.",
+      "description": "Builds an automation with the right tool."
+    },
+    {
+      "id": "D7-S1-C03",
+      "subdomain_code": "D7-S1",
+      "domain_code": "D7",
+      "statement": "The learner can configure Scheduled Jobs and Event Management automation within ServiceNow.",
+      "description": "Schedules/handles events correctly."
+    },
+    {
+      "id": "D7-S1-C04",
+      "subdomain_code": "D7-S1",
+      "domain_code": "D7",
+      "statement": "The learner can use ServiceNow APIs for system integrations and custom development.",
+      "description": "Calls/exposes a ServiceNow API correctly."
+    },
+    {
+      "id": "D8-S1-C01",
+      "subdomain_code": "D8-S1",
+      "domain_code": "D8",
+      "statement": "The learner can implement ServiceNow Integration Hub to connect external APIs and services.",
+      "description": "Configures an Integration Hub spoke/action."
+    },
+    {
+      "id": "D8-S1-C02",
+      "subdomain_code": "D8-S1",
+      "domain_code": "D8",
+      "statement": "The learner can configure data imports, transform maps, and data-migration workflows.",
+      "description": "Maps and imports external data correctly."
+    },
+    {
+      "id": "D8-S1-C03",
+      "subdomain_code": "D8-S1",
+      "domain_code": "D8",
+      "statement": "The learner can develop middleware integrations using REST and SOAP web services.",
+      "description": "Builds a REST/SOAP integration correctly."
+    },
+    {
+      "id": "D8-S1-C04",
+      "subdomain_code": "D8-S1",
+      "domain_code": "D8",
+      "statement": "The learner can ensure data integrity through validation, transformation, and error handling.",
+      "description": "Adds validation/error handling to an integration."
+    },
+    {
+      "id": "D8-S1-C05",
+      "subdomain_code": "D8-S1",
+      "domain_code": "D8",
+      "statement": "The learner can monitor integration performance and optimize synchronization.",
+      "description": "Diagnoses/improves an integration's performance."
+    },
+    {
+      "id": "D9-S1-C01",
+      "subdomain_code": "D9-S1",
+      "domain_code": "D9",
+      "statement": "The learner can configure reports, dashboards, and Performance Analytics indicators for data visualization.",
+      "description": "Builds the right report/indicator for a question."
+    },
+    {
+      "id": "D9-S1-C02",
+      "subdomain_code": "D9-S1",
+      "domain_code": "D9",
+      "statement": "The learner can develop real-time operational and executive reports within ServiceNow.",
+      "description": "Creates an appropriate operational/exec report."
+    },
+    {
+      "id": "D9-S1-C03",
+      "subdomain_code": "D9-S1",
+      "domain_code": "D9",
+      "statement": "The learner can implement KPIs to measure IT and business metrics.",
+      "description": "Defines a meaningful KPI/indicator."
+    },
+    {
+      "id": "D9-S1-C04",
+      "subdomain_code": "D9-S1",
+      "domain_code": "D9",
+      "statement": "The learner can automate data collection, aggregation, and visualization.",
+      "description": "Automates a data-collection job for reporting."
+    },
+    {
+      "id": "D9-S1-C05",
+      "subdomain_code": "D9-S1",
+      "domain_code": "D9",
+      "statement": "The learner can optimize report performance and enforce access-control policies.",
+      "description": "Tunes a report and secures its data."
+    },
+    {
+      "id": "D10-S1-C01",
+      "subdomain_code": "D10-S1",
+      "domain_code": "D10",
+      "statement": "The learner can develop ServiceNow deployment roadmaps and project implementation plans.",
+      "description": "Plans a realistic implementation roadmap."
+    },
+    {
+      "id": "D10-S1-C02",
+      "subdomain_code": "D10-S1",
+      "domain_code": "D10",
+      "statement": "The learner can implement DevOps best practices for ServiceNow development and release management.",
+      "description": "Applies source control/update-set/DevOps practices."
+    },
+    {
+      "id": "D10-S1-C03",
+      "subdomain_code": "D10-S1",
+      "domain_code": "D10",
+      "statement": "The learner can apply Agile and ITIL methodologies in ServiceNow project execution.",
+      "description": "Uses Agile/ITIL appropriately in delivery."
+    },
+    {
+      "id": "D10-S1-C04",
+      "subdomain_code": "D10-S1",
+      "domain_code": "D10",
+      "statement": "The learner can manage testing, UAT, and production deployment cycles for ServiceNow solutions.",
+      "description": "Runs a change through test/UAT/prod correctly."
+    },
+    {
+      "id": "D10-S1-C05",
+      "subdomain_code": "D10-S1",
+      "domain_code": "D10",
+      "statement": "The learner can ensure compliance with enterprise governance policies and security standards.",
+      "description": "Aligns a deployment to governance/security."
+    }
+  ]
+}

@@ -1,0 +1,205 @@
+{
+  "course_id": "cse220",
+  "pathway": "cloud-support-engineer",
+  "title": "Monitoring, Troubleshooting, & Incident Response",
+  "description": "This is a competency-based course designed for the indentured Cloud Support Engineer apprentice. Explains best practices for monitoring cloud environments, diagnosing performance issues, and implementing alerting solutions using generic logging and monitoring strategies.",
+  "hours": 30,
+  "projects": null,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Choose the signals that tell you whether a cloud service is healthy",
+    "Configure monitoring and log collection for a cloud service",
+    "Analyze logs and metrics to locate a performance bottleneck",
+    "Build a dashboard that answers whether a service is healthy at a glance",
+    "Define alerts with thresholds that page a human only when action is required",
+    "Isolate a fault across the network, storage, and compute layers of a cloud service",
+    "Act correctly in the first thirty minutes of a service outage",
+    "Document troubleshooting steps and escalate an unresolved issue to the right team"
+  ],
+  "prerequisites": [
+    "Completed Introduction to Cloud Computing (cse101) or equivalent working knowledge of cloud service models",
+    "Completed Cloud Infrastructure Deployment & Management (cse203) or equivalent experience provisioning cloud compute, network, and storage",
+    "Comfortable reading command-line output and plain-text log files"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "cse220-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cse220-02",
+      "order": 2,
+      "slug": "signals-metrics-and-logs",
+      "title": "Signals, Metrics, and Logs",
+      "kind": "lesson",
+      "objectives": [
+        "Choose the signals that tell you whether a cloud service is healthy"
+      ],
+      "competency_ids": [
+        "D6-S1-C01"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cse220-03",
+      "order": 3,
+      "slug": "setting-up-cloud-monitoring",
+      "title": "Setting Up Cloud Monitoring",
+      "kind": "lesson",
+      "objectives": [
+        "Configure monitoring and log collection for a cloud service"
+      ],
+      "competency_ids": [
+        "D6-S1-C01"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cse220-04",
+      "order": 4,
+      "slug": "reading-logs-to-find-bottlenecks",
+      "title": "Reading Logs to Find Bottlenecks",
+      "kind": "lesson",
+      "objectives": [
+        "Analyze logs and metrics to locate a performance bottleneck"
+      ],
+      "competency_ids": [
+        "D1-S1-C03"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cse220-05",
+      "order": 5,
+      "slug": "building-service-health-dashboards",
+      "title": "Building Service Health Dashboards",
+      "kind": "lesson",
+      "objectives": [
+        "Build a dashboard that answers whether a service is healthy at a glance"
+      ],
+      "competency_ids": [
+        "D6-S1-C03"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cse220-06",
+      "order": 6,
+      "slug": "designing-actionable-alerts",
+      "title": "Designing Actionable Alerts",
+      "kind": "lesson",
+      "objectives": [
+        "Define alerts with thresholds that page a human only when action is required"
+      ],
+      "competency_ids": [
+        "D6-S1-C04"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cse220-07",
+      "order": 7,
+      "slug": "troubleshooting-across-the-stack",
+      "title": "Troubleshooting Across Network, Storage, and Compute",
+      "kind": "lesson",
+      "objectives": [
+        "Isolate a fault across the network, storage, and compute layers of a cloud service"
+      ],
+      "competency_ids": [
+        "D1-S1-C01",
+        "D3-S1-C03"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cse220-08",
+      "order": 8,
+      "slug": "responding-to-an-outage",
+      "title": "Responding to an Outage",
+      "kind": "lesson",
+      "objectives": [
+        "Act correctly in the first thirty minutes of a service outage"
+      ],
+      "competency_ids": [
+        "D5-S1-C01",
+        "D6-S1-C02"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cse220-09",
+      "order": 9,
+      "slug": "documentation-escalation-and-postmortems",
+      "title": "Documentation, Escalation, and Postmortems",
+      "kind": "lesson",
+      "objectives": [
+        "Document troubleshooting steps and escalate an unresolved issue to the right team"
+      ],
+      "competency_ids": [
+        "D1-S1-C04",
+        "D5-S1-C02",
+        "D5-S1-C04"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "cse220-10",
+      "order": 10,
+      "slug": "project-run-a-simulated-incident",
+      "title": "Project: Run a Simulated Incident End to End",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D1-S1-C01",
+        "D1-S1-C04",
+        "D6-S1-C02"
+      ],
+      "hours_estimate": 2,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "You cannot troubleshoot what you cannot see, so the whole first half builds visibility before the second half uses it. Lesson 02 settles what is worth measuring before any tool is configured, because a monitoring stack pointed at the wrong signals is worse than none - it produces confident, useless graphs. Collection (03) follows the choice of signals; reading what was collected (04) follows collection. Dashboards (05) and alerts (06) are two different consumers of the same telemetry and are taught in that order on purpose: a dashboard is pulled by a human who is already worried, an alert pushes to a human who is not, so alert design is the harder discipline and benefits from the learner having already had to decide what belongs on a screen. Lesson 07 turns the telemetry on a live fault and is the first lesson that crosses layers, which is why it needs everything before it. Outage response (08) adds time pressure and other people to the same skill, and lesson 09 covers what survives the incident - the write-up, the escalation, the knowledge-base article - because that is the part of support work that compounds. The project (10) runs one incident end to end under the process taught in 08 and 09. SCOPE ASSUMPTIONS - the intake gives three sentences, no objectives, no lesson titles, so: (1) 'generic logging and monitoring strategies' is read as a hard vendor-neutrality constraint; the course teaches signals, thresholds, and query patterns, and names CloudWatch, Azure Monitor, and Google Cloud Monitoring only as examples of where a concept lands in each provider. No lesson requires a specific product. (2) Competency D3-S1-C03 (analyzing network traffic with cloud-native tools) is scoped to reading flow logs during a fault in lesson 07, not to network design, which is cse203. (3) Alerting is taught to the level of threshold and routing design; paging-rotation tooling and on-call scheduling policy are treated as employer-specific and are out of scope. (4) Automated remediation is out of scope and belongs to cse270. (5) Availability targets are discussed qualitatively; formal RTO and RPO design belongs to cse280. (6) The catalog has no competency for service-level objectives or error budgets, which lesson 06 needs in order to justify a threshold - see proposed_competencies; the lesson teaches thresholds from observed baselines instead of asserting an uncatalogued competency. (7) The intake records no projects; lesson 10 is included at low hours as the terminal assessment because incident response is not demonstrable on paper.",
+  "proposed_competencies": [
+    {
+      "domain_code": "D6",
+      "subdomain": "D6-S1",
+      "competency_text": "The learner can define a service level objective and an error budget for a cloud service, and can justify alert thresholds from them.",
+      "rationale": "Lessons 05 and 06 both need a defensible answer to 'how bad is bad enough to wake someone up', and without an objective that answer is arbitrary. D6-S1-C04 covers implementing alerting mechanisms with sensible thresholds but not where the threshold's number comes from; D6-S1-C03 covers dashboards but not the target they are measured against. This is the missing quantitative backbone of the whole D6 domain."
+    },
+    {
+      "domain_code": "D1",
+      "subdomain": "D1-S1",
+      "competency_text": "The learner can conduct a blameless postmortem that identifies contributing causes and produces tracked corrective actions.",
+      "rationale": "Lesson 09 teaches the postmortem and the project's definition of done requires one. D1-S1-C04 covers supporting incident-management processes and documenting troubleshooting steps, which is the during-incident record; the after-action analysis - contributing causes, corrective actions, and the cultural rule that makes people tell the truth about them - is a distinct practice that the catalog does not currently express."
+    }
+  ],
+  "assets": [
+    {
+      "filename": "telemetry-pipeline.png",
+      "description": "How metrics, logs, and traces travel from a cloud workload through collection and storage to dashboards and alert routing.",
+      "suggested_source": "Diagram, drawn in-house"
+    },
+    {
+      "filename": "incident-timeline.png",
+      "description": "The phases of an outage from detection through mitigation to resolution and postmortem, with who is doing what in each phase.",
+      "suggested_source": "Diagram, drawn in-house"
+    }
+  ]
+}

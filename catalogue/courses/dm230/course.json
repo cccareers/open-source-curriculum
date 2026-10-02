@@ -1,0 +1,224 @@
+{
+  "course_id": "dm230",
+  "pathway": "digital-marketer",
+  "title": "Pay-Per-Click (PPC) Advertising",
+  "description": "This is a competency-based course designed for the indentured Digital Marketer apprentice. Apprentices will gain hands-on experience in setting up and managing PPC campaigns using Google Ads and social media platforms. The course also covers budgeting, targeting strategies, and conversion tracking.",
+  "hours": 60,
+  "projects": null,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Explain how a paid search auction decides which ad shows and what it costs",
+    "Structure a paid account into campaigns and ad groups that can be optimized",
+    "Select keywords and match types, and use negatives to protect budget",
+    "Write compliant ad copy and assets that match the query and the landing page",
+    "Set budgets, bidding strategies, and targeting for a stated campaign goal",
+    "Plan a paid social campaign and choose the audiences for it",
+    "Implement conversion tracking and verify that it reports correctly",
+    "Improve the conversion rate of a landing page receiving paid traffic",
+    "Design a valid A/B test on ads or landing pages and interpret the result",
+    "Judge campaign performance on return on investment and decide what to change"
+  ],
+  "prerequisites": [
+    "dm101 Introduction to Digital Marketing",
+    "dm201 Search Engine Optimization (SEO), for keyword research and search intent"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "dm230-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 2,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "dm230-02",
+      "order": 2,
+      "slug": "how-paid-search-auctions-work",
+      "title": "How Paid Search Auctions Work",
+      "kind": "lesson",
+      "objectives": [
+        "Explain how a paid search auction decides which ad shows and what it costs",
+        "Describe how quality signals affect cost per click and ad position"
+      ],
+      "competency_ids": [
+        "D3-S1-C01"
+      ],
+      "hours_estimate": 6,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "dm230-03",
+      "order": 3,
+      "slug": "account-and-campaign-structure",
+      "title": "Account and Campaign Structure",
+      "kind": "lesson",
+      "objectives": [
+        "Structure a paid account into campaigns and ad groups that can be optimized"
+      ],
+      "competency_ids": [
+        "D3-S1-C01"
+      ],
+      "hours_estimate": 6,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "dm230-04",
+      "order": 4,
+      "slug": "keywords-match-types-and-negatives",
+      "title": "Keywords, Match Types, and Negatives",
+      "kind": "lesson",
+      "objectives": [
+        "Select keywords and match types, and use negatives to protect budget",
+        "Mine a search terms report for new keywords and new negatives"
+      ],
+      "competency_ids": [
+        "D3-S1-C01",
+        "D1-S1-C01"
+      ],
+      "hours_estimate": 6,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "dm230-05",
+      "order": 5,
+      "slug": "ad-copy-assets-and-policy",
+      "title": "Ad Copy, Assets, and Ad Policy",
+      "kind": "lesson",
+      "objectives": [
+        "Write compliant ad copy and assets that match the query and the landing page",
+        "Check an ad against advertising policy before it runs"
+      ],
+      "competency_ids": [
+        "D2-S1-C03",
+        "D7-S2-C02"
+      ],
+      "hours_estimate": 6,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "dm230-06",
+      "order": 6,
+      "slug": "budgets-bidding-and-targeting",
+      "title": "Budgets, Bidding, and Targeting",
+      "kind": "lesson",
+      "objectives": [
+        "Set budgets, bidding strategies, and targeting for a stated campaign goal"
+      ],
+      "competency_ids": [
+        "D3-S1-C01"
+      ],
+      "hours_estimate": 6,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "dm230-07",
+      "order": 7,
+      "slug": "paid-social-campaigns",
+      "title": "Paid Social Campaigns",
+      "kind": "lesson",
+      "objectives": [
+        "Plan a paid social campaign and choose the audiences for it",
+        "Compare paid social and paid search for a given objective"
+      ],
+      "competency_ids": [
+        "D3-S1-C01",
+        "D4-S1-C01"
+      ],
+      "hours_estimate": 6,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "dm230-08",
+      "order": 8,
+      "slug": "conversion-tracking",
+      "title": "Conversion Tracking",
+      "kind": "lesson",
+      "objectives": [
+        "Implement conversion tracking and verify that it reports correctly"
+      ],
+      "competency_ids": [
+        "D3-S1-C03"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "dm230-09",
+      "order": 9,
+      "slug": "landing-pages-and-cro",
+      "title": "Landing Pages and Conversion Rate Optimization",
+      "kind": "lesson",
+      "objectives": [
+        "Improve the conversion rate of a landing page receiving paid traffic"
+      ],
+      "competency_ids": [
+        "D6-S2-C02",
+        "D3-S1-C02"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "dm230-10",
+      "order": 10,
+      "slug": "ab-testing-ads-and-landing-pages",
+      "title": "A/B Testing Ads and Landing Pages",
+      "kind": "lesson",
+      "objectives": [
+        "Design a valid A/B test on ads or landing pages and interpret the result"
+      ],
+      "competency_ids": [
+        "D3-S1-C02"
+      ],
+      "hours_estimate": 5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "dm230-11",
+      "order": 11,
+      "slug": "roi-analysis-and-optimization",
+      "title": "ROI Analysis and Optimization",
+      "kind": "lesson",
+      "objectives": [
+        "Judge campaign performance on return on investment and decide what to change",
+        "Calculate cost per acquisition, return on ad spend, and contribution for a campaign"
+      ],
+      "competency_ids": [
+        "D3-S1-C03"
+      ],
+      "hours_estimate": 4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "dm230-12",
+      "order": 12,
+      "slug": "project-build-and-optimize-a-campaign",
+      "title": "Project: Build, Run, and Optimize a Paid Campaign",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D3-S1-C01",
+        "D3-S1-C02",
+        "D3-S1-C03"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Paid media punishes structural mistakes with real money, so the course front-loads mechanism and structure (02-03) before anything is launched, then works outward through the levers a campaign actually exposes: keywords (04), creative and policy (05), money and targeting (06), then the second platform family, paid social (07). Measurement infrastructure (08) precedes optimization (09-11) because optimizing on untrusted conversion data is the most common failure in this discipline; the capstone is small because the preceding lessons are already hands-on. SCOPE ASSUMPTIONS - this intake description is one of the two in the pathway that is NOT truncated, so scope is better evidenced here than elsewhere, but it still supplied no objectives or lesson titles: (1) 'Google Ads and social media platforms' is taken at face value - Google Ads is the primary teaching platform (it is named in the intake) and lesson 07 covers paid social generically with Meta and LinkedIn as the worked examples; the reviewer should confirm which ad accounts apprentices can access. (2) 'Budgeting, targeting strategies, and conversion tracking' are the three named requirements and get dedicated coverage (lessons 06 and 08). (3) A/B testing and landing-page CRO are included because the catalog sites D3-S1-C02 in the PPC domain; deeper CRO and UX work is dm301's. (4) Programmatic/display networks, YouTube video ads, retail media and app-install campaigns are OUT of scope at 60 hours - flag if any is expected. (5) Learners are assumed to work in sandbox or draft campaigns; no lesson requires live ad spend.",
+  "proposed_competencies": [
+    {
+      "domain_code": "D3",
+      "subdomain": "D3-S1",
+      "competency_text": "The learner can forecast paid media spend and pace a budget across a flight against a target cost per acquisition.",
+      "rationale": "Lesson 06 and the capstone both require forecasting and pacing spend, which is what an employer checks first; D3-S1-C01 mentions bids and D3-S1-C03 covers reading ROI after the fact, but neither covers planning spend forward."
+    }
+  ],
+  "assets": []
+}

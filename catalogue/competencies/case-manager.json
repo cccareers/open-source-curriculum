@@ -1,0 +1,224 @@
+{
+  "version": 1,
+  "domains": [
+    {
+      "code": "D1",
+      "name": "Client Assessment",
+      "delivered_weight_percent": 17,
+      "description": "Client assessment: intake interviewing, identifying mental/social/environmental needs, and recognizing risk."
+    },
+    {
+      "code": "D2",
+      "name": "Care Planning",
+      "delivered_weight_percent": 12,
+      "description": "Care planning: creating needs-based plans and setting client-centered goals linked to services."
+    },
+    {
+      "code": "D3",
+      "name": "Care Coordination",
+      "delivered_weight_percent": 12,
+      "description": "Care coordination: connecting clients to services and navigating community systems."
+    },
+    {
+      "code": "D4",
+      "name": "Communication Skills",
+      "delivered_weight_percent": 12,
+      "description": "Communication skills: professional communication and empathy within professional boundaries."
+    },
+    {
+      "code": "D5",
+      "name": "Documentation Skills",
+      "delivered_weight_percent": 12,
+      "description": "Documentation skills: clear, accurate case notes and documenting services/progress."
+    },
+    {
+      "code": "D6",
+      "name": "Behavioral Health Knowledge",
+      "delivered_weight_percent": 17,
+      "description": "Behavioral health knowledge: recognizing mental health conditions and substance use disorders, and trauma-informed care."
+    },
+    {
+      "code": "D7",
+      "name": "Ethics & Professionalism",
+      "delivered_weight_percent": 12,
+      "description": "Ethics and professionalism: confidentiality/HIPAA and ethical decision-making."
+    },
+    {
+      "code": "D8",
+      "name": "Work Readiness",
+      "delivered_weight_percent": 6,
+      "description": "Work readiness: performing core case-management duties appropriately in a real-world setting."
+    }
+  ],
+  "subdomains": [
+    {
+      "code": "D1-S1",
+      "domain_code": "D1",
+      "name": "Client Assessment",
+      "description": "Competencies for client assessment."
+    },
+    {
+      "code": "D2-S1",
+      "domain_code": "D2",
+      "name": "Care Planning",
+      "description": "Competencies for care planning."
+    },
+    {
+      "code": "D3-S1",
+      "domain_code": "D3",
+      "name": "Care Coordination",
+      "description": "Competencies for care coordination."
+    },
+    {
+      "code": "D4-S1",
+      "domain_code": "D4",
+      "name": "Communication Skills",
+      "description": "Competencies for communication skills."
+    },
+    {
+      "code": "D5-S1",
+      "domain_code": "D5",
+      "name": "Documentation Skills",
+      "description": "Competencies for documentation skills."
+    },
+    {
+      "code": "D6-S1",
+      "domain_code": "D6",
+      "name": "Behavioral Health Knowledge",
+      "description": "Competencies for behavioral health knowledge."
+    },
+    {
+      "code": "D7-S1",
+      "domain_code": "D7",
+      "name": "Ethics & Professionalism",
+      "description": "Competencies for ethics & professionalism."
+    },
+    {
+      "code": "D8-S1",
+      "domain_code": "D8",
+      "name": "Work Readiness",
+      "description": "Competencies for work readiness."
+    }
+  ],
+  "competencies": [
+    {
+      "id": "D1-S1-C01",
+      "subdomain_code": "D1-S1",
+      "domain_code": "D1",
+      "statement": "The learner can conduct a client intake interview effectively.",
+      "description": "Runs an intake that gathers needed information respectfully."
+    },
+    {
+      "id": "D1-S1-C02",
+      "subdomain_code": "D1-S1",
+      "domain_code": "D1",
+      "statement": "The learner can identify a client's mental, social, and environmental needs.",
+      "description": "Distinguishes need types from intake information."
+    },
+    {
+      "id": "D1-S1-C03",
+      "subdomain_code": "D1-S1",
+      "domain_code": "D1",
+      "statement": "The learner can recognize risk factors that require attention or escalation.",
+      "description": "Flags safety/risk indicators and escalates appropriately."
+    },
+    {
+      "id": "D2-S1-C01",
+      "subdomain_code": "D2-S1",
+      "domain_code": "D2",
+      "statement": "The learner can create a care plan that addresses a client's identified needs.",
+      "description": "Builds a plan mapping needs to actions."
+    },
+    {
+      "id": "D2-S1-C02",
+      "subdomain_code": "D2-S1",
+      "domain_code": "D2",
+      "statement": "The learner can set client-centered goals and connect them to appropriate services.",
+      "description": "Writes SMART, client-centered goals with service links."
+    },
+    {
+      "id": "D3-S1-C01",
+      "subdomain_code": "D3-S1",
+      "domain_code": "D3",
+      "statement": "The learner can connect clients to appropriate services and make effective referrals.",
+      "description": "Selects and makes a fitting referral."
+    },
+    {
+      "id": "D3-S1-C02",
+      "subdomain_code": "D3-S1",
+      "domain_code": "D3",
+      "statement": "The learner can navigate community systems and resources on a client's behalf.",
+      "description": "Identifies the right system/resource for a need."
+    },
+    {
+      "id": "D4-S1-C01",
+      "subdomain_code": "D4-S1",
+      "domain_code": "D4",
+      "statement": "The learner can communicate professionally with clients and team members.",
+      "description": "Chooses appropriate, clear, respectful communication."
+    },
+    {
+      "id": "D4-S1-C02",
+      "subdomain_code": "D4-S1",
+      "domain_code": "D4",
+      "statement": "The learner can demonstrate empathy while maintaining professional boundaries.",
+      "description": "Balances empathy with appropriate boundaries."
+    },
+    {
+      "id": "D5-S1-C01",
+      "subdomain_code": "D5-S1",
+      "domain_code": "D5",
+      "statement": "The learner can write clear, accurate, objective case notes.",
+      "description": "Produces factual, well-structured case notes."
+    },
+    {
+      "id": "D5-S1-C02",
+      "subdomain_code": "D5-S1",
+      "domain_code": "D5",
+      "statement": "The learner can document services provided and client progress.",
+      "description": "Records services/progress completely and correctly."
+    },
+    {
+      "id": "D6-S1-C01",
+      "subdomain_code": "D6-S1",
+      "domain_code": "D6",
+      "statement": "The learner can recognize common mental health conditions relevant to case management.",
+      "description": "Identifies presentations without diagnosing/treating."
+    },
+    {
+      "id": "D6-S1-C02",
+      "subdomain_code": "D6-S1",
+      "domain_code": "D6",
+      "statement": "The learner can recognize signs of substance use disorders and respond appropriately.",
+      "description": "Notices indicators and takes an appropriate next step."
+    },
+    {
+      "id": "D6-S1-C03",
+      "subdomain_code": "D6-S1",
+      "domain_code": "D6",
+      "statement": "The learner can apply trauma-informed care principles in client interactions.",
+      "description": "Applies safety/trust/choice principles in a scenario."
+    },
+    {
+      "id": "D7-S1-C01",
+      "subdomain_code": "D7-S1",
+      "domain_code": "D7",
+      "statement": "The learner can follow client confidentiality rules, including HIPAA where applicable.",
+      "description": "Handles client information within confidentiality rules."
+    },
+    {
+      "id": "D7-S1-C02",
+      "subdomain_code": "D7-S1",
+      "domain_code": "D7",
+      "statement": "The learner can apply ethical decision-making to case-management dilemmas.",
+      "description": "Reasons through an ethical dilemma appropriately."
+    },
+    {
+      "id": "D8-S1-C01",
+      "subdomain_code": "D8-S1",
+      "domain_code": "D8",
+      "statement": "The learner can perform core case-management duties appropriately in a real-world setting.",
+      "description": "Integrates skills to handle a realistic end-to-end situation."
+    }
+  ]
+}

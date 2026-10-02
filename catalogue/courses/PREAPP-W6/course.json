@@ -1,0 +1,85 @@
+{
+  "course_id": "PREAPP-W6",
+  "pathway": "tech-pre-apprenticeship",
+  "title": "Pathway Rotation: Digital Marketing",
+  "description": "Week 6 is the Digital Marketing rotation: five weeks of self-marketing becomes deliberate, data-driven strategy. Participants craft a positioning statement and deconstruct high-performing content (hook, structure, CTA); interpret impressions and engagement on their weeks 1-5 posts, identifying what actually generated conversations; and design a simple campaign — audience, message, channel, cadence, metric — supporting Demo Day turnout. Weekly milestone: two-week content calendar built; best-performing post analysis delivered.",
+  "hours": 20,
+  "projects": 0,
+  "notes": "Weekly milestone: two-week content calendar built; best-performing post analysis delivered.",
+  "lesson_length": "Lab-guide lessons, roughly 1200-1800 words each, supporting a full week of live instructor-led practice",
+  "learning_objectives": [
+    "Craft a positioning statement and deconstruct high-performing content into hook, structure, and CTA",
+    "Interpret impressions and engagement on real posts and identify what generated conversations",
+    "Design a simple campaign with audience, message, channel, cadence, and metric"
+  ],
+  "prerequisites": [
+    "Week 5: Pathway Rotation: Software Development"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "PREAPP-W6-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 0.5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "PREAPP-W6-02",
+      "order": 2,
+      "slug": "positioning-content-strategy",
+      "title": "Positioning & Content Strategy",
+      "kind": "lesson",
+      "objectives": [
+        "Craft a positioning statement and deconstruct high-performing content into hook, structure, and CTA",
+        "Identify which element of a post drives attention, retention, and response"
+      ],
+      "competency_ids": [
+        "D5-S1-C01",
+        "D5-S1-C02"
+      ],
+      "hours_estimate": 6.5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "PREAPP-W6-03",
+      "order": 3,
+      "slug": "analytics-reading-your-own-data",
+      "title": "Analytics: Reading Your Own Data",
+      "kind": "lesson",
+      "objectives": [
+        "Interpret impressions and engagement on real posts and identify what generated conversations",
+        "Attribute booked conversations to the content that caused them, resisting vanity metrics"
+      ],
+      "competency_ids": [
+        "D5-S2-C01",
+        "D5-S2-C02"
+      ],
+      "hours_estimate": 6.5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "PREAPP-W6-04",
+      "order": 4,
+      "slug": "campaign-thinking",
+      "title": "Campaign Thinking",
+      "kind": "lesson",
+      "objectives": [
+        "Design a simple campaign with audience, message, channel, cadence, and metric",
+        "Build a two-week content calendar supporting Demo Day turnout"
+      ],
+      "competency_ids": [
+        "D5-S3-C01"
+      ],
+      "hours_estimate": 6.5,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Week 6 is the Digital Marketing rotation: five weeks of self-marketing becomes deliberate strategy. Positioning and content deconstruction first, analytics second because participants now read their own weeks 1-5 post data, campaign design last because it synthesizes both into a plan supporting Demo Day turnout. Scope assumption: LinkedIn is the platform of record (it is where the program's posting happened); analytics stay platform-level, not paid-media.",
+  "proposed_competencies": [],
+  "assets": []
+}

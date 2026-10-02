@@ -1,0 +1,116 @@
+{
+  "course_id": "se310",
+  "pathway": "technical-sales-representative",
+  "title": "Customer Relationship Management & Retention",
+  "description": "This is a competency-based course designed for the indentured Technical Sales Representative apprentice. Strategies for customer retention, upselling, and building long-term relationships with clients.",
+  "hours": 16,
+  "projects": null,
+  "notes": null,
+  "lesson_length": null,
+  "learning_objectives": [
+    "Plan an account's first 90 days so the customer reaches value before the first renewal conversation",
+    "Use active listening in account reviews to surface risk the customer has not stated",
+    "Detect churn risk early and run a renewal conversation from evidence",
+    "Identify and qualify an upsell or cross-sell inside an existing account",
+    "Maintain account and opportunity records so the retention picture stays accurate"
+  ],
+  "prerequisites": [
+    "Introduction to Sales (se101), or equivalent sales fundamentals",
+    "Advanced SaaS Sales Strategies (se201), for retention and expansion metrics"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "se310-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "se310-02",
+      "order": 2,
+      "slug": "onboarding-and-the-first-90-days",
+      "title": "Onboarding and the First 90 Days",
+      "kind": "lesson",
+      "objectives": [
+        "Plan an account's first 90 days so the customer reaches value before the first renewal conversation"
+      ],
+      "competency_ids": [
+        "D4-S1-C01"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "se310-03",
+      "order": 3,
+      "slug": "active-listening-in-account-conversations",
+      "title": "Active Listening in Account Conversations",
+      "kind": "lesson",
+      "objectives": [
+        "Use active listening in account reviews to surface risk the customer has not stated"
+      ],
+      "competency_ids": [
+        "D4-S1-C02"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "se310-04",
+      "order": 4,
+      "slug": "renewals-and-churn-risk",
+      "title": "Renewals and Churn Risk",
+      "kind": "lesson",
+      "objectives": [
+        "Detect churn risk early and run a renewal conversation from evidence"
+      ],
+      "competency_ids": [
+        "D4-S1-C01",
+        "D4-S1-C03"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "se310-05",
+      "order": 5,
+      "slug": "upselling-and-cross-selling",
+      "title": "Upselling and Cross-Selling",
+      "kind": "lesson",
+      "objectives": [
+        "Identify and qualify an upsell or cross-sell inside an existing account",
+        "Maintain account and opportunity records so the retention picture stays accurate"
+      ],
+      "competency_ids": [
+        "D1-S1-C02",
+        "D4-S1-C01"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "se310-06",
+      "order": 6,
+      "slug": "project-build-an-account-retention-plan",
+      "title": "Project: Build an Account Retention Plan",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D4-S1-C01",
+        "D4-S1-C02",
+        "D4-S1-C03"
+      ],
+      "hours_estimate": 3,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "The course follows the account lifecycle in order: land and onboard (2), listen through the middle of the term (3), protect the renewal (4), then grow it (5), with the plan itself as the capstone (6). Expansion deliberately comes after renewal because selling more to an account that is quietly failing is the most common retention mistake this course exists to prevent. SCOPE ASSUMPTIONS: the intake gives one sentence — retention, upselling, long-term relationships — for 16 hours. Scope was reconstructed from that plus the D4 competencies. Assumed in scope: the post-sale relationship a technical sales rep owns, including onboarding handoff, account reviews, renewal conversations, and expansion discovery. Assumed out of scope: customer-support operations and ticket handling, professional-services delivery, technical implementation work, and CRM mechanics (se301) — this course consumes the CRM rather than teaching it. Overlap with se201 lesson 6 is intentional and directional: se201 designs retention strategy from the economics, se310 executes it in conversation with the customer. Lesson 5 claims two course objectives because the upsell qualification and the record-keeping that supports it are assessed in the same exercise; the record-keeping objective is what D4-S1-C03 is tagged for in lessons 4 and 6.",
+  "proposed_competencies": [],
+  "assets": []
+}
