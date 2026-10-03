@@ -55,7 +55,7 @@ Each level supports both **can read** and **cannot read** lists, and this is whe
 
 **Cannot read wins.** If a user matches both a can-read and a cannot-read criterion, they are denied. This is deliberate and it is the right default, but it means a broad exclusion criterion applied carelessly will silently hide content from people who should see it.
 
-**Empty can-read means everyone** (within whatever the parent already allowed). An article with no criteria in a base restricted to managers is visible to managers, not to everyone. Restrictions compound down the hierarchy; they do not reset.
+**Empty can-read means everyone** (within whatever the parent already allowed). Knowledge-base defaults for an empty list have differed across releases and properties, so confirm this on your instance by testing a new, unrestricted base as a non-HR user before relying on it. An article with no criteria in a base restricted to managers is visible to managers, not to everyone. Restrictions compound down the hierarchy; they do not reset.
 
 **Criteria are evaluated for the reader.** Unlike HR criteria on services, which frequently evaluate against the subject person, user criteria on knowledge evaluate against whoever is looking. This is usually what you want, and it is also why a manager searching on behalf of a report will not see the report's country-specific article — a real limitation to design around, generally by writing manager-facing guidance in the manager base rather than expecting managers to browse employee content.
 
@@ -187,3 +187,12 @@ Work in a development instance with HRSD and knowledge management available. Use
 7. **Configure the lifecycle.** On one time-sensitive article, set a valid-to date and an owner with a review date. Describe — in two or three sentences — the scheduled job or flow you would build to turn an overdue review date into a task for the owner, including what it should do when the owner is no longer with the company.
 
 8. **Wire up deflection.** For one high-volume service you built in the previous lesson, configure knowledge results to appear during intake. Submit a request as an employee and record whether the relevant article surfaced. If it did not, adjust keywords or the article's category and try again until it does.
+
+## Check your understanding
+
+1. You need different parental leave terms for three countries. New knowledge base per country, or something else?
+2. A UK manager searches for the India parental leave article on behalf of a report and cannot find it. Is that a defect?
+3. Why publish an unrestricted "Overview" article alongside country-restricted ones?
+4. A user matches both a can-read and a cannot-read criterion on an article. What do they see?
+
+*Answers:* (1) One employee base and category, with country-restricted articles using user criteria; bases are for fundamentally different audiences. (2) No; knowledge user criteria evaluate against the reader, so manager guidance belongs in the manager base. (3) Restricted content fails closed, so the overview catches anyone with missing or unmatched data. (4) Nothing; cannot-read wins.

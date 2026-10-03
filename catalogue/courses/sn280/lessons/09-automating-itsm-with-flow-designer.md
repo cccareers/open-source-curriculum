@@ -116,14 +116,15 @@ A correct, small `before` rule — enforcing that a resolved incident linked to 
 
   // Condition on the rule record: state CHANGES TO Resolved AND problem_id IS NOT EMPTY.
   var problem = new GlideRecord('problem');
-  if (!problem.get(current.problem_id)) {
+  if (!problem.get(current.getValue('problem_id'))) {
     return;
   }
 
   // Allow resolution only when the problem has a documented workaround
-  // or has itself been resolved.
+  // or has itself been resolved. getValue returns a string, so convert
+  // before comparing numerically.
   var hasWorkaround = !problem.workaround.nil();
-  var problemResolved = problem.state >= 106; // Resolved or later on this instance
+  var problemResolved = parseInt(problem.getValue('state'), 10) >= 106; // Resolved or later on this instance
 
   if (!hasWorkaround && !problemResolved) {
     gs.addErrorMessage(
@@ -161,7 +162,7 @@ And an `after` rule updating related records — propagating a major incident's 
 })(current, previous);
 ```
 
-This one belongs in an `async` rule if the child count can be large, and that judgment — how many related records is too many to process inline — is one you should make explicitly rather than by default. Fifty children in a `while` loop is a noticeable pause for the person who pressed Save.
+Before you build this one, check what already runs: the baseline instance ships a business rule that propagates a parent incident's resolution to its children, and a second rule doing the same work will double-update them. Use Debug Business Rule while resolving a parent, and build your own only if the shipped behavior does not match the customer's requirement (deactivating the shipped rule with a recorded reason, as lesson 6 described). Either way, this kind of rule belongs in an `async` rule if the child count can be large, and that judgment — how many related records is too many to process inline — is one you should make explicitly rather than by default. Fifty children in a `while` loop is a noticeable pause for the person who pressed Save.
 
 ## Approvals, notifications, and events
 

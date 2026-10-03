@@ -150,3 +150,12 @@ Use a developer instance with Policy and Compliance Management available. Build 
 3. **Run one cycle.** Trigger the attestation against at least two controls, respond as the intended respondent on one and deliberately fail the other, and follow what each produces: control state, stored result, and whatever the failing one raises. Write down what happened at each step, including anything that did *not* happen that you expected to.
 
 4. **Evidence audit.** Take the evidence produced by your passing attestation and grade it against the five properties. For every property it does not satisfy, name the specific configuration change that would fix it. Then answer, in writing: if this instance were wiped and rebuilt from backup in three years, would this evidence still mean anything, and what would it depend on?
+
+## Check your understanding
+
+1. Name the five properties of audit-ready evidence.
+2. Why ask "how many accounts were removed" in a quarterly access review attestation?
+3. What is the difference between a test of design and a test of operating effectiveness?
+4. Why pre-attach a platform-generated account list to the attestation?
+
+*Answers:* (1) Attributable, dated, specific, supported, reviewable. (2) A review that always removes zero accounts may be a rubber stamp, and the number gives a reviewer something to notice. (3) Design asks whether the control, performed as written, would catch the problem; operation asks whether it was actually performed throughout the period. (4) The respondent confirms a list they did not compile, which is cheaper and more credible than asking them to assemble one.

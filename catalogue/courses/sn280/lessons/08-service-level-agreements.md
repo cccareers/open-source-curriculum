@@ -148,3 +148,10 @@ Work in a personal developer instance, capturing your work in one named update s
 7. **Request SLA.** Attach an SLA to `sc_req_item` for a catalog item you built in the previous lesson. Then write two or three sentences describing how you would restructure it so that two hundred catalog items with different fulfilment targets need one SLA definition rather than two hundred.
 
 8. **Design document.** Write the SLA design document for the customer requirement in the worked example. One row per SLA, with columns for table, condition, start, pause, stop, duration, schedule, type, and warning actions — plus a short section recording every ambiguity you resolved and the decision taken. This document, not the configuration, is the graded artifact.
+
+## Check your understanding
+
+1. A P2 resolution SLA of 8 business hours against an 08:00–18:00 weekday schedule starts at 16:00 on Friday. When is it due? *14:00 on Monday (2 hours Friday, 6 hours Monday), assuming Monday is not a holiday.*
+2. Why is "pause whenever state is On Hold" a weak configuration? *Any team can stop every clock by parking records; pause only on reasons that are genuinely not your clock.*
+3. Which elapsed-time value decides a breach, and which did the user experience? *Business elapsed time decides breach; actual elapsed time is what the user lived through.*
+4. Why attach request SLAs to the RITM rather than the REQ? *The RITM is the unit the requester experiences; one REQ can hold items with very different targets.*

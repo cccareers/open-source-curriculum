@@ -43,7 +43,7 @@ A useful habit: assert with server steps wherever you can. Checking a field valu
 
 An ATF test runs as whoever started it unless you say otherwise, and that is usually you, an admin. Admin sees every field and passes every ACL, so a test written as admin proves nothing about what a fulfiller or a requester can actually do.
 
-Put an **Impersonate** step first and name a user with the role the behavior belongs to. If a requirement says "an ITIL user can close an incident but cannot delete one", the test that proves it must be impersonating an ITIL user, not an administrator. The impersonation lasts for the rest of the test unless a later step changes it, so a test that needs two personas simply impersonates again halfway through.
+Put an **Impersonate** step first and name a user with the role the behavior belongs to. Use a dedicated test account (for example `atf.fulfiller`) rather than a real person's user record: real users change roles, go inactive, or leave, and every test that impersonated them breaks at once. If a requirement says "an ITIL user can close an incident but cannot delete one", the test that proves it must be impersonating an ITIL user, not an administrator. The impersonation lasts for the rest of the test unless a later step changes it, so a test that needs two personas simply impersonates again halfway through.
 
 ## Making your own test data
 
@@ -70,6 +70,18 @@ A test for "a P1 incident is assigned to the Network group" looks like this in o
 ```
 
 Step 2 makes the data. Steps 3 and 4 assert against the record step 2 produced. Nothing in the test names a record that has to already be there.
+
+The same pattern works when the behavior lives on a form. A test for "resolution notes become mandatory when an ITIL user resolves an incident" needs the browser, so it uses form steps and the client test runner:
+
+```text
+1. Impersonate               user = Fulfiller (ITIL)
+2. Open a New Form           table = Incident
+3. Set Field Values          short_description = "ATF: resolve check"
+                             state = Resolved
+4. Field State Validation    Resolution notes: mandatory
+```
+
+There is no Create a Record step here because the claim is about the form's behavior *before* the record is saved; the form is the data. Check on your instance which fields your UI policy actually makes mandatory, and assert those.
 
 ## Assertions: the part that makes it a test
 
@@ -108,3 +120,12 @@ Work on a sub-production instance you are allowed to break.
 5. Run the test and read the result record. Open the step-by-step results and note which step reports the elapsed time and which reports the assertion outcome.
 6. **Make it fail on purpose.** Change the expected assignment group to something wrong and re-run. Read the failure message and confirm you could locate the problem from that message alone. Change it back.
 7. Query the Incident table for short descriptions starting `ATF:`. Confirm the records your test created are gone. If any remain, work out which step created them and why the rollback did not cover it.
+
+## Check your understanding
+
+1. Why should almost every test start with an Impersonate step?
+2. Your test queries for `INC0010023`. Why will it break, and what should it do instead?
+3. A test opens a form, sets fields, and submits, with no validation step. It passes. What has it proved?
+4. Which side effects can ATF's rollback *not* undo?
+
+*Answers:* (1) Admin passes every ACL and sees every field, so a test run as admin proves nothing about what a fulfiller or requester can do. (2) That record will not exist on another instance or after a clone; the test should create its own record and reference the step output. (3) Only that nothing threw an error; without an assertion it is a macro, not a test. (4) Side effects that left the instance (sent email, outbound REST calls) and asynchronous work that runs after the test finishes.

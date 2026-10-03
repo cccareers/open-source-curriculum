@@ -37,7 +37,7 @@ It helps to picture the platform as four layers stacked on top of each other. Wo
 
 **The applications layer** sits above the services. IT Service Management, Customer Service Management, HR Service Delivery, Governance, Risk, and Compliance, IT Operations Management, IT Asset Management, and any custom application your organization writes all live here. This is the layer people think they are buying. It is worth understanding that these applications are not separate products bolted together — they are sets of tables, forms, roles, and automation built on the same services layer, which is why an HR case and an IT incident behave so similarly once you look under the hood.
 
-**The interface layer** is what humans touch. There is more than one, deliberately. The **Next Experience** workspace-style interface is the modern fulfiller interface, where agents work queues and records. The **classic platform UI** with its application navigator is still where much configuration work happens and is what most of this course shows you. **Employee Center** and other portal experiences are the self-service front door for people who do not work in the platform all day — they see a catalog and their own requests, not a list view. **Mobile apps** and **Virtual Agent** are additional front doors onto the same records.
+**The interface layer** is what humans touch. There is more than one, deliberately. **Next Experience** is the modern interface framework: it supplies the unified navigation header you see on current instances and the **workspaces**, purpose-built fulfiller screens where agents work queues and records. The **classic platform UI** — lists and forms reached through the application navigator — is still where much configuration work happens and is what most of this course shows you, even when it is displayed inside the Next Experience header. **Employee Center** and other portal experiences are the self-service front door for people who do not work in the platform all day — they see a catalog and their own requests, not a list view. **Mobile apps** and **Virtual Agent** are additional front doors onto the same records.
 
 The same incident record can be viewed in a workspace, in the classic UI, in a portal, and on a phone. It is one record. The interfaces differ; the data and the rules do not. Hold on to that, because new implementers routinely believe a portal has "its own" data. It does not.
 
@@ -53,7 +53,7 @@ Everything is a table, and a small number of core tables carry most of the platf
 | Companies | `core_company` | Customers, vendors, your own org |
 | Locations | `cmn_location` | Sites, buildings, offices |
 | Departments | `cmn_department` | Org structure |
-| Task (the parent of most work) | `task` | Never used directly; extended constantly |
+| Task (the parent of most work) | `task` | Almost never used directly; extended constantly |
 | Configuration items | `cmdb_ci` | The things IT manages |
 
 The one to slow down on is **`task`**. It is the base table for almost every kind of work the platform tracks. It defines the fields that any unit of work needs regardless of what kind of work it is: a number, a short description, a description, a state, a priority, an assignment group, an assigned-to person, an opened-by person, opened and closed timestamps, and a work-notes journal.

@@ -166,3 +166,12 @@ Use a developer instance with a populated CMDB. The demo data is enough.
 4. **Fix a governance gap.** Choose the single most damaging gap the health check found and implement one control against it — a required-attribute enforcement, an ownership certification, or a staleness flag. Explain in two sentences why you chose that one over the others.
 
 5. **Scope reconciliation.** Take the population your filter generates and produce a written reconciliation against a list you assert the business would give you (invent the business list, including at least one item your filter misses and one it wrongly includes). For each difference, classify it as a CMDB defect or a scoping misunderstanding and name the fix.
+
+## Check your understanding
+
+1. When is a static entity type the right choice?
+2. An entity type's membership halves overnight with no errors. What probably happened, and how would you have noticed?
+3. Why run a scoping health check before the first attestation campaign?
+4. Should a control live on the business service or on each of its forty servers?
+
+*Answers:* (1) When the population is small, stable, and negotiated, such as eight legal entities or three named applications. (2) Filter drift, often a change in how a field is used; monitor population counts over time. (3) Entities without a derivable owner become permanently overdue attestations. (4) Where the evidence naturally exists and one person can honestly attest; if the service owner cannot speak to the account lists on forty servers, the control belongs on the servers.
