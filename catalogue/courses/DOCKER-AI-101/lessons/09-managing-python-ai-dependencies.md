@@ -25,13 +25,15 @@ Three habits fix most of it.
 RUN pip install --no-cache-dir -r requirements.txt
 ```
 
-**Ask for the right build.** The default PyTorch wheel on PyPI targets CUDA and is enormous. On a laptop with no NVIDIA GPU you want the CPU build, which is a fraction of the size and the only one that will run anyway:
+**Ask for the right build.** On `linux/amd64`, the default PyTorch wheel on PyPI bundles CUDA libraries and is enormous. On a laptop with no NVIDIA GPU you want the CPU build, which is a fraction of the size and the only one that will run anyway:
 
 ```dockerfile
 RUN pip install --no-cache-dir \
       --extra-index-url https://download.pytorch.org/whl/cpu \
       torch==2.4.1
 ```
+
+The saving depends on architecture. On an Apple Silicon Mac your images are `linux/arm64` by default, and the gap between the default and CPU wheels there may be much smaller — but a teammate or a server building for `amd64` will feel the full difference. Pinning the CPU index keeps the build the same on both. Measure rather than assume: compare the two builds with `docker images`.
 
 **Upgrade pip once, quietly.** `RUN pip install --no-cache-dir --upgrade pip` at the top avoids a warning banner in every later step and occasionally fixes wheel resolution.
 

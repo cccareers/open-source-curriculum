@@ -16,7 +16,7 @@ objectives:
 
 ## How the build cache decides
 
-Every instruction in a Dockerfile produces a layer, and Docker caches them in order. Before running an instruction, it asks: is there a cached layer for this exact instruction, built on this exact parent layer? If yes, it reuses it. If no, it rebuilds — **and every instruction after it, because their parent changed.**
+Every instruction in a Dockerfile produces a build step, and Docker caches the steps in order. (Strictly, only `RUN`, `COPY`, and `ADD` add filesystem layers; instructions such as `ENV`, `EXPOSE`, and `CMD` only record metadata. All of them take part in the cache chain described here.) Before running an instruction, it asks: is there a cached layer for this exact instruction, built on this exact parent layer? If yes, it reuses it. If no, it rebuilds — **and every instruction after it, because their parent changed.**
 
 That cascade is the whole game. One cache miss near the top invalidates everything below.
 
@@ -79,3 +79,11 @@ If you need a clean build to prove reproducibility, `docker build --no-cache -t 
 1. Write the "wrong order" Dockerfile above, build it, edit one line of Python, and rebuild. Time it.
 2. Reorder to the cache-friendly version, build once, make the same edit, and rebuild. Compare the times and find the `CACHED` markers in the output.
 3. Add a `.dockerignore` excluding `.git` and `__pycache__`, rebuild, and note any change in the build context size Docker reports at the start.
+
+## Check your understanding
+
+1. In the cache-friendly Dockerfile above, you add a new package to `requirements.lock.txt`. Which steps rebuild, and which print `CACHED`?
+2. You edit only `.dockerignore` to exclude `notebooks/`, and a notebook checkpoint was the only file that changed since the last build. Why might your next build suddenly be fully cached again?
+3. A teammate moves `ENV LOG_LEVEL=debug` from the bottom of the Dockerfile to just after `FROM`, then changes its value every day. What does that do to their rebuild times?
+
+*Answers:* (1) The `COPY requirements.lock.txt` step misses, so `pip install` and everything after it rebuild; `FROM` and `WORKDIR` stay cached. (2) The ignored file no longer enters the build context, so the `COPY . .` contents match the previous build and that step hits the cache. (3) Every value change invalidates every step after the `ENV` line, including `pip install`. Keep frequently changing settings late in the file, or set them at run time instead.
