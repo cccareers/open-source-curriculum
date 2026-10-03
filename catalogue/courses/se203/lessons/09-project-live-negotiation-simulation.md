@@ -113,7 +113,7 @@ You are finished when all of the following are true.
 
 **Do the arithmetic before you dial.** At 76% margin, 25% off list removes about a third of the deal's margin. Knowing that number in advance is what makes it possible to say no calmly.
 
-**Priya gave you the whole case in one sentence.** Four full-time operations people is her number, not yours, and it is worth roughly ten times the annual subscription. Quote her to Dominic. Their own numbers are the strongest thing in the room.
+**Priya gave you the whole case in one sentence.** Four full-time operations people is her number, not yours, and at any plausible loaded cost for an operations person it is a multiple of the annual subscription — work out the multiple before you walk in, and check her four against what 500 escalations at 45 minutes each actually adds up to. Quote her to Dominic. Their own numbers are the strongest thing in the room.
 
 **The growth plan is a lever, not a footnote.** 25% headcount growth is what makes a ramp possible: commit fewer seats in year one and more later, hold the rate, and their year-one number falls without your price moving.
 

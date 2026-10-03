@@ -222,3 +222,9 @@ You have inherited **Brightline Manufacturing**, an existing account, eight mont
 **Exercise 5 — the time budget.** With 18 accounts, $2,100,000 ARR, and 5 hours a week, propose a three-tier allocation. State the ARR and account count in each tier, the cadence per tier, and prove with arithmetic that your plan fits inside the available hours. Say which accounts lose attention as a result.
 
 **Exercise 6 — expansion, gated.** The third division wants a demo. Write the expansion plan for it: which path it is, the trigger condition that must be true before you propose it, an estimated ARR figure with your assumption stated, and the resulting account-level NRR if it lands and the seat true-down also happens. Then answer in two sentences whether you should pursue this expansion at all right now, and defend the answer with the utilization number.
+
+## Check your understanding
+
+1. A contract ends 30 June with a 90-day notice period. When should the renewal conversation open, by the logic of this lesson? *(Answer: about 30 days before the notice deadline — roughly the start of March — so the customer never decides under a clock. The notice deadline itself is about 1 April.)*
+2. Your only relationship at an account is the champion. What is that condition called, and what is the rule of thumb for fixing it? *(Answer: single-threading; aim for three relationships across at least two functions, one at the level that signs for Tier 1 accounts.)*
+3. What has to be true before you propose an expansion? *(Answer: the original promise is demonstrably kept — expand from proof, such as a value scorecard with clean actuals, not from quota.)*

@@ -29,7 +29,7 @@ Most teams running short, fixed-length cycles use **Scrum**, and that's the fram
 
 - **Product Owner (PO)** — owns the backlog and decides what gets built and in what order, based on business value.
 - **Scrum Master** — protects the team's process, removes blockers, and facilitates ceremonies. Not a manager of people.
-- **Development Team** — everyone who builds and verifies the increment: developers, and QA. On a small team, "developer" and "QA" are often overlapping people wearing different hats in different ceremonies. This course treats QA as a first-class member of that team, not an outside gate.
+- **Development Team** — everyone who builds and verifies the **increment** (the usable, working slice of product the sprint adds): developers, and QA. The current Scrum Guide (2020) calls this group simply "Developers" and counts anyone doing the work, testers included; older material and many teams still say "Development Team." On a small team, "developer" and "QA" are often overlapping people wearing different hats in different ceremonies. This course treats QA as a first-class member of that team, not an outside gate.
 
 There is no separate "QA role" box in Scrum's org chart. That's deliberate — quality is the whole team's job. But within that shared responsibility, the QA engineer has a distinct **contribution** in every ceremony, and that's what the rest of this lesson — and this course — walks through.
 
@@ -37,17 +37,17 @@ There is no separate "QA role" box in Scrum's org chart. That's deliberate — q
 
 ![One sprint cycle with the QA touchpoints marked: refinement, planning, daily standup, testing and triage, review and demo, retrospective](./img/sprint-cycle.png)
 
-A one-week sprint runs through five ceremonies, in this order:
+A one-week sprint runs through five QA touchpoints, in this order. Strictly speaking, the Scrum Guide's formal events are Sprint Planning, the Daily Scrum (standup), the Sprint Review, and the Sprint Retrospective, all held inside the Sprint itself; backlog refinement is an ongoing activity rather than a formal event, and testing and triage is continuous work. Most teams still schedule refinement as a meeting and call all of these "ceremonies," so this course does too:
 
 1. **Backlog refinement** — the team looks at upcoming stories before they're planned into a sprint. The QA engineer's job here (covered in full in Lesson 04) is to read each story's acceptance criteria and ask: is this testable as written? A criterion like "the form should work well" isn't; "submitting the form with an empty required field shows an inline error and does not submit" is. Catching untestable criteria here is far cheaper than catching them after the code is built.
 
 2. **Sprint planning** — the team commits to a set of stories for the sprint and breaks them into tasks. The QA engineer's job (Lesson 05) is to size the *testing* work alongside the *building* work — test environments, test data, how much of this needs manual verification versus can lean on existing checks — and make sure that testing effort fits inside the sprint's delivery date, not tacked on after.
 
-3. **Daily standup** — a short (10–15 minute), synchronous check-in: what I did yesterday, what I'm doing today, what's blocking me. The QA engineer's job (Lesson 06) is to surface defects and blockers with enough clarity that the right person can act on them immediately, not bury a release-blocking bug in a vague "found some issues."
+3. **Daily standup** — a short (15 minutes at most), synchronous check-in: what I did yesterday, what I'm doing today, what's blocking me. The QA engineer's job (Lesson 06) is to surface defects and blockers with enough clarity that the right person can act on them immediately, not bury a release-blocking bug in a vague "found some issues."
 
 4. **Testing and triage, through the sprint** — as developers finish stories, the QA engineer verifies them against the acceptance criteria, files defects for what fails, and tracks each defect through to a verified fix (Lesson 07). This isn't a single ceremony with a fixed time slot — it's continuous work that runs alongside the sprint.
 
-5. **Sprint review (demo) and retrospective** — at the sprint's end, the team demonstrates what was built to stakeholders, and separately, privately reflects on how the sprint went. The QA engineer's job in review (Lesson 08) is to report, precisely, what was verified and what was not — never let "it's built" get presented as "it's tested" when it wasn't. In retrospective, the QA engineer raises what made testing harder or easier this sprint.
+5. **Sprint review (demo) and retrospective** — at the sprint's end, the team demonstrates what was built to stakeholders, and separately, without outside stakeholders, reflects on how the sprint went. The QA engineer's job in review (Lesson 08) is to report, precisely, what was verified and what was not — never let "it's built" get presented as "it's tested" when it wasn't. In retrospective, the QA engineer raises what made testing harder or easier this sprint.
 
 ## Working across roles, not just alongside them
 
@@ -71,3 +71,11 @@ Keep this table in mind as you move through the rest of the course — each rema
 ## Practice
 
 Pick a ceremony from the table above other than daily standup. Write three to five sentences, addressed to a new teammate, explaining specifically what a QA engineer does in that ceremony and why it matters to the team's outcome — not a general definition of the ceremony, but what *you* would contribute if you were in the room. Then write one sentence naming which Agile value (from the four at the top of this lesson) that contribution most directly serves.
+
+## Check your understanding
+
+1. A developer tells you, "QA isn't a Scrum role, so you don't need to be in refinement." What's accurate in that statement, and what's missing?
+2. Which touchpoint in the ceremony map is *not* a scheduled meeting, and why does that matter for how you plan your week?
+3. In one sentence, explain how "Working software over comprehensive documentation" makes the QA engineer's verification more important, not less.
+
+*Answers:* (1) Accurate: Scrum has no separate QA role. Missing: quality is the whole team's job, and the QA engineer still has a distinct contribution in refinement, which is where untestable criteria are cheapest to catch. (2) Testing and triage; it runs continuously, so you have to reserve time for it in the sprint test plan rather than wait for a meeting slot. (3) The team's proof of progress is software that actually works, and verification is what turns "the developer says it's done" into evidence that it works.

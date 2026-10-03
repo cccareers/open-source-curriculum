@@ -108,7 +108,7 @@ eventsRouter.post(
 );
 ```
 
-Note that the handler reads `req.validated.body`, not `req.body`. Assigning the parsed result to a new property rather than overwriting `req.body` means a handler that reads the raw body is visibly doing so, and a route with no `validate` in its chain cannot accidentally look validated. Make that a convention and it is greppable: any service call taking `req.body` directly is a review comment.
+Note that the handler reads `req.validated.body`, not `req.body`. Assigning the parsed result to a new property rather than overwriting `req.body` means a handler that reads the raw body is visibly doing so, and a route with no `validate` in its chain cannot accidentally look validated. Make that a convention and it is greppable: any service call taking `req.body` directly is a review comment. There is also a practical reason on Express 5: `req.query` is a read-only getter there, so middleware that tries `req.query = result.data` either fails or is silently ignored. Writing to `req.validated` works the same on Express 4 and 5.
 
 `safeParse` rather than `parse` keeps the failure a value rather than an exception, so you control the error type that reaches your handler. And note that **validation failures are not logged as errors** — a `400` is the client's problem, not yours. Logging them at error level trains everyone to ignore the error log, which matters in lesson 08.
 
@@ -158,9 +158,18 @@ The service throws these; **only** the error handler knows they map to HTTP:
 import { AppError } from "../errors/index.js";
 import { logger } from "../lib/logger.js";
 
-export function errorHandler(err, req, res, _next) {
-  const isKnown = err instanceof AppError;
+export function errorHandler(err, req, res, next) {
+  // Headers already sent (e.g. a streamed response failed midway): let Express close it.
+  if (res.headersSent) return next(err);
+
+  // Body parsers raise their own errors (413 too large, 400 malformed JSON)
+  // with a numeric status and expose: true. Honour those instead of calling them 500s.
+  const isParserError = !(err instanceof AppError) && err.expose === true &&
+    Number.isInteger(err.status) && err.status >= 400 && err.status < 500;
+
+  const isKnown = err instanceof AppError || isParserError;
   const status = isKnown ? err.status : 500;
+  if (isParserError) err.code = err.type ?? "bad_request";
 
   if (status >= 500) {
     logger.error({ err, requestId: req.id, path: req.originalUrl }, "unhandled error");
@@ -183,6 +192,10 @@ export function errorHandler(err, req, res, _next) {
   res.status(status).json(body);
 }
 ```
+
+The first few lines handle two cases people miss. `express.json()` rejects an oversized body with its own error object, carrying `status: 413` and `type: "entity.too.large"`, and rejects malformed JSON with `status: 400`. Without the `isParserError` branch, both become `500 internal_error`, and your error log fills with the client's mistakes. The `headersSent` guard covers an error that happens after the response has started: you cannot change the status any more, so you hand it to Express, which closes the connection.
+
+Where does `req.id` come from? Lesson 08 adds `pino-http`, which sets it on every request. Until then it is `undefined`. If you want request ids today, add a two-line middleware first in `createApp()`: `app.use((req, _res, next) => { req.id = crypto.randomUUID(); next(); });` with `import crypto from "node:crypto"`. Lesson 08 replaces it.
 
 Four properties of that handler are the ones worth defending in review.
 
@@ -288,7 +301,7 @@ When a risk does materialise later, come back and mark the row. A register that 
 Work on the registration feature you have been building, using the requirements register from lesson 03 as the input.
 
 1. Add `zod` and write schemas for creating an event, listing events (query parameters), and registering for an event. Use `.strict()`, coerce numbers and dates, and bound every string and number.
-2. Write the `validate` middleware, apply it to at least four routes, and switch those handlers to read `req.validated`. Confirm with `curl` that an unknown field, a missing field, a past `startsAt`, and `limit=5000` each return `400` with a `details` array naming the field.
+2. Write the `validate` middleware, apply it to at least four routes, and switch those handlers to read `req.validated`. Confirm with `curl -H "Accept: application/json"` that an unknown field, a missing field, a past `startsAt`, and `limit=5000` each return `400` with a `details` array naming the field. (Without that header `curl` sends `Accept: */*`, `req.accepts("html")` is truthy, and the handler renders the HTML error page instead of JSON.)
 3. Add a `z.string().uuid()` check on `req.params` for every route with an id. Show the before and after of `curl -i http://localhost:3000/events/banana` in `NOTES.md` — a `500` becoming a `400`.
 4. Set `express.json({ limit: "100kb" })` and confirm that a larger body is rejected before your handler runs.
 5. Build the full `src/errors/index.js` class hierarchy from this lesson and rewrite the error handler to use it, including request id, HTML-versus-JSON branching, and the generic message for unknown errors.
@@ -301,3 +314,17 @@ Work on the registration feature you have been building, using the requirements 
 12. Prepare a five-sentence report for a senior engineer covering: what the feature is, which risks you have controlled, which two you need a decision on, and what you are asking for. Have a peer read it and tell you what they would ask next.
 
 **Deliverable:** validated routes with a single consistent error model, a committed `docs/quality/registration-risks.md` with a scored register and QA requirements, your status-code policy, and the demonstration evidence for the control you implemented.
+
+## Check your understanding
+
+1. An event can't be created with a past `startsAt`. That rule is checked in the zod schema, in the service, and nowhere in the database. Which of the three validation layers is missing for this rule, and does it matter here?
+2. `GET /events/banana` returns `500` with a Postgres cast error in the log. What is the fix, and which status should the response be?
+3. A client sends a 2 MB JSON body to `POST /events`. With `express.json({ limit: "100kb" })` and the error handler from this lesson, what status and `code` does the client receive, and at what level is it logged?
+4. In the quality risk register, what makes "be careful with concurrency" an unacceptable entry in the Control column? Give an acceptable one for QR-1.
+
+**Answers**
+
+1. There is no database constraint for it. That is acceptable: "in the future" depends on when the row is written, so it is a rule, not an invariant, and a `CHECK` against `now()` would also reject legitimate later updates. Edge validation gives the message and the service enforces the rule.
+2. Validate the path parameter at the edge (`z.string().uuid()` on `req.params`) so a malformed id never reaches the database. The response becomes `400 validation_failed`.
+3. `413` with `code: "entity.too.large"` (from the parser error's `type`), logged at info as a rejected request, not at error, because it is the client's fault.
+4. It names an intention, not a mechanism, so nobody can check it. Acceptable: "Row lock (`SELECT ... FOR UPDATE`) on the event inside the register transaction, plus a unique constraint on (event_id, attendee_id)", verified by the 20-concurrent-requests integration test.

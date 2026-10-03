@@ -41,7 +41,7 @@ gr.setLimit(10);          // never optional
 gr.query();
 ```
 
-**A query inside a loop.** Looping over a hundred records and instantiating a new lookup per row turns one query into a hundred and one. Dot-walk instead — `gr.getDisplayValue('assigned_to.name')` resolves through the reference without a second query — or collect the referenced sys_ids and fetch them in a single query with an `IN` condition.
+**A query inside a loop.** Looping over a hundred records and instantiating a new lookup per row turns one query into a hundred and one. Dot-walk instead — `gr.getDisplayValue('assigned_to.name')` resolves through the reference without you writing a second query (confirm with SQL debugging what the platform actually issues for it) — or collect the referenced sys_ids and fetch them in a single query with an `IN` condition.
 
 **Counting by fetching.** If you only need a number, do not retrieve the records. Use an aggregate:
 
@@ -137,3 +137,12 @@ Use your `dev290` portal and the widget you built in Lesson 3.
 6. **Tab through it.** Complete one full task — open the menu, navigate to a page, use your widget's button — with the keyboard only. Fix anything you could not reach, anything where focus was invisible, and any control that turned out to be a non-focusable element with a click handler.
 7. **Announce a change.** Add a live region to your widget so the message returned by the acknowledge action is announced. Verify with a screen reader that it is read without stealing focus.
 8. **Zoom.** Reload at 200 percent and record any place the page requires horizontal scrolling. Fix at least one.
+
+## Check your understanding
+
+1. The network panel shows the first document request taking 4 seconds and everything after it arriving quickly. Which bucket is this, and where do you look?
+2. Why does `{{::c.data.title}}` make a page feel faster on later interactions, not just on load?
+3. A status dot is red for overdue and green for on time. What accessibility rule does this break and how do you fix it?
+4. Name the four-step checking routine, in order.
+
+*Answers:* (1) Server-side; a widget's server script, almost always a query. Use SQL session debugging to find it. (2) One-time binding removes the watcher, so every later digest cycle has less to evaluate. (3) Meaning conveyed by colour alone; add a word or labelled icon. (4) Automated checker, keyboard tab-through, 200 percent zoom, screen reader on one real task.

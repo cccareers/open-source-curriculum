@@ -76,6 +76,8 @@ Individual conversations feel like luck. Fifty conversations are a system, and a
 | Conversations held | 7 | 37% |
 | Next steps booked | 2 | 29% |
 
+Count each stage as "reached at least this stage": a contact who replied and then held a conversation counts in *both* rows. If your CRM uses the Week 1 stage names, contacts messaged = everyone who reached Initiated or beyond; replies received = everyone who replied at any point (Connected or beyond, but not silent connection acceptances); conversations held = Interviewed, plus any real call that happened. Your CRM's current-stage totals will undercount every row except the last.
+
 Conversion is stage-to-stage: divide each count by the count above it. Do it in a spreadsheet so you can update it weekly.
 
 Read the table as a diagnosis, not a scoreboard. Three questions:

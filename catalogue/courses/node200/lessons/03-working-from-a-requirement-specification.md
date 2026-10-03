@@ -78,7 +78,7 @@ That reads like a complete feature. It is not, and the gaps are typical.
 
 **3.4.3** says registration closes at capacity, and says nothing about what an attendee who tries anyway should see. It also says nothing about a waitlist. Do not invent one; note that the behaviour at capacity is specified only as "closed" and ask what the attendee is told.
 
-**3.4.4** interacts with **4.2.1** in a way that is easy to miss. "Places remaining" means counting registrations on every page render, and 4.2.1 caps that page at 800 milliseconds with 5,000 registrations on it. Together they are a design constraint — a counted column or an index, not a naive count of a large table on each request. Neither requirement says so; the pair does. Reading requirements in isolation is how performance requirements get discovered on launch day.
+**3.4.4** interacts with **4.2.1** in a way that is easy to miss. (First, the term in 4.2.1: "under 800ms at the 95th percentile", often written **p95**, means that if you sort a batch of measured response times, 95% of them must be under 800ms. The slowest 5% are allowed to be slower. It is stricter than an average, because a few very slow requests cannot hide behind many fast ones.) "Places remaining" means counting registrations on every page render, and 4.2.1 caps that page at 800 milliseconds with 5,000 registrations on it. Together they are a design constraint — a counted column or an index, not a naive count of a large table on each request. Neither requirement says so; the pair does. Reading requirements in isolation is how performance requirements get discovered on launch day.
 
 **3.4.5** is the only "should" in the list. It is therefore the one thing here that could be deferred, and it is also the largest piece of infrastructure in the section, because sending email means a mail provider, credentials, a template, a queue for retries, and a decision about what happens when delivery fails. Flag the mismatch between its priority word and its cost — that is exactly the kind of observation a senior engineer wants from you early.
 
@@ -178,7 +178,7 @@ AC-08  (R-08, performance)
   Measured with: autocannon against a seeded local database
 ```
 
-Three things to notice. Each criterion names its requirement, so the link is not a matter of memory. Each outcome is **observable** — a status code, a row count, a rendered string, a measured number — because "the system handles it correctly" cannot be checked by anyone but its author. And AC-08 states its measurement method, because a performance criterion without one is an argument waiting to happen.
+Three things to notice. Each criterion names its requirement, so the link is not a matter of memory. Each outcome is **observable** — a status code, a row count, a rendered string, a measured number — because "the system handles it correctly" cannot be checked by anyone but its author. And AC-08 states its measurement method, because a performance criterion without one is an argument waiting to happen. (`autocannon` is an npm command-line tool that fires many HTTP requests at a URL and reports latency percentiles. Any load tool that reports p95 will do, as long as the criterion names which one.)
 
 Criteria phrased this way translate almost mechanically into the tests you will write in lesson 07: the "given" becomes fixture setup, the "when" becomes the call, the "then" becomes the assertions. That is not a coincidence — it is the reason to write them this way.
 
@@ -226,3 +226,17 @@ You will work from the SRS extract in this lesson, treating it as the real thing
 10. Swap registers with a peer and review theirs against the extract, checking three things: does every row cite a source clause, does any row state more than the specification actually says, and is any clause in the extract missing from the register entirely. Record the findings as review comments and fix your own.
 
 **Deliverable:** a committed `docs/requirements/events-registration.md` containing the register, open questions, assumptions, acceptance criteria, and traceability matrix, plus the change-impact note, and a peer review recorded against it.
+
+## Check your understanding
+
+1. An SRS line reads "The system should log failed logins." Another reads "The system must log failed logins." What is the practical difference for your work plan?
+2. Requirement 3.4.6 says organizers can view attendees "for their own events". What row do you add to your register that the SRS never states, and how do you mark its source?
+3. Why is "the system handles duplicate registrations correctly" not an acceptable acceptance criterion? Rewrite it so someone else could check it.
+4. A product manager tells you in the hallway that attendees should also be able to cancel. What four things do you do before you change any code?
+
+**Answers**
+
+1. "Must" is mandatory and cannot ship without it. "Should" is strongly recommended but can be traded away with a stated reason, so it can be scheduled later or deferred if its cost is high. That only holds if the document uses the words consistently; if it doesn't, ask.
+2. An implied prohibition, such as "An organizer cannot view attendees for events they do not own", sourced as "3.4.6, implied" and marked as needing confirmation.
+3. "Correctly" can only be judged by the author. Example rewrite: "Given an attendee already registered for event E, when they register for E again, then no second row is created and the API responds 409 naming the existing registration."
+4. Confirm the change in writing; record which requirement ids it affects (new rows, SRS version noted); assess the impact against the work plan; report the cost before agreeing, then re-baseline and mark the superseded assumption rather than deleting it.

@@ -58,6 +58,8 @@ Add three properties to your contact records this week if they do not exist yet:
 - **B** — meets role and org but the hook is thin, or the employer is not a priority. Worth a good message, not worth an hour of research.
 - **C** — fails a criterion. Not worked this week. Keep the record; do not delete history.
 
+Fit tier is not the same field as the Week 1 **priority tier** (1, 2, 3), and you keep both. Priority tier describes the *employer* — partner, target, or other. Fit tier describes *this person* against your ICP. A contact at a Tier 1 partner employer can still be a C if they have no line into the work and no findable hook; the right move there is usually to map a better contact at the same employer, not to message the weak one harder.
+
 The hook field is the discipline that makes tier A mean something. If you cannot type a specific sentence into it — "hiring two junior data analysts, posted 11 days ago" or "posted about mentoring career-changers on March 4" — the contact is not an A no matter how much you want them to be. This one field is also what Lesson 03 will draw on when you write message variants, so a vague hook now costs you twice.
 
 Time-box the research: five minutes per prospect is the standard in this lab. Past five minutes with no hook, the answer is C and you move on. Prospecting fails far more often from over-researching twenty people than from under-researching two hundred.

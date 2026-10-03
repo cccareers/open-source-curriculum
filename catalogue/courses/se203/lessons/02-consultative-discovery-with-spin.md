@@ -200,3 +200,9 @@ Work in pairs. Allow roughly two hours; the writing matters as much as the role 
 4. **Rescue the implication chain.** Take one problem your buyer raised and write, after the fact, the three implication questions you should have asked — one cost, one spread, one trajectory — and the answer you think you would have gotten. Then run just that ninety-second segment again live.
 
 5. **Harvest the language.** From your best round, write down the buyer's explicit needs in their exact words. Rewrite your capability statement using only their vocabulary. Read both aloud and note which one sounds like a vendor.
+
+## Check your understanding
+
+1. Label each: "What system do you log tickets in?" / "Where does that process break down?" / "Does that come out of the roadmap or out of on-call?" / "If two-thirds never reached an engineer, what would that free up?" *(Answers: Situation; Problem; Implication (spread); Need-payoff.)*
+2. What is the difference between an implied need and an explicit need? *(Answer: an implied need is a stated difficulty — "reporting takes too long"; an explicit need is a clear statement of want the buyer voices, usually in answer to a need-payoff question. Only explicit needs can be answered with a benefit.)*
+3. Why should you not run implication questions on a problem you cannot solve? *(Answer: you make the buyer acutely aware of a pain you have no answer for, which helps whoever calls them next.)*

@@ -82,7 +82,7 @@ That last row deserves an explanation, because managers will challenge it. A ris
 
 **Leading and lagging.** Report rate and verification-habit metrics are *leading* — they move first and predict outcomes. Incidents, losses, and dwell time are *lagging* — they are what the business cares about and they move slowly and noisily. Report both. A scorecard of only leading indicators looks like activity; a scorecard of only lagging indicators cannot show progress within a budget cycle.
 
-**Four levels, at working depth.** A useful mental ladder, borrowed from training evaluation and cut to what you can actually collect:
+**Four levels, at working depth.** A useful mental ladder, borrowed from training evaluation (it is commonly known as the Kirkpatrick model) and cut to what you can actually collect:
 
 - *Reaction* — did they find it useful? Two questions after a session. Cheap, weak evidence, still worth having because it catches a session that is failing.
 - *Learning* — can they recognize the pressure? A three-question check embedded in the session, not a graded exam.
@@ -140,3 +140,12 @@ Q3 Security Awareness Results
 Write a review identifying at least five problems. For each, state the problem, why it misleads, and the replacement metric or wording you would use. At least one of your findings must concern the ethics of what is being reported rather than its accuracy. Finish with the three-sentence summary you would actually put at the top of the corrected page.
 
 **Deliverable:** the session plan, the handout, the recording, the self-critique, the six answers, the scorecard, and the dashboard review, submitted together.
+
+## Check your understanding
+
+1. Your report rate rose from 19% to 36%, but your click rate also rose from 15% to 20%. What one piece of information do you need before saying anything to the board?
+2. Why is "report rate among those who clicked" a better indicator of culture than overall click rate?
+3. In a fifteen-minute session, which segment is most often cut when time runs short, and why should it not be?
+4. Give one example each of a leading and a lagging metric for this program.
+
+**Answers:** (1) The difficulty tier of each campaign (and whether denominators were delivered-based and consistent). (2) It shows whether people who made a mistake felt safe telling you — the behavior that turns a click into a short incident. (3) The practice segment — it is where learners actually perform the behavior, which is what produces change. (4) Leading: report rate, time to first report, verification requests; lagging: incidents, losses, dwell time.

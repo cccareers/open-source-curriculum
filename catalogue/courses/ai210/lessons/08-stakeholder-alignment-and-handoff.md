@@ -87,6 +87,8 @@ Version <n> — <date> — owner: <you>
    Who does what by when, including the next point of review.
 ```
 
+Section 8 is a simplified form of a RACI chart (responsible, accountable, consulted, informed), cut down to the question that matters most in a disagreement: who decides. Put exactly one name in the Decides column for each area; two names there means nobody decides.
+
 Section 5 is the one that earns its keep. A decision log turns "why does it work like that?" — a question that arrives six months later, usually from someone new — into a lookup instead of an argument. Record decisions as they happen, including the ones you lost.
 
 ## Running the alignment review
@@ -119,3 +121,12 @@ Use the requirements document, prototype, and usability findings you have produc
 4. **Run a 30-minute alignment review** with partners playing the sponsor, the operating owner, and a compliance reviewer. Brief each privately to raise one objection. Classify each objection as factual, priority, misunderstanding, or position, and handle it accordingly.
 5. **Send the follow-up** within the hour: decisions made, decisions open with owners and dates, and what you will send next. Under 250 words.
 6. **Assemble the handoff package** as a contents list with a one-line note on what each item is for, and write the operating-owner agreement: who owns outputs, who reviews flags, who reads corrections, what happens when quality drops, and the date the success criteria will be measured.
+
+## Check your understanding
+
+1. What is the difference between alignment and consensus?
+2. Who is the "quiet blocker" in most AI projects, and how do you handle them?
+3. In a review, the operations lead says operators always check the refund window, so the "check this" note is unnecessary. Your usability sessions showed 3 of 5 participants sent a wrong refund window unchecked. What kind of disagreement is this, and how is it resolved?
+4. What is the second handoff teams skip, and what happens without it?
+
+Answers: (1) Alignment means everyone who matters understands the goal, the trade-offs, how success is judged, and who decides; consensus means everyone agrees, which turns designs to mush. (2) Usually the practitioners — bring them in early so the design carries their fingerprints. (3) Factual — resolve it with the evidence from user testing. (4) The handoff to whoever operates the system; with no operating owner, the solution reverts to the old process within a quarter.

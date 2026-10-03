@@ -139,3 +139,12 @@ You are designing the program for **Merrow Fields Logistics**: 480 staff across 
 **Part 5 — Simulation program design.** One page. Cover: objectives and what the results will and will not be used for; who authorizes it and in what form; audiences and exclusions; cadence and difficulty mix; three lure themes you would use for this workforce and three you have ruled out with your reason for each; what the debrief page says; what data you collect, who sees it, and how long you keep it; and how the program's existence is communicated to staff. You are producing a plan for approval — do not write lure content, and do not send anything.
 
 **Deliverable:** one document containing all five parts. Bring to your next session the single design decision you were least sure about and the argument on both sides.
+
+## Check your understanding
+
+1. Merrow Fields' depot staff have no corporate mailbox. Name two delivery routes and one reporting route that work for them.
+2. Rewrite "All staff shall be security aware" as a testable policy statement, and name the evidence an auditor would gather.
+3. Which of these simulation themes fails the "read it aloud to the affected staff" test: a parcel delivery notice, a fake end-of-year bonus, a shared-document notification? Why?
+4. If you could only build one thing this quarter, what does the lesson say it should be?
+
+**Answers:** (1) For example: shift-briefing sessions and a printed card or notice-board poster; reporting by phone number or a personal-phone-friendly route (text or chat) published on the card. (2) For example: "All staff shall report suspected social engineering through the Suspicious Activity Reporting Procedure without delay" — evidence: report logs by channel and audience, and the procedure's publication record. (3) The fake bonus — it exploits personal financial hope and damages trust; the other two are ordinary work themes. (4) The reporting procedure.

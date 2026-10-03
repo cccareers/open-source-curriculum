@@ -155,6 +155,8 @@ app.get("/events/:id(\\d+)", (req, res) => {
 
 This is genuinely useful, and it has a trap: a request to `/events/banana` now does not match this route at all, so instead of your `400` it falls through to whatever comes next — possibly a `404`, possibly a different route you did not intend. Use pattern constraints when you want non-matching input to try other routes, and handler validation when you want to give the client a specific error. Do not use both for the same case and expect the handler branch to run.
 
+**This syntax is Express 4 only.** Express 5 removed regular expressions inside path strings. On Express 5, `"/events/:id(\\d+)"` does not just fail to match. The app throws an `Unexpected (` error at startup, the moment the route is registered. If `npm ls express` shows 5.x, validate in the handler as shown above. That works identically on both versions and gives the client a useful `400`.
+
 Finally, on naming. Parameters name the resource identifier, not the position: `/events/:id` and `/events/:eventId/tickets/:ticketId` read correctly, while `/events/:x/:y` tells the next reader nothing. And keep the resource plural and consistent across the whole application — `events` everywhere, never `event` in one route and `events` in another. Consistency in URLs is a small courtesy that eliminates a whole class of "why is this 404ing" questions.
 
 ## Query strings and `req.query`
@@ -195,7 +197,7 @@ const tags = [].concat(req.query.tag ?? []);
 
 That produces `[]`, `["music"]`, or `["music", "free"]` — one shape to write the rest of your logic against.
 
-**Nested and bracketed keys parse into objects.** By default Express parses `?filter[venue]=Maker` into `{ filter: { venue: "Maker" } }`. This is occasionally handy and frequently a source of surprise when a client sends something you did not anticipate. Never assume `req.query.something` is a string — check the type if the value came from outside your own links.
+**Nested and bracketed keys parse into objects, on Express 4.** By default Express 4 parses `?filter[venue]=Maker` into `{ filter: { venue: "Maker" } }`. Express 5's default parser is simpler and leaves it as a flat key, `{ "filter[venue]": "Maker" }`. Repeated keys still become arrays on both. This is occasionally handy and frequently a source of surprise when a client sends something you did not anticipate. Never assume `req.query.something` is a string — check the type if the value came from outside your own links.
 
 **Values are URL-decoded for you.** `?venue=Maker%20Space` arrives as `"Maker Space"`. Conversely, when you build URLs yourself, encode them — `encodeURIComponent(venue)` — or a value containing `&` will silently split into two parameters.
 
@@ -410,3 +412,16 @@ Restructure the events board around a router and give it a complete routing surf
 11. Add a catch-all with `app.use` at the very bottom of `src/server.js` that returns `404` with the method and `req.originalUrl`. Verify with `curl -i http://localhost:3000/nope` and `curl -i -X POST http://localhost:3000/nope`. Then temporarily move it above the router mount, observe that every route now returns `404`, and put it back.
 
 **Deliverable:** a committed project with `src/data/events.js`, `src/routes/events.js`, and a `src/server.js` that mounts the router and ends with a catch-all, plus a `NOTES.md` recording your `curl -i` status lines for every case in steps 4, 6, 10, and 11 and a two-sentence explanation of the ordering failure you produced in step 5.
+
+## Check your understanding
+
+1. The router registers `GET /:id` and then `GET /upcoming`. What does a request to `/events/upcoming` return?
+   *The `/:id` handler's response with `req.params.id === "upcoming"`. Express stops at the first match and does not prefer literal paths, so register `/upcoming` first.*
+2. `events.find((e) => e.id === req.params.id)` returns `undefined` for an id that is plainly in the array. Why?
+   *Route parameters are always strings. Comparing the number `2` to the string `"2"` with `===` is always false. Convert with `Number()` first.*
+3. Inside a router mounted with `app.use("/events", eventsRouter)`, what path does a request to `/events/2` see, and where can you still find the full path?
+   *The router sees `/2`. `req.originalUrl` keeps `/events/2`, and `req.baseUrl` holds `/events`.*
+4. You add a catch-all `app.use((req, res) => res.status(404)...)` and suddenly every route returns `404`. What happened?
+   *The catch-all is registered above the routes. It matches everything, so it must be registered last.*
+5. `/events?tag=music&tag=free`: what is `req.query.tag`, and how do you make your code safe for both one and many tags?
+   *`["music", "free"]` (a single `tag` gives a string). Normalize with `[].concat(req.query.tag ?? [])`.*

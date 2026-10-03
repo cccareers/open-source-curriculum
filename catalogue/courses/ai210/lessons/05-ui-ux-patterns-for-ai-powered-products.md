@@ -62,7 +62,7 @@ Half of a good AI experience is decided before the request is sent. Users do not
 Latency is not a performance problem you can design away; it is a condition to design for. Users tolerate waiting well when they know it was heard, roughly how long it will be, and that they have not lost anything.
 
 - **Acknowledge immediately.** Something must change within about a tenth of a second of the click. Not the result — evidence of receipt. Silence in that window makes people click again.
-- **Match the indicator to the duration.** Under a second, nothing or a subtle in-place change. A few seconds, an activity indicator attached to the thing being produced. Tens of seconds, staged progress that names what is happening in the user's terms rather than the system's, plus an estimate if you can give an honest one.
+- **Match the indicator to the duration.** Under a second, nothing or a subtle in-place change. A few seconds, an activity indicator attached to the thing being produced. Tens of seconds, staged progress that names what is happening in the user's terms rather than the system's, plus an estimate if you can give an honest one. Never show progress that is not real: a bar that advances on a timer rather than on actual work teaches people to disbelieve every indicator you show them afterwards.
 - **Stream when the output is text.** Progressive output transforms perceived speed, and it lets a user abandon a bad direction early rather than waiting for a full wrong answer. Make it unmistakable that streaming output is unfinished, and do not let actions like send or save become available until it is complete.
 - **Do not block the whole interface.** Confine the busy state to the region being produced. A user who cannot scroll, read the source document, or open another item while waiting is a user learning to dread the feature.
 - **Offer an exit for long work.** If a task genuinely takes minutes, let the user leave and be notified. A prototype can represent this with a notification row and a results list; the point is that the design accounts for it.
@@ -125,3 +125,12 @@ Work from the wireframe descriptions and clickable prototype you built in the pr
 4. **Design the uncertainty signal.** Write the low-confidence presentation for your output. It must state a reason, not only a level, and it must still communicate when rendered in greyscale. Prove that by describing what a user sees with no color at all.
 5. **Update the prototype.** Add screens for at least three non-happy-path states so a person clicking through can reach them.
 6. **Run a state audit with a partner.** They pick three states at random from your table and click to reach each one in your prototype. Any state they cannot reach, or that looks like a bug rather than a design, is a finding — log it and fix the two worst.
+
+## Check your understanding
+
+1. What are the three properties of an AI component that break conventional interface assumptions?
+2. A draft is still streaming. Should Send be available? What should the user be able to do?
+3. Rewrite "Confidence: 62%" as an uncertainty signal that follows this lesson.
+4. What is the difference between an empty state and a failed state, and how should their wording differ?
+
+Answers: (1) It is slow and variably slow, it is uncertain, and it fails in ways that look like success. (2) No — commit actions wait until the output is complete; the user can read the source and press Stop, keeping what has been produced. (3) Something like "Check the refund window — the policy it cites was updated last month," shown as words plus an icon, attached to the specific sentence. (4) Empty means the system worked and found nothing — say what was searched and offer the next move, never framed as an error; failed means it broke — plain language, input preserved, retry offered.

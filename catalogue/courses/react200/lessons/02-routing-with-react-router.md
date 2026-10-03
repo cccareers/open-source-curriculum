@@ -62,6 +62,8 @@ npm run dev
 
 React Router version 6.4 introduced a second way to declare routes — a plain data structure rather than nested JSX elements — and it is the one this course uses throughout. The older approach, where you wrap your app in `<BrowserRouter>` and render `<Routes>` and `<Route>` as elements, still works and you will meet it in existing codebases. It cannot do what the next lesson needs, so learn the data router now and recognize the older style when you see it.
 
+Check which major version you installed with `npm ls react-router-dom`. Version 7 kept the data-router APIs this course uses (`createBrowserRouter`, `RouterProvider`, loaders, actions, `<Form>`), and in version 7 `react-router-dom` re-exports them from the core `react-router` package, so you may see either import path in a codebase. If a code sample here behaves differently on your version, the official upgrade guide for that version is the place to look.
+
 ### The route table
 
 Create `src/router.jsx`:
@@ -340,7 +342,7 @@ export default function NotFound() {
 }
 ```
 
-A **redirect** moves an old or shorthand URL to its real home. In the data-router API, that is a route with a `loader` that throws a redirect:
+A **redirect** moves an old or shorthand URL to its real home. In the data-router API, that is a route with a `loader` that returns a redirect. (`redirect()` builds a `Response` with a 302 status and a `Location` header; a loader may return it or throw it, and the router navigates either way.)
 
 ```jsx
 import { redirect } from "react-router-dom";
@@ -388,3 +390,13 @@ Build the routed shell of the Community Events Board. Use a hard-coded array of 
 10. Deliberately break one thing and fix it: change `path: "/events/:eventId"` to `path: "/events/:id"` without changing the component, observe what `useParams` returns, and record what the failure looked like.
 
 **Deliverable:** a committed app whose entire navigable surface is described by one route table, where every screen is linkable, refreshable, and reachable with the Back button, plus a `NOTES.md` holding your answers from steps 9 and 10.
+
+## Check your understanding
+
+1. A deployed route works when you click to it but returns a 404 when you refresh. Is that a React bug or a hosting bug, and what is the fix?
+2. Your route table has both `/events/new` and `/events/:eventId`. Which one renders for the URL `/events/new`, and does the order of the two objects in the array change that?
+3. Why does the Home `NavLink` need `end` when the Events link does not?
+4. A teammate writes `setSearchParams({ venue: "maker-space" })` and users complain their search term disappears when they pick a venue. What happened, and what is the fix?
+5. `useParams()` returns `{ eventId: "42" }` and `events.find((e) => e.id === eventId)` finds nothing even though an event with `id: 42` exists. Why?
+
+**Answers:** (1) Hosting: the server must return `index.html` for unknown paths so the router can read the URL. (2) The static `/events/new` route, regardless of array order, because React Router ranks by specificity. (3) Every path starts with `/`, so without `end` the Home link is active everywhere; `/events` is only a prefix of event URLs, which is the behavior you want there. (4) Passing a bare object replaces the whole query string; use the updater form that copies `previous` and sets or deletes one key. (5) Path params are always strings; `42 === "42"` is false. Compare with `String(e.id) === eventId`.

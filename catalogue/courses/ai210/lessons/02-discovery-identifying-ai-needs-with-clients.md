@@ -56,6 +56,8 @@ DISCOVERY SESSION PLAN — 90 minutes
 85–90  Close. What we'll send back, by when, and who reviews it.
 ```
 
+Two terms you will meet throughout the course: the **sponsor** is the person who funds or champions the work and answers for its business result; a **practitioner** is someone who does the work by hand today. They are rarely the same person.
+
 Two preparation rules are worth holding firm on. First, **get the people who do the work in the room, not only the people who fund it.** A sponsor can tell you why the project exists; only the person handling the inbox can tell you what actually happens in it. If you can have only one session, ask for both and protect time for the practitioner. Second, **ask to see artifacts.** Real emails, real forms, real spreadsheets, real rejected outputs. Ten minutes looking at three real examples teaches you more than an hour of description, and it is the fastest way to discover that the "unstructured documents" are in fact eleven different templates.
 
 ## A discovery question bank
@@ -181,3 +183,12 @@ Work with a partner. One of you plays a client, the other runs discovery. Then s
 4. **Write the two-column comparison.** Left column: the stated request, verbatim. Right column: the underlying need in one sentence, plus the specific evidence from the session that supports it. If the two columns say the same thing, you probably did not dig.
 5. **Score yourself.** Ask the client whether you surfaced all three hidden facts. For any you missed, identify which question would have found it and add that question to your own copy of the bank.
 6. **Write the recap email** — under 200 words, summarizing the work as you understood it, listing your open questions, and asking for corrections. Have the client mark every sentence that is wrong, and count them.
+
+## Check your understanding
+
+1. A client says, "We want a chatbot for our support inbox." Which column of your notes does that go in, and what is your next question?
+2. Why does "walk me through the last time this happened" produce better evidence than "how does this usually work"?
+3. Halfway through the session you think of a good AI solution. What do you do with it, and why?
+4. Name the single discovery answer that shapes the design more than any other.
+
+Answers: (1) The stated-request column, verbatim; next, ask for a recent episode — "walk me through the last time." (2) People describe processes idealistically and episodes accurately, and exceptions live in episodes. (3) Write it in the margin and keep asking — proposing turns the client from describing their world to evaluating your idea. (4) The cost of being wrong.

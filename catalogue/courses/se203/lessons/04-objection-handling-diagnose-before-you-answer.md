@@ -196,3 +196,9 @@ Work in pairs with an observer if you have three. Around two hours.
 5. **The late reversal.** The buyer plays an enthusiastic champion who, four days before signature, raises a small technical concern. The seller's only permitted opening is a question about what changed. See how many exchanges it takes to reach the real stakeholder. Debrief: what would have happened if the seller had answered technically?
 
 6. **Hold the line.** Procurement demands a flat 12% "to proceed." The seller must respond without conceding anything, without refusing outright, and without proposing a specific trade — just establishing that price moves only alongside something else, and finding out whether price is the only open item. Write down the exact sentence you used; you will reuse it in the next two lessons.
+
+## Check your understanding
+
+1. "Our CFO will say the payback is too long." Owned, proxy, or institutional — and what do you do? *(Answer: proxy. Do not rebut the CFO in absentia; find out what she will compare it to and arm the champion or ask to be in the room.)*
+2. Write the isolate question in your own words. *(One good version: "Setting that aside — if we had a good answer on it, is there anything else that would stop you moving forward this quarter?")*
+3. Three days before signature the buyer raises a functionality concern that has never come up. What is your first question? *(Answer: "What's changed?" — late objections are usually about risk or an unmet stakeholder, not the surface content.)*

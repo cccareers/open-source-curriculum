@@ -52,7 +52,7 @@ input[type="email"] {
 
 ## The cascade: what happens when rules conflict
 
-"Cascading" in Cascading Style Sheets means multiple rules can apply to the same element, and CSS has a defined order for resolving conflicts. Three factors matter, roughly in this priority:
+"Cascading" in Cascading Style Sheets means multiple rules can apply to the same element, and CSS has a defined order for resolving conflicts. Three factors matter. Read the list below as "what to check", and note the order of who wins: an `!important` declaration beats a normal one regardless of specificity; among declarations of equal importance, the more specific selector wins; and only when specificity ties does source order decide.
 
 1. **Specificity** — a more specific selector wins over a less specific one, regardless of source order. Specificity is scored roughly as: inline `style` attribute beats ID selectors, which beat class/attribute selectors, which beat plain element selectors.
 2. **Source order** — when specificity ties, the rule that appears later in the stylesheet (or in a later stylesheet) wins.
@@ -108,10 +108,10 @@ Every modern browser's DevTools has a box model diagram in its Elements/Inspecto
 
 ## Display: how a box behaves in the flow
 
-Two `display` values matter most at this stage:
+Three `display` values matter most at this stage:
 
 - `display: block` — the element takes the full available width and stacks vertically; `<div>`, `<p>`, `<section>`, and heading elements are block by default.
-- `display: inline` — the element only takes as much width as its content and sits in line with surrounding text; `<span>`, `<a>`, and `<strong>` are inline by default. Margin and padding on an inline element behave inconsistently for top/bottom spacing — another common source of "why isn't my margin working" bugs.
+- `display: inline` — the element only takes as much width as its content and sits in line with surrounding text; `<span>`, `<a>`, and `<strong>` are inline by default. Top and bottom margin on an inline element is ignored by the layout, and top/bottom padding is painted but does not push neighboring lines away, which is another common source of "why isn't my margin working" bugs.
 - `display: inline-block` — a hybrid: sits in line like `inline`, but respects `width`, `height`, and vertical padding/margin like `block`.
 
 Getting `display` wrong is a frequent cause of "this element won't respect the width/height I gave it" — if an element is still `inline`, top/bottom margin and an explicit `width` are silently ignored by the layout, which looks like a CSS bug but is really a display-type mismatch.
@@ -125,3 +125,11 @@ Using the `roster.html` page from earlier lessons (or a fresh page with a few `<
 3. Add a class selector (for example `.card--lead`) that overrides the border color for one card, and add an ID selector on a different single card that overrides both border color and background color — apply both a class and an ID to the same element somewhere and predict, before checking, which color wins.
 4. Open DevTools, select one of your cards, and read its box model diagram. Record the four numbers (content, padding, border, margin) and confirm the rendered total width matches what `border-box` predicts, not what plain `width` alone would suggest.
 5. Change one card's `display` from block to `inline` temporarily, observe what breaks (width and vertical margin), then change it back.
+
+## Check your understanding
+
+1. An element has `class="note"` and `id="final-note"`. A `.note` rule sets `color: gray` and appears *after* the `#final-note { color: red; }` rule. Which color wins, and why?
+2. With the default `box-sizing: content-box`, what is the rendered width of `width: 200px; padding: 10px; border: 2px solid;`? What is it with `border-box`?
+3. You set `margin-top: 20px` on an `<a>` and nothing moves. What do you check first?
+
+*Answers:* (1) Red: the ID selector is more specific, and source order only matters when specificity ties. (2) 224px with `content-box` (200 + 10 + 10 + 2 + 2); 200px with `border-box`. (3) Its `display` value: `<a>` is inline by default, so vertical margin is ignored; `inline-block` or `block` would respect it.

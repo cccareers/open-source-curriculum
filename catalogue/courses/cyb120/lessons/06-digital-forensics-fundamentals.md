@@ -213,3 +213,9 @@ Escalating early is cheap. Escalating after you have run six tools across the or
 **Exercise 5 — Document your own footprint.** Perform a live-collection sequence on a lab virtual machine, keeping a full transcript. Afterwards, identify every change *your own activity* made to that system — logon records, files written, devices attached, processes created — and write the section of the case record that discloses it. Then have a classmate examine the system without your notes and list the artifacts they attribute to "unknown activity"; compare the two lists and discuss what you failed to record.
 
 **Exercise 6 — Draw the escalation line.** For each of five scenarios your instructor supplies, decide whether it is within first-responder scope or needs a specialist. For those needing escalation, write the handover: what you have preserved, the chain of custody, exactly what you ran and when, what you concluded, and the specific question you want the specialist to answer. Keep each handover under 250 words.
+
+## Check your understanding
+
+1. A running host is beaconing but not destroying data. Power off or network-isolate? *Network-isolate and leave it running; powering off destroys memory, network state, and running processes.*
+2. What do you collect first from a running host, and what one-line measurement must you not forget? *Memory; and the clock offset against a trusted source.*
+3. The host's own tools show no connection but the firewall log shows one. Which do you believe? *The firewall — it was collected on a system the attacker does not control. Record the discrepancy.*

@@ -62,7 +62,7 @@ heading.innerHTML;               // read: the markup inside the element
 heading.innerHTML = "<em>Hi</em>"; // write: parses and inserts as HTML
 ```
 
-`textContent` treats whatever you assign as plain text — safe by default. `innerHTML` parses the string as markup, which means it can inject real elements, including `<script>`-adjacent attack surface if the string ever comes from user input. As a QA engineer, `innerHTML` assigned from unsanitized user input is worth flagging every time you see it in a review; it is a well-known security defect class (cross-site scripting), not just a style preference.
+`textContent` treats whatever you assign as plain text — safe by default. `innerHTML` parses the string as markup, which means it can inject real elements if the string ever comes from user input. A `<script>` tag inserted this way does not run, but an attribute like `<img src="x" onerror="...">` does, which is why `innerHTML` with user input is dangerous. As a QA engineer, `innerHTML` assigned from unsanitized user input is worth flagging every time you see it in a review; it is a well-known security defect class (cross-site scripting), not just a style preference.
 
 Attributes are read and written separately from content:
 
@@ -93,7 +93,7 @@ item.textContent = "Write test cases";
 item.classList.add("todo-item");
 
 list.appendChild(item);           // add at the end
-list.insertBefore(item, list.firstChild); // add at the start
+list.insertBefore(item, list.firstChild); // moves it to the start (a node can only be in one place)
 
 item.remove();                    // remove the node entirely
 ```
@@ -131,3 +131,11 @@ Using a blank HTML page with a `<ul id="todo-list">` containing three `<li>` ite
 2. Create a new `<li>` with the text `"Verify DOM changes"`, give it the class `todo-item`, and append it to the list. Confirm in the Elements panel that it was added.
 3. Deliberately write a selector that does **not** match anything on the page (e.g., `#does-not-exist`), then try to set its `.textContent`. Read the resulting error message carefully and write one sentence describing, in your own words, what it tells you and why it happened — this is the same kind of message you'll be diagnosing in Lesson 07.
 4. Use `classList.toggle("done")` on one of your list items, then use `classList.contains("done")` to confirm the state changed. Toggle it again and confirm it changed back.
+
+## Check your understanding
+
+1. `document.querySelector(".row").forEach(...)` throws. Why, and what should it be?
+2. A checkbox is visibly checked, but `getAttribute("checked")` returns `null`. Which value should a test read?
+3. You see `Cannot set properties of null (setting 'textContent')`. What is your first check?
+
+*Answers:* (1) `querySelector` returns a single element, which has no `forEach`; use `querySelectorAll`. (2) The `checked` property (`checkbox.checked`), which reflects live state. (3) Whether the selector actually matches an element in the DOM at that moment (typo, element not rendered yet, or markup changed).

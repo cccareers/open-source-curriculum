@@ -190,3 +190,17 @@ Continue in the `toolshare` project, on a branch. The feature to explore: **memb
 12. **Reflect on the method.** In three or four sentences, evaluate the method you chose. Would a paper prototype have answered the question as well for less? Did you need to build both, or was one enough? Would a vertical slice have been the right call instead? This is the judgment being assessed, and an honest "I over-built for the question I had" scores well.
 
 **Deliverable:** two comparable static React prototypes of the same feature under `src/prototypes/`, plus `PROTOTYPE.md` containing your question, sketches, pre-committed weighted criteria, raw observations from three testers, a scored comparison, a one-page recommendation with residual unknowns, an explicit decision about the code's fate, and your reflection on the method.
+
+## Check your understanding
+
+1. Classify each question as usability, technical, or product uncertainty: (a) "Can the grid stay smooth with two thousand tools?" (b) "Will members understand named periods like 'this weekend'?" (c) "Is a reservation feature worth building at all?"
+2. You built prototype A in five hours with polished styling and prototype B in two hours with grey boxes. Testers preferred A. What did you actually measure?
+3. Why must the comparison criteria be written down before you build either prototype?
+4. A stakeholder loves your prototype demo and asks how long until it ships. What do you say, and what should you have done before the demo?
+
+**Answers**
+
+1. (a) technical, (b) usability, (c) product.
+2. Mostly polish and time spent, not which concept is better. Equal fidelity and equal time are what make a comparison fair.
+3. Criteria written afterwards quietly rearrange themselves to justify the option you already liked.
+4. Give an honest estimate for building it properly, naming what the prototype skips (error handling, accessibility, real data, tests). Before the demo, label it a prototype and say up front what it does not do.

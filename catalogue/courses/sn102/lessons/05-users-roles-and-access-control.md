@@ -30,7 +30,7 @@ Three tables carry authorization, and the relationships between them are the who
 1. **Assignment.** Work is assigned to a group, and members pick it up. The Assignment group field on every task points here.
 2. **Permission.** Roles granted to a group are inherited by every member, so adding a person to the group grants them the roles.
 
-Groups can contain groups, and the membership is transitive. Group records also carry a manager and an email address, so notification can be addressed to the group rather than to a list of people who will change.
+A group can have a **parent** group, and roles granted to the parent are inherited by the members of its child groups. Membership itself does not flow upward: being in a child group does not make you a member of the parent for assignment purposes. Group records also carry a manager and an email address, so notification can be addressed to the group rather than to a list of people who will change.
 
 **Roles** live in `sys_user_role`. A role is a named permission — `itil`, `catalog_admin`, `knowledge_manager`, `admin`. A role by itself does nothing; it is a label that access rules test for. Roles can **contain** other roles, which is how a broad role implies narrower ones. Granting `itil_admin` typically grants `itil` along with it, because containment is evaluated recursively.
 
@@ -57,10 +57,11 @@ Evaluation follows rules that are worth memorizing, because they explain almost 
 2. **Most specific first.** The platform evaluates field-level rules before table-level rules, and the matching table's own rules before its parent's. `incident.description` is considered before `incident.*`, which is considered before `task.*`, which is considered before `*.*`.
 3. **All parts of a matching rule must pass.** The role test **and** the condition **and** the script must all be satisfied. Any one failing fails the rule.
 4. **Both the field and the record must permit the operation.** A field-level grant does not help if the record-level rule denies you.
+5. **At the deciding level, one passing rule is enough.** If several ACLs match at the same, most specific level — two `read` rules on `incident`, say — you need to pass only one of them. That is how one rule can grant read to a role while another grants read to the record's caller.
 
 Put those together and the behavior falls out. A self-service user opening an incident they reported sees the record because a rule grants read when the caller is the current user. They cannot see a colleague's incident because that same condition fails and nothing else grants them read. An `itil` user sees both, because a different rule grants read to the `itil` role with no record condition.
 
-When access does not behave as you expect, the tool is the **security debug** feature, switched on from the impersonation or settings area. With it on, the platform annotates the page with which ACLs were evaluated and which passed or failed. Combined with impersonation, it turns a guessing game into a reading exercise: impersonate the person, turn on the debugger, open the record, read which rule denied you.
+When access does not behave as you expect, the tool is the **security debug** feature, switched on from the **Debug Security Rules** module (under System Security > Debugging; System Diagnostics > Session Debug offers the same switch). Turn it on as an administrator *before* you impersonate, because the person you impersonate usually cannot reach the module. With it on, the platform annotates the page with which ACLs were evaluated and which passed or failed. Combined with impersonation, it turns a guessing game into a reading exercise: impersonate the person, turn on the debugger, open the record, read which rule denied you.
 
 ## The other layers around ACLs
 
@@ -87,15 +88,17 @@ Translate each line into a mechanism.
 
 *"Anyone may raise one"* is a `create` ACL on the table with no role required. It has no condition, because there is nothing about the person to test.
 
-*"Only Vendor Management may work one"* is two rules. A `write` ACL on `u_vendor_escalation.*` requiring a `vendor_management` role. And a `read` ACL that grants read either to the same role or, with a condition, to the person who opened the record — otherwise the requester cannot see the thing they filed.
+*"Only Vendor Management may work one"* is two kinds of rule. Write needs a record-level `write` ACL on `u_vendor_escalation` and a field-level `write` ACL on `u_vendor_escalation.*`, both requiring a `vendor_management` role — rule 4 says both the record and the field must permit the write. And a `read` ACL that grants read either to the same role or, with a condition, to the person who opened the record — otherwise the requester cannot see the thing they filed.
 
 *"Only the manager may delete"* is a `delete` ACL requiring a narrower role, say `vendor_management_admin`, held by exactly one person through a group with one member.
 
 *"The commercial-terms field is restricted"* is a field-level `read` ACL on `u_vendor_escalation.u_commercial_terms` requiring the `vendor_management` role. Because field rules are evaluated before table rules, this hides the field from the requester while leaving the rest of the record visible to them.
 
+One practical note before you build any of this: creating or changing an ACL requires the `security_admin` role to be **elevated** for your session, even if you are an administrator. You will find **Elevate role** in your user menu.
+
 Then the part beginners skip: create the roles, create the group, put the roles on the *group*, put the people in the group. Nobody gets a direct role grant. Now, when the team gains a member, the change is one line in one related list.
 
-Finally, test it properly. Impersonate a plain employee and confirm they can create and see their own but not the commercial-terms field. Impersonate a Vendor Management member and confirm they can write. Impersonate someone in neither group and confirm the list is empty. Turn on the security debugger for the case that surprises you.
+Finally, test it properly. Impersonate a plain employee and confirm they can create and see their own but not the commercial-terms field. Impersonate a Vendor Management member and confirm they can write. Impersonate someone in neither group who has never raised an escalation and confirm they cannot open any record; because there is no query business rule, the list shows a message that rows were removed by security constraints rather than looking genuinely empty. Turn on the security debugger for the case that surprises you.
 
 ## Practice
 
@@ -114,3 +117,10 @@ Use a personal developer instance. Nothing here needs demo data beyond what ship
 6. **Debug a denial.** Pick one of the denials you produced in the previous exercise. With the same impersonation active, turn on the security debugger, reproduce the denial, and read the output to identify which ACL failed and on which of its parts — role, condition, or script. Write down the rule name.
 
 7. **Authentication vs authorization.** In two or three sentences each, describe what would break if (a) the SSO identity provider went offline, and (b) somebody removed the `itil` role from a group of fulfillers. Say for each whether it is an authentication or an authorization failure and how you would tell from the symptom alone.
+
+## Check your understanding
+
+1. A user can open an incident but every field is read-only. Authentication or authorization problem? *Authorization. They are signed in (authentication worked); a `write` ACL is denying them.*
+2. You hide a salary field with a UI policy. Is the data protected? *No. UI policies are usability only; the value can still be read through a list, export, or integration. Use a field-level `read` ACL.*
+3. Two `read` ACLs exist on the same table: one requires `itil`, the other has the condition "Caller is me." A user without `itil` opens their own incident. Can they read it? *Yes. At the same level, passing either rule is enough.*
+4. Why grant roles to groups rather than users? *A move between teams becomes one membership change, and the access model stays reviewable.*
