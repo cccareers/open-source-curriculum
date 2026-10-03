@@ -42,6 +42,18 @@ you look for in someone making that jump. Either way, glad to
 connect. — Marcus
 ```
 
+One practical catch: LinkedIn caps the note on a connection request at roughly 300 characters (the limit and the number of personalized notes free accounts can send have both changed over time, so check what your account shows). The example above is about 350, so it would be cut off. Trim words inside each part rather than dropping a part:
+
+```text
+Hi Dana — your post on moving support onto the new ticketing stack,
+especially training non-technical staff, stuck with me. I'm a CCC tech
+pre-apprentice aiming at support engineering; I'd value 15 min on what
+you look for in someone making that jump. Glad to connect either way.
+— Marcus
+```
+
+That version is under 300 characters and still has all four parts. Email and InMail give you more room, but the short version usually reads better there too.
+
 Notice what is absent: no resume, no attachment, no paragraph about passion, no apology for reaching out. The message is short because short messages get read, and because a long message signals that the meeting will be long too.
 
 Two failure modes to name out loud. **The template blast** — same message, hundred contacts, hook slot left generic. It produces a connect rate near zero and burns names you cannot get back. **The essay** — three paragraphs of your story before the ask. It reads as a request for a favor, not a conversation. If you find yourself explaining your career change in the first message, cut it; that story belongs in the conversation you are trying to earn.
@@ -63,7 +75,7 @@ Three rules govern the sequence. **Every touch adds something** — new informat
 
 ## The daily routine
 
-Quota is fifty contacts initiated by the end of Week 1. Spread across lab days that is manageable; done in one panicked block on Friday it is not, and it produces exactly the template blast that ruins your list. The routine below is what makes the number arrive as a byproduct.
+**Quota** — the minimum number you are expected to hit in a set period — is fifty contacts initiated by the end of Week 1. Spread across lab days that is manageable; done in one panicked block on Friday it is not, and it produces exactly the template blast that ruins your list. The routine below is what makes the number arrive as a byproduct.
 
 Run three blocks, in this order, every lab day:
 

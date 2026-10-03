@@ -40,7 +40,7 @@ A workable default shape, which you will adapt to your own live pipeline:
 | 11-20 | Second follow-up; open 3-5 new applications from partner and market lists | Re-engage nurture contacts with a specific update, not a check-in | 1 build session per week plus 1 interview-practice session |
 | 21-30 | Escalate stalled applications through a network contact rather than the portal | Monthly touch on everyone still warm; add 10 new contacts | Ship one small public artifact; post it |
 
-Two things make this plan real rather than decorative. First, **every row is on a calendar with a specific weekday and time**, not "sometime in week two." Second, **every action lives in your CRM as a dated next action**, exactly as it did during the program. The CRM is the only part of the program's structure that survives Friday, which is why the next lesson section is about making sure it is genuinely yours.
+Two things make this plan real rather than decorative. First, **every row is on a calendar with a specific weekday and time**, not "sometime in week two." Second, **every action lives in your CRM as a dated next action**, exactly as it did during the program. The CRM is the only part of the program's structure that survives Friday, which is why the export section below is about making sure it is genuinely yours.
 
 ## Milestones that are actually testable
 

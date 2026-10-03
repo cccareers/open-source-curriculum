@@ -31,6 +31,8 @@ Every metric on the platform belongs to one of three tiers, and the tiers are ra
 
 **Tier 3 — conversation.** *Messages received, replies to your outreach, calls booked.* The platform does not report this tier next to your post. You have to track it yourself. It is the only tier that maps onto anything you actually want.
 
+Platform analytics change often, and not every account sees the same breakdown. If your post analytics do not show profile views per post, leave that column blank and write "not reported" rather than borrowing your profile's overall view count — an honest blank is better than a number that belongs to something else.
+
 Write the three tiers down in that order, because for the rest of the week you will read every post bottom-up: what conversation did this cause, then what engagement, then what reach.
 
 ## Rate, not raw count
@@ -43,7 +45,9 @@ comment rate    = comments / impressions
 profile-view rate = profile views / impressions
 ```
 
-For an account in your range — a few hundred connections, posting a couple of times a week — an engagement rate of 3 to 5 percent is healthy, under 2 percent is quiet, and anything above 6 percent means you hit a nerve worth studying. Do not compare your rate to a creator with 40,000 followers; large accounts reach cold audiences and their rates are structurally lower. Compare your posts to your own other posts. That is the only fair benchmark you have.
+A worked example: a post with 620 impressions, 11 reactions, and 1 comment has an engagement rate of (11 + 1) ÷ 620 = 0.019, or 1.9 percent, and a comment rate of 1 ÷ 620 = 0.16 percent. Multiply by 100 to turn the decimal into a percent.
+
+As a rough rule of thumb, not a published standard: for an account in your range — a few hundred connections, posting a couple of times a week — an engagement rate of 3 to 5 percent is healthy, under 2 percent is quiet, and anything above 6 percent means you hit a nerve worth studying. Do not compare your rate to a creator with 40,000 followers; large accounts reach cold audiences and their rates are structurally lower. Compare your posts to your own other posts. That is the only fair benchmark you have.
 
 ## A worked read
 

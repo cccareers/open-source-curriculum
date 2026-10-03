@@ -15,7 +15,7 @@ objectives:
 
 ## The work you have been doing has a job title
 
-For the last two weeks you researched target companies, wrote cold outreach, followed up, and booked conversations with people who did not know you. On a technical sales team, that is not a side task someone squeezes in — it is a full-time role with a title, a manager, a comp plan, and a number attached to it.
+For the last two weeks you researched target companies, wrote cold outreach, followed up, and booked conversations with people who did not know you. On a technical sales team, that is not a side task someone squeezes in — it is a full-time role with a title, a manager, a comp plan (the written rules for how the person is paid, usually a base salary plus commission for hitting targets), and a number attached to it.
 
 This lab is where you put names to the roles and, more importantly, to the numbers. Every behavior you will see on a sales floor traces back to what that person is measured on. If you understand the metric, you can predict the behavior. That is true when you are working alongside a sales team, when you are interviewing for one of these jobs, and when you are on the receiving end of a cold call yourself.
 
@@ -93,4 +93,4 @@ Work through all four parts. Parts 3 and 4 feed the week's milestone.
 
 3. **Predict the behavior.** For each of your three postings, write two sentences: one describing a behavior the stated metric rewards, and one describing a way a rep could hit that metric while producing no real value for the company. Bring these to the practitioner session and ask whether they have seen it happen.
 
-4. **Map yourself onto the funnel.** Open the pipeline you built in Week 2. Count your totals: contacts researched, contacts messaged, replies received, conversations held. Label which of this week's three roles each of those activities belongs to, and write one honest paragraph on which of the three roles your Week 2 work most resembles and which one you would actually want. Keep this file — you will compute conversion rates from these same counts in Lesson 04.
+4. **Map yourself onto the funnel.** Open your pipeline — the one you built in Week 1 and worked through Week 2. Count your totals: contacts researched, contacts messaged, replies received, conversations held. Label which of this week's three roles each of those activities belongs to, and write one honest paragraph on which of the three roles your Week 2 work most resembles and which one you would actually want. Keep this file — you will compute conversion rates from these same counts in Lesson 04.

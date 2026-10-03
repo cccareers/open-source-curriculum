@@ -61,7 +61,7 @@ You are done when every one of these is true, checked with your apprentice partn
 - [ ] `git log --oneline` shows five or more commits with messages a stranger could follow.
 - [ ] `git status` reports a clean working tree with nothing left to commit.
 - [ ] The GitHub repository page loads at a public URL and shows your README rendered.
-- [ ] `git log -p | grep -i token` finds nothing — no credential ever entered the history.
+- [ ] Searching the history for the first eight characters of your real token — `git log -p | grep -F "abcd1234"`, with your token's characters in place of `abcd1234` — finds nothing. (Searching for the *word* `token` will match your own `process.env.CRM_TOKEN` line; that is fine, because it names the variable, not the secret.)
 - [ ] Your real `contacts.csv` does not appear in the repository file list.
 - [ ] Your partner clones the repository into a fresh folder, follows only the README, and gets working output without asking you a single question.
 - [ ] You can explain out loud, without notes, what `init`, `add`, `commit`, and `push` each do and in what order.
@@ -101,6 +101,8 @@ contacts.csv
 **Commit as you work, not at the end.** Good five-commit shape: add the `.gitignore`, add the script's fetch and parse steps, add the transform, add the sample CSV, add the README. Run `git status` before every commit to see exactly what you are about to save, and `git log --oneline` after to watch the history grow.
 
 **Message style.** Present tense, says what the change does: `Add follow-up queue transform`, not `changes` or `fixed it`. If your message needs the word "and", it is probably two commits.
+
+**Make the clean clone actually run.** Your `.gitignore` keeps `contacts.csv` out of the repository, so a fresh clone has only `contacts.sample.csv` — and a script that reads `"contacts.csv"` will crash for everyone but you. Pick one fix and put it in the README: either tell the reader to run `cp contacts.sample.csv contacts.csv` first, or let the script take the file name as an argument (`const file = process.argv[2] ?? "contacts.sample.csv";`) so `bun run pipeline.ts` works out of the box.
 
 **Write the README last, then test it against a human.** Hand your laptop to your partner, open a fresh terminal, and have them follow it literally. Every place they hesitate is a missing step. That hesitation is the actual assignment — code that only its author can run is not shipped.
 

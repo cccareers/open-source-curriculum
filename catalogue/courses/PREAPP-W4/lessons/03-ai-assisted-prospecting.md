@@ -102,7 +102,7 @@ Keep the line clean: AI helps you read faster, organize what you read, and draft
 All of this runs against your own live accounts today.
 
 1. **Sourced research pass on three real accounts.** For each, gather at least three sources yourself, run the sourced-summary prompt, and produce five bullets plus a NOT SUPPORTED section. Time the first one and record the minutes.
-2. **Pick and defend a hook** for each account in one sentence: what the signal is, which source shows it, and why it connects to what you sell.
+2. **Pick and defend a hook** for each account in one sentence: what the signal is, which source shows it, and why it connects to what you sell. (In your own pipeline, what you "sell" is your candidacy: the skills, evidence, and program you can point to.)
 3. **Draft three personalized messages** using the hook prompt, each with its CLAIMS and SOURCES sections.
 4. **Run the four-point critique** on every draft — fabricated specifics, overstated inference, generic filler, voice mismatch. Mark each hit directly on the draft and note the fix.
 5. **Verify or cut** every UNSOURCED claim. Log what you verified and where you verified it.
