@@ -301,7 +301,7 @@ Before you consider a script finished, run `shellcheck` over it. It is a static 
 
 Work against the provider account you used in cse203. Do the whole exercise in dry-run mode until step 5.
 
-1. **Set up the skeleton.** Create `tag-audit.sh` with the shebang, `set -euo pipefail`, `IFS`, a `usage` function, and argument parsing for `--project <id>` (required), `--tag <key>` (required, defaulting to nothing), and `--dry-run`. Confirm it exits 64 with a usage message when `--project` is omitted, and that `--help` prints the same text.
+1. **Set up the skeleton.** Create `tag-audit.sh` with the shebang, `set -euo pipefail`, `IFS`, a `usage` function, and argument parsing for `--project <id>` (required), `--tag <key>` (required, no default), and `--dry-run`. Confirm it exits 64 with a usage message when `--project` is omitted, and that `--help` prints the same text.
 
 2. **Query and select.** Add a call that lists compute instances in the project as JSON and pipes it through `jq` to produce the id of every instance that is *missing* the required tag key. Verify the `jq` filter on a saved JSON file first — `cloud compute instance list --format json > sample.json` — so you are not re-running the API call every time you get the expression wrong.
 
@@ -312,3 +312,9 @@ Work against the provider account you used in cse203. Do the whole exercise in d
 5. **Prove it is idempotent.** Run it for real, then run it again immediately. The second run must report zero instances to change and exit 0. If it does not, you are acting unconditionally somewhere — find it and add the state check.
 
 6. **Break it on purpose.** Comment out `set -euo pipefail` and re-run with a deliberately misspelled variable name (`"$PROJEKT"`), then restore the line and re-run. Write two sentences in your notes describing the difference in what happened. Finally, run `shellcheck tag-audit.sh` and fix everything it reports.
+
+## Check your understanding
+
+1. `cloud storage list | grep backup` exits 0 even though the `cloud` call failed. Which option fixes that, and why? *(`set -o pipefail` — without it, a pipeline's status is the last command's status.)*
+2. A counter incremented inside `cloud ... | while read -r id; do ...; done` is zero afterwards. Why, and what is the fix? *(The piped loop runs in a subshell; feed the loop with `done < <(...)` instead.)*
+3. What makes a dry-run line "reviewable"? *(It is the complete command with real resource identifiers, specific enough to copy and run.)*
