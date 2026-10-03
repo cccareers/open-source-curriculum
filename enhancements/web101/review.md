@@ -27,18 +27,18 @@ A coherent, tester-minded course: every lesson ties back to "what a test or a bu
 - "Fetch data asynchronously and handle the failure cases": failure handling shown for HTTP status only; no example of a JSON parse failure or a timeout (`AbortController`). Covered partly by video v01 (network block).
 - "Handle user events while keeping interactive behaviour reachable from the keyboard": no mention of visible focus styling or of `:focus-visible`; no example of moving focus to the first invalid field after submit.
 - "Debug a broken page in the browser and describe the defect precisely": no coverage of the Network panel as a debugging source (status codes, response bodies), although lesson 06 promises it "in the next lesson".
-- "Check your own interactive page against its expected behaviour and record what fails": no template for the verification log; a table template (spec line, steps, result, evidence, defect id) would help.
+- "Check your own interactive page against its expected behaviour and record what fails": no template for the verification log; project x02 supplies one (spec line, how tested, result, evidence, defect id).
 - No lesson had a self-check; added "Check your understanding" to lessons 02 to 08.
 
 ## Proposed additional projects
 - x01 Signup Form: Testable Validation and Accessible Errors (drafted; `node --test` suite verified, 9/9 pass against a reference solution; Playwright stretch sketch not run).
-- Task filter logic module: pure `filterTasks(tasks, filter)` and `toggleComplete(tasks, id)` for the lesson 08 page, with a test suite and a verification log template. Not drafted.
+- x02 Filtered Task List: Testable Logic and a Verification Log (drafted, `projects/02-task-list-logic-and-verification-log.md`; `node --test` suite verified 8/8 against a reference implementation).
 - Debugging case file: a provided broken todo page with five planted bugs (null selector, missing `preventDefault`, stale index, missing `response.ok`, div toggle); learner files five located defect reports. Not drafted.
 
 ## Video and animation opportunities
 - Async ordering, `response.ok`, and blocked requests (lessons 06 to 07, screencast). Drafted: `media/video-01-why-fetch-shows-undefined.md`.
 - Bubbling and delegation, including keyboard Enter and the div that never gets focus (lesson 04, explainer animation). Drafted: `media/animation-01-event-bubbling-and-delegation.md`.
-- Breakpoints, Scope panel, and conditional breakpoints on the stale-index bug (lesson 07, screencast). Not drafted.
+- Breakpoints, Scope panel, and conditional breakpoints on the stale-index bug, showing both symptoms (wrong row removed, and a TypeError past the end) (lesson 07, screencast). Drafted: `media/video-02-breakpoints-on-the-stale-index-bug.md`.
 - Live vs static collections shrinking during a loop (lesson 03, explainer animation). Not drafted.
 - Spec-first verification walkthrough of the lesson 08 page (talking head plus screencast). Not drafted.
 

@@ -27,20 +27,20 @@ A practical, well-ordered tooling course with a consistent cart running example 
 - "Work on a shared repository using branches, merges, and pull requests": no coverage of `git log --graph --oneline --all` for seeing divergence, or of protected branches.
 - "Use Chrome DevTools to inspect and debug a running page": no practice page is supplied for lesson 06 practice step 3 ("ask your instructor"); video v01 specifies one.
 - "Audit a page's network activity, performance, and accessibility from the browser": no guidance on capturing evidence (HAR export, Performance trace export, Lighthouse JSON/HTML report) for attaching to tickets.
-- "Deploy a site publicly and verify it behaves as expected": no example of an automated post-deploy smoke check (for example, a script that fetches the live URL and checks status and a key string).
+- "Deploy a site publicly and verify it behaves as expected": no example of an automated post-deploy smoke check; project x02 adds one, including the GitHub Pages `/<repo>/` root-relative link pitfall.
 - "Set up a local development environment that mirrors how the project really runs": `.nvmrc` mentioned but `nvm use` without arguments (which reads it) is not shown.
 - Added "Check your understanding" to lessons 02 to 08 (lesson 09 is the project).
 
 ## Proposed additional projects
 - x01 Cart Rescue: Revert a Bad Push and Recover a Deleted Fix (drafted; setup script plus a read-only `node --test` checker, verified: 2/7 on a fresh lab, 7/7 after a reference rescue).
 - DevTools evidence pack: given a planted-bug demo page, produce a defect report with a HAR excerpt, a breakpoint screenshot, and a Lighthouse finding. Not drafted.
-- Post-deploy smoke script: a zero-dependency Node script that fetches the deployed URL, asserts status 200, the expected `<title>`, and no broken internal links on the home page. Not drafted.
+- x02 Post-Deploy Smoke Check for Your Public Site (drafted, `projects/02-post-deploy-smoke-check.md`; zero-dependency `node --test` suite with an in-process local server, verified 6/6 against a reference implementation; no internet needed).
 - PR documentation review drill: a provided PR with three code/doc mismatches to find and comment on. Not drafted.
 
 ## Video and animation opportunities
 - Console to defect report on a planted cart bug (lessons 06 to 08, screencast). Drafted: `media/video-01-console-to-defect-report.md`.
 - Revert vs reset on a shared branch, plus reflog rescue (lessons 03 to 04, explainer animation). Drafted: `media/animation-01-revert-vs-reset.md`.
-- Resolving a real merge conflict with a partner (lesson 04, screencast). Not drafted.
+- Resolving a real merge conflict, including `git merge --abort` and asking the other author (lesson 04, screencast). Drafted: `media/video-02-resolving-a-merge-conflict.md`.
 - Network waterfall and throttling: finding the one slow request (lesson 07, screencast). Not drafted.
 - Deploy-and-verify walkthrough on a static host (lesson 09, screencast). Not drafted.
 

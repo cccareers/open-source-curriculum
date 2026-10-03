@@ -31,13 +31,13 @@ A well-structured QA capstone: each lesson produces an artifact the next one dep
 ## Proposed additional projects
 - x01 Signup Regression Guard: From Defect Record to Maintained Test (drafted; `node --test` suite verified: starter fails exactly the two DEF tests, reference fix passes 7/7).
 - Triage table-top: a stack of 12 realistic defect reports (some duplicates, some unreproducible, some usability gaps) to triage as a team in 30 minutes, with a facilitator answer key. Not drafted.
-- Release go/no-go case file: a release checklist with two red items and a stakeholder pushing to ship; learner writes the conclusion and the risk-acceptance note. Not drafted.
+- x02 Release Go/No-Go Case File: Accounts v1.0 (drafted, `projects/02-release-go-no-go-case-file.md`; non-coding case file with a failing regression run, a config-name mismatch, an unreviewed direct push, and a role-played product-owner briefing).
 - User-report interview role-play with scripted "user" cards that withhold the key step until asked. Not drafted.
 
 ## Video and animation opportunities
 - Red test: real bug or changed on purpose (lessons 06 to 07, screencast). Drafted: `media/video-01-red-test-bug-or-changed-behavior.md`.
 - Pyramid vs ice-cream cone across three sprint weeks (lessons 05 to 06, explainer animation). Drafted: `media/animation-01-pyramid-vs-ice-cream-cone.md`.
-- Structured user-report interview, good vs bad (lesson 08, talking head with role-play). Not drafted.
+- Structured user-report interview, bad vs good, ending in a usability-gap recommendation (lesson 08, hybrid role-play). Drafted: `media/video-02-interviewing-a-user-about-a-vague-report.md`.
 - Release checklist walkthrough ending in a documented no-go (lesson 09, screencast). Not drafted.
 - Board truthfulness: a week of tickets moving, with a stale "In Progress" card exposed (lesson 03, explainer animation). Not drafted.
 
@@ -56,4 +56,5 @@ A well-structured QA capstone: each lesson produces an artifact the next one dep
 ## Open questions for the course owner
 - Which browser automation library should the course name, if any? The lesson stays tool-neutral, but its example is now explicitly Playwright-style.
 - Should agile200 align its defect severity scale with ops100's, since learners meet both?
-- The only second video and second project for this course were not drafted in this pass (time); candidates are listed above.
+- Video v02 names the DevTools throttling preset "Fast 4G"; preset names have changed across Chrome versions, so verify before recording.
+- Project x02's case file uses illustrative commit hashes and test output; if the owner wants it executable, the x01 reference suite could be extended with a config test.
