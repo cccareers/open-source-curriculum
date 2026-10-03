@@ -226,7 +226,7 @@ ORDER BY  →  what sequence
 LIMIT     →  how many
 ```
 
-Two consequences follow directly. First, a `SELECT` alias cannot be used in `WHERE`, because `WHERE` ran before the alias existed:
+Three consequences follow directly. First, a `SELECT` alias cannot be used in `WHERE`, because `WHERE` ran before the alias existed:
 
 ```sql
 SELECT title, ends_at - starts_at AS duration
@@ -408,3 +408,12 @@ All of these run against the `events_board` database from lesson 02. Put every q
 14. Rewrite query 2 as it would appear in application code, using placeholders for the status and the limit. In a comment, write out what a visitor could do to your database if you had built that string by concatenation instead.
 
 **Deliverable:** a `queries.sql` that runs top to bottom with `psql events_board -f queries.sql` and produces no errors except the three you caused deliberately in step 10, which should be commented out with their messages recorded.
+
+## Check your understanding
+
+1. What does `WHERE starts_at BETWEEN '2026-08-01' AND '2026-08-31'` miss, and what do you write instead?
+2. A colleague's query `SELECT title FROM events WHERE venue_id <> 3;` returns eight rows and they expected nine. What happened?
+3. Why does `SELECT title, ends_at - starts_at AS duration FROM events WHERE duration > interval '2 hours';` fail, while `ORDER BY duration` would have worked?
+4. Why is `LIMIT 5` with no `ORDER BY` a bug even when it seems to return the right rows?
+
+*Answers:* (1) Almost all of August 31, because the upper bound is midnight at its start; use `starts_at >= '2026-08-01' AND starts_at < '2026-09-01'`. (2) The online event has a `NULL` venue, and `NULL <> 3` is unknown, so it is dropped; add `OR venue_id IS NULL`. (3) `WHERE` runs before `SELECT` creates the alias; `ORDER BY` runs after. (4) Without an order, which five rows come back is undefined and can change between runs.

@@ -204,7 +204,7 @@ Anything a JavaScript variable can hold, a prop can hold — you just need brace
 />
 ```
 
-Three shorthands are worth knowing. A boolean prop with no value is `true`, so `<ToolCard isAvailable />` and `<ToolCard isAvailable={true} />` are identical, and the bare form is idiomatic. When a variable already has the name you want, object shorthand works in the spread: `{...tool}`. And nothing stops you from passing a whole object:
+Three shorthands are worth knowing. A boolean prop with no value is `true`, so `<ToolCard isAvailable />` and `<ToolCard isAvailable={true} />` are identical, and the bare form is idiomatic. When an object's property names already match the prop names a component expects, the spread syntax passes every property as its own prop: `<ToolCard {...tool} />` is the same as writing `name={tool.name} description={tool.description}` and so on for every key in `tool`, including ones the component does not use. And nothing stops you from passing a whole object:
 
 ```jsx
 <ToolCard tool={tool} />
@@ -225,7 +225,7 @@ Which of those two shapes should you use — one `tool` object, or five separate
 
 A reasonable rule: pass individual props when the component is a general-purpose piece of UI, and pass the object when the component is explicitly about that domain entity and reads most of its fields. `AvailabilityBadge` takes a `status` string. `ToolCard` taking a `tool` object is defensible. What you should not do is take an object and then pass its fields down individually to seven children, then take those fields and rebuild an object — pick a level and stay at it.
 
-**Props are read-only.** This is not a convention, it is a rule React enforces on your behalf, and it is the foundation of everything else:
+**Props are read-only.** This is a rule, not a style preference, and it is the foundation of everything else. React enforces part of it for you — in development it freezes the props object, so `props.name = "x"` throws an error — but it cannot stop you from reassigning a destructured variable or reaching inside an object prop and changing a field. Those two are on you:
 
 ```jsx
 function ToolCard({ name }) {
@@ -465,3 +465,17 @@ Continue in the `toolshare` project. Still no state and no events; everything is
 10. **Find a bug with devtools.** Deliberately misspell one prop name in the parent only, then use the React devtools component panel — not `console.log` — to locate the component receiving `undefined`. Write down the two-step path you took to find it.
 
 **Deliverable:** a `toolshare` project rendering three distinct tool cards from props, with a reusable `Panel`, a `PageLayout` using element props, and a `WarningPanel` specialization; plus documented prop interfaces and your written answers to steps 7, 8, and 10 in `STRUCTURE.md`.
+
+## Check your understanding
+
+1. What is the difference between `<ToolCard batteryCount="2" />` and `<ToolCard batteryCount={2} />` inside the component?
+2. A card shows a blank space where the owner's name should be, and there is no error. Name the three things this lesson says to check, in order.
+3. Someone proposes adding `showSearch`, `showCategories`, and `footerText` props to `Panel`. What would you suggest instead, and why?
+4. `{tool}` inside a `<p>` crashes the page. What does the error say, and what did the author probably mean to write?
+
+**Answers**
+
+1. The first passes the string `"2"`; the second passes the number `2`. `typeof batteryCount` tells them apart.
+2. Is the prop spelled the same in parent and child, did you destructure the name you are using, and is the value what you think it is. The devtools component panel answers all three.
+3. Use composition: let `Panel` take `children` so the caller supplies the contents. Every configuration prop adds a branch inside `Panel`; `children` adds none.
+4. "Objects are not valid as a React child." They meant a field such as `{tool.name}`.

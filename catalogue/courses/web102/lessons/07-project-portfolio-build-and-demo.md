@@ -148,3 +148,11 @@ You are also expected to watch every other demo in the session and ask at least 
 4. Screenshots of the finished project, including one at 360 pixels wide.
 5. `DEMO.md` completed after the session: outline, planned decision explanations, two rehearsal timings, fallback plan, the questions you were asked with your answers, and three sentences on what you would do differently next time.
 6. The names of the people who watched, and your timed length.
+
+## Check your understanding
+
+1. Rewrite this as a decision explanation that would satisfy R11: "I used `fetch` because it's built in."
+2. Your rehearsal runs to thirteen minutes. Which section do you cut first, and which must you protect?
+3. Someone asks what happens when two tabs edit the same data at once, and you never tested it. What is a strong answer?
+
+**Answers.** (1) Name the need, the alternative you rejected, and what you gave up. For example: "I needed to read a public API from the browser with no build step. I considered a small HTTP library for automatic retries, but `fetch` plus one retry button covered the case without a dependency. The trade-off is that I handle timeouts myself, and right now I don't." (2) Cut the preamble and setup first. Protect the decisions section and the "what is not done" section. (3) "I don't know — I didn't test that. My guess is the last tab to save wins. I'd check by opening two tabs and watching the stored value in the Application panel, and the fix would probably be listening for the `storage` event."

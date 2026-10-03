@@ -145,7 +145,7 @@ A **delete anomaly**: delete the only event at Riverside Library and you have de
 
 **Third normal form** requires that non-key columns depend on the key and nothing else. In `event_submissions`, `venue_city` depends on `venue_name`, which is not the key — a **transitive dependency**. That is what makes the update anomaly possible. The fix is the one lesson 02 already applied: venues get their own table, and the event points at it.
 
-Normalized to third normal form, `event_submissions` becomes exactly the seven tables you already have. That is the point of running the exercise on a table you know the answer to: the normal forms are not a separate theory, they are a description of the reasoning you already used.
+Normalized to third normal form, `event_submissions` becomes the `venues`, `organizers`, `events`, `categories`, and `event_categories` tables you already have — five of your seven. The other two, `attendees` and `registrations`, hold facts this form never collected. That is the point of running the exercise on a table you know the answer to: the normal forms are not a separate theory, they are a description of the reasoning you already used.
 
 Two cautions to carry. First, "3NF" is a floor, not a religion — you can normalize into a schema where every simple question needs six joins, and that helps nobody. Second, **denormalization is legitimate when it is deliberate, measured, and documented.** Caching a `signup_count` on `events` is a reasonable answer to a slow page, provided you can say what keeps it correct and what happens when it drifts. Storing a venue's city in the events table because it was convenient is not the same thing.
 
@@ -189,7 +189,7 @@ SELECT event_id, title, status FROM events WHERE starts_at < now() AND status = 
 BEGIN;
 UPDATE events SET status = 'completed'
 WHERE starts_at < now() AND status = 'published';
--- UPDATE 2   <- does that match what the SELECT showed?
+-- UPDATE n   <- does n match the row count the SELECT showed? (n depends on today's date)
 COMMIT;
 ```
 
@@ -222,7 +222,16 @@ WHERE v.name = e.imported_venue_name
 
 The `FROM` table is joined to the rows being updated by the `WHERE` clause, and only matched rows are touched — which is also the risk, so run the equivalent `SELECT` first and confirm the count.
 
-Two more practical notes. Adding a column with a default is cheap on modern Postgres but not on every engine or every version, and adding a `NOT NULL` constraint scans the whole table while holding a lock — on a big table, add the constraint as `NOT VALID` first and validate it separately so writers are not blocked. And **know what must not change.** Any change request comes with an implicit contract: the report the finance team runs, the column an integration reads, the id an external system stores. Write that list down before you touch anything, and put it in the pull request so your reviewer can check the same list. The change you were asked for is only half the specification; the other half is everything that has to still work afterwards, and stating it plainly is what makes your work reviewable.
+Two more practical notes. Adding a column with a default is cheap on modern Postgres but not on every engine or every version, and adding a `NOT NULL` constraint scans the whole table while holding a lock that blocks writers. On a big table, add the rule as a `CHECK` constraint marked `NOT VALID` (which skips checking existing rows), validate it in a separate step that does not block writers, and only then set `NOT NULL` — Postgres 12 and later sees the validated check and skips the scan:
+
+```sql
+ALTER TABLE events ADD CONSTRAINT events_title_not_null CHECK (title IS NOT NULL) NOT VALID;
+ALTER TABLE events VALIDATE CONSTRAINT events_title_not_null;
+ALTER TABLE events ALTER COLUMN title SET NOT NULL;
+ALTER TABLE events DROP CONSTRAINT events_title_not_null;
+```
+
+`SET NOT NULL` itself does not accept `NOT VALID` in Postgres 16, which is why the detour through `CHECK` exists. And **know what must not change.** Any change request comes with an implicit contract: the report the finance team runs, the column an integration reads, the id an external system stores. Write that list down before you touch anything, and put it in the pull request so your reviewer can check the same list. The change you were asked for is only half the specification; the other half is everything that has to still work afterwards, and stating it plainly is what makes your work reviewable.
 
 ## Practice
 
@@ -238,3 +247,12 @@ Work against `events_board`. Everything you write goes in numbered migration fil
 8. Write the "must not change" list for step 7: name three things that read `events` and would break if you had simply renamed the column, and say how you would check each one before contracting.
 
 **Deliverable:** a `migrations/` directory whose files apply cleanly in order to a freshly loaded database, and a `NOTES.md` holding your four constraint errors, your three anomalies, your normalization plan, and the pull-request note from step 7.
+
+## Check your understanding
+
+1. You run `ALTER TABLE events ALTER COLUMN starts_at SET NOT NULL;` and get `contains null values`. What are the four steps, in order, to get the constraint in place?
+2. A plain `UNIQUE` on `attendees.email` accepts two rows with a `NULL` email and two rows that differ only in capitalization. What fixes each?
+3. Which normal form does a `category_1, category_2, category_3` set of columns break, and which does storing `attendee_email` on `registrations` break?
+4. Why is renaming `summary` to `description` done as two or more migrations rather than one `RENAME COLUMN`?
+
+*Answers:* (1) Find the violating rows, decide what they should be, fix them, then add the constraint. (2) Add `NOT NULL` for the nulls; use a unique index on `lower(email)` for case. (3) First normal form (repeating group); second normal form (depends on only half of the composite key). (4) A rename breaks every reader the instant it commits; expand-and-contract keeps old and new code working until nothing reads the old column.

@@ -74,7 +74,7 @@ export default function RequestCounter() {
 
 `useState(0)` returns an array of two things, which you destructure: the current value, and a function that replaces it. The naming convention is `[thing, setThing]` and you should follow it without exception — every React developer alive reads code by that pattern.
 
-`useState` is a **hook**, one of a small set of functions React provides whose names all start with `use`. Hooks come with two rules that are not negotiable and are enforced by the linter Vite set up for you:
+`useState` is a **hook**, one of a small set of functions React provides whose names all start with `use`. Hooks come with two rules that are not negotiable. The linter Vite set up for you checks both: run `npm run lint` in the project, or install your editor's ESLint extension to see the warnings as you type. The dev server itself does not run the linter, so a broken rule can sit unnoticed until you look.
 
 **Call hooks only at the top level of a component function.** Never inside an `if`, a loop, or a nested function. React identifies your state by *call order*, so a hook that is sometimes skipped shifts every hook after it onto the wrong value.
 
@@ -338,6 +338,29 @@ export default function ToolCard({ tool, isWanted, onToggleWanted }) {
 }
 ```
 
+`ToolGrid` sits between them. It owns nothing; it turns the list into cards and hands each one the two things it needs:
+
+```jsx
+import ToolCard from "./ToolCard.jsx";
+
+export default function ToolGrid({ tools, wantedIds, onToggleWanted }) {
+  return (
+    <div className="tool-grid">
+      {tools.map((tool) => (
+        <ToolCard
+          key={tool.id}
+          tool={tool}
+          isWanted={wantedIds.includes(tool.id)}
+          onToggleWanted={onToggleWanted}
+        />
+      ))}
+    </div>
+  );
+}
+```
+
+The `map` and `key` here are next lesson's subject; read them for now as "one card per tool". And `App` receives `tools` as a prop, so something has to pass it in. Until lesson 07 loads tools from a server, import your array in `main.jsx` and render `<App tools={TOOLS} />`, or give the prop a default: `function App({ tools = TOOLS })`. If you skip this, `tools` is `undefined` and the first `.map` call crashes the page.
+
 Six decisions are packed into those twenty lines, and each one is a rule from earlier in this lesson.
 
 The state is a **list of ids**, not a `isWanted` flag on each card. A flag inside `ToolCard` would be invisible to the header, and there would be no single place to count.
@@ -407,3 +430,19 @@ Continue in the `toolshare` project. This is the longest lab in the course so fa
 12. **Trace renders.** Put a `console.log` with the component's name at the top of `BrowsePage`, `ToolGrid`, and `ToolCard`. Type one character in the search box and record how many times each logs. Write two sentences in `STRUCTURE.md` on why children re-render when a parent's state changes.
 
 **Deliverable:** a `toolshare` project with a working search that filters cards, per-card interactive state, a category selector using immutable array updates, and a `STRUCTURE.md` containing your written answers to steps 3, 5, 8, 9, and 12.
+
+## Check your understanding
+
+1. A handler calls `setCount(count + 1)` twice, starting from `5`. What is `count` on the next render, and how do you make it `7`?
+2. `requested.push(toolId); setRequested(requested);` runs without error, but the screen does not change. Why not?
+3. `SearchInput` and `ToolGrid` both need the search text. Where does that state live, and what does each child receive?
+4. You store `visibleTools` in state next to `tools` and `searchText`. What goes wrong, and what should you do instead?
+5. Why does `onClick={setOpen(true)}` produce a "too many re-renders" error?
+
+**Answers**
+
+1. `6`. Both calls read the same snapshot, `5`. Use the updater form, `setCount((previous) => previous + 1)`, twice.
+2. `push` mutated the existing array, so the new state has the same reference as the old one. `Object.is` reports no change and React skips the render. Use `setRequested([...requested, toolId])`.
+3. In `BrowsePage`, their closest common ancestor. `SearchInput` receives the value and an `onSearchChange` function; `ToolGrid` receives the filtered list.
+4. You have to keep three values in sync by hand, and eventually they disagree. Compute `visibleTools` during render from the other two.
+5. It calls `setOpen(true)` during render instead of passing a function. Setting state causes a render, which calls it again, forever. Write `onClick={() => setOpen(true)}`.

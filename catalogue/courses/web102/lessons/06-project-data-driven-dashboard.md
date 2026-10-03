@@ -127,6 +127,47 @@ Editing or creating shift records; writing data back anywhere; authentication or
 
 **Remember `response.ok`.** This is the most-missed line in browser JavaScript. `fetch` only rejects when the request could not be made at all; a 404 resolves happily and `response.json()` then throws a confusing parse error on the error page's HTML. Check `response.ok` and throw your own clear error.
 
+Here is the whole load path in one place — the check for `response.ok`, the check for an array, and per-record validation that drops what it cannot use instead of throwing (R2 and R3):
+
+```javascript
+export async function loadShifts(url) {
+  const response = await fetch(url); // rejects only if the request could not be made
+  if (!response.ok) {
+    throw new Error(`Could not load shifts (HTTP ${response.status})`);
+  }
+  const data = await response.json(); // throws if the body is not valid JSON
+  if (!Array.isArray(data)) {
+    throw new Error("Shift data was not a list");
+  }
+  return data
+    .filter((r) => r && typeof r.id === "string" && typeof r.site === "string")
+    .map((r) => ({
+      ...r,
+      hours: Number.isFinite(Number(r.hours)) ? Number(r.hours) : 0,
+      volunteer: typeof r.volunteer === "string" ? r.volunteer.trim() : "",
+    }));
+}
+```
+
+The caller does the state change, so every way of failing ends in the same place:
+
+```javascript
+async function start() {
+  state.status = "loading";
+  render();
+  try {
+    state.records = await loadShifts("./data/shifts.json");
+    state.status = "ready";
+  } catch (err) {
+    console.error(err);           // for the developer
+    state.status = "error";       // render() shows the plain-language message and Retry
+  }
+  render();
+}
+```
+
+Retry is then just a button whose handler calls `start()` again. Decide deliberately whether a record missing its duration is dropped or kept with zero hours — this version keeps it with zero — and write that decision in `PLAN.md`, because it changes the totals.
+
 **Model the state explicitly.** Something like `{ status: "loading" | "ready" | "error", records, error, filters, sort }`, with `render()` switching on `status`, makes R4 and R5 nearly free. Trying to infer the state from whether the array is empty is what causes the "loading forever" and "empty looks like broken" bugs.
 
 **Compute from the filtered data, once per render.** Derive the filtered array at the top of `render()` and pass it to the tiles, the breakdown, and the table. Two code paths computing the same figure is exactly the defect from lesson 05.
@@ -135,7 +176,7 @@ Editing or creating shift records; writing data back anywhere; authentication or
 
 **Sort a copy.** `Array.prototype.sort` mutates. Sorting your loaded records in place scrambles the original order you may want back.
 
-**Watch the date comparisons.** Compare timestamps from `Date.parse` or `getTime`, never formatted strings, and be aware that a date-only string and a date-time string parse with different assumptions about timezone.
+**Watch the date comparisons.** Compare timestamps from `Date.parse` or `getTime`, never formatted strings, and be aware that a date-only string and a date-time string parse with different assumptions about timezone. `new Date("2026-09-01")` is read as midnight UTC, while `new Date("2026-09-01T00:00")` is read as midnight in the viewer's local time. For a manager in Chicago, the first one formats as Aug 31 — a shift appears on the wrong day and falls into the wrong filter. Give every record a full date-time, and keep the data format consistent across the file.
 
 **Put the table in its own scroll container.** That satisfies R10 without forcing you to hide columns on a phone.
 
@@ -151,3 +192,12 @@ Editing or creating shift records; writing data back anywhere; authentication or
 4. Screenshots of all four states — loading, loaded, empty, failed — plus the dashboard at 360 pixels wide.
 5. Your partner's name, and their written verification result for each defect.
 6. One paragraph on the defect that took longest, what the wrong hypothesis was, and the observation that corrected it.
+
+## Check your understanding
+
+1. The data file is renamed and the server returns a 404 page. Without a `response.ok` check, what error do you see, and where does it come from?
+2. Your state object has no `status` field, and `render()` shows "No shifts" whenever `records` is empty. Which two of the four states can the manager no longer tell apart?
+3. Three records belong to Ana, one of them saved as `"Ana "`. What should the distinct-volunteer tile show for Ana, and what code makes that true?
+4. Sorting the duration column ascending gives 10, 2, 3, 9. What went wrong?
+
+**Answers.** (1) `fetch` resolves normally, then `response.json()` throws a `SyntaxError` because it is trying to parse the HTML of the 404 page. The real cause, the 404, never appears in your error. (2) Loading and empty both look like "No shifts". A failure can look the same too if the error is swallowed. (3) One volunteer. Trim the names when you parse them and ignore empty names before counting with a `Set`. (4) The values were compared as strings, so "10" sorts before "2". Compare numbers by subtracting them: `a.hours - b.hours`.

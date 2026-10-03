@@ -308,7 +308,7 @@ ORDER BY     →  sort
 LIMIT        →  truncate
 ```
 
-That order explains why `HAVING` cannot use a `SELECT` alias in standard SQL but `ORDER BY` can, and why the alias `signups` is legal in the `ORDER BY` above. Postgres is lenient about `HAVING` aliases; other engines are not, so repeat the expression.
+That order explains why `HAVING` cannot use a `SELECT` alias but `ORDER BY` can, and why the alias `signups` is legal in the `ORDER BY` above. Postgres enforces this: `HAVING signups >= 5` fails with `ERROR: column "signups" does not exist`. Some engines, MySQL among them, accept the alias anyway, which is how code that worked elsewhere breaks when it moves to Postgres. Repeat the expression in `HAVING`.
 
 ## Subqueries: asking about another table without joining it
 
@@ -400,7 +400,7 @@ ORDER BY signups DESC;
 (3 rows)
 ```
 
-Rosa Parks Park has eleven registrations, not twenty-two. Each one was counted once per category on its event, and the Neighborhood Cleanup has two categories. Nothing errored; the number is simply double.
+Rosa Parks Park has eleven registrations, not twenty-two. Each one was counted once per category on its event, and every Rosa Parks event with signups (the Cleanup, the Bike Repair Clinic, and the Seed Swap) carries two categories, so every registration there was counted twice. Fellowship Hall is inflated less — 14 instead of 8 — because only the Potluck has two categories. Maker Space is correct by luck: its events each have one category. Nothing errored; the numbers are simply wrong by different amounts, which is what makes fan-out hard to spot.
 
 Three defenses, in order of preference. **Do not join what you are not using** — the categories join contributes nothing to that query. When you do need both, **count what is actually unique**: `count(DISTINCT (r.event_id, r.attendee_id))` counts registration identities rather than rows and gives 11. Or **aggregate before joining**, computing the per-event count in a subquery and joining the already-summarized result:
 
@@ -442,3 +442,12 @@ Against `events_board`. Keep everything in `reports.sql`, numbered with `--` com
 14. List every attendee who has registered for an outdoors event, each name once, using a subquery rather than a join on the outer query. Then write the join version and explain in a comment what `DISTINCT` is doing there and why the subquery version does not need it.
 
 **Deliverable:** a `reports.sql` that runs end to end, and inside it, three comments that each name a specific way one of these queries could have returned a plausible but wrong number.
+
+## Check your understanding
+
+1. Six events are published, but your inner join to `venues` returns five rows. Which event is missing and why?
+2. You move `e.status = 'published'` from the `ON` clause of a `LEFT JOIN events` into the `WHERE` clause. What happens to Riverside Library?
+3. An attendance report shows `1` signup for the Fall Block Party, which has none. What one change fixes it?
+4. A per-venue total doubled after someone added a join to `event_categories`. Name two ways to get the correct number without removing that join.
+
+*Answers:* (1) The Online Budgeting Q&A — its `venue_id` is `NULL`, so nothing matches and an inner join drops it. (2) It disappears: its manufactured `NULL` row fails the `WHERE` test, turning the left join into an inner join. (3) Count a column from the optional table, `count(r.attendee_id)`, instead of `count(*)`. (4) Count unique registration identities with `count(DISTINCT (r.event_id, r.attendee_id))`, or aggregate registrations per event in a subquery before joining.

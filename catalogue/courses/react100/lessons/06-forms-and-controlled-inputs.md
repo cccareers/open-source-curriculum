@@ -203,6 +203,14 @@ Validation has three questions: what is invalid, when do you say so, and how do 
 **What.** Write a pure function that takes the values and returns an object of messages keyed by field name. Keeping it outside the component makes it readable and testable:
 
 ```jsx
+// Today's date as "YYYY-MM-DD" in the member's own timezone.
+function todayString() {
+  const now = new Date();
+  const month = String(now.getMonth() + 1).padStart(2, "0");
+  const day = String(now.getDate()).padStart(2, "0");
+  return `${now.getFullYear()}-${month}-${day}`;
+}
+
 function validate(values) {
   const errors = {};
   if (!values.memberName.trim()) {
@@ -213,7 +221,7 @@ function validate(values) {
   }
   if (!values.pickupDate) {
     errors.pickupDate = "Choose a pickup date.";
-  } else if (new Date(values.pickupDate) < new Date()) {
+  } else if (values.pickupDate < todayString()) {
     errors.pickupDate = "Choose a date that is not in the past.";
   }
   if (!values.agreesToTerms) {
@@ -222,6 +230,8 @@ function validate(values) {
   return errors;
 }
 ```
+
+The date check compares two `"YYYY-MM-DD"` strings rather than two `Date` objects, and that is deliberate. A date input's value has no time or timezone. `new Date("2026-10-02")` reads it as midnight UTC, which in the Americas is the evening of the day before, and comparing that with `new Date()` (right now, including the time) rejects today as "in the past". Strings in this format sort in date order, so a plain `<` is both correct and simpler.
 
 **When.** Validating on every keystroke tells someone their email is invalid while they are still typing the first letter, which is hostile. Validating only on submit means they fill in six fields before learning the second one was wrong. The pattern that works is: validate on submit for everything, and additionally validate a field once the user has *left* it, tracking which fields have been touched:
 
@@ -252,7 +262,11 @@ Remember `htmlFor`, not `for`. Ids must be unique on the page, so if a form comp
 
 **Placeholders are not labels.** A placeholder disappears the moment someone types, so it is useless as a reminder; it is low-contrast by default; and it is unreliably announced. Use it for an example of the format — "555-0143" — and never as the field's name.
 
-**Wire errors to their field with `aria-describedby` and `aria-invalid`:**
+**Wire errors to their field with `aria-describedby` and `aria-invalid`.** `showError` below is the rule from the validation section, computed during render: show the message once the field has been touched or a submit has been attempted, and only if there is a message to show.
+
+```jsx
+const showError = Boolean((touched.email || submitAttempted) && errors.email);
+```
 
 ```jsx
 <label htmlFor="email">Email address</label>
@@ -292,13 +306,20 @@ Remember `htmlFor`, not `for`. Ids must be unique on the page, so if a form comp
 **On a failed submit, tell the user in one place and move focus there.** A long form that fails validation below the fold looks like a button that did nothing. Render an error summary at the top of the form, listing each problem as a link to the field, and move focus to it on submit:
 
 ```jsx
+import { useRef, useState } from "react";
+import { flushSync } from "react-dom";
+
+// inside RequestForm:
 const summaryRef = useRef(null);
+const [submitAttempted, setSubmitAttempted] = useState(false);
 
 function handleSubmit(event) {
   event.preventDefault();
   const nextErrors = validate(values);
-  setErrors(nextErrors);
-  setSubmitAttempted(true);
+  flushSync(() => {
+    setErrors(nextErrors);
+    setSubmitAttempted(true);
+  });
   if (Object.keys(nextErrors).length > 0) {
     summaryRef.current?.focus();
     return;
@@ -306,6 +327,8 @@ function handleSubmit(event) {
   onSubmitRequest(values);
 }
 ```
+
+The `flushSync` wrapper matters. State updates normally wait until your handler finishes, so on the *first* failed submit the summary has not been rendered yet when you call `focus()`, `summaryRef.current` is still `null`, and nothing happens. `flushSync` tells React to apply those two updates and render immediately, so the summary exists in the DOM by the next line. Use it sparingly — it is for exactly this case, where you need the DOM updated before you touch it.
 
 ```jsx
 {submitAttempted && Object.keys(errors).length > 0 && (
@@ -509,3 +532,19 @@ Continue in the `toolshare` project. Build a borrow-request form on the tool det
 12. **Compare uncontrolled.** Build a small second form with `defaultValue` and a ref that reads the value on submit. Write a paragraph in `STRUCTURE.md` on which approach you would choose for the request form and why, naming one thing the uncontrolled version cannot do.
 
 **Deliverable:** a `toolshare` project with a fully controlled, validated, keyboard-operable request form that meets every labeling and error-association rule above and works at 360 pixels wide; plus the recorded warnings and written comparisons in `STRUCTURE.md`.
+
+## Check your understanding
+
+1. An input has `value={values.notes}` and no `onChange`. What happens when you type, and what does React warn?
+2. A quantity field uses `type="number"`. What type is `event.target.value`, and what does `Number("")` return?
+3. You forgot `event.preventDefault()` in `handleSubmit`. Describe what the member sees.
+4. A screen reader user tabs into the email field and hears "Email address, edit text" even though an error is showing beneath it. Which two attributes are missing?
+5. Why is the error summary focus wrapped in `flushSync`?
+
+**Answers**
+
+1. Nothing you type appears; the field is effectively read-only. React warns that you provided a `value` prop without an `onChange` handler.
+2. A string. `Number("")` is `0`, so decide explicitly what an empty field means.
+3. The browser submits the form natively and reloads the page, wiping all application state.
+4. `aria-invalid` and `aria-describedby` pointing at the error message's `id`.
+5. On the first failed submit the summary is not in the DOM until React renders. `flushSync` forces that render before `focus()` runs.

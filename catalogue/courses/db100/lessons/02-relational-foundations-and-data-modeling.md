@@ -114,12 +114,22 @@ brew install postgresql@16
 brew services start postgresql@16
 ```
 
+Homebrew installs versioned Postgres formulas as "keg-only", which means `psql` and `createdb` are not put on your `PATH` automatically. If `psql --version` below says `command not found`, run the `echo 'export PATH=...'` line that `brew install` printed at the end of its output (it points at `$(brew --prefix)/opt/postgresql@16/bin`), then open a new terminal.
+
 On Debian or Ubuntu:
 
 ```bash
 sudo apt install postgresql
 sudo service postgresql start
 ```
+
+On Linux the server only knows one database user at first, called `postgres`, so `createdb` run as you will fail with `role "yourname" does not exist`. Create a matching role for yourself once:
+
+```bash
+sudo -u postgres createuser --superuser "$USER"
+```
+
+A superuser role is fine on your own laptop for a course database. You would never do this on a shared or production server.
 
 Either way, confirm the client is on your path and create a database for this course:
 
@@ -304,7 +314,7 @@ Referenced by:
     TABLE "registrations" CONSTRAINT ... FOREIGN KEY (event_id) REFERENCES events(event_id)
 ```
 
-Read that output in three passes. The column list tells you what facts a row holds. **Foreign-key constraints** tells you what this table points at — its parents. **Referenced by** tells you what points at *this* table — its children, which is the part people miss and the part that tells you what deleting a row would break. Two minutes of `\d` on the three or four tables you care about will tell you more about an unfamiliar system than an hour of reading application code.
+That listing is trimmed to the columns that matter here; your real output also shows `summary`, `ends_at`, `status`, and `created_at`, plus a `Collation` column. Read that output in three passes. The column list tells you what facts a row holds. **Foreign-key constraints** tells you what this table points at — its parents. **Referenced by** tells you what points at *this* table — its children, which is the part people miss and the part that tells you what deleting a row would break. Two minutes of `\d` on the three or four tables you care about will tell you more about an unfamiliar system than an hour of reading application code.
 
 ## Practice
 
@@ -319,3 +329,12 @@ Work in `psql` against `events_board`, and keep every statement you write in a f
 7. Choose types with reasons. The staff wants to add a ticket price (sometimes free), a maximum headcount, an "is the venue wheelchair accessible" flag, and a published date. Write the four column definitions with Postgres types, and one sentence each on why you rejected the obvious alternative.
 
 **Deliverable:** a loadable `schema.sql` and `seed.sql`, a `volunteers.sql` with a justified extension to the model, and a `NOTES.md` holding your schema reading, the three enforcement errors, and your single-table critique.
+
+## Check your understanding
+
+1. The staff say "an event usually has more than one category." Why can that fact not be stored as a `categories` column on `events`, and what do you build instead?
+2. Which table gets the foreign key in a one-to-many relationship between `organizers` and `events`, and why does the other direction not work?
+3. `SELECT * FROM events WHERE venue_id = NULL;` returns zero rows and no error. Why, and what should you write?
+4. You try to delete a venue and Postgres refuses. Which section of `\d venues` would have warned you this would happen?
+
+*Answers:* (1) A column holds one value; a list breaks searching, counting, and renaming, so you build the `event_categories` junction table. (2) `events`, the "many" side — an `organizer_id` on `events` holds exactly the one organizer each event has, while an `event_id` on `organizers` could only ever record one event per organizer. (3) Comparing anything to `NULL` gives unknown, and `WHERE` keeps only true rows; write `venue_id IS NULL`. (4) **Referenced by**, which lists the child tables pointing at `venues`.

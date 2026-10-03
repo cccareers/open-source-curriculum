@@ -122,7 +122,7 @@ Now the actual debugging, which is a search, not an inspiration. You have a repr
 
 The method is old and it works: form a hypothesis specific enough to be wrong, design the cheapest observation that would disprove it, run it, and let the answer move you. What you are avoiding is the flailing loop of changing something plausible, reloading, and hoping — which occasionally works and teaches you nothing about why.
 
-The browser's developer tools are how you make the observations. Open them with F12 or Command-Option-I. Six panels matter.
+The browser's developer tools are how you make the observations. Open them with F12, Command-Option-I on a Mac, or Control-Shift-I on Windows and Linux. Five panels matter, plus one way of using the console while paused.
 
 **Console.** Errors and your own logging. Read the *first* error, not the last — later ones are usually consequences. Click the file and line reference in the stack trace to jump to the code. And read the error text literally: `Cannot read properties of null (reading 'addEventListener')` means the thing before the dot was `null`, so your selector matched nothing, and the usual cause is a script that ran before the element existed.
 
@@ -154,6 +154,20 @@ Three strategies for when the tools are not enough on their own.
 **Bisect the code.** If a page of code produces a wrong result, put a breakpoint or a log halfway through and check whether the value is already wrong there. Whichever half contains the divergence, repeat. Four or five rounds narrows any file to a line.
 
 **Bisect the history.** If it worked last week and does not now, the change that broke it is in the commits between. `git log --oneline` the range, check out a commit in the middle, and test. This is why the small, working-state commits from lesson 03 pay off — bisecting a history of eight-hour commits tells you almost nothing.
+
+Git will do the halving for you. Give it one commit where the defect happens and one where it does not, and it checks out the midpoint each time you report the result:
+
+```bash
+git bisect start
+git bisect bad                # the commit you are on shows the defect
+git bisect good 4f2a1c9       # a commit you know was fine
+# git checks out a commit halfway between. Reload the page, run your reproduction, then:
+git bisect good               # or: git bisect bad
+# ...repeat until git prints "<hash> is the first bad commit"
+git bisect reset              # return to where you started
+```
+
+Read the commit it names, and its message, before you open the code. Then run `git bisect reset` — forgetting it leaves you on a detached commit in the middle of history.
 
 **Reduce the case.** Strip the reproduction down: fewer shifts, no CSS, one handler. When the defect survives to a twenty-line page, the cause is usually visible. When it disappears, whatever you just removed is involved.
 
@@ -231,3 +245,12 @@ Do this in a pair. Each of you needs the shift board from project 04, or another
 **Part 6 — Verify and close.** Walk each original report's steps against your fix and record the actual result. Test the neighbouring behavior and the boundaries, and confirm each defect reappears when you temporarily revert the fix. Then hand all three back to your partner to verify against their own reports; they mark each verified or failed. Any failure goes back to you and around again. Close each report with the cause, the commit, the verifier's name, and anything left over.
 
 **Deliverable:** an `ISSUES.md` containing three complete reports, each showing the full trail — reported, reproduced, diagnosed with the tool and observation named, fixed with a commit reference, verified by your partner, and closed with a cause statement — plus three fix branches merged into `main`, and one short paragraph naming the defect that took you longest and the specific observation that finally broke it open.
+
+## Check your understanding
+
+1. A report says "the counts are wrong sometimes." What three things would you ask the reporter for before you touch any code?
+2. Which line in this report is a diagnosis written as an observation? "Actual: the render function does not update the claimed count."
+3. The console shows four errors after a click. Which one do you read first, and why?
+4. You fixed a defect and it passes when you walk the steps. Name the two checks you still do before handing it over, and who marks it verified.
+
+**Answers.** (1) For example: exact steps with the values used, the browser and version with the code version (commit or deploy), and whether it happens every time — plus a screenshot or the console output. (2) "The render function does not update" is a hypothesis about the cause. The observation is what was on screen, such as "the claimed count stays at 2"; the hypothesis goes in a labelled "possible cause" line. (3) The first one, because later errors are usually consequences of it. (4) Test the neighbouring behavior and the boundaries, and confirm the defect comes back when you temporarily remove your fix. Then the reporter, a tester, or another developer verifies it — never the person who fixed it.

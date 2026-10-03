@@ -49,8 +49,10 @@ A **query builder** sits between raw SQL strings and a full object-relational ma
 Whichever your workplace uses, the boundary in this lesson is the same. The repository is the only module that knows which one you picked — which is exactly what makes the choice survivable.
 
 ```bash
-npm install knex pg
+npm install knex pg dotenv
 ```
+
+`dotenv` is there because the Knex command-line tool runs outside your app and has to load `.env` itself; you will see it imported in `knexfile.js` below. The knexfile uses `export default`, which works because your `package.json` already has `"type": "module"` from lesson 02.
 
 ## Connecting once, in one place
 
@@ -264,6 +266,8 @@ const column = SORTABLE.has(sort) ? sort : "starts_at";
 
 **No rule appears anywhere.** `findUpcoming` filters by date because that is what "upcoming" means as a query, but nothing decides whether the user is allowed to see it, whether the capacity is exceeded, or what error to return. That is the service's job.
 
+One tidy-up before you copy the file: `countConfirmed` is shown here to illustrate the `trx` parameter, but it queries the `registrations` table, so in your code it belongs in `src/repositories/registrations.repository.js`. That is where the registrations service below imports it from (`regsRepo.countConfirmed`), and it keeps the rule of one table's queries per repository.
+
 ## Services on top of repositories
 
 The service is where the rules go — and it is now the layer that is worth unit testing, because it can be run with a fake repository and no database at all.
@@ -309,7 +313,16 @@ eventsRouter.get("/", async (req, res, next) => {
 });
 ```
 
-One note on that `try/catch`: an error thrown inside an async handler is a rejected promise, and Express 4 does not catch those — without the `catch`, the request hangs until it times out and nothing appears in your logs. Express 5 forwards rejections from async handlers automatically. Know which version you are on; on 4, either wrap every async handler in `try/catch` or write a small `asyncHandler` wrapper once and use it everywhere.
+One note on that `try/catch`: an error thrown inside an async handler is a rejected promise, and Express 4 does not catch those. What happens next depends on Node, not Express. Since Node 15, a rejection nobody handles crashes the whole process by default, taking every other in-flight request with it, and the client sees its connection drop (`curl: (52) Empty reply from server`). If something in the process has registered an `unhandledRejection` listener that does *not* exit, the process survives instead, the request is never answered, and it hangs until the client times out. Neither outcome reaches your error handler. Express 5 forwards rejections from async handlers to `next(err)` automatically. Know which version you are on (`npm ls express`). On 4, either wrap every async handler in `try/catch` or write a small wrapper once and use it everywhere:
+
+```javascript
+// src/lib/async-handler.js — only needed on Express 4
+export const asyncHandler = (fn) => (req, res, next) =>
+  Promise.resolve(fn(req, res, next)).catch(next);
+
+// usage
+eventsRouter.get("/", asyncHandler(async (req, res) => { /* … */ }));
+```
 
 ## Transactions: when two writes must be one
 
@@ -355,7 +368,7 @@ export async function findByIdForUpdate(id, trx) {
 
 `forUpdate()` emits `SELECT ... FOR UPDATE`, which locks that event row until the transaction ends. A second concurrent registration for the same event waits at that line, and by the time it proceeds, the first has committed and the count is correct. The lock is per-event, so registrations for different events do not block each other.
 
-Two rules keep transactions from becoming a source of outages. **Keep them short** — a transaction holds a connection and locks rows for its whole duration, so never put an HTTP call to a payment provider or an email send inside one. And **do not nest them accidentally**: passing `trx` where a function expects `db` is fine; calling `db.transaction` inside another transaction's callback opens a second, independent one on a different connection, which will deadlock against the first.
+Two rules keep transactions from becoming a source of outages. **Keep them short** — a transaction holds a connection and locks rows for its whole duration, so never put an HTTP call to a payment provider or an email send inside one. And **do not nest them accidentally**: passing `trx` where a function expects `db` is fine; calling `db.transaction` inside another transaction's callback opens a second, independent one on a different connection. If the inner one touches a row the outer one has locked, it waits for that lock. The outer transaction is waiting for the inner callback to finish, so neither moves. Postgres cannot detect this as a deadlock, because one side is waiting in your Node code rather than in the database, so it simply hangs until a statement or lock timeout fires (or forever, if none is set).
 
 There is also a belt-and-braces version of the duplicate check. Even with the transaction, the honest guarantee against double registration is a database constraint:
 
@@ -471,3 +484,17 @@ Replace the in-memory array in the events board with a real PostgreSQL data acce
 11. Write the `db:reset` script, then delete your database entirely and rebuild it from scratch using only the commands in your README. If a step is missing from the README, add it.
 
 **Deliverable:** an events board with no in-memory array, migrations and seeds committed, a repository layer that is the only place SQL appears, services holding every rule, and a `NOTES.md` containing your concurrency results, the two query counts, and both query plans.
+
+## Check your understanding
+
+1. A teammate writes ``db.raw(`SELECT * FROM events WHERE title = '${title}'`)``. Name two things wrong with it and rewrite it safely.
+2. Inside `register()`, one query uses `db` instead of `trx`. What goes wrong, and why is it hard to notice in a single-user test?
+3. Your registration count shows correct numbers but the events page makes 21 queries for 20 events. What is this called, and which repository function from this lesson fixes it?
+4. Why does the duplicate-registration guarantee need a unique constraint when the service already checks for an existing row inside a transaction?
+
+**Answers**
+
+1. The value is interpolated into the query text, which allows SQL injection, and `SELECT *` couples callers to the column list. Safe version: `db("events").select(COLUMNS).where({ title })`, or `db.raw("SELECT ... WHERE title = ?", [title])` with named columns.
+2. That query runs on a different connection, outside the transaction. It cannot see the transaction's uncommitted rows and is not protected by its locks. With only one user there is never a concurrent transaction to collide with, so it looks fine.
+3. An N+1 query. `countsForEvents(eventIds)` fetches every count in one grouped query, returned as a `Map`.
+4. The database constraint holds no matter what code, script, or console session does the insert, including code paths that skip the service. The service check exists to produce a good error message; the constraint is what makes the guarantee true.

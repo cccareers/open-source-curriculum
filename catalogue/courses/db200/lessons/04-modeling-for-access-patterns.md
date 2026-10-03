@@ -19,7 +19,7 @@ That method is correct for relational and actively harmful for most NoSQL stores
 
 So the method inverts. **You write down the queries first, and then design the storage that answers them.** The design question stops being "what is true about this domain?" and becomes "what does this application ask, how often, and what must come back in one round trip?"
 
-The first artifact is therefore not a diagram. It is a list. For a community events board — the same domain you served over HTTP in node101 — the list might read:
+The first artifact is therefore not a diagram. It is a list. For a community events board — the same domain you modeled relationally in db100 and served over HTTP in node101 — the list might read:
 
 ```text
 AP1  Show one event's detail page: title, description, venue, time, host name,
@@ -86,7 +86,7 @@ Neither is right in general. Six questions decide it, and they decide it per rel
 
 **Does it need to change atomically with the parent?** A single-document write is atomic in every document store, for free. If two facts must never be observed out of step, putting them in one document is the cheapest correctness guarantee available to you. Splitting them means either a multi-document transaction — supported, but not free — or accepting that readers will sometimes see one without the other.
 
-**How big does it get?** MongoDB caps a document at 16MB, and every document store has some limit. Long before you reach it, a large document is slow, because these stores read and write whole documents; growing an array by one element can rewrite the entire record and, if it no longer fits in place, move it on disk.
+**How big does it get?** MongoDB caps a document at 16MB, and every document store has some limit. Long before you reach it, a large document is slow, because these stores read and write whole documents. Growing an array by one element means the storage engine writes a new version of the entire record. A 2MB event document that gains one attendee costs a 2MB write.
 
 The default that serves most teams: **embed one-to-few and data read with the parent; reference one-to-many, anything unbounded, and anything with its own life.** Applied to the events board, the venue and host summary embed, and attendees do not — because AP5 ("my upcoming events") asks the question from the user's side, and an attendee list buried inside event documents cannot answer it efficiently.
 
@@ -172,7 +172,7 @@ Because the engine does not enforce a schema, you will accumulate document versi
 
 Put a `schemaVersion` on documents whose shape you expect to evolve. It costs one small field and turns "what shape is this?" from a guess into a read.
 
-Then choose a migration strategy per change. **Migrate on read** — application handles all versions, upgrading each document as it is written — costs nothing up front and leaves you supporting old shapes indefinitely. **Migrate in the background** — a job walks the collection converting documents — clears the debt, and the application must handle both shapes while it runs. **Migrate all at once** requires a maintenance window and is only viable for small collections. Whichever you pick, write it down, because the failure mode is a codebase that quietly handles four generations of a field that nobody can explain.
+Then choose a migration strategy per change. **Migrate on read** — the application can read every version, and upgrades a document to the current shape whenever it next writes that document back — costs nothing up front and leaves you supporting old shapes indefinitely. **Migrate in the background** — a job walks the collection converting documents — clears the debt, and the application must handle both shapes while it runs. **Migrate all at once** requires a maintenance window and is only viable for small collections. Whichever you pick, write it down, because the failure mode is a codebase that quietly handles four generations of a field that nobody can explain.
 
 Most stores also offer optional schema validation — MongoDB accepts a JSON Schema per collection and will reject documents that violate it. Turning that on for your core collections gives back much of what you gave up when you left Postgres, and costs you almost none of the flexibility, because you write the rules and you can relax them.
 
@@ -205,3 +205,12 @@ Use the community events board domain. No database is required; the deliverable 
 9. Take the same access-pattern list and sketch, in about half a page, how you would model AP2 and AP5 in a wide-column store. Name the partition key and clustering columns for each, and say why you needed two tables.
 
 **Deliverable:** a `data-model.md` file containing the five-part artifact from the "Putting it together" section, plus your answers to steps 6 through 9.
+
+## Check your understanding
+
+1. AP5 ("my upcoming events") is asked from the user's side. Why does that argue against embedding attendees inside event documents?
+2. A compound index `{ city: 1, startsAt: -1 }` exists. Which of these does it serve: a query on `city` alone, on `startsAt` alone, or on `city` plus a `startsAt` range sorted by `startsAt`?
+3. The customer name on a completed order is duplicated from the customer record. Should a name change fan out to old orders?
+4. Why does the partition or shard key deserve more design time than any other field?
+
+*Answers:* (1) Finding one user's events would mean searching inside every event's attendee array. An RSVP collection indexed by `userId` answers it directly. (2) `city` alone, and `city` plus the sorted range. It does not serve `startsAt` alone, because of the prefix rule. (3) No. It's a historical snapshot, and changing it would be a bug. (4) Changing what's grouped together means rewriting every record, usually with a dual-write period and a backfill.

@@ -29,7 +29,7 @@ The failure modes are recognizable and all of them are avoidable:
 
 Resist the urge to read everything. A React application of the shape you have been building has a small number of load-bearing files, and reading them in the right order gives you a working map in under an hour.
 
-**1. `package.json`.** Which libraries, which versions, and what the scripts are called. `react-router-dom` version 6.4 or later means the data-router API from lessons 02 and 03; earlier means the element-based routing you will need to recognize. `@reduxjs/toolkit` means slices; a bare `redux` dependency with no toolkit means hand-written reducers and a different set of conventions.
+**1. `package.json`.** Which libraries, which versions, and what the scripts are called. `react-router-dom` version 6.4 or later (or a `react-router` dependency at version 7, which merged the two packages) means the data-router API from lessons 02 and 03 is available — confirm by finding `createBrowserRouter` in the router file, because a 6.4+ app can still use the older element style. Earlier versions mean the element-based routing you will need to recognize. `@reduxjs/toolkit` means slices; a bare `redux` dependency with no toolkit means hand-written reducers and a different set of conventions.
 
 **2. The entry file, usually `src/main.jsx`.** Every provider the application depends on is here, in order. This tells you what global machinery exists at all — a store, a router, a theme, a query client, an error boundary.
 
@@ -289,3 +289,13 @@ Have your partner give you a written directive with at least one explicit constr
 15. Introduce a scope problem on purpose: have your partner give you a second directive whose premise is wrong about the code. Write the message you would send raising it, including at least one option.
 
 **Deliverable:** a committed branch containing the directed change in small commits, plus `ORIENTATION.md`, your directive breakdown, the blast-radius grep output, the completed test matrix with results, the pull request description, and your responses to review.
+
+## Check your understanding
+
+1. In what order do you read an unfamiliar routed React codebase, and why does the router file come before any component?
+2. The directive says "Keep the loader signature as it is, the organizer page depends on it." Where does that sentence show up again in your verification?
+3. `grep` shows `ShiftClaimPanel` is imported by four files. Why is adding a required `compact` prop a bad idea, and what do you do instead?
+4. You find a 300-line component with a variable named `data2` next to the code you are changing. What do you do with it?
+5. Half a day into a one-day change, you discover the panel reads the detail route's loader data and cannot render in a list row as-is. What do you send, and to whom?
+
+**Answers:** (1) `package.json`, the entry file, the router file, the store configuration, one vertical slice end to end, then the README and recent commits; the route table maps every screen, its data, and its error handling in one place. (2) As a row in the test matrix: load the organizer page and confirm it still works. (3) Three call sites would break; add an optional prop with a default (`compact = false`) so existing callers are untouched. (4) Leave it, write it on your "noticed but did not touch" list, and offer it as a separate ticket. (5) A message to the person who directed the change, stating what you found and at least one option ("lift that data into the store, or give the list row a separate presentation — which do you prefer?").

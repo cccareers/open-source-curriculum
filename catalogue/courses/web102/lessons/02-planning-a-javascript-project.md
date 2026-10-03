@@ -118,7 +118,7 @@ Then there is the **definition of done** — one list that applies to *every* in
 
 - The acceptance criteria are all met, checked in a browser, not assumed.
 - No errors in the browser console during normal use.
-- The page still works with JavaScript's strict expectations: no undeclared globals, no leftover `debugger` statements.
+- The page still works in strict mode — which every `type="module"` script already runs in, so assigning to an undeclared variable throws instead of silently creating a global — and there are no leftover `debugger` statements.
 - Any temporary logging you added has been removed.
 - The change is committed with a message that explains it.
 - The narrow-screen layout is not broken by the change.
@@ -184,7 +184,7 @@ Ask these in order.
 
 **How hard is it to remove?** A library that does one thing behind one function you call in three places is cheap to replace. A library whose way of thinking spreads through every file is a decision you are making for the whole project, and it deserves a real conversation rather than a solo `npm install`.
 
-**Does it fit the constraints?** In this course, "no framework, no build step" is a constraint. A library that only ships as an ES module you must bundle is out, no matter how good it is.
+**Does it fit the constraints?** In this course, "no framework, no build step" is a constraint. A library you can only use through a bundler is out, no matter how good it is. In practice that means one that ships only as CommonJS (`require` and `module.exports`, which browsers do not understand), or one whose files import other npm packages by bare name — `import { x } from "some-package"` — which a browser cannot resolve without a bundler or an import map. A library that publishes a standalone ES module file you can load with a relative or full URL fits the constraint.
 
 Charting is the honest example of when the answer flips. Writing an accessible, responsive bar chart with axes and labels from scratch is a day of work that is not what the project is assessing; a small charting library is a defensible choice with a clear reason. Write the reason down.
 
@@ -222,3 +222,12 @@ Produce a `PLAN.md` containing all six parts below. No application code — this
 Then do the part people skip: hand `PLAN.md` to another apprentice and have them try to break it. Ask them to find one acceptance criterion two people could read differently, one increment that does not produce something runnable, and one assumption you stated as if it were a fact. Fix all three and note what changed at the bottom of the file.
 
 **Deliverable:** a `PLAN.md` with all six sections, plus a short "review notes" section recording the three problems your reviewer found and what you changed.
+
+## Check your understanding
+
+1. A teammate's plan has these rows: "Build all the HTML", "Write the CSS", "Add JavaScript", "Test". Name two problems with it, using the four tests for an increment.
+2. "Shifts that have already passed should be visually distinct." Is "use a grey background" a requirement, a constraint, or an assumption? What about "the coordinator's tablet runs a current browser"?
+3. Rewrite this acceptance criterion so two people checking it would reach the same answer: "Releasing a shift works."
+4. You want to add a date library to format one date. What is the platform alternative, and what would have to be true for the library to be the better choice?
+
+**Answers.** (1) Nothing is runnable or demonstrable until "Add JavaScript" is finished, and "Test" is not independently checkable work — verification belongs in each row's acceptance criteria. (2) "Use a grey background" is an implementation choice, not a requirement; the requirement is that past shifts are visually distinct. "The tablet runs a current browser" is an assumption — write it down as a guess and confirm it. (3) For example: "Using the Release control on a claimed upcoming shift clears the volunteer name, shows the row as open, and changes no other row." (4) `Intl.DateTimeFormat`. A library earns its place only when the platform cannot do the job — for example, complex date arithmetic across timezones — and you can name that problem in the decision record.
