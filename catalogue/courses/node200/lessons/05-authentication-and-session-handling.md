@@ -225,12 +225,20 @@ authRouter.post("/login", async (req, res, next) => {
   try {
     const account = await accountService.authenticate(req.body);
 
+    // regenerate() replaces the session with an empty one, so read
+    // anything you need from the old session first.
+    const returnTo = req.session.returnTo;
+    const safeReturnTo =
+      typeof returnTo === "string" && returnTo.startsWith("/") && !returnTo.startsWith("//")
+        ? returnTo
+        : "/events";
+
     req.session.regenerate((err) => {
       if (err) return next(err);
       req.session.userId = account.id;
       req.session.save((saveErr) => {
         if (saveErr) return next(saveErr);
-        res.redirect(req.session.returnTo ?? "/events");
+        res.redirect(safeReturnTo);
       });
     });
   } catch (err) {
@@ -247,7 +255,7 @@ authRouter.post("/logout", (req, res, next) => {
 });
 ```
 
-`req.session.regenerate` is not optional and it is not decoration. Without it, the session id the visitor had *before* logging in stays valid *after*. An attacker who can set a cookie in someone's browser — through a shared machine, a subdomain, or a link — can fix a known session id in advance, wait for the victim to log in, and then use that id as the now-authenticated user. This is **session fixation**, and regenerating the id at the moment privilege changes is the entire fix. Do the same on logout (destroy, not just clear the user id) and on any other privilege change, such as an account switching to admin.
+`req.session.regenerate` is not optional and it is not decoration. Without it, the session id the visitor had *before* logging in stays valid *after*. An attacker who can set a cookie in someone's browser — through a shared machine, a subdomain, or a link — can fix a known session id in advance, wait for the victim to log in, and then use that id as the now-authenticated user. This is **session fixation**, and regenerating the id at the moment privilege changes is the entire fix. Regenerating also throws away everything stored in the old session, which is why the handler reads `returnTo` *before* calling `regenerate`. Read it afterwards and it is always `undefined`, and every login lands on `/events`. The check that `returnTo` starts with a single `/` keeps the redirect on your own site; a value like `//evil.example` would otherwise send a freshly logged-in user somewhere else (an **open redirect**). Do the same on logout (destroy, not just clear the user id) and on any other privilege change, such as an account switching to admin.
 
 The explicit `req.session.save` before redirecting matters when the store is a database: the redirect can otherwise race the asynchronous write, and the next request arrives before the session row exists. The symptom is a login that appears to work but leaves you logged out, intermittently, more often on a fast connection.
 
@@ -272,6 +280,8 @@ export async function authenticate({ email, password }) {
 ```
 
 Two deliberate choices. The error message is identical for an unknown email and a wrong password, and the response status is identical too. Distinguishing them turns your login form into an **account enumeration** oracle: an attacker can discover which addresses have accounts, which is useful for phishing and for credential stuffing. The same rule applies to signup ("if that address is new, we have sent a link") and to password reset ("if that address has an account, we have sent a link") — neither should confirm existence.
+
+Be honest about the tension with the `signUp` function earlier in this lesson: its `ConflictError("An account with that email already exists")` is exactly such a confirmation. Anyone can learn whether an address has an account by trying to sign up with it. Many services accept that leak, because a signup form that refuses to explain a duplicate is confusing, and they rely on the rate limiter below to make bulk probing slow. The enumeration-safe alternative is for signup to always answer "check your email to continue", and then send either a verification link (new address) or a "you already have an account — sign in or reset your password" message (existing address). Choose one deliberately and record which in your design note. Don't claim the login form is enumeration-proof while signup answers the question for free.
 
 The deliberate wasted hash in the not-found branch closes the *timing* version of the same leak. Verifying argon2 takes tens of milliseconds; a database miss takes one. Without the dummy hash, response time alone tells an attacker which addresses exist.
 
@@ -380,13 +390,25 @@ export function verifyCsrf(req, res, next) {
   if (["GET", "HEAD", "OPTIONS"].includes(req.method)) return next();
   const sent = req.body?._csrf ?? req.get("x-csrf-token");
   const expected = req.session?.csrfToken;
-  if (!expected || !sent || sent.length !== expected.length ||
-      !crypto.timingSafeEqual(Buffer.from(sent), Buffer.from(expected))) {
-    return res.status(403).json({ error: { code: "csrf_failed", message: "Invalid request token" } });
+  if (typeof sent !== "string" || typeof expected !== "string") return reject(res);
+
+  const sentBuf = Buffer.from(sent);
+  const expectedBuf = Buffer.from(expected);
+  // timingSafeEqual throws if the byte lengths differ, so check bytes, not characters.
+  if (sentBuf.length !== expectedBuf.length || !crypto.timingSafeEqual(sentBuf, expectedBuf)) {
+    return reject(res);
   }
   next();
 }
+
+function reject(res) {
+  return res.status(403).json({ error: { code: "csrf_failed", message: "Invalid request token" } });
+}
 ```
+
+Two details in `verifyCsrf` are there because an attacker controls `sent`. The `typeof` check matters because a form that submits `_csrf` twice is parsed into an *array*, not a string. The length check compares **bytes**: a token containing non-ASCII characters can have the same string length as yours but a different byte length, and `timingSafeEqual` throws on unequal lengths. Either mistake would turn a forged request into a `500` rather than a clean `403`.
+
+Mind where you mount `csrfToken`. It writes to the session, and a session that has been written to is saved even with `saveUninitialized: false`. Mount it globally and every anonymous visitor (crawlers included) gets a session row again. Mount it only on the routers that render state-changing forms, including the login page, so that login itself is CSRF-protected. `verifyCsrf` goes on every router that accepts cookie-authenticated `POST`s.
 
 ```html
 <form method="post" action="/events/123/cancel">
@@ -401,7 +423,7 @@ Two related habits: state-changing operations must never be reachable by `GET` �
 
 ## Slowing down the attacker
 
-A login endpoint with no limits is a free password-guessing service. Add a limiter, keyed on both the address and the account, so one attacker cannot spread across many accounts and one account cannot be attacked from many addresses:
+A login endpoint with no limits is a free password-guessing service. You need two limits, not one. One limit is keyed on the client's address, so one attacker cannot spread guesses across many accounts. The other is keyed on the account, so one account cannot be attacked from many addresses. A single limiter keyed on the *combination* (`ip:email`) does neither: every new email gives the same attacker a fresh 10 attempts, and every new address gives the same account a fresh 10.
 
 ```bash
 npm install express-rate-limit
@@ -410,17 +432,33 @@ npm install express-rate-limit
 ```javascript
 import rateLimit from "express-rate-limit";
 
-export const loginLimiter = rateLimit({
+const tooMany = { error: { code: "too_many_attempts", message: "Try again in a few minutes" } };
+
+// One client, any accounts: stops spraying many accounts from one address.
+export const loginLimiterByIp = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  limit: 50,
+  standardHeaders: true,
+  legacyHeaders: false,
+  skipSuccessfulRequests: true, // only failed attempts count
+  message: tooMany,
+});
+
+// One account, any clients: stops many addresses hammering one account.
+export const loginLimiterByAccount = rateLimit({
   windowMs: 15 * 60 * 1000,
   limit: 10,
   standardHeaders: true,
   legacyHeaders: false,
-  keyGenerator: (req) => `${req.ip}:${(req.body?.email ?? "").toLowerCase()}`,
-  message: { error: { code: "too_many_attempts", message: "Try again in a few minutes" } },
+  skipSuccessfulRequests: true,
+  keyGenerator: (req) => `acct:${String(req.body?.email ?? "").trim().toLowerCase()}`,
+  message: tooMany,
 });
 
-authRouter.post("/login", loginLimiter, /* … */);
+authRouter.post("/login", loginLimiterByIp, loginLimiterByAccount, /* … */);
 ```
+
+The per-IP limit is higher because a whole office or school can share one address. `skipSuccessfulRequests` means a successful login (any status below 400, so your `302`) does not use up the allowance. Be aware that a per-account limit lets an attacker deliberately lock a real user out by failing on purpose. Keep the window short, and log lockouts so they can be spotted. The per-IP limiter uses the library's default key, the client address. Check your installed version's documentation for how it groups IPv6 addresses.
 
 Behind a proxy this needs `trust proxy` set correctly, or every request appears to come from the proxy and one visitor's failures lock out everybody. Apply the same treatment to signup and password reset, which are also abused.
 
@@ -446,7 +484,7 @@ Add accounts, sessions, and authorization to the events board on top of the data
 4. Implement `signUp` in the accounts service with a 12-character minimum, relying on the unique constraint rather than a pre-check, and translating error `23505` into a conflict.
 5. Wire `express-session` with `connect-pg-simple` and the cookie options from this lesson. Log in, then inspect the cookie in your browser's developer tools and confirm `HttpOnly` and `SameSite` are set. Query the `user_sessions` table and confirm exactly one row exists for your login and none for an anonymous visit.
 6. Implement `POST /login`, `POST /logout`, and `authenticate` with an identical error for unknown-email and wrong-password, plus the dummy hash on the not-found path. Measure it: time 10 logins with a real email and a wrong password, and 10 with an email that does not exist, and record both averages in `NOTES.md`. They should be within a few milliseconds.
-7. Prove the fixation defence. Record the `eb.sid` cookie value before logging in and after. Then remove `req.session.regenerate`, repeat, and record what changes. Restore it and write two sentences on what an attacker could do with the version you removed.
+7. Prove the fixation defence. Because of `saveUninitialized: false`, an anonymous visitor normally has no cookie at all, so first create a pre-login session: temporarily add a route such as `GET /hello` that sets `req.session.visited = true` (or do this step after step 8, and request a protected page so `requireAuth` stores `returnTo`). Record the `eb.sid` cookie value before logging in and after. Then remove `req.session.regenerate`, repeat, and record what changes. Restore it and write two sentences on what an attacker could do with the version you removed.
 8. Add `loadCurrentUser` and `requireAuth`. Mount an `/organizer` router behind the guard with a page listing the current user's events. Confirm that requesting it signed out redirects a browser to `/login` and returns `401` JSON to `curl -H "Accept: application/json"`.
 9. Add an ownership rule: only the organizer may cancel an event, enforced in the service and given a `403`. Then demonstrate the vulnerability it fixes — sign in as organizer A, take the id of an event owned by organizer B, and confirm the cancel is refused. Remove the check, confirm it succeeds, and put it back.
 10. Add CSRF tokens to every state-changing form and verify them, using `timingSafeEqual`. Show a `403` from `curl -X POST` with a valid session cookie but no token.
@@ -454,3 +492,17 @@ Add accounts, sessions, and authorization to the events board on top of the data
 12. Write a short section in `docs/design-notes.md` recording your session lifetime, your cookie flags, and the reason for each, so a reviewer can challenge the numbers rather than guess at them.
 
 **Deliverable:** an events board with signup, login, logout, a persisted session store, a protected organizer area, an ownership-enforced cancel, CSRF-protected forms, and a rate-limited login — plus a `NOTES.md` containing the timing measurements, the fixation experiment, and the rate-limit results.
+
+## Check your understanding
+
+1. Your login handler calls `req.session.regenerate` and then redirects to `req.session.returnTo`. Users report they always land on `/events` after signing in. Why?
+2. Which status code should a signed-in user get when they try to cancel someone else's event, and which should a signed-out API client get for the same request? Where in the code is each decided?
+3. Login works locally but in production the browser never receives a session cookie. The cookie has `secure: true` and the app runs behind a TLS-terminating proxy. What is missing?
+4. Why is `sha256(password + salt)` not an acceptable password hash, even with a unique salt per user?
+
+**Answers**
+
+1. `regenerate` replaces the session with a new, empty one, so `returnTo` is gone by the time you read it. Read it before regenerating.
+2. Signed in but not the owner: `403`, decided in the service (`ForbiddenError` from the ownership check). Signed out: `401`, decided by `requireAuth` before the service is called. If even the event's existence should be hidden, use `404`.
+3. `app.set("trust proxy", 1)` (or the correct hop count). Without it, Express sees the proxy's plain-HTTP connection, treats the request as insecure, and `express-session` refuses to set a `secure` cookie.
+4. SHA-256 is designed to be fast, so an attacker with a stolen table can test billions of guesses per second. Password hashing needs a deliberately slow, memory-hard function with a tunable cost, such as argon2id (or bcrypt).

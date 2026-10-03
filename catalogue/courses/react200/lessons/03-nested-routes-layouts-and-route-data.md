@@ -214,7 +214,10 @@ export async function eventDetailLoader({ params, request }) {
   });
 
   if (response.status === 404) {
-    throw new Response("Not Found", { status: 404 });
+    throw new Response("We could not find that event.", {
+      status: 404,
+      statusText: "Not Found",
+    });
   }
   if (!response.ok) {
     throw new Response("Failed to load event", { status: response.status });
@@ -228,7 +231,7 @@ Two habits in that snippet are not optional in real code.
 
 **Pass `request.signal` to `fetch`.** If the user navigates away mid-load, the router aborts the request. Without the signal you leave requests in flight and race their results.
 
-**Throw on failure; do not return an error object.** A thrown `Response` is caught by the nearest error element, which is the next section. Returning `{ error: "..." }` puts you right back in the business of branching on data shape inside the component.
+**Throw on failure; do not return an error object.** A thrown `Response` is caught by the nearest error element, which is the next section. The first argument becomes the error's `data` (the message your error page shows), and `statusText` is only what you pass — a hand-built `Response` does not fill it in from the status code, so set it yourself if your error page displays it. Returning `{ error: "..." }` puts you right back in the business of branching on data shape inside the component.
 
 Reading the query string in a loader is the same standard API you already used with `useSearchParams`:
 
@@ -270,18 +273,21 @@ import { useRouteLoaderData } from "react-router-dom";
 export default function VenuePicker() {
   const venues = useRouteLoaderData("events-root");
   return (
-    <select>
-      {venues.map((venue) => (
-        <option key={venue.slug} value={venue.slug}>
-          {venue.name}
-        </option>
-      ))}
-    </select>
+    <>
+      <label htmlFor="venue-picker">Venue</label>
+      <select id="venue-picker">
+        {venues.map((venue) => (
+          <option key={venue.slug} value={venue.slug}>
+            {venue.name}
+          </option>
+        ))}
+      </select>
+    </>
   );
 }
 ```
 
-Give the parent route an `id`, and any descendant can ask for that route's data by id with `useRouteLoaderData`. The venue list is fetched once when the user enters the events section and is available to the list, the filter, the detail page, and the create form — without a context provider, without prop drilling, and without each of them fetching it again.
+Give the parent route an `id`, and any descendant can ask for that route's data by id with `useRouteLoaderData`. (Here `venueLoader` is a loader like the ones above that fetches `/api/venues` and returns the array. If you ask for an id that is not part of the currently matched tree, the hook returns `undefined`, so only call it from routes nested under that parent.) The venue list is fetched once when the user enters the events section and is available to the list, the filter, the detail page, and the create form — without a context provider, without prop drilling, and without each of them fetching it again.
 
 This is a genuine design decision, so make it deliberately. Data belongs on the **highest route that needs it and lowest route that can have it**. Put the venue list on the root layout and you fetch it on every page including the About page. Put it on the detail route and the list page cannot see it. When you sketch a route tree during planning, annotate each node with what it loads; that annotated tree is a design artifact a senior developer can review before you write a component, and it will catch more mistakes than the code review would have.
 
@@ -358,14 +364,38 @@ Where you attach the error element decides how much of the screen it replaces:
     {
       path: "events",
       element: <EventsLayout />,
-      errorElement: <RouteError />,   // keeps header, nav, and events chrome
+      errorElement: <RouteError />,   // keeps header and nav; replaces the events section
       children: [ /* … */ ],
     },
   ],
 }
 ```
 
-With an error element on the events layout, a failed detail load leaves the site header and the events heading intact and swaps only the inner panel. Without it, the failure bubbles to the root and the user loses the whole page including the nav they need to escape. Put an error element at the root always, and at each major section — that is the difference between a broken feature and a broken site.
+The rule to hold onto: **the route that catches the error renders its `errorElement` in place of its own `element`**, inside its parent's outlet. Everything above that route stays mounted; that route's own layout and everything below it is replaced.
+
+So with an error element on the events layout, a failed detail load leaves the site header and nav intact and replaces the events section — including the events heading, because `EventsLayout` is the element being swapped out. Without it, the failure bubbles to the root, the root's error element replaces `RootLayout`, and the user loses the whole page including the nav they need to escape. Put an error element at the root always, and at each major section — that is the difference between a broken feature and a broken site.
+
+If you want the events heading to survive too, catch the error one level lower. The tidy way is a pathless child route that exists only to hold the error element, so it renders inside `EventsLayout`'s outlet:
+
+```jsx
+{
+  path: "events",
+  element: <EventsLayout />,
+  errorElement: <RouteError />,          // fallback if EventsLayout's own loader fails
+  children: [
+    {
+      errorElement: <RouteError />,      // catches child errors inside the events outlet
+      children: [
+        { index: true, element: <EventList />, loader: eventListLoader },
+        { path: "new", element: <NewEvent />, action: newEventAction },
+        { path: ":eventId", element: <EventDetail />, loader: eventDetailLoader },
+      ],
+    },
+  ],
+}
+```
+
+Now a failed detail load swaps only the inner panel: header, nav, and events heading all stay. The pathless route adds nothing to the URL — it is the same tool as the pathless layout route earlier in this lesson, used for error handling instead of a wrapper.
 
 ## Mutations with actions
 
@@ -447,3 +477,13 @@ Restructure the Community Events Board from the last lesson into a nested, data-
 10. Draw your route tree as an indented list in `NOTES.md`, annotating each node with the element it renders, the data it loads, and whether it owns an error element. Write two sentences justifying why each loader sits at the level you put it.
 
 **Deliverable:** a committed app with a two-level layout tree, all data loaded by route loaders, section-scoped error and pending states, one working action, and a `NOTES.md` containing your annotated route tree and the answers from steps 7 and 10.
+
+## Check your understanding
+
+1. A child route is written `path: "/new"` under the `events` parent and never matches `/events/new`. Why?
+2. The venue list is needed by the events list, the detail page, and the create form, but not by Home or About. Which route should own the venue loader, and what would go wrong one level higher or lower?
+3. Entering `/events/42` runs the events-layout loader and the detail loader. Do they run one after the other or at the same time, and why does that matter compared with fetching in each component's effect?
+4. A detail load fails with a 404. Which parts of the page stay on screen if `errorElement` is on the events layout route, and which if it is only on the root?
+5. In a route action, when do you *return* something and when do you *throw* something?
+
+**Answers:** (1) A leading slash makes a child path absolute, so it no longer joins to `events`; write `path: "new"`. (2) The events layout route: higher (root) fetches venues on every page including About; lower (detail) hides them from the list and the form. (3) In parallel; effects are sequential because a child cannot mount until its parent has rendered. (4) With the error element on the events layout route, the site header and nav survive and the whole events section (its heading included) is replaced, because the catching route's own element is swapped out; with only the root one, `RootLayout` itself is replaced and the nav is lost. To keep the events heading too, catch the error on a pathless child route inside the events layout. (5) Return validation errors the user can fix (read with `useActionData`); throw failures they cannot fix so the nearest error element handles them; return `redirect()` on success.

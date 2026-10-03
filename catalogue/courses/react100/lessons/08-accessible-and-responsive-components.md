@@ -57,6 +57,26 @@ export default function App() {
 
 One `<main>` per page. `<nav>` for navigation groups, with an `aria-label` when there is more than one so they can be told apart. The skip link is a small, standard piece: a link that is the first thing in the tab order, visually hidden until focused, that jumps past the header. Without it, a keyboard user tabs through twelve nav links on every page.
 
+The CSS moves the link off-screen until it receives focus, then brings it back:
+
+```css
+.skip-link {
+  position: absolute;
+  left: 0.5rem;
+  top: -10rem;
+  padding: 0.5rem 1rem;
+  background: #ffffff;
+  color: #1a1a1a;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 0.5rem;
+}
+```
+
+Do not hide it with `display: none` — an element that is not displayed cannot receive focus, so the link would never appear.
+
 **Headings describe structure, not size.** `<h1>` through `<h6>` form an outline that assistive technology exposes as a table of contents. Use exactly one `<h1>` per page, never skip a level going down, and choose the level by position in the outline — then use CSS if you want it to look smaller. A component that hard-codes `<h3>` is a component that cannot be reused at another depth; take the level as a prop if you need to.
 
 **Lists are lists.** A grid of cards is a list of things, so `<ul>` and `<li>` let a screen reader announce "list, ten items". Set `list-style: none` in CSS if you do not want bullets.
@@ -88,7 +108,7 @@ The ones you will actually use:
 - `aria-hidden="true"` — hide something decorative from assistive technology. Never put this on anything focusable; a control that is announced to no one but still tabbable is a trap.
 - `aria-live` and the `role="status"` / `role="alert"` shorthands — announce changes, covered below.
 
-Two rules about ARIA state in React that are easy to get wrong. Attribute values that are booleans in HTML must be actual booleans or strings, and passing `false` renders `aria-expanded="false"`, which is meaningful and usually correct — but for attributes like `aria-invalid` you often want the attribute absent, which means passing `undefined`. And any ARIA state must be driven by the same state variable that drives the visual change, or the two will drift:
+Two rules about ARIA state in React that are easy to get wrong. ARIA attributes are always strings in the DOM — `"true"` or `"false"` — and React converts a JavaScript boolean for you, so `aria-expanded={false}` renders `aria-expanded="false"`, which is meaningful and usually correct. But for attributes like `aria-invalid` you often want the attribute absent rather than `"false"`, which means passing `undefined`. And any ARIA state must be driven by the same state variable that drives the visual change, or the two will drift:
 
 ```jsx
 <button
@@ -154,7 +174,21 @@ The one implementation detail that catches people: the live region element must 
 </p>
 ```
 
-The `visually-hidden` class is a standard snippet that hides content visually while leaving it available to assistive technology — clip it to a one-pixel box rather than using `display: none`, which hides it from everyone.
+The `visually-hidden` class is a standard snippet that hides content visually while leaving it available to assistive technology — clip it to a one-pixel box rather than using `display: none`, which hides it from everyone:
+
+```css
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+```
 
 ## Color, contrast, and motion
 
@@ -175,7 +209,7 @@ The `visually-hidden` class is a standard snippet that hides content visually wh
 }
 ```
 
-**Target size.** Anything tappable should be at least around 44 by 44 pixels, including the padding. Small icon buttons crammed into a card are the usual failure, and the fix is padding rather than a bigger icon.
+**Target size.** Anything tappable should be at least around 44 by 44 pixels, including the padding. Small icon buttons crammed into a card are the usual failure, and the fix is padding rather than a bigger icon. For the record, WCAG 2.2's AA minimum is smaller — 24 by 24 CSS pixels, with some exceptions — and 44 by 44 is its stricter AAA level. This course uses 44 because it is the comfortable size for a thumb and it clears both.
 
 ## Responsive layout
 
@@ -290,3 +324,19 @@ Continue in the `toolshare` project. Every task is on the app you have already b
 14. **Re-scan.** Run the automated tool again and record the before and after counts in `A11Y.md`, plus one defect the tool never detected that you found by hand.
 
 **Deliverable:** a `toolshare` project that passes an automated scan with no critical issues, is fully operable by keyboard, reflows without horizontal scrolling at 320 pixels, and announces its dynamic changes; plus `A11Y.md` containing your baseline, your keyboard-pass findings and fixes, two full issue reports, your proposed monitoring routine, and the before-and-after scan results.
+
+## Check your understanding
+
+1. A tool card's "Remove" control is `<div className="btn" onClick={handleRemove}>×</div>`. List what is wrong with it and write the replacement.
+2. The tool photo sits in a card whose heading already reads "Cordless Drill". What should its `alt` be, and why?
+3. Your result count is rendered as `{searchText && <p role="status">…</p>}`, and a screen reader never announces it. Why, and what is the fix?
+4. Why are breakpoints written in `rem` rather than pixels?
+5. An automated scan reports zero issues. Name two things it could not have checked.
+
+**Answers**
+
+1. It cannot be focused, does not respond to Enter or Space, has no role, and "×" is not a usable name. Use `<button type="button" aria-label="Remove" onClick={handleRemove}><span aria-hidden="true">×</span></button>`.
+2. `alt=""`. The heading already names the tool, so the photo is decorative in this context and a screen reader should skip it.
+3. The live region appears at the same moment as its text, so some screen readers miss the change. Render the `role="status"` element always and change only its contents.
+4. A `rem` breakpoint responds when a person raises their browser's default font size; a pixel breakpoint ignores it.
+5. Any two of: whether alt text actually describes the image, whether the heading outline reflects the real structure, whether error messages are useful, whether focus goes somewhere sensible after an action, whether reading order matches visual order.

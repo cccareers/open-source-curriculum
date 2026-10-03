@@ -81,7 +81,7 @@ function addTool(name) {
 }
 ```
 
-`crypto.randomUUID()` is built into the browser. Generating the id at creation time makes it part of the item and therefore stable. Generating it during render makes it noise.
+`crypto.randomUUID()` is built into the browser. It is only available on secure pages — `https://` addresses and `localhost` — so it works on your Vite dev server, but it is `undefined` if you open the app from a plain `http://` address on another machine. Generating the id at creation time makes it part of the item and therefore stable. Generating it during render makes it noise.
 
 ## Why the index is a trap
 
@@ -142,7 +142,9 @@ export default function ToolGrid({ tools, searchText, category, sortBy }) {
     .filter((tool) => (category === "all" ? true : tool.category === category))
     .filter((tool) => tool.name.toLowerCase().includes(query))
     .sort((a, b) =>
-      sortBy === "name" ? a.name.localeCompare(b.name) : a.addedAt - b.addedAt
+      sortBy === "name"
+        ? a.name.localeCompare(b.name)
+        : b.addedAt - a.addedAt // newest first: larger timestamp sorts earlier
     );
 
   return (
@@ -160,6 +162,8 @@ Three things in that snippet are worth marking.
 `filter` and `map` return new arrays, so chaining them never touches `tools`. `sort`, however, **mutates the array it is called on** — and here that array is the fresh one `filter` just produced, so it is safe. Calling `tools.sort(...)` directly on a prop or on state would be a real bug: it would reorder data you do not own, and because the reference did not change, React would not re-render. Sort a copy: `[...tools].sort(...)`.
 
 The list is derived during render, exactly as lesson 04 argued. There is no `visibleTools` state to keep in sync, because there is no way for it to fall out of sync.
+
+The comparator's sign decides the order. A negative return puts `a` first, so `a.addedAt - b.addedAt` gives oldest first and `b.addedAt - a.addedAt` gives newest first. Subtraction only works if `addedAt` is a number (a timestamp such as `Date.parse("2026-07-02")`) or a `Date`; on two date strings it returns `NaN` and the order becomes unpredictable.
 
 And `localeCompare` is the right way to sort strings for a human reader. Plain `<` comparison sorts by character code, which puts every capital letter before every lowercase one and mangles accented characters.
 
@@ -221,7 +225,7 @@ Except when the left side is `0`, and this is the classic React bug:
 {tool.reviewCount && <p>{tool.reviewCount} reviews</p>}
 ```
 
-With zero reviews, `tool.reviewCount` is `0`, `&&` returns `0`, and React renders numbers — so a bare `0` appears on your page. The same happens with an empty string in some layouts. Always guard with a real boolean:
+With zero reviews, `tool.reviewCount` is `0`, `&&` returns `0`, and React renders numbers — so a bare `0` appears on your page. `NaN` does the same thing and shows the letters "NaN". An empty string renders nothing visible, so it is harmless, but it is still a raw value standing in for a decision. Always guard with a real boolean:
 
 ```jsx
 {tool.reviewCount > 0 && <p>{tool.reviewCount} reviews</p>}
@@ -343,7 +347,7 @@ export default function GroupedToolList({ tools }) {
 }
 ```
 
-Returning an *array* of `{ category, items }` rather than a plain object is deliberate. Objects have no guaranteed iteration order for numeric-looking keys, and an array lets you sort the groups themselves — alphabetically, or by size, or in a fixed order you define. It also gives each group an obvious stable key.
+Returning an *array* of `{ category, items }` rather than a plain object is deliberate. A plain object's key order has a surprising rule: keys that look like whole numbers (`"2024"`, `"7"`) always come first, in numeric order, no matter when you added them, so grouping by year or by numeric id quietly reorders your groups. An array keeps exactly the order you give it, and it lets you sort the groups themselves — alphabetically, or by size, or in a fixed order you define. It also gives each group an obvious stable key.
 
 The grouping function is a plain function of its input with no React in it, which means you can read it, reason about it, and move it to a `src/lib/` file the moment a second component needs it. Keeping data transformation outside components is a habit worth building early; a component that both computes and renders is twice as hard to change as two things that each do one job.
 
@@ -408,7 +412,7 @@ The inner keys only need to be unique within their own `<ul>`, not across the wh
 
 Continue in the `toolshare` project. Replace the hand-written cards from the previous lessons with data-driven rendering.
 
-1. **Create the data.** Add `src/data/tools.js` exporting an array of at least ten tool objects, each with a unique string `id`, plus `name`, `description`, `owner`, `category` (one of at least three values), `status`, and a numeric `reviewCount` where at least one tool has `0`.
+1. **Create the data.** Add `src/data/tools.js` exporting an array of at least ten tool objects, each with a unique string `id`, plus `name`, `description`, `owner`, `category` (one of at least three values), `status`, a numeric `reviewCount` where at least one tool has `0`, and an `addedAt` timestamp number (for example `Date.parse("2026-07-02")`) for the "newest" sort in step 5.
 
 2. **Render the list.** Rewrite `ToolGrid` to take a `tools` array prop and render one `ToolCard` per item with `map` and a stable `key`. Delete the hand-written cards.
 
@@ -433,3 +437,19 @@ Continue in the `toolshare` project. Replace the hand-written cards from the pre
 12. **Extract the item.** If your `map` callback is longer than about five lines, move its body into a component and confirm the key stayed on the element `map` returns.
 
 **Deliverable:** a `toolshare` project rendering ten or more tools from data with working search, category filter and sort, all three list states, correct keys throughout, and a `STRUCTURE.md` containing your recorded results for steps 3, 4, 8, and 11.
+
+## Check your understanding
+
+1. A list of tool cards uses `key={index}`. Each card has its own "requested" toggle. You request the Ladder, then filter so the Drill above it disappears. What can go wrong, and why?
+2. Why does `{tools.forEach((tool) => <ToolCard tool={tool} />)}` render nothing?
+3. `{tool.reviewCount && <p>{tool.reviewCount} reviews</p>}` shows a stray `0` on one card. Rewrite it.
+4. You hide the filter panel with `{isOpen && <FilterPanel />}`, and members complain their filter choices vanish when they close it. What is happening, and what are your two options?
+5. The search matches nothing, but there are forty tools. Why should the message differ from the one you show when there are no tools at all?
+
+**Answers**
+
+1. React matches components by key, so state stays with the position, not the tool. Say the list is Drill, Vacuum, Ladder: the Ladder's "requested" state lives in the component with key `2`. Filter out the Drill and the Ladder moves to index `1`, inheriting that component's state (not requested), while the component with key `2` is destroyed along with the Ladder's request. Use `key={tool.id}` and the state follows the tool.
+2. `forEach` returns `undefined`. JSX braces render the value of the expression, so use `map`, which returns an array of elements.
+3. `{tool.reviewCount > 0 && <p>{tool.reviewCount} reviews</p>}`.
+4. The panel is unmounted when closed, which discards its state. Either keep it mounted and hide it with CSS, or lift the filter values into a parent that stays mounted.
+5. The fix is different. Filtered-to-nothing needs a "Clear search" action; genuinely empty needs a way to add a tool.

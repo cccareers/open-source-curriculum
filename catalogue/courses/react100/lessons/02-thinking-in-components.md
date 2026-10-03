@@ -46,17 +46,26 @@ toolshare/
     └── index.css
 ```
 
-Two files are worth reading now and then leaving alone. `index.html` has a single empty `<div id="root">` — that is the entire HTML document your app ships, and everything a visitor sees is put inside it by JavaScript. `src/main.jsx` is the three lines that do it:
+The template also creates a few files you can ignore for now — a `public/` folder for static files, `src/assets/` for images, and an `eslint.config.js` that configures the linter. The exact list shifts a little between Vite versions; the four files under `src/` above are the ones that matter.
+
+Two files are worth reading now and then leaving alone. `index.html` has a single empty `<div id="root">` — that is the entire HTML document your app ships, and everything a visitor sees is put inside it by JavaScript. `src/main.jsx` is the handful of lines that do it:
 
 ```jsx
+import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import App from "./App.jsx";
 import "./index.css";
+import App from "./App.jsx";
 
-createRoot(document.getElementById("root")).render(<App />);
+createRoot(document.getElementById("root")).render(
+  <StrictMode>
+    <App />
+  </StrictMode>
+);
 ```
 
 That is the seam between the browser and React. `createRoot` claims that div, and `render` puts your top component into it. From that line down, the structure is yours. Everything else in this lesson happens inside `src/`.
+
+`StrictMode` is a wrapper that renders nothing visible. In development only, it runs some of your code twice on purpose to expose mistakes early. You will meet its effects in lessons 04 and 07; for now, leave it in place.
 
 Delete the contents of `App.css` and replace `App.jsx` with something minimal so the starter content is out of your way:
 
@@ -86,7 +95,7 @@ function ToolCard() {
 
 Three rules make that function a component rather than an ordinary function, and all three are enforced:
 
-**Its name starts with a capital letter.** `ToolCard`, not `toolCard`. This is not style — it is how React tells your components apart from HTML tags. Lowercase `<article>` means the HTML element; capitalized `<ToolCard>` means your function. Get it wrong and React will silently try to render an unknown HTML element and you will see nothing.
+**Its name starts with a capital letter.** `ToolCard`, not `toolCard`. This is not style — it is how React tells your components apart from HTML tags. Lowercase `<article>` means the HTML element; capitalized `<ToolCard>` means your function. Get it wrong and React will try to render an unknown HTML element called `<toolcard>`: the page shows nothing where the card should be, and the only clue is a warning in the browser console saying the tag is unrecognized. No error stops the app, which is why this one is easy to miss.
 
 **It returns markup, or `null`.** That markup-looking syntax is JSX, and the next lesson takes it apart properly. For now, treat it as HTML with a couple of renames: `class` is `className`, and every tag must be closed.
 
@@ -201,15 +210,21 @@ src/
 ├── App.jsx
 └── components/
     ├── SiteHeader.jsx
+    ├── NavLinks.jsx
     ├── SiteFooter.jsx
     ├── BrowsePage.jsx
+    ├── PageHeading.jsx
     ├── FilterBar.jsx
     ├── SearchInput.jsx
     ├── CategoryButton.jsx
     ├── ToolGrid.jsx
     ├── ToolCard.jsx
+    ├── ToolImage.jsx
+    ├── ToolSummary.jsx
     └── AvailabilityBadge.jsx
 ```
+
+Every component in the tree gets a file, including the small ones inside `ToolCard`. If you import a file that does not exist yet, Vite shows a "Failed to resolve import" error over the page; create the missing file with a placeholder return and it clears.
 
 The conventions worth adopting now, because every React codebase you join will use most of them: one component per file; the file is named exactly like the component, in PascalCase; the component is the file's default export; the extension is `.jsx` for any file containing JSX.
 
@@ -339,3 +354,17 @@ Work in the `toolshare` project you scaffolded above. Everything is static marku
 8. **Take a change request.** A reviewer says availability should also appear in the site header as a count of tools currently out. Do not build it. Instead, write in `STRUCTURE.md` which components would need to change, whether your current tree makes that easy or hard, and what you would restructure if it is hard.
 
 **Deliverable:** the `toolshare` project with a rendering static skeleton of at least eight components, plus `STRUCTURE.md` containing your labeled component tree, the one-line responsibility for each component, and your answers to steps 6 and 8.
+
+## Check your understanding
+
+1. You write `function availabilityBadge() { ... }` and render `<availabilityBadge />`. What do you see on the page, and where do you look to find out why?
+2. Two boxes on a mockup get the same one-sentence responsibility. What does that tell you about how many components you need?
+3. `ToolHeader` and `ToolCard` both show a photo and a name. Give the reason this lesson uses for keeping them as separate components.
+4. Both `FilterBar` and `ToolGrid` need the search text. Which component in the Toolshare tree should eventually own it, and why that one?
+
+**Answers**
+
+1. Nothing appears where the badge should be. React treats a lowercase tag as an HTML element, and the browser console shows a warning that the tag is unrecognized. Capitalize the name in both places.
+2. It is one component rendered twice, not two components.
+3. They change for different reasons: a card is something you click in a grid, and a header identifies the page you are already on. Similar markup is not the same component.
+4. `BrowsePage`, because it is the closest component that contains both of them.

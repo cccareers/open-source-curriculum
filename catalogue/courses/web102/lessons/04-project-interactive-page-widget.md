@@ -142,9 +142,30 @@ Expect one question in review that you cannot answer by reading your code aloud 
 
 **Store the smallest thing that works.** You need the claim state, not a copy of every shift. A map of shift id to volunteer name is enough, and it means changing your fixture list later does not corrupt saved data.
 
-**Wrap the `localStorage` read in a `try`/`catch` and validate the result.** `JSON.parse` throws on garbage, and storage can be unavailable entirely in private browsing. R6 is asking specifically about this path, so test it: open devtools, edit the stored value to `not json`, reload.
+**Wrap the `localStorage` read in a `try`/`catch` and validate the result.** `JSON.parse` throws on garbage, and storage can be unavailable entirely in private browsing. R6 is asking specifically about this path, so test it: open devtools, edit the stored value to `not json`, reload. Writes can fail too — `setItem` throws when storage is full or blocked by the browser's settings — so wrap the write as well, and decide what the coordinator sees when a claim could not be saved.
 
 **Compare times as timestamps, not strings.** `new Date(shift.endsAt).getTime() < Date.now()` is unambiguous; comparing formatted strings is not.
+
+**Do not let your fixture data expire.** If you hard-code dates like `"2026-08-03T09:00"`, every shift becomes a past shift a few weeks after you write them, and the reviewer opens a board where nothing can be claimed. Build the dates relative to today instead, so the mix of past and upcoming shifts is the same whenever the page is opened:
+
+```javascript
+function at(daysFromToday, hours, minutes = 0) {
+  const d = new Date();
+  d.setDate(d.getDate() + daysFromToday);
+  d.setHours(hours, minutes, 0, 0);
+  return d.toISOString();
+}
+
+export const SHIFTS = [
+  { id: "s1", title: "Food bank sorting", location: "Warehouse B",
+    startsAt: at(-2, 9), endsAt: at(-2, 12), claimedBy: "Ana" },
+  { id: "s2", title: "Van loading", location: "Warehouse B",
+    startsAt: at(1, 8), endsAt: at(1, 10), claimedBy: "" },
+  // ...
+];
+```
+
+`setDate` rolls over month ends correctly, so `at(-2, 9)` on the 1st of a month lands on the right day of the previous month.
 
 **Disabled means the `disabled` attribute.** Styling a button grey while it still fires its handler is not disabled, and a keyboard user will find that out before your reviewer does.
 
@@ -159,3 +180,14 @@ Expect one question in review that you cannot answer by reading your code aloud 
 3. Links to your merged pull requests, at least four.
 4. A screenshot of the board at 360 pixels wide, in each of the three filter views.
 5. Three sentences naming the hardest defect you hit, how you found it, and what the fix was.
+
+## Check your understanding
+
+Answer these before you hand in. If you cannot, the gap is probably in your code too.
+
+1. A volunteer name is stored only in a row's text, and the counts are computed by counting rows with a certain class. Which requirement does that break, and what goes wrong when a filter hides some rows?
+2. You attached a click listener to each Claim button inside `render()`. Claiming works once, then the buttons stop responding — or start firing twice. Why, and what is the fix?
+3. What should the page do when `localStorage` contains `{"s1": 42}` instead of a name?
+4. Why is styling a past shift's button grey not enough to satisfy R5?
+
+**Answers.** (1) R2 — the DOM is acting as the source of truth. Hidden or re-rendered rows change what you count, so the numbers depend on the current view instead of the state. (2) Re-rendering replaces the buttons, so listeners attached to the old ones either disappear or pile up if you attach without clearing. Use one delegated listener on the list container and read `data-id`. (3) Treat it as invalid: ignore that entry, or fall back to all shifts open, and keep the page working (R6). (4) A grey button still fires its handler on click and on Enter or Space. Only the `disabled` attribute stops activation and tells assistive technology the control is unavailable.

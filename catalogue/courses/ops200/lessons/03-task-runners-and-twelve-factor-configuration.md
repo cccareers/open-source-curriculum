@@ -67,6 +67,8 @@ Several deliberate choices are in there.
 
 `--workspace api` runs a script inside one package from the root, so you never have to change directories. `--workspaces --if-present` runs a script in every package that defines one and quietly skips those that do not, which is what you want for `test` while only one half has tests.
 
+Two of these scripts depend on tools that must be installed, not just named. `lint` runs `eslint`, so ESLint has to be a dev dependency (`npm install --save-dev eslint` at the root, plus a config file). Otherwise the pipeline fails with `eslint: not found` on a machine that never had it installed globally. And `npm-run-all` itself hasn't had a release in years; many teams now install the maintained fork `npm-run-all2`, which provides the same `npm-run-all` command.
+
 `npm-run-all` gives you two things plain npm scripts lack: `--parallel` for running the API and the front-end dev server at once in a single terminal, and a cross-platform way to chain commands. Plain `&&` works on macOS, Linux, and modern Windows shells, and if your team is all on one platform you can skip the dependency. `concurrently` is the other common choice for the parallel case.
 
 `verify` is the most valuable script in the file. It is the single command that answers "is this repository in a good state" — lint, then test, then build. You run it before pushing. In the next lesson the pipeline runs the same script, which means a green pipeline and a green laptop mean the same thing. When those two diverge, developers stop trusting the pipeline, and a pipeline nobody trusts is worse than none.
@@ -83,6 +85,8 @@ Two more npm features are worth knowing.
   }
 }
 ```
+
+`rm -rf` doesn't exist in Windows `cmd`. If anyone on the team builds on Windows without WSL or Git Bash, use a cross-platform command instead, such as `node -e "require('fs').rmSync('dist',{recursive:true,force:true})"`. (Vite also empties `outDir` on every build by default; the hook makes that explicit and works for tools that don't.)
 
 **Argument passing.** Everything after `--` is forwarded to the underlying command:
 
@@ -223,7 +227,7 @@ dist/
 .DS_Store
 ```
 
-Read the last three lines carefully. `.env.*` catches `.env.local` and `.env.production`. The `!` line re-includes `.env.example`, because that one must be tracked. Order matters — a negation only works after the pattern that excluded the file.
+Read the three `.env` lines carefully. `.env.*` catches `.env.local` and `.env.production`. The `!` line re-includes `.env.example`, because that one must be tracked. Order matters — a negation only works after the pattern that excluded the file.
 
 Then the workflow itself. Conventions vary between teams, and part of this competency is finding out which convention applies rather than importing habits from your last project. Ask on day one: what do we branch from, how do we name branches, do we merge or rebase, who reviews, what does a commit message look like. What follows is the common trunk-based shape you will meet most often.
 
@@ -293,3 +297,13 @@ Turn the events board into a repository that a new teammate can set up and build
 12. From the pull request diff alone, check that no `.env`, no `dist/`, and no secret value appears. Write down what you looked for.
 
 **Deliverable:** a pull request containing the root task-runner scripts, the config module, `.env.example`, and the updated `.gitignore`, plus a `NOTES.md` holding your exit-code experiment, the fail-fast error message, and your `git check-ignore` output.
+
+## Check your understanding
+
+1. What does `npm run verify` guarantee that running `lint`, `test`, and `build` by hand doesn't?
+2. A script prints an error but `echo $?` shows `0`. Why is that dangerous in a pipeline?
+3. Is a database password in `config/production.js` config or code under twelve-factor? What should replace the file?
+4. Why can't a private API key be supplied to the front end through a `VITE_` variable?
+5. You committed `.env` and pushed. You delete it in the next commit. Are you done?
+
+*Answers:* (1) The same steps run in the same order with the same stop-on-failure behavior on every machine, including the pipeline. (2) Automation reads the exit code, not the text, so the pipeline goes green while something is broken. (3) It's config. Supply it as an environment variable, document the key in `.env.example`, and keep the value out of the repository. (4) Vite inlines `VITE_` values into the JavaScript bundle, which anyone can download and read. (5) No. The secret is still in history and on the remote. Treat it as compromised: revoke and rotate it, then tell your team.

@@ -138,7 +138,8 @@ Foreign key  same name as the key it references venue_id
 Timestamps   suffix _at, always timestamptz     starts_at, registered_at
 Dates        suffix _on, type date              joined_on
 Booleans     read as a true statement           checked_in
-Junctions    both table names, alphabetical     event_categories
+Junctions    parent table + child table, or a   event_categories,
+             noun naming the relationship       registrations
 ```
 
 **Controlled vocabularies** need writing down because the database only enforces the set, not the meaning: `draft` means not yet public; `published` means visible on the site; `completed` means it happened; `cancelled` means it was called off and must never be counted as attendance.
@@ -182,3 +183,11 @@ Produce a real schema document for `events_board` as it stands after lesson 05's
 8. Write the one-paragraph stakeholder summary as a separate short section at the top, and check it against a hard rule: no table name, no column name, no type name anywhere in it.
 
 **Deliverable:** a `db/README.md` containing all six sections and an embedded diagram, a `data-dictionary.csv` beside it, the diagram's editable source file, and a short note recording what your reader got stuck on and what you changed in response.
+
+## Check your understanding
+
+1. Your schema document and the latest migration disagree about whether `events.ends_at` is required. Which one is right, and what line in the header block tells the reader that?
+2. Rewrite this dictionary description so it earns its place: "`registered_at` — registered at."
+3. Why should the data dictionary be updated in the same pull request as the migration rather than afterwards?
+
+*Answers:* (1) The migration; the "Source of truth" line says the migrations define the schema and the document describes it. (2) For example: "The moment the resident signed up, stored as an absolute instant. Set automatically on insert; not the time of the event and not when they checked in." (3) Because a dictionary updated later is a dictionary that is wrong in between — and in practice "later" often never comes; the reviewer can only check both together if they arrive together.

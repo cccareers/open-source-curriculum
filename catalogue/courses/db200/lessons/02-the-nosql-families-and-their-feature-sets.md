@@ -29,7 +29,7 @@ Two clarifications before the tour, because both cause confusion.
 
 A document store keeps records as self-describing documents, in practice JSON or a binary encoding of it. MongoDB stores BSON; Couchbase, Amazon DocumentDB, Firestore, and RavenDB are all variations on the idea, and Postgres itself has a very capable `jsonb` column type that covers a surprising amount of this ground.
 
-The unit of storage is a whole document, and documents live in collections rather than tables. Here is an order that would have been four rows across three tables in your db100 schema:
+The unit of storage is a whole document, and documents live in collections rather than tables. Here is a shop order. In a relational schema built the way you learned in db100 (`customers`, `orders`, and `order_lines` tables), it would be four rows across three tables: one customer, one order, and two lines.
 
 ```json
 {
@@ -174,7 +174,7 @@ The last thing to keep hold of: relational is still the default for a reason. It
 
 Work on paper or in a text file. No database installation is needed for this lesson.
 
-1. Take the `orders` / `order_lines` / `customers` / `products` schema you built in db100 and write out how the same single order would be represented in each of the four families: one document, one key-value entry with the key you would choose, a wide-column table definition with its primary key, and a set of nodes and edges. Keep them side by side.
+1. Sketch the order above as a relational schema first: `customers`, `products`, `orders`, and `order_lines` tables with their keys, the way db100 taught you to model the events board. Then write out how the same single order would be represented in each of the four families: one document, one key-value entry with the key you would choose, a wide-column table definition with its primary key, and a set of nodes and edges. Keep them side by side.
 2. For each of the four, write the one query it makes cheap and the one query it makes painful.
 3. For each of the following workloads, name the family you would start from and write two sentences of justification. Name the property you are buying and the property you are giving up.
    - A dashboard showing the last 24 hours of readings from 50,000 temperature sensors, with new readings arriving every ten seconds.
@@ -187,3 +187,12 @@ Work on paper or in a text file. No database installation is needed for this les
 6. Write a short paragraph on this claim: "We should use MongoDB because we don't want to write migrations." State what is true in it and what it is hiding.
 
 **Deliverable:** a `nosql-families.md` file holding the four representations from step 1, your workload table from steps 3 and 4, the seven-dimension comparison from step 5, and the paragraph from step 6.
+
+## Check your understanding
+
+1. "Schemaless" stores still have a schema. Where does it live, and who enforces it?
+2. Why does a wide-column store refuse a query like "all readings above 40 degrees" that Postgres would simply run?
+3. A team wants a graph database because "users follow other users." Their deepest query is "list the people I follow." What would you tell them?
+4. Name the seven dimensions for comparing stores. Which one is most often skipped in technical arguments?
+
+*Answers:* (1) In application code and code review, plus optional validation rules if the team turns them on. (2) It can only query efficiently along the partition and clustering key; any other filter means scanning every partition on every node, and there is no planner to rescue it. (3) That's a one-hop question a relational join handles easily. Graph databases pay off on multi-hop traversals, not shallow relationships. (4) Data model, query capability, indexing, transaction scope, consistency and replication, scaling model, and operational cost. Operational cost is the one most often skipped.

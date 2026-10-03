@@ -189,3 +189,19 @@ Work from the reservation feature you prototyped in lesson 09. Your instructor w
 13. **Review the plan against reality.** At the end, write a paragraph comparing your estimates to what actually happened. Which task was most wrong and why? What would you estimate differently next time? An honest analysis of a bad estimate is worth more than a lucky good one.
 
 **Deliverable:** `PLAN.md` containing your spec analysis, batched questions with answers, acceptance criteria, component and data breakdown, an estimated and sequenced task list, dependencies, risks, a definition of done, at least three daily status reports, your response to the injected change, a slip report, and your closing estimate review; plus two merged pull requests delivering the first two tasks, and a notes file recording your decisions.
+
+## Check your understanding
+
+1. Is "Uses a calendar component for the date range" an acceptance criterion? Why or why not?
+2. Rewrite this question so a busy person can answer it in five seconds: "What should happen if a member reserves their own tool?"
+3. Your plan cuts the reservation feature into "all components", then "all state", then "all API calls". What is wrong with that, and what is the alternative?
+4. T6 (overlap detection) was estimated at one day and it is now the second morning. When do you report it, and what do you include?
+5. What is the difference between a blocker and a difficulty?
+
+**Answers**
+
+1. No. It describes an implementation, not an observable outcome someone else can check without reading your code.
+2. "The spec does not say whether a member can reserve their own tool. I propose allowing it, so owners can block out dates. Confirm?"
+3. It is cut horizontally by layer, so nothing works or can be demonstrated until the end. Cut vertically, into thin end-to-end slices such as "display existing reservations".
+4. Now, not on the due date. Include what happened, the revised estimate, the options (cut scope, get help, reorder), and what you need from anyone.
+5. A blocker needs someone else before you can continue — report it immediately and switch tasks. A difficulty is hard but progressing — timebox it, and ask once the box runs out.

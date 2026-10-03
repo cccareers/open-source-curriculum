@@ -15,7 +15,7 @@ objectives:
 
 Every route you have written so far assumed success. The events board reads from an in-memory array, finds what it is looking for, and renders it. That assumption holds right up until someone types a URL you did not plan for, and then it does not hold at all.
 
-Here is the detail route from lesson 04, unchanged:
+Here is the detail route from lesson 06, with its not-found check deliberately removed, which is exactly the kind of omission that slips through in a hurry:
 
 ```js
 app.get("/events/:id", (req, res) => {
@@ -45,7 +45,7 @@ app.get("/events/:id", async (req, res) => {
 });
 ```
 
-The handler is `async`, which means calling it returns a promise. Express 4 calls it, ignores the return value, and moves on. If `loadEvent` rejects, the rejection has nowhere to go: Express never learns about it, no response is ever sent, and the browser sits there spinning until it times out. Node prints an unhandled rejection warning, and on modern Node versions an unhandled rejection terminates the process by default — so one bad request can take your whole service down.
+The handler is `async`, which means calling it returns a promise. Express 4 calls it, ignores the return value, and moves on. If `loadEvent` rejects, the rejection has nowhere to go: Express never learns about it, and no response is ever sent. What happens next depends on Node. Since Node 15, an unhandled rejection terminates the process by default. Node prints the error and its stack, the server exits, and the client's connection is dropped mid-request (`curl` reports `Empty reply from server`). One bad request takes your whole service down for everybody. If something in the app swallows unhandled rejections instead, for example a global `process.on("unhandledRejection")` listener, the process survives, but the request hangs and the browser spins until it times out. Neither outcome gets your error handler involved.
 
 Express 5 does forward rejected promises from handlers automatically. You may end up on either version, and a habit that works on both is worth more than a habit that depends on which one `npm install express` gave you this week. Be explicit.
 
@@ -129,17 +129,20 @@ Assembled, the events board's `app.js` now reads top to bottom as the life of a 
 ```js
 import express from "express";
 import morgan from "morgan";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { requestId } from "./middleware/request-id.js";
 import { notFound, errorHandler } from "./middleware/errors.js";
-import { eventsRouter } from "./routes/events.js";
+import eventsRouter from "./routes/events.js";
 import { apiRouter } from "./routes/api.js";
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
 
 app.use(requestId);                // 1. tag the request
 app.use(morgan(":id :method :url :status :response-time ms"));
 app.use(express.json());           // 2. parse bodies
-app.use(express.static("public")); // 3. static assets
+app.use(express.static(path.join(__dirname, "public"))); // 3. static assets, absolute path (lesson 06)
 app.use("/events", eventsRouter);  // 4. rendered pages
 app.use("/api", apiRouter);        // 5. JSON API
 app.use(notFound);                 // 6. nothing matched
@@ -159,6 +162,9 @@ A missing event is a 404. A malformed JSON body is a 400. A view template that r
 The error handler decides all of this in one place. The events board serves two audiences — rendered pages for browsers, JSON for API clients — so it also has to pick a body shape:
 
 ```js
+// middleware/errors.js
+import { logger } from "../lib/logger.js"; // the structured logger built in "Logs you can actually use" below
+
 export function errorHandler(err, req, res, next) {
   if (res.headersSent) return next(err);
 
@@ -211,6 +217,7 @@ The first habit is levels. Use `error` for something broken that needs a human. 
 The second habit is structure. Write one line per event, as JSON, with the same field names every time. Prose log lines are pleasant to read one at a time and useless to search across ten thousand. A structured line can be filtered by field in any host's log viewer.
 
 ```js
+// lib/logger.js
 function write(level, fields) {
   process.stdout.write(
     JSON.stringify({ time: new Date().toISOString(), level, ...fields }) + "\n"
@@ -314,3 +321,16 @@ Work in your events board project. Each step should be a separate commit so you 
 6. **Prove the async gap.** Add an async route that awaits a promise which rejects. Request it and observe what happens with no `try`/`catch`. Then wrap it with `asyncRoute` and observe the difference. Note which Express major version you have and what that changes.
 
 7. **Write the report.** Have a classmate introduce one small bug into your app without telling you what it is. Find it using only the logs and the request id, then write an issue report using the structure in this lesson — including at least two things you ruled out. Swap reports and check whether the other person's report is enough to reproduce and fix the bug without asking a single follow-up question.
+
+## Check your understanding
+
+1. A route handler throws synchronously and you have written no error handling at all. What does the client receive in development, and what in production?
+   *Express's default handler responds `500`. With `NODE_ENV` unset it includes the full stack trace in the body; with `NODE_ENV=production` the body is just "Internal Server Error".*
+2. On Express 4, an `async` handler awaits a promise that rejects, with no `try`/`catch`. On current Node, what happens?
+   *Express never sees the rejection. It is unhandled, so Node terminates the process; the client gets no response and every other visitor loses the service. Forward it with `try`/`catch` + `next(err)` or the `asyncRoute` wrapper.*
+3. Your error handler is written as `(err, req, res) => { ... }` and never runs. Why?
+   *Express recognizes error handlers by their four declared parameters. With three, it is ordinary middleware. Put `next` back.*
+4. Why does the client get "Something went wrong on our end." for a 500, but the real message for a 404?
+   *A 4xx message is one you wrote and is safe to show. A 5xx message comes from code you do not control and can leak paths, versions, or credentials. The full detail goes to the log, linked by the request id.*
+5. What turns three unrelated log lines into the story of one request?
+   *A request id generated (or accepted from `x-request-id`) at the top of the stack, echoed in the response, and included in every log line for that request.*

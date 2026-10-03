@@ -241,7 +241,7 @@ const summary = useSelector((state) => ({
 }));
 ```
 
-Both selectors build a fresh value each time they run. The new value is never `Object.is`-equal to the old one, so the component re-renders after every action in the entire application, including ones from unrelated features. The fixes, in order of preference:
+Both selectors build a fresh value each time they run. The new value is never `Object.is`-equal to the old one, so the component re-renders after every action in the entire application, including ones from unrelated features. Recent versions of React Redux also run a development-only check that calls your selector twice with the same state and logs a console warning when the two results are not the same reference — if you see a warning that a selector "returned a different result when called with the same parameters," this is the bug it is pointing at. The fixes, in order of preference:
 
 ```jsx
 // 1. Select a primitive
@@ -291,7 +291,7 @@ export const selectClaimedEventIds = createSelector(
 
 `createSelector` takes input selectors and a combiner. It runs the combiner only when an input's result changes, and otherwise returns the previous output — the *same reference* — so `useSelector` sees no change and skips the re-render. This is the proper fix for the "new array every time" bug.
 
-One caveat that surprises people: a memoized selector caches exactly one result by default. A selector parameterized per component instance — `selectShiftFor(state, eventId)` built with `createSelector` — will thrash if fifty rows each call it with a different id. For per-item lookups, prefer a plain function like the one above, or read the lookup table once in the parent and index into it.
+One caveat that depends on your version. In Redux Toolkit 1.x (which bundles Reselect 4), a memoized selector caches exactly one result, so a selector parameterized per component instance — `selectShiftFor(state, eventId)` built with `createSelector` — will thrash if fifty rows each call it with a different id: every call evicts the previous row's result. Redux Toolkit 2.x bundles Reselect 5, whose default memoizer keeps a result per set of arguments, which removes most of that thrash. Check `npm ls @reduxjs/toolkit` before you rely on either behavior. On both versions the simplest advice holds: for per-item lookups that return an existing object, prefer a plain function like the one above (it returns a stable reference already, so there is nothing to memoize), or read the lookup table once in the parent and index into it.
 
 ## Adding a second slice, and one action many slices handle
 
@@ -359,7 +359,7 @@ reducers: {
 }
 ```
 
-Callers now write `dispatch(shiftClaimed(eventId, "setup"))`. The reducer is pure again — given the same action it always produces the same state — and the timestamp is captured once, at the moment the thing actually happened. `prepare` is also where you would generate an id or normalize an argument list.
+Callers now write `dispatch(shiftClaimed(eventId, "setup"))`. That is a change to the action creator's signature: `prepare` receives the arguments the caller passes, so the earlier `ShiftButton` call `shiftClaimed({ eventId, role: "general" })` must become `shiftClaimed(eventId, "general")`, or it will store an object under the key `"[object Object]"`. Grep for every caller when you add a `prepare`. The reducer is pure again — given the same action it always produces the same state — and the timestamp is captured once, at the moment the thing actually happened. `prepare` is also where you would generate an id or normalize an argument list.
 
 ## Debugging with DevTools
 
@@ -394,3 +394,13 @@ Add a cross-cutting "my shifts" feature to the Community Events Board you built 
 11. Answer in `NOTES.md`: name one piece of state currently in your app that should *not* move into the store, and say what should own it instead.
 
 **Deliverable:** a committed app with a two-slice store, selectors as the only public read path, a cross-cutting action handled by both slices, and a `NOTES.md` documenting your state-shape design, your re-render measurements, and your answer to step 11.
+
+## Check your understanding
+
+1. Name one piece of Community Events Board state that belongs in the store and one that does not, and say what owns the second one instead.
+2. A reducer contains `state = { ...state, note: "" }` and the note never clears. Why, and what are the two correct ways to write it?
+3. Why is `userSignedOut` handled in `extraReducers` rather than `reducers` in the shifts slice?
+4. `useSelector((state) => Object.keys(state.shifts.byEventId))` makes the badge re-render on every preferences toggle. Explain the mechanism in one sentence and give the fix.
+5. DevTools shows `shifts/shiftClaimed` with the right payload, and the state diff shows the new entry, but the button still says "Claim a shift". Which part of the cycle do you inspect next?
+
+**Answers:** (1) In: the volunteer's shifts (read by the nav badge, list, and detail page). Out: the event records (owned by route loaders), a form's in-progress field values (owned by the form), or the current filter (owned by the URL). (2) Reassigning the parameter discards the Immer draft; write `state.note = ""` or `return { ...state, note: "" }`. (3) The action is defined elsewhere (`createAction` in a shared file); `reducers` is only for actions the slice owns. (4) The selector builds a new array every time, which is never `Object.is`-equal to the last one, so every dispatch counts as a change; select a primitive or memoize with `createSelector`. (5) The selector or the component reading it: the action fired and the state changed, so the stale UI is on the read side.

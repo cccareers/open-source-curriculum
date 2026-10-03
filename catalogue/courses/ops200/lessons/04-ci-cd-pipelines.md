@@ -87,7 +87,7 @@ Read the vocabulary off that file, because every CI system has the same four lev
 
 A **workflow** is the whole file. `on:` declares its **triggers** — here, any push to `main` and any pull request, which together mean every change is checked before merge and again after. A **job** is a unit that runs on one machine; `runs-on` picks the image. **Steps** run in order on that machine, and each is either `uses:` (a prebuilt action someone else wrote) or `run:` (a shell command). A step that exits non-zero fails the job and skips the rest — which is why lesson 03 insisted that your scripts report failure honestly.
 
-Three supporting details are worth copying into every workflow you write. `concurrency` with `cancel-in-progress` kills the previous run when you push twice in a minute, so you are not waiting behind results you no longer care about. `timeout-minutes` stops a hung job from burning an hour. And `node-version-file: .nvmrc` means the pipeline and your laptop read the same file, so there is one answer to "which Node version" instead of two that drift apart.
+Three supporting details are worth copying into every workflow you write. `concurrency` with `cancel-in-progress` kills the previous run when you push twice in a minute, so you are not waiting behind results you no longer care about. Once this workflow also deploys (later in this lesson), be careful: cancelling a run on `main` can stop a deploy halfway. A common pattern is to cancel only pull-request runs, with `cancel-in-progress: ${{ github.event_name == 'pull_request' }}`, so runs on `main` queue instead of being cancelled. `timeout-minutes` stops a hung job from burning an hour. And `node-version-file: .nvmrc` means the pipeline and your laptop read the same file, so there is one answer to "which Node version" instead of two that drift apart.
 
 ## What each stage guarantees
 
@@ -253,16 +253,25 @@ Build a working pipeline for the events board and prove each guarantee by breaki
 
 1. Create `.github/workflows/ci.yml` with a single `verify` job that checks out, sets up Node from `.nvmrc`, runs `npm ci`, and runs `npm run verify`. Push it on a branch and open a pull request so it runs.
 2. Confirm the run is green. Record the total wall-clock time and the time spent in the install step.
-3. Break the lint rule you added in lesson 03, push, and confirm the run goes red at the lint step and that the test and build steps never ran. Screenshot or paste the step list into `NOTES.md`.
+3. Break the lint rule you added in lesson 03, push, and confirm the run goes red. With the single `verify` step from item 1, look inside that step's log: the lint output should show the error, and the test and build scripts should never have started, because `verify` stops at the first failure. Screenshot or paste the step list into `NOTES.md`.
 4. Change one dependency version in `package.json` without updating the lockfile and push. Capture the exact `npm ci` error and write one sentence on the guarantee that error is protecting.
 5. Add a step that intentionally references a file you have not committed. Watch it fail, then explain in `NOTES.md` why your laptop did not catch it.
 6. Split the workflow into parallel `lint` and `test` jobs plus a `build` job that `needs` both. Compare the new pull request feedback time to the single-job version and record both numbers.
 7. Add `actions/upload-artifact` to the build job, naming the artifact after the commit SHA. Download the artifact from the run page and confirm its contents match what `npm run build` produces locally.
 8. Add `concurrency` with `cancel-in-progress`, then push twice within thirty seconds and confirm the first run was cancelled.
 9. Add a `deploy` job that `needs: build`, is gated with `if: github.ref == 'refs/heads/main'`, downloads the artifact, and — as a stand-in for a real deploy — prints the artifact's file listing and the commit SHA. Confirm it is skipped on your pull request and runs after merge.
-10. Add a smoke-test step using `curl --fail` against a URL you control, such as your locally reachable health endpoint replaced by a public placeholder. Point it at a path that returns 404 and confirm the job fails; point it back and confirm it passes.
+10. Add a smoke-test step using `curl --fail`. A GitHub-hosted runner can't reach `localhost` on your laptop, so if you haven't deployed anywhere yet, use a public URL as a stand-in: `https://api.github.com/` returns 200 and `https://api.github.com/this-path-does-not-exist` returns 404. Point the step at the 404 path and confirm the job fails; point it at the 200 path and confirm it passes.
 11. Add a repository secret and read it in a step through an `env:` block, printing only its length rather than its value. Explain in one sentence why the length is safe to print.
 12. Enable branch protection on `main` requiring your pipeline's jobs to pass, then try to push directly to `main` and record what happens.
 13. Write, in `NOTES.md`, one sentence per stage in your final pipeline stating what is guaranteed to be true once that stage passes.
 
 **Deliverable:** a merged `.github/workflows/ci.yml` with parallel checks, artifact upload, and a gated deploy job; branch protection requiring it; and a `NOTES.md` containing your timing comparisons, the four failures you caused with their error output, and your per-stage guarantee list.
+
+## Check your understanding
+
+1. Your laptop's build passes and the pipeline's fails with `Cannot find module 'vite'`. Which is more likely to be right, and what is the usual cause?
+2. What does the build stage guarantee that the test stage doesn't?
+3. Why should the deploy job download the artifact instead of running `npm run build` again?
+4. Which line in the workflow separates continuous integration from continuous deployment, and how would you turn this into continuous delivery without editing the workflow?
+
+*Answers:* (1) The pipeline. The package is probably installed on your machine (globally, or left over in `node_modules`) but missing from `package.json` or the lockfile. (2) That the source turns into a complete artifact on a clean machine. Tests can pass while a missing dependency or uncommitted asset still breaks the build. (3) A rebuild produces bytes no stage in the run ever verified. Build once and move that artifact forward. (4) The deploy job's `if:` condition. Add a required reviewer to the `production` environment.

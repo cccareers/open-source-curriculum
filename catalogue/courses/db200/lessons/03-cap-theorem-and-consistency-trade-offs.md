@@ -80,7 +80,7 @@ Daniel Abadi's **PACELC** extends it and is the more useful formulation for real
 
 The "else" branch is the one you feel every day. If a write must be acknowledged by a majority of replicas before it returns, and those replicas are in three regions, then every write pays a cross-region round trip — perhaps 80 to 150 milliseconds — forever, partition or not. If it only has to reach one local replica, the write returns in a millisecond and the other regions catch up shortly after.
 
-So the classifications get longer and more honest. Cassandra is PA/EL: available under partition, low-latency otherwise, consistency last both times. MongoDB is PC/EC by default. DynamoDB lets you pick per request. Google Spanner is PC/EC and buys back the latency with atomic clocks and satellite time sync, which is an excellent illustration of the principle that you can beat these trade-offs only by spending an implausible amount of money.
+So the classifications get longer and more honest. Cassandra is PA/EL: available under partition, low-latency otherwise, consistency last both times. MongoDB is harder to label, and published classifications disagree. Abadi's original 2012 paper called it PA/EC. Recent versions default to majority-acknowledged writes, which behave much more like PC/EC, but default reads can still return data that is later rolled back. The honest answer depends on the read and write concerns you configure, and that's the general lesson: these labels describe configurations, not products. DynamoDB lets you pick per request. Google Spanner is PC/EC and buys back the latency with atomic clocks and satellite time sync, which is an excellent illustration of the principle that you can beat these trade-offs only by spending an implausible amount of money.
 
 When you are asked "is this design feasible," PACELC is the sharper question, because latency is a number you can put in a requirements document and consistency-under-partition is not.
 
@@ -169,3 +169,12 @@ Two failure modes to avoid when you are the one making the case. Do not treat CA
 6. Find the documented default consistency behavior for two stores from different families, using vendor documentation, and cite the pages. Note for each whether the default is the safe choice or the fast one, and what happens to an application whose author never changed it.
 
 **Deliverable:** a `consistency-notes.md` file containing your answers to steps 1 through 4 and step 6, plus a separate `feasibility-note.md` holding the one-page note from step 5.
+
+## Check your understanding
+
+1. In one sentence each, how does CAP's C differ from ACID's C?
+2. A three-node MongoDB replica set splits 2–1. What happens on each side?
+3. With `N = 3`, does `W = 2, R = 1` give you strong consistency? Why or why not?
+4. Why does Cassandra's default conflict resolution make clock drift a correctness problem?
+
+*Answers:* (1) CAP's C means every replica agrees, so every read sees the latest write (linearizability). ACID's C means the database never violates your declared constraints. (2) The two-node side keeps or elects a primary and accepts writes. The lone node steps down and refuses writes until the partition heals. (3) No. `2 + 1 = 3` is not greater than 3, so a read can land on the one replica that missed the write. (4) Last-write-wins compares timestamps from different machines, so a node whose clock runs ahead wins conflicts it should lose.

@@ -375,7 +375,7 @@ useEffect(() => {
 }, []);
 ```
 
-One timing note that ties these together. An effect runs *after* the browser has painted the render that scheduled it. That is why an effect is the wrong place to measure or adjust layout before the user sees it — you would get a visible flicker — and exactly the right place for anything the user does not need to see happen. For the work in this course, "after paint" is the only timing you need.
+One timing note that ties these together. An effect normally runs *after* the browser has painted the render that scheduled it. (When the render was caused by a click or a keypress, React may run the effect just before the paint instead; either way it runs after the DOM is updated, and your code should not depend on which.) That is why an effect is the wrong place to measure or adjust layout before the user sees it — you would get a visible flicker — and exactly the right place for anything the user does not need to see happen. For the work in this course, "after paint" is the only timing you need.
 
 ## When not to use an effect
 
@@ -449,3 +449,19 @@ Continue in the `toolshare` project. Use a public practice API that returns JSON
 12. **Handle a slow first paint honestly.** Make sure that nothing in your success branch reads a property of `null` before data arrives — deliberately throttle to the slowest setting and reload several times to confirm no crash.
 
 **Deliverable:** a `toolshare` project loading its tools from a remote API with all four states handled, a category refetch, a debounced search, a race condition demonstrably fixed, and a reusable `useFetch` hook used from two components; plus your screenshots and recorded findings for steps 3, 4, 8, and 9.
+
+## Check your understanding
+
+1. What is the difference between `useEffect(fn)`, `useEffect(fn, [])`, and `useEffect(fn, [toolId])`?
+2. The tools API returns a 500 error page. Without a `response.ok` check, what error do you see, and why is it misleading?
+3. A member clicks the Drill, then quickly the Ladder. The Drill's request returns last and the Ladder's page shows the Drill. Name two fixes.
+4. In development you see two requests in the network tab for one page load. Is that a bug?
+5. A component filters `tools` by `category` inside a `useEffect` that calls `setVisible`. What should it do instead?
+
+**Answers**
+
+1. No array runs after every render; an empty array runs once after the first render; `[toolId]` runs after the first render and again whenever `toolId` changes.
+2. A JSON parse error from `.json()` reading an HTML page. It points you at parsing when the real problem is the failed request.
+3. An `ignore` flag set to `true` in the cleanup, or an `AbortController` whose `abort()` is called in the cleanup. Either way, the stale request cannot write state.
+4. No. Strict mode runs the effect, its cleanup, and the effect again in development to expose missing cleanups. It does not happen in production.
+5. Compute `const visible = tools.filter(...)` during render. Deriving a value is a calculation, not a side effect.

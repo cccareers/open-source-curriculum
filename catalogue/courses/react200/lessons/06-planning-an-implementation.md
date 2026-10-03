@@ -312,3 +312,13 @@ Produce a real implementation plan for the volunteer drive described in this les
 13. Give the plan to a peer with one specific request: "tell me whether the state ownership table is right." Record their feedback in the decision log, and revise section 5 if they were right.
 
 **Deliverable:** a committed `docs/implementation-plan.md` of two to four pages containing all nine sections, grounded in your repository's real routes, slices, and endpoints, with a peer's review recorded in the decision log.
+
+## Check your understanding
+
+1. A plan reads: "Build the shift UI. Build the organizer UI. Connect the API." What will a senior developer be unable to review, and which section of the nine is missing?
+2. Why is "Increment 3 — Saved searches" placed third even though it has no dependencies, and when would you pull it forward?
+3. What turns an investigation into a spike rather than just the start of the work?
+4. Rewrite "The API might be late" as a usable risk-table row.
+5. Why does the API contract list the 409 and the 403, not only the success responses?
+
+**Answers:** (1) There are no design decisions to disagree with: the route map, the state ownership table, and the API contract (section 5, Design) are missing. (2) It is the safest work, so it sits where it can absorb a slip; pull it forward if the shift endpoints are late, because it is the only increment not blocked on the API team. (3) A strict time box and an output that is knowledge (a written answer and a decision), not shippable code. (4) "Shift endpoints slip past week 2 | Increments 1, 2, 4 blocked | Build increment 3 first and stub the endpoints in the dev server." (5) Error responses are part of the contract; listing them resolves open questions (what happens when an event fills) and tells both the API team and QA what the UI must handle.
