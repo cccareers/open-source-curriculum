@@ -19,7 +19,7 @@ Systems have exactly one bottleneck at a time. There may be several tight spots,
 
 Two ideas make the search tractable.
 
-The first is **queueing**. Latency is service time plus waiting time. Service time is how long the work takes when a resource is free; waiting time is how long the request sat in line. As a resource approaches full utilization, waiting time does not rise gently — it rises hyperbolically. Going from 70 to 80 percent utilization roughly doubles queueing delay; going from 90 to 95 doubles it again. This is why "CPU is only at 85 percent, that's fine" is wrong, and why saturation signals move before latency does. The shape of the curve is the single most useful thing to have in your head during a performance investigation.
+The first is **queueing**. Latency is service time plus waiting time. Service time is how long the work takes when a resource is free; waiting time is how long the request sat in line. As a resource approaches full utilization, waiting time does not rise gently — it rises hyperbolically. Going from 70 to 80 percent utilization nearly doubles queueing delay (about 1.7 times); going from 90 to 95 more than doubles it again. The simplest queueing model makes the shape concrete: average waiting time is proportional to `u / (1 − u)`, where `u` is utilization. At 50 percent that factor is 1; at 70 percent about 2.3; at 80 percent it is 4; at 90 percent, 9; at 95 percent, 19. The last ten points of utilization cost more waiting than the first ninety. This is why "CPU is only at 85 percent, that's fine" is wrong, and why saturation signals move before latency does. The shape of the curve is the single most useful thing to have in your head during a performance investigation.
 
 The second is **the tail**. When a slow subset exists — one bad instance, one unindexed query, one cold cache path — the mean barely moves and the high percentiles move a lot. So you always look at the distribution, and when the distribution has spread out, your next question is always "spread out for *which* requests?" That question is the entire method.
 
@@ -123,9 +123,16 @@ sum by (route) (rate(http_requests_total{status_class="5xx"}[5m]))
 # connection pool saturation, as a fraction of capacity
 max by (instance) (db_pool_connections_in_use) / max by (instance) (db_pool_size)
 
-# is one instance the outlier? compare each to the fleet median
-max by (instance) (rate(http_request_duration_seconds_sum[5m])
-                   / rate(http_request_duration_seconds_count[5m]))
+# is one instance the outlier? mean latency per instance, side by side
+sum by (instance) (rate(http_request_duration_seconds_sum[5m]))
+  / sum by (instance) (rate(http_request_duration_seconds_count[5m]))
+
+# ...and the same thing divided by the fleet median, so the outlier reads as "3.2x"
+(sum by (instance) (rate(http_request_duration_seconds_sum[5m]))
+  / sum by (instance) (rate(http_request_duration_seconds_count[5m])))
+/ scalar(quantile(0.5,
+    sum by (instance) (rate(http_request_duration_seconds_sum[5m]))
+  / sum by (instance) (rate(http_request_duration_seconds_count[5m]))))
 ```
 
 Four habits that separate a fast investigation from a slow one. **Always bound the time window** — an unbounded query over a log store is slow and expensive and you rarely need it. **Filter before you aggregate**, on the most selective field first, so the engine discards early. **Count before you look** — run a `count() by` grouping before pulling raw lines, so you know whether you are about to read 12 lines or 12 million. And **save the query that worked**, with a comment saying what it answered; the same investigation recurs, and a saved query library is the most undervalued artifact in support work.

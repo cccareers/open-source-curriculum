@@ -172,3 +172,9 @@ No new infrastructure in this lesson. The work is to demonstrate the gap that in
 8. **Argue the other side.** Write one paragraph making the strongest honest case *against* adopting infrastructure as code for a two-person team managing three servers, and one paragraph answering it. A practice you cannot argue against is one you do not understand.
 
 **Deliverable:** the resource inventory with missed items marked, the rebuild estimate, the drift list with classifications, the declarative rewrite, the written code review of the plan above, the change policy, and the two paragraphs from step 8.
+
+## Check your understanding
+
+1. You run the same declarative configuration twice with no edits. What should the second run do, and what is that property called? *(Nothing — idempotence.)*
+2. A plan for what you believed was a tag change shows `-/+` on a database. What do you do? *(Stop. A replace on a database is a data-loss event; find the attribute marked `forces replacement` and understand it before anything is applied.)*
+3. Someone fixed an outage at 2 a.m. by editing a security group in the console, and the fix was correct. Which drift response fits, and why not re-apply? *(Amend the code; re-applying would revert a correct fix.)*

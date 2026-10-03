@@ -179,3 +179,9 @@ Below are five statements an engineer might write in a customer email. For each,
 5. "HIPAA doesn't apply to us because we never see patient names."
 
 Exchange the routing card from Exercise 1 with a classmate and test it against each other's Exercise 2 answers: if the card does not let a stranger route all six questions correctly, it is not finished.
+
+## Check your understanding
+
+1. A colleague writes "we are SOC 2 certified." What two things are wrong? *(SOC 2 produces an auditor's report, not a certificate; and the sentence should name the report type and period.)*
+2. Your company hosts a hospital's scheduling app. Which HIPAA role does your company most likely hold, and who decides for certain? *(Business associate; that is a legal determination for counsel.)*
+3. Why can a company with no European office still be in scope for GDPR? *(It applies to organizations offering goods or services to, or monitoring, people in the EU.)*

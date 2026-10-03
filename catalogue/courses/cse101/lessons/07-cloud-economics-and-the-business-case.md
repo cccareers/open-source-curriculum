@@ -188,3 +188,9 @@ Produce a full line-item estimate in the format used in this lesson. Use **real 
 **Part 5 — Write the business case.** One page, for the veterinary practice, arguing for or against the migration. It must include: the estimated monthly run cost from parts 1 and 2, a comparison against the total cost of ownership of buying servers for four clinics (state your labour and hardware assumptions), the three strongest non-cost benefits with the specific way each applies to *this* business, at least two honest risks or drawbacks, and a clear recommendation. No jargon a practice manager would need explained — lesson 09 is about that skill, and this is where you start practising it.
 
 **Deliverable:** one document containing both estimate tables with cited prices, the crossover arithmetic, the anomaly investigation plan with its customer update, and the one-page business case.
+
+## Check your understanding
+
+1. In the worked estimate, which two lines would you investigate first if asked to cut the bill by 20%, and why those? *(Compute and the managed database — together about 63% of the subtotal.)*
+2. A customer deletes 2 TB on the 15th and asks why it is on this month's invoice. What is the one-sentence answer? *(Storage is billed in gigabyte-months, so they paid for the half-month the data existed.)*
+3. Why is committing 100% of current usage for three years risky even when the workload is steady? *(It bets the architecture will not change; any right-sizing or move to another abstraction leaves the commitment paying for unused capacity.)*
