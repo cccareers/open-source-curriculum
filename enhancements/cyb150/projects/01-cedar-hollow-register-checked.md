@@ -86,7 +86,13 @@ for r in rows:
     if r["driver_column"] not in {"patient data", "clinical operations", "financial", "regulatory"}:
         F.append(f"{i}: driver_column must name the impact column that drove I")
     if r["inherent_L"] and r["inherent_I"]:
-        if int(r["inherent_L"]) * int(r["inherent_I"]) < S: F.append(f"{i}: residual exceeds inherent")
+        try:
+            iL, iI = int(r["inherent_L"]), int(r["inherent_I"])
+        except ValueError:
+            F.append(f"{i}: inherent_L and inherent_I must be integers")
+        else:
+            if not (1 <= iL <= 5 and 1 <= iI <= 5): F.append(f"{i}: inherent_L and inherent_I must be 1-5")
+            elif iL * iI < S: F.append(f"{i}: residual exceeds inherent")
     t = r["treatment"].lower()
     if t not in {"mitigate", "transfer", "avoid", "accept"}: F.append(f"{i}: bad treatment {t}")
     if not r["owner"]: F.append(f"{i}: owner role missing")
@@ -95,7 +101,8 @@ for r in rows:
     if t == "accept":
         for k in ("accept_by", "accept_date", "accept_rationale", "accept_expiry", "compensating"):
             if not r[k].strip(): F.append(f"{i}: accept record missing {k}")
-        if "technician" in r["accept_by"].lower(): F.append(f"{i}: a technician cannot accept risk")
+        if "executive director" not in r["accept_by"].lower():
+            F.append(f"{i}: accept_by must be the Executive Director, the role that can bind Cedar Hollow")
         try:
             if datetime.date.fromisoformat(r["accept_expiry"]) <= datetime.date.fromisoformat(r["accept_date"]):
                 F.append(f"{i}: acceptance expiry must be after acceptance date")

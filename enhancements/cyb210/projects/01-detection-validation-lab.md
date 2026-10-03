@@ -39,13 +39,13 @@ You are the endpoint technician at **Harbor Ridge Medical Group** (the 40-clinic
 
 - Lessons 02 and 03 completed, especially "The tuning ladder" and "Stage 4: behavioral analysis".
 - A hypervisor (VirtualBox, VMware Workstation/Fusion, Hyper-V, or UTM) with at least 12 GB RAM free.
-- Reference stack: Wazuh all-in-one on the collector VM; on a Windows endpoint, the Wazuh agent plus Sysmon with a community configuration; on a Linux endpoint, the Wazuh agent with `auditd` rules for `execve`, user and group changes, and cron. Installation steps change between releases — follow the current vendor quickstart and record the versions you used.
+- Reference stack: Wazuh all-in-one on the collector VM; on a Windows endpoint, the Wazuh agent plus Sysmon with a community configuration; on a Linux endpoint, the Wazuh agent with `auditd` rules for `execve`, user and group changes, and cron, **plus ClamAV** (Linux has no built-in quarantining scanner, so milestone 2 needs one): scan with `clamscan --move=/var/quarantine` or enable on-access scanning, and have the agent collect the ClamAV log so the detection and move reach the collector. Installation steps change between releases — follow the current vendor quickstart and record the versions you used.
 - Python 3.9+ on whichever machine you will run the acceptance script.
 
 ## Milestones
 
-1. **Build and attest the lab (1 h).** Two VMs on a host-only network. From the endpoint, show that `ping 1.1.1.1` and a DNS lookup of any public name both fail, and that the collector is reachable. Screenshot both. Record the four health questions from lesson 02 for your one-endpoint "estate": inventoried, agent installed, checked in within 24 h, current content, intended policy.
-2. **Trigger the EICAR check (15 min).** On the endpoint, create the EICAR test file in a temporary directory. Confirm the anti-malware layer quarantines it and that the collector shows the event. This proves the **signature layer** works and teaches you where quarantine events appear. Record the event ID and the field that holds the file path.
+1. **Build and attest the lab (1 h).** Two VMs on a host-only network. Prove containment positively before any trigger runs: screenshot the hypervisor's network settings showing only the host-only adapter on the endpoint; show the endpoint's routing table (`ip route` or `route print`) with no default route, or only one into the host-only network; and show that an outbound TCP attempt fails (for example `curl -m 5 https://1.1.1.1` or `Test-NetConnection 1.1.1.1 -Port 443`). Then, as supplementary evidence, show that `ping 1.1.1.1` and a DNS lookup of any public name fail, and that the collector is reachable. Screenshot each. Record the four health questions from lesson 02 for your one-endpoint "estate": inventoried, agent installed, checked in within 24 h, current content, intended policy.
+2. **Trigger the EICAR check (15 min).** On the endpoint, create the EICAR test file in a temporary directory named `eicar-test`. Confirm the anti-malware layer (Microsoft Defender on Windows, ClamAV on Linux) quarantines or moves it and that the collector shows the event. This proves the **signature layer** works and teaches you where quarantine events appear. Record the event ID and the field that holds the file path.
 3. **Run the five benign triggers (1.5 h).** Use the same five actions as lesson 02's Practice, Part 2 (office app or editor spawning a shell; scheduled task/cron created; renamed system binary run from temp; outbound connection to a lab host; new local admin). For each, find the raw telemetry event, then write or enable a rule so that each produces an **alert** with a stable rule ID. Tag each rule with a short label in its description, `HR-VAL-01` through `HR-VAL-05`, so the acceptance script can find them.
 4. **Create and tune a false positive (1.5 h).** Schedule a benign housekeeping script (it copies and deletes 200 small files across ten directories) to run every five minutes under a dedicated service account. Confirm your file-activity rule (`HR-VAL-06`) fires on it. Tune using **rung 2**: add conditions on parent image, user, and script path. Then perform the same file activity by hand as your interactive user and confirm `HR-VAL-06` still fires.
 5. **Export and verify (30 min).** Export the alerts from the validation window to `alerts.json` (one JSON object per line; on Wazuh this is the manager's alerts log). Run the acceptance script below and fix anything that fails.
@@ -53,7 +53,7 @@ You are the endpoint technician at **Harbor Ridge Medical Group** (the 40-clinic
 
 ## Acceptance criteria
 
-- [ ] Isolation demonstrated, not asserted (failed external ping and DNS, with screenshots).
+- [ ] Isolation demonstrated, not asserted: host-only adapter, no external default route, a failed outbound TCP attempt, plus failed external ping and DNS, with screenshots.
 - [ ] EICAR quarantine observed, with event ID and path field recorded.
 - [ ] Five rules `HR-VAL-01`..`HR-VAL-05` each fired at least once during the validation window.
 - [ ] `HR-VAL-06` fired for the interactive user **after** tuning, and did **not** fire for the service account after the tuning timestamp.
@@ -63,7 +63,7 @@ You are the endpoint technician at **Harbor Ridge Medical Group** (the 40-clinic
 
 ## Automated checks
 
-Save as `check_validation.py` next to your exported `alerts.json`. Set `TUNE_TIME` to the UTC timestamp at which you applied your rung-2 tuning and `SERVICE_ACCOUNT` to your service account's name. Field names below follow Wazuh's JSON alert layout (`rule.description`, `timestamp`, `data`); if your platform differs, adjust `get_desc`, `get_time`, and `get_user` and say so in your record.
+Save as `check_validation.py` next to your exported `alerts.json`. Set `TUNE_TIME` to the UTC timestamp at which you applied your rung-2 tuning and `SERVICE_ACCOUNT` to your service account's name. Field names below follow Wazuh's JSON alert layout (`rule.description`, `timestamp`, `data`); if your platform differs, adjust `get_desc`, `get_time`, `USER_FIELDS`, and `is_eicar_quarantine` and say so in your record.
 
 ```python
 #!/usr/bin/env python3
@@ -83,9 +83,18 @@ def get_time(a):
     if len(ts) > 5 and ts[-5] in "+-" and ts[-3] != ":":
         ts = ts[:-2] + ":" + ts[-2:]
     return datetime.fromisoformat(ts)
+# Structured user fields, checked in order: Wazuh Windows/Sysmon, then Linux audit/syslog.
+# auditd often records a numeric auid; if so, map it to the name or add your own field here.
+USER_FIELDS = [("win", "eventdata", "user"), ("audit", "acct"), ("dstuser",), ("srcuser",)]
 def get_user(a):
-    blob = json.dumps(a.get("data", {})).lower()
-    return SERVICE_ACCOUNT.lower() if SERVICE_ACCOUNT.lower() in blob else "other"
+    for path in USER_FIELDS:
+        v = a.get("data", {})
+        for k in path:
+            v = v.get(k) if isinstance(v, dict) else None
+        if isinstance(v, str) and v.strip():
+            name = v.strip().split("\\")[-1].lower()   # DOMAIN\user -> user
+            return SERVICE_ACCOUNT.lower() if name == SERVICE_ACCOUNT.lower() else "other"
+    return "other"
 
 alerts = [json.loads(l) for l in open(ALERTS, encoding="utf-8") if l.strip()]
 failures = []
@@ -106,10 +115,18 @@ if svc_after:
 if not user_after:
     failures.append("HR-VAL-06 never fired for interactive activity after tuning (possible blind spot)")
 
-eicar = [a for a in alerts if "eicar" in json.dumps(a).lower()]
-print(f"EICAR-related alerts: {len(eicar)}")
+EICAR_DIR = "eicar-test"          # <-- the directory you created the test file in (milestone 2)
+QUARANTINE_EVENT_IDS = {"1117"}   # Microsoft Defender: action taken to protect the system
+def is_eicar_quarantine(a):
+    blob = json.dumps(a).lower()
+    if "eicar" not in blob or EICAR_DIR.lower() not in blob:
+        return False                  # must name the test file's path, not just mention EICAR
+    eid = str(a.get("data", {}).get("win", {}).get("system", {}).get("eventID", ""))
+    return eid in QUARANTINE_EVENT_IDS or "quarantin" in blob or "moved to" in blob  # ClamAV --move logs "moved to"
+eicar = [a for a in alerts if is_eicar_quarantine(a)]
+print(f"EICAR quarantine alerts: {len(eicar)}")
 if not eicar:
-    failures.append("No EICAR quarantine/detection alert found")
+    failures.append("No EICAR quarantine/block alert for the test path found")
 
 print()
 if failures:

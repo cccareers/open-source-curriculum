@@ -51,7 +51,8 @@ mkdir -p share mirror snapshots
 for c in adams-tax-2023 baker-tax-2023 chen-payroll-q2 diaz-vat-return; do
   printf 'Client: %s\nPrepared by Harlow & Finch\nBalance: %s\n' "$c" "$RANDOM" > "share/$c.txt"
 done
-( cd share && sha256sum *.txt ) > baseline.sha256
+if command -v sha256sum >/dev/null 2>&1; then H="sha256sum"; else H="shasum -a 256"; fi
+( cd share && $H *.txt ) > baseline.sha256
 ```
 
 Model scripts (save each as a file):

@@ -97,7 +97,7 @@ wxu,2026-06-30
 3. **Match removals.** Join each termination to its disable event. Classify each as on time, `LATE`, or `NOT DISABLED`.
 4. **Find the stray.** One disable event has no HR record. Decide what it is (an observation about contractor offboarding, not a PBC-006 exception) and record it in the cover note rather than dropping it.
 5. **Write the deviation statement.** Write it factually, without characterizing anyone ("no disable event exists for mnakamura as of extraction", not "IT forgot").
-6. **Escalate.** Write the same-day message to the control owner and Dana: what you found, what is still enabled *right now*, and the decision they need to make. An account still enabled today is a live risk as well as an audit exception.
+6. **Escalate.** Write the same-day message to the control owner and Dana: what you found, what may still be enabled *right now*, and the decision they need to make. The audit log only shows that no disable event exists; it does not prove the account is enabled today. Ask the identity team to confirm the account's current state in the IdP (in this synthetic exercise, report it as "no disable event found; current state unverified"). An account confirmed enabled today is a live risk as well as an audit exception.
 7. **Run the checker.**
 
 ## Acceptance criteria
@@ -105,7 +105,7 @@ wxu,2026-06-30
 - [ ] The exceptions are exactly the terminations that missed the rule under the stated calendar, each with its deadline.
 - [ ] Every manifest name follows the convention.
 - [ ] The cover note states source, filter, record count, extractor, calendar, deviation, and the contractor observation.
-- [ ] The escalation message goes out the same day and names the still-enabled account as an immediate risk.
+- [ ] The escalation message goes out the same day, names the account with no disable event as a possible immediate risk, and asks for its current state to be confirmed (reported as unverified until it is).
 - [ ] Nothing was altered, back-dated, or omitted to make the result look better.
 
 ## Automated checks (coding courses) / Evidence checklist (non-coding)
@@ -119,14 +119,23 @@ import csv, re, sys
 hr_f, pop_f, exc_f, man_f, cover_f = sys.argv[1:6]
 fails = []
 hr = {r["account"]: r["termination_date"] for r in csv.DictReader(open(hr_f))}
-pop = {r["account"]: r["termination_date"] for r in csv.DictReader(open(pop_f, encoding="utf-8-sig"))}
+pop_rows = list(csv.DictReader(open(pop_f, encoding="utf-8-sig")))
+pop_accts = [r["account"] for r in pop_rows]
+dups = sorted({a for a in pop_accts if pop_accts.count(a) > 1})
+if dups: fails.append(f"population has duplicate rows for {dups}")
+if len(pop_rows) != len(hr): fails.append(f"population has {len(pop_rows)} rows; the HR system of record has {len(hr)}")
+pop = {r["account"]: r["termination_date"] for r in pop_rows}
 missing, extra = set(hr) - set(pop), set(pop) - set(hr)
 if missing: fails.append(f"population incomplete - missing {sorted(missing)} (did you trust a hand-made list?)")
 if extra: fails.append(f"population has records not in the HR system of record: {sorted(extra)}")
 for a in set(hr) & set(pop):
     if hr[a] != pop[a]: fails.append(f"{a}: termination date altered ({pop[a]} vs HR {hr[a]})")
 
-exc = {r["account"]: r for r in csv.DictReader(open(exc_f, encoding="utf-8-sig"))}
+exc_rows = list(csv.DictReader(open(exc_f, encoding="utf-8-sig")))
+exc_accts = [r["account"] for r in exc_rows]
+dups = sorted({a for a in exc_accts if exc_accts.count(a) > 1})
+if dups: fails.append(f"exceptions has duplicate rows for {dups}")
+exc = {r["account"]: r for r in exc_rows}
 EXPECTED = {"ghaddad": "LATE", "mnakamura": "NOT DISABLED"}   # with weekends + US federal holidays excluded
 for a, res in EXPECTED.items():
     if a not in exc: fails.append(f"missing exception for {a}")
@@ -134,9 +143,18 @@ for a, res in EXPECTED.items():
 for a in set(exc) - set(EXPECTED):
     hint = " (2026-05-25 is a US federal holiday - check your business-day calendar)" if a == "qrahman" else ""
     fails.append(f"{a} reported as an exception but met the one-business-day rule{hint}")
+DEADLINE = {"ghaddad": "2026-03-02", "mnakamura": "2026-04-20"}   # next business day after the end date
+DISABLED = {"ghaddad": "2026-03-04T10:12:09Z", "mnakamura": ""}      # from idp_audit.csv
 for a, r in exc.items():
     for k in ("termination_date", "deadline", "result"):
         if not r.get(k, "").strip(): fails.append(f"{a}: exception row missing {k}")
+    if a in hr and r.get("termination_date", "").strip() and r["termination_date"].strip() != hr[a]:
+        fails.append(f"{a}: exception termination_date {r['termination_date']} does not match HR {hr[a]}")
+    if a in DEADLINE and r.get("deadline", "").strip() and r["deadline"].strip() != DEADLINE[a]:
+        fails.append(f"{a}: deadline {r['deadline']} is wrong under the stated calendar")
+    if a in DISABLED and (r.get("disabled_utc") or "").strip() != DISABLED[a]:
+        want = DISABLED[a] or "empty (no disable event in the log)"
+        fails.append(f"{a}: disabled_utc should be {want}")
 
 name = re.compile(r"^CC\d\.\d+_2026-(H1|Q[12])_[a-z0-9-]+_\d{4}-\d{2}-\d{2}\.(csv|pdf|md|json)$")
 files = [l.strip() for l in open(man_f) if l.strip()]

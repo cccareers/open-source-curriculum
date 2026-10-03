@@ -38,7 +38,7 @@ Lessons 05 and 06 and your lesson 02 ROE. Docker; internet access once, to pull 
 
 ```sh
 docker pull bkimminich/juice-shop
-docker network create --internal --subnet 10.141.0.0/24 lab141        # pick another private /24 if this overlaps
+docker network create --internal --subnet 10.141.0.0/24 lab141        # pick another private /24 if this overlaps, and use an --ip from that /24 (and in any notes that reference it)
 docker run -d --rm --name juice-shop --network lab141 --ip 10.141.0.20 bkimminich/juice-shop
 docker run --rm -it --network lab141 -v "$PWD":/work cyb140-tools sh   # tools image from cyb140-x01, or any image with curl
 # inside: curl -s http://juice-shop:3000/ | head -c 200   (Docker's embedded DNS resolves the container name)
@@ -111,7 +111,7 @@ for f in F:
     for k in ("id", "title", "owasp", "cwe", "state", "affected", "evidence", "severity", "control", "failure_mode", "recommendation"):
         if not f.get(k): fails.append(f"{fid}: missing {k}")
     if f.get("owasp", "")[:3] not in OWASP: fails.append(f"{fid}: owasp must start A01..A10")
-    else: cats.add(f["owasp"][:3])
+    elif f.get("state") == "confirmed": cats.add(f["owasp"][:3])
     if not re.fullmatch(r"CWE-\d+", f.get("cwe", "")): fails.append(f"{fid}: cwe must look like CWE-639")
     if f.get("state") not in STATES: fails.append(f"{fid}: state must be confirmed/suspicion/candidate")
     if f.get("failure_mode") not in MODES: fails.append(f"{fid}: failure_mode must be one of {sorted(MODES)}")

@@ -69,7 +69,7 @@ networks:
   data:    {ipam: {config: [{subnet: 10.20.50.0/24}]}}
 services:
   router:
-    image: alpine:3.20
+    image: alpine:3.22
     cap_add: [NET_ADMIN]
     sysctls: {net.ipv4.ip_forward: "1"}
     volumes: ["./router.nft:/router.nft:ro"]
@@ -126,7 +126,7 @@ table inet fw {
 3. **Write the rules (1.5 h).** Implement only the permits in your matrix. Reload with `docker compose exec router nft -f /router.nft`. Use `meta l4proto tcp` with `ip saddr`/`ip daddr`/`tcp dport` matches.
 4. **Choose drop vs reject (30 min).** Lesson 04 recommends reject inside the network. Add `reject with tcp reset` for TCP traffic from Users and VPN before the final drop, or justify keeping silent drops. Re-run and confirm the block mode changed from `timeout` to `refused`.
 5. **Break it on purpose (45 min).** Replace your users→hr-app rule with the "sloppy version" from lesson 04 (`10.20.30.0/24 -> 10.20.40.0/24 any`). Re-run `verify.py`, record which tests now fail, then restore. This is the evidence that the check catches widening.
-6. **Read the logs (30 min).** `docker compose exec router dmesg | grep fw-` (or `nft monitor` in a second terminal while re-running `verify.py`). Show one permit log line and one default-deny line.
+6. **Read the logs (30 min).** The `log prefix` lines go to the kernel log, and by default the kernel discards log-rule output from container network namespaces. On a Linux Docker host, run `sudo sysctl -w net.netfilter.nf_log_all_netns=1` once, re-run `verify.py`, then read them on the host with `sudo dmesg | grep -E 'fw-|<your permit prefixes>'` (or the same filter on `journalctl -k`). Show one permit log line and one default-deny line. (`nft monitor` does not show these lines; it only shows packet traces for rules that set `meta nftrace`. If you cannot change the host sysctl, for example on Docker Desktop, say so in your note and capture the counters from `nft list ruleset` instead.)
 7. **Write the verification note (45 min).**
 
 ## Acceptance criteria

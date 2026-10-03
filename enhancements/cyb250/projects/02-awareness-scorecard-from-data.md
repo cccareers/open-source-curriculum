@@ -99,7 +99,9 @@ import csv, json, re, statistics, sys
 def rows(p): return list(csv.DictReader(open(p)))
 roster = {r["staff_id"]: r for r in rows("roster.csv")}
 sim = rows("sim_events.csv")
+real = rows("real_reports.csv")
 m = json.load(open("metrics.json"))
+DIFF = {"Q1": "easy", "Q2": "hard"}
 fails = []
 for q in ("Q1", "Q2"):
     d = [r for r in sim if r["quarter"] == q and r["delivered"] == "yes"
@@ -115,8 +117,16 @@ for q in ("Q1", "Q2"):
         tol = 0.5 if key == "median_minutes_to_report" else 0.005
         if got is None or abs(got - want) > tol:
             fails.append(f"{key}[{q}] = {got}, expected ~{want:.3f}")
-    if m.get("difficulty", {}).get(q) not in ("easy", "hard"):
-        fails.append(f"difficulty[{q}] missing")
+    if m.get("difficulty", {}).get(q) != DIFF[q]:
+        fails.append(f"difficulty[{q}] = {m.get('difficulty', {}).get(q)}, expected {DIFF[q]}")
+    rq = [r for r in real if r["quarter"] == q]
+    firsts = [r for r in rq if r["first_report_for_campaign"] == "yes"]
+    share = sum(r["detected_first_by"] == "human_report" for r in firsts) / len(firsts)
+    if m.get("real_reports", {}).get(q) != len(rq):
+        fails.append(f"real_reports[{q}] = {m.get('real_reports', {}).get(q)}, expected {len(rq)}")
+    got = m.get("real_malicious_share_first_detected_by_human", {}).get(q)
+    if got is None or abs(got - share) > 0.005:
+        fails.append(f"real_malicious_share_first_detected_by_human[{q}] = {got}, expected ~{share:.3f}")
 cov = len({r["staff_id"] for r in sim}) / len(roster)
 if abs(m.get("simulation_coverage", {}).get("Q2", -1) - cov) > 0.005:
     fails.append(f"simulation_coverage[Q2] expected ~{cov:.3f}")

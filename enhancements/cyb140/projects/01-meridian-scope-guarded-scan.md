@@ -54,7 +54,7 @@ Create `target/files/bookings-sample.txt` containing one line of synthetic text.
 
 ```sh
 docker build -t cyb140-tools tools
-docker network create --internal --subnet 10.140.0.0/24 lab140   # if this overlaps an existing network, pick another private /24 and update scope.json
+docker network create --internal --subnet 10.140.0.0/24 lab140   # if this overlaps an existing network, pick another private /24 and replace EVERY 10.140.0.x in this brief (container --ip values, scope.json, exclusions, scan commands, candidate list, expected outputs) with the matching address in your /24
 docker run -d --rm --name t10 --network lab140 --ip 10.140.0.10 \
   -v "$PWD/target/default.conf":/etc/nginx/conf.d/default.conf:ro \
   -v "$PWD/target/files":/usr/share/nginx/html/files:ro nginx:1.25-alpine
@@ -207,8 +207,14 @@ else:
         if r["determination"].strip().lower() not in {"confirmed", "false positive", "unable to validate", "out of scope"}:
             bad(f"bad determination: {r['determination']}")
         if len(r["reason"].split()) < 5: bad(f"'{r['candidate']}': reason too short to check")
-    if d.count("false positive") < 3: bad("need >= 3 false positives with reasons (or a documented search)")
-    if "unable to validate" not in d: bad("need >= 1 'unable to validate'")
+    expect = {"C1": "confirmed", "C2": "confirmed", "C3": "false positive", "C4": "false positive",
+              "C5": "false positive", "C6": "unable to validate"}
+    ids = [r["candidate"].strip().upper() for r in rows]
+    for c, want in expect.items():
+        if ids.count(c) != 1: bad(f"{c}: need exactly one row, found {ids.count(c)}")
+        else:
+            got = d[ids.index(c)]
+            if got != want: bad(f"{c}: determination '{got}', expected '{want}'")
 print("ALL CHECKS PASSED" if not fails else f"{fails} CHECK(S) FAILED")
 sys.exit(1 if fails else 0)
 ```

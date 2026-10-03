@@ -99,6 +99,9 @@ echo "build complete"
 #!/bin/sh
 # cyb130-x02 acceptance check: expected allow/deny matrix for each role. Exit 0 = pass.
 fail=0
+# Remove test files left by an interrupted earlier run, and clean up this run's even if interrupted
+cleanup(){ find /srv -type f \( -name 'inv-*' -o -name 'pay-*' -o -name 'v-*' -o -name 'pick-*' \) -delete; }
+cleanup; trap 'cleanup; exit 130' INT TERM
 # Run first, before the tests create files. Direct grants: no resource may grant a named user (owner must be root)
 if find /srv -mindepth 1 ! -user root | grep -q .; then echo "FAIL  resource owned by a user account (direct grant)"; fail=1; fi
 check(){ # user, expect(ALLOW|DENY), description, command
@@ -121,7 +124,7 @@ for u in $(tail -n +2 roles.csv | cut -d, -f1); do
   g=$(id -nG "$u")
   case " $g " in *" erp-vendors-write "*) case " $g " in *" erp-payments-approve "*) echo "FAIL  SoD break: $u"; fail=1;; esac;; esac
 done
-find /srv -name "*-$$" -delete   # remove test files
+cleanup   # remove test files
 [ $fail -eq 0 ] && echo "ALL CHECKS PASSED" || echo "SOME CHECKS FAILED"
 exit $fail
 ```
@@ -151,6 +154,6 @@ SOME CHECKS FAILED
 - Which of these failures would a manager reviewing raw group names have missed?
 
 ## Instructor notes (common pitfalls, how to adapt for time)
-- Learners who run `verify.sh` twice in one container may see leftover files if they interrupt it. Re-run `build.sh` or start a fresh container.
+- `verify.sh` deletes its own test files (`inv-*`, `pay-*`, `v-*`, `pick-*` under `/srv`) at the start and on interrupt, so an interrupted run does not cause a false direct-grant failure next time. Do not name learner files with those prefixes under `/srv`.
 - POSIX groups have no nesting and no explicit deny. Say clearly that this is a teaching model of the *pattern*, not of a directory product.
 - 2-hour version: milestones 1–3 and 5 only.

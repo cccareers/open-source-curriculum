@@ -6,7 +6,7 @@ status: draft
 ---
 
 ## Summary
-cyb130 is precise and practical. It separates the three As cleanly, chooses MFA by population rather than by product, builds roles from jobs with explicit exclusions, and treats privilege creep as a removal problem. The examples (Northbay, Cedar Point, Ashford, Maya Okonkwo, Ravensworth) are strong and evidence-based. The two biggest opportunities are hands-on work and consistency. Learners never run anything, so the effective-permissions and lifecycle ideas stay on paper. Maya Okonkwo also appears in Ashford's HR extract with a different start date and an unexplained employer change. This pass adds two runnable projects and fixes three technical or clarity points in the lessons.
+cyb130 is precise and practical. It separates the three As cleanly, chooses MFA by population rather than by product, builds roles from jobs with explicit exclusions, and treats privilege creep as a removal problem. The examples (Northbay, Cedar Point, Ashford, Maya Okonkwo, Ravensworth) are strong and evidence-based. The two biggest opportunities are hands-on work and consistency. Learners never run anything, so the effective-permissions and lifecycle ideas stay on paper. Maya Okonkwo also appears in Ashford's HR extract with an unexplained employer change (her lesson 02 start date was out of step too; this pass aligns it to 1 March 2021). This pass adds two runnable projects and fixes three technical or clarity points in the lessons.
 
 ## Clarity issues
 | Lesson | Location (heading) | Issue | Fix | Status |

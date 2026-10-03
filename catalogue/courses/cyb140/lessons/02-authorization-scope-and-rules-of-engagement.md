@@ -101,7 +101,7 @@ Rewritten, the same intent becomes testable:
 ```text
 SCOPE OF TESTING - ACME LOGISTICS EXTERNAL ASSESSMENT
 In scope (verified owned by client, see ownership register v3):
-  203.0.113.10-203.0.113.48   (44 hosts)
+  203.0.113.10-203.0.113.48   (39 addresses)
   portal.acme-logistics.example  (HTTPS 443, paths under /app)
   api.acme-logistics.example     (HTTPS 443, paths under /v2)
 Excluded:

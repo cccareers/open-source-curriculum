@@ -112,6 +112,9 @@ if len(rows) < 10:
 today = datetime.date.today()
 for r in rows:
     rid = r["id"] or "?"
+    short = [c for c in REQ if r[c] is None]
+    if short:
+        errors.append(f"{rid}: short row, missing {short}"); continue
     for c in REQ:
         if not r[c].strip():
             errors.append(f"{rid}: empty {c}")

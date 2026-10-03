@@ -142,7 +142,8 @@ def gate_image_user(d):
     rc, t, out = run(["docker", "build", "-q", "-t", tag, d])
     if rc: return rc, t, "build failed: " + out
     rc, t2, user = run(["docker", "inspect", "--format", "{{.Config.User}}", tag])
-    bad = user.strip() in ("", "0", "root", "0:0")
+    uid = user.strip().split(":", 1)[0].strip()   # USER may be uid[:gid]; only the uid decides root
+    bad = uid == "" or uid.lower() == "root" or (uid.isdigit() and int(uid) == 0)
     return (1 if bad else 0), t + t2, f"image user={user.strip()!r}"
 
 GATES = {"secrets": gate_secrets, "sca": gate_sca, "iac": gate_iac, "image_user": gate_image_user}

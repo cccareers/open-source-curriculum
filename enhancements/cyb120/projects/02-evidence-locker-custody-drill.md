@@ -70,7 +70,7 @@ Tools used: `sha256sum`, `md5sum`, `sha1sum`, `od`, and `grep` (BusyBox has no `
 - [ ] `evidence_log.csv` has, per item: `id,description,source,collected_utc,collector,method_tool_version,sha256,location,holder`, none blank.
 - [ ] Every original in `evidence/` still matches its logged SHA-256 at the end.
 - [ ] `custody.csv` (`item,utc,released_by,received_by,purpose_location,hash_verified`) is continuous: each `released_by` equals the previous `received_by`, times strictly increase, and every receipt is verified.
-- [ ] No unarchived copy of the sample exists in `/case` (outside `work/` analysis inside the container).
+- [ ] No unarchived copy of the sample exists anywhere in `/case`, including `/case/work` (keep analysis copies of the sample under `/host/work`).
 - [ ] `static_triage.md` includes three hashes, the true-type finding, at least four indicator records with confidence and action, and a "not established" section.
 - [ ] The one-byte-change timeline entry is present and correctly tagged.
 
@@ -102,8 +102,12 @@ awk -F, 'NR>1{ if(prev_item==$1){ if($3!=prev_rcv) {print "FAIL: gap - "$1" rele
      END{ for(i in n) if(n[i]>=3) t=1; if(!t){print "FAIL: no item has >= 3 transfers"; f=1}
           if(!f) print "PASS: custody chain continuous and verified"; exit f }' custody.csv || fail=1
 
-# 4. No loose sample on the shared volume
-if grep -rlq 'EICAR-STANDARD' . --exclude-dir=work 2>/dev/null; then bad "loose sample found outside archive"; else ok "sample only present inside archive"; fi
+# 4. No loose sample anywhere on the shared volume, including work/
+#    (matches files whose first bytes are the EICAR prefix, so this script and
+#    notes that quote the string do not trip it; archives are compressed)
+loose=$(find . -type f ! -name check_locker.sh | while read -r f; do
+  [ "$(head -c 9 "$f")" = 'X5O!P%@AP' ] && echo "$f"; done)
+if [ -n "$loose" ]; then bad "loose sample found outside archive: $loose"; else ok "sample only present inside archive"; fi
 
 # 5. Triage write-up
 for k in "SHA-256" "MD5" "SHA-1" "true type" "Not established"; do
@@ -120,7 +124,7 @@ PASS: sample only present inside archive
 ALL CHECKS PASSED
 ```
 
-Note: if you keep `work/` copies of the sample inside the mounted `/case` volume, your host AV may delete them and check 4 will flag them; keep analysis copies under `/host/work` instead.
+Note: if you keep `work/` copies of the sample inside the mounted `/case` volume, your host AV may delete them and check 4 will flag them; keep analysis copies of the sample under `/host/work` instead (working copies of the other artifacts can stay in `/case/work`).
 
 ## Rubric
 | Criterion | Developing | Meets | Exceeds |

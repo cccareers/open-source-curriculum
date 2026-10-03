@@ -36,12 +36,12 @@ competency_ids:
 
 - Lesson 05 completed, especially "SPF", "DKIM", "DMARC", and "The rollout ladder".
 - Docker (or Podman) installed; `dig` available (package `dnsutils` or `bind-tools`).
-- Python 3.9+ with `dnspython` (`pip install dnspython`).
+- Python 3.9+ with `dnspython` and `cryptography` (`pip install dnspython cryptography`).
 - Generate a 2048-bit DKIM key pair in the lab: `openssl genrsa -out sel2026a.key 2048` and `openssl rsa -in sel2026a.key -pubout -outform DER | base64 -w0` (on macOS use `base64` without `-w0`). The base64 output is the `p=` value. Never commit the private key anywhere.
 
 ## Milestones
 
-1. **Write the zone (1 h).** Use this skeleton and complete it. The `include:` targets are fictional vendor names from lesson 05; for the checker's lookup count to be meaningful, publish a stub SPF record for each include target in the same zone file (for example, `_spf.mailhost.example` → `"v=spf1 ip4:192.0.2.0/24 -all"`).
+1. **Write the zone (1 h).** Use this skeleton and complete it. The `include:` targets are fictional vendor names from lesson 05; for the checker's lookup count to be meaningful, publish a stub SPF record for each include target. The lab server is authoritative only for `harborridge.example`, so give each stub a stand-in name inside that zone and point the include at it: for example, the relative name `_spf.mailhost` (which becomes `_spf.mailhost.harborridge.example.`) → `"v=spf1 ip4:192.0.2.0/24 -all"`, used as `include:_spf.mailhost.harborridge.example`. Note in your memo that production records use the vendor's real include name.
 
    ```dns
    $ORIGIN harborridge.example.
@@ -126,6 +126,7 @@ else:
     tags = dict(p.strip().split("=", 1) for p in dk[0].split(";") if "=" in p)
     bits = load_der_public_key(base64.b64decode(tags["p"])).key_size
     print(f"DKIM: k={tags.get('k')} bits={bits}")
+    if tags.get("k", "").strip() != "rsa": fails.append(f"DKIM k= should be rsa, found {tags.get('k')!r}")
     if bits < 2048: fails.append(f"DKIM key is {bits} bits; use 2048")
 
 dm = txt(f"_dmarc.{D}")

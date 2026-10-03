@@ -35,7 +35,7 @@ Misconception: "SPF pass (or DKIM pass) means the sender is who they say they ar
 | 5 | 15 s | DMARC booth: the header From badge `harborridge.example` is placed on a balance. The two passing domains try to "bridge" to it with a yellow alignment bridge. Bridges fail to connect (gap with ✗). | Bridges extend, stop short, crack. ✗ FAIL (vermillion). | "DMARC asks: does either pass belong to the domain the human sees? Neither aligns with harborridge.example. Fail." |
 | 6 | 10 s | Policy sign from `_dmarc.harborridge.example`: `p=reject`. Gate drops; message bounces back. | Gate slams; envelope reverses. | "Harbor Ridge published p=reject, so a receiver honouring it refuses the message." |
 | 7 | 15 s | Contrast replay: a forwarded legitimate message. SPF booth ✗ (forwarder IP). DKIM booth ✓ with `d=harborridge.example`. Alignment bridge connects to header From ✓. DMARC ✓. | Faster replay of 3–5 with different outcomes. | "Now a legitimate forwarded message. SPF fails because the forwarder's IP isn't listed. DKIM passes for harborridge.example — which aligns. DMARC passes. One aligned pass is enough." |
-| 8 | 8 s | Summary card: "SPF ✓ ≠ trust · DKIM ✓ ≠ trust · DMARC ✓ = visible From proven". | Cards stack. | "A pass only means something when it aligns with the From you can see." |
+| 8 | 8 s | Summary card: "SPF ✓ ≠ trust · DKIM ✓ ≠ trust · DMARC ✓ = visible From domain authenticated and aligned (not the person, not the intent)". | Cards stack. | "A pass only means something when it aligns with the From you can see." |
 
 ## Interaction variant
 

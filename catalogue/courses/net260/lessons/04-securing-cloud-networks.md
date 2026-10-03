@@ -75,8 +75,10 @@ Admin (managed
  session: SSM /
  Azure Bastion /
  IAP)              App tier            22*     Break-fix only, no public SSH
-                                               *agent-based session services
-                                                need no inbound rule at all
+                                               *SSM and similar agent-based
+                                                services need no inbound rule;
+                                                IAP needs 22 from 35.235.240.0/20
+                                                only; Bastion from its subnet
 Everything else    Everything else     -       DENY
 ```
 

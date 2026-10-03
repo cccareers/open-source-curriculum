@@ -204,4 +204,4 @@ You will occasionally be asked to compare two products. Four questions do most o
 
 1. "Know which laptops are missing this month's updates" — tool category and CSF function? *Vulnerability scanning and patch management; Identify, then Protect when the fix is deployed.*
 2. Which cell of the four-cell table is the dangerous one, and why? *False negative — something bad happened and the tool stayed silent, so nobody acts.*
-3. A SIEM receives logs from only two sources. What is the main problem? *It cannot correlate across sources, which is its reason to exist; until coverage improves it is an expensive log viewer.*
+3. A SIEM receives logs from only two sources. What is the main problem? *Coverage. It can correlate those two sources with each other, but it is blind to everything else, so most attack paths leave no trace it can see; until coverage improves, its correlation value is small and it is mostly an expensive log viewer.*
