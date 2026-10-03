@@ -215,7 +215,7 @@ NORTHLIGHT BOT - v2 baseline, monthly
   v3 target: contacts captured 45+, escalations answered in SLA above 90%
 ```
 
-Read that the way you read a funnel. The bot is opened often enough and finishes conversations at a reasonable rate, but 310 completed conversations produce only 22 contacts — most people are getting to the end without giving an email address. That points at the capture step, not the opening. And the 70.7 percent SLA figure is worse than it looks: a visitor who asks to speak to a human is the highest-intent visitor on the site, and four in ten of them are being let down.
+Read that the way you read a funnel. The bot is opened often enough and finishes conversations at a reasonable rate, but 310 completed conversations produce only 22 contacts — most people are getting to the end without giving an email address. That points at the capture step, not the opening. And the 70.7 percent SLA figure is worse than it looks: a visitor who asks to speak to a human is the highest-intent visitor on the site, and three in ten of them (12 of 41) are being let down.
 
 Note what is *not* on that list: "conversations." A vendor dashboard will show you a large conversation count and call it engagement. Conversations are an input. Contacts, bookings, and answered escalations are outcomes.
 

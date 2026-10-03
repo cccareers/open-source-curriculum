@@ -122,7 +122,7 @@ Work down the page and give a reason for every section. If you cannot state what
 
 **Subhead.** Adds the specific, checkable detail the headline could not carry. "A licensed technician at your door in 90 minutes" is better than "fast, friendly service" because the first one can be wrong and the second one cannot.
 
-**The offer.** State exactly what the visitor gets if they act, and what it costs them. "Same-day diagnostic visit, $89, waived if you book the repair" is an offer. "Contact us for a free quote" is a form. The offer is the thing you are actually selling in the next sixty seconds, and it is not the repair, it is the visit.
+**The offer.** State exactly what the visitor gets if they act, and what it costs them. "Same-day diagnostic visit, $79, applied to the repair if you book it" is an offer — and it uses the same $79 the ads promise, because the page has to keep the ad's number. "Contact us for a free quote" is a form. The offer is the thing you are actually selling in the next sixty seconds, and it is not the repair, it is the visit.
 
 **Primary action above the fold, and repeated.** On an emergency page the two primary actions are call and book. They belong in the first screen and again after the proof section and again at the bottom. A visitor who has just been convinced should not have to scroll to act on it.
 

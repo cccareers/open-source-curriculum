@@ -110,9 +110,9 @@ Library totals   = 455 signups ÷ 32,860 sessions = 1.38%
 
 Four findings fall straight out of it.
 
-**Traffic and value are almost unrelated.** Row 7 is third by sessions and seventh by value. Its 4,900 sessions produced $324 — less than 1% of the library's value from 15% of its traffic. Its 30.0% engagement rate says the visitors were never the right visitors: it is the only off-pillar piece in the library, written because it seemed like it would do numbers, and it did numbers.
+**Traffic and value are almost unrelated.** Row 7 is fourth by sessions and seventh by value. Its 4,900 sessions produced $324 — less than 1% of the library's value from 15% of its traffic. Its 30.0% engagement rate says the visitors were never the right visitors: it is the only off-pillar piece in the library, written because it seemed like it would do numbers, and it did numbers.
 
-**The cheapest row is the best row.** Row 3 was a six-hour update to a URL that already existed, and it returned $3,204 an hour — more than twice row 5 and ten times row 1. It inherited everything the URL had already earned. Updating beat publishing by a wide margin, which is exactly what lesson 02 claimed and this table now evidences.
+**The cheapest row is the best row.** Row 3 was a six-hour update to a URL that already existed, and it returned $3,204 an hour — more than twice row 5, three and a half times row 1, and ten times row 2. It inherited everything the URL had already earned. Updating beat publishing by a wide margin, which is exactly what lesson 02 claimed and this table now evidences.
 
 **Row 2 engages and does not convert.** 76.9% engagement is the best in the library — the calculator plainly works — and 0.67% is nearly the worst signup rate. Those two facts together are diagnostic: the tool answers the question completely and then stops. There is nothing to do next.
 

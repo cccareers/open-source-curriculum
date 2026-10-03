@@ -349,7 +349,7 @@ Q3 close push - results by segment
   TOTAL             3,840   3,725    32.6%    3.2%        19      0.19%
 ```
 
-Nineteen bookings against a target of twenty: the campaign essentially hit its number. But the segment view says something the total does not. Solo contractors unsubscribed at nearly three times the rate of agencies and produced a third as many bookings per contact. One send is not proof, but if the next campaign shows the same shape, the honest conclusion is that solo contractors are a weaker fit for this offer and should get a different one — or fewer emails — rather than a rewritten paragraph.
+Nineteen bookings against a target of twenty: the campaign essentially hit its number. But the segment view says something the total does not. Solo contractors unsubscribed at nearly three times the rate of agencies and produced about two-thirds as many bookings per contact (5 per 1,340 against 14 per 2,500). One send is not proof, but if the next campaign shows the same shape, the honest conclusion is that solo contractors are a weaker fit for this offer and should get a different one — or fewer emails — rather than a rewritten paragraph.
 
 Two cautions on reading a table like that. **Small segments produce unstable rates**, so resist drawing conclusions from a 200-contact segment's two-point swing; look at it across several sends before you act. And **compare each segment to its own history, not to the other segments.** Different segments have permanently different baselines — an engaged client list will always out-open a cold prospect list — so a segment that looks weak in the table may be performing better than it ever has. The interesting number is always the change, not the level.
 

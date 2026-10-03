@@ -59,7 +59,7 @@ Two things govern how much of your site gets fetched:
 
 **Crawl demand** — how much Google *wants* to fetch from you, driven by how popular and how frequently updated your URLs appear.
 
-Together those are called crawl budget. The honest version: **Meridian Payroll, at 640 indexable URLs, does not have a crawl budget problem and never will.** Google's own guidance puts the threshold for caring at roughly a million-plus URLs, or a hundred-thousand-plus that change daily. A 3-million-URL marketplace with faceted navigation has a real one, because the crawler can burn its whole allocation on `?color=blue&size=m&sort=price` variants and never reach the new category pages. A 640-URL brochure-and-blog site has a *discovery* or *quality* problem being misdiagnosed as a budget problem. If someone tells you a 640-page site needs crawl budget optimization, they are selling something.
+Together those are called crawl budget. The honest version: **Meridian Payroll, at 640 indexable URLs, does not have a crawl budget problem and never will.** Google's own guidance puts the threshold for caring at roughly a million-plus URLs that change regularly, or ten-thousand-plus that change daily. A 3-million-URL marketplace with faceted navigation has a real one, because the crawler can burn its whole allocation on `?color=blue&size=m&sort=price` variants and never reach the new category pages. A 640-URL brochure-and-blog site has a *discovery* or *quality* problem being misdiagnosed as a budget problem. If someone tells you a 640-page site needs crawl budget optimization, they are selling something.
 
 What makes crawling stop or fail:
 
@@ -321,3 +321,10 @@ Trace a real property through all three gates. Use a Search Console property you
 - **A categorized non-indexed table** with columns: Reason, Page count, Intentional or unintentional, Plain-English explanation, Gate it fails at, First action — ending with the intended-indexable arithmetic and one sentence naming the most urgent row and why.
 
 Bring both to your next session. You will defend one "intentional" judgement out loud, so open the example URLs rather than guessing from the label.
+
+## Check your understanding
+
+1. A page shows "Crawled – currently not indexed" 48 hours after publishing. What do you do? *(Answer: nothing yet — it is a mid-evaluation snapshot. Judge it at three to four weeks; editing now destroys the evidence you need.)*
+2. A URL is blocked in robots.txt and also carries a `noindex` tag, yet it still appears in results as a bare URL. Why? *(Answer: the block stops Google fetching the page, so it never sees the `noindex`; it indexes the URL from links alone. Remove the block so the `noindex` can be read.)*
+3. A colleague says the site's Domain Rating of 41 is "holding back rankings." What is wrong with that sentence? *(Answer: Domain Rating is a vendor estimate from a vendor's link crawl; Google neither computes nor uses it. Talk about the actual links and pages instead.)*
+4. Which Search Console view proves a page is in the index: the URL Inspection default view or the live test? *(Answer: the default indexed view saying "URL is on Google." The live test only says the current version could be indexed.)*

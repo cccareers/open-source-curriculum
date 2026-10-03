@@ -483,7 +483,7 @@ Same annual money, redistributed:
 | Dec | $190 | $5,776 | Cold demand continues, holiday attention drops |
 | **Total** | **avg $200** | **$72,960** | Identical annual spend to a flat $200/day |
 
-The annual total is unchanged. The distribution is not. Roughly $8,000 has moved out of March and September and into June, July, and November.
+The annual total is unchanged. The distribution is not. Roughly $7,900 has moved out of the shoulder months — January through April, September, and December, with March giving up the most — and into May through August and November. (Check it: the daily cuts sum to $260 and the daily increases sum to $260; $260 x 30.4 = $7,904.)
 
 Two mechanics worth calling out.
 

@@ -174,3 +174,9 @@ C   Delivered 2,700   Opens 33%    Clicks 9% of delivered
 ```
 
 **Part 3 — Build a sequence.** Design a four- or five-email lifecycle sequence for a new subscriber to a business of your choice. Produce the table (number, day, job, subject, CTA), then write email 1 in full. Below the table, write the exit rules: what stops the sequence, what happens to someone who converts at email 2, and what happens to someone who opens nothing at all.
+
+## Check your understanding
+
+1. A campaign has a 38% open rate, a 0.4% click rate on delivered, and a strong landing page. Which part of the campaign do you fix first? *(Answer: the body and the call to action — people open, then do not click, so the subject line is working and the problem is inside the email.)*
+2. Why is open rate a rough comparative signal rather than an exact count? *(Answer: it relies on a tracking pixel that some mail clients load automatically or block, which inflates or hides opens.)*
+3. A subscriber books an inspection after email 2 of the welcome series. What should happen to emails 3 and 4? *(Answer: they stop; the exit rule removes converted subscribers so you do not pitch a service they already bought.)*
