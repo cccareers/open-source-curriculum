@@ -75,7 +75,7 @@ function:
     TARGET_TAG: "env=dev"
     DRY_RUN: "true"
   triggers:
-    - schedule: "cron(0 19 * * ? *)"   # 19:00 UTC, every day
+    - schedule: "cron(0 19 * * ? *)"   # 19:00 UTC, every day (six-field AWS-style syntax; standard five-field cron is "0 19 * * *")
 ```
 
 ## Developing against an event you cannot see
@@ -138,6 +138,7 @@ Three settings control both whether your function works and what it costs.
 **Timeout** is the wall-clock limit per invocation. Set it to a little more than the slowest realistic run, not to the maximum. A too-generous timeout means a hung network call burns the full budget before failing, and it delays the retry. Use the context object's remaining-time value to bail out cleanly before the platform kills you mid-write:
 
 ```python
+# Method name varies by provider; on AWS Lambda it is context.get_remaining_time_in_millis().
 if context.remaining_time_ms() < 5000:
     log.warning("running out of time; stopping after %d of %d", done, total)
     return {"status": "partial", "processed": done}
@@ -190,3 +191,11 @@ Use the account you used in cse203 and the tagging logic from your lesson 05 scr
 7. **Break it deliberately.** Send an event whose expected field is missing. Confirm the invocation fails, observe the automatic retry, and then configure a dead-letter destination and confirm the failed event lands there. Write two sentences on what would have happened without one.
 
 8. **Tune for cost.** Run the same workload at two memory settings and record duration and invocation cost for each. Then write a short paragraph deciding whether this workload belongs in a function at all, or whether a scheduled change to a fleet's minimum size would fit the demand better — and say what it is about *this* workload's shape that decides it.
+
+9. **Clean up.** Remove the five-minute schedule from step 2 (or slow it to the cadence you actually need), delete any test resources you created in step 6, and empty the dead-letter queue. A practice schedule left firing every five minutes is roughly 8,600 invocations a month, each of which calls your cloud API — small in cost, but noise in every log and audit trail you will read later.
+
+## Check your understanding
+
+1. Why is idempotency a correctness requirement for a function rather than good practice? *(Event platforms deliver at least once, so duplicate invocations are part of the contract.)*
+2. A compute-bound function runs 800 ms at 512 MB and 300 ms at 1,024 MB. Which is cheaper? *(1,024 MB: 0.3 GB-s vs 0.4 GB-s, before per-request charges.)*
+3. What happens to a poison event with no dead-letter destination? *(It is retried until the retry budget is exhausted and then discarded — work silently does not happen.)*

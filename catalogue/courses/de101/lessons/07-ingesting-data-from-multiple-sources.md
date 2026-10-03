@@ -182,9 +182,11 @@ class DatabaseSource:
                 return
             records = [dict(r) for r in rows]
             last_id = records[-1]["order_id"]
-            high = max(str(r["updated_at"]) for r in records)
+            high = max(r["updated_at"] for r in records).isoformat()
             yield Batch(self.name, records, watermark=high)
 ```
+
+Note the `.isoformat()` on the watermark. The database returns `updated_at` as a `datetime`, and `str()` of a datetime uses a space between date and time (`2024-03-17 02:00:00`) while the stored watermark uses ISO-8601 with a `T`. Comparing those two strings gives wrong answers, because a space sorts before `T`. Pick one text format for every watermark, in every source, and convert at the boundary.
 
 **Read from a replica, not the primary.** Your nightly scan competing with customer checkout traffic is a production incident waiting for a busy night. If there is no replica, ask for one, and until then run in the quietest window you can and keep batches small.
 
@@ -269,6 +271,8 @@ def run(source: Source, store: WatermarkStore, root: Path) -> dict:
         store.set(source.name, high)
     return {"run_id": run_id, "source": source.name, "rows": rows, "files": len(files)}
 ```
+
+The runner leans on three small helpers you write yourself. `overlap(since, minutes)` parses the ISO timestamp, subtracts the window, and returns it as ISO text again (`(datetime.fromisoformat(since) - timedelta(minutes=minutes)).isoformat()`). `WatermarkStore` is any object with `get(name)` and `set(name, value)` — a JSON file read and rewritten on `set` is enough to start. `log` is a standard `logging.getLogger("ingest")`. The code also uses the `X | None` type syntax, which needs Python 3.10 or later.
 
 The three load-bearing lines are the overlap window, the `raise`, and the fact that the watermark is written only after the loop completes. Together they make the job safe to re-run: a crash leaves the watermark where it was, the next run re-reads the same window, and because landed files are uniquely named and downstream loads are idempotent, the duplicate capture costs nothing.
 

@@ -60,7 +60,7 @@ if __name__ == "__main__":
     sys.exit(main())
 ```
 
-Four details are doing real work. `argparse` gives you `--help`, type coercion, and required-flag enforcement for free — `type=int` means a non-numeric `--keep` is rejected before your code runs, which took a regex in Bash. `main` returns an integer and `sys.exit` passes it to the caller, so the script has an honest exit status. Logging is configured to write to **standard error** with a timestamp, leaving standard output clean for data. And the `if __name__` guard means the file can be imported by a test without executing anything.
+The `list[str] | None` annotations need Python 3.10 or later; on an older interpreter write `Optional[List[str]]` from `typing`, or drop the annotations. Four details are doing real work. `argparse` gives you `--help`, type coercion, and required-flag enforcement for free — `type=int` means a non-numeric `--keep` is rejected before your code runs, which took a regex in Bash. `main` returns an integer and `sys.exit` passes it to the caller, so the script has an honest exit status. Logging is configured to write to **standard error** with a timestamp, leaving standard output clean for data. And the `if __name__` guard means the file can be imported by a test without executing anything.
 
 This is where the boundary of the course sits, so it is worth stating plainly: you are writing scripts, not applications. No web framework, no plugin architecture, no packaging for distribution. A single file with functions in it is the target shape, and a second module is justified only when two scripts genuinely share code.
 
@@ -272,3 +272,9 @@ Work against the provider account you used in cse203. Keep everything in one fil
 6. **Add the mutation, safely.** Add a `Runner` with a `dry_run` flag and use it to tag each orphaned resource `review=pending`. Run with `--dry-run` and verify the output names real ids. Run it for real, then run it again and confirm the second run reports everything already tagged and exits 0.
 
 7. **Make it survive a failure.** Add retry-with-backoff around the mutating call for rate-limit and 5xx statuses only. Then force a failure on one resource — revoke a permission, or pass one deliberately invalid id — and confirm the script logs it with a traceback, continues to the remaining resources, prints a summary with a non-zero failure count, and exits 1.
+
+## Check your understanding
+
+1. Why pass `subprocess.run` a list and never use `shell=True`? *(A list passes each argument verbatim; `shell=True` reintroduces word-splitting and command injection.)*
+2. Your inventory reports 100 instances and the console shows 340. What is the most likely bug? *(Only the first page was read — the page token was not followed.)*
+3. Which errors should be retried, and which never? *(Retry rate limits and transient 5xx; never permission errors, not-found, or malformed requests — and retry creates only if they are idempotent.)*

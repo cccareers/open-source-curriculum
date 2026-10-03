@@ -77,10 +77,10 @@ The rule underneath all of it: **classes trade storage price against access pric
 | Hot / standard | Frequent, latency-sensitive | Immediate | None | S3 Standard | Hot | Standard |
 | Infrequent access | Read maybe monthly | Immediate | ~30 days | S3 Standard-IA | Cool | Nearline |
 | Cold | Read a few times a year | Immediate | ~90 days | S3 Glacier Instant Retrieval | Cold | Coldline |
-| Archive | Rarely; compliance retention | Minutes to hours | ~180 days | S3 Glacier Deep Archive | Archive | Archive |
+| Archive | Rarely; compliance retention | Minutes to hours (see note) | ~180–365 days | S3 Glacier Deep Archive | Archive | Archive |
 | Intelligent / automatic | Unknown or changing | Immediate | Varies | S3 Intelligent-Tiering | *(lifecycle-based)* | Autoclass |
 
-Names and exact numbers change; look them up for the platform in front of you. The *shape* has been stable for a decade.
+Names and exact numbers change; look them up for the platform in front of you. The *shape* has been stable for a decade. Two examples of how much the details vary inside one row: the archive minimum duration is about 180 days on some platforms and a full year on others, and at least one provider's archive class returns the first byte in milliseconds while charging heavily for it, while another requires a "rehydration" request that takes hours before the object can be read at all. Always check both the minimum-duration and the retrieval-time column for the exact class you are about to choose.
 
 Three cost mechanics decide most real tiering decisions, and all three are easy to miss:
 
@@ -223,7 +223,7 @@ That fourth meter is why serving images directly from object storage to a global
 
 1. Create a bucket or container and enable versioning.
 2. Upload a file, overwrite it with different contents, and list all versions.
-3. Delete the object, then list again and show that a delete marker exists and the prior version does not.
+3. Delete the object (without specifying a version), then list all versions again and show that a delete marker is now the current version and that both prior versions are still listed beneath it. A normal, non-versioned listing should no longer show the key at all — capture both views.
 4. Restore the previous version and confirm the contents.
 5. Apply a lifecycle rule that expires noncurrent versions after one day, and show the configuration as the service reports it back.
 6. Read the storage class of one object with a metadata-only request and show that no object body was transferred.

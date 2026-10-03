@@ -199,3 +199,9 @@ Work through all four parts. Parts 1 and 2 are the graded core; parts 3 and 4 ar
 3. "Someone deleted a folder in our file-sharing product and we need it back. It was gone before we noticed, sometime last week."
 
 **Deliverable:** one document containing the classification list, the responsibility matrix, the 200-word reading note, and the three ticket responses. A reviewer should be able to disagree with a cell in your matrix and find your reasoning stated somewhere in the document.
+
+## Check your understanding
+
+1. A customer's managed relational database rejects new connections at 9 a.m. every Monday. Which layer is the most likely failure, and whose side of the line is it on? *(Configuration — the connection limit and the application's pool size are the customer's, even though the engine is the provider's.)*
+2. Name the three rows of the responsibility table that stay with the customer in every service model. *(Configuration, data, identity and access.)*
+3. A vendor bulletin says "no customer action required." What does that sentence tell you about where the flawed component sits? *(Below the customer's line — in a layer the provider operates for that service.)*

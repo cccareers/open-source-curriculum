@@ -35,7 +35,7 @@ Say it plainly, with the facts you have:
 ```text
 Declaring an incident. Storefront checkout, production.
 Symptom: checkout error ratio 22%, started 14:05, ongoing.
-Impact: roughly 1 in 4 customers cannot complete a purchase.
+Impact: roughly 1 in 5 checkout attempts is failing.
 Severity: SEV2 (proposed).
 I am incident commander. Investigating now, next update 14:25.
 ```

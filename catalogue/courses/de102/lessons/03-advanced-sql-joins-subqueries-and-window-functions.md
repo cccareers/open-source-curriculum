@@ -60,7 +60,7 @@ LEFT JOIN sales_order o
       AND o.status = 'shipped';
 ```
 
-The other classic mistake is join fan-out. Join `sales_order` to `order_line` and each order appears once per line; `SUM(o.freight_charge)` now counts the freight once per line rather than once per order. Whenever you join a one-to-many relationship and then aggregate, ask what the grain of the result is. Aggregating in a subquery first, or using `SUM(DISTINCT ...)` on a per-order value, avoids the double count.
+The other classic mistake is join fan-out. Join `sales_order` to `order_line` and each order appears once per line; `SUM(o.freight_charge)` now counts the freight once per line rather than once per order. Whenever you join a one-to-many relationship and then aggregate, ask what the grain of the result is. Aggregating in a subquery or CTE first, so the many side is collapsed to one row per order before the join, avoids the double count. Do not reach for `SUM(DISTINCT o.freight_charge)`: it removes duplicate *values*, not duplicate *orders*, so two different orders that both paid 9.99 freight would be counted once.
 
 PostgreSQL adds `LATERAL`, a join whose right side may reference the left side. It is the clean way to express "top N per group":
 
@@ -194,7 +194,7 @@ SELECT o.order_id,
        rank()        OVER (PARTITION BY o.customer_id ORDER BY t.total DESC)
          AS size_rank
 FROM   sales_order o
-JOIN   order_totals t USING (order_id);
+JOIN   order_totals t USING (order_id);   -- order_totals is the CTE from the previous section; prefix this query with its WITH clause
 ```
 
 `PARTITION BY` divides rows into independent groups; `ORDER BY` inside `OVER` gives them an order, which is what makes running totals and `lag`/`lead` meaningful.

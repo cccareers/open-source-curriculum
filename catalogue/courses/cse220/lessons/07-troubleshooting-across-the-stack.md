@@ -91,7 +91,7 @@ Storage faults are the ones most often misread, because they present as CPU or a
 
 **Latency and queue depth.** Average wait time per operation and queue depth are the saturation signals. Rising queue depth with flat throughput means the device is at its limit. Rising wait time with low utilization suggests the problem is elsewhere — a network-attached volume whose *network* path is congested, which is a real and confusing failure.
 
-**Object and file storage.** Different failure modes: request rate limits per prefix, eventual-consistency surprises on listings, permission errors that present as not-found, and cross-region latency that is invisible until someone moves a bucket. For a mounted network filesystem, check the mount is still there and has not silently remounted read-only, which produces write failures with a healthy-looking mount in every dashboard.
+**Object and file storage.** Different failure modes: request rate limits per prefix, stale content served by a cache or CDN in front of the bucket (the major object stores are now strongly consistent, so a listing that looks stale usually means something is caching it), permission errors that present as not-found, and cross-region latency that is invisible until someone moves a bucket. For a mounted network filesystem, check the mount is still there and has not silently remounted read-only, which produces write failures with a healthy-looking mount in every dashboard.
 
 **The read-only remount.** Worth its own mention. When a volume detects errors, many systems remount it read-only to protect data. The instance stays up, health checks that only read may still pass, and every write fails. It is a spectacular source of confusion because the box looks alive.
 
@@ -171,7 +171,7 @@ Alongside flow logs, every provider offers a **connectivity test** or **reachabi
 | --- | --- | --- | --- |
 | Flow records | VPC Flow Logs | NSG flow logs, VNet flow logs | VPC Flow Logs |
 | Instance-level filtering | Security group (stateful) | Network security group (stateful) | VPC firewall rule (stateful) |
-| Subnet-level filtering | Network ACL (stateless) | NSG on subnet | Hierarchical firewall policy |
+| Subnet-level filtering | Network ACL (stateless) | NSG associated with the subnet (stateful) | No subnet-level list; hierarchical firewall policies apply at organization or folder level (stateful) |
 | Path analysis tool | Reachability Analyzer | Network Watcher connection troubleshoot | Connectivity Tests |
 | Live capture | Traffic Mirroring | Packet capture | Packet Mirroring |
 | Outbound translation | NAT Gateway | NAT Gateway | Cloud NAT |

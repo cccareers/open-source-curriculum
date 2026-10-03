@@ -234,3 +234,9 @@ Write the replacement policy in the generic structure used in this lesson. It mu
 **Part 5 — Start from zero.** Pick any small task on any platform — for instance, a function that reads one object and writes one object. Create a fresh identity with no permissions. Run the task, capture the denial, grant exactly the one permission it names, and run again. Repeat until it succeeds, recording every iteration. Submit the transcript and the final policy, then state how many permissions the final policy contains and how many a broad managed administrator role would have granted instead.
 
 **Deliverable:** one document containing the rewritten policy with its three answers, the role table with its three questions, the four troubleshooting analyses, the audit note with remediations, and the start-from-zero transcript.
+
+## Check your understanding
+
+1. A policy allows `storage:GetObject` on `storage:::analytics-data`. Reads of `analytics-data/reports/jan.csv` are denied. Why? *(The resource names the bucket, not the objects inside it; the object resource needs the `/*` form.)*
+2. A role's identity policy allows an action and an organization-level guardrail denies it. What happens, and which evaluation rule decides it? *(Denied — an explicit deny always wins, and upper-level guardrails cap what can be granted below.)*
+3. Why is "can create identities or assign roles" a different category of risk from "can delete production storage"? *(It lets an attacker grant themselves anything and persist after the original credential is rotated.)*
