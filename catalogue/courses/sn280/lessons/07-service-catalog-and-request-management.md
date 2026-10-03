@@ -102,7 +102,7 @@ The distinction to be precise about:
 - **Catalog item** → produces a REQ / RITM / SCTASK chain. Use when the thing is a *request for something*, fulfilled through the request process.
 - **Record producer** → produces one record on a target table. Use when the thing being created is genuinely an incident, a problem, a change, or a record on a custom table.
 
-Getting this wrong is common and consequential. A password reset offered as a catalog item creates a request for a service that was interrupted — which pollutes request metrics with incident work, exactly the conflation lesson 2 warned about. Conversely, a laptop order implemented as a record producer creating an incident is the same error mirrored.
+Getting this wrong is common and consequential. "My email stopped working" offered as a catalog item creates a request for a service that was interrupted — which pollutes request metrics with incident work, exactly the conflation lesson 2 warned about. Conversely, a laptop order implemented as a record producer creating an incident is the same error mirrored. Note where a routine password reset falls: lesson 2 classed it as a request — the service works and the user wants a normal, pre-defined action — so it belongs in the catalog (or self-service reset tooling), not in a record producer that creates an incident.
 
 A record producer's script maps variables onto the produced record's fields. Keep it thin — mapping and nothing else:
 
@@ -132,7 +132,7 @@ An order guide has three parts:
 
 **A rule base** that decides which items are included. Rules are conditions on the guide's variables: if the role is "field engineer," include the ruggedized laptop and the vehicle kit; if the location is a specific site, include the badge item for that site. Configure these as **inclusion rules on each item**, so adding an item later means adding one rule rather than editing a central script.
 
-**Variable mapping** so answers given on the guide populate the corresponding variables on each included item. This is the part that makes the guide feel like one form instead of five, and it is configured on the guide's item entries.
+**Variable mapping** so answers given on the guide populate the corresponding variables on each included item. This is the part that makes the guide feel like one form instead of five. The baseline mechanism is **cascading**: tick *Cascade variables* on the order guide, and any variable on an included item whose name matches a guide variable is filled from the guide's answer (and usually hidden on the item). Matching names exactly is the whole trick, which is another reason to put the shared questions in a variable set.
 
 The result of submitting an order guide is **one REQ containing several RITMs**, each with its own approvals, its own fulfilment tasks, and its own stage. That is exactly right: the requester tracks one order, and each piece is worked independently by the team that owns it.
 
@@ -192,7 +192,7 @@ Work in a personal developer instance, capturing your work in one named update s
 
 6. **Variable set.** Extract the "who is this for" questions into a variable set and use it on two different items. Then add a new question to the set and confirm it appears on both.
 
-7. **Record producer.** Build a "Report an issue" record producer that creates an incident, mapping at least four variables onto incident fields. Verify that priority is still derived by the matrix rather than set by your script. Then write two sentences on how you would explain to a customer why password resets belong here and not in the catalog as an item.
+7. **Record producer.** Build a "Report an issue" record producer that creates an incident, mapping at least four variables onto incident fields. Verify that priority is still derived by the matrix rather than set by your script. Then write two sentences on how you would explain to a customer why "my email is not working" belongs here, while a routine password reset belongs in the catalog as a request.
 
 8. **Order guide.** Build an onboarding order guide that asks the starter's details once and includes at least three items, with at least one item included conditionally by a rule. Submit it and verify that you get one REQ with several RITMs, and that answers from the guide populated the item variables.
 
