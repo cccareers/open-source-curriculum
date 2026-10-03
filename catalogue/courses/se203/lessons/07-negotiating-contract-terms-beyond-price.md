@@ -101,7 +101,7 @@ The deal: 400 seats, list $200,000 per year. You planned a floor of $168,000 in 
 >
 > **Procurement:** The year-one number is what I'm measured on. My CFO wants us not locked in.
 >
-> **You:** That's useful, and they're solvable separately. Here's a package — all of it together, none of it standalone. Year one comes down to 156, not by discounting the rate but by ramping: 300 seats in year one, 400 in year two, 450 in year three, all committed now. Your rate is held flat across all three years, and the renewal uplift is capped at 5%, so you're protected on the thing your CFO is actually worried about. I'll add the top support tier and six training days at no charge. In return I need 36 months, annual in advance, and a named reference after month six. *(One package. Year-one price falls 22% while the per-seat rate does not move at all. Cheap items given visibly. Three things asked for in the same breath.)*
+> **You:** That's useful, and they're solvable separately. Here's a package — all of it together, none of it standalone. Year one comes down to 150, not by discounting the rate but by ramping: 300 seats in year one, 400 in year two, 450 in year three, all committed now. Your rate is held flat across all three years, and the renewal uplift is capped at 5%, so you're protected on the thing your CFO is actually worried about. I'll add the top support tier and six training days at no charge. In return I need 36 months, annual in advance, and a named reference after month six. *(One package. Year-one price falls 25% while the per-seat rate does not move at all. Cheap items given visibly. Three things asked for in the same breath.)*
 >
 > **Procurement:** Thirty-six months is the opposite of not being locked in.
 >
@@ -111,7 +111,7 @@ The deal: 400 seats, list $200,000 per year. You planned a floor of $168,000 in 
 >
 > **You:** Not on a committed ramp — that's what makes the ramp fundable. What I can do instead is let you add seats mid-term at the same rate rather than at list, which is the direction you're more likely to move. *(Refuses the landmine, substitutes a cheap concession that addresses the underlying worry.)*
 
-Score it. The buyer's headline year-one spend fell 22%. The per-seat rate never moved, so list-price integrity survived and the renewal negotiates from full rate. Total contract value across three years rose. The concessions that cost real money — the uplift cap and the price hold — were bought with a 36-month commitment and cash in advance. The landmines never entered the contract, and the legal language never entered the conversation.
+Score it. The buyer's headline year-one spend fell 25% — 300 seats at $500 is $150,000. The per-seat rate never moved, so list-price integrity survived and the renewal negotiates from full rate. Total contract value across three years is $575,000 (150 + 200 + 225), against the $480,000 a flat 20% discount on 400 seats would have produced over the same term. The concessions that cost real money — the uplift cap and the price hold — were bought with a 36-month commitment and cash in advance. The landmines never entered the contract, and the legal language never entered the conversation.
 
 ## Sorting a hostile list: the four buckets in practice
 
@@ -177,3 +177,9 @@ Work in threes: seller, procurement, and an observer. Around two hours.
 6. **Revoke a concession.** The buyer accepts your package, then withdraws the 36-month term. The seller must visibly and calmly remove the concessions that term was paying for and restate a coherent 24-month package. Run it until it can be done without apologizing.
 
 7. **Score the outcome.** Compute the final deal's year-one revenue, three-year total, and effective rate per seat, and list everything you received in return. If the received column is empty, the negotiation was a discount with extra steps.
+
+## Check your understanding
+
+1. Sort into accept / trade / refuse / route: an extra sandbox; most-favored-nation pricing; a limitation-of-liability amendment; a renewal uplift cap. *(Answers: accept; refuse; route to legal; trade — only for term.)*
+2. Why is a 50% waiver on a $20,000 implementation fee usually cheaper than 5% off a $200,000 subscription? *(Answer: the waiver costs $10,000 once; the subscription discount costs $10,000 every year and becomes the renewal baseline.)*
+3. How does a ramp lower year-one spend without lowering price? *(Answer: fewer committed seats in year one and more later, all at the same per-seat rate, committed up front.)*

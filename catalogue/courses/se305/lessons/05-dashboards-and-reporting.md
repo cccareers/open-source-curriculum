@@ -187,3 +187,9 @@ Two composition rules keep a dashboard readable. Put the tiles that trigger acti
 **Exercise 3 — break a tile.** For each of the five fields in the table above, describe one realistic way a busy rep corrupts it in a normal week, name which tile goes wrong, and state whether the corrupted tile reads better or worse than the truth. Then say which single field you would protect first and why.
 
 **Exercise 4 — the gaming test.** Take tiles 1, 2, 4, and 6 and answer, for each, "what could I do that makes this tile look good without selling anything more?" Then propose one paired tile or one filter change per tile that closes the loophole.
+
+## Check your understanding
+
+1. Name the six links in a tile specification. *(Answer: decision, question, metric, filter, threshold, action.)*
+2. Why should discovery-to-validation conversion be reviewed monthly, not weekly? *(Answer: it cannot meaningfully move in a week; weekly review reacts to two or three deals of noise.)*
+3. Ask "what would make this tile look good without anything improving?" of the time-to-no tile. What is the answer, and the fix? *(Answer: slow-dying deals that have not closed yet are excluded from a closed-loss window; pair it with a count of open discovery opportunities older than 60 days.)*

@@ -264,3 +264,9 @@ You need a phone, a partner, and something to record with.
 6. **Make twenty live dials** from your target list, in one uninterrupted block. Log dials, connects, conversations, and meetings set. Leave a voicemail on every no-answer using the structure above, and send the matching email within the hour.
 
 7. **Write a call debrief.** For every conversation, capture the prospect's exact words about their current state, and the objection you handled worst. Bring that objection to your coach with your proposed rewrite.
+
+## Check your understanding
+
+1. What is the single goal of a cold call? *(Answer: to earn a specific next conversation — a dated meeting — not to demo or fully qualify.)*
+2. Your log shows plenty of connects but very few get past the opener. Which move do you work on this week? *(Answer: the opener — low conversations off good connects is an opener problem.)*
+3. A prospect says "I'm not interested" four seconds into the call. Give an acknowledge → reframe → re-ask response in your own words. *(One good answer: "Fair — you don't know me yet. One question and I'll go: is per-branch dispatch actually working, or just not the fire this quarter?")*

@@ -105,7 +105,7 @@ Notice what this beat does. It removes the option of dismissing you as someone w
 
 The reframe lands first; the capability lands second, as the answer to a question the room is now actively asking. Reverse those two paragraphs and the whole thing becomes a feature pitch. Note also that the reframe here is a *commercial insight* — the technique for finding and building one is lesson 7's whole subject.
 
-**Beat 6 — The new normal.** *"Six months in, this is what changes. Your technician arrives at 14 Court Street with the contactor already on the truck because the unit failed the same way in March. The call closes in one visit. First-time fix goes from 61% toward the mid-70s, which is where comparable operators land in the first year. Callbacks fall, so 4,000 or so visits a year come back as capacity — which is roughly the overtime line. And the building managers who were quietly deciding whether to renew stop seeing a second van in their lobby."*
+**Beat 6 — The new normal.** *"Six months in, this is what changes. Your technician arrives at 14 Court Street with the contactor already on the truck because the unit failed the same way in March. The call closes in one visit. First-time fix goes from 61% toward the mid-70s, which is where comparable operators land in the first year. Callbacks fall, so 4,000 or so visits a year come back as capacity — about $720,000 of technician time at $180 a visit, or roughly 40% of the $1.78 million overtime line. And the building managers who were quietly deciding whether to renew stop seeing a second van in their lobby."*
 
 *"What I want to leave with is a sixty-day pilot in Queens: 38 technicians, 1,900 units, starting the first week of October, measured on first-time fix and callback rate. And a line in the September capital plan so that if the pilot works we are not waiting until next summer."*
 
@@ -209,3 +209,9 @@ Two additional facts from a later call, which you have not yet used:
 Diagnose it beat by beat, saying which beats are present and which are missing. Then rewrite it as a spoken opening of four short paragraphs that reaches the end of beat 3 without naming your product once.
 
 **Exercise 7 — allocate the slides.** Using the beats-to-slides table and the fifty-minute meeting from lesson 2 (Ted leaves at fifteen minutes), assign a slide count to each beat and state which beat has to be complete before minute fifteen. Justify any place where you deviate from the table.
+
+## Check your understanding
+
+1. Which beat is most often skipped, and what does it do? *(Answer: beat 4, the struggle — it proves you understand the buyer and neutralizes "we are already handling this.")*
+2. Resolution or feature? "Our platform includes truck stock management." *(Answer: a feature. A resolution is about the buyer's operation: "Technicians arrive with the part because the system knows what the unit failed with last time.")*
+3. Name the three checks in the spine test. *(Answer: each sentence requires the one before; a stranger can predict the product from beats 1–4; no vendor nouns in beats 1–4.)*

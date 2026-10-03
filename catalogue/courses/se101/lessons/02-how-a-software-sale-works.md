@@ -74,6 +74,15 @@ Every arrow between two roles is a place where context gets dropped. The SDR boo
 
 The remedy is unglamorous: write down what you learned in the customer's own words, and hand it over before the next person's first conversation, not after.
 
+Here is what that looks like for the deal in the worked example below, sent by the SDR to the account executive before the first discovery call:
+
+> **Dana (Ops Manager), 400-person logistics co.** Replied to hiring-signal note.
+> - In her words: dispatchers "rekey every delivery exception into a spreadsheet" and it is "getting out of hand."
+> - She does not own budget; her director does. Peak season starts in about five months.
+> - Not yet known: how much time the rekeying costs, and whether IT has a say.
+
+Notice that every bullet is either something Dana said or something explicitly marked as unknown. Nothing in it is the SDR's opinion about whether she will buy.
+
 ## Worked example: one deal end to end
 
 A 400-person logistics company. An SDR notices they are hiring dispatchers rapidly and sends a note; an operations manager, Dana, replies. **Prospecting done.**
@@ -96,3 +105,9 @@ Work from this scenario: a 200-person accounting firm where junior staff manuall
 2. For the same scenario, list every role you expect to meet — on your side and the customer's — and write one sentence per role explaining what that person needs from you in order to say yes. You should end up with at least eight rows.
 3. Pick two adjacent roles that must hand off to each other. Write the three-bullet handoff note the first would send the second. Then delete the bullets that are your opinion rather than something the customer said, and see what survives.
 4. Finally, describe a plausible way this deal moves *backwards* one stage, and what you would do about it.
+
+## Check your understanding
+
+1. A customer in the evaluation stage tells you their new CFO wants to "take a look before anything is signed." Which stage are you now really in, and why? *(Answer: back in discovery for that stakeholder — you do not yet know what the CFO cares about, and moving forward as if you did is how deals stall.)*
+2. Why does demonstration come after discovery rather than before it? *(Answer: without discovery you do not know which capabilities matter, so the demo becomes a generic feature tour.)*
+3. Name the customer-side role who can approve the spend, and the one who argues for you when you are not in the room. *(Answer: the economic buyer; the champion.)*

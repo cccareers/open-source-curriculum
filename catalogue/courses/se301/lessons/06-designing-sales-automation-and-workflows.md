@@ -276,3 +276,9 @@ Use whichever platform from lessons 3 to 5 you have the best access to. Test on 
 **5. Design the qualification layer.** Separately, take the qualification framework your organization uses (or BANT if you have none) and produce: one field per element with its type and complete legal values; the written rule that defines *qualified*; a fit/engagement scoring model with at least four fit signals and four engagement signals, including a decay rule; and a routing table mapping each score quadrant to a destination and a response-time commitment.
 
 **6. Write the operating note.** In under 400 words, aimed at the rep who inherits this: what the automation does, what it deliberately does not do, what will make it misbehave, how to turn it off safely, and what number tells you it is working.
+
+## Check your understanding
+
+1. "When the deal amount is over $50,000" — trigger or condition? How should it be built? *(Answer: a condition (a state). Build a trigger on the event — the amount field changed — plus a condition that the new value is over $50,000.)*
+2. Which two parts of an automation are most often skipped, and what disasters do they cause? *(Answer: exit conditions/suppression and re-entry rules — sequences that keep emailing people who replied, and duplicate welcome messages.)*
+3. Why should a qualification automation flag rather than block? *(Answer: blocking gets routed around with junk data; flag, route, and require review instead.)*

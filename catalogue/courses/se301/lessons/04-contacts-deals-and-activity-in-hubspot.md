@@ -209,3 +209,9 @@ Sign up for a free HubSpot account if you do not have portal access; the free CR
 **5. Build the three views you will live in.** (a) My open deals closing this month, sorted by close date. (b) My open deals with no scheduled activity. (c) An active list of contacts at lifecycle stage Sales Qualified Lead with no associated open deal. For each, write one sentence on the decision it drives.
 
 **6. Compare the two platforms in writing.** In 300–400 words, take the same imagined deal and describe how it would be recorded in Salesforce and in HubSpot: which records exist, what the qualification moment looks like in each, and where the person-to-deal relationship is stored. Finish with the single biggest risk each model creates for a careless rep.
+
+## Check your understanding
+
+1. What is the difference between lifecycle stage and lead status? *(Answer: lifecycle stage says where a person is in the journey to customer; lead status says what you are doing about them right now.)*
+2. Sequence or workflow? (a) A five-email follow-up after a demo, sent from your mailbox. (b) Create a task for the owner whenever a deal sits in Negotiation for 14 days. *(Answers: (a) sequence; (b) workflow.)*
+3. An event list must keep exactly the people who were invited, even if their properties change. Active or static list? *(Answer: static.)*
