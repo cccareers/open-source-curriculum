@@ -42,7 +42,7 @@ User conversion rate        612 / 34,000 users           =  1.80%
 Checkout completion rate    612 / 2,480 begin_checkout   = 24.68%
 ```
 
-None is wrong. They answer three different questions: how often does a visit end in a sale, how often does a person end in a sale, and how often does someone who has already decided to buy actually manage to. Reporting the third as "our conversion rate" would be a twenty-fold overstatement, and it happens constantly, usually by accident.
+None is wrong. They answer three different questions: how often does a visit end in a sale, how often does a person end in a sale, and how often does someone who has already decided to buy actually manage to. Reporting the third as "our conversion rate" would be a nearly twenty-fold overstatement (24.68 ÷ 1.32 = 18.7), and it happens constantly, usually by accident.
 
 The rule is short and it will save you more arguments than anything else in this course: **state the denominator every single time.** "Conversion rate 1.32 percent, sessions" costs you four words and removes an entire category of misunderstanding. When you inherit a report that quotes a bare percentage, your first job is to find out what it was divided by, and your second is to discover that nobody knows.
 
@@ -178,11 +178,11 @@ What you should do instead is decide what the guides are *for* and measure that.
 
 Here is where reporting becomes honest or stops being worth anything. Kestrel's numbers wobble. Some of the wobble is information and most of it is not.
 
-Take a single page: `/collections/trail-running-shoes` had **210 sessions** last week and **235** the week before, a **12 percent decline**. Somebody will put that in a slide.
+Take a single page: `/collections/trail-running-shoes` had **210 sessions** last week and **235** the week before, an **11 percent decline** (25 ÷ 235). Somebody will put that in a slide.
 
 It is nothing. Here is why, and you should be able to do this arithmetic in your head by the end of the course.
 
-For a count of events, week-to-week variation of roughly the square root of the count is ordinary. The square root of 210 is about 14.5, so a swing of 15 sessions either way is unremarkable and a swing of 25 is well inside two of those. A 12 percent change on 210 is noise wearing a percentage sign.
+For a count of events, week-to-week variation of roughly the square root of the count is ordinary. The square root of 210 is about 14.5, so a swing of 15 sessions either way is unremarkable and a swing of 25 is well inside two of those. An 11 percent change on a count of 210 is noise wearing a percentage sign.
 
 The same logic in the other direction is what makes percentages so dangerous. Small denominators produce large percentages. **Always print the counts next to the rates**, and if a stakeholder's deck contains a percentage with no count beside it, ask for the count before you discuss the percentage.
 
@@ -246,7 +246,9 @@ KESTREL OUTFITTERS - 28 days ending 5 April       (prior period in brackets)
     of which from guides        396  [352]     target 340    target met
 
   NOISE FLOOR THIS PERIOD
-  Session CVR moves smaller than +/- 0.21pp per week are not reported as changes.
+  Session CVR moves smaller than +/- 0.11pp between 28-day periods
+  (+/- 0.21pp week to week) are not reported as changes.
+  28-day floor: square root of (0.013026 / 46,200) = 0.053pp; two of those = 0.11pp
 ```
 
 Notice what that scorecard does. It puts the target next to the KPI. It labels the small moves as noise rather than dressing them up. It carries the counts beside the rates. And its most useful line is the mobile-versus-desktop checkout split, which is not a KPI at all — it is the diagnostic that tells you where next quarter's work is.

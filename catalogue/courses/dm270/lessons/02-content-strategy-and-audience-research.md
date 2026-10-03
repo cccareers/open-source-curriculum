@@ -157,7 +157,7 @@ Export every URL, and score each one on two axes: does it serve a pillar, and do
 | **Merge** | Two or more pieces answering the same question | Combine into the strongest URL, redirect the others |
 | **Retire** | Serves no pillar, no traffic, no purpose | Remove and redirect to the nearest useful page |
 
-Harvest Lane's audit of 63 URLs: 22 keep, 14 update, 19 merge into 6, and 8 retire. Note the arithmetic — 63 URLs became 49, and the team's next quarter was better spent on the 14 updates than on 14 new posts, because an update inherits everything the URL has already earned. **Updating usually beats publishing.** It is also the least glamorous line in a plan and the first one cut, which is why it belongs in the calendar as scheduled work rather than as intention.
+Harvest Lane's audit of 63 URLs: 22 keep, 14 update, 19 merge into 6, and 8 retire. Note the arithmetic — 63 URLs became 42 (22 kept + 14 updated + the 6 merge survivors; 8 retired, 13 redirected into the survivors), and the team's next quarter was better spent on the 14 updates than on 14 new posts, because an update inherits everything the URL has already earned. **Updating usually beats publishing.** It is also the least glamorous line in a plan and the first one cut, which is why it belongs in the calendar as scheduled work rather than as intention.
 
 ## Capacity: the calendar you can staff
 
