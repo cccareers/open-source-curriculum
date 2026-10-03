@@ -288,7 +288,7 @@ A sitemap is a machine-readable list of URLs you want crawled and indexed. It is
 </urlset>
 ```
 
-The index tying Meridian's five sitemaps together:
+The index tying Meridian's five sitemaps together (three of the five entries shown):
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

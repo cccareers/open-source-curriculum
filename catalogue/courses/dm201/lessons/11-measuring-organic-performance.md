@@ -161,7 +161,7 @@ Write down the primary metric for each page group *before* you look at the data.
 
 ## 6. Baselines, seasonality, and telling a real change from noise
 
-**Compare like for like.** Organic traffic to a B2B product like Meridian has a hard weekly cycle: weekdays high, weekends low. A 28-day comparison beats a 30-day one, because 28 days contains exactly four of each weekday. Comparing 1–31 March against 1–28 February compares 23 business days against 20, manufacturing a 15% "decline" out of the calendar alone.
+**Compare like for like.** Organic traffic to a B2B product like Meridian has a hard weekly cycle: weekdays high, weekends low. A 28-day comparison beats a 30-day one, because 28 days contains exactly four of each weekday. Comparing 1–31 March against 1–28 February compares 23 business days against 20, manufacturing a swing of roughly 13–15% (depending on which month you treat as the base) out of the calendar alone.
 
 **Month-over-month versus year-over-year.** Month-over-month is sensitive and noisy: it catches regressions fast and produces false alarms. Year-over-year controls for seasonality and is the number to report to executives, but it moves too slowly to catch a broken deployment. Use both. For Meridian, year-over-year is essential: payroll search demand spikes in late December and January as employers handle year-end, and again around quarterly tax deadlines, so a January-versus-November comparison is meaningless.
 
@@ -327,7 +327,7 @@ Always show the sensitivity range when a step in your arithmetic is an assumptio
 
 ### (iii) An 18% decline isolated to one directory
 
-Site organic clicks fell 18% month over month. Segment by page group first.
+Site organic clicks fell 25% month over month. Segment by page group first.
 
 | Page group | Clicks, prior month | Clicks, this month | Change |
 | --- | --- | --- | --- |
@@ -338,7 +338,7 @@ Site organic clicks fell 18% month over month. Segment by page group first.
 | `/product/`, `/pricing`, `/` | 1,240 | 1,220 | −2% |
 | **Total** | **14,770** | **11,070** | **−25%** |
 
-**Diagnosis.** The site-wide "18%" was an average hiding a catastrophe in one directory and nothing anywhere else — everything except `/help/` moved within noise. Working the tree: impressions fell too (Q1 → yes) and the drop is confined to one directory (Q2 → yes), which points at a site change or technical regression, not an algorithm update.
+**Diagnosis.** The site-wide "25%" was an average hiding a catastrophe in one directory and nothing anywhere else — everything except `/help/` moved within noise. Working the tree: impressions fell too (Q1 → yes) and the drop is confined to one directory (Q2 → yes), which points at a site change or technical regression, not an algorithm update.
 
 Confirm it in **Indexing > Pages**, filtered to `/help/`:
 
@@ -369,7 +369,7 @@ and you should say so.
 Effort: about 1 hour of engineering plus verification.
 ```
 
-One hour to recover roughly 3,500 clicks a month. Notice that this finding was invisible in the site total — a mild 18% dip — and became obvious the moment it was segmented by directory. **Always segment before you conclude.**
+One hour to recover roughly 3,500 clicks a month. Notice that this finding was hidden in the site total — a 25% dip that looked like a broad decline — and became obvious the moment it was segmented by directory. **Always segment before you conclude.**
 
 ### (iv) A template page with traffic and near-zero conversions
 
@@ -556,3 +556,9 @@ Run a complete measurement cycle on a real property. You need Search Console acc
 10. **Score and rank all five** with `(Impact × Confidence) / Effort`. Split any item over 20 hours into a staged first batch and re-score it. Produce the ranked table with hours.
 11. **Write the four-part narrative** — what changed, why, what we did, what we will do next — in under 400 words, with one forecast expressed as a range plus the assumption that carries the most risk.
 12. **Name one process change** that would have caught your worst finding earlier, and say where it would live: a release checklist, a monthly report, or a monitoring alert.
+
+## Check your understanding
+
+1. Site-wide average position worsened from 18.4 to 21.0 in the same month that clicks rose 9%. Is something wrong? *(Answer: not necessarily — new pages debuting at deep positions drag the average down. Report position per page or query, alongside clicks and impressions.)*
+2. GA4 organic sessions fell 20% while Search Console clicks held flat. Which branch of the decision tree is this, and what do you check first? *(Answer: Q3, a likely tracking or attribution break; check whether Direct or Unassigned rose by about what Organic lost, and whether the tag or consent banner changed.)*
+3. Why should CTR changes be reported in percentage points? *(Answer: "up 21%" on a rate is ambiguous; "from 2.8% to 3.4%, up 0.6 points" is not.)*

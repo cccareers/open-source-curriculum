@@ -133,7 +133,7 @@ Day 11  Booked a trial session
 | --- | --- | --- |
 | Last click | Paid brand ad (day 11) | Overcredits closing channels; makes brand search look miraculous |
 | First click | Paid social (day 1) | Overcredits discovery; ignores what closed it |
-| Linear | Split evenly across all four | Treats a passive impression as equal to the decisive click |
+| Linear | Split evenly across the four channels (paid social, organic search, email, paid search) | Treats a passive impression as equal to the decisive click |
 | Time decay | Weighted toward day 11 | Reasonable default; still arbitrary |
 | Position-based | 40% first, 40% last, 20% middle | Recognizes discovery and close, undervalues nurture |
 
@@ -141,7 +141,13 @@ The right conclusion is not "use model X." It is: **every model is a convention,
 
 Three practical points:
 
-**Tag your links.** Campaign parameters appended to URLs (a source, a medium, and a campaign name) are how an analytics tool knows an arriving visit came from your newsletter rather than from generic "direct" traffic. Untagged links are the single largest cause of unattributable traffic. Agree a naming convention and use it everywhere.
+**Tag your links.** Campaign parameters appended to URLs (a source, a medium, and a campaign name) are how an analytics tool knows an arriving visit came from your newsletter rather than from generic "direct" traffic. Untagged links are the single largest cause of unattributable traffic. Agree a naming convention and use it everywhere. The widely used convention is a set of "UTM" parameters. For example, the button in newsletter email 2 might link to:
+
+```text
+https://example-tutoring.com/trial?utm_source=newsletter&utm_medium=email&utm_campaign=parent_nurture_2
+```
+
+`utm_source` names who sent the visit (the newsletter), `utm_medium` names the channel type (email), and `utm_campaign` names the specific effort. Keep values lowercase and consistent — `Email`, `email`, and `e-mail` show up as three different channels in most reports.
 
 **Expect gaps.** Cross-device journeys, privacy settings, ad blockers, cookie expiry, and app-to-browser hops all break the chain. A meaningful share of conversions will land in "direct" or "unassigned" and no amount of tooling fully fixes it. Report the gap; do not quietly redistribute it.
 
