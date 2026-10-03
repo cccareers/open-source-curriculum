@@ -108,3 +108,10 @@ When feedback is unfair — and occasionally it will be — the professional mov
 6. **Ask a narrow question.** At your next supervision contact, ask for one specific improvement in your documentation. Write down the answer verbatim, act on it for two weeks, then report back to your mentor unprompted.
 7. **Learn your call-out policy.** Write down, from your site's own documentation, exactly whom you notify for an absence, by what method, and by what time. Confirm it with your mentor.
 8. **Draft your professionalism self-assessment.** Rate yourself honestly on punctuality, commitment follow-through, documentation timeliness, documentation accuracy, handoffs, and response to feedback. Bring it to your final evaluation and compare it with your mentor's assessment. Where you differ is where your next term of growth is.
+
+## Check your understanding
+
+1. You realize at 4:30 p.m. that you cannot make tomorrow's 9 a.m. home visit. What do you do, and in what order? *Use your site's required call-out or notification method, tell the client directly before the visit with a new time, tell your supervisor, and update the record. Then keep the new commitment.*
+2. Rewrite as a factual note: "Client is unmotivated and keeps missing appointments." *For example: "Client missed appointments on 4/2 and 4/9. Client states, 'The bus stopped running before my shift ends.' CHW provided ride program information; follow-up call scheduled 4/16."*
+3. You entered the wrong date on yesterday's note. What do you do? *Use the system's amendment or correction procedure with a dated correcting entry. Never overwrite or backdate.*
+

@@ -63,7 +63,7 @@ Three of these roles account for most of the supervised competency you will be s
 
 An evidence log is a short, dated, de-identified record of your practice, kept by you, for you. It is not the program's chart, it is not a substitute for your required documentation in the agency's system, and it never leaves your own control.
 
-One entry per meaningful activity. Keep it to four lines.
+One entry per meaningful activity. Keep it to four labeled fields — date, role(s), what you did, outcome and follow-up — each a line or two long.
 
 ```text
 Date: 2026-03-14

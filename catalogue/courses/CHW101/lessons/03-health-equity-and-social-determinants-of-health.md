@@ -30,7 +30,7 @@ This matters at work because the language you use shapes what gets fixed. If a t
 
 ## Social determinants of health
 
-Clinical care matters, but it is not what mostly determines whether people are healthy. The **social determinants of health** are the conditions in which people are born, grow, live, work, and age — the circumstances that shape health long before anyone walks into a clinic. A widely used grouping sorts them into five areas:
+Clinical care matters, but it is not what mostly determines whether people are healthy. The **social determinants of health** are the conditions in which people are born, grow, live, work, and age — the circumstances that shape health long before anyone walks into a clinic. A widely used grouping, from the federal Healthy People 2030 framework, sorts them into five areas:
 
 **Economic stability.** Income, employment, job quality, poverty, debt, food security, housing costs. A person working two part-time jobs with unpredictable scheduling cannot reliably attend a Tuesday-morning appointment, no matter how motivated they are.
 
