@@ -208,3 +208,9 @@ All work in this practice happens on the instructor-provided lab range only. Do 
 **Part 5 — Ownership verification.** You are given the in-scope line `203.0.113.0/24` and told the client owns it. Write the procedure you would follow, step by step, to verify that claim before the window opens — what public registration records you would consult, what you would ask the client to provide in writing, what you would do about addresses in the range that do not respond, and what you would do about an address in the range that responds with a certificate issued to a different organization. Then state, in one sentence, what you would do if the client refused to provide written confirmation.
 
 **Deliverable:** one document containing Parts 1 through 5. It should be possible for a reviewer to hand your Part 3 ROE to another apprentice and have them work the rest of this course from it without asking a question.
+
+## Check your understanding
+
+1. Your supervisor tells you verbally to "add the staging server, it's fine". What do you do? *Nothing until a written scope change, signed by the original signatory, is filed. An assistant never extends scope.*
+2. An in-scope hostname resolves to an address outside the listed range. May you test it? *No. Treat it as out of scope, log it, and escalate for a written decision.*
+3. List the five things the assistant does at any stop condition. *Halt, record the time and last action, preserve what you have, notify the supervisor, and wait for written instruction.*

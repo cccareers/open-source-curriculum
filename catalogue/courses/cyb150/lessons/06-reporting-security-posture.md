@@ -140,7 +140,7 @@ in 14 signed customer agreements. Two decisions are requested in section 7.
 
   MEASURE                                    NOW    TARGET   Q1     STATUS
   Privileged accounts on hardware keys       12/12  12/12    0/12   GREEN
-  Median days to patch critical, external    11     7        14     AMBER
+  Median days to patch critical, external    11     7        14     RED
   Endpoints not reporting to endpoint
     protection for over 7 days               9/412  0        17/412 AMBER
   Quarterly access reviews completed
@@ -237,7 +237,7 @@ Six things in that report are doing deliberate work, and they are the transferab
 
 **The bottom line contains the bad news.** It would have been easy to lead with the hardware key win and mention patching in section 4. Executives who later discover that a signed commitment was being missed while the report led with a success stop trusting the report, permanently.
 
-**The patching metric is tied to a contract.** "11 days versus 7" is a technical fact. "11 days versus 7, and the 7 appears in 14 signed agreements" is a business fact with a decision attached. That translation is the whole skill.
+**The patching metric is tied to a contract, and that is why it is red.** By the report's own definitions, a customer commitment that is currently unmet is RED even though an owner and a plan exist. "11 days versus 7" is a technical fact. "11 days versus 7, and the 7 appears in 14 signed agreements" is a business fact with a decision attached. That translation is the whole skill.
 
 **Risk ratings show movement.** `12 High (was 12)` and `9 Medium (was 12)` let a reader see the programme working without reading the register. RISK-014's departure from the top five is stated rather than left as a silent absence — a risk that vanishes without explanation reads as an error.
 
@@ -310,3 +310,9 @@ Write section 7 with exactly two asks. Each must name an owner, a date, at least
 **Exercise 5 — Re-cut it for a different reader.**
 
 Take your finished report and produce a five-line version for the Head of Engineering. Only their items, only their decisions, no company-wide metrics they cannot influence. Then list three things from the executive report that must not appear in a version sent to a prospective customer, and say why for each.
+
+## Check your understanding
+
+1. A metric reads "14,382 malicious emails blocked." What is wrong with it, and what should replace it? *It has no comparison and measures attempts, not effectiveness. Replace it with a measure against a target, such as phishing-simulation click rate versus target, with the prior period and the owner of the gap.*
+2. Under this lesson's RAG definitions, a metric is off target with an owner and a dated plan, but it breaches a signed customer commitment. What colour is it? *Red. An unmet customer or regulatory commitment is red regardless of the plan.*
+3. Why does section 7 of the report give options rather than a single request? *Executives decide between options. Each option needs an owner, a date, a cost, and the consequence of no decision.*

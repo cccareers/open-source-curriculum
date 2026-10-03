@@ -123,7 +123,7 @@ The permissions a user actually has are rarely the permissions someone intended.
 
 **Explicit deny wins.** In most systems, an explicit deny overrides any allow from any source. Deny is powerful and it is also a trap: a deny placed on a broad group to solve one problem produces baffling failures for unrelated people years later. Prefer removing an allow to adding a deny, and when you must deny, document why on the object.
 
-**The union of share and file-system permissions.** Where two layers both apply — a network share permission and an underlying file-system permission — the effective result is the more restrictive of the two. A share set to full control with restrictive underlying permissions looks alarming in a report and is not, and the reverse looks fine and is not. Check both layers before writing a finding.
+**Share and file-system permissions combine; they do not add.** Where two layers both apply — a network share permission and an underlying file-system permission — the effective result over that share is the more restrictive of the two. (This is the one place in the list where layers do *not* accumulate.) A share set to full control with restrictive underlying permissions looks alarming in a report and is not. The reverse looks fine and is not: anyone who reaches the same files another way, such as logged on to the server locally or through a second share, meets only the permissive file-system layer. Check both layers before writing a finding.
 
 **Nested groups.** A user in a group in a group in a group holds everything all three grant. Nesting is useful and it hides privilege effectively. Depth beyond two or three levels is a finding on its own, and a cycle — group A contains group B which contains group A — is a defect that makes automated review tools disagree with each other.
 
@@ -195,3 +195,9 @@ SHARE PERMISSIONS
 **Part 5 — Trace effective permissions.** Using your Part 3 answers, pick the account `rmartin` and write, step by step, every path by which that account reaches the HR share, naming the mechanism at each hop (direct grant, group membership, nested group, inheritance, or resource-side permission). Then state which single change would remove the most paths at once, and what you would check to confirm nothing legitimate broke.
 
 **Deliverable:** one document containing the role table, the separation-of-duties analysis, the ranked findings with remediations, the privileged access recommendation, and the effective-permissions trace.
+
+## Check your understanding
+
+1. Why should people never be added directly to resource groups like `fs-payroll-read`? *Role reviews cannot see the grant, so "what can this job do?" and "who reaches this resource?" stop being answerable.*
+2. Name the control pair that `role-vendor-maintainer` and `role-ap-supervisor` keep apart. *Create/edit vendor bank details versus approve payments. No one identity can send money to an account it controls.*
+3. A share grants Everyone Full Control, but the NTFS permissions allow only `role-hr-generalist`. What is the effective network access? *Only `role-hr-generalist`: the more restrictive layer wins over the share. Still record that the share setting is untidy.*

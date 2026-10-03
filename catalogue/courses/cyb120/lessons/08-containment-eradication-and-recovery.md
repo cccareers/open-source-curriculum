@@ -72,7 +72,7 @@ Options, roughly from narrowest to broadest. The skill is choosing the narrowest
 Every consequential containment action gets a short written decision before it happens. Ninety seconds to write, and it is the artifact that makes the difference between a decision and a reflex.
 
 ```text
-Containment decision  IR-2026-0031-CD02       Proposed 10:14Z 2026-03-10
+Containment decision  IR-2026-0031-CD02       Proposed 10:14Z 2026-03-11
 
 Action        Simultaneous network isolation of WKS-2210 and WKS-4471 via
               endpoint agent. Both hosts left POWERED ON. Disable
@@ -217,3 +217,9 @@ Every one of these is common, and each has a one-line prevention.
 **Exercise 5 — Build and defend recovery criteria.** For the case followed through this course, write a complete recovery criteria checklist, with a stated compromise start date and the margin you applied to backup selection. Then write the two-paragraph message you would send a business owner who is pushing to restore service four hours before your criteria will be met — acknowledging their cost, stating your specific risk, and offering a concrete partial option rather than a refusal.
 
 **Exercise 6 — Coordinate a simultaneous eradication.** Plan an eradication window for a three-host, one-service-account incident. Produce: the action list with an owner per action, the sequence and timing, the specific negative instructions for each team, the verification step for each action and who performs it, the rollback position if something fails, and the communication plan for the affected users. Then run it as a tabletop with classmates playing desktop support, networking, identity, and a business owner, and write up every place the plan proved incomplete.
+
+## Check your understanding
+
+1. In a business email compromise, why is a password reset not enough? *Active sessions and tokens survive it; revoke them, remove attacker-created rules and forwarding, and check for authentication methods the attacker registered.*
+2. The timeline puts first compromise at 2026-03-10 13:44Z. Is a backup from 2026-03-10 06:00Z safe to restore? *It predates the observed start, but apply margin — the criteria in this lesson use backups dated before 2026-03-09 because the true start may be earlier than the first evidence.*
+3. What two fields of a containment decision record are most often missing and most valuable later? *"Not doing" (options rejected and why) and "Coordination" (which teams must act).*
