@@ -14,9 +14,9 @@ A well-designed capstone. It teaches little that is new on purpose: it gives lea
 | Lesson | Location (heading) | Issue | Fix | Status |
 |---|---|---|---|---|
 | agile310-03 | "Infrastructure as code" | Script uses `${PROJECT}` without checking it under `set -u`, so it fails with an unbound-variable error; `cloud` CLI is a placeholder but not labelled as one. | Added `PROJECT="${PROJECT:?set PROJECT}"` and a comment that `cloud` stands in for the provider CLI. | Applied |
-| agile310-02 | "Making it concrete once" | The worked example's "Warehouse external tables" for staging conflicts with lesson 5's requirement that staging deduplicate and type data (an external table cannot deduplicate on its own; a view over it can). | Change "external tables" to "views over external tables" in the layer table. | Proposed |
-| agile310-04 | "Requirements" item 3 | "Incremental ingestion with a watermark" for a bulk file drop is ambiguous: many file sources have no "changed since". | Add one sentence: for file drops, the watermark is the set of processed file names/checksums (a processed-files registry, as in de210-04). | Proposed |
-| agile310-06 | "Requirements" item 4 | "Missed-run alert" placement is not stated; a check inside the same workflow cannot detect that the workflow never ran (de210-07 makes this point). | Add "the missed-run check must run independently of the workflow it monitors". | Proposed |
+| agile310-02 | "Making it concrete once" | The worked example's "Warehouse external tables" for staging conflicts with lesson 5's requirement that staging deduplicate and type data (an external table cannot deduplicate on its own; a view over it can). | Changed to "views over external tables" and added a one-sentence explanation. | Applied |
+| agile310-04 | "Requirements" item 3 | "Incremental ingestion with a watermark" for a bulk file drop is ambiguous: many file sources have no "changed since". | Added a sentence: for file drops the watermark is a processed-files registry (name, size, checksum). | Applied |
+| agile310-06 | "Requirements" item 4 | "Missed-run alert" placement is not stated; a check inside the same workflow cannot detect that the workflow never ran (de210-07 makes this point). | Added a sentence requiring the missed-run check to run independently of the workflow. | Applied |
 | agile310-08 | "Requirements" | Panel composition and grading rubric are described in prose but no scoring rubric is published to learners. | Publish the rubric used by the panel. | Proposed |
 
 ## Depth and coverage gaps
@@ -51,6 +51,9 @@ A well-designed capstone. It teaches little that is new on purpose: it gives lea
 ## Changes applied in this pass
 
 - `03-cloud-environment-setup-and-cost-aware-design.md`, "Infrastructure as code, and why week four cares": added `PROJECT` guard and a comment labelling `cloud` as a provider-CLI placeholder.
+- `02-capstone-scoping-and-architecture-design.md`, "Making it concrete once": staging row now "views over external tables", with a sentence on why.
+- `04-milestone-1-ingestion-and-landing-zone.md`, "Requirements" item 3: defined the watermark for file-drop sources (processed-files registry).
+- `06-milestone-3-orchestration-and-reliability.md`, "Requirements" item 4: missed-run check must run independently of the monitored workflow.
 
 ## Open questions for the course owner
 
