@@ -88,7 +88,7 @@ Run it on at least **25 real or realistic cases**, including deliberately awkwar
 - The run log or execution history for the batch.
 - Reconciliation counts: received, validated, quarantined, duplicate, routed, reviewed, completed, failed — balancing.
 - A before-and-after comparison against your baseline on cycle time, with the sample size for each.
-- One incident you hit while building, written as a five-section postmortem: incident, impact, cause, detection, fix, follow-up. You will hit one. If you genuinely did not, stage one and diagnose it under the method.
+- One incident you hit while building, written as a six-section postmortem: incident, impact, cause, detection, fix, follow-up. You will hit one. If you genuinely did not, stage one and diagnose it under the method.
 
 ## Constraints
 

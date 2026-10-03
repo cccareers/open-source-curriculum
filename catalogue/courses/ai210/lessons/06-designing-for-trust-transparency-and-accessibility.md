@@ -77,7 +77,7 @@ AI interfaces raise a set of accessibility issues that conventional screens do n
 
 **Perceivable.**
 - Confidence, status, and disclosure must never be carried by color alone. Words first; color and icon as reinforcement. This is also why the greyscale test in the previous lesson exists.
-- Text contrast applies to the low-emphasis text these interfaces are full of — disclaimers, source citations, confidence notes. The content that matters most for calibration is the content most often styled at low contrast.
+- Text contrast applies to the low-emphasis text these interfaces are full of — disclaimers, source citations, confidence notes. The content that matters most for calibration is the content most often styled at low contrast. The AA minimum is a contrast ratio of 4.5:1 for normal text and 3:1 for large text; any free contrast checker will measure it.
 - If the system generates images, alternative text is part of the output design, not an afterthought.
 
 **Operable.**
@@ -87,7 +87,7 @@ AI interfaces raise a set of accessibility issues that conventional screens do n
 - Streaming text is motion. Give a way to stop it, and do not animate it in ways that ignore a reduced-motion preference.
 
 **Understandable.**
-- Streaming and progressively updating regions need to be announced to assistive technology as they change, without announcing every character. The usual pattern is a polite live region that announces meaningful milestones — started, finished, failed — with the finished text readable as a whole.
+- Streaming and progressively updating regions need to be announced to assistive technology as they change, without announcing every character. The usual pattern is a polite live region that announces meaningful milestones — started, finished, failed — with the finished text readable as a whole. (WCAG itself files this requirement under robust — success criterion 4.1.3, Status Messages — so cite it there in your findings; it sits here because it decides whether the change is understood.)
 - Plain language is an accessibility property, not a style preference. Error messages, refusals, and confidence statements should be readable by someone who is not a specialist and not a native speaker.
 - Labels and instructions must be programmatically associated with their controls, so a screen-reader user gets "Drafted reply, edit text" rather than an unlabelled text box.
 
@@ -112,6 +112,8 @@ ACCESSIBILITY REVIEW — <screen>            Standard: WCAG, AA target
   [ ] Disclosure travels with the output when the output leaves the screen
   Findings: <numbered, with severity and the principle each violates>
 ```
+
+One item deliberately goes beyond the AA target: respecting a reduced-motion preference corresponds to a Level AAA criterion (2.3.3, Animation from Interactions). It is on the list because streaming text is constant motion in exactly the place users must read closely, and it costs almost nothing to honor at design time.
 
 Run it on the wireframe, before anything is built. Every item on that list is cheap to satisfy at the sketch stage and expensive to retrofit — which is the entire argument for treating accessibility as a design activity rather than a testing one.
 
@@ -154,3 +156,12 @@ Use the screens and state table from the previous lesson.
 4. **Run the accessibility review checklist** against two of your wireframes. Record every finding with a severity and the principle it violates. Then fix the three worst and describe the change.
 5. **Do the greyscale and keyboard walkthroughs.** Describe, step by step, how a user reaches and uses your reject and escalate paths with a keyboard alone. Then describe what your confidence signal communicates with all color removed. Any step you cannot describe is a finding.
 6. **Run the trust review** with a partner playing a sceptical reviewer. Their job is to find one place where a user could reasonably over-trust the output and one where they could reasonably under-trust it. Write the design change you would make for each.
+
+## Check your understanding
+
+1. Your logs show 97% of drafts accepted unedited. Is that good news? What would you check?
+2. An AI-drafted email goes to a customer. Where must its disclosure appear?
+3. List the five parts of a complete correction design.
+4. Your confidence signal is a green, amber, or red dot. Which accessibility principle does that fail, and how do you fix it?
+
+Answers: (1) Not necessarily — it may be over-trust; check whether sources are opened, whether rejecting is as easy as accepting, and whether accepted drafts contain errors. (2) In the email itself, so it travels with the output — not only in the operator's interface or a policy page. (3) Reject, repair, escape, escalate, capture. (4) Perceivable — color alone carries meaning; lead with words (a reason), reinforced by an icon and color.

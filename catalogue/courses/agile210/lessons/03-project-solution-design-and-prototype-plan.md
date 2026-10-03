@@ -15,7 +15,7 @@ objectives:
 
 ## Goal
 
-This is stage 2 of 7 of your capstone. One build, seven passes; this pass produces the design.
+This is stage 2 of 7 of your capstone. One build, seven passes; this pass produces the design. (Elsewhere the briefs name stages by lesson number, so this pass is also "stage 03", scoping was "stage 02", and the demo is "stage 08".)
 
 You have a signed-off solution brief. Turn it into a **solution design and a prototype plan**: a component map, a written trace from every requirement in the brief to the component that satisfies it, an interface design for wherever a human touches the system, and a plan for the fastest possible rough prototype that tests your riskiest assumption before you commit thirteen hours to building the real thing.
 

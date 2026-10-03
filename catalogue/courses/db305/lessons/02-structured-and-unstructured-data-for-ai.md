@@ -123,7 +123,7 @@ Note:
 
 Three properties make that contract usable. It has a **closed vocabulary** for `special_equipment`, so downstream branching has a known set of cases. It has an **explicit null policy**, which is the single most effective defence against invented values — a model with no instruction about absence will fill the gap. And it **returns confidence**, which gives the workflow something to threshold on when routing to human review.
 
-Then treat the model's reply as an untrusted source, because it is one. Parse the JSON, confirm every required key is present, confirm `special_equipment` is one of the four allowed values, confirm `earliest_time` matches `HH:MM`. Output that fails those checks is a failure to handle, not a record to store. One retry with the parse error appended is reasonable; after that the record goes to a review queue with the raw model text attached.
+Then treat the model's reply as an untrusted source, because it is one. Parse the JSON, confirm every required key is present, confirm `special_equipment` is one of the three listed values or null, confirm `earliest_time` matches `HH:MM`. Output that fails those checks is a failure to handle, not a record to store. One retry with the parse error appended is reasonable; after that the record goes to a review queue with the raw model text attached.
 
 Non-text unstructured sources add one step at the front. A scanned PDF or a photo has to become text or be handed to a model that accepts images; either way you now have two failure points — the conversion and the extraction — and you should log which one failed. A native PDF with a text layer extracts cleanly. A scan of a fax does not, and no amount of prompt tuning fixes a page the converter read as noise.
 
@@ -188,3 +188,9 @@ Take three real sources you can access — one structured, one semi-structured, 
 5. **Grade it by hand.** For those 15, record for each field: correct, wrong, or missed. Count how many wrong values were confidently wrong. That number, not the average confidence, tells you whether this source can be handled without review.
 6. **Chunk the largest document** you have. Split it on structure with overlap, run the same extraction per chunk, and merge with a written rule. Show one field where two chunks disagreed and state which rule resolved it.
 7. **Write the split.** Finish with a short note listing which fields in your intended workflow come from direct reads and which come from the model. If anything is in the model column that could be in the direct column, move it.
+
+## Check your understanding
+
+1. A colleague asks a model to "find all orders over $500" in a CSV export. What do you suggest instead? *Convert `total` to a number and use a filter step or a `WHERE` clause. Never send structured data to a model to do work a filter could do.*
+2. Which fields in the freight order JSON need a model, and which do not? *Only values buried in `customer_note` (such as `call_ahead` and `access_code`) need a model; `order_id`, `customer.name`, `total`, and the line items are direct or path reads.*
+3. Why does the extraction contract include an explicit null policy? *Without one, a model fills gaps with invented values; "use null for anything the note does not state" is the strongest single defence against that.*
