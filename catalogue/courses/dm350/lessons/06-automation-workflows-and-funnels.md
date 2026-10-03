@@ -29,6 +29,8 @@ NORTHLIGHT FUNNEL - one month, first touch to closed client
   6  New client                11          -       11 days     advisors
 
   End to end: 0.08% of sessions, 3.8% of contacts, 32 days median
+  (measured directly from first conversion to signing; stage medians
+  do not add up to an end-to-end median)
 ```
 
 Every number in that table is a question waiting to be asked.
@@ -116,7 +118,7 @@ A **fixed delay** waits a duration: three days, two hours. Simple, and it will h
 
 A **wait-until delay** waits for a moment: *until 09:00 on the next business day*, *until the contact opens the previous email*, *until 1 October*. Wait-until delays are what make automated email feel human, and every serious workflow uses them.
 
-Two practical rules. Constrain sends to **business hours in the recipient's time zone**, not yours — Northlight's list runs from Portland to Boston, three hours wide, so a 10:00 send from the office lands at 07:00 for a third of the list. And be careful with *wait until an event happens*, because if the event never happens the contact waits forever. Always pair an event wait with a maximum duration and a fallback path.
+Two practical rules. Constrain sends to **business hours in the recipient's time zone**, not yours — Northlight's list runs from Portland to Boston, three hours wide, so a 10:00 send scheduled on Boston time lands at 07:00 in Portland, and a 10:00 send from the Portland office lands in Boston after lunch. And be careful with *wait until an event happens*, because if the event never happens the contact waits forever. Always pair an event wait with a maximum duration and a fallback path.
 
 ### Branches
 
@@ -184,7 +186,8 @@ EXIT / GOAL CRITERIA (checked continuously, before every action)
   EXIT   lifecycle_stage = disqualified  -> exit
   EXIT   lifecycle_stage = client        -> exit
   EXIT   becomes dormant (180d rule)     -> exit to suppression
-  END    sequence completes at day 21    -> stage = subscriber if still lead,
+  END    sequence completes at day 21    -> lifecycle_stage unchanged (no
+                                            automatic backwards moves),
                                             add to "Long-term newsletter"
 
 -----------------------------------------------------------------------------

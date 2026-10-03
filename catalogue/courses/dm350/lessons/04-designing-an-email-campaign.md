@@ -205,22 +205,22 @@ Here are the variants written for this campaign, with the reasoning kept honest.
 ```txt
 SUBJECT LINE VARIANTS - Q3 Close Push
 
-  A  Three weeks until your books are someone else's problem        (58 chars)
+  A  Three weeks until your books are someone else's problem        (55 chars)
      Preview: A 20-minute call now saves the usual October scramble.
      Angle: consequence + deadline. Front 40 chars carry the deadline.
      Risk: "someone else's problem" is slightly cute; could read as blame.
 
-  B  Q3 closes 30 September. Are your books ready?                  (44 chars)
+  B  Q3 closes 30 September. Are your books ready?                  (45 chars)
      Preview: Twenty minutes with an advisor, and an honest answer.
      Angle: plain, specific, dated. Zero cleverness. Safest option.
      Risk: forgettable in a crowded inbox; low ceiling.
 
-  C  The nine days in October you can still avoid                   (43 chars)
+  C  The nine days in October you can still avoid                   (44 chars)
      Preview: Q3 closes 30 September. Here is what clean books cost.
      Angle: curiosity anchored to a real number from the body copy.
      Risk: the number needs the body to make sense; slight bait feel.
 
-  D  Sam, is your Q3 reconciliation done?                           (35 chars)
+  D  Sam, is your Q3 reconciliation done?                           (36 chars)
      Preview: If not, three weeks is enough time to fix it properly.
      Angle: personalized and direct.
      Risk: token failure on 1,470 records with no clean first name.
@@ -230,7 +230,7 @@ SUBJECT LINE VARIANTS - Q3 Close Push
   CHOSEN FOR SEND: A, with B held as the control for the next quarter.
 ```
 
-Notice that each variant states its angle and its risk. That discipline stops a subject-line meeting from becoming a preference poll. Notice also that variant D was rejected on a *data* ground, not a taste ground — the fill-rate audit from lesson 02 said 1,470 contacts have no reliable name, and 1,470 emails beginning "Hi ," is a bigger loss than any lift personalization could buy.
+Notice that each variant states its angle and its risk. That discipline stops a subject-line meeting from becoming a preference poll. Notice also that variant D was rejected on a *data* ground, not a taste ground — Northlight's data has 1,470 contacts with no reliable first name (mostly older records created before the field was enforced; lesson 05 returns to them), and 1,470 emails beginning "Hi ," is a bigger loss than any lift personalization could buy.
 
 **On A/B testing subject lines:** you can test them, and you should, but be honest about the arithmetic. With 3,822 delivered split evenly, each arm gets about 1,911. At a 30 percent open rate that is roughly 573 opens per arm, and a difference of a percentage point or two between arms is well inside the range that random variation produces. You will learn something from a large difference and nothing from a small one. Test the *angle* rather than the wording — consequence versus curiosity is a question worth several campaigns; comma placement is not — and let the same test run for several quarters before you believe it. The pathway's analytics course covers how to size and read a test properly; apply that discipline here rather than declaring a winner on a fifty-open gap.
 

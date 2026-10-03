@@ -159,7 +159,7 @@ not. It's not a sales call and it takes ten minutes.
 bag - it's the grind.
 
 Alex is running a free 20-minute grind clinic at the Downtown cafe on
-Tuesday the 15th at 10am. Bring your beans, bring your grinder if it's
+Wednesday the 15th at 10am. Bring your beans, bring your grinder if it's
 portable, and we'll dial it in on our scale with you. Free, no signup,
 show up whenever.
 
@@ -257,15 +257,21 @@ Jul 31 Fri  IG   Cafe Life      Reel      "One morning, three cafes"        Alex
 Jul 31 Fri  FB   Brew Better    Link      Best of Brew Better + blog        Tomas  none                   idea
    RESERVE  IG   -              -         reactive slot, hold               Tomas  -                      -
 
-PILLAR CHECK (20 planned slots, reserves excluded)
-  Brew Better     8 slots  40%   target 40%   OK
+PILLAR CHECK (20 planned Instagram + LinkedIn slots;
+              Facebook mirrors and reserves excluded)
+  Brew Better     5 slots  25%   target 40%   -15, see note
   Cafe Life       6 slots  30%   target 25%   +5, acceptable
-  Wholesale       5 slots  25%   target 15%   +10, see note
+  Wholesale       6 slots  30%   target 15%   +15, see note
   Origin & Roast  3 slots  15%   target 20%   -5, acceptable
+  (check: 5 + 6 + 6 + 3 = 20 slots; 25 + 30 + 30 + 15 = 100%)
 NOTE: Wholesale is over-weight because LinkedIn's two weekly slots have
-nowhere else to go. Either accept 25% or move one LinkedIn slot per week
-to Cafe Life recruiting and culture content. Decision: accept for Q3,
-review in October.
+nowhere else to go. Either accept 30% or move one LinkedIn slot per week
+to Cafe Life recruiting and culture content. Brew Better is the bigger
+problem: it serves the largest objective and sits 15 points under target.
+The two Facebook Brew Better link posts soften it (counting Facebook,
+Brew Better is 7 of 24 slots, 29%) but do not fix it. Decision: accept
+Wholesale for Q3 and review in October; from August, move one Cafe Life
+Instagram slot every other week back to Brew Better.
 ```
 
 Notice what the pillar check does. It is arithmetic on the calendar you actually built, and it caught a structural conflict — the platform cadence and the pillar shares disagree, and somebody has to decide which one bends. That conversation happening in planning is worth more than the calendar itself.

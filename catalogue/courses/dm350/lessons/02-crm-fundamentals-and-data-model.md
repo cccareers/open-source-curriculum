@@ -188,7 +188,7 @@ lifecycle_stage: marketing_qualified | lead_score: 47 | owner: Marisol Vega
   Feb 19  Page view        /guides/quarterly-close
 ```
 
-That timeline tells you the shape of the relationship in fifteen seconds: found a guide, chatted, subscribed, read two emails, priced it, asked for a call. Five weeks, eight touches. An advisor opening this record before the call knows what to open with, and a workflow reading the same facts knows the contact no longer needs the introductory nurture email about what a bookkeeper does.
+That timeline tells you the shape of the relationship in fifteen seconds: found a guide, chatted, subscribed, read two emails, priced it, asked for a call. Two weeks, eight touches. An advisor opening this record before the call knows what to open with, and a workflow reading the same facts knows the contact no longer needs the introductory nurture email about what a bookkeeper does.
 
 One discipline here: **activities are history and history is not edited.** If a call went differently than the note says, add a note. Do not rewrite the old one. The value of a timeline is that it is trustworthy.
 
@@ -222,7 +222,7 @@ t.brandt@northlightbooks.com,Theo,Brandt,Northlight,5035550119,internal,do not i
 mvega+test@northlightbooks.com,Test,Record,,,,,
 ```
 
-Nine rows, and at least seven distinct problems. Work through them before you touch the import button.
+Eight rows, and at least seven distinct problems. Work through them before you touch the import button.
 
 **Duplicate emails differing only by case.** Row 1 and row 2 are the same human. Email addresses are case-insensitive in the part that matters for CRM identity, so normalize everything to lowercase *before* import. If you do not, some platforms create two records and others silently merge them with rules you did not choose.
 
@@ -287,9 +287,9 @@ None of this is glamorous, and all of it is what separates a CRM that people tru
 
 Work in whatever CRM you have access to; if you have none, do all of it in a spreadsheet, which is where the thinking happens anyway.
 
-1. **Write the data dictionary.** For each of the fourteen properties in Northlight's contact schema above, write one sentence defining exactly what the field holds and who or what sets it. Where the sentence is hard to write, say so and propose a fix. Then add two properties Northlight does not have but lesson 03 will need, with the same one-sentence treatment.
+1. **Write the data dictionary.** For each of the fifteen properties in Northlight's contact schema above, write one sentence defining exactly what the field holds and who or what sets it. Where the sentence is hard to write, say so and propose a fix. Then add two properties Northlight does not have but lesson 03 will need, with the same one-sentence treatment.
 
-2. **Clean the import.** Take the nine-row CSV above and produce two files: `import-ready.csv`, with normalized lowercase emails, mapped `business_type` values matching the schema's options, a `country` column, an `original_source` column set to `event`, and a `state_region` column using consistent values; and `hold.csv`, with every row you refused to import and a one-line reason for each. Expect `import-ready.csv` to have fewer than five rows. Being ruthless is the correct answer.
+2. **Clean the import.** Take the eight-row CSV above and produce two files: `import-ready.csv`, with normalized lowercase emails, mapped `business_type` values matching the schema's options, a `country` column, an `original_source` column set to `event`, and a `state_region` column using consistent values; and `hold.csv`, with every row you refused to import and a one-line reason for each. Expect `import-ready.csv` to have fewer than five rows. Being ruthless is the correct answer.
 
 3. **Apply the merge rules.** Write out, field by field, what the surviving record looks like for the Sam Iyer pair and the Dara Okafor pair after a merge under Northlight's rules. Note explicitly which values are discarded.
 

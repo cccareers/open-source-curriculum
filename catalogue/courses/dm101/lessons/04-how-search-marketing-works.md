@@ -208,3 +208,9 @@ Related: search results now increasingly include answers assembled directly on t
 5. A well-linked, fast page targeting "what is an invoice factoring rate" returns nothing; the pages that rank are all calculators and explainers, and this page is a pricing page.
 
 **Part 3 — Split the work.** A bicycle repair shop has $2,000 a month. Write a half-page plan that divides effort between organic and paid. Name at least three specific organic tasks tied to the factor categories in this lesson, at least two paid tasks, and state what you expect to see at 30 days and at 6 months from each side. Be explicit about what you are *not* doing and why.
+
+## Check your understanding
+
+1. A page returns nothing in a `site:` search of your domain. Which of the three search-engine jobs do you investigate first, and why not ranking factors? *(Answer: crawling and indexing — a page that is not in the index cannot rank, so ranking factors are irrelevant until it is.)*
+2. A query's first mobile screen shows three ads, a shopping block, and a map pack. What does that tell you about its organic value, regardless of its search volume? *(Answer: very little organic real estate is left above the fold, so the realistic click opportunity is far smaller than the volume suggests.)*
+3. Your paid campaign shows a term converting at 8% over 400 clicks. What does that tell the organic team? *(Answer: the term is strong evidence of commercial value, so it is a good candidate for longer-term organic investment.)*

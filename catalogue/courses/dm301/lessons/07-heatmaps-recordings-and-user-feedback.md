@@ -117,7 +117,7 @@ Three rules for asking.
 
 ## Triangulating
 
-Kestrel's case is now four instruments deep, and this is the shape a real investigation takes.
+Kestrel's case is now five instruments deep, and this is the shape a real investigation takes.
 
 | Instrument | What it contributed |
 | --- | --- |

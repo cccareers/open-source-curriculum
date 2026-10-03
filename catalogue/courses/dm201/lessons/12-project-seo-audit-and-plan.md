@@ -196,11 +196,12 @@ Strong:
 
 ```txt
 Finding: The XML sitemap lists 1,180 URLs but the site has 640 indexable pages;
-         the extra 540 are paginated archive URLs that all carry a canonical
-         pointing elsewhere, plus 61 URLs that now return 404.
+         the extra 540 are roughly 480 paginated archive URLs that all carry a
+         canonical pointing elsewhere, plus roughly 60 URLs that now return 404.
 Evidence: /sitemap.xml fetched 12 May; URL count from the Sitemaps report
-         ("Discovered URLs 1,180"); 404s confirmed by spot-checking 20 sampled
-         URLs, 3 of which returned 404. Pages report shows 512 URLs under
+         ("Discovered URLs 1,180"); 404s estimated by spot-checking 20 sampled
+         non-archive URLs, 3 of which returned 404, and confirmed with a full
+         status check of the sitemap list. Pages report shows 512 URLs under
          "Alternate page with proper canonical tag".
 Severity: Misdirecting. Not blocking indexation of the money pages, but it
          wastes crawl attention and makes the Sitemaps report useless as a
