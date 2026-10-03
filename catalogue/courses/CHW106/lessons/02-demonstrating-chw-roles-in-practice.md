@@ -68,9 +68,8 @@ One entry per meaningful activity. Keep it to four labeled fields — date, role
 ```text
 Date: 2026-03-14
 Role(s): Care coordination / system navigation; Advocacy
-What I did: Placed a specialty referral for a client whose prior referral had
-  lapsed. Called the scheduling line twice, then asked the referral coordinator
-  to review the lapse. Appointment scheduled for 3/28.
+What I did: Placed a lapsed specialty referral again. Called scheduling twice,
+  then asked the referral coordinator to review the lapse. Appointment set for 3/28.
 Outcome / follow-up: Client confirmed appointment by phone 3/21. Reminder call
   set for 3/27. Supervisor notified of the intake line's two-week callback lag.
 ```

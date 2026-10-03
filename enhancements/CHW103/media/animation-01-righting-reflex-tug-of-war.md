@@ -41,7 +41,7 @@ Misconception: "If I give the client enough good reasons, they will change." The
 
 ## Interaction variant
 
-In Rive, make the CHW's lines selectable: the learner picks between an argument ("You should...") and a reflection. Arguments trigger a counter-token on the stay side; reflections and open questions let the client add change tokens. The scene ends when the learner reaches a commitment token without any argument lines in the last three choices.
+In Rive, make the CHW's lines selectable: the learner picks between an argument ("You should...") and a reflection. Arguments trigger a counter-token on the stay side; reflections and open questions let the client add change tokens. The scene ends successfully when the learner makes three choices in a row without an argument line, whichever way the client lands: either the client places a commitment token, or the client places a "Not this week" token and the learner's final line reflects and respects that choice ("That's your call. The door's open when you want to talk about it again."). Both endings count as success; eliciting commitment is not the goal.
 
 ## Production notes
 

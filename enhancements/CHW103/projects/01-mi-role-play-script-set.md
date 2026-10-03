@@ -35,7 +35,7 @@ The three fictional clients reuse people from CHW103 lessons so the course stays
 
 1. **Three role-play briefs** (half page each): client backstory, what the client is ambivalent about (both sides), one planted emotional cue (e.g., goes flat when the CHW mentions the clinic), and one planted boundary test (Mr. Barnes).
 2. **Three recordings**, 8–10 minutes each, with classmates as actors. Delete the recordings after coding if your program requires it.
-3. **OARS coding sheet** for each recording: tallies of open questions, closed questions, affirmations, simple reflections, complex reflections, summaries; every righting-reflex moment (time stamp + what was said); every change-talk statement labeled desire, ability, reasons, need, or commitment; the moment the emotional cue appeared and the CHW's response.
+3. **OARS coding sheet** for each recording: tallies of open questions, closed questions, affirmations, simple reflections, complex reflections, summaries; every righting-reflex moment (time stamp + what was said); every change-talk statement labeled desire, ability, reasons, need, commitment, activation, or taking steps; the moment the emotional cue appeared and the CHW's response.
 4. **Ratio summary**: reflections-to-questions ratio per recording and the change from first to third recording.
 5. **Boundary reset note**: the two-line case note documenting the Mr. Barnes reset and the supervision opener you would use.
 6. **Self-assessment** (one page) with one specific goal for your next role-play.
@@ -55,9 +55,10 @@ The three fictional clients reuse people from CHW103 lessons so the course stays
 
 ## Acceptance criteria
 
-- [ ] Each recording contains at least one complex reflection and one summary that collects change talk at the end.
+- [ ] Each recording contains at least one complex reflection. The Ortiz and Brown recordings each end with a summary that collects change talk; the Barnes recording ends with a summary of his needs and the agreed alternative.
 - [ ] By the third recording, reflections equal or outnumber questions.
 - [ ] No righting-reflex moment goes uncoded; each has a rewritten alternative line.
+- [ ] In at least one recording, the CHW closes any information given with a teach-back check framed as a check on the CHW ("I want to make sure I explained that clearly — what will you tell the clinic when you call?"), and the coding sheet records it.
 - [ ] The CHW asks permission before giving any information ("Would it be all right if I told you what the clinic said about that?").
 - [ ] Nothing the CHW says advises on medication timing or dose; Mr. Ortiz's night-dose question is routed to the clinic or pharmacist with a self-advocacy plan.
 - [ ] Mr. Barnes's reset is warm, specific, and offers a real alternative (e.g., a friendly-caller program), and the case note is factual.

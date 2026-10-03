@@ -67,7 +67,7 @@ All data below is fictional and de-identified (client IDs only).
 
 ## Milestones
 
-1. Tally the log by barrier type and organization. Count distinct clients, not rows (E-117 appears twice).
+1. Tally the log by barrier type and organization. Count distinct clients, not rows (E-104, E-117, and E-142 each appear twice; E-142's two prior-authorization entries are one client with a repeated barrier, not two clients).
 2. Identify the strongest pattern (hint: it is not the car). Note what is shared: same office, same step (renewal), and several sub-causes (address, language, form content).
 3. Draft the brief. Lead with the count and period, add one de-identified representative story, end with a specific ask and a "by when."
 4. Classify the activity report and rewrite the ER line.

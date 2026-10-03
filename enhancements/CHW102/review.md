@@ -16,7 +16,7 @@ CHW102 is a well-built orientation to the ten C3 roles, with rich practice sets 
 | CHW102-06 | "Individual and community assessment" | "Documentation standards are covered fully in CHW105" — documentation is CHW103 Lesson 6 | Pointed to CHW103, Lesson 6 | Applied |
 | CHW102-04 | "Making the referral actually happen" | "Cold referral" is used before it is defined | Added a one-sentence parenthetical definition of cold referral vs. warm handoff | Applied |
 | CHW102-03 | "Meeting people where their literacy is" | "Nearly half of adults ... and health literacy ... is lower still" is an unsourced statistic and the second clause is vague | Owner to cite a source (e.g., the national adult literacy assessment underlying the commonly cited figure) or soften to "a large share of adults" | Proposed |
-| CHW102-02 vs CHW102-03 | Practice items | Two lessons both start Practice with "Role identification"; fine pedagogically, but the deliverable lists are long. Consider marking 2–3 items per lesson as "core" and the rest as optional | Proposed |
+| CHW102-02 vs CHW102-03 | Practice items | Two lessons both start Practice with "Role identification"; fine pedagogically, but the deliverable lists are long | Consider marking 2–3 items per lesson as "core" and the rest as optional | Proposed |
 | CHW102-06 vs CHW101-03 | "Asset mapping" | Five asset categories here vs. six (with cultural assets) in CHW101 | Align categories or note the difference | Proposed |
 | CHW102-05 vs CHW103-05 | Escalation ladder | CHW102 uses five rungs; CHW103 uses four with a different order | Harmonize or explain that programs vary | Proposed |
 
@@ -28,7 +28,7 @@ CHW102 is a well-built orientation to the ten C3 roles, with rich practice sets 
 - **Check-your-understanding** added to Lesson 3 in this pass; Lessons 2, 4, 5, and 6 would benefit from the same.
 
 ## Proposed additional projects
-- **x01 The Reyes Family Case File** — every C3 role in sequence with a referral log, language access memo, and outputs/outcomes report (drafted, `projects/01-reyes-family-role-map.md`).
+- **x01 The Reyes Family Case File** — the C3 roles in sequence (at least 8 of 10) with a referral log, language access memo, and outputs/outcomes report (drafted, `projects/01-reyes-family-role-map.md`).
 - **x02 Language Access Role-Play Kit** — three interpreted encounters with observer tally sheets and a CLAS crosswalk (drafted, `projects/02-language-access-role-play-kit.md`).
 - Resource directory sprint: verify ten entries using the four filters (eligibility, access, capacity, fit) for a fictional client. Not drafted.
 - Community listening session plan: design, facilitate (role-play), and write a strengths-and-needs summary. Not drafted.

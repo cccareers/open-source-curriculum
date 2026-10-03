@@ -39,7 +39,7 @@ Misconceptions: (1) the "difficult client" is choosing to be difficult; (2) the 
 | 7 | 8s | CHW: "I noticed that got harder. Do you want to take a break?" Offers water. "Feel your feet on the floor if that helps." Meter rises. | Water glass slides across table. | "Name that something changed — not why. Offer simple, optional grounding." |
 | 8 | 12s | FAWN: client nods rapidly: "Yes, that's fine, whatever you think, sorry, yes." A "plan" document gets stamped "AGREED." | Nodding loop; stamp lands. | "Fawn. Over-agreeing, apologizing. It looks like an ideal client — and it produces plans the person never intended to follow." |
 | 9 | 8s | CHW pauses, sets pen down: "I want this to work for you, not for me. Which part of this feels hardest?" The "AGREED" stamp fades to "DRAFT." Meter rises. | Stamp fades. | "Slow the yes down. Invite the real answer." |
-| 10 | 6s | Four mini-panels side by side with labels. Caption: "What happened to this person — and what do they need from me because of it?" | Panels assemble. | "Read cues against this person's own baseline. Check, don't conclude. And if someone is in crisis, follow your protocol and connect them to licensed help." |
+| 10 | 6s | Four mini-panels side by side with labels. Caption: "What just changed for this person — and how can I offer them a choice?" | Panels assemble. | "Read cues against this person's own baseline. Check, don't conclude. And if someone is in crisis, follow your protocol and connect them to licensed help." |
 
 ## Interaction variant
 

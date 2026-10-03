@@ -50,7 +50,7 @@ Everything below is fictional, but it is written to contain planted identifiers.
 1. Identifier hunt (45 min). Work alone first, then compare with a partner; merge lists.
 2. Practice-quality review (15 min).
 3. Rebuild the artifact (60 min). Change details enough that no one could map it back; label it as a composite/fictional scenario.
-4. File hygiene and neighbor test (20 min). Ask a partner to try to identify anyone from your rebuilt version.
+4. File hygiene and neighbor test (20 min). Ask a partner to try to identify anyone from your rebuilt version. Treat this as a limited check, not proof: anything the partner can guess must change, but a partner who cannot identify anyone does not establish that the artifact is de-identified.
 5. Placement note (10 min).
 
 ## Acceptance criteria
@@ -81,7 +81,7 @@ Everything below is fictional, but it is written to contain planted identifiers.
 
 ## Stretch goals
 
-- Apply the same lab to one of your own real portfolio candidates.
+- Apply the same lab to one of your own real portfolio candidates, rebuilding it from invented details rather than edited real ones, and have your instructor or supervisor review it before it goes in your portfolio.
 - Write a 100-word note to Jordan explaining the changes kindly and specifically.
 
 ## Reflection prompts

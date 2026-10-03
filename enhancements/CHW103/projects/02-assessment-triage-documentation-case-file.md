@@ -49,7 +49,7 @@ You are a CHW intern at the fictional "Valley Health" clinic. Your field mentor 
 1. **Needs and strengths list** — every need and every strength in the excerpt, in factual language.
 2. **Triage table** — immediate / short-term / long-term, each with an action, an owner, and a date.
 3. **Say-it-back script** — the under-one-minute plan you would say back to Ms. Fermín, honoring her priority (housing) while keeping the deadline item first.
-4. **Documentation** — a complete encounter note using either the lesson's structure or a SOAP-style adaptation for non-clinical CHW notes:
+4. **Documentation** — a complete encounter note using either the lesson's structure or a SOAP-style adaptation for non-clinical CHW notes. If you use SOAP, keep the lesson's header fields above it — date/time, contact type, duration, and purpose — and write "not provided" for any detail the scenario does not give rather than inventing it:
    - **S (Subjective):** what the client reported, with quotes where exact words matter.
    - **O (Objective):** what the CHW observed (no diagnoses or clinical interpretation).
    - **A (Assessment — CHW needs assessment, not clinical):** needs identified and triage level.
@@ -72,10 +72,10 @@ You are a CHW intern at the fictional "Valley Health" clinic. Your field mentor 
 
 ## Acceptance criteria
 
-- [ ] Electric shutoff on the 12th is triaged immediate with same-visit action.
+- [ ] The electric-bill paper dated the 12th is treated as a possible shutoff notice: the CHW verifies during the visit what the date means (reads the paper with Ms. Fermín or calls the utility with her), and if it is a disconnection date, triages it immediate with same-visit action. The note does not record a shutoff date as fact until it is verified.
 - [ ] Renewal due the 30th is short-term with a date and owner; housing is long-term but gets a concrete first step today.
 - [ ] Food insecurity at month's end and the space heater are noticed and placed (the heater as an observation and a safety question for the appropriate resource, not a CHW judgment).
-- [ ] Strengths (comadre, church pantry, organized pill bottles, engaged mother) are documented alongside needs.
+- [ ] Strengths (comadre, church pantry, medications kept in one visible place on the counter, engaged mother) are documented alongside needs.
 - [ ] Note contains no judgment language and no clinical interpretation. The stopped cholesterol medication is recorded as the client's report with cost as the stated reason, and routed to the provider/pharmacist and to cost-assistance navigation — not addressed with advice.
 - [ ] Reporting memo treats the elder financial exploitation disclosure as a potentially reportable concern, states that suspicion (not proof) is the threshold, does not investigate, notifies the supervisor the same shift, and follows the policy's personal-duty rule.
 - [ ] Memo includes honest, non-cold language for telling Ms. Fermín, consistent with what was said at the start of the visit.

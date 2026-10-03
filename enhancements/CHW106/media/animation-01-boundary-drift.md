@@ -38,7 +38,7 @@ Misconception: "Boundary violations are dramatic choices that bad workers make."
 | 5 | 8s | Sign: "Week 7 — Hoping the mentor doesn't ask." Thought bubble: "I'd rather not mention it." | Path steep; intern holding a rail. | "And here's the warning sign: a decision you'd rather not mention." |
 | 6 | 6s | Freeze. Text: "That reluctance is the whole warning." | Hold. | — |
 | 7 | 14s | Rewind to Week 1. Gate: intern taps "Yes." Mentor figure appears: "Let's script how to say no warmly — and find who covers weekends." Path stays flat; signs now read "Week 2 — Weekend plan written with client," "Week 3 — Note done before leaving," "Week 5 — Ride program arranged." | Path flattens; intern walks steadily. | "Same intern. Raised it in Week 1. The mentor helped script a warm reset and found a real alternative." |
-| 8 | 9s | Both paths side by side, labeled. | Split screen. | "Raising it early costs a conversation. Staying quiet costs the client's trust, your placement — or worse." |
+| 8 | 9s | Both paths side by side, labeled. | Split screen. | "Raising it early costs a conversation. Staying quiet can put the client's trust, your placement — or more — at risk." |
 | 9 | 8s | End card: "'Let me check with my supervisor' is a complete answer." | Fade. | — |
 
 ## Interaction variant

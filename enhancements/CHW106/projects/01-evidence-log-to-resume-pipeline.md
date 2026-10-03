@@ -41,7 +41,7 @@ Before you mine your own log, practice on someone else's. Below is a de-identifi
 | 9 | Care coordination | Followed up on week 8 referrals | 11 confirmed connected; 3 pending |
 | 10 | Coaching | Supported 4 clients in setting own goals with simple tracking | 3 of 4 reported progress at week 12 |
 | 11 | Evaluation | Flagged 17 records with blank language field to data lead | Form fixed by week 12 |
-| 12 | Documentation | Same-day notes on all contacts (mentor spot-checked 10) | 10 of 10 complete and on time |
+| 12 | Care coordination (documentation) | Same-day notes on all contacts (mentor spot-checked 10) | 10 of 10 complete and on time |
 
 ## What you will produce
 
@@ -90,8 +90,10 @@ Before you mine your own log, practice on someone else's. Below is a de-identifi
 | Role mapping | Roles named loosely | Accurate tally with gaps identified | Proposed gap experiences are realistic for the site |
 | Quantification | Vague or inflated | Accurate counts tied to the log | Uses outcomes (connection, reversal) not just activity |
 | Verification | No confirmers | Confirmer for every bullet | Mentor review completed and revisions made |
-| Confidentiality | Any identifying detail | Fully de-identified | Explains choices for borderline details |
+| Confidentiality | Borderline details left unexamined | Fully de-identified | Explains choices for borderline details |
 | Writing | Job-description language | Field vocabulary used truthfully | Cover letter paragraph tells a story the bullets could not |
+
+**Hard gate (Lesson 3):** a submission containing any client-identifying detail is not scored on this rubric. It is returned unmarked and treated as a confidentiality incident.
 
 ## Stretch goals
 

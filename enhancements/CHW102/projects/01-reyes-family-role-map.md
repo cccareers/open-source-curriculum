@@ -1,7 +1,7 @@
 ---
 course_id: CHW102
 project_id: CHW102-x01
-title: "The Reyes Family Case File: Naming Every C3 Role in Sequence"
+title: "The Reyes Family Case File: Naming the C3 Roles in Sequence"
 kind: supplementary-project
 status: draft
 hours_estimate: 6
