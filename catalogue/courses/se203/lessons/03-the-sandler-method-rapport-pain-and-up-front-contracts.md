@@ -187,3 +187,9 @@ Work in threes: seller, buyer, and an observer with a stopwatch and this lesson 
 5. **Reverse a feature question.** Buyer opens with three rapid product questions ("do you integrate with our CRM?", "can you do multi-currency?", "what's your uptime?"). Seller must reverse all three into pain questions without answering any of them directly, and without sounding evasive. This is harder than it looks; run it twice.
 
 6. **Negative reverse a stall.** Buyer says "I need to think about it." Seller responds with a sincere negative reverse and then holds silence for a full five seconds. Debrief on how it felt from both chairs, and be honest if it landed as a trick — that feedback is the calibration.
+
+## Check your understanding
+
+1. Name the five elements of an up-front contract, and the one most often dropped. *(Answer: purpose, time, their agenda, your agenda, outcome. The outcome — including an explicit "not a fit" — is the one people drop, and it does the most work.)*
+2. Which pain-funnel questions surface the failed prior attempt, and why does that matter? *(Answer: 4 and 5 — "What have you tried?" and "Did that work?" They reveal what solution shape the buyer will reject, who championed the failure, and how much credibility is already spent.)*
+3. When is a negative reverse manipulation rather than honesty? *(Answer: when you would not genuinely be content with either answer, or when it is delivered with an edge the buyer can hear.)*

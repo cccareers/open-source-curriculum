@@ -206,3 +206,9 @@ You sell a **warehouse execution platform**: inventory accuracy, pick-path optim
 **Exercise 5 — the meeting type.** The internal calendar invite calls this a "solution presentation." Using the meeting-type table, argue in three sentences which type it actually is, and name the one thing your brief would have to change if it were a different type instead.
 
 **Exercise 6 — the failure test.** Write the two sentences describing the most likely way this meeting fails, given the room. Then name the single change to the brief — not the deck, the brief — that most reduces that risk.
+
+## Check your understanding
+
+1. Rewrite this as a field-1 decision: "Build interest with the leadership team." *(One good answer: "Whether Marcus reserves a line for the full rollout in the September capital cycle, and whether Dana approves a paid sixty-day pilot in Queens.")*
+2. In a forty-five-minute meeting with a hard stop, roughly how many slides you actually talk to will fit, and why? *(Answer: twelve to fifteen — about twenty-two minutes of substance at 90 seconds to 2 minutes a slide, after arrival, opening, the ask, and interruption load.)*
+3. Why does the kill list matter? *(Answer: it turns a vague instinct into a defensible decision about what each cut slide would have displaced.)*

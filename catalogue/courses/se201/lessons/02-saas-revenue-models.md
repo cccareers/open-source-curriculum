@@ -179,3 +179,9 @@ In no more than 200 words, recommend one model to Northgate and justify it in tw
 **Exercise 3 — vocabulary under pressure.**
 
 Northgate signs a three-year hybrid contract with a 4% annual uplift on the platform fee and a one-time $14,000 implementation fee. Assume last year's volume repeats each year. State the ACV, the TCV, and the ARR you would report on the day of signature — and explain in one sentence why the implementation fee is in one of those numbers and not the others.
+
+## Check your understanding
+
+1. A three-year contract has $60,000 a year in recurring fees and a $15,000 implementation fee. What are its ACV and TCV? *(Answer: ACV $60,000; TCV $195,000 — implementation is in TCV but never in ACV or ARR.)*
+2. Under Meridian's hybrid model, what does a 5,000-document month cost, and why does that number matter to your company? *(Answer: $3,000 — the platform fee alone. It is the contractual floor that survives a bad quarter at the customer.)*
+3. Why should a hybrid commit be sized near the customer's trough rather than their peak? *(Answer: a peak-sized commit means paying for unused capacity most of the year, which produces a hostile renewal; the meter is there to capture the peaks.)*

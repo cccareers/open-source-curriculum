@@ -244,3 +244,9 @@ You have completed two discovery calls with **Alder Creek Supply**, an industria
 **Exercise 5 — diagnose and map.** Build the four-column pain-to-capability table for Alder Creek: stated pain in their words, root cause, capability, and the measure that would prove it worked. Include at least three rows, and include one row where the honest entry in the capability column is "we do not address this."
 
 **Exercise 6 — the one-slide frame.** Write the frame you would put in front of the Controller: no more than six lines, every number traceable to the discovery notes above, ending with the downside case.
+
+## Check your understanding
+
+1. A buyer expects $500,000 of new revenue at a 30% gross margin. What value should enter your business case for that line, and under which lever? *(Answer: $150,000, labeled revenue gain — always converted to margin before it is added to the total.)*
+2. The CFO says she will not cut headcount, but volume is growing. Which lever is the honest one for freed labor? *(Answer: cost avoidance — hires not needed — not cost reduction.)*
+3. Why build a downside case at half benefits before the meeting? *(Answer: a single-scenario model reads as advocacy; showing that the deal still pays back at half the claim answers the objection the CFO is already forming.)*

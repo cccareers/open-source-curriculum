@@ -107,3 +107,9 @@ Use this capability list for a document-collection product: (1) request template
 3. One statement in that list maps most naturally to a capability the customer would never have asked for by name. Identify it and explain why.
 4. Write the two-to-three sentence recommendation for the first statement. Then cut it by a third without losing the mechanism, the number, or the limitation.
 5. Swap your table with a partner and challenge each other's rows with one question: "what's your evidence it will?"
+
+## Check your understanding
+
+1. Classify each as symptom, mechanism, impact, or who: "Invoices go out late." / "About nine days of delay on £400k of monthly billing." / "Someone matches photos to jobs by hand each Friday." / "The finance director." *(Answers: symptom; impact; mechanism; who — the person carrying the consequence.)*
+2. Turn this feature into a capability: "role-based permissions." *(One good answer: "Your partners can see every client file, but junior staff can only open the clients they are assigned to, so nobody has to police access by hand.")*
+3. Why write down a "no fit" row instead of leaving it out? *(Answer: it earns credibility, and a gap you concealed comes back later as an objection at the worst moment.)*

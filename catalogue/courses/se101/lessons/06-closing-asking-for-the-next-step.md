@@ -104,3 +104,9 @@ Total elapsed time: under two minutes. There is nothing clever in it. It is a su
 3. In pairs, deliver the recap and the ask. The customer's only instruction is to say nothing for a full ten seconds after the ask. The representative must not speak first. Do this three times; it stops being unbearable around the third.
 4. Run the same close again with the customer responding "let me think about it." Handle it in no more than four sentences and land a smaller dated step.
 5. Write the same-day recap email for whichever round went best: problem, your commitment, their commitment, date. Five lines maximum. Have your partner read it and tell you what they would have to do next — if they cannot say without asking you, rewrite it.
+
+## Check your understanding
+
+1. Continuation or advance? (a) "Great, I'll send the deck and we'll talk soon." (b) "Tuesday at 10, you, me, and Sam, and I'll bring the walkthrough of your eleven breaches." *(Answers: (a) continuation; (b) advance.)*
+2. What is the right advance at the end of a first conversation with someone who does not own the process? *(Answer: a discovery call that includes the person who does own it — not a demo, and certainly not a signature.)*
+3. A customer says "let me think about it." What do you do next, in order? *(Answer: acknowledge, ask one clarifying question to find the unresolved concern, handle it, then ask again for a smaller dated step.)*
