@@ -106,7 +106,7 @@ Reserve it for short, single-condition decisions. Nesting ternaries inside one a
 
 ## Truthy and falsy values
 
-Any value can be used where a boolean is expected — JavaScript will convert it. Exactly six values convert to `false` ("falsy"): `false`, `0`, `""` (empty string), `null`, `undefined`, and `NaN`. Every other value, including `"0"` (a string containing the character zero) and `[]` (an empty array), converts to `true` ("truthy").
+Any value can be used where a boolean is expected — JavaScript will convert it. Six values you will meet constantly convert to `false` ("falsy"): `false`, `0`, `""` (empty string), `null`, `undefined`, and `NaN`. (Two rarer ones, `-0` and the BigInt zero `0n`, are falsy too; you are unlikely to see them in this course.) Every other value, including `"0"` (a string containing the character zero) and `[]` (an empty array), converts to `true` ("truthy").
 
 ```javascript
 if (userName) {
@@ -134,3 +134,11 @@ Create a file named `conditions.js`:
 2. Write a function `canCheckout(cartItemCount, hasPaymentMethod)` that returns a boolean: `true` only when `cartItemCount` is strictly greater than `0` **and** `hasPaymentMethod` is `true`. Store the two conditions in separately named boolean variables before combining them with `&&`.
 3. Call both functions several times with `console.log`, choosing inputs that exercise every branch of `describeTemperature` (including the exact boundary values `0`, `14`, `15`, and `24`) and both outcomes of `canCheckout`.
 4. Write one line using `===` and one line using `==` comparing `"5"` and `5`. Log both results and add a comment explaining, in your own words, why they differ.
+
+## Check your understanding
+
+1. What do `"5" == 5` and `"5" === 5` evaluate to, and which one belongs in a test?
+2. `itemCount` is `0`, a valid value meaning "the cart is empty." What does `if (itemCount)` do with it, and what should you write instead?
+3. Which boundary values would you pick to check `describeTemperature` from the practice, and why those?
+
+*Answers:* (1) `true` and `false`; use `===`, because it never converts types behind your back. (2) It treats `0` as falsy and takes the "missing" path; write `itemCount !== null && itemCount !== undefined`. (3) `0`, `1`, `14`, `15`, `24`, and `25`: each sits on either side of a point where the answer changes, which is exactly where off-by-one bugs live.

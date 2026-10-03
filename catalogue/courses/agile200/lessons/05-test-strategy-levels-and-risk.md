@@ -93,3 +93,11 @@ Fill this in against your Lesson 02 charter and timeline, and your Lesson 04 env
 ## Practice
 
 Write your capstone's test strategy using the skeleton above. Score at least five features or user paths from your charter on likelihood and impact, and assign each a testing depth. Define your project's smoke test (the specific handful of checks that run on every merge) and your regression pass cadence, and slot both into the week-by-week schedule alongside your Lesson 02 timeline. Have a teammate or your instructor read the "Known limitations" section specifically and tell you whether any listed gap concerns them — revise the strategy based on that feedback.
+
+## Check your understanding
+
+1. A feature is low likelihood and low impact. Is it acceptable to give it only a manual spot-check?
+2. What is the difference between a smoke test and a regression test?
+3. Why is a strategy made mostly of end-to-end tests a problem in a three-week sprint?
+
+*Answers:* (1) Yes, if the decision is written down in "Known limitations". (2) Smoke: a small, fast check that the app starts and basic paths work, run on every merge. Regression: re-running the suite to confirm existing behavior still works after a change. (3) E2E tests are slow and brittle, so the suite stops being run often enough to help.

@@ -95,9 +95,19 @@ Notice this table has the same shape whether you build it in a spreadsheet, a sh
 
 ## Edge cases the AC doesn't say out loud
 
-Well-written acceptance criteria describe the happy path and the most important alternate paths, but they rarely enumerate every edge case. Part of turning AC into testable checks is adding the checks a careful reader would ask for, even when nobody wrote them down: What happens with an empty required field? What happens right at a boundary (exactly 2.0 seconds, the 2-second limit)? What happens if the same action fires twice quickly (double-click)? What happens with no network connection?
+Well-written acceptance criteria describe the **happy path** (the expected, everything-goes-right flow) and the most important alternate paths, but they rarely enumerate every edge case. Part of turning AC into testable checks is adding the checks a careful reader would ask for, even when nobody wrote them down: What happens with an empty required field? What happens right at a boundary (exactly 2.0 seconds, the 2-second limit)? What happens if the same action fires twice quickly (double-click)? What happens with no network connection?
 
 Add these as your own test cases, but mark them distinctly (e.g. a note "not in AC, added by QA") so the Product Owner can confirm they're worth covering rather than have them silently expand the story's scope.
+
+For the wishlist story, the extra rows might look like this, continuing the table above:
+
+| Test ID | Related AC | Steps | Expected result | Actual result | Pass/Fail |
+| --- | --- | --- | --- | --- | --- |
+| TC-04 | Not in AC, added by QA (relates to AC2) | Double-click "Add to Wishlist" quickly on an unsaved item | Exactly one wishlist entry; button reads "Saved" | | |
+| TC-05 | Not in AC, added by QA (relates to AC3) | While logged out, click "Add to Wishlist," then abandon the login page and return to the product | Item is not added; no error shown | | |
+| TC-06 | Not in AC, added by QA (relates to AC1) | Throttle the network in DevTools to a slow preset, then add an item | Either the item appears within 2s, or the team agrees AC1's 2s limit applies only on normal connections (ask the PO) | | |
+
+TC-04 checks that AC2's "no duplicate" rule holds under the most common real-world trigger for duplicates. TC-06 is partly a question, not just a test: when a check exposes that the AC never said *under what conditions* the 2-second limit applies, the right move is to ask, not to pick an answer yourself.
 
 ## Common testability failures, and how to fix them
 
@@ -134,3 +144,11 @@ AC2:
 1. Run each AC through the three-question testability check above. Are both acceptance criteria observable, specific, and bounded? If not, rewrite the weak one.
 2. Build a test-case table (using the template above) with at least three rows: one per AC, plus at least one edge case you identified yourself that the AC doesn't cover.
 3. For your added edge case, write one sentence explaining what could go wrong in production if nobody tested it.
+
+## Check your understanding
+
+1. Run this criterion through the three-question check: "Given a user on the cart page, when they apply a coupon, then the total updates correctly and everything else still works." Which questions does it fail?
+2. Why mark a QA-added edge case as "not in AC, added by QA" instead of just adding it to the table?
+3. A story has no "so that" clause. What do you do in refinement?
+
+*Answers:* (1) It fails **specific** ("correctly" names no value; it should say what the total becomes, e.g. "the total drops by the coupon amount and the discount line shows the coupon code") and **bounded** ("everything else still works" covers unlimited scenarios). (2) So the Product Owner can decide whether it's in scope; unmarked additions silently expand the story. (3) Ask who benefits and why; if nobody can say, question whether the story belongs on the backlog before anyone builds or tests it.
