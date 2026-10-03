@@ -29,7 +29,7 @@ CSM ships with two models, and a case must resolve to exactly one of them.
 
 The two models are not mutually exclusive in a single instance — a manufacturer can sell to distributors (B2B) and to the public (B2C) — but they are mutually exclusive on a single case. The case form shows the account and contact fields or the consumer field depending on which model the case is using, and the underlying `sn_customerservice_case` table carries fields for both.
 
-A detail that catches people: both `customer_contact` and `csm_consumer` extend `sys_user`. A contact is a user record. This is what allows a contact to log into the customer service portal with the `sn_customerservice.customer` role, and it is why you should never create a plain `sys_user` record for a customer and then wonder why they cannot see anything on the portal. Create the contact; the user record comes with it.
+A detail that catches people: `customer_contact` extends `sys_user`. A contact is a user record. (Consumers are modeled differently: a `csm_consumer` record is linked to a user record for portal login rather than being one; confirm the relationship on your release before you script against it.) This is what allows a contact to log into the customer service portal with the `sn_customerservice.customer` role, and it is why you should never create a plain `sys_user` record for a customer and then wonder why they cannot see anything on the portal. Create the contact; the user record comes with it.
 
 For the rest of this lesson, and for the rest of the course, assume B2B unless a section says otherwise. The consumer model is shown as a variation, not taught twice.
 
@@ -158,3 +158,12 @@ Work in a personal developer instance with the CSM plugins active.
 4. **Test visibility by hierarchy.** Impersonate Dana and confirm she can retrieve Sunil's case; impersonate Priya and confirm she cannot. If your result differs from the design, identify whether the cause is the contact role, the account relationship, or the access control — and say which one you would change.
 
 5. **Write the variation.** In a short paragraph, describe how you would remodel Northwind as a B2C consumer implementation: which records disappear, which one replaces them, and what the case would lose as a result.
+
+## Check your understanding
+
+1. A manufacturer sells to distributors and to the public. One customer model or two, and can a single case use both?
+2. Why should you never create a plain `sys_user` for a B2B customer?
+3. Why coalesce account and install base imports on an external identifier rather than a name?
+4. Sunil files a case on a Rivergate controller. How does it end up entitled at Gold when the contract is on the parent account?
+
+*Answers:* (1) Both models can exist in one instance, but each case uses exactly one. (2) It will not be a contact, will not carry the customer role, and will not see the portal; create the contact. (3) Names are edited and duplicated; the external id is stable, so re-runs update rather than duplicate or overwrite the wrong record. (4) The case resolves to Rivergate, whose parent account holds the Gold contract, and the entitlement lookup walks the hierarchy.

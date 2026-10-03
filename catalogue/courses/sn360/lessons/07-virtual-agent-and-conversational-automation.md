@@ -86,7 +86,7 @@ The three ways a topic touches your CSM data:
   var cases = [];
   var gr = new GlideRecord('sn_customerservice_case');
   gr.addQuery('contact', userId);
-  gr.addQuery('state', 'NOT IN', '6,7'); // resolved, closed - confirm values in your instance
+  gr.addQuery('state', 'NOT IN', '3,6,7'); // closed, resolved, cancelled - confirm values in your instance
   gr.orderByDesc('sys_updated_on');
   gr.setLimit(5);
   gr.query();
@@ -212,3 +212,12 @@ Review unmatched utterances weekly for the first month. Most of what you will bu
 6. **Break it deliberately.** Make the lookup script fail — rename a field, or point it at a state value that does not exist — and observe what the customer sees. Then add the error handling that turns that into a clear message and an offered next step.
 
 7. **Test and tune the routing.** Simulate ten real customer utterances, at least three of which should *not* match your topic. Record which ones misrouted, adjust the training phrases, and re-test. Write down the one utterance you could not disambiguate and how you would handle it.
+
+## Check your understanding
+
+1. Which makes a better first topic: "check my case status" or "my controller behaves strangely"? Why?
+2. The customer has exactly one open case. What should the topic do before asking anything?
+3. Why call a Flow Designer flow rather than writing record updates in a topic script?
+4. What is containment, and why is it the number the topic exists to move?
+
+*Answers:* (1) Case status: high frequency, structured, resolvable with platform data, low blast radius; the other is diagnostic. (2) Look it up and show it; never ask for a case number you already know. (3) Flows give error handling, run history, and reuse from the portal and email. (4) Conversations that end without a live agent transfer or a case; it measures requests resolved without a human.

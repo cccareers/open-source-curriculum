@@ -115,7 +115,7 @@ Handle these termination-adjacent cases explicitly:
 
 This is the part of an integration that separates a build that survives contact with production from one that does not. Assume the feed will contain bad rows, because it will.
 
-**Validate in the transform, before the write.** An `onBefore` transform script is the natural place: it can inspect the incoming row, correct what is safely correctable, and reject what is not by setting `ignore = true`, which skips the row without failing the whole run.
+**Validate in the transform, before the write.** An `onBefore` transform script is the natural place: it can inspect the incoming row, correct what is safely correctable, and reject what is not by setting `ignore = true`, which skips the row without failing the whole run. (`ignore` is a variable the transform engine provides to the script; assigning it inside the wrapper function, as below, still sets the engine's variable. Rows already written earlier in the run are not rolled back.)
 
 What to validate on a worker feed:
 
@@ -292,3 +292,12 @@ Work in a development instance. You will need a sample worker file; construct on
 11. **Add run-level protection.** Implement a threshold abort and a short-file guard. Then feed the integration a truncated file of five rows and confirm it refused to process and alerted someone. Record what the alert said.
 
 12. **Design the payroll handoff.** For one payroll-affecting HR process from your build, specify the outbound event: its trigger, its payload fields, how acknowledgement is confirmed, what happens when it is not acknowledged, and how cutoff timing is communicated to the employee. Justify every field you included by naming what payroll does with it, and name two fields you deliberately excluded.
+
+## Check your understanding
+
+1. Why coalesce on employee number and never on email?
+2. Employee A's manager B appears later in the file. What goes wrong in a single-pass import, and what fixes it?
+3. A full feed arrives with 200 rows instead of 12,000. What must your integration do?
+4. An unmapped employment type arrives. Default it to full time, or report it?
+
+*Answers:* (1) Employee numbers are stable and unique; email changes, may be missing, and can be reused, which merges two people into one record. (2) A's manager reference cannot resolve because B does not exist yet; use a second pass to set managers after all workers exist. (3) Refuse to process and alert; never reconcile the missing people to inactive. (4) Report it; a silent default can make someone eligible for benefits they should not have.

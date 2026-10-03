@@ -33,7 +33,7 @@ The server script runs first and once, when the page is assembled. Its `data` ob
 
 Two consequences follow, and they catch everyone once:
 
-1. **Anything you put on `data` is visible in the browser.** Never put a value on `data` that the current user is not allowed to see. The server script runs with the caller's rights for record access, but a field you deliberately fetch and attach is a field you have deliberately published.
+1. **Anything you put on `data` is visible in the browser.** Never put a value on `data` that the current user is not allowed to see. The server script runs in the caller's session, but a plain `GlideRecord` query does **not** apply access controls for you: it returns records and fields the user may not be allowed to see, and anything you copy from it onto `data` you have deliberately published. Filter to what the user should see, use `GlideRecordSecure` (which applies ACLs to queries and field reads), or check `canRead()` on each record before you attach it.
 2. **The server script has no DOM and the client controller has no `GlideRecord`.** They are two different runtimes that happen to share a file. Do the querying on one side and the rendering on the other, and never try to reach across.
 
 ## Reading a widget end to end
@@ -160,10 +160,12 @@ When the user does something that must change data, you send it up as `input`. T
 
   if (input && input.action === 'acknowledge') {
     var gr = new GlideRecord('incident');
-    if (gr.get(input.sys_id)) {
+    if (gr.get(input.sys_id) && gr.canWrite()) {
       gr.setValue('comments', 'Acknowledged from the portal.');
       gr.update();
       data.message = gs.getMessage('Acknowledged {0}', gr.getDisplayValue('number'));
+    } else {
+      data.message = gs.getMessage('You cannot update that record.');
     }
   }
 
@@ -186,7 +188,7 @@ api.controller = function(spUtil) {
 };
 ```
 
-Two rules govern this. **Validate on the server, always.** `input` arrives from a browser and a browser is not trustworthy; check that the record exists, that the user may write to it, and that the action string is one you recognize. Client-side checks are a courtesy to honest users, not a security control. And **branch explicitly** — a server script that runs an update every time it executes will run it again on every refresh.
+Two rules govern this. **Validate on the server, always.** `input` arrives from a browser and a browser is not trustworthy; check that the record exists, that the user may write to it (the `canWrite()` call above, because a plain `GlideRecord` will happily update a record the user's ACLs forbid), and that the action string is one you recognize. Client-side checks are a courtesy to honest users, not a security control. And **branch explicitly** — a server script that runs an update every time it executes will run it again on every refresh.
 
 `spUtil` is the client-side helper service you inject into the controller. Beyond `addInfoMessage` and `addErrorMessage`, the two you will reach for are `spUtil.get(widgetId, options)` to embed one widget inside another from script, and `spUtil.recordWatch(scope, table, filter, callback)` to have the widget react when a matching record changes on the server — the correct alternative to a polling timer.
 
@@ -290,3 +292,12 @@ Work in your `dev290` portal from Lesson 2. Clone rather than edit anything out 
 4. **Add an action.** Implement the acknowledge behaviour: a button per row that calls `c.server.get` with an action and a sys_id, writes a comment to the record on the server, shows an info message, and refreshes the list. Then attack your own code — call it with a sys_id the current user cannot write to and confirm the server refuses cleanly rather than throwing.
 5. **Make it theme-proof.** Replace every hard-coded colour in your CSS with a theme variable. Change one variable on your copied theme and confirm the widget follows without being touched.
 6. **Justify a clone.** Write two or three sentences deciding whether a "compact, no-footer" version of this card should be an option or a clone, and say which rule from this lesson you applied.
+
+## Check your understanding
+
+1. Trace a value from the server script to the screen. Which object carries it, and what name does the template use?
+2. What is the difference between `c.server.update()` and `c.server.get({...})` in what they send and what they re-run?
+3. Your server script uses `new GlideRecord('incident')` to fetch a record whose sys_id came from `input`. Name two checks it must do before updating.
+4. A colleague wants a "compact" mode and plans to wrap two completely different templates in `ng-if`. Option or clone?
+
+*Answers:* (1) `data` on the server, `c.data` in the controller, `{{c.data.x}}` in the template. (2) `update` posts all of `c.data` and re-runs the whole server script; `get` sends only the object you pass as `input` (the server script still runs, so branch on `input`). (3) That the record exists and that the user can write it (`canWrite()`), plus that the action string is one you recognise. (4) A clone; the difference is structure, not data.

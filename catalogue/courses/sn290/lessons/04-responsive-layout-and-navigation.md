@@ -106,3 +106,12 @@ Continue in your `dev290` portal.
 4. **Build a real menu.** Create a menu with four top-level items labelled as user tasks, one of which has a dropdown of three children. Point at least one item at a portal page by page ID rather than by URL. Attach the menu to your portal and confirm it renders.
 5. **Gate an item.** Add a fifth item restricted to a role your test user lacks. Impersonate that user and confirm the item is not rendered at all.
 6. **Check the phone header.** At 375 pixels, open the collapsed menu, tap through to a second-level item, and confirm you land on the right page, that the current item is marked, and that nothing is hidden under a fixed header.
+
+## Check your understanding
+
+1. A column has extra small = 12 and Size = 6. How wide is it at 800 pixels, and why?
+2. Three cards are three slivers on a phone. Which field was probably the only one set?
+3. Your menu has three levels. What should replace the third level?
+4. Why should an internal menu item link by page ID rather than by URL?
+
+*Answers:* (1) Full width; small is unset so it inherits extra small (12), and the medium size of 6 only applies from about 992 pixels. (2) The unlabelled Size (medium) field. (3) A landing page with categories. (4) A page-ID link survives a URL-suffix change and resolves within whichever portal the user is in.

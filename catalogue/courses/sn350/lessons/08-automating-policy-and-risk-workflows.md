@@ -195,6 +195,8 @@ Flows do not cover everything. Data integrity on a single record, enforced at wr
     problems.push('a review interval greater than zero');
   }
 
+  // Table and field names here are illustrative; check the policy statement
+  // table name and its reference to the policy on your release.
   var stmt = new GlideAggregate('sn_policy_statement');
   stmt.addQuery('policy', current.getUniqueValue());
   stmt.addQuery('active', true);
@@ -278,3 +280,12 @@ Use a developer instance with the IRM applications available. Reuse the policies
 5. **Expose one API.** Build a read-only Scripted REST resource returning control status for one entity. Call it with a valid entity, a missing parameter, and an account lacking the integration role, and record what each returns. Then list two fields you deliberately excluded from the payload and why.
 
 6. **Make a failure visible.** Add an explicit error path to one of your flows that creates a record and notifies a group. Force it to fail, and confirm the failure is visible somewhere a human actually looks — not only in the flow's execution log.
+
+## Check your understanding
+
+1. "Prevent a policy being published without an owner." Business rule or flow, and why?
+2. Your nightly policy review sweep ran twice after a clone. What stops it creating duplicate review tasks?
+3. An acceptance expires and nobody acts. What should the sweep do by default?
+4. When is the standard table API a better answer than a Scripted REST API?
+
+*Answers:* (1) A before business rule; it must stop the save, and flows run after the fact. (2) An idempotency guard in the lookup condition: "and no active review task exists." (3) Let the acceptance lapse: return the risk to its pre-acceptance state and notify owner and approver. (4) When the consumer just needs filtered table access under existing ACLs with a properly restricted role, and no custom contract or shaping is needed.

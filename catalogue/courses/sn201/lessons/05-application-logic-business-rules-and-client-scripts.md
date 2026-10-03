@@ -73,7 +73,7 @@ Three things to notice. There is no `current.update()` — a `before` rule modif
 When a work order closes, roll its cost onto the parent, if it has one.
 
 - When: `after`, on Update
-- Condition: `State is Closed Complete`
+- Condition: `State changes to Closed Complete`
 
 ```javascript
 (function executeRule(current, previous) {
@@ -81,14 +81,25 @@ When a work order closes, roll its cost onto the parent, if it has one.
     return;
   }
   var parent = new GlideRecord('x_acme_facilities_work_order');
-  if (parent.get(current.parent)) {
-    parent.child_cost_total = (parent.child_cost_total || 0) + (current.total_cost || 0);
-    parent.update();
+  if (!parent.get(current.getValue('parent'))) {
+    return;
   }
+  // Recompute from all closed children rather than adding to a running total,
+  // so the result is correct even if a child is reopened and closed again.
+  var total = 0;
+  var child = new GlideRecord('x_acme_facilities_work_order');
+  child.addQuery('parent', parent.getUniqueValue());
+  child.addQuery('state', 60);
+  child.query();
+  while (child.next()) {
+    total += parseFloat(child.getValue('total_cost')) || 0;
+  }
+  parent.setValue('child_cost_total', total);
+  parent.update();
 })(current, previous);
 ```
 
-Here `update()` is correct, because you are writing a *different* record. Note the guard clause first: rules that start by ruling themselves out are easier to read and cheaper to run.
+Here `update()` is correct, because you are writing a *different* record. Note the guard clauses first: rules that start by ruling themselves out are easier to read and cheaper to run. Note also `getValue()`: `current.total_cost` is a field object, not a number, so `current.total_cost + 1` would join strings rather than add. Read the value as a string with `getValue()` and convert it explicitly.
 
 ### An async rule: get out of the user's way
 
@@ -100,8 +111,14 @@ A `before` rule can refuse the write:
 
 ```javascript
 (function executeRule(current, previous) {
-  if (current.state == 60 && current.work_order_parts_pending()) {
-    gs.addErrorMessage('Close the outstanding part requests before completing this work order.');
+  // Rule condition: State changes to Closed Complete.
+  var part = new GlideRecord('x_acme_facilities_work_order_part');
+  part.addQuery('work_order', current.getUniqueValue());
+  part.addNullQuery('unit_cost');
+  part.setLimit(1);
+  part.query();
+  if (part.hasNext()) {
+    gs.addErrorMessage('Enter a unit cost on every part used before completing this work order.');
     current.setAbortAction(true);
   }
 })(current, previous);
@@ -170,7 +187,10 @@ function onSubmit() {
   if (scheduled === '') {
     return true;
   }
-  if (new Date(scheduled) < new Date()) {
+  // getValue returns the date in the user's display format; parse it with
+  // that format rather than trusting new Date() to guess.
+  var scheduledMs = getDateFromFormat(scheduled, g_user_date_time_format);
+  if (scheduledMs !== 0 && scheduledMs < new Date().getTime()) {
     g_form.addErrorMessage('Scheduled date cannot be in the past.');
     return false;   // cancels the save
   }
@@ -236,3 +256,10 @@ Work in the `Facilities Work Orders` application.
 7. **Audit your own work.** List every UI policy, client script, and business rule now on `work_order`. For each, name the row in the decision table it belongs to. If any of them sit lower in the table than they need to, rewrite them upward — a client script that a UI policy could do should become a UI policy.
 
 8. **Stretch.** Add a `before` rule that aborts closing a work order while any related `work_order_part` row has a zero quantity, with a message naming the problem. Then argue, in three sentences, whether this rule is better placed as a business rule or as a data policy, and what the difference would be for an integration.
+
+## Check your understanding
+
+1. Why does a `before` rule never call `current.update()`? *It is changing the record that is about to be saved; calling update triggers another save and recursion.*
+2. A client script sets priority on every HVAC record someone opens, overwriting saved values. What is missing? *The `isLoading` guard in the onChange script.*
+3. An integration creates work orders with past scheduled dates despite your onSubmit script. Why, and where should the rule live? *Client scripts run only on forms; put the guarantee in a before business rule or data policy.*
+4. Why does the roll-up rule use `getValue()` and `parseFloat()`? *Field objects are not numbers; adding them concatenates strings.*

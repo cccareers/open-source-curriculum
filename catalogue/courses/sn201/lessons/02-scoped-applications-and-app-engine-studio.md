@@ -77,7 +77,7 @@ Open the application in the developer studio and look at its properties. A handf
 | Menu | The application menu shown in the navigator |
 | Logo | Optional image shown in App Engine Studio |
 
-**Runtime access tracking** is the one people skip past. In its enforcing setting, a call from another scope into yours must have an explicit access record before it succeeds; in tracking mode the platform logs the call and allows it, so you can discover dependencies before you enforce them. During development, tracking is a gentle default. Before you hand the application to anyone else, look at what got logged and decide deliberately what stays open.
+**Runtime access tracking** is the one people skip past. It governs calls your application's code makes *out* to resources in other scopes — your business rule reading `sys_user` or writing to Incident. In its enforcing setting, each such cross-scope call must have an explicit, approved access record (a cross-scope privilege) before it succeeds; in tracking mode the platform records the call and allows it, so you can discover dependencies before you enforce them. Calls coming *into* your application from other scopes are governed separately, by each table's application access settings, which lesson 7 covers. During development, tracking is a gentle default. Before you hand the application to anyone else, look at what got logged and decide deliberately what stays open.
 
 ## Application files: everything you build is a record
 

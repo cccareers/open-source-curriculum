@@ -117,3 +117,12 @@ Use the test you built in lesson 3, on a sub-production instance.
 5. Now close the runner tab and start the same run again. Observe what the run reports while no runner is available, then reopen the runner and let it complete. Write down what that failure or waiting message looks like, so you recognize it later.
 6. Create a scheduled test suite for `Smoke - Incident core`. Set it to run daily at a time outside working hours, and check the time zone on the record explicitly. Then use the record's on-demand execution to prove the schedule's configuration works without waiting overnight.
 7. Add the failure-notification loop: a business rule on the suite result table that calls `gs.eventQueue` when a run fails, the event registered, and a notification triggered by the event addressed to yourself. Force a failure by breaking one assertion, run the suite, and confirm the notification arrives. Repair the assertion afterwards.
+
+## Check your understanding
+
+1. Why does a suite made only of server steps schedule more easily than a suite with form steps?
+2. A scheduled smoke run fails every test at 02:00 on the night a clone was scheduled. Real failure, bad test, or bad environment? What do you change?
+3. Why route failure alerts through `gs.eventQueue` and an event-triggered notification instead of sending mail directly from the business rule?
+4. Why notify only on failure?
+
+*Answers:* (1) Server steps need no browser; form steps need a client test runner open and in the foreground when the schedule fires. (2) Bad environment; move the schedule so it does not overlap the clone window rather than deactivating tests. (3) Other automation (for example a script action that opens a defect) can subscribe to the same event later without editing the detecting rule. (4) A mostly-green email trains people to filter it, so the real failure gets missed.
