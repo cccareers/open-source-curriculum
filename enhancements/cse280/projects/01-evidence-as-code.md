@@ -76,7 +76,7 @@ The patient appointment reminder service from lessons 02–10 has two controls w
 ```python
 #!/usr/bin/env python3
 """Evaluate NET-02 and DATA-03 against dated exports; write findings and an evidence-index row per check."""
-import argparse, hashlib, json, pathlib, re, sys
+import argparse, datetime, hashlib, json, pathlib, re, sys
 
 TICKET = re.compile(r"\b(CHG|OPS)-\d+\b")
 SCOPED = {"restricted", "confidential"}
@@ -137,19 +137,29 @@ def main(argv=None):
     ap.add_argument("--buckets", required=True)
     ap.add_argument("--out", default="out")
     args = ap.parse_args(argv)
+    dates = set()
     for p in (args.security_groups, args.buckets):
-        if not re.match(r"\d{4}-\d{2}-\d{2}-", pathlib.Path(p).name):
-            print(f"refusing undated evidence file: {p}", file=sys.stderr)
+        m = re.match(r"(\d{4}-\d{2}-\d{2})-", pathlib.Path(p).name)
+        try:
+            dates.add(datetime.date.fromisoformat(m.group(1)).isoformat())
+        except (AttributeError, ValueError):   # no date prefix, or not a real date
+            print(f"refusing undated or invalidly dated evidence file: {p}", file=sys.stderr)
             return 64
-    date = pathlib.Path(args.security_groups).name[:10]
+    if len(dates) != 1:
+        print(f"refusing exports collected on different dates: {sorted(dates)}", file=sys.stderr)
+        return 64
+    date = dates.pop()
     findings = net02(json.load(open(args.security_groups))) + data03(json.load(open(args.buckets)))
     out = pathlib.Path(args.out); out.mkdir(exist_ok=True)
-    (out / f"{date}-findings.json").write_text(json.dumps(
+    findings_file = out / f"{date}-findings.json"
+    findings_file.write_text(json.dumps(
         [{"severity": s, "control": c, "condition": t} for s, c, t in findings], indent=2))
     with open(out / f"{date}-evidence-index.tsv", "w") as fh:
         fh.write("CONTROL\tEVIDENCE\tSHA256\tTYPE\tCOLLECTED\n")
-        for ctl, p in (("NET-02", args.security_groups), ("DATA-03", args.buckets)):
-            fh.write(f"{ctl}\t{pathlib.Path(p).name}\t{sha256(p)}\texport\t{date}\n")
+        for ctl, p, kind in (("NET-02", args.security_groups, "export"),
+                             ("DATA-03", args.buckets, "export"),
+                             ("NET-02,DATA-03", findings_file, "findings")):
+            fh.write(f"{ctl}\t{pathlib.Path(p).name}\t{sha256(p)}\t{kind}\t{date}\n")
     for s, c, t in findings:
         print(f"{s:8} {c:8} {t}")
     return 1 if any(s in ("Critical", "High") for s, _, _ in findings) else 0
@@ -172,8 +182,8 @@ if __name__ == "__main__":
 ## Acceptance criteria
 
 - [ ] `pytest -q` passes, including your three or more new tests.
-- [ ] The tool refuses undated input with exit 64 and writes nothing.
-- [ ] Every evidence-index row has control, filename, SHA-256, type, and collection date.
+- [ ] The tool refuses undated, invalidly dated, or mismatched-date input with exit 64 and writes nothing.
+- [ ] Every evidence-index row has control, filename, SHA-256, type, and collection date, and the generated findings file has its own row.
 - [ ] `CONTROLS.md` separates script-assertable and human-record test steps.
 - [ ] `FINDING.md` has all five elements plus severity, owner, due date, and status.
 - [ ] `RUNBOOK.md` has expected output and a `RECORD:` line for every artifact-producing step.
@@ -220,10 +230,20 @@ def test_cli_writes_dated_artifacts_and_fails_on_high(tmp_path):
     assert (tmp_path / "2026-07-06-findings.json").exists()
     idx = (tmp_path / "2026-07-06-evidence-index.tsv").read_text()
     assert "NET-02" in idx and len(idx.splitlines()[1].split("\t")[2]) == 64
+    rows = [line.split("\t") for line in idx.splitlines()[1:]]
+    assert [r[1] for r in rows if r[3] == "findings"] == ["2026-07-06-findings.json"]
 
 def test_undated_evidence_is_refused(tmp_path):
     undated = tmp_path / "export.json"; shutil.copy(SG, undated)
     assert cc.main(["--security-groups", str(undated), "--buckets", str(BK), "--out", str(tmp_path)]) == 64
+
+def test_mismatched_or_impossible_dates_are_refused(tmp_path):
+    later = tmp_path / "2026-07-07-buckets.json"; shutil.copy(BK, later)
+    bogus = tmp_path / "2026-13-40-buckets.json"; shutil.copy(BK, bogus)
+    out = tmp_path / "out"
+    assert cc.main(["--security-groups", str(SG), "--buckets", str(later), "--out", str(out)]) == 64
+    assert cc.main(["--security-groups", str(SG), "--buckets", str(bogus), "--out", str(out)]) == 64
+    assert not out.exists()
 ```
 
 ## Rubric
@@ -248,5 +268,5 @@ def test_undated_evidence_is_refused(tmp_path):
 ## Instructor notes (common pitfalls, how to adapt for time)
 - The fixture's app-tier rule spans 8080–8090 and has no ticket; the db-tier has both a bad internet rule and a good group rule — learners should see that one good rule does not excuse the bad one.
 - Learners often treat the public load balancer's `0.0.0.0/0:443` as a finding; the scoping by classification tag is the point.
-- The reference implementation and suite were run together during authoring (7/7 passing, Python 3.12).
+- The reference implementation and suite were run together during authoring (8/8 passing, Python 3.12).
 - Short on time: skip milestones 4 and 7.

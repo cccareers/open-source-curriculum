@@ -42,13 +42,23 @@ Lesson 05's review exercise showed a plan that would open SSH to the internet an
 ```
 
 - `actions` values: `["create"]`, `["update"]`, `["delete"]`, `["no-op"]`, `["read"]`, and replacement as `["delete","create"]` or `["create","delete"]` (the latter when `create_before_destroy` is set).
+- A new rule's `security_group_id` is `(known after apply)` at plan time, so the target group cannot be read from `after`. Read it from the plan's `configuration` block instead, which records what each attribute references:
+
+```json
+{"configuration": {"root_module": {"resources": [
+  {"address": "aws_vpc_security_group_ingress_rule.lb_https",
+   "expressions": {"security_group_id": {"references": ["aws_security_group.lb.id", "aws_security_group.lb"]}}}
+]}}}
+```
+
+  For an inline `ingress` block on an `aws_security_group`, the target is that group itself, so compare the resource's own address with `LB_GROUP`. Resources inside modules sit under `configuration.root_module.module_calls.<name>.module`; handling them is a stretch goal, and until then the tool should block (not allow) any public 443 rule whose target it cannot resolve.
 
 ## Milestones
 
-1. **Write POLICY.md first.** Protected types: `aws_db_instance`, `aws_rds_cluster`, `aws_ebs_volume`, `aws_s3_bucket`, `aws_efs_file_system` (extend for your provider). Rules: block delete or replace on protected types; block any ingress open to `0.0.0.0/0`/`::/0` except port 443 on resources whose address contains `lb`; warn (not block) on any replace of other types.
+1. **Write POLICY.md first.** Protected types: `aws_db_instance`, `aws_rds_cluster`, `aws_ebs_volume`, `aws_s3_bucket`, `aws_efs_file_system` (extend for your provider). Rules: block delete or replace on protected types; block any ingress open to `0.0.0.0/0`/`::/0` except port 443 into the one designated load-balancer security group, named by address in POLICY.md and in a `LB_GROUP` constant (for example `aws_security_group.lb`); warn (not block) on any replace of other types. Decide the exception by the group the rule *targets*, never by the rule's own name: resource labels are arbitrary, so `lb_https_temp` on the app group must still be blocked.
 2. **Classify actions.** Implement `classify(actions) -> "create"|"update"|"replace"|"delete"|"noop"`.
 3. **Implement rules.** Each finding prints `BLOCK <address>: <reason>` or `WARN <address>: <reason>`.
-4. **Fixtures.** Create `safe_tag_change.json`, `db_replace.json`, `ssh_open.json`, `lb_https_open.json` (allowed), `cbd_replace_instance.json` (warn only). Write two more from real plans if you have Terraform: generate with `terraform plan -out=p && terraform show -json p > fixtures/x.json`.
+4. **Fixtures.** Create `safe_tag_change.json`, `db_replace.json`, `ssh_open.json`, `lb_https_open.json` (allowed; include a `configuration` block targeting the load-balancer group), `cbd_replace_instance.json` (warn only). Write two more from real plans if you have Terraform: generate with `terraform plan -out=p && terraform show -json p > fixtures/x.json`.
 5. **Tests.** Make the suite below pass, then add a test for each of your own fixtures.
 6. **Wire it in.** Add a `Makefile` target `make plan` that runs `terraform plan -out=tfplan`, `terraform show -json tfplan > plan.json`, then `python3 plan_guard.py plan.json`.
 
@@ -56,7 +66,7 @@ Lesson 05's review exercise showed a plan that would open SSH to the internet an
 
 - [ ] Replace of a protected type is blocked regardless of action ordering.
 - [ ] Delete of a protected type is blocked.
-- [ ] Public ingress is blocked except 443 on the load balancer group.
+- [ ] Public ingress is blocked except 443 into the designated load-balancer group, decided by the rule's resolved target group, not its name.
 - [ ] Tag-only and instance-size updates pass.
 - [ ] Output names the resource address and the reason on one line.
 - [ ] `POLICY.md` names who can override and how the override is recorded.
@@ -74,6 +84,13 @@ def plan(*changes):
     return {"resource_changes": [
         {"address": a, "type": t, "change": {"actions": act, "after": after or {}}}
         for a, t, act, after in changes]}
+
+def targeting(p, rule_addr, group_addr):
+    """Record in the plan's configuration block that rule_addr attaches to group_addr."""
+    res = p.setdefault("configuration", {"root_module": {"resources": []}})["root_module"]["resources"]
+    res.append({"address": rule_addr, "expressions": {"security_group_id": {
+        "references": [f"{group_addr}.id", group_addr]}}})
+    return p
 
 @pytest.mark.parametrize("actions,expected", [
     (["create"], "create"), (["update"], "update"), (["delete"], "delete"),
@@ -99,9 +116,23 @@ def test_ssh_open_blocked():
 
 def test_lb_https_allowed():
     after = {"from_port": 443, "to_port": 443, "cidr_ipv4": "0.0.0.0/0"}
+    p = plan(("aws_vpc_security_group_ingress_rule.lb_https",
+              "aws_vpc_security_group_ingress_rule", ["create"], after))
+    f = evaluate(targeting(p, "aws_vpc_security_group_ingress_rule.lb_https", "aws_security_group.lb"))
+    assert not any(x.level == "BLOCK" for x in f)
+
+def test_https_into_app_group_blocked_despite_lb_in_name():
+    after = {"from_port": 443, "to_port": 443, "cidr_ipv4": "0.0.0.0/0"}
+    p = plan(("aws_vpc_security_group_ingress_rule.lb_https_temp",
+              "aws_vpc_security_group_ingress_rule", ["create"], after))
+    f = evaluate(targeting(p, "aws_vpc_security_group_ingress_rule.lb_https_temp", "aws_security_group.app"))
+    assert any(x.level == "BLOCK" for x in f)
+
+def test_https_with_unresolvable_target_blocked():
+    after = {"from_port": 443, "to_port": 443, "cidr_ipv4": "0.0.0.0/0"}
     f = evaluate(plan(("aws_vpc_security_group_ingress_rule.lb_https",
                        "aws_vpc_security_group_ingress_rule", ["create"], after)))
-    assert not any(x.level == "BLOCK" for x in f)
+    assert any(x.level == "BLOCK" for x in f)
 
 def test_instance_resize_passes():
     f = evaluate(plan(("aws_instance.app", "aws_instance", ["update"], {"instance_type": "t3.large"})))

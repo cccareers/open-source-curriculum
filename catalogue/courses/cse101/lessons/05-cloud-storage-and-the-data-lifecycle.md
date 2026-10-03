@@ -223,7 +223,7 @@ That fourth meter is why serving images directly from object storage to a global
 
 1. Create a bucket or container and enable versioning.
 2. Upload a file, overwrite it with different contents, and list all versions.
-3. Delete the object (without specifying a version), then list all versions again and show that a delete marker is now the current version and that both prior versions are still listed beneath it. A normal, non-versioned listing should no longer show the key at all — capture both views.
+3. Delete the object (without specifying a version), then list all versions again and show that a delete marker is now the current version and that both prior versions are still listed beneath it. A normal, non-versioned listing should no longer show the key at all — capture both views. (This is S3 behaviour, which S3-compatible emulators copy. On a provider without delete markers — Google Cloud Storage, for example, keeps the deleted generation as a noncurrent object instead — show that provider's equivalent: the prior versions still listed, and the key gone from a normal listing.)
 4. Restore the previous version and confirm the contents.
 5. Apply a lifecycle rule that expires noncurrent versions after one day, and show the configuration as the service reports it back.
 6. Read the storage class of one object with a metadata-only request and show that no object body was transferred.

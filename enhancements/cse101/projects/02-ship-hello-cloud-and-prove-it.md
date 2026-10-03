@@ -69,26 +69,29 @@ Talbot & Vine's contractor wants a dry run before moving the project-tracking ap
 set -uo pipefail
 BASE=${1:?base url}; WANT=${2:?expected version}; fail=0
 ok(){ echo "PASS  $1"; }; bad(){ echo "FAIL  $1"; fail=1; }
+# every request gets a time limit, so a stalled target fails instead of hanging
+c(){ curl --connect-timeout 5 --max-time 15 "$@"; }
 
 HOST=$(echo "$BASE" | sed -E 's#^https?://([^/:]+).*#\1#')
 if [ "$HOST" != "localhost" ]; then
   [ -n "$(dig +short "$HOST")" ] && ok "DNS resolves: $(dig +short "$HOST" | head -1)" || bad "DNS does not resolve"
 fi
 
-code=$(curl -s -o /dev/null -w '%{http_code}' "$BASE/")
+code=$(c -s -o /dev/null -w '%{http_code}' "$BASE/")
 [ "$code" = 200 ] && ok "GET / -> 200" || bad "GET / -> $code"
 
-curl -s "$BASE/healthz" | grep -q '"status": *"ok"' && ok "healthz ok" || bad "healthz not ok"
+c -s "$BASE/healthz" | grep -q '"status": *"ok"' && ok "healthz ok" || bad "healthz not ok"
 
-got=$(curl -s "$BASE/version" | sed -E 's/.*"version": *"([^"]+)".*/\1/')
+got=$(c -s "$BASE/version" | sed -E 's/.*"version": *"([^"]+)".*/\1/')
 [ "$got" = "$WANT" ] && ok "version $got" || bad "version $got, wanted $WANT"
 
 if [[ "$BASE" == https://* ]]; then
-  curl -sv "$BASE/" -o /dev/null 2>&1 | grep -qi 'SSL certificate verify ok' \
-    && ok "TLS certificate verifies" || bad "TLS verification not confirmed"
+  # curl verifies the certificate and hostname by default; a non-zero exit means it did not
+  c -sS -o /dev/null "$BASE/" \
+    && ok "TLS certificate verifies" || bad "TLS verification failed (see curl error above)"
 fi
 
-times=$(for i in $(seq 1 20); do curl -s -o /dev/null -w '%{http_code} %{time_total}\n' "$BASE/"; done)
+times=$(for i in $(seq 1 20); do c -s -o /dev/null -w '%{http_code} %{time_total}\n' "$BASE/"; done)
 non200=$(echo "$times" | awk '$1!=200' | wc -l | tr -d ' ')
 [ "$non200" = 0 ] && ok "20/20 requests 200" || bad "$non200 of 20 requests not 200"
 echo "$times" | awk '{print $2}' | sort -n | awk '{a[NR]=$1} END{print "median " a[int((NR+1)/2)] "s, worst " a[NR] "s"}'
@@ -96,7 +99,7 @@ echo "$times" | awk '{print $2}' | sort -n | awk '{a[NR]=$1} END{print "median "
 [ $fail -eq 0 ] && echo "VERIFIED" || { echo "NOT VERIFIED"; exit 1; }
 ```
 
-The TLS line depends on curl's verbose wording, which varies by TLS backend; if it fails on a valid certificate, replace it with `curl -sS --fail "$BASE/healthz"` (which fails on an invalid certificate by default) and note the change.
+The TLS check relies on curl's exit status rather than its verbose output, whose wording varies by TLS backend: curl verifies the certificate chain and hostname by default and exits non-zero if either fails. Never add `-k`/`--insecure` to make it pass.
 
 ## Rubric
 | Criterion | Developing | Meets | Exceeds |

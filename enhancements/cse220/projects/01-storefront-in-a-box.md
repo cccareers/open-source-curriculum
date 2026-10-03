@@ -105,7 +105,7 @@ if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", "8080")), threaded=True)
 ```
 
-- `loadgen` can be a shell loop: `while true; do curl -s -o /dev/null -X POST http://storefront:8080/checkout; sleep 0.05; done` (≈20 rps).
+- `loadgen` can be a shell loop that fires each request in the background so the pace does not depend on how fast checkout answers: `while true; do curl -s -o /dev/null --max-time 10 -X POST http://storefront:8080/checkout & sleep 0.05; done` (≈20 rps; a little under, because of loop overhead). Without the `&`, each iteration waits for the ~140 ms checkout to finish and you get about 5 rps — and far fewer once you inject the slow-DB fault, which would hide the very latency you are trying to see.
 - Faults: `curl -X POST localhost:8080/admin/fault -d '{"db_delay_ms":900}'` (slow DB), `'{"pay_error_ratio":0.3}'` (payment errors), `docker compose stop storefront` (loss of visibility).
 
 ## Milestones

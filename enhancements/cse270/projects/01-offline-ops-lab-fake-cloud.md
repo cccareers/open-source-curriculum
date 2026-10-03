@@ -206,8 +206,10 @@ def test_empty_project_is_zero_iterations(env):
 def test_unauthenticated_stops_before_acting(env):
     s = json.loads(env[1].read_text()); s["authenticated"] = False
     env[1].write_text(json.dumps(s))
+    before = env[1].read_text()
     r = run(env, "--project", "sandbox", "--tag", "owner")
-    assert r.returncode != 0 and untagged(env[1]) != []
+    assert r.returncode != 0
+    assert env[1].read_text() == before, "no instance may be tagged before the auth check"
 
 def test_logs_go_to_stderr_with_timestamps(env):
     r = run(env, "--project", "sandbox", "--tag", "owner")

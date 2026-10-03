@@ -16,7 +16,7 @@ A rigorous, well-sequenced course: build by hand (02–04), feel the pain (05), 
 | cse203-07 | "Scaling policies" Terraform | Only a scale-to-zero schedule was shown, with no morning scale-up and no time zone (recurrences default to UTC). Practice step 9 asks for both directions. | Added `morning_up` schedule, `time_zone` on both, and a paragraph on the pairing and UTC trap. | Applied |
 | cse203-07 | "Serverless functions as a demand-fitting tool" | Arithmetic error: at the lesson's own rate, 50 M × 200 ms × 512 MB is ≈ $83 compute + ≈ $10 requests, not "several hundred dollars". Conclusion unchanged. | Corrected figure and added a sensitivity sentence (duration/memory multiply the cost). | Applied |
 | cse203-08 | R5 and R11 | "No rule permits 0.0.0.0/0 on any port" conflicts with default allow-all egress needed for NAT; R11 asks learners to prove reachability from `203.0.113.0/24`, a documentation range nobody can send from. | R5 now says inbound; R11 adds the learner's own `/32` via a list variable. | Applied |
-| cse203-07 | "Scaling policies" | "Nine lines of policy" no longer matches the expanded example. | Change to "A few short blocks". | Proposed |
+| cse203-07 | "Scaling policies" | "Nine lines of policy" no longer matches the expanded example. | Change to "A few short blocks". | Applied |
 | cse203-02 | "Provisioning" CLI example | Uses `t3.small` (2 vCPU / 2 GiB) right after a worked example concluding 2 vCPU / 4 GB; learners may copy it. | Add a comment: "`t3.small` shown for syntax; use the type your sizing note chose". | Proposed |
 | cse203-04 | "Storage classes" | "Crossover is roughly one read per object per month" is stated without derivation and depends on object size and provider. | Either show the arithmetic for one provider or soften to "depends on object size and retrieval price — compute it". | Proposed |
 
@@ -55,6 +55,7 @@ A rigorous, well-sequenced course: build by hand (02–04), feel the pain (05), 
 - `06-declaring-infrastructure-with-terraform.md`, "State": added Terraform 1.10 requirement for `use_lockfile` and the `dynamodb_table` alternative.
 - `06-declaring-infrastructure-with-terraform.md`: appended "Check your understanding".
 - `07-scaling-and-optimizing-provisioned-resources.md`, "Scaling policies": added paired morning schedule, `time_zone`, and explanation.
+- `07-scaling-and-optimizing-provisioned-resources.md`, "Scaling policies": added `lifecycle { ignore_changes = [min_size, desired_capacity] }` so `terraform apply` does not undo the schedules; replaced "Nine lines of policy" with "A few short blocks".
 - `07-scaling-and-optimizing-provisioned-resources.md`, "Serverless functions as a demand-fitting tool": corrected the 50 M invocation figure.
 - `08-project-deploy-a-multi-tier-environment.md`, R5: inbound-only wording and egress note.
 - `08-project-deploy-a-multi-tier-environment.md`, R11: testable permitted-source instruction.

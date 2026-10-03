@@ -84,7 +84,7 @@ provider "aws" {
 ```python
 #!/usr/bin/env python3
 """check_plan.py — enforce cse203 design rules on `terraform show -json` output."""
-import json, sys
+import ipaddress, json, sys
 
 REQUIRED_TAGS = {"Environment", "Owner", "ManagedBy"}
 TAGGABLE = {"aws_vpc", "aws_subnet", "aws_security_group", "aws_s3_bucket",
@@ -93,7 +93,12 @@ TAGGABLE = {"aws_vpc", "aws_subnet", "aws_security_group", "aws_s3_bucket",
 def resources(plan):
     """Yield (address, type, after-values) for every planned resource, including modules."""
     for rc in plan.get("resource_changes", []):
-        after = (rc.get("change") or {}).get("after") or {}
+        change = rc.get("change") or {}
+        after = dict(change.get("after") or {})
+        # values such as a referenced group's id are "known after apply" at plan time
+        for key, unknown in (change.get("after_unknown") or {}).items():
+            if unknown is True and after.get(key) is None:
+                after[key] = "(known after apply)"
         yield rc["address"], rc["type"], after
 
 def main(path):
@@ -123,10 +128,21 @@ def main(path):
                 if not rule.get("description"):
                     errors.append(f"{addr}: inline rule has no description")
 
-    # Tier-to-tier rules must reference a group (app on 8080, db on 5432)
+    # Tier-to-tier rules must reference a group (app on 8080, db on 5432), in either rule form
+    TIER_PORTS = (8080, 5432)
     for addr, after in by_type.get("aws_vpc_security_group_ingress_rule", []):
-        if after.get("from_port") in (8080, 5432) and after.get("cidr_ipv4"):
-            errors.append(f"{addr}: tier rule uses a CIDR, not a security group")
+        if after.get("from_port") in TIER_PORTS:
+            if after.get("cidr_ipv4") or after.get("cidr_ipv6"):
+                errors.append(f"{addr}: tier rule uses a CIDR, not a security group")
+            elif not after.get("referenced_security_group_id"):
+                errors.append(f"{addr}: tier rule has no security-group source")
+    for addr, after in by_type.get("aws_security_group", []):
+        for rule in after.get("ingress") or []:
+            if rule.get("from_port") in TIER_PORTS:
+                if rule.get("cidr_blocks") or rule.get("ipv6_cidr_blocks"):
+                    errors.append(f"{addr}: inline tier rule uses a CIDR, not a security group")
+                elif not rule.get("security_groups"):
+                    errors.append(f"{addr}: inline tier rule has no security-group source")
 
     if not by_type.get("aws_s3_bucket_versioning"):
         errors.append("no aws_s3_bucket_versioning resource")
@@ -144,10 +160,26 @@ def main(path):
                for _, a in lifecycles for r in (a.get("rule") or [])):
         errors.append("no lifecycle rule aborts incomplete multipart uploads")
 
-    subnets = by_type.get("aws_subnet", [])
-    zones = {a.get("availability_zone") for _, a in subnets}
-    if len(subnets) < 4 or len(zones) < 2:
-        errors.append(f"expected >=4 subnets across >=2 zones, got {len(subnets)} in {len(zones)}")
+    # Subnets: each CIDR must sit where milestone 2's cidrsubnet() layout puts it
+    # (netnum 0-9 public, 10+ private), and each tier needs >=2 subnets in >=2 zones.
+    vpcs = by_type.get("aws_vpc", [])
+    if len(vpcs) != 1 or not vpcs[0][1].get("cidr_block"):
+        errors.append("expected exactly one aws_vpc with a known cidr_block")
+    else:
+        vpc = ipaddress.ip_network(vpcs[0][1]["cidr_block"])
+        layout = list(vpc.subnets(prefixlen_diff=8))
+        tiers = {"public": [], "private": []}
+        for addr, a in by_type.get("aws_subnet", []):
+            try:
+                netnum = layout.index(ipaddress.ip_network(a.get("cidr_block")))
+            except (TypeError, ValueError):
+                errors.append(f"{addr}: CIDR {a.get('cidr_block')} is not cidrsubnet(var.vpc_cidr, 8, n)")
+                continue
+            tiers["public" if netnum < 10 else "private"].append(a.get("availability_zone"))
+        for tier, zones in tiers.items():
+            if len(zones) < 2 or len(set(zones)) < 2:
+                errors.append(f"{tier} tier: expected >=2 subnets across >=2 zones, "
+                              f"got {len(zones)} in {len(set(zones))}")
 
     for e in errors:
         print("FAIL ", e)
@@ -158,7 +190,7 @@ if __name__ == "__main__":
     sys.exit(main(sys.argv[1]))
 ```
 
-Notes: `tags_all` includes provider `default_tags`, so either approach to common tags passes. Attribute shapes follow the AWS provider 5.x schema; if a check misfires on your provider version, inspect `plan.json` with `jq '.resource_changes[] | {address, type}'` and adjust — that inspection is part of the skill.
+Notes: `tags_all` includes provider `default_tags`, so either approach to common tags passes. The subnet check proves the CIDRs *match* the milestone 2 layout, which is what the plan can show; that they are *computed* rather than typed in is a code-review item — `grep -rn 'cidr_block *= *"' --include=*.tf .` should match nothing in the network module. Attribute shapes follow the AWS provider 5.x schema; if a check misfires on your provider version, inspect `plan.json` with `jq '.resource_changes[] | {address, type}'` and adjust — that inspection is part of the skill.
 
 ## Rubric
 | Criterion | Developing | Meets | Exceeds |

@@ -54,7 +54,7 @@ with open("storefront.jsonl", "w") as f:
         inst = random.choice(instances)
         report_job = 16 <= t.hour < 17                      # nightly-style job moved to 16:00
         pool_wait = random.expovariate(1 / 900) if (report_job and route != "/product/:id") else 0
-        db_ms = random.gauss(35, 8) + (random.expovariate(1 / 400) if report_job else 0)
+        db_ms = random.gauss(35, 8)                         # the query itself stays fast; the wait is for a connection
         pay_ms = random.gauss(180, 30) if route == "/checkout" else 0
         dur = max(5, random.gauss(25, 6) + pool_wait + db_ms + pay_ms)
         status = 500 if (report_job and pool_wait > 2500) else 200

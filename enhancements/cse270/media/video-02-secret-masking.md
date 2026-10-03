@@ -24,7 +24,7 @@ Apprentices in lesson 06. Demo uses GitHub Actions (named, because the UI is spe
 | Time | Visual / On screen | Narration |
 |---|---|---|
 | 0:00 | Repo settings → Secrets and variables → Actions → New repository secret: `DEMO_TOKEN = demo-NOT-A-REAL-KEY-7781`. | "This is a dummy secret. It looks like a key and grants nothing. Never run this demo with a real credential — the point is to watch things leak." |
-| 0:25 | Workflow file: job `deploy` with `env: DEMO_TOKEN: ${{ secrets.DEMO_TOKEN }}` and `run: echo "token is $DEMO_TOKEN"`. | "The secret is injected as an environment variable for one step. Now the mistake everyone is told not to make: echo it." |
+| 0:25 | Workflow file: job `deploy` with `env: DEMO_TOKEN: ${{ secrets.DEMO_TOKEN }}` and `run: echo "token is $DEMO_TOKEN"`. | "With `env` at the job level, the secret is available as an environment variable to every step in this job. Now the mistake everyone is told not to make: echo it." |
 | 0:55 | Job log: `token is ***`. | "The runner masks it. Three stars. This is the feature people think protects them. It does — for exactly this case." |
 | 1:20 | Step 2: `echo "$DEMO_TOKEN" \| rev`. Log shows `1877-YEK-LAER-A-TON-omed` in full. | "Reverse it, and it prints in full. Masking matches the exact stored string. Anything you transform is a different string." |
 | 1:50 | Step 3: `echo "https://user:${DEMO_TOKEN}@example.test"` and `echo "$DEMO_TOKEN" \| base64`. Log: URL masked portion depends; base64 output in full. | "Base64 it — prints. Build it into something else and you're relying on luck. Encoding is not encryption, and the runner doesn't know your encoding." |

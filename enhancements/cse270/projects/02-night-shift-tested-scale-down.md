@@ -45,7 +45,7 @@ Before the lesson 09 project touches a real account, the team lead wants the sto
 
 ## Acceptance criteria
 
-- [ ] `pytest -q` passes all six tests.
+- [ ] `pytest -q` passes all seven tests, including the two-page pagination test.
 - [ ] The handler contains no EC2 call; all logic is in `apply_schedule`.
 - [ ] With `DRY_RUN` unset, nothing changes.
 - [ ] A second identical invocation reports `changed == 0`.
@@ -123,6 +123,38 @@ def test_malformed_event_fails_loudly(ec2, monkeypatch):
     monkeypatch.setenv("TARGET_TAG", "env=dev")
     with pytest.raises(ValueError):
         main.handler({}, None)
+
+
+class SmallPages:
+    """Wraps the client so every describe_instances paginator returns pages of 5, and counts them."""
+    def __init__(self, client):
+        self._client, self.pages = client, 0
+    def __getattr__(self, name):
+        return getattr(self._client, name)
+    def get_paginator(self, op):
+        real, outer = self._client.get_paginator(op), self
+        class Paginator:
+            def paginate(self, **kwargs):
+                kwargs.setdefault("PaginationConfig", {})["PageSize"] = 5
+                for page in real.paginate(**kwargs):
+                    outer.pages += 1
+                    yield page
+        return Paginator()
+
+
+def test_acts_on_every_page(ec2):
+    client, ids = ec2
+    ami = client.describe_images(Owners=["amazon"])["Images"][0]["ImageId"]
+    dev = list(ids["dev"])
+    for _ in range(6):   # one launch each, so there are enough results to need a second page
+        r = client.run_instances(ImageId=ami, MinCount=1, MaxCount=1, TagSpecifications=[
+            {"ResourceType": "instance", "Tags": [{"Key": "env", "Value": "dev"}]}])
+        dev.append(r["Instances"][0]["InstanceId"])
+    spy = SmallPages(client)
+    out = main.apply_schedule(spy, "env", "dev", "stop", dry_run=False)
+    assert spy.pages >= 2, "use the describe_instances paginator"
+    assert out["changed"] == 8 and states(client, dev) == ["stopped"] * 8
+    assert states(client, ids["prod"]) == ["running"]
 ```
 
 Run: `pytest -q`. moto's `mock_aws` intercepts every boto3 call inside the fixture, so the suite cannot reach a real account even if credentials are present — but the fake environment variables at the top are set anyway as a second guard.

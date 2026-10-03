@@ -107,6 +107,12 @@ resource "aws_autoscaling_group" "app" {
     id      = aws_launch_template.app.id
     version = "$Latest"
   }
+
+  # The schedules below change these two values; without this, the next
+  # terraform apply would put them back to 2 overnight.
+  lifecycle {
+    ignore_changes = [min_size, desired_capacity]
+  }
 }
 
 resource "aws_autoscaling_policy" "cpu_target" {
@@ -144,9 +150,9 @@ resource "aws_autoscaling_schedule" "morning_up" {
 }
 ```
 
-Two details in those schedules are easy to miss. A scale-down with no matching scale-up leaves the group at zero until somebody notices, so the two actions are always written as a pair. And scheduled recurrences are evaluated in UTC unless you name a time zone, so a "7 a.m." schedule written without one is wrong by an hour for half the year in most of the world. Use the customer's time zone, not your own.
+Two details in those schedules are easy to miss. A scale-down with no matching scale-up leaves the group at zero until somebody notices, so the two actions are always written as a pair. And scheduled recurrences are evaluated in UTC unless you name a time zone, so a "7 a.m." schedule written without one is wrong by an hour for half the year in most of the world. Use the customer's time zone, not your own. Finally, once a schedule owns `min_size` and `desired_capacity`, Terraform must stop owning them: the `lifecycle { ignore_changes = ... }` block on the group stops an evening `terraform apply` from quietly restoring two instances and undoing the saving.
 
-Nine lines of policy, and the capacity strategy is now reviewable in a pull request like any other change. That is the sequencing argument from lesson 05 paying off: autoscaling is a property you declare on a resource, not a button somebody presses.
+A few short blocks, and the capacity strategy is now reviewable in a pull request like any other change. That is the sequencing argument from lesson 05 paying off: autoscaling is a property you declare on a resource, not a button somebody presses.
 
 ## Serverless functions as a demand-fitting tool
 

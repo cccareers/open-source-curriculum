@@ -31,7 +31,7 @@ Learners see a pipeline as a list of commands. The animation shows each stage as
 | 3 | 12s | New commit with a lint error: Lint gate closes ✗; every later gate turns ⊘ "skipped". Target server unchanged. | Gates dim in sequence. | "A lint error closes the first gate. Everything downstream is skipped, and nothing reaches the target." |
 | 4 | 15s | Commit where the test script logs "ERROR" but exits 0: Test gate shows ✓ with a warning triangle; card proceeds to deploy. Exit-code badge "0" highlighted. | Card slips through; alarm icon pulses after. | "Now the dangerous one. The script printed an error but exited zero. The pipeline only reads the number. It deploys." |
 | 5 | 10s | Re-run the deploy on the same SHA: target shows the same bundle; counter "resources created: 0". | Second pass, no change. | "Re-runs happen. An idempotent deploy leaves the same end state the second time." |
-| 6 | 8s | Two merges arrive close together; a concurrency lock icon makes the second wait. | Second card queues. | "And concurrency control stops two deploys landing out of order." |
+| 6 | 10s | Two merges arrive close together; a concurrency lock icon makes the second wait until the first finishes. | Second card waits at the lock. | "And a concurrency lock stops two deploys running at the same time. It doesn't promise order on its own — if an older commit must never replace a newer one, the deploy has to check that too." |
 | 7 | 10s | Summary: gates with their guarantees listed. "Exit codes are the contract." | Text fades in. | "Each gate adds one guarantee. Exit codes are the contract." |
 
 ## Interaction variant (optional)

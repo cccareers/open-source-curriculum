@@ -53,10 +53,10 @@ You will build that configuration on a local cloud emulator, so it costs nothing
 
 - [ ] Versioning status is `Enabled`.
 - [ ] All four public-access-block settings are `true`.
-- [ ] The lifecycle configuration contains a rule for `originals/` with at least two transitions and no `Expiration` on current versions.
-- [ ] A noncurrent-version rule and an `AbortIncompleteMultipartUpload` rule exist.
+- [ ] The lifecycle configuration contains a rule for `originals/` transitioning to `STANDARD_IA` at 30 days and `GLACIER_IR` at 365 days, with no `Expiration` on current versions.
+- [ ] A noncurrent-version rule transitions to `GLACIER_IR` and expires noncurrent versions, and a bucket-wide `AbortIncompleteMultipartUpload` rule is set to 7 days.
 - [ ] After delete, a delete marker is current and prior versions remain listable.
-- [ ] The thumbnailer policy contains exactly two statements, no `*` in any action, and resources scoped to the two prefixes.
+- [ ] The thumbnailer policy contains exactly two statements, no `*` in any action: `s3:GetObject` on `originals/*` and `s3:PutObject` on `previews/*`, and nothing else.
 - [ ] `DESIGN-NOTE.md` contains the five-point class timeline and names each setting on one non-AWS platform.
 - [ ] `teardown.sh` leaves no bucket behind (`awslocal s3api list-buckets` shows none).
 
@@ -79,17 +79,17 @@ check "public access fully blocked" \
      | jq -e ".PublicAccessBlockConfiguration | [.[]] | all"'
 
 LC=$(awslocal s3api get-bucket-lifecycle-configuration --bucket $B)
-check "originals rule has >=2 transitions" \
-  'echo "$LC" | jq -e "[.Rules[] | select((.Filter.Prefix // .Prefix // \"\") == \"originals/\") | .Transitions | length] | max >= 2"'
+check "originals rule: STANDARD_IA at 30 days, GLACIER_IR at 365 days" \
+  'echo "$LC" | jq -e "[.Rules[] | select((.Filter.Prefix // .Prefix // \"\") == \"originals/\") | [.Transitions[] | {Days, StorageClass}] | sort_by(.Days)] | any(. == [{\"Days\":30,\"StorageClass\":\"STANDARD_IA\"},{\"Days\":365,\"StorageClass\":\"GLACIER_IR\"}])"'
 check "originals never expire" \
   'echo "$LC" | jq -e "[.Rules[] | select((.Filter.Prefix // .Prefix // \"\") == \"originals/\") | has(\"Expiration\")] | any | not"'
-check "noncurrent-version rule present" \
-  'echo "$LC" | jq -e "[.Rules[] | has(\"NoncurrentVersionExpiration\") or has(\"NoncurrentVersionTransitions\")] | any"'
-check "abort-multipart rule present" \
-  'echo "$LC" | jq -e "[.Rules[] | has(\"AbortIncompleteMultipartUpload\")] | any"'
+check "noncurrent versions transition to GLACIER_IR and then expire" \
+  'echo "$LC" | jq -e "[.Rules[] | select(has(\"NoncurrentVersionExpiration\") and ([.NoncurrentVersionTransitions[]?.StorageClass] | index(\"GLACIER_IR\")))] | length >= 1"'
+check "bucket-wide abort-multipart rule at 7 days" \
+  'echo "$LC" | jq -e "[.Rules[] | select((.Filter.Prefix // .Prefix // \"\") == \"\" and .AbortIncompleteMultipartUpload.DaysAfterInitiation == 7)] | length >= 1"'
 
-# Versioning behaviour, on a scratch key
-K=originals/verify/probe.txt
+# Versioning behaviour, on a fresh scratch key each run so reruns stay idempotent
+K=originals/verify/probe-$(date +%s)-$$.txt
 echo v1 | awslocal s3 cp - s3://$B/$K && echo v2 | awslocal s3 cp - s3://$B/$K && awslocal s3 rm s3://$B/$K
 V=$(awslocal s3api list-object-versions --bucket $B --prefix $K)
 check "delete marker is current" 'echo "$V" | jq -e "[.DeleteMarkers[] | select(.IsLatest)] | length == 1"'
@@ -98,6 +98,8 @@ check "two prior versions survive" 'echo "$V" | jq -e ".Versions | length == 2"'
 P=thumbnailer-policy.json
 check "policy has exactly 2 statements" 'jq -e ".Statement | length == 2" $P'
 check "no wildcard actions" 'jq -e "[.Statement[].Action] | flatten | map(test(\"\\\\*\")) | any | not" $P'
+check "exact action per prefix (Get on originals, Put on previews)" \
+  'jq -e "[.Statement[] | {e: .Effect, a: ([.Action] | flatten), r: ([.Resource] | flatten)}] | sort_by(.r) == [{\"e\":\"Allow\",\"a\":[\"s3:GetObject\"],\"r\":[\"arn:aws:s3:::tv-archive/originals/*\"]},{\"e\":\"Allow\",\"a\":[\"s3:PutObject\"],\"r\":[\"arn:aws:s3:::tv-archive/previews/*\"]}]" $P'
 check "resources scoped to prefixes" \
   'jq -e "[.Statement[].Resource] | flatten | sort == [\"arn:aws:s3:::tv-archive/originals/*\",\"arn:aws:s3:::tv-archive/previews/*\"]" $P'
 

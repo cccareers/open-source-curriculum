@@ -188,14 +188,14 @@ Use the account you used in cse203 and the tagging logic from your lesson 05 scr
 
 6. **Add an event trigger.** Configure a resource-change trigger — an instance launched, or an object created in a bucket — and have the function act on just the resource named in the event. Create one resource and watch the function fire without a schedule.
 
-7. **Break it deliberately.** Send an event whose expected field is missing. Confirm the invocation fails, observe the automatic retry, and then configure a dead-letter destination and confirm the failed event lands there. Write two sentences on what would have happened without one.
+7. **Break it deliberately.** Send an event whose expected field is missing. Confirm the invocation fails, observe the automatic retry, and then configure a dedicated dead-letter queue for this exercise — not one shared with other workloads — and confirm the failed event lands there. Write two sentences on what would have happened without one.
 
 8. **Tune for cost.** Run the same workload at two memory settings and record duration and invocation cost for each. Then write a short paragraph deciding whether this workload belongs in a function at all, or whether a scheduled change to a fleet's minimum size would fit the demand better — and say what it is about *this* workload's shape that decides it.
 
-9. **Clean up.** Remove the five-minute schedule from step 2 (or slow it to the cadence you actually need), delete any test resources you created in step 6, and empty the dead-letter queue. A practice schedule left firing every five minutes is roughly 8,600 invocations a month, each of which calls your cloud API — small in cost, but noise in every log and audit trail you will read later.
+9. **Clean up.** Remove the five-minute schedule from step 2 (or slow it to the cadence you actually need), delete any test resources you created in step 6, and empty the dedicated dead-letter queue from step 7. A practice schedule left firing every five minutes is roughly 8,600 invocations a month, each of which calls your cloud API — small in cost, but noise in every log and audit trail you will read later.
 
 ## Check your understanding
 
-1. Why is idempotency a correctness requirement for a function rather than good practice? *(Event platforms deliver at least once, so duplicate invocations are part of the contract.)*
+1. Why is idempotency a correctness requirement for a function rather than good practice? *(The asynchronous, queue, and event-bus triggers used for automation deliver at least once, so duplicate invocations are part of the contract. Exact retry behaviour varies by platform and trigger type, which is why you design for duplicates rather than rely on the details.)*
 2. A compute-bound function runs 800 ms at 512 MB and 300 ms at 1,024 MB. Which is cheaper? *(1,024 MB: 0.3 GB-s vs 0.4 GB-s, before per-request charges.)*
-3. What happens to a poison event with no dead-letter destination? *(It is retried until the retry budget is exhausted and then discarded — work silently does not happen.)*
+3. What happens to a poison event with no dead-letter destination? *(On an asynchronous trigger it is retried until the platform's retry budget is exhausted and then discarded — work silently does not happen. Other trigger types differ: a synchronous caller simply gets the error, and a stream source may keep retrying and hold up the events behind it.)*
