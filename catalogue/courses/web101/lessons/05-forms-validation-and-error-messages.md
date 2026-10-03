@@ -83,13 +83,18 @@ Validation logic that never reaches the screen is invisible to the person who ne
 
 ```js
 function showErrors(errors) {
-  // clear old errors first
+  // clear old errors first, including the attributes on fields that are now valid
   document.querySelectorAll(".field-error").forEach((el) => el.remove());
+  document.querySelectorAll("[aria-invalid]").forEach((field) => {
+    field.removeAttribute("aria-invalid");
+    field.removeAttribute("aria-describedby");
+  });
 
   for (const error of errors) {
     const field = document.querySelector(`#${error.field}`);
     const message = document.createElement("span");
     message.className = "field-error";
+    message.id = `${error.field}-error`; // the id aria-describedby points at
     message.textContent = error.message;
     message.setAttribute("role", "alert");
     field.insertAdjacentElement("afterend", message);
@@ -101,9 +106,9 @@ function showErrors(errors) {
 
 A few details here are load-bearing, not decorative:
 
-- **Clearing old errors first.** A validation routine that only ever adds error messages and never removes stale ones will, after a few submit attempts, show contradictory or duplicated messages — a real bug you should specifically test for by submitting a form multiple times with different mistakes each time.
+- **Clearing old errors first.** This means removing the old message elements *and* the `aria-invalid`/`aria-describedby` attributes on fields that have since been fixed; otherwise a screen reader keeps calling a corrected field invalid. A validation routine that only ever adds error messages and never removes stale ones will, after a few submit attempts, show contradictory or duplicated messages — a real bug you should specifically test for by submitting a form multiple times with different mistakes each time.
 - **`role="alert"`** tells assistive technology to announce the new text immediately, without the user needing to navigate to it. An error message with no `role="alert"` and no visual proximity to its field is a usability defect even if the validation logic behind it is perfectly correct — functionality and accessibility are not the same axis, and a form can fail one while passing the other.
-- **`aria-invalid` and `aria-describedby`** connect the field to its error message programmatically, so a screen reader user gets the same information a sighted user gets from the red text next to the field.
+- **`aria-invalid` and `aria-describedby`** connect the field to its error message programmatically (which only works if the message really has the `id` that `aria-describedby` names; a mismatched id is a common, silent defect you can spot in the Elements panel), so a screen reader user gets the same information a sighted user gets from the red text next to the field.
 
 ## Testing a validation flow deliberately
 
@@ -122,3 +127,11 @@ Build the signup form above (`email`, `password`, `confirmPassword`, a submit bu
 1. Implement `validateSignupForm` as shown, wire it to the form's `submit` event with `preventDefault()`, and call `showErrors()` with whatever it returns.
 2. Submit the form five separate times, each with a different single mistake (empty email, invalid email, short password, mismatched confirmation, and finally all-valid input), and confirm the correct message appears — and disappears on the next attempt — each time.
 3. Write down, in two or three sentences, one piece of **usability feedback** you would give the developer about this form as it stands (for example: does the user find out about a mismatched password before or after they've also fixed their email? Is an error message color-only, with nothing that would work for a colorblind user?). This is the kind of concrete, actionable feedback this lesson's tagged competency asks you to be able to give.
+
+## Check your understanding
+
+1. A quantity field holds `"2"` and the code computes `field.value + 1`. What is the result, and what is the fix?
+2. A user fixes their email and resubmits, and the screen reader still says "invalid" on the email field. What did the code forget?
+3. Why should `validateSignupForm` return all errors instead of the first one?
+
+*Answers:* (1) `"21"`; convert first with `Number(field.value)`. (2) Clearing `aria-invalid` (and `aria-describedby`) from fields that now pass. (3) So the user can fix every problem in one round, instead of discovering them one submit at a time.

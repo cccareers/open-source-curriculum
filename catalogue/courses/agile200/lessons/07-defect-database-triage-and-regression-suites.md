@@ -81,3 +81,11 @@ Beyond the individual records, the defect database as a whole is a reusable asse
 ## Practice
 
 File at least five defects in your bug-tracking system using the record template above, each with specific, reproducible steps — at least two should come from running your test suite or manually exercising the app, not from invented examples. Triage all five: assign severity and priority to each, and decide (with a teammate if you have one) which belong in the current sprint. Pick one Major-or-higher defect, fix it, write an automated regression test that would have caught it, and move the defect through Fixed to Verified once someone other than you confirms the fix. Update your weekly outcomes log from Lesson 03 with this sprint's opened/resolved defect counts.
+
+## Check your understanding
+
+1. A typo on the homepage is fixed before a demo while a rare crash waits. Is that a triage error?
+2. Who should move a defect from Fixed to Verified?
+3. What must exist before a Major defect is Closed?
+
+*Answers:* (1) Not necessarily: severity (impact) and priority (when to fix) are separate judgments. (2) Someone other than the fixer, re-running the original steps to reproduce. (3) An automated regression test that would have caught it, added to the suite.

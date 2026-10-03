@@ -95,3 +95,11 @@ Using a page with a `<button id="load-btn">Load user</button>` and an empty `<di
 1. Write an `async` function that fetches the user, checks `response.ok`, and on success sets `#result`'s `textContent` to the user's name. On failure, set `#result`'s `textContent` to a clear error message instead of leaving it blank. Wire it to the button's `click` event.
 2. Deliberately break the URL (e.g., request `/users/999999` or a nonexistent path) and confirm your error branch runs and produces a message a real user could understand — not just `undefined` or a blank screen.
 3. Add a `console.log` immediately after the line that calls your fetch function (outside of it, in the click handler) and another one inside the function right after the `await` resolves. Run it once and write down the actual order the two logs printed in, versus the order you predicted before running it — this is the exact habit of verifying your mental model against real async behavior that the debugging lesson builds on next.
+
+## Check your understanding
+
+1. The API returns `500`. Does `await fetch(url)` throw? What should the code check?
+2. A test checks for the user's name right after clicking "Load user" and fails one run in five. What is the likely cause, and what is the correct fix?
+3. In what order do these print: `console.log("A"); setTimeout(() => console.log("B"), 0); console.log("C");`?
+
+*Answers:* (1) No; `fetch` resolves with the response. Check `response.ok` (or `response.status`) and throw or show an error. (2) The test reads the DOM before the fetch resolves; wait for the name to appear (the specific event), not for a fixed delay. (3) A, C, B: even a 0 ms timeout runs after the current code finishes.

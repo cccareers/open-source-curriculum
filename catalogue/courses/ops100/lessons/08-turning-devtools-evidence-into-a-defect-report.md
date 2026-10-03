@@ -96,3 +96,11 @@ Notice what this does: states the finding, gives the concrete evidence, connects
 2. Attempt to follow your own Steps to Reproduce exactly as written, from a clean/fresh state, without relying on anything you remember but didn't write down. Note any step you had to add or clarify.
 3. Assign a severity to your report using the four-level scale above, and write one sentence justifying the level you chose.
 4. Write a short escalation message (3–5 sentences) for a hypothetical situation where your defect report's symptom appears to be recurring or spreading — following the escalation example's structure: lead with impact, state your evidence, state what's confirmed vs. not, and state why you're raising it now.
+
+## Check your understanding
+
+1. Your steps say "Log in and go to the cart." What is missing for a stranger to reproduce it?
+2. A typo in the footer of one settings page: which severity, and why?
+3. What separates an escalation from simply filing a defect?
+
+*Answers:* (1) Which account (and its cart state), which environment and URL, and any flag or viewport needed. (2) Low: cosmetic, small surface, no functional impact. (3) Urgency and scope: escalation is for findings that need a decision faster than normal triage, or a pattern across reports; it leads with impact and states what is confirmed versus not.

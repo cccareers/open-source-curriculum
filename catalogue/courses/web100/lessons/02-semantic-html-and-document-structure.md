@@ -75,7 +75,7 @@ HTML5 added a set of elements whose whole job is to describe the large-scale reg
 </body>
 ```
 
-Each of these tags is a **landmark**: `header`, `nav`, `main`, `section`, `article`, `footer`, and `aside`. Landmarks are exposed directly in the browser's accessibility tree, which means:
+Most of these tags map to a **landmark**, a named region exposed directly in the browser's accessibility tree: `header` (banner), `nav` (navigation), `main` (main), `aside` (complementary), and `footer` (contentinfo). There are three details worth knowing precisely. A `<section>` only becomes a landmark (a "region") when it has an accessible name, which is one reason the example gives it `aria-labelledby`. An `<article>` is a meaningful grouping but not a landmark. And `<header>`/`<footer>` only count as the page's banner/contentinfo when they are not nested inside an `<article>`, `<section>`, or `<main>`. Landmarks being in the accessibility tree means:
 
 - A screen reader user can jump straight to `main` and skip repeated navigation on every page.
 - Browser DevTools and automated accessibility audits (Lighthouse, axe) both check whether a page has exactly one `main`, whether headings are present and in a sane order, and whether landmarks are labelled when there is more than one of the same kind — the `aria-label="Primary"` on `<nav>` above exists because a page can have more than one `nav` (primary, footer, breadcrumb), and each one needs a way to be told apart.
@@ -133,3 +133,11 @@ Using a plain text editor, build a single HTML file, `roster.html`, for a small 
 4. Add a `<footer>` with a second, differently-labelled `<nav>` (for example, "Legal") and a copyright line.
 5. Give each `<article>` a unique `id` (for example `id="member-jordan-lee"`).
 6. Open the file in a browser, then open DevTools and confirm in the Elements/Accessibility panel that your landmarks (`header`, `nav` ×2, `main`, `footer`) and heading outline appear correctly and that both `nav` elements are distinguishable by their accessible names.
+
+## Check your understanding
+
+1. Two pages look identical. One uses `<header>`, `<nav>`, and `<main>`; the other uses only `<div>`s. Name one test you can write against the first that you cannot write reliably against the second.
+2. A page goes from `<h1>` straight to `<h3>` because the `<h3>` "is the right size". What do you report, and what is the fix?
+3. When does a `<section>` show up as a landmark in the accessibility tree?
+
+*Answers:* (1) For example, "the page has exactly one `main`" or "jump to the navigation named Primary"; the `div` version can only be found by position. (2) A skipped heading level; use `<h2>` and change the size with CSS. (3) Only when it has an accessible name, for example through `aria-labelledby` pointing at its heading.

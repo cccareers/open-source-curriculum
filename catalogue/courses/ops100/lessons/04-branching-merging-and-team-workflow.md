@@ -37,7 +37,7 @@ git pull origin main             # fetch AND merge the remote's main into your c
 git push origin fix/cart-quantity  # publish your branch so others (and a PR) can see it
 ```
 
-`git fetch` and `git pull` are not the same operation, and confusing them causes real problems. `fetch` only downloads — it updates your knowledge of the remote without touching your working files, which makes it safe to run any time. `pull` fetches *and* immediately merges, which can produce a conflict you weren't expecting. When you're not sure what a pull will do, `fetch` first and inspect with `git log origin/main --oneline` before merging.
+`git fetch` and `git pull` are not the same operation, and confusing them causes real problems. `fetch` only downloads — it updates your knowledge of the remote without touching your working files, which makes it safe to run any time. `pull` fetches *and* immediately integrates, which can produce a conflict you weren't expecting. (By default it merges; some teams configure `pull.rebase` so it rebases instead. If `git pull` prints a hint about "divergent branches", Git is asking you to choose; follow your team's documented setting.) When you're not sure what a pull will do, `fetch` first and inspect with `git log origin/main --oneline` before merging.
 
 ## Merging and merge conflicts
 
@@ -61,6 +61,8 @@ Everything between `<<<<<<< HEAD` and `=======` is your current branch's version
 git add src/checkout.ts
 git commit -m "Resolve shipping calculation conflict, keep V2"
 ```
+
+If you start a merge and realize you are not ready to resolve it, `git merge --abort` puts everything back the way it was before the merge began; `git status` always tells you whether you are mid-merge and which files are still conflicted.
 
 Never resolve a conflict by guessing at code you don't understand. If the two versions represent genuinely different approaches to the same problem, that's a signal to talk to whoever wrote the other side before you pick a winner — which is exactly where this lesson's two competencies meet.
 
@@ -87,3 +89,11 @@ None of this is exclusive to developers. As a QA engineer working from a shared 
 2. Push both branches to the shared remote. Merge the first branch into `main` cleanly, then attempt to merge the second and produce a real conflict.
 3. Resolve the conflict by hand, referencing the conflict-marker format shown above, and commit the resolution with a message that states what you kept and why.
 4. Write two sentences describing what you (or you and your partner) would have communicated to each other *before* starting, if you'd known in advance the changes would collide — and when in a real team you'd realistically have that information.
+
+## Check your understanding
+
+1. Why is `git fetch` always safe to run, while `git pull` might not be?
+2. In a conflict, which side is between `<<<<<<< HEAD` and `=======`?
+3. Your feature branch is two weeks behind `main`. What should you have been doing, and what do you do now?
+
+*Answers:* (1) `fetch` only downloads and updates `origin/*`; `pull` also merges (or rebases) into your branch and can produce conflicts. (2) Your current branch's version. (3) Bringing `main` into the branch regularly; now `git fetch`, inspect `git log origin/main --oneline`, merge it in, and resolve conflicts with whoever owns the other side.

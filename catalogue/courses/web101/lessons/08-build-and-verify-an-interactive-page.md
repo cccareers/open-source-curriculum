@@ -63,3 +63,11 @@ This lesson's practice **is** the lesson — complete all four parts and keep ev
 3. **Verify deliberately.** Go through your specification line by line and test each one on purpose, including edge cases (empty input, rapid clicking, keyboard-only operation, a deliberately broken fetch URL to confirm your error state actually appears). Keep a running verification log with one row per specification line: the behavior, pass or fail, and — for anything you tested beyond the literal specification line — what you tried and what happened.
 
 4. **File at least two real defects** you found during verification, each written in the five-part shape from Lesson 07: steps to reproduce, expected result, actual result, location (function name, line, or the specific value that was wrong — use the debugger to find it, don't guess), and severity. If your page genuinely has fewer than two bugs after your first honest pass, go find them: test a case you skipped, try the keyboard-only path all the way through, or deliberately break the fetch URL and confirm the failure is handled the way your specification says it should be. A verification pass that finds nothing has usually not looked hard enough.
+
+## Check your understanding
+
+1. Why must the specification be written before the build is finished?
+2. Your verification log shows every line as "pass" on the first build. What should you do next?
+3. Which specification line above would most likely catch a missing `response.ok` check, and how would you trigger it?
+
+*Answers:* (1) Otherwise "correct" drifts to match whatever you built, and there is nothing independent to verify against. (2) Treat it as a sign of light testing: try the awkward cases (empty and whitespace input, rapid double-clicks, keyboard-only, a broken fetch URL). (3) Line 6; point the seed fetch at a path that returns 404 (or block the request in DevTools) and confirm a visible error appears.

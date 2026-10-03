@@ -34,7 +34,7 @@ Common events you'll work with constantly:
 | --- | --- |
 | `click` | element is clicked (mouse or via Enter/Space when focused) |
 | `input` | a form field's value changes, as the user types |
-| `change` | a form field loses focus after its value changed |
+| `change` | a text field loses focus after its value changed (checkboxes, radios, and `<select>` fire it as soon as the choice changes) |
 | `submit` | a form is submitted |
 | `keydown` / `keyup` | a key is pressed or released |
 | `focus` / `blur` | an element gains or loses keyboard focus |
@@ -128,3 +128,11 @@ Build a small page with a list of at least three items, each with a "Delete" `<b
 1. Attach a single delegated `click` listener to the list's parent element that removes the row when its Delete button is clicked. Confirm it still works after you add a fourth row dynamically with `createElement`/`appendChild`.
 2. Attach a `keydown` listener that logs which key was pressed every time focus is inside the list, and confirm in the console that pressing Tab moves focus between the Delete buttons.
 3. Test the `<div class="toggle">` with only your keyboard: Tab to it, then press Enter. Write down what happened (or didn't). Then fix it using `tabindex`, `role="button"`, and a `keydown` handler so Enter and Space both activate it the same way a click does. Re-test with the keyboard only and confirm the fix worked.
+
+## Check your understanding
+
+1. Rows added after page load don't respond to clicks on their Delete buttons. Which pattern fixes this?
+2. A form reloads the page even though validation found errors. What is the first thing you look for?
+3. You Tab through a page and a "Show details" control never gets focus. What two kinds of fix are possible?
+
+*Answers:* (1) Event delegation: one listener on the stable parent that checks `event.target.matches(...)`. (2) A missing or misplaced `event.preventDefault()` in the `submit` handler. (3) Replace it with a real `<button>` (preferred), or add `tabindex="0"`, `role="button"`, and a `keydown` handler for Enter and Space.

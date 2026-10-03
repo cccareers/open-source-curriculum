@@ -14,7 +14,7 @@ objectives:
 
 ## Why the shape of your data matters
 
-A data structure is a decision about which operations are going to be cheap and which are going to be expensive. There is no structure that makes everything fast; every choice trades one kind of access for another. An array is fast to step through in order but slow to search by value. A map is fast to look something up by a key but does not remember the order you added things in unless you ask it to. Choosing the right structure is really choosing which of your operations matter most, and that choice shows up constantly once you are working with real records — including the record you will spend the rest of your career reading and writing: the defect.
+A data structure is a decision about which operations are going to be cheap and which are going to be expensive. There is no structure that makes everything fast; every choice trades one kind of access for another. An array is fast to step through in order but slow to search by value. A map is fast to look something up by a key but is slow to answer "what came third?", because keyed structures are not built around position. (JavaScript's `Map` does remember insertion order when you loop over it; a plain object mostly does too, except that integer-like keys such as `"101"` are always listed first, in numeric order.) Choosing the right structure is really choosing which of your operations matter most, and that choice shows up constantly once you are working with real records — including the record you will spend the rest of your career reading and writing: the defect.
 
 A bug report is data. It has a stable identifier, a set of fields, relationships to other records (which build it appeared in, which test case found it, which other defects it duplicates), and it needs to support specific operations: look one up fast by its id, list all defects for a given build in the order they were filed, check whether a given id has already been logged. Every data structure in this lesson is a candidate shape for that record or for the fixture data you feed a test, and the right choice depends entirely on which operation you need to be fast.
 
@@ -136,3 +136,11 @@ You are building a small in-memory store for a test-data fixture generator. The 
 2. Write a JavaScript module-level setup, similar to the `defectLog` / `seenIds` / `defectsById` example, that holds the sample-user pool using your chosen structures.
 3. Write an `addSampleUser(email, record)` function that returns `false` without changes if the email is already used, and otherwise stores the record and returns `true`.
 4. Write a short comment above your code explaining what would go wrong — in terms of speed, not correctness — if you instead stored the entire pool as a single array and used `.find()` for every lookup.
+
+## Check your understanding
+
+1. A test runner needs to answer "has test case `TC-042` already run this session?" thousands of times, and stores nothing else about each case. Which structure fits, and why?
+2. Why does `fileDefect` check `seenIds` instead of calling `defectLog.includes(id)`? Both give the right answer.
+3. Name one operation an array is fast at and one it is slow at.
+
+**Answers:** (1) A `Set` — the only question is membership, and `.has()` does not slow down as the set grows. (2) Speed, not correctness: `.includes()` scans the array, so each check gets slower as the log grows, while `seenIds.has(id)` does not. (3) Fast: append with `push`, read by index, or walk in order. Slow: search by value, or insert/remove in the middle.

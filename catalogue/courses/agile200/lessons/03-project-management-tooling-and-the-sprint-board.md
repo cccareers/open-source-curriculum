@@ -81,3 +81,11 @@ If you are on a team, your board is the shared surface where a developer, a test
 ## Practice
 
 Set up your capstone's sprint board in your cohort's project management software with the six columns above and a WIP limit on "In Progress." Break at least eight of your charter's in-scope items into tickets with acceptance criteria and rough sizes, and move at least three of them through Ready and In Progress by the end of this lesson's session. Create the weekly outcomes log as a spreadsheet with the columns shown above, and fill in a Sprint 1 row with your planned ticket count.
+
+## Check your understanding
+
+1. A ticket has sat in "In Progress" for four days with no commits. What does keeping the board truthful require?
+2. Why put a WIP limit on "In Progress" and "In Review"?
+3. Sprint 2 planned 9 tickets and completed 7. What happens to the other 2?
+
+*Answers:* (1) Move it back to Ready or add a note naming the blocker, today. (2) It forces work to finish before new work starts, so stalled tickets become visible. (3) They are recorded as carryover and counted in Sprint 3's planning capacity, not silently dropped.
