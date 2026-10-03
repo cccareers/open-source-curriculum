@@ -30,7 +30,7 @@ A strong, narrative-driven course: Tallgrass Facilities Group runs from onboardi
 ## Proposed additional projects
 
 - **Drafted — se310-x01** `projects/01-selkirk-account-review-roleplay.md`: account review with a hidden-risk persona, pre/post churn scoring, and record correction.
-- Not yet drafted — **Bayfront onboarding kickoff simulation**: run the kickoff working session with Priya, Elena (sceptic), and Tom; produce the four artifacts and the same-day recap.
+- **Drafted — se310-x02** `projects/02-bayfront-kickoff-simulation.md`: handoff record, recorded kickoff working session with Priya, Elena, and a delivery lead, same-day recap, and 90-day plan.
 - Not yet drafted — **Renewal meeting with Helen Ruskin**: evidence pack plus a recorded renewal opening that leads with a miss and handles a seat-reduction request.
 - Idea: **Expansion gate drill** — five candidate opportunities with evidence snippets; learners apply the six tests and write trigger records for the "not yets."
 
@@ -38,7 +38,7 @@ A strong, narrative-driven course: Tallgrass Facilities Group runs from onboardi
 
 - **Drafted — se310-v01** "'Mostly Billing': The Tallgrass Month-Seven Review, Two Ways" (se310-03), hybrid.
 - **Drafted — se310-a01** "Why the Happy Account Scores Worse" (se310-04), Motion Canvas.
-- Not yet drafted — video: "The Renewal Opening" — Tallgrass renewal meeting, misses first, then the silent question (se310-04).
+- **Drafted — se310-v02** "The Renewal Opening" (se310-04), hybrid: price-first vs. misses-first renewal meeting at Tallgrass with a region-by-region seat discussion.
 - Idea: animation of the 90-day plan as a timeline with the first-value milestone, executive touchpoint, and three reviews, showing how a slipped customer dependency ripples (se310-02).
 
 ## Assessment ideas
@@ -53,6 +53,8 @@ A strong, narrative-driven course: Tallgrass Facilities Group runs from onboardi
 - Added "Check your understanding" to `02-onboarding-and-the-first-90-days.md`, `03-active-listening-in-account-conversations.md`, `04-renewals-and-churn-risk.md`, `05-upselling-and-cross-selling.md`.
 
 ## Open questions for the course owner
+
+- se310-v02 invents two scenario details not in the lessons (overtime as the one measure still behind, and new West crews starting in February). Confirm or swap them for facts from the course before production.
 
 - Ardmore month-2 active figure: what number should replace 288?
 - "Dana Whitfield" and "Marcus Bell" appear here (Tallgrass) and elsewhere in the pathway with different roles (se250 Bay Ridge, se301 Waypoint project). Intentional continuity?

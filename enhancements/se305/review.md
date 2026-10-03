@@ -31,14 +31,14 @@ A rigorous, internally consistent analytics course: one Meridian Freight dataset
 ## Proposed additional projects
 
 - **Drafted — se305-x01** `projects/01-funnel-diagnosis-manager-one-on-one.md`: cycle-cause diagnosis for Rep C with a manager role-play.
-- Not yet drafted — **Dashboard teardown**: given a 14-tile "everything" dashboard, cut to six tiles with full specs and a gaming test for each.
+- **Drafted — se305-x02** `projects/02-dashboard-teardown.md`: score a 14-tile inherited dashboard against the four tests and rebuild a six-tile weekly dashboard with full specs and gaming tests.
 - Idea: **Rep A deal-size diagnosis** — a second triage rep (high volume, small deals) with segment data, mirroring the capstone's segment table.
 
 ## Video and animation opportunities
 
 - **Drafted — se305-v01** "3.97x or 2.70x?" (se305-03, se305-05), hybrid two-take pipeline review.
 - **Drafted — se305-a01** "Snapshot vs. Cohort" (se305-03), Motion Canvas.
-- Not yet drafted — whiteboard: "Pricing a Leak" walking the 13 extra opportunities through 62.1% → 83.3% → 80.0% to $153,330 (se305-04).
+- **Drafted — se305-v02** "Pricing a Leak" (se305-03, se305-04), whiteboard: pricing each below-median step in annual ACV, including the capstone case where the rankings flip.
 - Idea: animation of the velocity formula's four levers, showing why cutting cycle 20% raises velocity 25% (se305-02).
 
 ## Assessment ideas

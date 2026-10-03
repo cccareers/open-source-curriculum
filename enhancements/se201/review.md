@@ -31,7 +31,7 @@ A rigorous, numerate course with an unusually consistent running example (Meridi
 ## Proposed additional projects
 
 - **Drafted — se201-x01** `projects/01-cfo-assumptions-grill-and-deal-desk-review.md`: Alder Creek business case defended to a Controller persona, then a 20% discount request defended to deal desk.
-- Not yet drafted — se201-x02 `projects/02-brightline-renewal-rescue-account-review.md`: mock account review for the Brightline Manufacturing practice account (Lesson 6) — scorecard rebuild, stakeholder map, and a role-played meeting with the newly promoted champion.
+- **Drafted — se201-x02** `projects/02-brightline-renewal-rescue-account-review.md`: mock account review for the Brightline Manufacturing practice account (Lesson 6) — scorecard rebuild, stakeholder map, and a role-played meeting with the newly promoted champion.
 - Idea: **Model chooser case file** — three short customer profiles (public-sector fixed budget, seasonal retailer, fast-growing startup); learner picks and defends a revenue model for each.
 - Idea: **Book health triage** — five anonymized ARR bridges; rank by health and write the one-paragraph manager briefing for the worst.
 
@@ -39,7 +39,7 @@ A rigorous, numerate course with an unusually consistent running example (Meridi
 
 - **Drafted — se201-v01** "Five Minutes with Meridian's CFO: Advocacy vs. Analysis" (se201-05), hybrid good/weak take.
 - **Drafted — se201-a01** "The ARR Bridge: Growing by Spending vs. Growing by Compounding" (se201-04, se201-06), Manim explainer.
-- Not yet drafted — se201-v02 "Same Price, Three Models" (se201-02), whiteboard walkthrough of Meridian under subscription/usage/hybrid with the doubling scenario.
+- **Drafted — se201-v02** "Same Price, Three Models" (se201-02), whiteboard walkthrough of Meridian under subscription/usage/hybrid with the doubling scenario.
 - Idea: animation of cumulative gross profit crossing the CAC line, with billing terms (monthly / annual prepay / 3-year prepay) toggled (se201-03). Motion makes cash payback vs. accounting payback obvious.
 
 ## Assessment ideas

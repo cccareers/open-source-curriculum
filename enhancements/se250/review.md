@@ -31,7 +31,7 @@ An outstanding, tightly integrated course: the brief (L2) specifies the narrativ
 ## Proposed additional projects
 
 - **Drafted — se250-x01** `projects/01-fairmount-interruption-gauntlet.md`: five-minute and twenty-minute Fairmount deliveries with a scripted interruption panel.
-- Not yet drafted — **Deck teardown clinic**: take a vendor's public deck (or the Lesson 5 bullet slide), rewrite into assertion headlines, run the headline and read-without-you tests with a stranger.
+- **Drafted — se250-x02** `projects/02-deck-teardown-clinic.md`: tear down a 26-slide standard deck and rebuild a 10–13 slide Fairmount deck that passes the headline and read-without-you tests with two strangers.
 - Not yet drafted — **Insight lab**: build and pre-test one commercial insight on a "champion" before a panel delivery, scored on Lesson 7's three tests.
 - Idea: **Executive memo alternative** — two-page prose leave-behind for Bay Ridge, per Lesson 5's two-artifact option.
 
@@ -39,7 +39,7 @@ An outstanding, tightly integrated course: the brief (L2) specifies the narrativ
 
 - **Drafted — se250-v01** "The First Ninety Seconds at Bay Ridge" (se250-03, se250-06), hybrid weak/strong take.
 - **Drafted — se250-a01** "From Report to Argument" (se250-04), Motion Canvas chart rebuild.
-- Not yet drafted — video: "Reframe Without Humiliation" — the four-minute Bay Ridge reframe from Lesson 7 performed, with Dana and Walt reacting, plus a weak version that blames Dana (se250-07).
+- **Drafted — se250-v02** "Reframe Without Humiliation" (se250-07), hybrid: accusation vs. six-step reframe with Dana and Walt.
 - Idea: screencast of the six-step build order — index cards to grey boxes to evidence — in a generic presentation tool (se250-05), tool-agnostic per the capstone constraint.
 
 ## Assessment ideas

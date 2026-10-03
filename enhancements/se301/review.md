@@ -33,13 +33,14 @@ A well-architected course that teaches the CRM model first and then three platfo
 
 - **Drafted — se301-x01** `projects/01-mock-pipeline-review-forecast-call.md`: seeded-defect hygiene audit plus a recorded mock pipeline review with a skeptical manager persona.
 - Not yet drafted — **Automation spec review board**: learners swap Lesson 6 specs and must find an unhandled case in each; then build and test.
-- Not yet drafted — **One deal, three platforms**: record the Harlan Freight deal in Salesforce, HubSpot, and GoHighLevel free/trial instances and write a comparison of what each preserved and lost.
+- **Drafted — se301-x02** `projects/02-one-deal-three-platforms.md`: record the Harlan Freight deal (Lesson 9 events 1, 4, 8, 9, 16) in Salesforce, HubSpot, and GoHighLevel and recommend one platform with evidence.
 - Idea: **Duplicate detective** — a seeded contact list with 15 near-duplicates; merge plan with survivor rationale.
 
 ## Video and animation opportunities
 
 - **Drafted — se301-v01** "After the Call: Logging Harlan Freight Badly and Well" (se301-02, se301-07), screencast on a generic CRM mock-up.
 - **Drafted — se301-a01** "From $1.25M Pipeline to a $690K Forecast" (se301-08), Manim.
+- **Drafted — se301-v02** "Spec Before You Build: The Welcome Message That Sent Five Times" (se301-06), whiteboard on trigger vs. condition and the four most-skipped spec sections. (Covers the planned "Trigger vs. Condition" concept; the separate animation remains an idea.)
 - Not yet drafted — animation: "Trigger vs. Condition" showing a bulk edit mass-enrolling 200 deals vs. a field-change trigger enrolling one (se301-06). Motion makes the event/state distinction visible.
 - Idea: screencasts of lead conversion in Salesforce (field mapping trap) and lifecycle vs. lead status in HubSpot — vendor UIs change, so produce close to cohort start.
 

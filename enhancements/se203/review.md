@@ -32,7 +32,7 @@ A deep, well-sequenced course (SPIN → Sandler → diagnosis → insight → pr
 ## Proposed additional projects
 
 - **Drafted — se203-x01** `projects/01-marcus-discovery-and-objection-diagnosis-roleplay.md`: two calls with Marcus (persona card), observer coding, objection log.
-- Not yet drafted — se203-x02 `projects/02-calder-mock-deal-review-and-map.md`: mock deal review of the Calder Logistics negotiation before the capstone — prep sheet critique, trade inventory, and a backwards-planned mutual action plan reviewed by a "sales manager."
+- **Drafted — se203-x02** `projects/02-calder-mock-deal-review-and-map.md`: mock deal review of the Calder Logistics negotiation before the capstone — prep sheet critique, trade inventory, and a backwards-planned mutual action plan reviewed by a "sales manager."
 - Idea: **Insight pitch-off** — three learners deliver 90-second insights to a "buyer panel" that scores with the five-test scorecard.
 - Idea: **Procurement tactic bingo** — timed drill in which the seller must name each of six procurement plays as it happens.
 
@@ -40,7 +40,7 @@ A deep, well-sequenced course (SPIN → Sandler → diagnosis → insight → pr
 
 - **Drafted — se203-v01** "Two Hundred Thousand: Caving vs. Trading" (se203-06), hybrid good/weak take.
 - **Drafted — se203-a01** "Ramp vs. Flat Discount" (se203-06, se203-07), animated lanes with renewal baseline.
-- Not yet drafted — se203-v02 "Building the Plan with Dana" (se203-08), modeled MAP-building call with the critical path surfacing live.
+- **Drafted — se203-v02** "Building the Plan with Dana" (se203-08), modeled MAP-building call with the critical path surfacing live.
 - Idea: animation of the pain funnel as a narrowing funnel moving from surface → business → personal pain with Marcus's answers dropping in (se203-03).
 - Idea: talking-head micro-lesson on the four diagnostic moves (split, isolate, origin, weigh) with one-line examples (se203-04).
 
