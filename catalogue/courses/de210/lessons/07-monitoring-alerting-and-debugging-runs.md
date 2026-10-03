@@ -89,7 +89,7 @@ default_args = {
 }
 ```
 
-An SLA is a per-task promise about elapsed time from the interval's start; missing it fires a notification while the task is still running, which is the difference between finding out at 06:00 that the run is late and finding out at 09:00 that it never finished.
+(The `sla` argument is an Airflow 2 feature. Airflow 3 removed task SLAs, and later 3.x releases introduce deadline alerts as the replacement; if you are on Airflow 3, check the documentation for your exact version before relying on either.) An SLA is a per-task promise about elapsed time from the interval's start; missing it fires a notification while the task is still running, which is the difference between finding out at 06:00 that the run is late and finding out at 09:00 that it never finished.
 
 **Metrics.** Where a metrics backend exists, emit counters and timers alongside the logs so dashboards and alert rules can be built without querying the warehouse. Airflow exposes its own scheduler and task metrics for the platform team; your job as an author is to emit the pipeline-specific ones — rows, lag, cost — that nobody else can know.
 

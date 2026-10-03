@@ -38,7 +38,7 @@ Deliver seven things.
 
 **3. Failure handling per stage.** Each stage has an explicit retry policy (bounded count, exponential backoff), a timeout, and a defined behaviour on final failure: which downstream stages are skipped, whether partial output is cleaned up, and whether the run is marked failed. A transient network error must not require human intervention; a schema change must not silently publish bad data.
 
-**4. Monitoring and alerting.** At minimum: an alert when the workflow fails, an alert when it has not succeeded within its expected window (a missed run is invisible without this), and an alert when a data test fails. Alerts go somewhere a human actually reads. Each alert message names the run id, the stage, the window, and where to look next.
+**4. Monitoring and alerting.** At minimum: an alert when the workflow fails, an alert when it has not succeeded within its expected window (a missed run is invisible without this), and an alert when a data test fails. The missed-run check must run independently of the workflow it monitors — a separate schedule or the provider's monitoring service — because a check inside a workflow that never started never runs either. Alerts go somewhere a human actually reads. Each alert message names the run id, the stage, the window, and where to look next.
 
 **5. Run observability.** A single place — a table, a view, or a dashboard over your run manifest — that answers, for the last thirty runs: did it succeed, how long did it take, how many rows moved, what did it cost or scan. This is what your stand-in opens first.
 

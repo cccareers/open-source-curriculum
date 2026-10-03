@@ -92,10 +92,12 @@ The lesson bodies in this course avoid naming a cloud provider, because your pro
 | --- | --- | --- |
 | Landing | Object storage bucket | `raw/trips/ingest_date=2026-03-01/part-*.json.gz` |
 | Landing | Object storage bucket | `raw/zones/ingest_date=2026-03-01/zones.csv` |
-| Staging | Warehouse external tables | `stg_trips`, `stg_zones` |
+| Staging | Warehouse views over external tables | `stg_trips`, `stg_zones` |
 | Warehouse | Warehouse managed tables | `dim_zone`, `dim_date`, `fct_trip_daily` |
 | Serving | Warehouse views | `vw_cancellation_rate_by_zone_day` |
 | Orchestration | Managed scheduler triggering containerised jobs | one daily run, three tasks |
+
+(An external table only exposes the landed files as they are; staging's typing and deduplication happen in the view, or in a table built from it, which is why the row says views over external tables.)
 
 Write your equivalent table. It takes ten minutes and it converts "we will use cloud storage and a warehouse" into a list of things you can actually create, name consistently, and later tear down. Object naming is worth a moment's thought now: a path that carries the entity and the ingestion date is what makes a partial reprocess possible in Milestone 3.
 

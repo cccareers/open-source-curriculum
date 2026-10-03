@@ -33,7 +33,7 @@ The fields that matter:
 - **`winningPlan.stage`** — `COLLSCAN` means every document was examined; `IXSCAN` means an index was used; `FETCH` above an `IXSCAN` means documents were retrieved from disk after the index matched; `PROJECTION_COVERED` means the query was answered from the index alone.
 - **`totalDocsExamined` versus `nReturned`** — this ratio is the single most useful number in the output. Examining 400,000 documents to return 20 says the index is not selective enough or is missing.
 - **`totalKeysExamined` versus `nReturned`** — a large gap here means the index is being scanned rather than seeked; usually a column-order problem.
-- **`SORT` in the plan** — an in-memory sort. MongoDB aborts sorts exceeding 100MB unless `allowDiskUse` is set, and an in-memory sort of any size is work an index could have done for free.
+- **`SORT` in the plan** — an in-memory sort. MongoDB limits an in-memory sort to 100MB; older versions abort beyond that unless `allowDiskUse` is set, and from 6.0 the server spills to disk by default instead (`allowDiskUseByDefault`), which avoids the error but not the cost — and an in-memory sort of any size is work an index could have done for free.
 - **`executionTimeMillis`** and, per stage, how much of it each consumed.
 
 Target ratio: `totalDocsExamined` should approach `nReturned`. Every document examined and discarded is I/O you paid for and did not use.
