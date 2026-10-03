@@ -151,3 +151,9 @@ Parts 1 through 5 are analytical and use the material you generated in lessons 0
 **Part 6 — Two write-ups of one problem.** Choose the single most important issue from your plan and write it twice. First, a technical remediation ticket for the engineering team: what changes, on what, verified how, by when. Second, a 250-word summary for a non-technical manager: what could happen, how likely, what it would cost the business, what you recommend, what the fix costs, and what happens if it is deferred a quarter. No jargon in the second that is not defined in the same sentence, and no CVE numbers in the first paragraph of either.
 
 **Deliverable:** one document containing Parts 1 through 6. A reviewer should be able to take your Part 4 plan, hand it to an engineering team, and see work start without a single clarifying question.
+
+## Check your understanding
+
+1. Forty hosts accept an obsolete TLS version because they predate configuration-management enrolment. Which failure mode, and is it an instance or a pattern? *Not applied. It is a pattern; fix the enrolment gap, not forty hosts one by one.*
+2. What separates "mitigated" from "remediated"? *A mitigated weakness is still present, with something reducing its likelihood or impact. The finding stays open with a review date.*
+3. Who may accept a risk on the organization's behalf? *A named authority with the standing to accept it, with a written rationale and an expiry date. Never the technician.*

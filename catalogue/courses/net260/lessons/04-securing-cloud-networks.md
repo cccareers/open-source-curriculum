@@ -71,9 +71,14 @@ Internet           Load balancer       443     Public service
 Load balancer      App tier            8080    Only the LB may reach the app
 App tier           Database            5432    Only the app may reach the DB
 App tier           Provider APIs       443     Secrets, logging, object storage
-Admin (via bastion
- or SSM/Bastion/
- IAP)              App tier            22      Break-fix only, no public SSH
+Admin (managed
+ session: SSM /
+ Azure Bastion /
+ IAP)              App tier            22*     Break-fix only, no public SSH
+                                               *SSM and similar agent-based
+                                                services need no inbound rule;
+                                                IAP needs 22 from 35.235.240.0/20
+                                                only; Bastion from its subnet
 Everything else    Everything else     -       DENY
 ```
 
@@ -273,3 +278,11 @@ Your instructor provides an exported network configuration. Find every isolation
 **Exercise 5 — Close the control-plane path.**
 
 Your application in a private subnet currently reaches the object storage and secrets APIs through a NAT gateway. Write the change that removes that dependency: which private endpoint mechanism you would use on your chosen provider, what the route and DNS implications are, what endpoint policy you would attach to restrict which resources may be reached through it, and how you would verify afterwards that the workload can still reach your own storage but can no longer reach an arbitrary internet host. Then state, in two sentences, which specific attack step this change removes.
+
+## Check your understanding
+
+1. A subnet named `private-app-a` has a route `0.0.0.0/0 -> internet gateway`. Its security groups allow nothing from the internet. Is it private?
+2. Why should a database rule reference the app tier's security group rather than the app instances' IP addresses?
+3. Your workload reaches object storage through a NAT gateway. What does a private service endpoint with an endpoint policy remove from an attacker's options?
+
+**Answers:** (1) No — a subnet is public if its route table sends the default route to an internet gateway; read route tables independently of firewall rules. (2) IP addresses change when instances are replaced; group membership survives, so the rule stays correct and does not silently grant access to whatever inherits an old address. (3) The general-purpose internet path, and — with a policy limited to your own buckets — the ability to use a stolen credential to write data into an attacker's bucket.

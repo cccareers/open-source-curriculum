@@ -372,3 +372,11 @@ Your instructor provides an exported log range containing a simulated compromise
 **Exercise 5 — Route it.**
 
 From your Exercise 4 timeline, write the complete Security Event Handoff in the format above. It must include: the detections that fired, a plain-language narrative, reproducible evidence references, containment already taken, containment deliberately not taken with the reason and your recommendation, named open questions and visibility gaps, and the responder you routed it to with a timestamp. Then have a classmate read only your handoff and tell you what they would do first. If they have to ask you a question before acting, revise it.
+
+## Check your understanding
+
+1. Of the six fields, which one is most decisive when the identity is a CI pipeline role, and why?
+2. Why is "audit logging was disabled" one of the highest-fidelity alerts you can write?
+3. A responder asks whether patient records were read during an incident. What log must have been enabled beforehand to answer, and what do you write if it was not?
+
+**Answers:** (1) `sourceIPAddress` — a machine identity should come from a fixed, known source, so a new source is almost always a leaked credential. (2) It has almost no legitimate cause and an unmistakable malicious one. (3) Data-plane (data-access) logging on that store; if it was off, state plainly that you cannot determine whether data was read and name the gap as a finding.

@@ -169,7 +169,7 @@ Work all three parts and produce one document. Part 2 is the graded core.
 5. An invoice PDF is altered in transit and the payment goes to a different bank account.
 6. The only person who knows the certificate renewal process leaves, and the certificate expires six weeks later.
 
-**Part 2 — Read six controls.** Below are six controls found in a 30-person accounting firm. For each, produce a four-line entry: the asset and the property protected; the category; the function; and the most realistic failure mode you can state, in one specific sentence. Generic answers like "someone might misconfigure it" score nothing — name the circumstance.
+**Part 2 — Read six controls.** Below are six controls found at Harlow & Finch, a 30-person accounting firm you will meet again in lesson 03. For each, produce a four-line entry: the asset and the property protected; the category; the function; and the most realistic failure mode you can state, in one specific sentence. Generic answers like "someone might misconfigure it" score nothing — name the circumstance.
 
 1. All staff must change their password every 60 days.
 2. The server room door has a keypad; the code is written inside the supply cupboard.
@@ -189,3 +189,9 @@ Then answer, in one paragraph: **which two of these six are the weakest, and wha
 5. The spreadsheet the office manager uses to track holiday.
 
 **Deliverable:** one document containing the six-item sort, the six control readings plus the ranking paragraph, and the asset table. Bring it to the next session — lesson 03 works on the same firm.
+
+## Check your understanding
+
+1. A file share grants "Everyone" read access, but the logs show nobody outside the finance team has opened it. Has confidentiality failed? *Yes — over-permission is already a failure; you do not wait for disclosure before calling it a finding.*
+2. Name the category and function of a login warning banner. *Administrative in intent (it states policy and consequences), delivered technically; its function is deterrent — it acts on a person's decision, not on the event.*
+3. A colleague says, "We're fine, the server has RAID." Which property does RAID protect, and what is the failure mode? *Availability against a single disk failing; it mirrors deletion, corruption, and ransomware to every disk instantly, so it is not a backup.*

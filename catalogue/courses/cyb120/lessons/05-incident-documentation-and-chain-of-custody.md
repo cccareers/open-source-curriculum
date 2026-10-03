@@ -204,7 +204,7 @@ Here is a short passage from a case record, showing what a competent hour reads 
 
 ```text
 IR-2026-0031  Suspected document-delivered intrusion, finance workstation
-Times UTC. Lead: S. Vance. Record maintained by M. Okafor.
+Times UTC, 2026-03-11 unless dated. Lead: S. Vance. Record maintained by M. Okafor.
 
 09:41Z [DEC ] Declared incident, SEV2. Basis: unauthorized code execution
               confirmed on two hosts with an active outbound channel; no
@@ -214,8 +214,8 @@ Times UTC. Lead: S. Vance. Record maintained by M. Okafor.
               finance workstations may require isolation. No action requested
               of them yet.
 09:52Z [OBS ] Flow records for 198.51.100.44, 2026-03-01 to present:
-              two internal hosts only - 10.14.7.51 (WKS-4471) from 14:03Z,
-              10.14.6.19 (WKS-2210) from 13:51Z. Query and result set saved
+              two internal hosts only - 10.14.7.51 (WKS-4471) from
+              2026-03-10 14:03Z, 10.14.9.22 (WKS-2210) from 2026-03-10 13:51Z. Query and result set saved
               as IR-2026-0031-E004. Analyst: M. Okafor.
 09:55Z [OBS ] NEGATIVE: same query against all server subnets returns no
               results. No server has contacted this address in the retained
@@ -260,3 +260,9 @@ Then write a paragraph, as if to your manager, explaining which findings from th
 **Exercise 5 — Reconstruct from a bad record.** Your instructor gives you a deliberately poor case record — missing times, no sources, blame language, inferences stated as facts, and no negatives. Write a one-page assessment naming every specific question the record cannot answer, what would have had to be recorded to answer each, and which two defects you would fix first if the team could only change two habits.
 
 **Exercise 6 — Run a live documentation drill.** Working in pairs with a scenario supplied by your instructor, run thirty minutes of simulated response with one person acting and one recording, then swap roles for a second thirty minutes. Produce a complete case record for both halves. Afterwards, exchange records with another pair and review each other's against a checklist you build from this lesson — every action authorized and attributed, every observation sourced, every inference labelled, negatives present, no blame language, times in UTC, and a usable handover note at the end.
+
+## Check your understanding
+
+1. Your note written at 19:00 describes what you did at 14:22. How must it be labelled, and why? *As a reconstruction, not a contemporaneous note — memory under pressure reorders events into the story you later believed.*
+2. You hashed a disk image an hour after acquiring it. What does that hash prove, and what does it not? *It proves the image has not changed since that hash was taken; it does not prove the image is unchanged since collection.*
+3. An entry in the timeline is wrong. What do you do? *Never delete; add a correcting entry and mark the original as superseded.*

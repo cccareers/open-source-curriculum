@@ -145,3 +145,12 @@ Work through all three parts and produce one document.
 **Part 3 — Map your own exposure.** Using only sources that are already public, list ten pieces of information an attacker could gather about an organization you know — your employer, your apprenticeship host, or a well-known company — that would make a pretext against it more plausible. Do not contact anyone, do not attempt access, and do not collect information about private individuals; restrict yourself to organizational information published deliberately. For each item, name the pretext it enables and the one verification habit that defeats that pretext anyway.
 
 **Deliverable:** one document containing the five annotations, the five broken red flags with your paragraph, and the exposure table. Bring the two interactions you found hardest to classify to your next session, with your reasoning for the classification you settled on.
+
+## Check your understanding
+
+1. A caller first asks you to confirm a colleague's extension, then their manager's name, then whether they could read you the code that just arrived on their phone. Which lever is the *sequence* exploiting?
+2. Why is "the message had no spelling mistakes" not evidence that it is legitimate?
+3. A message ends with "If you did not request this change, call us on 0800 …". Why should you not use that number to verify?
+4. Someone tells you, an hour late, that they approved a push prompt they did not trigger. What is your first response, and why?
+
+**Answers:** (1) Commitment and consistency — each small step makes the next feel like a continuation rather than a new decision. (2) Grammar and spelling tells have been removed by generative tooling; the structural questions (what does it want, what pressure, what would verification cost) still work. (3) Every detail inside a fraudulent message is attacker-controlled; verify with contact details you already had. (4) Thank them and act fast — they are a witness, not a suspect; how they respond to you decides whether anyone reports next time, and the session needs revoking now.
