@@ -90,6 +90,12 @@ Now consider what the script does **not** do: it does not distinguish "zero dorm
 
 ```javascript
 // Guard: an empty or stale source population is UNKNOWN, not PASS.
+// Place this INSIDE evaluateIndicator, after `cutoff` is defined and before
+// the offender query, so the early return exits the function.
+var MAX_LOAD_AGE_DAYS = 2;
+var cutoffForLoad = new GlideDateTime();
+cutoffForLoad.addDaysUTC(-MAX_LOAD_AGE_DAYS);
+
 var population = new GlideAggregate('u_privileged_account');
 population.addQuery('ci', entitySysId);
 population.addAggregate('COUNT');
@@ -102,7 +108,7 @@ freshness.orderByDesc('sys_created_on');
 freshness.setLimit(1);
 freshness.query();
 var loadedRecently = freshness.next() &&
-  freshness.getValue('sys_created_on') >= cutoffForLoad;
+  freshness.getValue('sys_created_on') >= cutoffForLoad.getValue(); // compare strings in the same UTC format
 
 if (total === 0 || !loadedRecently) {
   return { passed: null, value: null,
@@ -214,3 +220,12 @@ Use a developer instance. Where the data your indicator needs does not exist, cr
 5. **Build one of them.** Implement one KPI as a Performance Analytics indicator with its breakdown, collect at least two data points (adjust data between collections so the series moves), and confirm the breakdown resolves. Then write two sentences explaining why this indicator is *not* a control test and what would go wrong if you tried to use it as one.
 
 6. **Retire something.** Look at your indicator set and identify one you would not build again. State whether it fails on actionability, determinism, or gaming, and what you would build instead.
+
+## Check your understanding
+
+1. A control owner needs to know whether *their* server is currently compliant; a CISO wants to see whether overall compliance is improving. Which kind of indicator serves each?
+2. Your dormant-account indicator returns pass because the source table is empty. What is wrong and what should it return?
+3. Why might you require two consecutive failures before raising an issue?
+4. "Issues closed" is your KPI. What counter-metric stops it being gamed?
+
+*Answers:* (1) A GRC indicator for the owner (a control test); a Performance Analytics indicator for the CISO (a trend). (2) Missing data is being read as success; the indicator should return unknown. (3) To avoid raising issues on one-off flaps that self-resolve on noisy indicators. (4) Issues reopened within 60 days.

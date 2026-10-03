@@ -121,3 +121,12 @@ Work these against a personal developer instance with the IRM applications avail
 3. **Promotion plan.** List every category of GRC record you expect to create in the next three months and classify each as configuration (travels in an update set or scoped application), content (imported or loaded, with a documented source), or operational data (created in production by users). Flag any category where you are unsure, and write the question you would ask the customer to resolve it.
 
 4. **Push back on a request.** The sponsor asks for a "vendor risk score for our top fifty suppliers" in the same 40 hours. Write a three-sentence response that states what is in scope, names the application that would actually be required, and offers a concrete next step that does not commit the current project.
+
+## Check your understanding
+
+1. Which IRM application holds authority documents and controls, which holds risk statements and acceptances, and which holds engagements and working papers?
+2. A stakeholder asks for third-party questionnaires in this project. What do you say?
+3. Why should internal auditors not be able to edit the controls they test?
+4. Why is building the executive dashboard first a mistake?
+
+*Answers:* (1) Policy and Compliance Management; Risk Management; Audit Management. (2) That is Vendor Risk Management, a separate application and implementation; name it and offer a next step without committing the current scope. (3) Audit independence is compromised the moment an auditor can edit what they test. (4) It shows fabricated numbers before a data model exists and sets an expectation of maturity the program has not earned.

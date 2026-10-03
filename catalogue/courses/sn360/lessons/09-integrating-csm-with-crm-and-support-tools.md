@@ -189,3 +189,12 @@ Most CSM implementations replace something, and the replaced system holds histor
 6. **Alert and reconcile.** Configure the alert threshold for repeated failures and a daily reconciliation job that compares record counts on both sides and reports the drift. Introduce a deliberate divergence and confirm the job finds it.
 
 7. **Rehearse a bad night.** Take the six ugly cases listed above, run each against your integration, and write one line per case describing the observed behavior. Fix anything whose only output was a log entry.
+
+## Check your understanding
+
+1. The same webhook is delivered twice. What design makes that harmless?
+2. A contact payload names an account your instance does not have. Create the account, or reject the contact?
+3. Which HTTP failures should retry and which should not?
+4. Name the control that catches failures nobody predicted.
+
+*Answers:* (1) An idempotent upsert keyed on the external id. (2) Reject with a 422 and a reason; auto-creating parents from a child payload corrupts the account list. (3) Retry transient ones (timeouts, 429, 503) with backoff and a cap; never retry permanent ones (400, 401, 422). (4) A daily reconciliation comparing both sides and reporting drift.

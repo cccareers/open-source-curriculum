@@ -175,3 +175,12 @@ Work in a development instance with at least two HR COEs configured and a set of
 9. **Audit the side channels.** Review your notifications, one report, and your instance-clone configuration for sensitive-data exposure. List every place sensitive HR data could leave the restricted population, and state the fix for each.
 
 10. **Write a retention position.** Choose two categories of HR record from your build and state a retention period, the trigger that starts the clock, and how you would implement the deletion or anonymization. Note explicitly what you would need a legal or HR stakeholder to confirm.
+
+## Check your understanding
+
+1. Why is a separate COE table a stronger control than an ACL condition on a shared table?
+2. A facilities coordinator needs to complete a desk request on an onboarding case. What access do they get?
+3. Name three side channels that can leak HR data even when ACLs are correct.
+4. Who decides an HR record retention period: you or a stakeholder?
+
+*Answers:* (1) The denial is structural across every path (list, search, report, related list, script in a user context); a condition must be correct on each path. (2) The HR task only, never the parent case. (3) Any of: notification bodies, reports and scheduled exports, cloned lower environments, attachments, free-text fields. (4) An accountable legal or HR stakeholder, in writing; you build to the answer.

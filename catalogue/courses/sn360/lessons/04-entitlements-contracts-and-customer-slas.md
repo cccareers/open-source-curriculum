@@ -160,3 +160,12 @@ Each of those is a five-minute test and each has caught a production defect on r
 5. **Handle the no-match.** Configure your chosen unentitled path and demonstrate it with a case from a contact whose account has no active contract. State in one sentence why you chose that path over the alternative.
 
 6. **Publish an entitled catalog item.** Create a "Request replacement part" catalog item with user criteria driven by contract tier, a Flow Designer fulfillment that opens a dispatch case task, and an SLA on the request for next-business-day dispatch. Order it as an entitled contact and confirm an unentitled contact cannot see it.
+
+## Check your understanding
+
+1. Which question comes first when a customer case arrives, and why?
+2. A customer has account-wide Gold and extended coverage on one serial number. Which entitlement should win, and how do you make that happen?
+3. Why is "stop the response SLA when the case is assigned" wrong?
+4. A case matches no active entitlement. Name the two defensible designs.
+
+*Answers:* (1) Entitlement (is this customer covered for this, now?), because an SLA promised on an expired contract is a commitment nobody can back. (2) The serial-specific entitlement; order lookup rules most specific first so the first match wins. (3) Assignment is not a response to the customer; stop on a genuine customer-visible agent comment. (4) Empty entitlement with a flag and a commercial triage queue, or a named "Unentitled" entitlement with a deliberately weak SLA.
