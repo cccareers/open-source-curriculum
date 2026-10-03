@@ -116,7 +116,7 @@ Verbal explanation is the default because it is the easiest for us, not because 
 
 Ask instead of guessing: "Would it help if I wrote this down, or would you rather I text it?" Also read the room — someone who holds a form at arm's length, who says "I forgot my glasses" twice, or who hands every paper to their adult child is telling you something about reading without saying it. Respond by changing the mode, not by naming the problem.
 
-Language access is its own skill set, covered in the cultural humility work; for now, know that a qualified interpreter is part of communication, not an interruption to it.
+Language access is its own skill set, covered in CHW102, Lesson 2 (Cultural Mediation and Humility); for now, know that a qualified interpreter is part of communication, not an interruption to it.
 
 ## Empathy and non-judgmental language on sensitive topics
 
