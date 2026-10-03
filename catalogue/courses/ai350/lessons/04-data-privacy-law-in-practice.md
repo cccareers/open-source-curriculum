@@ -129,3 +129,9 @@ Work with a real workflow that processes personal data — yours if it qualifies
 5. **Write the escalation memo.** Half a page addressed to your privacy reviewer or manager containing: what the workflow does, the personal data it processes, the recipients and locations, the retention gaps you found, the deletion steps that do not currently work, and a numbered list of questions you need answered. Explicitly mark it as a request for a decision, not a proposal of one.
 
 A good memo from this exercise is the single most professionally useful artifact in this course. It is also the thing that gets a project approved instead of shelved.
+
+## Check your understanding
+
+1. You replace customer names with tokens like "customer 8842" before the prompt. Is the prompt now free of personal data? *No. Pseudonymised data is still personal data under GDPR because your workflow can re-link it. It does reduce what crosses the vendor boundary and sits in logs.*
+2. Which two locations on the deletion runbook do builders most often forget? *Retrieval corpora or vector stores derived from tickets, and the model vendor's retained logs.*
+3. A later version of the workflow auto-denies refunds with no review. What changes in your privacy analysis, and what do you do? *It may now be a solely automated decision with significant effects on a person, which carries additional protections. Flag it and escalate to your privacy reviewer; do not decide it yourself.*

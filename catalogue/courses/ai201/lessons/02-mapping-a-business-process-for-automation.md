@@ -64,7 +64,7 @@ Here is a fragment of a real-shaped inventory for a vendor-invoice process:
 | Approver reviews and replies | manager | email | 5 | 26h | 900/mo | 15% |
 | Mark approved in tracking sheet | clerk | spreadsheet | 1 | 2h | 880/mo | 1% |
 
-Two things jump out of that table, and neither is visible in a flowchart. First, touch time is 17 minutes but elapsed time is over three days — the process is mostly waiting. Second, the single largest touch-time step is *re-keying data that already exists in an email*. That is the classic automation target: high volume, zero judgement, and the information is already structured somewhere upstream.
+Two things jump out of that table, and neither is visible in a flowchart. First, touch time is 17 minutes but the wait times alone add up to 58 hours, nearly two and a half days of elapsed time — the process is mostly waiting. Second, the single largest touch-time step is *re-keying data that already exists in an email*. That is the classic automation target: high volume, zero judgement, and the information is already structured somewhere upstream.
 
 ![Swimlane map of a vendor invoice process showing handoffs between clerk, approver, and systems](./img/process-map-swimlane.png)
 
@@ -91,7 +91,7 @@ Classify the judgement content of each step into one of four bands:
 3. **Contested judgement.** The decision depends on context the systems do not hold — a relationship, an unwritten exception, a negotiation. Keep the human, but consider automating the *preparation* so the human decides faster with better evidence.
 4. **Accountable decision.** Someone must be answerable: approving a payment, terminating a contract, telling a customer no. Never automate the decision. You may automate everything that leads up to it and everything that follows it.
 
-Then plot each step on cost. A useful score is simply `annual hours x (1 + exception_rate)`, which penalizes steps whose exceptions will make them expensive to automate correctly. Rank the steps. Your first automation should be the highest-cost step that sits in band 1 or 2 and whose failure is cheap and visible.
+Then plot each step on cost. A useful score is simply `annual hours x (1 + exception_rate)`, which weights each step up by the rework its exceptions already cause today. A high exception rate also makes a step harder to automate correctly, which is why the score ranks candidates but does not choose for you: the band and the anti-patterns below still apply. Rank the steps. Your first automation should be the highest-cost step that sits in band 1 or 2 and whose failure is cheap and visible.
 
 Three anti-patterns to reject explicitly:
 
@@ -135,3 +135,9 @@ Choose a real, small business process you can observe directly — an intake for
 4. **Rank and choose.** Score steps with `annual hours x (1 + exception_rate)`, rank them, and name the single step you would automate first. Defend the choice against the three anti-patterns: is it a wait, should it be deleted, is it an accountable decision?
 5. **Write the boundary contract.** Entry condition, exit condition, out of scope, human checkpoints, escape hatch. Be specific enough that another person could tell whether a given case is in or out.
 6. **Assemble the two-page brief** and get it in front of the process owner or, failing that, a peer playing that role. Capture their corrections in the open-questions section rather than editing your observations — the disagreement between the observed process and the believed process is itself a finding.
+
+## Check your understanding
+
+1. In the vendor-invoice inventory, touch time is 17 minutes per invoice. Why would automating the re-keying step alone barely change how long vendors wait to be paid? *Answer: the wait times add up to about 58 hours, so cycle time is dominated by queues (routing and approval), not by touch time. That is the "automating the wait" anti-pattern.*
+2. "If the total is over 5,000, route to the director" and "read the total off a scanned invoice": which band is each, and which needs an AI step? *Answer: the first is band 1, deterministic, so use plain logic. The second is band 2, structured interpretation, where an AI step earns its place.*
+3. The approver says yes 94% of the time. Why is that not a reason to automate the approval? *Answer: approval is an accountable decision (band 4). Predictable is not the same as delegable, so you automate what leads up to it and what follows it.*

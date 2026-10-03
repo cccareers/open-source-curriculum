@@ -13,7 +13,7 @@ objectives:
 
 ## The shape of a data pipeline
 
-Most of the manual work you found in your process map is data movement: someone reads a value in one place and types it into another, fixing the format on the way. Automating it well is not one big step. It is five small ones, in a fixed order, and skipping any of them is how pipelines quietly corrupt a database.
+Most of the manual work you found in your process map is data movement: someone reads a value in one place and types it into another, fixing the format on the way. Automating it well is not one big step. It is six small ones, in a fixed order, and skipping any of them is how pipelines quietly corrupt a database.
 
 ```text
 ingest -> normalize -> validate -> deduplicate -> enrich -> route
@@ -42,7 +42,7 @@ Normalization is boring, mechanical, and responsible for more downstream bugs th
 | `email` | `data.email` | trim, lowercase | quarantine |
 | `company` | `data.company` | trim, collapse internal spaces | keep raw |
 | `phone` | `data.phone` | strip non-digits, prefix country code if 10 digits | null the field |
-| `requested_at` | `occurred_at` | parse ISO 8601, store UTC | quarantine |
+| `received_at` | `occurred_at` | parse ISO 8601, store UTC | quarantine |
 | `amount` | `data.total` | strip currency symbols and thousands separators, to decimal | quarantine |
 | `request_type` | `data.request_type` | lowercase, map through synonym table | set `unknown` |
 
@@ -82,7 +82,7 @@ Records failing validation go to **quarantine**, not to the bin. Quarantine is a
 
 Silently dropping bad records is the single worst thing a data pipeline can do, because the absence of a record is invisible. Nobody files a ticket about the quote request that never appeared.
 
-Add a reconciliation count as a habit: for every batch, log `received`, `normalized`, `valid`, `quarantined`, `duplicate`, `routed`. Those six numbers must add up. When they stop adding up, you have found a bug before your users did.
+Add a reconciliation count as a habit: for every batch, log `received`, `normalized`, `valid`, `quarantined`, `duplicate`, `routed`. Those six numbers must add up: every received record ends in exactly one of `quarantined`, `duplicate`, or `routed`, so `received = quarantined + duplicate + routed`, and `valid` must equal `normalized` minus the records quarantined at validation. A record quarantined later, for example after a failed AI parse, still counts once in `quarantined`. When they stop adding up, you have found a bug before your users did.
 
 ## Deduplicate: exact first, fuzzy carefully
 
@@ -154,14 +154,14 @@ Routing is the last stage and should be pure logic over fields that now exist. K
 
 | condition | destination | owner | sla_hours |
 | --- | --- | --- | --- |
+| `confidence < 0.75` | `triage_review` | Duty manager | 4 |
 | `category = quote AND urgency = high` | `quotes_priority` | Quotes lead | 2 |
 | `category = quote` | `quotes_queue` | Quotes team | 8 |
 | `category = billing` | `billing_queue` | Billing | 24 |
 | `category = support` | `support_queue` | Support | 4 |
-| `confidence < 0.75` | `triage_review` | Duty manager | 4 |
 | anything else | `triage_review` | Duty manager | 8 |
 
-Note the two catch-all rows. Low confidence routes to a human regardless of category, and an unmatched record still lands somewhere with an owner and a clock. A routing table with no default row is a record loss waiting to happen.
+Evaluate the table top to bottom and stop at the first matching row. That is why the confidence row sits first: placed below the category rows, a low-confidence quote would match `category = quote` and never reach it. Note the two catch-all rows. Low confidence routes to a human regardless of category, and an unmatched record still lands somewhere with an owner and a clock. A routing table with no default row is a record loss waiting to happen.
 
 Routing writes the destination, owner, and SLA onto the record and advances the status. It does not send anything to a customer. Data processing pipelines feed queues; the lessons on email and customer service deal with what a person or a reviewed draft says outward.
 
@@ -189,3 +189,9 @@ Build a complete ingest-to-route pipeline over deliberately messy data.
 6. **Implement the routing table** as data, including both catch-all rows.
 7. **Reconcile.** Log the six counts (`received`, `normalized`, `valid`, `quarantined`, `duplicate`, `routed`) for the batch and confirm they balance. If they do not, find the gap before you move on — that is the exercise.
 8. **Prove it twice.** Re-run the same file end to end. The second run must produce zero new records and zero new AI calls. Report the counts from both runs side by side.
+
+## Check your understanding
+
+1. Why must normalize run before deduplicate? *Answer: until emails are trimmed and lower-cased, `Dana.Reyes@Example.com ` and `dana.reyes@example.com` look like two different people, so exact-key and composite dedupe miss the duplicate.*
+2. A batch logs `received 100, duplicate 5, quarantined 6, routed 85`. What do you do before anything else? *Answer: find the four missing records. `received` must equal `quarantined + duplicate + routed`, and a gap means something is silently dropping records.*
+3. A message classified `quote` with confidence 0.62 reaches the routing table. Where does it go, and why does row order matter? *Answer: `triage_review`. The table is first-match-wins, so the confidence row has to come before the category rows or the record would land in `quotes_queue`.*

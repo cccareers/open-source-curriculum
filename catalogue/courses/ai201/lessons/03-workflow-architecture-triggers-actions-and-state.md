@@ -13,7 +13,7 @@ objectives:
 
 ## Three parts, and only one of them is obvious
 
-You already know how to add a step to a scenario. Architecture is the part that decides whether the twentieth thousand run behaves like the first one. A workflow has exactly three moving parts, and most production incidents come from the one people design last.
+You already know how to add a step to a scenario. Architecture is the part that decides whether the twenty-thousandth run behaves like the first one. A workflow has exactly three moving parts, and most production incidents come from the one people design last.
 
 **Triggers** decide when a run happens and what it starts with. **Actions** do the work of one run. **State** is everything the workflow knows that outlives a single run. Beginners design triggers and actions and let state emerge accidentally — usually as a spreadsheet column somebody adds during an incident. This lesson designs all three deliberately, starting from a boundary contract like the one you produced in the previous lesson.
 
