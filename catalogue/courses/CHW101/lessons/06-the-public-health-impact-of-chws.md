@@ -108,3 +108,9 @@ Name the limits. Programs have populations they did not reach and outcomes they 
 4. **Interrogate a claim.** Find a real CHW program's public report, fact sheet, or web page. Identify which of its numbers are outputs and which are outcomes, note anything presented as an outcome that is really an output, and write one question you would ask the program before repeating its headline number.
 
 5. **Make the case in ninety seconds.** Write and deliver aloud a short answer to "why should we keep funding this CHW program?" that leads with an outcome, supports it with outputs, attributes carefully, and names one honest limitation. Practice it with a partner whose job is to ask "how do you know?" after every sentence.
+
+## Check your understanding
+
+1. Output or outcome: "74 clients enrolled in coverage." *Output — it counts an activity. "Clients who were uninsured a year ago now have continuous coverage" would be an outcome.*
+2. Output or outcome: "A client can explain her diagnosis in her own words." *Short-term outcome — a change in knowledge.*
+3. Your program's enrolled clients had fewer emergency visits this year than last year. Why should you say "clients enrolled in the program had fewer emergency visits" instead of "the program reduced emergency visits"? *Without a comparison group or trial design, you cannot rule out other causes; careful attribution protects your credibility.*

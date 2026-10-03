@@ -156,3 +156,10 @@ Out of scope without training and approval: designing a study, obtaining researc
 6. **Outputs versus outcomes.** Sort fifteen program measures into outputs and outcomes, then name the field data you personally contribute to measuring one of the outcomes.
 
 7. **CBPR role sort.** For a proposed community study on transportation barriers, list which tasks a CHW could take on, which need supervisor approval, and which require research training and ethics review. Say where in the process results return to the community, and in what form.
+
+## Check your understanding
+
+1. A client tells you a neighbor's elderly father "looks like he hasn't eaten in days" and nobody checks on him. You are not sure it is neglect. What is the threshold, and what is your next step? *Reasonable suspicion, not proof. Do not investigate. Follow your jurisdiction's and program's reporting process, which typically means making the report yourself and telling your supervisor the same day.*
+2. You notice 22 encounter records with a blank primary-language field, all from one site. You know the correct values for three of them. What do you do? *Flag it in writing to whoever owns the data, naming the records, what you think is wrong, the correct values you know, and how you noticed. Do not silently fix or overwrite entries.*
+3. A university researcher asks you to hand out a survey to your clients next week. What do you do first? *Route the request to your supervisor before agreeing. Research data collection requires its own consent and ethics review, and participation can never be a condition of services.*
+

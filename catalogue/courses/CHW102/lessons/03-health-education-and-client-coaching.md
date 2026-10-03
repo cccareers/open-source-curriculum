@@ -117,3 +117,10 @@ Social support is the quiet other half of this role. Sometimes the most useful t
 7. **The follow-up call.** The client from exercise 6 has done nothing for two weeks. Write the opening three sentences of your follow-up call and the four questions you will ask. Then write what you would do if the reason turns out to be that his knees hurt too much to walk — including whether any part of your response leaves CHW scope.
 
 **Deliverable:** your labeled role-identification answers, the plain-language rewrite with three key points, teach-back role-play debrief notes, the scope-sorting table with your exact wording, the bias-checked explanation with revision marks, the elicited goal and tracking plan in the client's words, and the written follow-up call plan.
+
+## Check your understanding
+
+1. A client asks, "Should I take my blood pressure pill at night instead of the morning?" Which part can you answer, and what do you say? *None of the dosing question is yours. Say something like: "That's a question for your doctor or pharmacist. Let's write it down, and I can call the pharmacist with you now." Then help them get it asked.*
+2. Your teach-back reveals the client thinks the controller inhaler is only for bad days. Is that a failed teach-back? *No — it is a successful one. You found the gap while you can still fix it. Re-explain differently and check again.*
+3. The referral says "A1C below 7"; the client says she wants to sleep through the night. Whose goal do you work on first, and why? *Hers. A client-owned goal gets acted on, and success builds the confidence and relationship that make the clinical goal possible later. Keep the care team informed.*
+

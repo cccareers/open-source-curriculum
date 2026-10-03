@@ -60,7 +60,7 @@ The first competency of this role is accuracy: identifying what a client actuall
 
 ## Making the referral actually happen
 
-**Warm handoff beats cold referral.** A warm handoff means you make the connection while the client is with you: you call together, you introduce them by name to a person, you book the appointment before they leave, or you walk them down the hall. A cold referral is a name and number handed over with a hope attached. Warm handoffs succeed far more often, and the difference is largest for exactly the clients with the most barriers.
+**Warm handoff beats cold referral.** (A *cold referral* is information handed over for the client to act on alone; a *warm handoff* is a connection made in real time.) A warm handoff means you make the connection while the client is with you: you call together, you introduce them by name to a person, you book the appointment before they leave, or you walk them down the hall. A cold referral is a name and number handed over with a hope attached. Warm handoffs succeed far more often, and the difference is largest for exactly the clients with the most barriers.
 
 **Help with the mechanics — with them, not for them.** Sit beside the client while they call, with you ready to take over if the phone tree defeats them. Read the form aloud and let them answer. Explain what a document is for before asking for it. This is slower than doing it yourself, and it is the difference between a client who needed you once and a client who needs you every time. Do it for them when the barrier is real and immediate — a crisis, a disability, a language the agency cannot serve — and say out loud what you are doing and why.
 
@@ -96,7 +96,7 @@ When a referral fails for a reason that is not the client's — a program that n
 
 Some clients are not navigating one system but five, each of which thinks it is the only one. Coordination is the work of making those services connect instead of collide.
 
-**Consent comes first.** You may not share a client's information between agencies without their permission, and for health information that permission usually has to be a signed release specifying who may share what, with whom, and for how long. Explain in plain language what would be shared and why, get the release signed before you make the call, and honor the client's limits — including their right to keep one part of their life out of the conversation. Confidentiality rules are covered fully in CHW105; treat the release as non-negotiable here.
+**Consent comes first.** You may not share a client's information between agencies without their permission, and for health information that permission usually has to be a signed release specifying who may share what, with whom, and for how long. Explain in plain language what would be shared and why, get the release signed before you make the call, and honor the client's limits — including their right to keep one part of their life out of the conversation. Confidentiality rules are covered fully in CHW103, Lesson 7; treat the release as non-negotiable here.
 
 **Know who leads.** Where there is a care manager, a primary care provider, or a lead agency, your role is to support and inform, not to direct. Where there is nobody, the client is doing it alone and coordination is exactly what you are adding.
 
