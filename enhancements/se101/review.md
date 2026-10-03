@@ -31,14 +31,14 @@ A strong, voice-consistent beginner course: every lesson has a clear behavioral 
 ## Proposed additional projects
 
 - **Drafted — se101-x01** `projects/01-discovery-to-dated-next-step-roleplay.md`: full first conversation with a persona card (Rosa, home-services scheduler), mapping table, dated ask, rubric.
-- **Drafted — se101-x02** `projects/02-objection-drill-ladder.md`: timed objection-handling drill across the five objection types with a facilities-manager persona and an observer scorecard.
+- Not yet drafted — se101-x02 `projects/02-objection-drill-ladder.md`: timed objection-handling drill across the five objection types with a facilities-manager persona and an observer scorecard.
 - Idea: **Handoff relay** — three learners pass one deal SDR → AE → CSM using only written handoff notes; the third learner's first call is scored on how many questions the customer had to repeat.
 - Idea: **Stage-mapping case file** — given ten anonymized call summaries, place each deal on the stage line and identify which ones have moved backwards.
 
 ## Video and animation opportunities
 
 - **Drafted — se101-v01** "That's More Than We Budgeted": weak take vs. strong take of a price objection (se101-05). Hybrid: acted scene plus host. Motion and tone matter — arms folding, pauses — which text cannot convey.
-- **Drafted — se101-v02** "The Last Ninety Seconds": continuation vs. advance close with Priya (se101-06). The silence after the ask is the core skill and is only teachable by hearing it.
+- Not yet drafted — se101-v02 "The Last Ninety Seconds": continuation vs. advance close with Priya (se101-06). The silence after the ask is the core skill and is only teachable by hearing it.
 - **Drafted — se101-a01** "One Deal, Eight Stages, and the Handoffs Where Context Leaks" (se101-02). Explainer animation; makes backwards movement and lost context visible.
 - Idea: whiteboard explainer for symptom / mechanism / impact / who, using the invoicing example (se101-04).
 - Idea: 60-second "the two-beat pause" micro-video showing the same Priya exchange with and without the pause (se101-03).

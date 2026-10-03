@@ -58,7 +58,7 @@ That last one deserves its own line. A short extension feels like a win because 
 
 A scorecard exists so that your judgement is applied consistently across twenty accounts instead of vividly to the two you thought about this week. Score each account monthly, in fifteen minutes, from evidence you can point at.
 
-Each factor scores **0 (healthy), 1 (watch), or 2 (at risk)**, multiplied by a weight. Maximum is 40.
+Each factor scores **0 (healthy), 1 (watch), or 2 (at risk)**, multiplied by a weight. The weights sum to 30, so the maximum is 60.
 
 | # | Factor | Weight | 0 — healthy | 1 — watch | 2 — at risk | Where the evidence comes from |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -204,3 +204,9 @@ What you know:
 4. **Rebuild the value evidence.** The analyst who owned the baseline has left. Propose how you would produce a defensible before-and-after figure for missed collections in under three weeks, naming the source, and state which part of it a sceptical Finance Director would attack.
 5. **Plan the renewal conversation.** Write the opening ninety seconds verbatim, the one question you will ask before going silent, and your prepared response to each of these three: "we're looking at consolidating onto the group platform," "we only need about 150 seats," and "can we do a three-month extension while the group decides?"
 6. **Fix the record.** Write out exactly what you would change on the account and renewal opportunity today: close date, expected amount with the reasoning, stage and the event that backs it, the churn score and driving factor, and the next dated action. Then answer in two sentences what your manager's forecast would have said about Selkirk before you touched it, and what it says now.
+
+## Check your understanding
+
+1. You cannot find any evidence for a scorecard factor. What do you score it? *(Answer: 1 — not knowing is itself a risk.)*
+2. Why did Harbourline, with 91% utilization, score worse than Tallgrass? *(Answer: nobody is left to argue for it — the champion moved, the signer has never been met, and no value evidence has been produced in eight months.)*
+3. The customer asks for "a three-month extension while we think." What is the better first response than relief? *(Answer: ask what the three months are for and what has to be true at the end; if there is no answer, a process is running that you are not in.)*

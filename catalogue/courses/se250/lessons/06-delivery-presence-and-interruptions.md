@@ -185,3 +185,9 @@ For each, write which of the four types it is, then deliver an acknowledge-handl
 **Exercise 7 — the close, and the silence.** Record your three-minute close: three-sentence summary, parking-lot clearance, the written ask, and then five full seconds of silence. Watch it back and check whether you actually stayed silent, or whether you softened the ask. Then write the confirmation email you would send within two hours, in under 120 words.
 
 **Exercise 8 — self-review.** Watch your full timed pass with the sound off, then again with the picture off. From the silent viewing, note three things about your body and eyes. From the audio-only viewing, note your fillers, your pace, and whether the pauses fell after your important claims or in the middle of them. Write six specific, behavioural changes for the next attempt — not "be more confident," but "stop after the callback number and count two."
+
+## Check your understanding
+
+1. What are the three moves for any interruption, and which one is most often skipped? *(Answer: acknowledge, handle, return — the spoken return to the thread is the one nobody practises.)*
+2. "Does this integrate with our payroll system?" arrives during your stakes beat. Which type is it and what do you do? *(Answer: a tangent — park it visibly with an owner and date, then return.)*
+3. Twenty minutes of your forty-five vanish. What do you do, and what must you not say? *(Answer: switch to the half-length or five-minute version, cutting whole beats, and never say "I will skip ahead.")*

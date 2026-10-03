@@ -31,7 +31,7 @@ A practical, honest outbound course with a well-maintained running example (Nort
 ## Proposed additional projects
 
 - **Drafted — se202-x01** `projects/01-northwind-cold-call-objection-ladder.md`: six-rung role-play ladder with persona cards (Dana, front desk, Ken the blocker) and a scored rubric.
-- **Drafted — se202-x02** `projects/02-meddic-pipeline-review-calibration.md`: mock weekly pipeline review — score six prepared call-note files independently, calibrate with peers, defend scores to a "manager."
+- Not yet drafted — se202-x02 `projects/02-meddic-pipeline-review-calibration.md`: mock weekly pipeline review — score six prepared call-note files independently, calibrate with peers, defend scores to a "manager."
 - Idea: **Signal hunt sprint** — 60 minutes to find ten tier-A triggers in a chosen segment from public sources, each with source and date.
 - Idea: **Cold email teardown** — rewrite five weak emails to the 125-word rules and A/B test subject lines with a peer panel.
 
@@ -39,7 +39,7 @@ A practical, honest outbound course with a well-maintained running example (Nort
 
 - **Drafted — se202-v01** "Ninety Seconds with Dana: A Weak and a Strong Cold Call" (se202-04). Audio-forward hybrid; timing and silence are the skill.
 - **Drafted — se202-a01** "Two Weeks, Two Channels" (se202-04, se202-05). Timeline animation of the cadence and the four-number funnel diagnosis.
-- **Drafted — se202-v02** "Building Northwind's Committee Map" (se202-03). Screencast-style walkthrough of the filter logic and the committee map, tool-agnostic.
+- Not yet drafted — se202-v02 "Building Northwind's Committee Map" (se202-03). Screencast-style walkthrough of the filter logic and the committee map, tool-agnostic.
 - Idea: whiteboard explainer of the MEDDIC scorecard "lowest field is the next action" rule using the Northwind worked example (se202-06).
 
 ## Assessment ideas

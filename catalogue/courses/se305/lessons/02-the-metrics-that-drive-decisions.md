@@ -162,7 +162,7 @@ Gap            = $154,000
 Shortfall      = $1,000
 ```
 
-You do not have a comfortable quarter. You have a quarter where you make quota **only if everything behaves exactly like the average**, and nothing ever does. Coverage at exactly 1 / win rate is not "on track"; it is a coin flip with no margin. Most teams ask for 3x on top of a 33% win rate, or roughly 1.2 to 1.5 times break-even, precisely because slippage is normal.
+You do not have a comfortable quarter. You have a quarter where you make quota **only if everything behaves exactly like the average**, and nothing ever does. Coverage at exactly 1 / win rate is not "on track"; it is a coin flip with no margin. Most teams set their coverage target at roughly 1.2 to 1.5 times break-even — for a rep with a 33% win rate, whose break-even is 3x, that means asking for 3.6x to 4.5x rather than 3x — precisely because slippage is normal.
 
 Three ways coverage lies, all of which lesson 3 shows you how to catch: opportunities with a close date already in the past still counted as "this quarter"; deals sitting in a stage they have not earned; and a single large deal supplying most of the coverage, so the ratio is really one binary event wearing a percentage.
 
@@ -259,3 +259,9 @@ Use the Meridian data above. Show your arithmetic for everything.
 12. Median won deal size, trailing 12 months
 
 **Exercise 4 — the honest caveat.** Pick two of the figures you computed in Exercise 1 and write one sentence each explaining why a manager should not act on it yet. At least one of your two answers must be about sample size.
+
+## Check your understanding
+
+1. A rep has 20 wins, 60 losses, and 40 open opportunities. What is the win rate, and why is 120 the wrong denominator? *(Answer: 20 / 80 = 25%. Open deals have not decided anything; win rate uses resolved opportunities only.)*
+2. Your mean won deal is $28,500 and your median is $24,000. Which do you use to plan how many deals you need, and why? *(Answer: the median — the mean is being pulled up by a few large deals, so planning on it assumes another whale.)*
+3. Your win rate is 20%. What is break-even coverage, and roughly what target would a team set? *(Answer: 1 / 0.20 = 5.0x break-even; a target of roughly 6x to 7.5x, 1.2–1.5 times break-even.)*

@@ -228,3 +228,9 @@ At 70%:  96 x 0.70 = 67.2 reaching validation (you had 58)
 - Rep A: 164 opportunities created, 33% win rate, $19,400 average deal against a team median of $27,200, 55-day median cycle, attainment 71%.
 - Rep B: 74 opportunities created, 34% win rate, $29,100 average deal, 60-day median cycle, attainment 68%.
 - Rep C: 131 opportunities created, 26% win rate, $28,900 average deal, 118-day median won cycle against a team median of 58, attainment 79%.
+
+## Check your understanding
+
+1. Why rank leaks by dollars rather than by percentage-point gap? *(Answer: a large gap at a step with little downstream flow can be worth less than a smaller gap earlier in the funnel; dollars show what fixing it is actually worth.)*
+2. What makes a check "discriminating"? *(Answer: different candidate causes predict different results, and you can say before running it what result would make you believe or abandon each cause.)*
+3. Deals with a named economic buyer convert at 81%. What can you claim, and what can't you? *(Answer: you can claim the absence of a named buyer is a reliable early warning; you cannot claim that adding a name causes conversion.)*
