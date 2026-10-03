@@ -88,4 +88,4 @@ Server up, model pulled, `curl` succeeds, *then* write the application. Each ste
 2. Pull `llama3.2` and list the models with `docker exec ollama ollama list`.
 3. Verify health with `curl http://localhost:11434`, then send a real prompt to `/api/generate` with `"stream": false` and read the JSON.
 4. Send the same prompt to `/api/chat` and compare the response shape.
-5. Remove the `-p` flag, restart the container, and confirm `curl` now fails. Explain why in one sentence.
+5. Remove the container with `docker rm -f ollama` and recreate it with the same command minus the `-p` flag (`docker restart` cannot change flags — they are fixed when a container is created). Confirm `curl` now fails, and explain why in one sentence. Because the model cache is on the `ollama` volume, nothing is re-downloaded.

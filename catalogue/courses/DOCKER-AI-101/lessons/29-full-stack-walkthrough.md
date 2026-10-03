@@ -173,6 +173,8 @@ docker compose exec ollama ollama pull nomic-embed-text
 docker compose logs -f api
 ```
 
+If `api` exits on the very first `up` with a connection error to `chroma` or `ollama`, you have hit the startup race from the logs lesson: `main.py` connects to Chroma when the module loads, and the short `depends_on` form waits only for the container to *start*. `docker compose up -d` again usually succeeds because the other services are now ready. The durable fixes are the ones from that lesson: a `healthcheck` with `condition: service_healthy`, retry logic around the first connection, or `restart: on-failure` on `api`.
+
 Pulling models is a one-time step: the weights land in the `ollama-models` volume and survive every later `down` and `up`.
 
 Then exercise it:
