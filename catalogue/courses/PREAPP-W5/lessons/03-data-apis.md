@@ -58,7 +58,7 @@ Most CRMs will hand you a CSV. Export your contacts to `contacts.csv` and drop i
 import { readFileSync } from "node:fs";
 
 const raw = readFileSync("contacts.csv", "utf8");
-console.log(raw.split("\n").length - 1, "data rows");
+console.log(raw.trim().split(/\r?\n/).length - 1, "data rows");
 ```
 
 **Parse** turns that text into an array of objects. Read this one slowly — it is the densest code in the week:
@@ -67,7 +67,7 @@ console.log(raw.split("\n").length - 1, "data rows");
 type Row = Record<string, string>;
 
 function toRows(text: string): Row[] {
-  const [head, ...lines] = text.trim().split("\n");
+  const [head, ...lines] = text.trim().split(/\r?\n/);
   const cols = head.split(",");
   return lines.map((line) => {
     const cells = line.split(",");
@@ -76,7 +76,7 @@ function toRows(text: string): Row[] {
 }
 ```
 
-`Record<string, string>` means "an object whose keys and values are all strings" — you do not know the column names ahead of time, so you cannot write a fixed type. `.trim()` drops the blank line at the end of the file. `const [head, ...lines]` takes the first line as `head` and the rest as `lines`. `Object.fromEntries` builds an object from pairs, so a header of `name,company,status` and a line of `Dana Ruiz,Sentinel Health,replied` become one object with those three properties. `cells[i] ?? ""` supplies an empty string when a row is short.
+`Record<string, string>` means "an object whose keys and values are all strings" — you do not know the column names ahead of time, so you cannot write a fixed type. `.trim()` drops the blank line at the end of the file. `split(/\r?\n/)` splits on line breaks whether the file uses Mac/Linux line endings (`\n`) or Windows line endings (`\r\n`) — many CRM exports use the Windows style, and splitting on `"\n"` alone leaves an invisible `\r` stuck to the last column, so if `status` is your last column, `r.status === "messaged"` silently fails on every row. `const [head, ...lines]` takes the first line as `head` and the rest as `lines`. `Object.fromEntries` builds an object from pairs, so a header of `name,company,status` and a line of `Dana Ruiz,Sentinel Health,replied` become one object with those three properties. `cells[i] ?? ""` supplies an empty string when a row is short.
 
 This parser splits on every comma, so a company name containing a comma will break it. That is a real limitation, and naming it is more honest than pretending otherwise — in production you would reach for a CSV library.
 

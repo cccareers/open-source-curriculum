@@ -50,6 +50,17 @@ time saved per week
 
 Use measured before-and-after numbers, not guesses. If setup took ninety minutes, say so and state how many weeks until it pays back.
 
+A worked example. You build a saved prompt plus a template that turns three pasted sources into a five-bullet account summary. You do this step 25 times a week. Timed twice by hand: 13 and 15 minutes, so 14 before. Timed twice with the automation, *including* the time you spend checking the output: 4 and 5 minutes, so 4.5 after. Upkeep — fixing the template when a source format changes — is about 20 minutes a week. Setup took 90 minutes.
+
+```text
+time saved per week = 25 x (14 - 4.5) - 20
+                    = 25 x 9.5 - 20
+                    = 217.5 minutes, about 3.6 hours
+payback             = 90 setup minutes / 217.5 per week = under 1 week
+```
+
+Every input in that calculation is a number you timed or counted, and you can show where each came from when the room asks.
+
 **5. A live demo to the cohort.** Five minutes: the problem, the design, the run, the number. Expect questions on the number.
 
 ## Constraints

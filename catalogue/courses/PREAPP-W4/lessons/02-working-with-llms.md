@@ -15,6 +15,8 @@ objectives:
 
 ## The gap between a question and a prompt
 
+Claude and ChatGPT are both **large language models (LLMs)**: programs trained on enormous amounts of text to produce the most likely useful continuation of whatever you give them. That is why they write fluently, and also why they can state things that sound right but are not — they generate plausible text, they do not look facts up unless a tool is doing that for them.
+
 Most people type into Claude or ChatGPT the same way they type into a search bar: a short line, no context, and a hope that the model guesses right. Sometimes it does. More often you get something plausible, generic, and unusable — and because it reads well, you waste ten minutes editing it before admitting it was never close.
 
 A prompt is not a question. A prompt is a **brief**. When you hand work to a new teammate, you tell them who they are on this job, what they need to know, what you want done, and what form the finished thing should take. Do less than that and you get back whatever they assumed. Models behave the same way, except they never ask a clarifying question unless you invite one — they just fill the gaps with the most average answer available.
@@ -55,6 +57,8 @@ OUTPUT FORMAT:
 - One question at the end that is answerable in a sentence
 - Below the draft, list every factual claim the email makes
 ```
+
+The Northwind example is written from a seller's chair because this is the sales-shaped version of the skill. When you point it at your own pipeline, the four parts translate directly: **role** is "a pre-apprentice in a tech training program reaching out to a hiring contact"; **context** is the contact's real profile details, their company's careers page, and what you have already sent them; **task** is the one thing you need (a first touch, a follow-up, a summary of their team); and **output format** stays exactly as strict.
 
 That last format line matters more than it looks. Asking the model to list the claims it made turns an unverifiable paragraph into a checklist you can work through in thirty seconds. You will use that trick all week.
 

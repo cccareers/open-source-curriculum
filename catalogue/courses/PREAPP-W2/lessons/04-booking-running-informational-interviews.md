@@ -27,7 +27,7 @@ The move is the same every time: **reply fast, propose concretely, confirm in wr
 
 **Fast** means within a few hours, same business day at the outside. Interest decays. The person who said yes on Tuesday morning has forgotten who you are by Friday.
 
-**Concretely** means you do the scheduling work, not them. Never send "whenever works for you" — that hands a busy person an open-ended task. Send two or three specific windows and a calendar link:
+**Concretely** means you do the scheduling work, not them. Never send "whenever works for you" — that hands a busy person an open-ended task. Send two or three specific windows and a calendar link — a **booking link** is a page from a scheduling tool (most calendar apps and several free services offer one) that shows your open slots and lets the other person pick one, which then lands on both calendars:
 
 ```text
 Thanks Dana — that's generous of you.

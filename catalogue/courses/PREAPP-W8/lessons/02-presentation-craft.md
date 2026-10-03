@@ -17,7 +17,7 @@ objectives:
 
 A results presentation is not a demo, a status update, or a thank-you speech. It is a short, evidence-backed argument that you did something real and can do it again. Seven to ten minutes is the whole budget, and the room is mixed: CCC staff who watched you all eight weeks, employer partners who met you once or never, and network contacts you invited yourself. Three audiences, one talk, one shot.
 
-That constraint drives every decision in this lab. At a comfortable speaking pace you have roughly nine hundred to twelve hundred words of actual speech. That is four to five minutes of content plus the time you lose to transitions, a live artifact, and nerves. You cannot cover everything you did in eight weeks. You are choosing.
+That constraint drives every decision in this lab. At a comfortable speaking pace of about 130 to 150 words a minute, plan on roughly nine hundred to twelve hundred words of actual speech. That fills about six to eight minutes, and the rest of the window goes to transitions, a live artifact, pauses, and nerves. You cannot cover everything you did in eight weeks. You are choosing.
 
 The selection rule is simple: **keep what an employer partner could act on.** Staff already know your story, so telling it again spends time on the audience least able to hire you. The partner in row three is deciding whether to ask for your resume. Everything in the talk should push that decision.
 
