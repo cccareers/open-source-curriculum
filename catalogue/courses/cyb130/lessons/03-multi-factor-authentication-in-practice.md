@@ -29,7 +29,7 @@ Every method below is stronger than a password alone. They are not equal to each
 
 **SMS and voice one-time codes.** A code sent to a phone number. Genuinely useful, and by a wide margin better than nothing — but it is the weakest common possession method, for two reasons a technician should be able to state plainly: a phone number can be moved to a different device by someone who convinces a carrier to do it, and the message can be delivered to a screen that is visible without unlocking the phone. It is also a code the user can be talked into reading aloud. Use it where nothing better is possible, never for administrators, and always with a plan to move off it.
 
-**Time-based one-time password apps (TOTP).** A code generated on the device from a shared seed and the current time, no network needed. Cheap, works offline, works on almost any smartphone, and the seed never leaves the device after enrollment. Its weakness is that the code is a short string the user reads and types, so it can be typed into the wrong place, and it depends on the phone's clock being roughly right.
+**Time-based one-time password apps (TOTP).** A code generated on the device from a shared seed and the current time, no network needed. Cheap, works offline, works on almost any smartphone, and after enrollment the seed is held only by the device and the authentication service; it is never sent again. Because the service holds a copy, the seed store itself needs protecting as carefully as a password store. Its weakness is that the code is a short string the user reads and types, so it can be typed into the wrong place, and it depends on the phone's clock being roughly right.
 
 **Push approval.** The service sends a prompt to an app on the enrolled device and the user approves. Better usability than typing codes, and the approval carries context. Its weakness is a well-documented one: if the user is prompted repeatedly, someone eventually taps *approve* to make the buzzing stop. The mitigation is **number matching** — the login screen displays a number the user must enter into the app — plus showing the application, location, and time in the prompt, plus rate-limiting and alerting on repeated denials. Never deploy push without number matching if the platform supports it.
 
@@ -169,3 +169,9 @@ Produce a table with one row per population and columns for: recommended primary
 **Part 5 — Critique a real enrollment flow.** Enroll a second factor on any account you legitimately control, and write up the flow as an assessor would: what identity verification was required before enrollment, whether the enrollment could have been performed by someone who had only the password, whether you were notified that a factor had been added, what recovery options were offered, and whether any of those recovery options are weaker than the factor itself. Finish with the single change that would most improve the flow.
 
 **Deliverable:** one document containing the population table with its three answers, the four policy statements, the recovery procedure with its rationale, the rollout plan, and the enrollment critique.
+
+## Check your understanding
+
+1. Which method should administrators get, and what property decides it? *A FIDO2 security key or passkey (or a smart card). It is phishing-resistant because the credential is bound to the site.*
+2. A user reports repeated push prompts they did not start. Is this a support call? *No. It is a security event. Escalate it, and do not help the user make the prompts stop.*
+3. Why does the reset process decide the real strength of an MFA deployment? *If the desk restores access after weak verification, an attacker only needs to pass that verification, not the factor.*

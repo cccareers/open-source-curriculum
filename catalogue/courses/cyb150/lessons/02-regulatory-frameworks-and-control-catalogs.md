@@ -261,3 +261,9 @@ Requirement 5 is a trap, and it is the most realistic item on the list. Write th
 **Exercise 5 — Find the double verb.**
 
 Requirement 3 contains more than one obligation, in the same way the audit-logging example did. Split it into the smallest set of separate control statements that fully covers it, and say which of them is most likely to pass a design review and fail an operating-effectiveness test a year later. Justify your pick in two sentences.
+
+## Check your understanding
+
+1. A colleague says "we have to do it, it's NIST CSF." What is the first question to ask? *Which instrument actually binds us here: a law, a contract, a certifiable standard, or a voluntary framework? CSF obliges nobody by itself, so the obligation, if there is one, comes from somewhere else.*
+2. HIPAA encryption at rest is "addressable." What does that require? *An assessment and a documented decision by the security officer. Implement it if it is reasonable and appropriate; otherwise document why and implement an equivalent alternative. It is not "optional".*
+3. You are fairly sure the right SOC 2 criterion is CC6.3 but have not checked. What do you write? *"SOC 2 — CC6.x, unverified, confirm with compliance". Never a plausible-looking number.*
