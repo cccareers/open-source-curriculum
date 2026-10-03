@@ -53,3 +53,11 @@ docker info            # what the engine says about itself
 1. Run `docker pull python:3.11-slim`, then `docker images`, and note the size. Pull it a second time and observe that nothing is downloaded.
 2. Run the `docker run` command above. Then run it again without `--rm` and use `docker ps -a` to find the exited container. Remove it with `docker rm demo`.
 3. Run `docker run --rm python:3.11-slim echo hi` and explain in one sentence why the container stopped on its own.
+
+## Check your understanding
+
+1. You run `docker run -d python:3.11-slim python -c "print('hi')"`. A second later `docker ps` shows nothing. Is something broken?
+2. You pull `python:3.11-slim`, then pull another image built on the same Debian base. Why is the second download smaller than its listed size?
+3. Which part of Docker actually starts the container: the `docker` command you typed, or something else?
+
+*Answers:* (1) No. The main process printed and exited, so the container stopped; `docker ps -a` shows it as `Exited (0)`. (2) Layers already in the local cache are reused, not re-downloaded. (3) The Docker Engine. The `docker` CLI is only a client that sends the request over a local socket.

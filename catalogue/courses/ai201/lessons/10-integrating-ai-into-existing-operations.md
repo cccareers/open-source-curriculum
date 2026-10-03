@@ -145,7 +145,7 @@ Take the workflow you built in lesson 08 or 09 and produce a complete integratio
 3. **Write the pilot plan**: team, queue, window, decision date, the baseline figures from your process map, success criteria, and stop conditions including a team-requested stop.
 4. **Name the four roles** with real people, and note for each what they must be able to do that they cannot do today. If you cannot name a workflow owner, write down what that means for the project.
 5. **Run shadow mode for at least a week** on live or realistic data. Log the automation's decision alongside the human's for every case and compute the agreement rate. Report the three cases where they disagreed most instructively and what you changed as a result.
-6. **Write the runbook**, all twelve sections. Include at least five real common issues drawn from problems you actually hit.
+6. **Write the runbook**, all eleven sections. Include at least five real common issues drawn from problems you actually hit.
 7. **Build and test the kill switch.** Flip it, confirm the workflow stops at its first step within two minutes, and document what happened to work in flight. Have someone other than you flip it, using only the runbook.
 8. **Test the manual fallback.** Have someone else run the process by hand from the runbook for at least three cases. Every place they had to ask you a question is a gap in the runbook; fix them all.
 9. **Hold the decision point** with a peer or the process owner. Present baseline versus pilot, the incidents, and a recommendation. Write down the decision, the evidence, and one thing you would design differently next time.

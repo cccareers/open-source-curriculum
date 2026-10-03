@@ -23,7 +23,7 @@ docker exec -it rag-api bash
 
 Now you are at a prompt inside the container's filesystem and can use ordinary terminal skills: `ls /app` to see what actually got copied, `cat requirements.txt` to check what the image believes it installed, `env` to see the environment variables the process received, `ps aux` to see which processes are running, `pip list` to confirm versions.
 
-Slim images have `bash`; some minimal images only have `sh`. If `bash` is not found, try `docker exec -it rag-api sh`.
+Slim images have `bash`; some minimal images only have `sh`. If `bash` is not found, try `docker exec -it rag-api sh`. Slim images also leave out `ps` and `curl`, so expect `command not found` for those. Install them temporarily with `apt-get update && apt-get install -y procps curl` while you diagnose, knowing the install disappears with the container.
 
 You can also run a single command without a shell, which is ideal for scripting:
 
@@ -59,7 +59,11 @@ docker inspect rag-api       # full configuration as JSON
 docker stats rag-api         # live CPU and memory
 ```
 
-`docker ps -a` showing `Exited (1)` means the process failed; the last lines of the log almost always name the reason — a missing module, a bad path, a port already bound. `Exited (137)` is the one to recognize in AI work: the process was killed with SIGKILL, and on a laptop that usually means it exceeded the memory Docker Desktop's VM has. Loading a model too large for the allocation produces exactly this, with no Python traceback to explain it.
+`docker ps -a` showing `Exited (1)` means the process failed; the last lines of the log almost always name the reason — a missing module, a bad path, a port already bound. `Exited (137)` is the one to recognize in AI work: the process was killed with SIGKILL, and on a laptop that usually means it exceeded the memory Docker Desktop's VM has. Loading a model too large for the allocation produces exactly this, with no Python traceback to explain it. Exit code 137 only says "SIGKILL", though. You also get it after `docker kill`, or when `docker stop` gives up on a process that ignored SIGTERM. Confirm a memory kill before you shrink the model:
+
+```bash
+docker inspect --format '{{ .State.OOMKilled }}' rag-api   # true means the memory limit killed it
+```
 
 `docker inspect` is verbose but authoritative. Filter it rather than reading it whole:
 

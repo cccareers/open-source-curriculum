@@ -34,7 +34,7 @@ PUT    https://api.example.com/v2/bookings/8841      replace one entirely
 DELETE https://api.example.com/v2/bookings/8841      remove one
 ```
 
-Two of these have a safety property worth knowing. `GET` and `DELETE` are **idempotent** in principle — calling them twice has the same effect as once — as is `PUT`. `POST` is not: two identical `POST`s create two bookings. That is exactly the idempotency problem from lesson 07, and it is why retries around a `POST` need a key or a find-first step.
+Two of these have a safety property worth knowing. `GET` and `DELETE` are **idempotent** in principle — calling them twice has the same effect as once — as is `PUT`. `POST` is not: two identical `POST`s create two bookings. That is exactly the idempotency problem from lesson 07, and it is why retries around a `POST` need a key or a find-first step. `PATCH` is not guaranteed idempotent either: setting a field to a value is safe to repeat, but a `PATCH` that appends to a list or increments a counter is not. Read what the endpoint does before you retry it.
 
 A request has four parts you will configure.
 
@@ -124,7 +124,7 @@ Five things in that body are deliberate and each prevents a specific failure.
 
 **`Content-Type: application/json` is set.** Omit it and many APIs will refuse the body or parse it as form data. This is the single most common cause of a mysterious `400` on a request that looks correct.
 
-**Quotes inside mapped values are escaped.** A user typing `He said "urgent"` in the Details field will produce invalid JSON and a `400` that appears intermittently and looks like an API fault. Escape or strip quotes in any free-text value you interpolate, or use the platform's structured body builder rather than raw JSON where one is offered.
+**Quotes inside mapped values are escaped.** A user typing `He said "urgent"` in the Details field will produce invalid JSON and a `400` that appears intermittently and looks like an API fault. Escape or strip quotes in any free-text value you interpolate, or use the platform's structured body builder rather than raw JSON where one is offered. Quotes are not the only offender. A raw line break and a backslash inside a JSON string are just as invalid, so the `replace()` in the example above handles only one of three cases. A multi-line Details field needs its newlines escaped (as `\n`) or replaced with spaces as well.
 
 **The date is formatted explicitly** into the format the API documents, rather than passed through and hoped over.
 
@@ -259,3 +259,9 @@ Choose a real API with a free tier and a sandbox — a public data service, a pr
 8. **Survive a rate limit.** Fire enough requests in a burst to receive a `429`. Show the rate-limit headers, implement `Retry-After` handling plus a delay inside the loop, and demonstrate the same burst completing. State the requests-per-minute your workflow now sustains.
 
 9. **Make the `POST` idempotent and reusable.** Add a search-first step or an idempotency key so that running the create twice with the same input produces one object. Then extract the whole call into a reusable component or sub-workflow, call it from a second workflow, and list every place you would have to edit if the API moved to v3.
+
+## Check your understanding
+
+1. A `POST` that looks correct returns `400`, and the same request works from `curl`. What two causes do you check first? *Answer: a missing `Content-Type: application/json` header in the HTTP step, and an unescaped quote, newline, or backslash in an interpolated free-text value.*
+2. Your HTTP step's output has values, but downstream fields are empty. What is the likely cause? *Answer: the wrong response path, for example mapping `id` when the API returns the object inside `data`. Check the actual parsed output panel.*
+3. A `401` and a `429` arrive in the same hour. How should each be handled? *Answer: 401 means no retry. Alert immediately, because it is a credential problem a human must fix. 429 means wait (use `Retry-After` if present, otherwise backoff) and retry within your cap.*

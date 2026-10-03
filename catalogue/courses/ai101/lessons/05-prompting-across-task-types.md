@@ -232,7 +232,7 @@ It helps to see how different the four text prompts look when pointed at the sam
 | Transformation | The customer's paragraph rewritten as a neutral incident note | Constraints (preservation) | Low | Silent meaning change |
 | Generation | A reply that acknowledges the issue and asks one question | Context and role | Moderate | Genericness, invented commitments |
 
-Four prompts, one email, four different centres of gravity. Deciding which row you are on before you start writing is the practical skill this lesson is teaching — and noticing that these four are often wanted *together* is the setup for lesson 06.
+Four prompts, one email, four different centers of gravity. Deciding which row you are on before you start writing is the practical skill this lesson is teaching — and noticing that these four are often wanted *together* is the setup for lesson 06.
 
 ## Where these land in real work
 
@@ -258,3 +258,12 @@ Use one document you have real access to — a long email thread, a policy page,
 3. **Compare extractive and abstractive summaries.** Produce a five-quoted-sentence extractive summary and a 100-word abstractive one from the same source. Verify each claim in the abstractive version against the document and note anything present in the summary but not in the source. Write two sentences on when you would use each.
 
 4. **Build an image in four passes.** Choose an image you actually need. Pass one: a single vague sentence. Pass two: add subject and setting detail. Pass three: add composition and lighting. Pass four: add style and aspect ratio. Save all four prompts and all four results. Then produce a fifth image changing exactly one clause from pass four, and write one sentence on what that clause controlled.
+
+## Check your understanding
+
+1. For each request, name the task family and the block that carries the weight: (a) "Turn this incident log into a row with site, system, and time"; (b) "Give the site manager the three things she must decide today from this report"; (c) "Rewrite this policy paragraph for new hires at a sixth-grade reading level".
+2. An extraction prompt returns `"order_date": "2025-03-04"` from text that says only "March 4th". What went wrong, and what rule prevents it?
+3. Why does `use only these facts` make a generation task more reliable?
+4. You need a careers-page image with the company name on a sign in the background. What should you plan for?
+
+*Answers:* (1) (a) Extraction — format; (b) summarization — constraints (for whom, how long, what must survive); (c) transformation — constraints, specifically a preservation clause. (2) The model invented a year that is not in the source; "if a value is not stated, use null — never guess or infer", plus checking outputs against the source. (3) It turns invention into transformation of supplied material, which is where models are strongest. (4) Text inside generated images is unreliable; generate the image without it and set the sign text in a design tool afterwards.

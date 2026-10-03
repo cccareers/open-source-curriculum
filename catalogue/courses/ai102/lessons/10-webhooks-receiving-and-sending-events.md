@@ -107,14 +107,14 @@ Filter: Authorised request
 
 Simple, better than nothing, and weak: the secret travels in full on every request, so anyone who ever captures one request has it forever.
 
-**An HMAC signature.** The proper mechanism, and what serious APIs use. The sender computes a hash of the request body using a secret only the two of you know, and puts it in a header:
+**An HMAC signature.** The proper mechanism, and what serious APIs use. HMAC (hash-based message authentication code) is a hash computed with a secret key. The sender computes an HMAC over the request using a secret only the two of you know, and puts it in a header:
 
 ```text
-X-Signature: t=1741079520,v1=5f2b9c1d8e0a4b6f3c7d2e9a1b8c4d6e0f3a7b2c9d1e5f8a
+X-Signature: t=1741079520,v1=5f2b9c1d8e0a4b6f3c7d2e9a1b8c4d6e0f3a7b2c9d1e5f8a6b4c2d0e9f7a5b3c
 X-Request-Timestamp: 1741079520
 ```
 
-You recompute the same hash over the body you received and compare. If they match, the body is unmodified and was produced by someone holding the secret.
+Exactly which string is signed is defined by the sender's documentation. Many senders sign the body alone. Timestamped schemes like the one above usually sign the timestamp and the body joined together (for example `1741079520.` followed by the raw body), so that the timestamp cannot be altered without breaking the signature. You build the same string from what you received, compute the HMAC with your copy of the secret, and compare it with the value in the header. An HMAC-SHA256 written in hexadecimal is 64 characters long. If they match, the body is unmodified and was produced by someone holding the secret. Code-based receivers use a constant-time comparison so an attacker cannot learn the signature from response timing. A no-code text-equality filter cannot do that, which is one more reason to prefer callback verification (below) for anything consequential.
 
 Doing this in no-code needs a step that can compute an HMAC. Make has a **Crypto** or tools module that computes an HMAC-SHA256 over a string with a key; the list-shaped platform typically needs a small code step or an external utility. Where neither is available, you have three honest options: use a shared-secret header instead and accept the weaker guarantee; restrict by source IP if the sender publishes a stable range; or put a small hosted function in front of the webhook to verify and forward. Choose deliberately and write down which you chose and why.
 
@@ -229,3 +229,9 @@ You need a source system that emits webhooks — a form tool, a payment sandbox,
 8. **Send a webhook to yourself.** Have workflow A post a well-formed outbound event — unique id, type, timestamp, identifiers only, shared secret header — to workflow B's catch URL. Handle the response, retry a forced `503`, and dead-letter a permanent failure. Then trace one logical operation across both run histories using the shared event id.
 
 9. **Compare poll and push.** Take an existing polling trigger from an earlier lesson and, where the source supports it, replace it with a webhook. Report end-to-end latency before and after, and the monthly operations or tasks consumed by each at your real event volume.
+
+## Check your understanding
+
+1. Your webhook scenario calls a model and writes three records before responding, and the sender keeps recording failed deliveries. What is happening, and what is the fix? *Answer: the sender times out waiting and retries, which creates duplicates. Let the platform acknowledge on capture (or respond first), process afterwards, and deduplicate on the event id anyway.*
+2. Why must a signature be checked against the raw body rather than the parsed JSON? *Answer: parsing and re-serialising can change key order, whitespace, or escaping, which changes the bytes and therefore the HMAC. Only the exact bytes the sender signed will match.*
+3. Events can arrive out of order. Name one way to avoid acting on stale state. *Answer: use the callback pattern to fetch the object's current state, or compare a version or timestamp on the payload and ignore anything older than what you have stored.*

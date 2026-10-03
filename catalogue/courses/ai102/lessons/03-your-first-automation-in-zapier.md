@@ -18,7 +18,7 @@ A Zapier automation is called a **Zap**, and it has exactly one shape: a single 
 
 That last point deserves emphasis because it governs everything you build. A Zap has **no memory between runs**. Run 41 knows nothing about run 40. If your process needs to know what it already did — which applicants it has already contacted, how many times it has retried — that knowledge has to live in a system outside the Zap, which is why lesson 05 puts a database underneath. Treat the Zap as a pipe, not a tank.
 
-Each run of a Zap over a single item is called a **task-producing run**, and Zapier's billing counts the action steps that execute. The trigger itself is free; every action step that runs costs one task. A five-step Zap firing 200 times a month is roughly 800 tasks, not 200 and not 1,000. Knowing this shapes design: two Zaps of three steps each cost the same as one Zap of six steps, so split for clarity when clarity helps, and merge when it does not.
+Each time the Zap processes one item is a **run**, and Zapier's billing counts the action steps that complete successfully in it, each one a **task**. The trigger itself is free. So, at the time of writing, are Zapier's built-in logic and formatting steps (Filter, Paths, and Formatter). Every other action step that runs costs one task. Check Zapier's current task-usage help page before you budget, because what counts has changed before. A five-step Zap firing 200 times a month is roughly 800 tasks, not 200 and not 1,000. Knowing this shapes design: two Zaps of three steps each cost the same as one Zap of six steps, so split for clarity when clarity helps, and merge when it does not.
 
 ## Triggers: instant, polling, and scheduled
 
@@ -130,7 +130,7 @@ Mapping is where beginners lose the most time, so a few specifics.
 
 **Data comes out of connectors as strings more often than you expect.** A date picked up from a spreadsheet is usually a string in whatever format the sheet displayed it. A number may arrive as `"1,240"` with a thousands separator. A checkbox may arrive as `TRUE`, `true`, `Yes`, or `1` depending on the connector. The destination field may reject any of these. When a create step fails with a validation error, the cause is almost always a type mismatch of this kind, not a broken connector.
 
-**The Formatter step is how you fix that.** Zapier's built-in Formatter is an action like any other (it costs a task) with utilities grouped by type:
+**The Formatter step is how you fix that.** Zapier's built-in Formatter is an action like any other, though at the time of writing it does not count towards your task usage. Its utilities are grouped by type:
 
 ```text
 Formatter -> Date / Time -> Format
@@ -226,3 +226,9 @@ Build these for real in a free workspace. You need a spreadsheet, a no-code data
 5. **Count the cost.** From your Zap History, count the action steps that executed across your ten test runs. State the tasks consumed per run, project the monthly cost at 40, 400, and 4,000 rows per month, and identify which single step you would remove first if you had to halve it.
 
 6. **Write the handover note.** In under 200 words, describe for a colleague: what the Zap does, what turns it on, what data it writes, what happens if the deadline field is empty, and the first two places to look when someone says "it did not run." Then have someone else read it and tell you which of their questions it did not answer.
+
+## Check your understanding
+
+1. Your Zap has a trigger, a Formatter step, a Create Record step, and a Send Channel Message step, and it runs 300 times a month. Roughly how many tasks is that, and what should you check before quoting it? *Answer: about 600 (two counted action steps x 300), because the trigger is free and Formatter currently does not count. Check Zapier's current task-usage page, because what counts has changed before.*
+2. You edited a live Zap, tested it, and it still behaves the old way in production. What is the most likely cause? *Answer: the edit is an unpublished draft. The running version is still the old one until you publish.*
+3. Why does carrying `Source Row Id` into the destination record matter for duplicates? *Answer: it gives you a stable key for find-or-create, so a re-fired trigger or a replay finds the existing record instead of creating another. That makes the Zap idempotent.*
