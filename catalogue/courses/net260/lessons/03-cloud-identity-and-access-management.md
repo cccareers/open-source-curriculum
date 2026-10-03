@@ -346,3 +346,11 @@ Against your lab account, perform all five passes and produce a complete audit r
 **Exercise 5 — Kill a static key.**
 
 Choose one machine identity in your lab that authenticates with a long-lived static key. Write the migration plan to remove that key entirely: which workload identity or federation mechanism replaces it, the order of operations that avoids an outage, how you will confirm the old key is unused before deleting it, and the rollback step if the cutover fails. Then execute it in the lab and attach the audit log evidence showing the last use of the old key and the first use of the new identity.
+
+## Check your understanding
+
+1. A principal has an identity policy allowing `s3:GetObject` on a bucket, and an organization-level policy denies all `s3` actions in the account. Allowed or denied, and why?
+2. `P2` holds `ec2:RunInstances` and `iam:PassRole` on `*` and no IAM-write permissions. Why is it effectively an administrator?
+3. Two `Contributor` assignments look identical in a list. What single field do you record to tell their blast radius apart?
+
+**Answers:** (1) Denied — an explicit deny anywhere wins over every allow. (2) It can launch an instance with a privileged role attached and use that role's credentials from inside it. (3) The scope at which each was granted (resource group vs. subscription or higher), since inheritance is additive downward.

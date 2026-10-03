@@ -286,3 +286,11 @@ Deploy the container image from lesson 09 to `dev`, then promote the same image 
 **Exercise 5 — Write the change record and rehearse the rollback.**
 
 Pick one security-relevant change — closing a finding from any earlier lesson — and produce a complete change record in the format above: reason linked to a finding, commit and plan output, gate results, risk with blast radius and mitigation, two approvers neither of whom is you, execution details naming the identity used, verification evidence that the control actually works, and a rollback method. Then actually execute the rollback in your lab, time it, and record the measured time to restore. A rollback you have not run does not go in the record as rehearsed.
+
+## Check your understanding
+
+1. `terraform plan -detailed-exitcode` returns 2 on the production schedule. What does that mean, and what is your first step for each of the three triage categories?
+2. Why must production deploy the image by digest that was tested in staging rather than rebuilding from the same commit?
+3. A state file is found in the application repository. Why is that a finding even if the repository is private?
+
+**Answers:** (1) Drift detected. Unauthorized change: investigate it as a security event using the control-plane log, then revert. Authorized emergency change: codify it in the declaration. Provider noise: suppress it narrowly, with a comment. (2) A rebuild is a different artifact that no gate verified, so the gate results no longer describe what is running. (3) State often contains identifiers, connection details, and secret values in plaintext. Anyone with repository access, and the whole repository history, now holds them.

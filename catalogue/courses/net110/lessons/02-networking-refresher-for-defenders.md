@@ -99,7 +99,7 @@ Ports a support technician should know without looking up:
 | --- | --- | --- | --- |
 | 22 | TCP | SSH | Encrypted admin access; inbound from the internet deserves scrutiny |
 | 23 | TCP | Telnet | Plaintext admin access; should not exist on a modern network |
-| 25 / 587 / 465 | TCP | SMTP submission | Outbound 25 from a workstation is almost never legitimate |
+| 25 / 587 / 465 | TCP | SMTP (25 server-to-server relay; 587 and 465 client submission) | Outbound 25 from a workstation is almost never legitimate |
 | 53 | UDP/TCP | DNS | Should go to your resolvers only; direct external DNS is a finding |
 | 67 / 68 | UDP | DHCP | Server/client; rogue servers show up here |
 | 80 | TCP | HTTP | Cleartext web; readable in capture |
@@ -315,3 +315,12 @@ For **each** of the five, write the seven facts from this lesson (source IP, sou
 - Any traffic that repeated at a fixed interval, with the interval measured
 
 Finish by writing three sentences: one describing what "normal" looks like for this host, one naming the single thing in your own data you would have flagged if you saw it on a network you did not build, and one saying what additional log source — DHCP lease, NAT session, or DNS resolver log — you would request to identify the host behind an address, and why.
+
+## Check your understanding
+
+1. How many usable host addresses are in `10.20.40.0/25`, and what are its network and broadcast addresses?
+2. A flow record reads `10.20.30.41:50212 -> 10.20.50.7:3389 tcp ... conn_state=REJ`. Narrate it in one sentence, including what `REJ` tells you.
+3. A threat feed says your public address contacted a known-bad host at 14:32. Which three logs do you request to name the laptop and its user?
+4. Why is blocking *all* ICMP a self-inflicted outage?
+
+**Answers:** (1) 126 usable; network `10.20.40.0`, broadcast `10.20.40.127`. (2) The user-zone workstation `10.20.30.41` initiated an RDP connection to `10.20.50.7`, and the attempt was refused with a reset — the host is reachable but nothing accepted on 3389, or a firewall rejected it. (3) The NAT/session log for that timestamp, the DHCP lease log, and the asset inventory. (4) It drops "fragmentation needed" (type 3 code 4) messages, breaking path MTU discovery, so large transfers hang.

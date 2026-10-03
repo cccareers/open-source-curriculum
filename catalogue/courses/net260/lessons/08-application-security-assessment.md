@@ -258,3 +258,11 @@ Using two authorized test accounts, test every identifier-carrying endpoint in y
 **Exercise 5 — Produce the assessment report.**
 
 Write the complete report for your lab target. It must contain: the authorization record; scope and method; a coverage statement referencing the surface map; at least six verified findings in the format above, each with class, severity on a stated scale, reproducible evidence, impact, cloud context drawn from lessons 02 to 07, remediation, a verification step, an owner and a target date; a section for automated findings you discarded and why; and an explicit "not tested" section. At least one finding must be a class that DAST could not have found, and at least one must have its severity changed — up or down — by the cloud context. Keep this report; project 12 assesses an application you have deployed yourself.
+
+## Check your understanding
+
+1. Why did the DAST run in the worked triage report zero access-control findings, even though two exist?
+2. A team fixes an IDOR by switching to random, non-sequential identifiers and closes the ticket. What do you tell them?
+3. What is the first artifact of every assessment, and why is it quoted at the top of the report?
+
+**Answers:** (1) DAST cannot know which record belongs to which user; access control needs two authorized accounts and manual cross-testing. (2) That is defense in depth, not a fix — anyone holding a valid identifier can still read records they do not own; the server must check ownership. (3) The written authorization and scope — unauthorized testing is unlawful regardless of intent, and the scope tells the reader what was and was not in bounds.
