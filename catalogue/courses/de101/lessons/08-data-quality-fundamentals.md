@@ -177,6 +177,8 @@ WHERE a.order_id = b.order_id
        OR (a.updated_at = b.updated_at AND a.ctid < b.ctid));
 ```
 
+`ctid` is PostgreSQL's physical row identifier, used here only as a tie-breaker when two versions share the same `updated_at`; other engines have no equivalent, and there you deduplicate into a new table instead: `ROW_NUMBER() OVER (PARTITION BY order_id ORDER BY updated_at DESC) = 1`. That version also honours the "never in place" rule above, so prefer it when you can.
+
 Before deleting anything, count what you are about to remove and compare it to what you expected. A dedup step that suddenly removes 40% of rows is not a dedup step working well; it is a symptom.
 
 Fuzzy duplicates — the same customer entered twice with a typo — are a genuinely hard problem involving normalization, blocking, and similarity scoring. Recognize them, count them, and escalate rather than silently merging. Merging two customers who are actually different people is a much more expensive error than leaving two records for one person.
@@ -254,7 +256,7 @@ A note on scope: these checks are written by hand here on purpose, so you unders
 
 ## Practice
 
-You will need a deliberately messy dataset. Take the e-commerce database from lesson 4 and export `orders` joined to `customers` as CSV, then corrupt it — or have a classmate corrupt it, which is better because you will not know what to look for. Introduce at least: 3% nulls in two columns, some duplicate `order_id` values with differing contents, at least four capitalization and spelling variants of `order_status`, some `order_total` values as text with currency symbols and thousands separators, a `-999` sentinel in a numeric column, mixed date formats, some emails with leading and trailing whitespace, a handful of `customer_id` values that exist in no customer record, and one date in the year 2087.
+You will need a deliberately messy dataset. Take the e-commerce database from lesson 4 and export `orders` joined to `customers` as CSV, adding an `order_total` column computed as `SUM(quantity * unit_price)` from `order_lines` (the lesson 3 `orders` table has no total of its own), then corrupt it — or have a classmate corrupt it, which is better because you will not know what to look for. Introduce at least: 3% nulls in two columns, some duplicate `order_id` values with differing contents, at least four capitalization and spelling variants of `order_status`, some `order_total` values as text with currency symbols and thousands separators, a `-999` sentinel in a numeric column, mixed date formats, some emails with leading and trailing whitespace, a handful of `customer_id` values that exist in no customer record, and one date in the year 2087.
 
 **1. Profile blind.** Without opening the file in a spreadsheet or looking at how it was corrupted, run a profiler over it and produce a profile table covering every column. Then write a findings memo of at most one page listing every anomaly you detected, what you suspect caused each, and what you would ask the source owner. Only then compare against the actual list of corruptions. Score yourself: what did you miss, and what would have caught it?
 

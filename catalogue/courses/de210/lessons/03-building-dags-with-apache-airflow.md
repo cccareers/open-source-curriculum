@@ -66,6 +66,7 @@ A task is one retryable unit of work. Under the TaskFlow API you write a plain P
 ```python
     @task
     def extract_orders(data_interval_start=None, data_interval_end=None) -> str:
+        import json
         import requests
         from pathlib import Path
 
