@@ -65,7 +65,7 @@ Anything you could not verify or that needs a decision.
 
 ## Project briefs — `projects/NN-<slug>.md`
 
-Supplementary practice that reinforces existing objectives. Prefer realistic workplace scenarios that match the course's existing running examples and pathway. Coding courses: include a runnable acceptance-test sketch (CONTRIBUTING.md asks that coding projects ship with a learner-runnable test suite). Non-coding courses (CHW, sales, marketing, ServiceNow config, pre-apprenticeship): use role-plays, artifacts, configuration checklists, case files, and evidence portfolios instead.
+Supplementary practice that reinforces existing objectives. Prefer realistic workplace scenarios that match the course's existing running examples and pathway. Coding courses: include an automated acceptance-test suite that learners can run to check their own solution, as CONTRIBUTING.md requires for coding projects. A draft may present it inline in the brief; when the project is promoted into `catalogue/`, ship it as runnable test files. Non-coding courses (CHW, sales, marketing, ServiceNow config, pre-apprenticeship): use role-plays, artifacts, configuration checklists, case files, and evidence portfolios instead.
 
 ```markdown
 ---

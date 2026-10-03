@@ -41,6 +41,18 @@ Body`;
   assert.equal(data.kind, 'lesson');
 });
 
+test('Frontmatter Parser: sibling key after an indented list is not folded into it', () => {
+  const content = `---
+  objectives:
+    - Write reports
+  kind: lesson
+---
+Body`;
+  const { data } = parseFrontmatter(content);
+  assert.deepEqual(data.objectives, ['Write reports']);
+  assert.equal(data.kind, 'lesson');
+});
+
 test('Video Helper: identifies YouTube URLs', () => {
   const yt = parseVideoUrl('https://www.youtube.com/watch?v=dQw4w9WgXcQ');
   assert.ok(yt);

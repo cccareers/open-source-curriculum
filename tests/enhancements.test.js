@@ -95,7 +95,7 @@ test('Catalogue: lesson frontmatter objectives match course.json', () => {
     const lessonsDir = path.join(coursesDir, courseId, 'lessons');
     for (const lesson of meta.lessons || []) {
       const file = path.join(lessonsDir, `${String(lesson.order).padStart(2, '0')}-${lesson.slug}.md`);
-      if (!fs.existsSync(file)) continue;
+      assert.ok(fs.existsSync(file), `${courseId}: lesson file missing for ${lesson.lesson_id}: ${path.basename(file)}`);
       const { data } = parseFrontmatter(fs.readFileSync(file, 'utf8'));
       assert.equal(data.lesson_id, lesson.lesson_id, `${courseId}/${path.basename(file)}: lesson_id drifted`);
       assert.deepEqual(
