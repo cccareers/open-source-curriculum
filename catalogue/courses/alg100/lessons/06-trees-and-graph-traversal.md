@@ -164,7 +164,7 @@ depthFirstGraph("auth.js", reverseGraph(imports), (m) => affected.push(m));
 console.log(affected);
 // ["auth.js", "app.js", "router.js"]
 ```
- The `seen` set is what makes graph traversal safe where tree traversal didn't need one: a tree can never revisit a node by construction, but a graph can, and forgetting to track visited nodes is the single most common bug in graph-walking code — an infinite loop that looks, from the outside, exactly like a hang.
+The `seen` set is what makes graph traversal safe where tree traversal didn't need one: a tree can never revisit a node by construction, but a graph can, and forgetting to track visited nodes is the single most common bug in graph-walking code — an infinite loop that looks, from the outside, exactly like a hang.
 
 ## Practice
 

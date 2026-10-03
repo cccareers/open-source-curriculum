@@ -83,3 +83,11 @@ Verifying a release is ultimately a judgment: does the evidence in the checklist
 ## Practice
 
 Run your capstone's release checklist against your current build: execute the full regression suite against the actual release branch, confirm the defect database has no open Blocker or Critical items (triage and resolve any that do), and tag the release in version control. Complete a documentation review pass using the checklist above, testing your setup instructions literally from a clean checkout. Assemble the handoff package listed above as a single document, and write a one-paragraph release verification conclusion stating your go/no-go judgment and the specific evidence behind it.
+
+## Check your understanding
+
+1. Why run the full regression suite against the release build rather than your daily development environment?
+2. What does tagging a release give you?
+3. Your checklist shows one open Critical defect. What are your honest options?
+
+*Answers:* (1) The release build is what ships; differences in build, config, or data can hide failures that the dev environment never shows. (2) An exact, retrievable snapshot of what shipped, for comparison or rollback. (3) Fix and re-verify it, or explicitly document and accept the risk with the stakeholder's agreement; never release quietly.
