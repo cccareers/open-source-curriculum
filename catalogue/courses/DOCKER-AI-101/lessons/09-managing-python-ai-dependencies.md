@@ -25,7 +25,7 @@ Three habits fix most of it.
 RUN pip install --no-cache-dir -r requirements.txt
 ```
 
-**Ask for the right build.** On `linux/amd64`, the default PyTorch wheel on PyPI bundles CUDA libraries and is enormous. On a laptop with no NVIDIA GPU you want the CPU build, which is a fraction of the size and the only one that will run anyway:
+**Ask for the right build.** On `linux/amd64`, the default PyTorch wheel on PyPI bundles CUDA libraries and is enormous. On a laptop with no NVIDIA GPU you want the CPU build, which is a fraction of the size. (The CUDA wheel would still run on the CPU; you would just be shipping gigabytes of GPU libraries you never use.)
 
 ```dockerfile
 RUN pip install --no-cache-dir \

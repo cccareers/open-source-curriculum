@@ -99,9 +99,18 @@ LOCK="$CTX/requirements.lock.txt"
 if [ -f "$LOCK" ] && ! grep -Ev '^\s*(#|$|--)' "$LOCK" | grep -vq '=='; then pass "every requirement is pinned with =="
 else fail "requirements.lock.txt missing or has unpinned lines"; fi
 
+# Join backslash-continued lines so a multi-line RUN is checked as one instruction.
+DF=$(awk '{ if (sub(/\\[[:space:]]*$/, "")) printf "%s ", $0; else print }' "$CTX/Dockerfile")
+if echo "$DF" | grep -Eiq '^COPY .*requirements\.lock\.txt' && echo "$DF" | grep -Eiq '^RUN .*pip install.*requirements\.lock\.txt'; then
+  pass "Dockerfile copies and installs from requirements.lock.txt"
+else fail "Dockerfile must COPY requirements.lock.txt and pip install from it"; fi
+
 if [ -f "$CTX/.dockerignore" ] && grep -Eq '^\.env$' "$CTX/.dockerignore" && grep -Eq '^\.git/?$' "$CTX/.dockerignore"; then
   pass ".dockerignore excludes .env and .git"
 else fail ".dockerignore must list .env and .git"; fi
+if [ -f "$CTX/.dockerignore" ] && grep -Eq '^!(\*\*/)?/?\.(env|git)/?$' "$CTX/.dockerignore"; then
+  fail ".dockerignore has a ! rule that re-includes .env or .git"
+else pass "no ! rule re-includes .env or .git"; fi
 
 # 2. Build
 if docker build -q -t "$IMAGE" "$CTX" >/dev/null; then pass "image builds"; else fail "image builds"; exit 1; fi
@@ -126,8 +135,8 @@ HIST=$(docker history --no-trunc --format '{{.CreatedBy}}' "$IMAGE")
 ENVS=$(docker image inspect "$IMAGE" --format '{{json .Config.Env}}')
 if echo "$HIST $ENVS" | grep -Eiq '(api_key|secret|token|password)=[^ "]+|sk-'; then fail "possible secret baked into image history or ENV"
 else pass "no secrets in history or ENV"; fi
-if docker run --rm --entrypoint sh "$IMAGE" -c 'test ! -e /app/.env && ! grep -rqs acceptance-sentinel /app'; then pass ".env not copied into the image"
-else fail ".env (or its contents) found inside the image"; fi
+if docker run --rm --entrypoint sh "$IMAGE" -c 'test ! -e /app/.env && test ! -e /app/.git && ! grep -rqs acceptance-sentinel /app'; then pass ".env and .git not copied into the image"
+else fail ".env, its contents, or .git found inside the image"; fi
 
 # 6. No toolchain in the final image
 if docker run --rm --entrypoint sh "$IMAGE" -c '! command -v gcc >/dev/null 2>&1 && ! command -v cc >/dev/null 2>&1'; then pass "no C compiler in final image"

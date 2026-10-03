@@ -63,7 +63,7 @@ A `rag-stack/` repository containing:
 - [ ] `compose.yaml` contains no literal secret values; every `${VAR}` it references is listed in `.env.example`.
 - [ ] `.env` is ignored by both Git and the Docker build context.
 - [ ] `scripts/setup.sh` exists, is executable, and pulls the models.
-- [ ] Live: `/health` responds, a stored document is retrieved as a source by `/ask`, and the document count survives `docker compose down` followed by `docker compose up`.
+- [ ] Live: `/health` responds, a stored document is retrieved as a source by `/ask`, and both the document count and the pulled models survive `docker compose down` followed by `docker compose up`.
 - [ ] `STARTUP-DIAGNOSIS.md` quotes real log lines and names the cause as "the host-published port was used for container-to-container traffic" (or equivalent).
 
 ## Automated checks (coding courses) / Evidence checklist (non-coding)
@@ -132,12 +132,18 @@ def test_dependencies_are_health_gated():
         assert cond == "service_healthy", f"api must wait for {dep} with condition: service_healthy"
 
 
+# Where each service keeps its state. Adjust the Chroma path if you pin a
+# Chroma release that stores data elsewhere (check the image's docs).
+STATE_DIRS = {"ollama": "/root/.ollama", "chroma": "/chroma/chroma"}
+
+
 def test_state_lives_on_named_volumes():
     cfg = resolved_config()
     declared = set(cfg.get("volumes", {}))
-    for svc in ("ollama", "chroma"):
+    for svc, target in STATE_DIRS.items():
         named = [v for v in cfg["services"][svc].get("volumes", []) if v.get("type") == "volume"]
-        assert named, f"{svc} must keep its data on a named volume"
+        assert any(v.get("target") == target for v in named), \
+            f"{svc} must mount a named volume at {target}"
         for v in named:
             assert v["source"] in declared, f"volume {v['source']} is not declared at top level"
 
@@ -158,7 +164,13 @@ def test_no_literal_secrets_and_env_example_complete():
 def test_env_is_ignored_everywhere():
     for ignore in (ROOT / ".gitignore", ROOT / "api" / ".dockerignore"):
         assert ignore.exists(), f"missing {ignore.relative_to(ROOT)}"
-        assert re.search(r"^\.env$", ignore.read_text(), re.M), f"{ignore.relative_to(ROOT)} must ignore .env"
+        text = ignore.read_text()
+        assert re.search(r"^\.env$", text, re.M), f"{ignore.relative_to(ROOT)} must ignore .env"
+        assert not re.search(r"^!(\*\*/)?/?\.env\s*$", text, re.M), \
+            f"{ignore.relative_to(ROOT)} has a ! rule that re-includes .env"
+    # Ask Git for the effective result after every ignore rule is applied.
+    result = subprocess.run(["git", "check-ignore", "-q", ".env"], cwd=ROOT)
+    assert result.returncode == 0, "git does not ignore .env (or rag-stack is not a git repository)"
 
 
 def test_setup_script_is_executable_and_pulls_models():
@@ -169,6 +181,12 @@ def test_setup_script_is_executable_and_pulls_models():
 
 
 # ---------- live checks ----------
+
+def ollama_models() -> set[str]:
+    out = subprocess.run(["docker", "compose", "exec", "-T", "ollama", "ollama", "list"],
+                         cwd=ROOT, capture_output=True, text=True, check=True).stdout
+    return {line.split()[0] for line in out.splitlines()[1:] if line.strip()}
+
 
 @live
 @pytest.mark.live
@@ -191,11 +209,14 @@ def test_store_then_ask_returns_source():
 @live
 @pytest.mark.live
 @pytest.mark.skipif(os.environ.get("DESTRUCTIVE_OK") != "1", reason="set DESTRUCTIVE_OK=1 to run down/up")
-def test_documents_survive_down_up():
+def test_documents_and_models_survive_down_up():
     before = http("GET", "/health")["docs"]
     assert before > 0, "add at least one document first"
+    models_before = ollama_models()
+    assert models_before, "pull the models first"
     subprocess.run(["docker", "compose", "down"], cwd=ROOT, check=True)
     subprocess.run(["docker", "compose", "up", "-d", "--wait"], cwd=ROOT, check=True)
+    assert ollama_models() >= models_before, "the Ollama model cache did not survive down/up"
     for _ in range(60):
         try:
             assert http("GET", "/health")["docs"] == before

@@ -83,7 +83,7 @@ If you need a clean build to prove reproducibility, `docker build --no-cache -t 
 ## Check your understanding
 
 1. In the cache-friendly Dockerfile above, you add a new package to `requirements.lock.txt`. Which steps rebuild, and which print `CACHED`?
-2. You edit only `.dockerignore` to exclude `notebooks/`, and a notebook checkpoint was the only file that changed since the last build. Why might your next build suddenly be fully cached again?
+2. Your last build copied in a notebook checkpoint file. You now add `notebooks/` to `.dockerignore`. Does the next build hit the cache on `COPY . .`, and what changes for the builds after that?
 3. A teammate moves `ENV LOG_LEVEL=debug` from the bottom of the Dockerfile to just after `FROM`, then changes its value every day. What does that do to their rebuild times?
 
-*Answers:* (1) The `COPY requirements.lock.txt` step misses, so `pip install` and everything after it rebuild; `FROM` and `WORKDIR` stay cached. (2) The ignored file no longer enters the build context, so the `COPY . .` contents match the previous build and that step hits the cache. (3) Every value change invalidates every step after the `ENV` line, including `pip install`. Keep frequently changing settings late in the file, or set them at run time instead.
+*Answers:* (1) The `COPY requirements.lock.txt` step misses, so `pip install` and everything after it rebuild; `FROM` and `WORKDIR` stay cached. (2) The next build misses once: the checkpoint that was in the last build is gone from the context, so the `COPY . .` inputs differ. After that, saving a notebook no longer changes the build context, so notebook edits stop invalidating `COPY . .`. (3) Every value change invalidates every step after the `ENV` line, including `pip install`. Keep frequently changing settings late in the file, or set them at run time instead.

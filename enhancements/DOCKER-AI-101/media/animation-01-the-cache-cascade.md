@@ -30,7 +30,7 @@ competency_ids:
 ## Scenes
 | # | Duration | Frame description | Motion | Caption / VO |
 |---|---|---|---|---|
-| 1 | 8s | Empty stage. Title: "The Cache Cascade". Two Dockerfile listings fade in side by side, labeled **A: copy everything first** and **B: requirements first**. | The listings slide down and convert into block stacks. | "Two Dockerfiles. Same instructions. Different order." |
+| 1 | 8s | Empty stage. Title: "The Cache Cascade". Two Dockerfile listings fade in side by side, labeled **A: copy everything first** and **B: requirements first**. | The listings slide down and convert into block stacks. | "Two Dockerfiles. B copies the requirements file on its own first, then copies everything else." |
 | 2 | 8s | Stack A from the bottom: `FROM`, `WORKDIR`, `COPY . .`, `RUN pip install` (tall), `CMD`. All blocks are blue and CACHED. | Blocks drop in one at a time with a soft thud. | "After a first build, every step is cached." |
 | 3 | 7s | The `main.py` icon pulses vermillion and a "docstring edit" label appears. An arrow connects `main.py` to the `COPY . .` block. | The icon pulses, then the arrow draws. | "Now change one word in main.py." |
 | 4 | 10s | `COPY . .` flips to orange/hatched REBUILD. Then `RUN pip install` flips, then `CMD`. | A domino flip, top-down, 0.4s apart. The stopwatch jumps to [4:00] as the tall block flips. | "COPY sees new content, so it misses. Every step after it has a new parent, so they miss too. Including pip install." |
