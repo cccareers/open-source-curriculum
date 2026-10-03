@@ -21,6 +21,38 @@ completed: false
   assert.ok(body.includes('# Content starts here'));
 });
 
+test('Frontmatter Parser: folds wrapped list items onto the previous item', () => {
+  const content = `---
+objectives:
+  - Demonstrate professional workplace skills: reliability, documentation,
+    boundaries, and teamwork
+  - Complete workplace documentation accurately
+  - "Quoted: wrapped across
+    two lines"
+kind: lesson
+---
+Body`;
+  const { data } = parseFrontmatter(content);
+  assert.deepEqual(data.objectives, [
+    'Demonstrate professional workplace skills: reliability, documentation, boundaries, and teamwork',
+    'Complete workplace documentation accurately',
+    'Quoted: wrapped across two lines'
+  ]);
+  assert.equal(data.kind, 'lesson');
+});
+
+test('Frontmatter Parser: sibling key after an indented list is not folded into it', () => {
+  const content = `---
+  objectives:
+    - Write reports
+  kind: lesson
+---
+Body`;
+  const { data } = parseFrontmatter(content);
+  assert.deepEqual(data.objectives, ['Write reports']);
+  assert.equal(data.kind, 'lesson');
+});
+
 test('Video Helper: identifies YouTube URLs', () => {
   const yt = parseVideoUrl('https://www.youtube.com/watch?v=dQw4w9WgXcQ');
   assert.ok(yt);
