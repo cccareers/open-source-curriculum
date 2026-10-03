@@ -124,6 +124,6 @@ npm test
 ## Instructor notes (common pitfalls, how to adapt for time)
 
 - The commonest bug is `w + r >= n`. The `n: 3, w: 2, r: 1` case catches it.
-- The scenario's 2.5-billion figure is hard to reproduce from its own stated concurrency. A reasonable weekly profile gives under a billion points over 18 months. That's intentional fodder for discussion, not an error learners must "fix." See the db200 review's open questions.
+- The scenario's 2.5-billion figure depends heavily on assumptions it doesn't state (hikes per day, not just concurrency). One plausible profile (about 8,000 hikes per weekend day, 1,500 per weekday, 480 points per hike) gives roughly 0.9 billion points over 18 months. Treat the gap as discussion material, not an error learners must "fix." See the db200 review's open questions.
 - Use this as the first session of the lesson 06 project. It takes 2–3 hours.
 - Tests verified on Node 24 against a reference implementation.
