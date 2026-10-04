@@ -30,6 +30,8 @@ Fix this by making declaration cheap. A declaration is not a claim that the situ
 
 Declare when any of these is true: a customer-visible symptom alert has fired and is not clearing; more than one person is working the same problem; you have been investigating alone for more than about ten minutes without a clear cause; a customer has reported an outage you cannot immediately explain; or you are considering an action you would not take on a normal day.
 
+The example below is a separate fictional incident from lesson 04’s slow, mostly successful checkout requests. Lessons 08–09 follow a release regression that causes order-write timeouts and 500 responses; similar pool saturation can produce different customer outcomes.
+
 Say it plainly, with the facts you have:
 
 ```text

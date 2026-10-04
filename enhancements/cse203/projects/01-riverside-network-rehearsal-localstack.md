@@ -63,10 +63,10 @@ provider "aws" {
 2. **Network module.** VPC `var.vpc_cidr`, subnets with `cidrsubnet(var.vpc_cidr, 8, i)` for public and `cidrsubnet(var.vpc_cidr, 8, i + 10)` for private, route tables and associations. No literal subnet CIDRs.
 3. **Security groups.** `lb` inbound 443 from `var.allowed_cidrs` (office range plus your `/32`); `app` inbound 8080 from `lb`; `db` inbound 5432 from `app`. Every rule has a `description`. Use `aws_vpc_security_group_ingress_rule` resources (or inline rules — be consistent).
 4. **Photo bucket.** Versioning, public access block, lifecycle: photos to `STANDARD_IA` at 30 days (staff look up loans for about a month), noncurrent versions expire at 90, abort multipart at 7. Justify the ages in `REHEARSAL.md`.
-5. **Apply to the emulator.** `tflocal init && tflocal plan -var-file=dev.tfvars -out=tfplan && tflocal apply tfplan`. Then `tflocal plan` again and confirm *No changes*.
+5. **Apply to the emulator.** `tflocal init && tflocal plan -var-file=dev.tfvars -out=tfplan && tflocal apply tfplan`. Then `tflocal plan -var-file=dev.tfvars` again and confirm *No changes*.
 6. **Acceptance script.** `tflocal show -json tfplan > plan.json && python3 check_plan.py plan.json` passes.
 7. **Prove it fails when it should.** Add an ingress rule `0.0.0.0/0` on 22 to `app`, re-plan, confirm the checker fails with a clear message. Remove it.
-8. **Teardown.** `tflocal destroy`, `docker stop localstack`. Document how the same code would be run against a real account with `enable_billable = true` and a budget alert in place.
+8. **Teardown.** `tflocal destroy -var-file=dev.tfvars`, `docker stop localstack`. Document how the same code would be run against a real account with `enable_billable = true` and a budget alert in place.
 
 ## Acceptance criteria
 
@@ -109,10 +109,13 @@ def main(path):
         by_type.setdefault(typ, []).append((addr, after))
 
         if typ in TAGGABLE:
-            tags = set((after.get("tags_all") or after.get("tags") or {}).keys())
+            values = after.get("tags_all") or after.get("tags") or {}
+            tags = set(values.keys())
             missing = REQUIRED_TAGS - tags
             if missing:
                 errors.append(f"{addr}: missing tags {sorted(missing)}")
+            if values.get("ManagedBy") != "terraform":
+                errors.append(f"{addr}: ManagedBy must be terraform")
 
         # Standalone ingress rules
         if typ == "aws_vpc_security_group_ingress_rule":

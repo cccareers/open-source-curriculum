@@ -20,10 +20,12 @@ After watching, the learner can declare an incident within three minutes of an a
 ## Audience and prerequisites
 Apprentices who have read lesson 08. Uses the storefront checkout incident (v2.14.1 release at 13:58, error ratio 22% from 14:05). Hybrid: presenter on camera in a corner, screen showing the incident channel, the triage dashboard, and a status-page draft.
 
+This tabletop uses a two-minute alert hold, so a 14:05 onset can page at 14:07:10. Lesson 06’s three-minute example rule would page no earlier than 14:08; use its actual firing time when running that rule.
+
 ## Script
 | Time | Visual / On screen | Narration |
 |---|---|---|
-| 0:00 | Phone buzz. Alert card: `CheckoutErrorRatioHigh — 22% for 3m — runbook: runbooks/checkout-errors`. Clock overlay 14:07:10. | "14:07. The pager fires. Over the next five minutes you'll make the decisions that decide how the next hour goes. Most people spend those five minutes silently typing queries. We're going to do something different." |
+| 0:00 | Phone buzz. Alert card: `CheckoutErrorRatioHigh — 22% for 2m — runbook: runbooks/checkout-errors`. Clock overlay 14:07:10. | "14:07. The pager fires. Over the next five minutes you'll make the decisions that decide how the next hour goes. Most people spend those five minutes silently typing queries. We're going to do something different." |
 | 0:20 | Presenter on camera. | "First rule: going quiet is the most expensive thing you can do. Everyone outside the response will assume nothing is happening, and they'll start interrupting you." |
 | 0:35 | Triage dashboard, row 1: error ratio 22% (red, labelled BREACHED), p95 normal-ish, traffic normal. Clock 14:07:40. | "Thirty seconds on the triage dashboard. Is it real? Yes — 22% against a normal of 0.05%. Since when? 14:05. Traffic's normal, so it's not a surge. That's enough to declare." |
 | 1:00 | Incident channel. Presenter types the declaration from lesson 08, line by line. Clock 14:08:20. | "Declaring an incident. Storefront checkout, production. Symptom: error ratio 22%, started 14:05, ongoing. Impact: roughly one in five checkout attempts failing. Severity: SEV2, proposed. I'm incident commander. Next update 14:25. — Five facts and a commitment. Thirty seconds." |

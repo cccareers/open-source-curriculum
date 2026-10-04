@@ -31,7 +31,7 @@ Before the lesson 09 project touches a real account, the team lead wants the sto
 
 - Python 3.10+; `python -m venv .venv && . .venv/bin/activate && pip install "moto[ec2]>=5" boto3 pytest` and pin with `pip freeze > requirements.txt`.
 - Contract: `handler` reads `TARGET_TAG` (`key=value`), `DRY_RUN` (default **true** when unset), `LOG_LEVEL`; it raises `ValueError` when the event has no `action`. `apply_schedule` must paginate `describe_instances` (use the SDK paginator) and only act on instances in the opposite state.
-- Optional LocalStack: `docker run --rm -d -p 4566:4566 localstack/localstack` and `pip install awscli-local`. Lambda on LocalStack runs your function in a container, so Docker socket access is required.
+- Optional LocalStack: `docker run --rm -d -p 4566:4566 -v /var/run/docker.sock:/var/run/docker.sock localstack/localstack` and `pip install awscli-local`. Lambda on LocalStack runs your function in a container, so Docker socket access is required.
 
 ## Milestones
 
