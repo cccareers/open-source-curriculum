@@ -9,7 +9,6 @@ related_lessons:
   - CHW101-06
 objectives:
   - Distinguish program outputs from outcomes in CHW impact studies
-  - Explain the evidence for CHW impact on outcomes, cost, and equity
 competency_ids:
   - D5-S2-C02
   - D5-S2-C04
@@ -32,7 +31,7 @@ CHW101 learners who have read Lesson 6. Good also as a refresher before CHW102 L
 | 0:45 | Split screen. Left column "Outputs": 212 encounters; 18 classes; 340 screenings; 96 referrals. Right column empty. | "Here are four outputs. Every one of these can go up while nobody's health improves. Forty classes to empty rooms. Ninety-six referrals nobody completed. Busy is not the same as better." |
 | 1:15 | Right column fills: "62 referrals confirmed attended"; "BP controlled: 41% → 58%". | "Now the outcomes. Sixty-two people actually got seen. The share of enrolled clients with controlled blood pressure went from 41 to 58 percent. That's what the program is for." |
 | 1:40 | Graphic: a horizontal ladder — Short-term (knowledge, confidence) → Intermediate (behavior, access) → Long-term (health status, life conditions) → Impact (population). | "Outcomes come in time horizons. Short-term: she can explain what her medicine does. Intermediate: she refills on time and keeps appointments. Long-term: her blood pressure is in range. Past that is impact — a narrowed gap across a whole neighborhood. Impact is rarely yours alone to claim." |
-| 2:20 | Presenter, closer shot. | "So where do you fit? Every outcome on that ladder is built out of records you enter. A follow-up call you made but didn't log doesn't exist to the program. A blank language field makes an equity analysis impossible." |
+| 2:20 | Presenter, closer shot. | "So where do you fit? The records you enter help the program measure outcomes on that ladder. A follow-up call you made but didn't log doesn't exist to the program. Missing language data can limit analysis of outcomes by language group." |
 | 2:45 | Card: "Your data feeds: funding • quality improvement • equity monitoring • the case for CHWs • the next person's visit." | "Your data feeds funding, quality improvement, equity monitoring, the evidence base for this whole workforce, and the next person who reads that client's record." |
 | 3:05 | Card: "What the research shows" with three bullets: "Randomized trials exist (e.g., IMPaCT)"; "Strongest in chronic disease, maternal and child health, asthma, screening, high-need patients"; "Design determines results." | "The research is real. Standardized CHW models have been tested in randomized trials — the IMPaCT model from Penn is the one you'll hear about most. Results are strongest in chronic disease, maternal and child health, asthma, cancer screening, and with high-need patients. And program design — training, caseload, supervision — decides whether it works. Read the actual study before you quote a number." |
 | 3:40 | Card: "Lead with an outcome. Support with an output. Attribute carefully. Name a limit." | "When someone asks what your program does, try this. Lead with an outcome. Support it with an output. Attribute carefully. Name a limit." |

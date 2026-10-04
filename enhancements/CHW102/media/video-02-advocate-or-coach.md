@@ -34,10 +34,10 @@ CHW102 learners after Lesson 5.
 | 1:20 | Scenario card 2: "Nervous about asking doctor about new diagnosis. Visit next Thursday." Time = a week; Stake = moderate; Client wants = to do it but scared. Arrow to "Coach." | "A client is nervous about asking his doctor to explain a new diagnosis next Thursday. There's a week. He wants to ask it himself. You coach: write the questions together, give him borrowable sentences, rehearse the opening twice." |
 | 2:00 | Hand writes the borrowable sentences in a box. | "Most people aren't short of courage. They're short of sentences. 'I don't understand that word — can you say it another way?' 'Before we finish, I have two questions on this paper.'" |
 | 2:20 | Scenario card 3: "Clinic staff talk down to her every visit. Six more visits." Arrow to both columns: "Both." | "A client says staff talk down to her every visit, and she has six more. She'll be in that building without you. Coach her for the visit — and, with her permission, raise the pattern with your supervisor. Both." |
-| 2:55 | Ladder drawn: 1 Clarify → 2 Ask with specifics → 3 Supervisor → 4 Formal channel → 5 Bring your org in. | "When you advocate, climb one rung at a time. Clarify — half of denials are misunderstandings. Ask, with the specifics. Then the supervisor. Then the formal channel. Then your own organization." |
+| 2:55 | Ladder drawn: 1 Clarify → 2 Ask with specifics → 3 Supervisor → 4 Formal channel → 5 Bring your org in. | "When you advocate, climb one rung at a time. Clarify the reason for the denial. Ask, with the specifics. Then the supervisor. Then the formal channel. Then your own organization." |
 | 3:25 | Four boxes: "I do, you watch" → "We do together" → "You do, I watch" → "You do." | "When you coach, use gradual release. I do, you watch. We do together. You do, I watch. You do. And say the stage out loud: 'Today I'll make this call and you watch how I do it. Next week you'll make it and I'll be right here.'" |
 | 4:00 | Consent stamp drawn over the whole board: "With the client, not to the client." | "Underneath all of it: consent. Ask what they want and what they want you to do. Some clients need to keep using that clinic after you leave. Advocacy done to a client is a power move dressed as help." |
-| 4:25 | Strength reframe example written: "Misses appointments" → "Has kept every appointment scheduled after 4 p.m." | "And build on what's already there. The same facts, reframed as strengths, point to a plan." |
+| 4:25 | Strength reframe example written: "Misses appointments" → "Has kept every appointment scheduled after 4 p.m." | "And build on what's already there. Instead of 'misses appointments,' write 'has kept every appointment scheduled after four p.m.' The same facts, reframed as strengths, point to a plan." |
 | 4:45 | End card. | "Try Practice 1: five situations, three questions each." |
 
 ## On-screen assets and B-roll
@@ -46,11 +46,11 @@ CHW102 learners after Lesson 5.
 
 ## Accessibility
 
-- Captions and transcript; all handwritten text is spoken.
+- Captions and transcript; an audio description track reads all handwritten text and describes the arrows between the advocacy steps and release stages.
 - Static image of the final board with alt text describing the two columns, three questions, ladder, and four release stages.
 
 ## Check for understanding
 
 1. A benefits denial contradicts the agency's own policy; the client wants you to handle it. Advocate, coach, or both? *Answer: advocate (with consent), starting at "clarify," while showing her what you are doing so she can do part of it next time.*
 2. Name the four stages of gradual release in order. *Answer: I do/you watch; we do together; you do/I watch; you do.*
-3. What is the first rung of the escalation ladder, and why? *Answer: clarify — many denials are misunderstandings that resolve with "Can you help me understand the rule here?"*
+3. What is the first rung of the escalation ladder, and why? *Answer: clarify — find out which rule or reason the agency is using by asking "Can you help me understand the rule here?"*

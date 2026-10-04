@@ -122,5 +122,5 @@ Social support is the quiet other half of this role. Sometimes the most useful t
 
 1. A client asks, "Should I take my blood pressure pill at night instead of the morning?" Which part can you answer, and what do you say? *None of the dosing question is yours. Say something like: "That's a question for your doctor or pharmacist. Let's write it down, and I can call the pharmacist with you now." Then help them get it asked.*
 2. Your teach-back reveals the client thinks an inhaler prescribed for daily use in their written asthma action plan is only for bad days. Is that a failed teach-back? *No — it is a successful one. You found the gap while you can still fix it. Re-explain the care team’s written instructions differently and check again; route uncertainties to the care team.*
-3. The referral says "A1C below 7"; the client says she wants to sleep through the night. Whose goal do you work on first, and why? *Hers. A client-owned goal gets acted on, and success builds the confidence and relationship that make the clinical goal possible later. Keep the care team informed.*
+3. The referral says "A1C below 7"; the client says she wants to sleep through the night. Whose goal do you work on first, and why? *Hers. Working on a client-owned goal may support engagement and trust; it does not guarantee progress toward a clinical goal. Keep the care team informed.*
 

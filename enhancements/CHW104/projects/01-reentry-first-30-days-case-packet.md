@@ -58,8 +58,8 @@ This project extends Lesson 2's reentry intake into a full 30-day support packet
 - [ ] First-visit script explains the reason for every question and states who sees the notes and the limits of confidentiality before any personal question.
 - [ ] Plan never asks about the offense or incarceration details; only what is needed for the service.
 - [ ] Insurance status and medication continuity are sequenced first; scheduling avoids the parole reporting window.
-- [ ] No sentence tells Mr. Ellis to take, skip, split, or change any medication, or interprets a reading. The lapsed prescription is routed to a prescriber or pharmacist the same week, with escalation guidance for symptoms listed in Lesson 3.
-- [ ] BP technique steps match Lesson 3 (five quiet minutes, back supported, feet flat, arm at heart level, correct cuff on bare arm, no talking, no caffeine, tobacco, or exercise for 30 minutes, bladder emptied, two readings a minute apart).
+- [ ] No sentence tells Mr. Ellis to take, skip, split, or change any medication, or interprets a reading. The lapsed prescription is raised with the prescriber or pharmacist during the first contact, following the site’s escalation procedure if they cannot be reached. The clinician determines urgency and next steps; emergency symptoms follow the emergency protocol in Lesson 3.
+- [ ] BP technique steps match Lesson 3 (five quiet minutes, back supported, feet flat, legs uncrossed, arm at heart level, correct cuff on bare arm, no talking, no caffeine, tobacco, or exercise for 30 minutes, bladder emptied, two readings a minute apart).
 - [ ] Nutrition sheet uses no weight goals, no "good/bad" foods, and fits a microwave and one fridge shelf; it builds on his cooking skill.
 - [ ] Each of the five trauma-informed principles is evidenced at least twice across the packet.
 - [ ] All names and agencies are fictional.
@@ -98,4 +98,5 @@ This project extends Lesson 2's reentry intake into a full 30-day support packet
 
 - Medi-Cal processes for people leaving incarceration (including pre-release enrollment and services) have been changing in California; do not let learners assert specific program rules. "Check status with the county or plan; verify current pre-release and reentry benefits" is the expected step.
 - Learners often over-collect history. Push them to cut every question that does not change the service.
+- Medication continuity is a clinical question: [MedlinePlus explains that stopping some blood pressure medicines can cause rebound hypertension](https://medlineplus.gov/ency/article/000155.htm). The first-contact task is to obtain clinical guidance, not for the learner to decide on a refill, dose, or treatment timeline.
 - If time is short, assign parts 1, 2, and 6 (about 3 hours).

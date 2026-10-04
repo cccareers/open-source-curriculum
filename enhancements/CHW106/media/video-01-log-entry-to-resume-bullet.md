@@ -27,7 +27,7 @@ CHW106 interns with at least four weeks of evidence log entries.
 
 | Time | Visual / On screen | Narration |
 |---|---|---|
-| 0:00 | Screen: a document titled "Evidence log — de-identified" with the four-line entry from Lesson 2 (date 2026-03-14, care coordination/advocacy, specialty referral that lapsed, appointment scheduled, confirmed 3/21). | "This is one entry from an evidence log. No client name, no identifiers — just what I did and what changed. Let's turn a stack of these into resume lines a supervisor would sign off on." |
+| 0:00 | Screen: a document titled "Evidence log — de-identified" with the four-line entry from Lesson 2 (date 2026-03-14, care coordination/advocacy, specialty referral that lapsed, appointment scheduled, confirmation call planned for 3/21). | "This is one entry from an evidence log. No client name, no identifiers — just what I did and what changed. Let's turn a stack of these into resume lines a supervisor would sign off on." |
 | 0:25 | Cursor highlights the verbs: "Placed," "Called," "asked the referral coordinator to review." | "Pass one: pull out the verbs. Not what the program does. What you did." |
 | 0:45 | New doc, "Raw facts." Cursor types: "Placed referrals: 61 (count from log, wks 1–12). Confirmed connection: 49. Barriers resolved: transportation 7, documents 4." | "Pass two: count. Go through every log entry and tally. If you didn't count it, don't invent it. 'Roughly sixty' is fine if it's true and you say 'roughly.'" |
 | 1:20 | Cursor types the weak bullet: "Assisted clients with referrals and follow-up." | "Here's the bullet most interns write. It describes the job description, not you." |

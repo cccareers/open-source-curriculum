@@ -70,8 +70,8 @@ Date: 2026-03-14
 Role(s): Care coordination / system navigation; Advocacy
 What I did: Placed a lapsed specialty referral again. Called scheduling twice,
   then asked the referral coordinator to review the lapse. Appointment set for 3/28.
-Outcome / follow-up: Client confirmed appointment by phone 3/21. Reminder call
-  set for 3/27. Supervisor notified of the intake line's two-week callback lag.
+Outcome / follow-up: Appointment scheduled; confirmation call planned for 3/21,
+  reminder for 3/27. Supervisor notified of the intake line's two-week callback lag.
 ```
 
 Write it the same day. An entry written a week later is a memory, and memories drift toward whatever story you have started telling. Aim for a handful of entries a week rather than every encounter — you want the ones that show something, not a duplicate log of your shifts.

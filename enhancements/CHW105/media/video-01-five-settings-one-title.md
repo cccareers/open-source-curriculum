@@ -10,7 +10,6 @@ related_lessons:
   - CHW105-04
 objectives:
   - Research California CHW workforce settings and identify a fit for internship placement
-  - "Compare CHW employment settings: clinics, health plans, community-based organizations, public health departments"
   - Select a field mentor and submit complete internship planning documentation
 competency_ids:
   - D5-S1-C02

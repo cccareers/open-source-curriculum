@@ -91,5 +91,5 @@ Everything below is fictional, but it is written to contain planted identifiers.
 
 ## Instructor notes
 
-- HIPAA's Safe Harbor method lists 18 identifier types (including ages over 89 and all elements of dates except year); learners do not need to memorize the list, but instructors may use it as an answer-key reference. Confirm the program's preferred standard.
+- [HHS Safe Harbor guidance](https://www.hhs.gov/hipaa/for-professionals/special-topics/de-identification/index.html) lists 18 identifier types. Date elements directly related to a person are removed except year, with an additional age exception: for people over 89, remove ages and date elements, including year, that indicate that age. These may be aggregated into a single category of age 90 or older. Learners do not need to memorize the list, but instructors may use it as an answer-key reference. Confirm the program's preferred standard.
 - Students who are not yet working with clients still produce this kind of risk through relatives' stories; address that directly.

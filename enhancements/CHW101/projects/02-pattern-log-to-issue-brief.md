@@ -68,14 +68,14 @@ All data below is fictional and de-identified (client IDs only).
 ## Milestones
 
 1. Tally the log by barrier type and organization. Count distinct clients, not rows (E-104, E-117, and E-142 each appear twice; E-142's two prior-authorization entries are one client with a repeated barrier, not two clients).
-2. Identify the strongest pattern (hint: it is not the car). Note what is shared: same office, same step (renewal), and several sub-causes (address, language, form content).
+2. Identify the strongest pattern (hint: it is not the car). Note what is shared: same office, same step (renewal), and three documented sub-causes among five clients (address, language, form content). E-117 reports that the packet never arrived, but the cause is unknown; do not assign this client to a documented cause.
 3. Draft the brief. Lead with the count and period, add one de-identified representative story, end with a specific ask and a "by when."
 4. Classify the activity report and rewrite the ER line.
 5. Record yourself delivering the 90-second statement; a partner asks "how do you know?" after each sentence.
 
 ## Acceptance criteria
 
-- [ ] Correctly identifies the renewal-loss pattern: 6 distinct clients in about 7 weeks, all at the county renewal step, with three sub-causes (address, language, form content).
+- [ ] Correctly identifies the renewal-loss pattern: 6 distinct clients in about 7 weeks, all at the county renewal step, with three documented sub-causes among five clients (address, language, form content), and one unknown cause (E-117).
 - [ ] Separately notes the repeated inhaler prior authorization (E-142) as a possible plan-level issue that is not yet a multi-client pattern.
 - [ ] Brief is one page, uses client IDs or counts only, and names the routing level and the specific ask.
 - [ ] Does not claim the cause is certain; names what would confirm it.
