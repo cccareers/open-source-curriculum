@@ -281,7 +281,7 @@ Within that, the three negative match types work like this.
 
 The practical selection rule: use negative **phrase** for concept blocking, which is most of your list. Use negative **broad** when you want to block a combination of two words that can appear in any order. Use negative **exact** only when a single specific query is a problem but its variations are fine. A common mistake is blanketing everything in negative broad, which is looser than people assume, or blanketing in negative exact, which blocks almost nothing.
 
-One more precision point: a single-word negative is a single-word negative regardless of the punctuation you wrap it in. `-salary`, `-"salary"`, and `-[salary]` behave the same for a one-word term only in that they all key off the word "salary", but the exact version blocks only the standalone query `salary`. For single-word concept blocking, use phrase.
+One more precision point about one-word negatives. For a single word, negative broad (`-salary`) and negative phrase (`-"salary"`) behave identically: both block any query that contains the word "salary". Negative exact (`-[salary]`) is different — it blocks only the standalone query `salary` and nothing longer. For single-word concept blocking, use phrase (or broad, which is equivalent here), never exact.
 
 ### Where negatives live
 
@@ -385,7 +385,7 @@ Here is thirty days of search terms for Northgate's Non-brand AC Repair ad group
 
 ### New exact keywords
 
-Rows 2, 4, 6, 8, and 10 all clear the promotion bar and all should become exact match keywords in their own right. Rows 2 and 4 are the strongest: `air conditioner repair near me` produced 6 conversions on 36 clicks, a 16.7% conversion rate against the ad group's 11%, at a CPA of $302.40 / 6 = $50.40. That is under the $60 target. Promote it to exact and give it a higher bid ceiling, because its conversion rate supports $60 x 0.167 = $10.02 per click.
+Rows 2, 4, and 6 clear the promotion bar outright, with three or more conversions each, and should become exact match keywords in their own right. Rows 8 and 10 do not clear it on their own numbers; the case for them rests on the suburb pattern described below. Rows 2 and 4 are the strongest: `air conditioner repair near me` produced 6 conversions on 36 clicks, a 16.7% conversion rate against the ad group's 11%, at a CPA of $302.40 / 6 = $50.40. That is under the $60 target. Promote it to exact and give it a higher bid ceiling, because its conversion rate supports $60 x 0.167 = $10.02 per click.
 
 `emergency ac repair columbus` did 5 conversions on 22 clicks: 22.7% conversion rate, CPA of $198.00 / 5 = $39.60, and a supported CPC of $60 x 0.227 = $13.62 against an actual CPC of $9.00. This term is underbid. It also deserves its own ad group so the copy can say "open now" and the landing page can lead with the phone number.
 
@@ -418,7 +418,7 @@ Row 11 is a routing problem, not a performance problem. `ac tune up special` is 
 
 ### The arithmetic of the recovered spend
 
-The seven rows verdicted "Negative" - rows 7, 12, 13, 14, 16, 18, and 20 - are queries Northgate should never have bought at all.
+The seven junk rows verdicted "Negative" - rows 7, 12, 13, 14, 16, 18, and 20 - are queries Northgate should never have bought at all. Row 17, the competitor name, is also verdicted "Negative", but it is left out of this block because excluding it is a strategy decision about competitor bidding rather than junk removal.
 
 ```txt
 WASTED SPEND, AC REPAIR AD GROUP, 30 DAYS

@@ -133,7 +133,7 @@ Once fixed, repair the damaged records. This is where lesson 03's idempotency st
 
 ## The postmortem
 
-Write it for every incident that affected output, even small ones. Five short sections, no blame:
+Write it for every incident that affected output, even small ones. Six short sections, no blame:
 
 ```text
 INCIDENT   quote-intake-classify, 2026-03-14 09:20 to 2026-03-15 11:05
@@ -164,5 +164,5 @@ Work on a real automation — ideally your own from earlier lessons — and brea
 4. **Time the silent one.** Record how long it took your detectors to surface failure (e), from onset to notice. If your instrumentation never caught it, that is the finding, and adding the detector that would have caught it is the fix.
 5. **Fix each at the right layer**, and for at least two of them implement both the immediate guard and the root cause fix. State explicitly, for each, which layer you chose and what you rejected.
 6. **Replay and backfill** the records damaged by failure (a). Identify the set by query, count them first, replay ten and verify by hand, then complete. Prove no duplicate outbound side effect occurred.
-7. **Write one postmortem** in the five-section format for the failure that surprised you most, with an honest detection-lag number and at least two assigned follow-ups.
+7. **Write one postmortem** in the six-section format for the failure that surprised you most, with an honest detection-lag number and at least two assigned follow-ups.
 8. **Build the regression set** from all five payloads and run it against your workflow. Confirm every one now fails safely or passes correctly, and add the set to your runbook.

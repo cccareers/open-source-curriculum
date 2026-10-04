@@ -161,8 +161,10 @@ Create resources with a script or an infrastructure-as-code tool, not by clickin
 set -euo pipefail
 
 REGION="${REGION:?set REGION}"
+PROJECT="${PROJECT:?set PROJECT}"
 BUCKET="${PROJECT}-landing"
 
+# `cloud` stands in for your provider's CLI; translate the command and flags once.
 cloud storage buckets create "$BUCKET" \
   --location="$REGION" \
   --uniform-bucket-level-access \

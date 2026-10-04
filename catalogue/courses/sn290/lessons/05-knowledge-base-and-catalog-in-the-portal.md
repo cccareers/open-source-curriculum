@@ -143,7 +143,7 @@ Most portal users do not browse. They type. The portal's search box is backed by
 
 Out of the box you get sources for knowledge and for the catalog. The high-value additions on a real build are usually a source for the user's own open requests and a source for one or two key tables the business searches by name.
 
-Two things to get right. **Search must respect the same permissions as browsing** — a data-fetch script that queries with elevated rights, or that skips the knowledge permission check, will happily show a user the title and snippet of an article they are not allowed to open. Query as the user. And **typeahead is not free**: every keystroke past the trigger length is a server call, so keep typeahead sources few, limited, and cheap.
+Two things to get right. **Search must respect the same permissions as browsing** — a data-fetch script that queries with elevated rights, or that skips the knowledge permission check, will happily show a user the title and snippet of an article they are not allowed to open. Query as the user: use `GlideRecordSecure`, or check `canRead()` on each result before returning it, because a plain `GlideRecord` in a data-fetch script does not apply the user's access for you. And **typeahead is not free**: every keystroke past the trigger length is a server call, so keep typeahead sources few, limited, and cheap.
 
 ## Designing for deflection
 
@@ -177,3 +177,12 @@ Continue in your `dev290` portal. Use a personal developer instance so you can c
 5. **Surface the catalog.** Add a catalog category widget to your home page scoped to one catalog category. Restrict one item in that category with a Not available for criterion matching your test user, and confirm the item disappears from both the category page and search for them.
 6. **Connect the two paths.** Place a related-knowledge widget on a catalog item page, or a related-catalog widget on an article page, so a user can move between "read about it" and "request it" in one click. Explain in two sentences which direction you chose and why it fits the task.
 7. **Run the matrix.** Build the four-check impersonation matrix described above for two users, and write down every cell. If any direct-URL check succeeds where the listing hid the record, fix it before you call the exercise done.
+
+## Check your understanding
+
+1. An article exists and the user is in the knowledge base's Can read criterion, but they cannot find it. What do you check first?
+2. A user matches one criterion on Can read and another on Cannot read. What do they see?
+3. Why is the direct-URL check the most important cell in the impersonation matrix?
+4. Your portal serves only HR. Should the portal record's Knowledge base field be set?
+
+*Answers:* (1) The article's workflow state; only published articles appear. (2) Nothing; deny wins. (3) Hiding a link is not a permission; the direct URL tests whether the permission actually holds. (4) Yes, scoping it to the HR knowledge base keeps unrelated libraries out of its widgets and search.

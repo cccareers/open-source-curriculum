@@ -160,3 +160,12 @@ Work in a personal development instance with HRSD available. Do not build forms 
 5. **Build one HR criterion and prove it works.** Create a criterion for full-time employees in a single country, using HR profile attributes rather than a named list of users. Attach it to the service you just created. Then impersonate two test users — one who matches and one who does not — and confirm the service's visibility differs. Note in one sentence whether the criterion evaluated against the logged-in user or the subject person, and how you verified that.
 
 6. **Write the trade-off up.** In one paragraph, describe a request type at your own employer (or a hypothetical one) that you would *refuse* to give its own HR service, and explain what you would use instead.
+
+## Check your understanding
+
+1. Employee relations agents must never read payroll cases, and payroll agents must never read employee relations cases. Same COE with ACL conditions, or separate COEs? Why?
+2. Why does HR-specific employee data live on the HR profile rather than on the user table?
+3. Two requests are worked by the same team, with the same steps, SLA, and approvals, but differ in one field. One HR service or two?
+4. What key should an HR profile be matched on, and why not email?
+
+*Answers:* (1) Separate COEs; table-level separation in separate scopes denies every path structurally, while conditions on a shared table must be right on every path. (2) The user table is broadly readable across the instance; a separate table only HR roles can read is the durable control. (3) One service with a variable; create a distinct service only when fulfillment differs. (4) The HRIS employee number; email changes and can be reused.

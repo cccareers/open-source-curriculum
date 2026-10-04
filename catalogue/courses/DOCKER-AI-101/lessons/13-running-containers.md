@@ -65,7 +65,7 @@ The mental model maps onto ordinary process control. Running without `-d` is lik
 
 ## Practice
 
-1. Start an interactive container: `docker run -it --rm python:3.11-slim bash`. Inside it, run `ls /`, `python --version`, and `ps aux`. Note how few processes exist. Exit.
+1. Start an interactive container: `docker run -it --rm python:3.11-slim bash`. Inside it, run `ls /`, `python --version`, and `ps aux`. Note how few processes exist. Exit. (Slim images do not include `ps`. If you see `command not found`, run `apt-get update && apt-get install -y procps` first — the change vanishes when the container is removed, which is itself a lesson — or list processes with `ls /proc | grep -E '^[0-9]+$'`.)
 2. Start a detached named container: `docker run -d --name web -p 8080:80 nginx`. Confirm with `docker ps` and open `localhost:8080`.
 3. Stop it, list it with `docker ps -a`, start it again, then remove it with `docker rm -f web`.
 4. Run the same nginx command twice without stopping the first. Read the error about the name conflict and resolve it.

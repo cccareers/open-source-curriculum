@@ -100,7 +100,7 @@ Even a difference that survives the arithmetic can be caused by something other 
   Total         46,200  1.32%   612         44,700  1.47%   659
 ```
 
-Mobile got worse. Desktop got worse. Tablet was flat. **Every single segment declined and the site-wide conversion rate rose from 1.32 percent to 1.47 percent** — because the mix moved toward desktop, which converts three times better. What actually happened was that a mobile-heavy paid social campaign was paused, removing low-converting sessions from the denominator.
+Mobile got worse. Desktop got worse. Tablet was flat. **Mobile and desktop declined, tablet was flat, and the site-wide conversion rate rose from 1.32 percent to 1.47 percent** — because the mix moved toward desktop, which converts three times better. What actually happened was that a mobile-heavy paid social campaign was paused, removing low-converting sessions from the denominator.
 
 Report the headline alone and you will be congratulated for a decline. The rule is simple: **whenever a blended rate moves, check whether the mix moved.** If the segment shares changed, the blended number is describing the mix and not the performance.
 
@@ -143,7 +143,7 @@ Twenty-five percent is not desktop's 41.9 percent. Mobile checkout genuinely con
 
 **Decision.** Make mobile checkout the sole site-work priority for the coming quarter. Before anything is built, run a usability test on mobile checkout and a session-recording review of mobile sessions that reached checkout and did not complete. Owner: you. Date: findings in two weeks.
 
-**Expected effect.** 100 to 160 additional purchases per period if completion reaches 23 to 26 percent. The assumption carrying the risk is that the cause is fixable in the interface rather than being payment-method availability, which no amount of layout work will change.
+**Expected effect.** 100 to 150 additional purchases per period if completion reaches 23 to 26 percent (1,690 x 0.23 = 389, 1,690 x 0.26 = 439, against 289 today). The assumption carrying the risk is that the cause is fixable in the interface rather than being payment-method availability, which no amount of layout work will change.
 
 **How we will know.** Mobile checkout completion rate, measured over a full 28-day period after release, against a threshold of 21 percent set now. Guardrail: mobile `begin_checkout` count must not fall, because a "completion rate" can be improved by discouraging people from starting.
 
@@ -177,7 +177,7 @@ Twenty-five percent is not desktop's 41.9 percent. Mobile checkout genuinely con
 
 ### Decision three: deciding not to act
 
-**Finding.** `/collections/trail-running-shoes` sessions fell 12 percent week over week, from 235 to 210.
+**Finding.** `/collections/trail-running-shoes` sessions fell 11 percent week over week, from 235 to 210.
 
 **Is it real.** No. Ordinary weekly variation on a count of about 210 is roughly its square root, about 15 sessions, so a 25-session swing is inside the normal range. There were also nine purchases behind that page last week, which cannot support any rate conclusion at all.
 
@@ -199,7 +199,7 @@ Everything above collapses into one page per month. Structure:
 
 Two rules for the writing.
 
-**Never give a bare forecast number.** Give a range, name the assumption carrying the most risk, and say what you would watch to find out early whether the assumption is holding. "134 more orders" is a hostage. "100 to 160 more orders, and the number I am least sure of is whether the cause is in the form or in the shipping cost" is a professional statement that survives being wrong.
+**Never give a bare forecast number.** Give a range, name the assumption carrying the most risk, and say what you would watch to find out early whether the assumption is holding. "134 more orders" is a hostage. "100 to 150 more orders, and the number I am least sure of is whether the cause is in the form or in the shipping cost" is a professional statement that survives being wrong.
 
 **Report the misses first and quickly.** Forecasting is worth exactly what its track record is worth, and the fastest way to build one is to be the person who says "the guide signup change did nothing, here is what I think I got wrong" before anybody asks.
 

@@ -37,7 +37,7 @@ Two properties follow directly and explain most update set behaviour.
 
 The practical consequence: an application that depends on reference data — your `part` catalogue, a set of default assignment groups — needs a plan for that data alongside the update set. The usual answers are an export/import of the records as XML, or a small script that creates them if they are missing.
 
-There is a mechanism that changes this for a specific case. Some tables are marked so that their records *are* captured — that is how out-of-box applications ship their seed data — and you can apply the same marking to a table of your own. Use it for genuine configuration data such as your `part` catalogue, and never for transactional data such as work orders.
+There is a mechanism that changes this for a specific case. Some tables are marked so that their records *are* captured — that is how out-of-box applications ship their seed data — and you can apply the same marking to a table of your own by adding the `update_synch=true` attribute to the table's collection dictionary entry. Use it for genuine configuration data such as your `part` catalogue, and never for transactional data such as work orders.
 
 ## The update set workflow
 
@@ -45,7 +45,7 @@ The discipline is short and unforgiving. Follow it every time.
 
 **1. Create a named update set before you build anything.** Name it so a stranger can identify it a year later: `Facilities Work Orders v1.0 — data model and forms`, not `mikes changes` or `test2`. Add a description saying what it contains and what it depends on.
 
-**2. Set it as your current update set.** The header indicator shows which one is current. If it says **Default**, stop — the Default set never leaves the instance, and work captured there is genuinely difficult to recover.
+**2. Set it as your current update set.** The header indicator shows which one is current. If it says **Default**, stop — the Default set is not meant to be promoted, and picking your work back out of it is genuinely difficult. Update sets also belong to an application scope: switching the application picker to Facilities Work Orders switches your current update set to one in that scope, so create your named set with the picker already on your application.
 
 **3. Build.** Everything you configure now lands in the set.
 

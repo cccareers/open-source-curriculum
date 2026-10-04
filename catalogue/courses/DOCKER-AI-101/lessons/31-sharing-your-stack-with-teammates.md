@@ -60,7 +60,7 @@ A README runbook of five lines is usually enough:
 2. `docker compose up --build -d`
 3. `docker compose exec ollama ollama pull llama3.2`
 4. `docker compose exec ollama ollama pull nomic-embed-text`
-5. Open http://localhost:8000/health — expect `{"docs": 0}`.
+5. Open http://localhost:8000/health — on a fresh `chroma-data` volume, expect a JSON body containing `"docs": 0`; a reused volume reports its persisted document count.
 
 Data lives in the `ollama-models` and `chroma-data` volumes.
 `docker compose down` keeps them; `down --volumes` deletes them and you

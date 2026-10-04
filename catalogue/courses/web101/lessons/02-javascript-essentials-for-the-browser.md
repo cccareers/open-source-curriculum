@@ -76,7 +76,7 @@ const validatePassword = function (value) {
   return value.length >= 8;
 };
 
-// Arrow function — shorter syntax, no its own `this`
+// Arrow function — shorter syntax, no `this` of its own
 const validateUsername = (value) => value.trim().length > 0;
 ```
 
@@ -162,3 +162,11 @@ Open your browser console (or a scratch file loaded in a blank HTML page) and co
 1. Write a function `describeAttempt(count, max)` using `const`/`let` (no `var`) that returns `"ok"` if `count` is less than `max`, and `"locked"` otherwise. Call it with at least three different `(count, max)` pairs and confirm the console output matches what you expected before you ran it.
 2. Write a loop that iterates the array `["email", "password", "confirmPassword"]` and logs `"field N: <name>"` for each one, where `N` is a 1-based position (not 0-based) — deliberately practice the off-by-one adjustment.
 3. In the console, type `typeof null` and `null == undefined`, and write one sentence explaining, in your own words, why each result could mislead a developer reading a conditional check quickly. Save your three sentences (one per exercise) in a plain text file — you'll want the habit of writing down what you observed, not just what you expected, before this course reaches debugging.
+
+## Check your understanding
+
+1. Inside an `if` block you declare `var a = 1;` and `let b = 2;`. Which one can you read after the block closes?
+2. Why does `if (typeof user === "object")` not prove that `user` exists?
+3. List four inputs you would try against `isValidPassword`, and what each one protects against.
+
+*Answers:* (1) Only `a`; `let` is block-scoped. (2) `typeof null` is also `"object"`, so a missing user passes. (3) For example: `"abcdefg1"` (8 characters with a digit, the boundary that should pass), `"abcdef1"` (7 characters, just below it), `"abcdefgh"` (long enough, no digit), and `""` (empty). `null` is worth trying too: it throws a `TypeError` on `.length`, which is itself a finding.

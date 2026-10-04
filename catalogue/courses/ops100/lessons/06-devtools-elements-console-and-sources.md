@@ -63,7 +63,7 @@ The Sources panel shows every script the page has loaded, and lets you set break
 Click a line number in any open file to set a breakpoint, then trigger the code path (click a button, submit a form, reload). Execution pauses right there, and DevTools shows:
 
 - **Scope**, listing every variable in reach at that line and its current value,
-- **Call Stack**, showing the chain of function calls that led here — read bottom to top for the original trigger, top to bottom for "what's about to happen next,"
+- **Call Stack**, showing the chain of function calls that led here: the top frame is the function you are paused in, and each frame below it is the caller that called the one above. Read from the bottom up to follow how execution got here from the original trigger (a click handler, a timer, a page load),
 - Stepping controls — step over (run the next line), step into (follow a function call inside), step out (finish the current function and return to its caller).
 
 ```js
@@ -94,3 +94,11 @@ This ordering matters because it's the fastest path to a correct diagnosis, and 
 2. Open the Console panel on the same page and run `document.title`, then `document.querySelectorAll('a').length` to count the links on the page. Try one more expression of your own that inspects something about the page.
 3. Find (or ask your instructor for) a small page with an intentional JavaScript error. Read the Console error message, click through to the file and line it names, and in the Sources panel set a breakpoint on the line just before the error. Reload, let it pause, and inspect the Scope pane to identify exactly which variable is not what the code expected.
 4. Write two or three sentences describing a hypothetical bug report ("the total is wrong") and walk through, in order, which of config, logs, or code you would check first and why, based on this lesson's ordering.
+
+## Check your understanding
+
+1. View Source shows a `<div class="banner">`, but the Elements panel doesn't. Which one reflects what the user sees, and what might explain the difference?
+2. The Console shows `TypeError: Cannot read properties of undefined (reading 'items') at CartSummary (cart.js:42)`. What three facts does that line give you?
+3. The cart total is wrong on staging but right locally. Which of config, logs, or code do you check first, and what specifically?
+
+*Answers:* (1) Elements: it shows the live DOM, so JavaScript may have removed or replaced the element after load. (2) The error type, the location (`cart.js` line 42), and the running function (`CartSummary`). (3) Config first, for example the API base URL or a feature flag that differs between environments.

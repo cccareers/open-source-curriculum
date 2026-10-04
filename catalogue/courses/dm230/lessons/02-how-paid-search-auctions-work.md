@@ -346,7 +346,7 @@ You will get this message from a client or a manager, in these exact words, seve
 
 **Step 6. Check whether the query even matches.** Pull the search terms report for the period. If the query you are worried about does not appear there and does not appear as a keyword, the issue is matching, not the auction. A negative keyword added six months ago by someone else is a frequent culprit. Lesson 04 covers negatives and search terms mining.
 
-Applied to Northgate, on a real Thursday in July: the owner calls at 8 p.m. saying he cannot find his ad for "ac repair columbus". Step 1 says stop searching manually. Steps 2 and 3 come back clean. Step 4 shows lost IS (budget) at 34% and a daily budget that fully pacing out by roughly 6 p.m. That is the answer. The ad was showing at 10 a.m. and stopped when the money ran out, and it ran out just before the evening emergency peak. The fix is not a bid change and not an ad rewrite. It is either more budget for this campaign, budget moved out of Maintenance Plans, or an ad schedule that concentrates spend in the evening hours when the emergency queries convert. Which of those three you choose is a structure and bidding question, and structure is the next lesson.
+Applied to Northgate, on a real Thursday in July: the owner calls at 8 p.m. saying he cannot find his ad for "ac repair columbus". Step 1 says stop searching manually. Steps 2 and 3 come back clean. Step 4 shows lost IS (budget) at 34% and a daily budget that fully paces out by roughly 6 p.m. That is the answer. The ad was showing at 10 a.m. and stopped when the money ran out, and it ran out just before the evening emergency peak. The fix is not a bid change and not an ad rewrite. It is either more budget for this campaign, budget moved out of Maintenance Plans, or an ad schedule that concentrates spend in the evening hours when the emergency queries convert. Which of those three you choose is a structure and bidding question, and structure is the next lesson.
 
 ## Practice
 
@@ -405,3 +405,9 @@ Your proposed project is four weeks of work: split the ad group into three tight
 6. Write three sentences on why this estimate should be presented as a range rather than a point number, naming at least two things that could make the real result worse than your projection.
 
 Deliverable: a short memo, no more than one page, with the arithmetic shown and a clear recommendation to proceed or not.
+
+## Check your understanding
+
+1. Using the teaching simplification, an advertiser bids $10 at a quality index of 6, and the advertiser directly below has an Ad Rank of 48. What is the actual CPC? *(Answer: 48 / 6 + $0.01 = $8.01.)*
+2. A campaign shows 15% lost impression share to budget and 60% lost to rank. Will raising the budget help much? *(Answer: very little; the main constraint is Ad Rank, so the fix is quality or bid, then budget.)*
+3. Why should you not search for your own ad repeatedly to check that it is showing? *(Answer: it creates impressions you never click, which drags down CTR and quality signals, and your personal context is not representative; use the ad preview and diagnosis tool instead.)*

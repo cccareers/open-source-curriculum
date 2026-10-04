@@ -86,6 +86,6 @@ Every item must be from your own instance. A screenshot of the documentation is 
 - The roles related list on the group record is where requirement 11 happens. If you find yourself on a user form adding a role, stop — that is the direct grant the constraints forbid.
 - The "inherited" marker in requirement 13 may take a moment to appear, and it is shown as a flag on the user's roles related list rather than as a separate section. If you do not see it, reload the record.
 - For the impersonation comparisons, write down what you expect to see *before* you impersonate. Being wrong is the useful part; a prediction you never made teaches you nothing.
-- The security debugger is switched on from the same menu you impersonate from. Turn it off again when you are finished, because the annotations make ordinary work unreadable.
+- The security debugger is switched on from the **Debug Security Rules** module (System Security > Debugging). Switch it on as yourself *before* you impersonate, because the user you impersonate cannot reach the module. Turn it off again when you are finished, because the annotations make ordinary work unreadable.
 - If a user you created cannot sign in at all, check Active and Locked out on their record before you go looking at access control. Authentication failures and authorization failures look nothing alike once you know the difference, and this is the cheapest place to practice telling them apart.
 - Take your screenshots as you go. Reconstructing evidence after the fact takes longer than capturing it did.

@@ -142,7 +142,7 @@ POST B
   Gross profit per 1,000 reached = $834.72 / 4.12      = $202.60
 ```
 
-Post B produced **37.8 times** the gross profit of Post A ($834.72 ÷ $22.08) from **one ninth** the reach, at **one third and a half** the production cost. Per thousand people reached it was 349 times more valuable ($202.60 ÷ $0.58).
+Post B produced **37.8 times** the gross profit of Post A ($834.72 ÷ $22.08) from **one ninth** the reach, at **under a third of** the production cost ($28 against $98). Per thousand people reached it was 349 times more valuable ($202.60 ÷ $0.58).
 
 Read the chain to see *why*, because the answer is not "carousels beat Reels." Post A converted 310 profile visits from 38,400 reach — 0.81% — and then 24 outbound clicks from those visits, 7.7%. Post B converted 640 profile visits from 4,120 reach — **15.5%** — and 214 outbound clicks from those, **33.4%**. Post A reached a huge audience with no relationship to the product; Post B reached a small audience of people with a coffee problem it had just named. The failure was at the response link, and it was a **targeting-by-topic** failure, not a format failure.
 
@@ -224,7 +224,7 @@ FERNWOOD SOCIAL REPORT - JULY                    Prepared by Tomas, 2 Aug
 EXPOSURE
   Posts published                    13         14        +1
   Reach                          71,300    118,400      +66%
-  Followers, net                 +9,610     +9,850      +240 net (+2.5%)
+  Followers (end of month)        9,610      9,850      +240 net (+2.5%)
 RESPONSE
   Median saves per 1,000 reached   10.9        9.4      -14%
   Median shares per 1,000 reached   6.3        7.1      +13%

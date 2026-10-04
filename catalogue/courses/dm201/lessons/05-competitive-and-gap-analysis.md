@@ -210,6 +210,8 @@ competitor ranks + you have rows past position 30    → weak page exists, likel
 competitor ranks + you have no rows at all           → true keyword gap, needs a build
 ```
 
+(If you already rank in positions 1–10 alongside the competitor, it is not a gap — it is a page to defend, and it belongs on the striking-distance and CTR lists in lesson 11, not on this one.)
+
 That three-way split is most of a gap list on its own, and it maps directly to effort: rewrite, rebuild, or build.
 
 ## Realism: can you actually rank?

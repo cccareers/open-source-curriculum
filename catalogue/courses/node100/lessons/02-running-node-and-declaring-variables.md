@@ -131,3 +131,11 @@ Create a file named `variables.js` and write the following, running it with `nod
 2. Declare a `let` named `linesProcessed` initialized to `0`. Write a small block (an `if (true) { }` is fine for this exercise) that declares a `const` named `batchSize` set to `50` *inside* the block, and reassigns `linesProcessed` to `linesProcessed + batchSize` inside that same block. Log `linesProcessed` after the block closes.
 3. Immediately after the block, try to `console.log(batchSize)` and run the file. Read the exact error Node prints, and add a one-line comment above that log explaining, in your own words, why the error happens.
 4. Declare a `let` named `lastResult` and set it to `null` to represent "no result computed yet." Reassign it to the number `42` and log it. Add a comment noting the difference in meaning between what `lastResult` held before and after the reassignment.
+
+## Check your understanding
+
+1. You write `const retries = 3;` and later `retries = retries + 1;`. What happens when you run the file, and which keyword should you have used?
+2. A variable is declared with `let` inside an `if` block. Can code after the block's closing `}` read it? Why does that protect you?
+3. Your function returns `undefined` for one input and `null` for another. Which one suggests a deliberate "no result" and which suggests a value that was never assigned?
+
+*Answers:* (1) Node throws `TypeError: Assignment to constant variable.`; use `let` because the value has to change. (2) No: `let` and `const` are block-scoped, so the variable cannot leak out and be misread later. (3) `null` is the deliberate "nothing"; `undefined` usually means nothing was ever assigned, which is often a bug worth reporting.

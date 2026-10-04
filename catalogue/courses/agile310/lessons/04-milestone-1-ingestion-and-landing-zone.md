@@ -36,7 +36,7 @@ Deliver six things.
 
 **2. An immutable, partitioned landing zone.** Raw records land in object storage, in the source's own shape, under a path that carries the entity and the ingestion date — for example `raw/trips/ingest_date=2026-03-01/`. Landed objects are never edited or overwritten in place by any later stage. Compress where the format allows it.
 
-**3. Incremental ingestion with a watermark.** The job asks each source only for what changed since the last successful run, using a high-water mark it persists somewhere durable — an object, a small table, a parameter store entry. A full re-fetch every run is not incremental, no matter how fast it is.
+**3. Incremental ingestion with a watermark.** The job asks each source only for what changed since the last successful run, using a high-water mark it persists somewhere durable — an object, a small table, a parameter store entry. A full re-fetch every run is not incremental, no matter how fast it is. For a file-drop source that has no "changed since" filter, the watermark is the record of which files you have already processed: file name, size, and checksum in a small registry, so a re-run skips files it has landed and picks up only new ones (the processed-files registry from de210).
 
 **4. Idempotent behaviour.** Running the job twice for the same logical window leaves the landing zone in the same state as running it once — same effective record set, no duplicated partitions, no silently doubled counts downstream. Decide and document how you achieve this: a deterministic object key, a manifest that suppresses reprocessing, or an atomic partition replace. Any of the three is acceptable; not having chosen one is not.
 

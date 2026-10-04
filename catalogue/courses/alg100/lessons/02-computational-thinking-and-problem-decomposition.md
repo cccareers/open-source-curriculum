@@ -34,7 +34,7 @@ Notice what this list buys you before a single line of JavaScript exists. It alr
 
 ## Pseudocode as a rehearsal for both code and tests
 
-Pseudocode is decomposition written down in a form close enough to real syntax that translating it to JavaScript is mechanical, but loose enough that you are not yet fighting semicolons. Here is the revenue steps above as pseudocode:
+Pseudocode is decomposition written down in a form close enough to real syntax that translating it to JavaScript is mechanical, but loose enough that you are not yet fighting semicolons. Here are the revenue steps above, written as pseudocode:
 
 ```
 function totalPaidRevenue(orders):
@@ -87,6 +87,8 @@ function isValidUsername(username) {
 
 Walking the steps as buckets: too short, too long, right length but with a disallowed character, and right length with only allowed characters. Each of the four steps is one decision, made on one piece of data, with one unambiguous outcome — that is what makes this decomposition trustworthy, and it is also, not coincidentally, close to a ready-made list of test cases: a 2-character name, a 21-character name, a name with a hyphen in it, and a name that should simply pass.
 
+Notice what the decomposition still does not say: every step assumes `username` is a string. Call `isValidUsername(null)` and step 1 never gets a chance to return `false` — reading `null.length` throws `TypeError: Cannot read properties of null (reading 'length')`. That is a fifth bucket ("not a string at all"), and it only becomes visible because you wrote the steps down and asked what each one assumes about its input. Whether the right answer is `false` or a thrown error is a requirements question; the decomposition's job is to make sure somebody asks it.
+
 ## Practice
 
 Decompose the following requirement into a numbered list of steps, in the same style as the two examples above, and then translate your decomposition into a JavaScript function.
@@ -97,3 +99,11 @@ Decompose the following requirement into a numbered list of steps, in the same s
 2. Translate the decomposition into a `letterGrade(score)` function in JavaScript.
 3. List the "buckets" your decomposition sorts scores into, and identify the exact boundary value between each pair of adjacent buckets (for example, the boundary between an `"F"` and a `"C"`).
 4. Without writing any test code yet, write down in plain language the input you would use to check each boundary you identified — this is the same list you will use to actually test the function once the course gets to that stage.
+
+## Check your understanding
+
+1. Why is "Handle the login" not a step a computer can follow, while "Check whether the password field is empty" is?
+2. `totalPaidRevenue` sorts orders into two buckets. Name a third bucket the decomposition never addressed.
+3. In `letterGrade`, which single input sits on the seam between `"B"` and `"A"`?
+
+**Answers:** (1) The first names no concrete action, no specific piece of data, and no clear stopping point; the second names all three. (2) Orders with a missing or malformed `status` field (also: an `orders` value that is not an array). (3) `90` — it is the lowest score that should return `"A"`, and `89` is the matching value just below it.

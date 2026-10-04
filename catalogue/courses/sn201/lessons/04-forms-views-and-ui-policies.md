@@ -86,7 +86,7 @@ Create additional views when audiences genuinely differ. For facilities, a **Tec
 Two mechanisms select a view:
 
 - **Manually**, from the form's context menu, which is how you test.
-- **Automatically**, through a **view rule** — a condition evaluated when the form loads that selects a view for matching users or records. A view rule that reads "if the current user has the technician role and not the manager role, use the Technician view" gives every technician the simple form without them choosing anything.
+- **Automatically**, through a **view rule** — a condition evaluated when the form loads that selects a view for matching users or records. A view rule that reads "if the current user has the technician role and not the manager role, use the Technician view" gives every technician the simple form without them choosing anything. The view rule's condition builder tests fields on the *record*; a test on the *user's roles* needs the rule's advanced script option, where a line such as `if (gs.hasRole('x_acme_facilities.technician') && !gs.hasRole('x_acme_facilities.manager')) answer = 'technician';` selects the view.
 
 Views change *presentation only*. A field hidden by a view is still on the table, still writable through the API, and still visible to anyone who switches views. **A view is not security.** If a field must not be seen, that is an access control rule, and lesson 7 is where it belongs. Confusing the two is one of the most common and most serious mistakes new builders make.
 
@@ -155,7 +155,7 @@ Work on the `Facilities Work Orders` application and the `work_order` table.
 
 1. **Lay out the default form.** Build the three-section layout shown above — Request, Assignment, Closure — using either editor. Add the activity formatter below the last section.
 
-2. **Add the missing fields.** You will need `close_code` (Choice: Repaired, Replaced, No Fault Found, Referred to Contractor) and `close_notes` (String, at least 1000 characters) and `contractor_company` (String). Add them from the form designer so you see how field creation works from the canvas.
+2. **Add the missing fields.** You will need `close_code` (Choice: Repaired, Replaced, No Fault Found, Referred to Contractor), `close_notes` (String, at least 1000 characters), and `contractor_company` (String). Check the table's columns first: Task already provides `close_notes` on standard instances, and if it is there you reuse the inherited field rather than creating a second one. Add them from the form designer so you see how field creation works from the canvas.
 
 3. **Add the related list.** Put Work Order Parts on the form. Create a part usage inline from an existing work order and confirm the parent reference filled in automatically.
 

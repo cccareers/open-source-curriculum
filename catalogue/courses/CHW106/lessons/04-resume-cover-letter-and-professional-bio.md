@@ -60,7 +60,7 @@ Experienced in closed-loop referrals, client-centered goal setting, and accurate
 same-day documentation. Seeking a CHW role serving high-need populations.
 ```
 
-**Certifications and training.** Your CHW program completion, plus anything else you hold: CPR/first aid, HIPAA training, mental health first aid, motivational interviewing, food handler, valid driver's license and insurance where the posting asks for it. Put a date on each. If your state certification is pending, say "in progress, expected [month year]" rather than implying you hold it.
+**Certifications and training.** Your CHW program completion, plus anything else you hold: CPR/first aid, HIPAA training, mental health first aid, motivational interviewing, food handler, valid driver's license and insurance where the posting asks for it. Put a date on each. If a certification is pending, say "in progress, expected [month year]" rather than implying you hold it. CHW credentialing rules in California have been changing, so name your credential exactly as your program describes it — for example, the certificate program you completed — rather than calling it a state certification unless your program confirms that it is one.
 
 **Experience.** Your internship goes here as a real job, not under a heading that apologizes for it. Organization, your title — "Community Health Worker Intern" — city and state, and dates. Then three to six bullets in the shape above. Include prior employment even when it is unrelated: retail, food service, caregiving, and warehouse work all demonstrate reliability, teamwork, and customer contact, and a hiring manager reading a resume with a gap will wonder about the gap instead of your bullets.
 

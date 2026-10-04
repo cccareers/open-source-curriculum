@@ -45,7 +45,7 @@ Escalate rather than manage: a very high reading with chest pain, trouble breath
 
 In asthma, the airways in the lungs are easily irritated. When they react, they tighten, swell, and fill with mucus, so the person cannot move air well. That shows up as wheezing, coughing, chest tightness, and shortness of breath.
 
-There are usually two kinds of inhaler and the difference matters enormously to clients: a rescue inhaler used to open the airways during an attack, and a controller used every day to keep inflammation down even when the person feels well. Clients frequently stop the daily controller because they feel fine, and then rely on the rescue inhaler more and more. Someone using their rescue inhaler frequently is telling you their asthma is not controlled, and that belongs in front of a provider.
+There are usually two kinds of inhaler and the difference matters enormously to clients: a rescue inhaler used to open the airways during an attack, and a controller used every day to keep inflammation down even when the person feels well. Clients frequently stop the daily controller because they feel fine, and then rely on the rescue inhaler more and more. Someone using their rescue inhaler frequently is telling you their asthma is not controlled, and that belongs in front of a provider. Some clients are prescribed a single combination inhaler that serves both purposes; the client's written asthma action plan, not a general rule, says which inhaler is used when, so ask to see it rather than assuming.
 
 What support looks like: help identify triggers in the actual home and workplace — mold, pests, smoke, dust, cold air, strong cleaning products, a landlord's unrepaired leak — and connect the client to housing code or remediation help when the trigger is a housing problem, which it often is. Help them ask their provider for a written asthma action plan, and make sure they can read it.
 
@@ -82,7 +82,7 @@ A workable teaching sequence:
 6. Make the log usable. Paper, phone, or wall calendar — whatever they will actually use.
 7. Plan the follow-up: when you will check in, and what they should do if a reading looks alarming.
 
-For blood glucose, the skill includes clean dry hands, using the side of a fingertip, having supplies within reach beforehand, and writing down the number with the date, time, and whether it was before or after eating. For home blood pressure, technique drives accuracy: sit for five quiet minutes first, back supported, feet flat, arm resting at heart level, correct cuff size on a bare upper arm, no talking during the reading, and no caffeine or cigarettes in the thirty minutes before. Two readings a minute apart, both recorded.
+For blood glucose, the skill includes clean dry hands, using the side of a fingertip, having supplies within reach beforehand, and writing down the number with the date, time, and whether it was before or after eating. For home blood pressure, technique drives accuracy: sit for five quiet minutes first, back supported, feet flat, arm resting at heart level, correct cuff size on a bare upper arm, no talking during the reading, and no caffeine, cigarettes, or exercise in the thirty minutes before; empty the bladder before measuring. Two readings a minute apart, both recorded. See the [American Heart Association’s home monitoring instructions](https://www.heart.org/en/health-topics/high-blood-pressure/understanding-blood-pressure-readings/monitoring-your-blood-pressure-at-home).
 
 What you never do with a log: interpret it. You do not tell a client their numbers look good, look bad, or mean their medication needs changing. You help them record it accurately and get it in front of the provider — and you flag anything in an alarming range for immediate clinical attention.
 
@@ -109,3 +109,10 @@ Saying "I don't know" costs you nothing and buys you credibility with both the c
 3. **Teach-back a home BP check.** In pairs, teach your partner to take a home blood pressure reading using the do-with-not-for sequence. Your partner deliberately makes one technique error — crossed legs, talking during the reading, cuff over a sleeve. Correct it without embarrassing them. Then swap roles.
 
 4. **Hold the line.** Role-play these three requests and script a response to each that refers correctly while keeping the relationship warm: "My cousin takes half a pill and she's fine — should I try that?" "This one makes me dizzy, can I just stop it?" "My sugar was 210 this morning. Is that bad?" Read your answers aloud and cut any sentence that edges toward medical advice.
+
+## Check your understanding
+
+1. A client says, "I feel fine, so I stopped my blood pressure pill." Which barrier category is this, and what is your response? *"Feeling fine." Normalize that high blood pressure usually has no symptoms, and support the client in raising it with the provider rather than deciding alone. Do not tell them to restart or stop anything.*
+2. A client using a rescue inhaler several times a day tells you it's "working great." What do you do? *Frequent rescue use signals asthma that is not controlled; help the client get this in front of their provider soon, and check their written asthma action plan with them.*
+3. Your client's glucose log shows a number you think looks high. What do you say about it? *Nothing interpretive. Help them get the log to the provider, and if the reading or symptoms fall in the range their care team flagged as urgent, follow that escalation plan.*
+

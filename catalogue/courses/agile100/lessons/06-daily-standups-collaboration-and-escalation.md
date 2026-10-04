@@ -21,6 +21,8 @@ The daily standup is a short, time-boxed sync — usually 10 to 15 minutes, same
 2. What am I doing today?
 3. Is anything blocking me?
 
+These three questions are a widely used convention, and the one this course uses. The current Scrum Guide (2020) no longer requires them; it only requires that the Daily Scrum be a 15-minute event focused on progress toward the sprint goal, so you may join a team that uses a different format (for example, walking the board ticket by ticket). The reporting and escalation habits below work in any format.
+
 It is not a status report to a manager and not a problem-solving session — if a question needs real discussion, the standard move is to flag it and take it offline ("let's grab five minutes after this"), so the standup stays short for everyone. Its whole value is that it happens every day, so problems surface within 24 hours instead of festering until the next weekly meeting.
 
 ## What a QA engineer reports
@@ -98,3 +100,11 @@ You've just found this while testing: an admin user can delete another admin's a
 
 1. Write your full standup update (Yesterday / Today / Blocking) including this as a blocking escalation, following the four-part structure (impact first, reproduction, scope/severity, specific ask).
 2. In two sentences, explain why this specific defect deserves escalation-level urgency rather than a routine ticket filed for later triage.
+
+## Check your understanding
+
+1. Put these four escalation parts in the right order: specific ask, reproduction, impact, scope/severity.
+2. You confirm a release-blocking defect at 2pm. Standup is at 9:30 tomorrow. When do you first tell the team, and what is standup's role?
+3. Rewrite this standup line so it's actionable: "Today: more testing, some issues with search."
+
+*Answers:* (1) Impact, reproduction, scope/severity, specific ask. (2) Immediately, by messaging the right person or posting in the team channel; standup then confirms status, it isn't the first notification. (3) For example: "Today: finishing the STORY-108 regression pass on search. Found that searches with a trailing space return zero results; filing it now as a Medium defect and will link it in the channel."

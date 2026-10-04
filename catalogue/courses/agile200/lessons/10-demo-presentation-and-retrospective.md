@@ -73,3 +73,11 @@ Ground each item in something concrete from your board's outcomes log (Lesson 03
 ## Practice
 
 Write and rehearse a demo script for your capstone using the structure above, timed to five to ten minutes, and present it live to at least one person who has not been closely following your project (a classmate on a different capstone, or your instructor). During the demo, ask at least two specific feedback questions and record what you hear using the diagnosis/recommendation format. Immediately afterward, run a full retrospective using the four-part format above, grounding at least two entries in specific numbers from your outcomes log or defect database, and write down at least one concrete, owned action item you would carry into the next sprint.
+
+## Check your understanding
+
+1. Rewrite "testing felt rushed" as a retrospective finding someone can act on.
+2. Why ask "was anything in that flow confusing?" instead of "any questions?"
+3. What makes a retrospective action item usable?
+
+*Answers:* (1) For example: "We opened 9 defects in week 2 versus 3 in week 1, after skipping tests alongside two features; action: no ticket enters Testing without its test." (2) Specific questions draw out usability feedback; generic ones tend to get silence. (3) It is concrete, owned by a named person, and checkable at the next sprint.

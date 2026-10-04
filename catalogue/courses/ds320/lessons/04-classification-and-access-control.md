@@ -81,7 +81,8 @@ Note also that principals are not only humans. Service accounts — the identiti
 Work from a clean model: schema-level grants to functional roles, no privileges on `PUBLIC`, and views or row-level security for anything finer.
 
 ```sql
--- Start from deny. New databases grant CREATE and USAGE on public to PUBLIC.
+-- Start from deny. Before PostgreSQL 15, new databases granted CREATE and USAGE on
+-- schema public to PUBLIC; 15+ grants USAGE only. Revoke explicitly either way.
 revoke all on database warehouse from public;
 revoke all on schema public from public;
 

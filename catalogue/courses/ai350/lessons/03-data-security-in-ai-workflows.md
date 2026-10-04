@@ -40,7 +40,7 @@ You already know the mechanics of connecting a tool and where a platform stores 
 
 Four rules cover the practice.
 
-**Secrets live in the platform's credential store, and nowhere else.** Zapier connections, Make connections and data stores, Airtable's field-level restrictions — use them. A key belongs in the connector configuration, never in a text field, a formula, a code step's literal string, a spreadsheet cell, a comment, or a prompt. The reason is not tidiness: those locations are copied, exported, screenshotted, and shared with people who need the workflow but not the key.
+**Secrets live in the platform's credential store, and nowhere else.** Use a supported credential vault or protected connector connection. A Make data store or an Airtable field is an ordinary data store, not a secrets vault. A key belongs in the connector configuration, never in a text field, a formula, a code step's literal string, a spreadsheet cell, a comment, or a prompt. The reason is not tidiness: those locations are copied, exported, screenshotted, and shared with people who need the workflow but not the key.
 
 **Never put a secret in a prompt.** This is the AI-specific version of the rule and it is violated constantly. Anything in the prompt goes to the vendor, lands in your run history, and can be echoed back by the model. If a workflow "needs" a token in the prompt so the model can call something, the design is wrong — the workflow should make the call.
 
@@ -88,7 +88,7 @@ Where you genuinely need content — usually to debug prompt quality — apply a
 | R1   | Email addresses                 | Replace with hash of the address     |
 | R2   | Phone numbers                   | Mask all but last 2 digits           |
 | R3   | Named fields: ssn, dob, card_*  | Drop entirely, never log             |
-| R4   | Full prompt body                | Log first 200 chars + length         |
+| R4   | Full prompt body                | Redact content first; then 200 chars + original length         |
 | R5   | Model response                  | Log full text only if flagged for review |
 | R6   | Any field marked Regulated      | Drop entirely, never log             |
 | R7   | Credentials, tokens, auth headers| Drop entirely, never log            |
@@ -151,3 +151,9 @@ Continue with the same workflow you threat-modelled in the previous lesson.
 4. **Write your redaction rule set.** Adapt the seven-rule table to your workflow's actual fields, then implement at least one rule — a truncation, a masked field, or a dropped field — in the step that writes your logs or debug records.
 5. **Complete the vendor questionnaire.** Answer all nine questions for the model vendor you use, citing the specific documentation page and the date you read it. Where you cannot find an answer, write "unknown — need to ask" and name who you would ask. An honest unknown is a valid deliverable; a guess is not.
 6. **Summarise.** In one paragraph, state which single change from this lesson most reduced your workflow's exposure, and which exposure you cannot fix yourself and will have to escalate.
+
+## Check your understanding
+
+1. Why does the inventory come before any other control? *Because every later choice — what to minimise, how to scope identities, what to log, what to ask the vendor — depends on knowing what data exists and how sensitive it is.*
+2. A workflow "needs" an API token in the prompt so the model can call a service. What is wrong, and what is the fix? *Anything in the prompt goes to the vendor, the run history, and can be echoed back. The workflow, not the model, should make the call using a credential from the platform's credential store.*
+3. Your team evaluated a model vendor's consumer chat product and found the terms acceptable. Why is that not enough before sending customer data through the API? *Consumer, business, and API tiers often have different retention and training terms; question 9 of the vendor questionnaire must be answered for the tier you actually use.*

@@ -308,7 +308,8 @@ gs.getUserName();               // user_name of the current user
 gs.getUser().getFullName();     // the user object
 gs.hasRole('itil');             // role check — returns true for admin
 
-gs.nowDateTime();               // current date/time as a string
+gs.nowDateTime();               // current date/time as a display string (global scope only;
+                                // in a scoped app use new GlideDateTime().getDisplayValue())
 gs.daysAgo(7);                  // a date/time 7 days back, query-ready
 gs.beginningOfLastMonth();      // one of a family of relative-date helpers
 
@@ -451,4 +452,4 @@ Use a sub-production instance and Scripts - Background. Start every write script
 
 9. **Journal and choice fields.** Add a work note to a record twice from a script and read back the last three journal entries from `sys_journal_field`. Then write a condition comparing `state` to `'Resolved'` as a string, show that it never matches, and fix it.
 
-10. **Security.** Run the same query with `GlideRecord` and with `GlideRecordSecure` as a user without the `itil` role (impersonate). Report the two row counts and explain the difference in one sentence.
+10. **Security.** Run the same query with `GlideRecord` and with `GlideRecordSecure` as a user without the `itil` role. Scripts - Background is admin-only, so you cannot simply impersonate and use it; instead build a short Automated Test Framework test with an *Impersonate* step followed by a *Run Server Side Script* step that logs both counts (or have a colleague with a non-admin test user run it through a Fix Script you share). Report the two row counts and explain the difference in one sentence.

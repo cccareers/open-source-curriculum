@@ -190,3 +190,9 @@ Use the design document from the previous lesson. Any no-code chatbot platform w
 8. **Prove the hallucination is gone.** Ask five questions about policies your content does not cover but a generic company would have. Show that all five are refused with the exact sentence and an escalation offer. If any is answered, fix it and re-run all five.
 
 9. **Build the freshness loop.** Change a fact in a source document. Show the bot giving the old answer, run your re-index trigger, and show it giving the new one. Record the elapsed time. Then implement the refusal log with the two reason codes, and show three logged refusals correctly categorised.
+
+## Check your understanding
+
+1. A grounded bot gives a wrong answer. What do you inspect before editing the prompt? *Answer: the retrieved chunks. If retrieval returned the wrong pieces, no prompt change can fix the answer.*
+2. "Where is my draft?" Should that be answered by retrieval over indexed content? *Answer: no. It is a record question, so look up the customer's own record in the database or API, after an authorisation check, rather than retrieving semantically similar text.*
+3. Raising the relevance threshold reduces wrong answers but increases one other metric. Which one, and how do you notice? *Answer: the false refusal rate. You notice it in the evaluation set, where answerable questions are now refused, and in the refusal log under "content retrieved but did not answer" or "nothing relevant retrieved".*

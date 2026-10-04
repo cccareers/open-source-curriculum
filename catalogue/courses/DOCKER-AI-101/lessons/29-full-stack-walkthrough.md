@@ -173,6 +173,8 @@ docker compose exec ollama ollama pull nomic-embed-text
 docker compose logs -f api
 ```
 
+If `api` exits on the very first `up` with a connection error to `chroma` or `ollama`, you have hit the startup race from the logs lesson: `main.py` connects to Chroma when the module loads, and the short `depends_on` form waits only for the container to *start*. After Chroma is ready, run `docker compose restart api` to reload the app, even if the reload supervisor has kept the container running. Repeating `up -d` does not restart an unchanged running container. The durable fixes are the ones from that lesson: a `healthcheck` with `condition: service_healthy`, retry logic around the first connection. `restart: on-failure` alone is insufficient here: uvicorn runs with `--reload`, so its supervisor can stay alive when the application subprocess fails to import; no container exit means no restart.
+
 Pulling models is a one-time step: the weights land in the `ollama-models` volume and survive every later `down` and `up`.
 
 Then exercise it:

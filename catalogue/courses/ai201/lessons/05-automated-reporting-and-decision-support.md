@@ -133,6 +133,8 @@ Two of those rules do the heavy lifting. **No causes** stops the most seductive 
 
 Then verify the output before it goes anywhere. A cheap, effective check: extract every number-like token from the generated narrative and assert that each one appears in the metrics JSON. Any token that does not match is a hallucinated figure — fail the run, log the narrative, and either retry once or fall back to a numbers-only report with a note that the narrative was withheld. Sending a report with a fabricated figure is worse than sending a bare table.
 
+Two tokenizing details decide whether this guard actually works. Digits inside names, such as `p90` or the `W11` in a report ID, must not count as figures on either side; otherwise `90` lands in the allowed set and a narrative that invents "90 open" passes. And strip thousands separators before matching, or `1,412` splits into `1` and `412` and slips through. Also add a prompt rule that every figure is written as digits, because the guard cannot see "roughly two hundred".
+
 ```text
 narrative numbers: [412, 388, 5.4, 31.2, 24, 14, 10]
 metrics tokens:    [412, 388, 96, 5.4, 31.2, 366, ... 24, 14, 10, ...]
@@ -146,18 +148,18 @@ SUMMARY: The team received 412 requests and closed 388, ending the period with 9
 Median cycle time was 5.4 hours against 4.9 in the prior period.
 
 ATTENTION:
-- Quotes queue p90 cycle time drove the overall p90 to 31.2 hours, above the 24-hour
-  threshold. Owner: Quotes team.
+- Overall p90 cycle time reached 31.2 hours, above the 24-hour threshold.
+  Owner: Operations lead.
 - Quotes recorded 14 SLA breaches against a threshold of 10. Owner: Quotes lead.
-- Quotes opened the period with 201 received against 178 closed, leaving 61 open —
-  the largest open balance of the three queues.
+- Quotes received 201 requests and closed 178, ending the period with 61 open —
+  the largest open balance of the three queues. Owner: Quotes team.
 
 WATCH:
 - Requests received rose 12.6% while closed rose 4.6%; if the gap persists the open
   balance will keep growing.
 ```
 
-Every figure in that output — 412, 388, 96, 5.4, 4.9, 31.2, 24, 14, 10, 201, 178, 61, 12.6, 4.6 — appears verbatim in the metrics object. No cause is asserted anywhere; the WATCH bullet describes an arithmetic relationship between two given deltas rather than explaining it. And no action is recommended, though the reader now knows exactly which two decisions are theirs to make. That is the shape you are aiming for.
+Every figure in that output — 412, 388, 96, 5.4, 4.9, 31.2, 24, 14, 10, 201, 178, 61, 12.6, 4.6 — appears verbatim in the metrics object. The owners come from the routing table, joined onto the metrics object before the narrate step, so they are inputs too. No cause is asserted anywhere — the overall p90 breach is reported as a fact, not attributed to the quotes queue, because the object holds no per-queue p90 to support that claim — and the WATCH bullet describes an arithmetic relationship between two given deltas rather than explaining it. And no action is recommended, though the reader now knows exactly which two decisions are theirs to make. That is the shape you are aiming for.
 
 ## Deliver: schedule, format, and the empty case
 
@@ -195,3 +197,9 @@ Build a scheduled weekly report over the pipeline you built in the previous less
 6. **Handle the empty period.** Run the report over a date range with no records. It must produce and deliver a coherent report, not an error and not a blank.
 7. **Handle the broken source.** Simulate one source failing. Confirm `sources_complete` is false and that the narrative's first sentence says the figures are incomplete.
 8. **Deliver on a schedule** to a real channel, archive the metrics object and narrative under the `report_id`, and let it run for at least two consecutive periods. Bring both outputs and one paragraph on what you would change after seeing them side by side.
+
+## Check your understanding
+
+1. Your narrative says "requests rose 13%". The metrics object holds `requests_received_pct: 12.6`. Which rule was broken, and what should catch it? *Answer: the no-new-numbers rule. The model rounded instead of copying. The number-check guard should flag 13 as unmatched and fail the run.*
+2. Why is "quotes p90 rose because of the holiday" not allowed even if it is true? *Answer: the model was not given the cause. An invented but plausible cause gets repeated as fact. The report states what happened, and people supply the why.*
+3. A source failed to load before Monday's run. What should go out? *Answer: a report whose first sentence says the figures are incomplete, with `sources_complete: false`. It should not quietly report smaller totals, and it should not send nothing.*

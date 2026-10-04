@@ -126,6 +126,8 @@ A workable facilities state model:
 
 Write these values down. Lessons 5, 6, and 7 all reference them.
 
+One more step makes these values behave like real closed states. Task-based tables decide which state values count as "closed" — and therefore when the inherited `active` field flips to false and closure stamps are set — from attributes on the `state` dictionary entry: `close_states`, `default_close_state`, and `default_work_state`. Because `state` is defined on Task, you change them for your table with a **dictionary override** on `work_order.state` (open the `state` dictionary entry, then the Dictionary Overrides related list), setting for example `close_states=60;70`, `default_close_state=60`, `default_work_state=30`. Skip this and a Closed Complete work order still reads Active = true, which quietly breaks every "open work" list and report.
+
 ## Field-level settings that save you later
 
 When you create a field, the dictionary entry behind it exposes settings that are far easier to set now than to retrofit.
@@ -141,7 +143,7 @@ When you create a field, the dictionary entry behind it exposes settings that ar
 
 Putting all of it together:
 
-- **`work_order`**, extending Task. Inherits number, state, assignment, descriptions, journals, parent. Adds: `location` (Reference to `cmn_location`, mandatory), `work_type` (Choice: Electrical, Plumbing, HVAC, Structural, Other), `requested_by` (Reference to `sys_user`, default to the current user), `scheduled_for` (Date/Time), `time_on_site` (Duration), `requires_contractor` (True/False).
+- **`work_order`**, extending Task. Inherits number, state, assignment, descriptions, journals, parent. Adds: `location` (Reference to `cmn_location`, mandatory), `work_type` (Choice: Electrical, Plumbing, HVAC, Structural, Other), `requested_by` (Reference to `sys_user`, default value `javascript:gs.getUserID()` so it fills with the current user), `scheduled_for` (Date/Time), `time_on_site` (Duration), `requires_contractor` (True/False).
 - **`work_order_part`**, standalone. Fields: `work_order` (Reference to `work_order`, mandatory), `part` (Reference to `part`), `quantity` (Integer, default 1), `unit_cost` (Currency).
 - **`part`**, standalone reference data. Fields: `name` (String, display), `sku` (String, unique), `standard_cost` (Currency), `active` (True/False, default true).
 
