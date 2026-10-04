@@ -80,3 +80,11 @@ Before you finalize the charter and DoD, put them in front of someone else — a
 ## Practice
 
 Produce your capstone's project charter and story-level definition of done as a shareable document (word processor or equivalent), plus a one-week-per-row testing timeline as a spreadsheet or table. Then schedule a 15-minute review with a teammate or your instructor: present the charter and DoD, ask at least two specific scoping questions, and record their feedback as a short list of concrete revisions you will make before Lesson 03. Bring the revised charter, DoD, and timeline forward — you will use them for the rest of the course.
+
+## Check your understanding
+
+1. Why is the "Out of scope" list not optional in a charter?
+2. A ticket passed code review but has no automated test. Under the story-level DoD template above, is it Done?
+3. What is the difference between a story-level and a release-level definition of done?
+
+*Answers:* (1) Without it, scope quietly grows and deadlines slip; writing it down makes "no" a recorded decision. (2) No: "At least one automated test covers the new behavior" is unchecked. (3) Story-level applies to each ticket; release-level applies to the whole project (all in-scope items done, regression passing, no open blocker or critical defects, handoff docs).

@@ -62,6 +62,8 @@ cp .env.example .env        # then fill in local values
 <package manager> run dev
 ```
 
+The exact "install exactly what the lockfile says" command differs by package manager: npm uses `npm ci`, Yarn uses `yarn install --frozen-lockfile` (or `--immutable` in newer versions), and pnpm uses `pnpm install --frozen-lockfile`. Check which one your project uses and write the real command into your rebuild steps.
+
 ## Installing and maintaining your test tooling
 
 Alongside the application environment, you need the tools that will actually run tests against it — a test runner for unit and integration tests, and, if your project has a user interface, a browser automation library for end-to-end checks. Install both now, even though you will not write substantial test suites until Lesson 06:
@@ -74,3 +76,11 @@ Maintaining test tooling is not a one-time setup. Across the three weeks, depend
 ## Practice
 
 Stand up your capstone's test environment following the checklist above: pinned runtime, lockfile install, externalized configuration, a repeatable seed script, and a documented rebuild sequence. Then do the teardown-and-rebuild test — wipe your local environment and rebuild it using only your written steps, timing how long it takes and noting any step that required knowledge not written down. Finally, install your test runner (and browser automation library, if your project has a UI) and confirm each can execute a single trivial test against the freshly rebuilt environment. Fix your documentation for any gap the rebuild exposed.
+
+## Check your understanding
+
+1. Why must configuration live in environment variables or a config file rather than in the source?
+2. What makes a seed script "repeatable"?
+3. How do you prove your environment documentation works if you are working solo?
+
+*Answers:* (1) Values differ between environments; hardcoding them means the test environment silently uses the wrong ones (or leaks real credentials). (2) Running it twice gives the same known dataset. (3) Tear the environment down completely and rebuild it using only the written steps, noting anything you had to remember.

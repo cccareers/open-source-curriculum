@@ -15,6 +15,8 @@ objectives:
 
 JavaScript's built-in `.sort()` will sort an array for you, and in real code you should almost always use it rather than hand-rolling your own. This lesson has you implement two sorting algorithms anyway, because the goal isn't to produce a sort you'll ship — it's to build the habit of looking at an algorithm and asking "how does its cost grow as the input grows," which is the single most useful question you can ask about any piece of code you're about to test. A function that's correct on ten items and unusably slow on ten thousand is still a defect; you just won't catch it by staring at the code, only by reasoning about its cost or measuring it.
 
+One warning before you rely on the built-in: with no arguments, `.sort()` converts every element to a string and sorts alphabetically. So `[10, 9, 1, 100].sort()` returns `[1, 10, 100, 9]`. To sort numbers, pass a compare function: `[10, 9, 1, 100].sort((a, b) => a - b)` returns `[1, 9, 10, 100]`. Also note that `.sort()` reorders the original array in place. The hand-written sorts below return a new array instead.
+
 Two sorting algorithms make a good pair for this because they sit at opposite ends of the cost spectrum and get there by fundamentally different strategies: bubble sort compares neighbors repeatedly, and merge sort splits the problem in half and conquers each half separately.
 
 ## A quadratic sort: bubble sort
@@ -97,7 +99,7 @@ The `merge` step is the part worth tracing by hand: given two already-sorted arr
 |---|---|---|
 | Strategy | Repeatedly compare and swap neighbors | Split in half, sort each half, merge |
 | Cost as input grows | Grows with the square of the size | Grows only slightly faster than the size itself |
-| Extra memory used | None beyond the array itself | Needs extra arrays for the halves and the merge |
+| Extra memory used | None beyond the array itself (the version above makes one copy up front so it doesn't change the caller's array) | Needs extra arrays for the halves and the merge |
 | Simplicity to trace by hand | Very easy | A little harder — recursion plus a merge step |
 
 Neither is universally "better." Bubble sort's cost makes it a poor choice for anything but small arrays or teaching, but its simplicity means there's almost nowhere for a bug to hide. Merge sort scales far better but has more moving parts — the split point, the recursive base case, the merge's two leftover-appending loops — and each of those moving parts is a place where an off-by-one or a missed leftover case could produce a subtly wrong result on a specific shape of input, like an array with duplicate values or an odd number of elements.
@@ -106,9 +108,19 @@ Neither is universally "better." Bubble sort's cost makes it a poor choice for a
 
 Being able to look at `bubbleSort` and say "this is going to struggle past a few thousand elements" before you ever run it, purely from reading the nested loop, is the same skill as reading a database query and predicting it will be slow before you run it against production-sized data. It lets you make a deliberate tradeoff — bubble sort is completely fine for sorting the six columns of a settings panel, and completely wrong for sorting a defect table with two hundred thousand rows — instead of discovering the cost the hard way when something that worked fine in a demo grinds to a halt in front of a real dataset.
 
+To put real numbers on it: add a comparison counter to the two functions above and give them reverse-sorted arrays. For 1,000 items, `bubbleSort` makes 999,000 comparisons and `mergeSort` makes about 5,000. For 2,000 items, `bubbleSort` makes 3,998,000 (four times as many) and `mergeSort` makes about 11,000 (a little over twice as many). You can predict that gap from the shape of the code before you run anything.
+
 ## Practice
 
 1. Implement `bubbleSort` and `mergeSort` yourself by typing them out, then run both on the same array of at least 10 unsorted numbers and confirm they produce identical, correctly sorted output.
 2. Add a counter that increments every time your `bubbleSort` performs a comparison (the `arr[i] > arr[i + 1]` check), and run it on three inputs of increasing size — for example arrays of length 10, 20, and 40, each already sorted in reverse order. Record the comparison count for each and describe, in a sentence or two, how the counts relate to each other.
 3. Do the same for `mergeSort`: count comparisons inside `merge`, run it on the same three input sizes, and compare how its comparison counts grow against `bubbleSort`'s.
 4. In two or three sentences, explain why an array that is already sorted is close to a best case for `bubbleSort` (with the `swapped` flag in place) but not meaningfully faster for `mergeSort`.
+
+## Check your understanding
+
+1. A quadratic function takes 2 seconds on 10,000 records. Roughly how long would you expect it to take on 20,000?
+2. What does `[3, 20, 100].sort()` return, and why?
+3. Name one input shape that is worth including in test data for `mergeSort` specifically, and say which part of the code it exercises.
+
+**Answers:** (1) About 8 seconds. Doubling the input roughly quadruples the work. (2) `[100, 20, 3]`. With no compare function, `.sort()` compares the values as strings, and `"1"` comes before `"2"`, which comes before `"3"`. (3) Any of these: an odd-length array (uneven split at `mid`), an array with duplicate values (the `<=` in `merge`), or an array where one half runs out first (the two leftover-appending loops).

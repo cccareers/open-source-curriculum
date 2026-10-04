@@ -132,3 +132,11 @@ Create a file named `data-modeling.js`:
 2. Reassign `testCase.status` to a different valid value and log the whole object. Then try (in a separate step, commented out or in a `try`/`catch` you don't need to understand yet — just observe the error message) reassigning `testCase` itself to a plain string, and note in a comment what error `const` produces.
 3. Create a `const` array named `suiteResults` containing at least four objects, each with the same shape as `testCase` from step 1. Write a `for...of` loop that counts how many entries have `status === "pass"` and logs the count.
 4. Write a pure function `summarize(suiteResults)` that takes an array shaped like step 3 and returns an object `{ total: number, passed: number, failed: number }`. Call it on your `suiteResults` array and log the returned object.
+
+## Check your understanding
+
+1. `const result = { status: "fail" }; result.status = "pass";` Does this throw? What does `const` actually protect?
+2. Given the nested `suite` object above, write the expression that reads the name of the second result.
+3. One entry in `results` is `{ name: "logout", state: "pass" }`. What happens to the failure-counting loop, and how would a shape comment have helped?
+
+*Answers:* (1) No. `const` protects the binding (you cannot point `result` at a new value), not the object's contents. (2) `suite.results[1].name`. (3) `result.status` is `undefined` for that entry, so it is silently never counted; a shape comment like `{ name: string, status: "pass" | "fail" | "skip" }` gives you a contract to check every entry against.

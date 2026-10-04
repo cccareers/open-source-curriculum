@@ -73,3 +73,11 @@ This is also the moment to close the loop with the reporter: tell them, in plain
 ## Practice
 
 Recruit one real person outside your team to use your capstone application and report at least one problem in their own words. Run the structured interview above, capturing it with the intake template. Attempt to reproduce the issue in your test environment and record the outcome — reproduced, not-yet-reproduced-with-notes, or usability gap. File the result appropriately: a defect record (Lesson 07) if it's a reproducible bug, or a written usability recommendation (using the diagnosis/recommendation format above) if it's not. Close the loop by telling the reporter what you found, in one or two plain sentences.
+
+## Check your understanding
+
+1. A user says "signup didn't work." What are the first two questions you ask?
+2. You cannot reproduce a credible report. What do you do before concluding anything?
+3. The software did exactly what it was built to do, but the user expected something else. Is that a finding?
+
+*Answers:* (1) What were you trying to do, and what did you expect to happen? (2) Identify differences between their environment and yours (browser, data, account state) and retry matching those. (3) Yes: a usability gap, reported with a concrete recommendation.

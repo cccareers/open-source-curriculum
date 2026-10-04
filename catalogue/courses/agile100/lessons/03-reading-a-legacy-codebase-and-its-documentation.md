@@ -39,7 +39,7 @@ docs/           architecture notes, ADRs, if any
 package.json    dependencies and npm scripts
 ```
 
-Not every project matches this exactly, but knowing the *shape* to look for tells you where to start reading. `package.json`'s `scripts` block, in particular, tells you what the previous developers considered the important commands — `test`, `build`, `lint`, `start`.
+An **ADR** (architecture decision record) is a short note recording one design decision and why it was made; if a `docs/` folder has them, they are often the fastest way to learn why the code looks the way it does. Not every project matches this exactly, but knowing the *shape* to look for tells you where to start reading. `package.json`'s `scripts` block, in particular, tells you what the previous developers considered the important commands — `test`, `build`, `lint`, `start`.
 
 4. **Trace one request or one feature, end to end.** Pick something small and observable — a single API endpoint, a single page load — and follow it from entry point to response. This is more useful than reading files in isolation, because it shows you how the pieces actually connect, not just what each file contains.
 
@@ -58,8 +58,8 @@ Work in that order — config, then logs, then code — because it's cheapest fi
 **Worked example.** A teammate reports: "the search page returns zero results for everything, even terms that used to work." Orientation pass:
 
 1. Config: check `.env` — is `SEARCH_INDEX_URL` pointed at the right host? (Found: it's pointed at a decommissioned staging index.)
-2. Logs: confirm — the app log shows repeated `ECONNREFUSED` to that host on every search request.
-3. Code: only now open `services/search.ts` to confirm it reads that variable at startup and doesn't retry against a fallback.
+2. Logs: confirm — the app log shows repeated `ECONNREFUSED` to that host on every search request. (Depending on how the old host was shut down, you might instead see `ENOTFOUND` if its DNS name no longer resolves, or `ETIMEDOUT` if nothing answers at all. All three point at the same thing: the app can't reach the host it was told to use.)
+3. Code: only now open `services/search.ts` to confirm it reads that variable at startup and doesn't retry against a fallback. (The `.ts` extension means TypeScript, a typed superset of JavaScript; many "JavaScript" codebases mix the two, and you read them the same way.)
 
 Three steps, ten minutes, root cause identified — because config was checked before code.
 
@@ -69,7 +69,7 @@ Every team has its own source-control conventions, and following them — not in
 
 - **Branch naming**: many teams use a pattern like `type/short-description` (`fix/search-index-url`, `feature/defect-export`). Check `git branch -a` or the team's contributing doc for the pattern in use before you create your first branch.
 - **Commit messages**: look at recent history for the house style. Some teams want a ticket ID in every message (`QA-142: fix search index URL`); some use conventional-commit prefixes (`fix:`, `test:`).
-- **Never commit directly to the main/trunk branch.** Work in a branch, open a pull request, and let review and CI run before it merges — even for a one-line config fix.
+- **Never commit directly to the main/trunk branch.** Work in a branch, open a pull request, and let review and CI (continuous integration: the automated build-and-test run that most repositories trigger on every pull request) run before it merges — even for a one-line config fix.
 - **Small, reviewable commits.** A commit that touches forty files with no clear theme is nearly impossible to review or to revert cleanly if it turns out wrong.
 
 You don't get to skip these because you're "just testing" — a QA engineer who files a defect from a scratch branch, or commits a test fixture straight to main, creates the same mess a developer would.
@@ -102,3 +102,11 @@ Pick any small-to-medium open-source JavaScript or Node repository you have acce
 2. Trace one feature or one API endpoint from entry point to output, and sketch the files involved.
 3. Run `git log --oneline -10 -- <a file central to that feature>` and summarize what the recent history tells you about how actively — and by whom — that file is maintained.
 4. Write one documentation-gap note in the format shown above, for the most significant thing the README got wrong or left out.
+
+## Check your understanding
+
+1. The README says `npm start` runs the app, but `package.json` has no `start` script, only `dev` and `serve`. What two things should you do?
+2. A bug report says "login is broken on my machine." In what order would you check config, logs, and code, and why that order?
+3. Why does `git log --oneline -- path/to/file` tell you something about risk, not just history?
+
+*Answers:* (1) Try the scripts that do exist to get the app running, and record a documentation-gap note (doc, claim, actual, impact, suggested fix) so the next person doesn't lose the same time. (2) Config first, then logs, then code: it's cheapest first, and many "works on my machine" failures are a missing or mismatched config value rather than a code defect. (3) Frequent changes by many contributors mean more chances for conflicting assumptions, so a file with a busy history is more likely to break when it's touched again.

@@ -91,6 +91,14 @@ Compare "delete button is broken" against: "Steps: load list with 3 items, delet
 You are given (write it yourself, deliberately, to have something real to debug) a small todo list page where deleting an item sometimes removes the wrong row: build the list from Lesson 04's delegation pattern, but introduce the bug on purpose by having the delete handler capture the row's index in a variable *when the list is built*, rather than reading `event.target.closest("li")` at click time.
 
 1. Reproduce the bug: add a fourth item after the page loads, delete an item near the middle, and observe that the wrong row disappears. Write down your exact repro steps.
-2. Set a breakpoint inside the delete handler and step through it once. Inspect `event.target` in the Scope panel and confirm, with real values, why the wrong row was targeted.
+2. Set a breakpoint inside the delete handler and step through it once. Inspect `event.target` and the captured index variable in the Scope panel, compare that index with the button's current position in `list.children`, and confirm, with real values, why the wrong row was targeted (the click target is correct; the stale index is not).
 3. Fix the handler to read `event.target.closest("li")` at click time instead of using the captured index, and re-run your exact repro steps from step 1 to confirm the fix holds.
 4. Write a complete defect report for the *original* bug (before your fix) using the five-part shape above — steps to reproduce, expected, actual, location, severity — as if you were filing it for someone else to fix, even though you already know the answer.
+
+## Check your understanding
+
+1. In `at validateForm (app.js:14:23)`, what do `14` and `23` mean?
+2. A bug only appears on the 47th pass of a loop. What breakpoint do you use?
+3. Rewrite "the save button doesn't work" as the *actual result* line of a defect report, assuming the console shows `TypeError: Cannot read properties of null (reading 'value')` at `validateForm (app.js:14:23)`.
+
+*Answers:* (1) Line 14, column 23 of `app.js`. (2) A conditional breakpoint, for example `i === 46`. (3) For example: "Clicking Save with the title field empty throws `TypeError: Cannot read properties of null (reading 'value')` in `validateForm` (app.js:14:23); nothing is saved and no message is shown."

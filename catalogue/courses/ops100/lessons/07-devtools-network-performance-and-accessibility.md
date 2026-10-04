@@ -19,7 +19,7 @@ Lesson 06 used DevTools to isolate a specific breakdown someone had already noti
 
 ## Network: what's actually being requested, and how it went
 
-Open the Network panel and reload the page (with "Preserve log" off, so you see a clean run) to see every request the page makes: HTML, CSS, JavaScript, images, fonts, and any API calls, each with a status code, size, and timing.
+Open the Network panel and reload the page (with "Preserve log" off, so you see a clean run; tick "Disable cache" too if you want to see what a first-time visitor downloads, since cached files otherwise show as served from memory or disk cache) to see every request the page makes: HTML, CSS, JavaScript, images, fonts, and any API calls, each with a status code, size, and timing.
 
 ```text
 Name              Status   Type   Size    Time
@@ -93,3 +93,11 @@ The strong version names the page, the exact interaction, the measured number, a
 2. Turn on network throttling set to a slow mobile profile, reload the same page, and describe in one or two sentences how the experience changed.
 3. Run a Lighthouse audit (Accessibility and Performance categories) against the same page. Pick two specific findings — not the overall score — and rewrite each as a piece of feedback to a developer, following the "weak vs strong" pattern shown above: name the exact element or interaction, the measurement or rule, and why it matters to a real user.
 4. Use the Performance panel to record a common interaction on the page (a click, a scroll, opening a menu). Identify the longest single bar in the resulting flame chart and note what function or activity it represents.
+
+## Check your understanding
+
+1. A page "loads slowly". In the Network waterfall one request takes 3.2 s while everything else finishes in under 200 ms. What do you report?
+2. Why run Lighthouse in both mobile and desktop modes?
+3. Lighthouse scores Accessibility at 100. Can you report the page as accessible?
+
+*Answers:* (1) The specific request (URL, status, size, 3.2 s) as the likely bottleneck, with the waterfall as evidence. (2) Mobile mode simulates a slower network and CPU, so problems invisible on desktop can appear. (3) No: automated checks cannot judge things like meaningful link text or a logical keyboard order; report the score along with what you checked manually.

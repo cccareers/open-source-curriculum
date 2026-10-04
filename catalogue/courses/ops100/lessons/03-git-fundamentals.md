@@ -117,3 +117,11 @@ The reflog is local to your machine and expires after a period of disuse, so it 
 2. Make an uncommitted change to that file, run `git diff` to view it, then use `git restore` to discard it and confirm with `git status` that your working directory is clean again.
 3. Use `git reset --hard` to move your branch back to your first commit, confirm with `git log --oneline` that the later commits are gone, then use `git reflog` to find and recover them with `git reset --hard`.
 4. Make one more commit, then undo it with `git revert` instead of `git reset`. Run `git log --oneline` and explain, in a sentence, how the history produced by `revert` differs from what `reset --hard` would have produced.
+
+## Check your understanding
+
+1. You committed a bad change and already pushed it to the shared `main`. Which undo command do you use, and why not the others?
+2. You ran `git reset --hard HEAD~2` on your local branch by mistake. How do you get the commits back?
+3. What is the difference between `git diff` and `git diff --staged`?
+
+*Answers:* (1) `git revert <hash>`: it adds a new commit that undoes the change without rewriting shared history; `reset` rewrites history others already have, and `restore` only affects uncommitted files. (2) `git reflog`, find the entry before the reset, then `git reset --hard HEAD@{n}` (or create a branch at that hash). (3) `git diff` shows unstaged changes; `--staged` shows what the next commit will contain.
