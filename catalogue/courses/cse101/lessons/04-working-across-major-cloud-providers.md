@@ -37,7 +37,7 @@ Here is the catalog of ideas, with the corresponding product on each platform. T
 | Container registry | Stores container images | ECR | Container Registry | Artifact Registry |
 | Managed Kubernetes | Runs container orchestration for you | EKS | AKS | GKE |
 | Serverless containers | Runs a container with no cluster | Fargate / App Runner | Container Apps | Cloud Run |
-| Serverless functions | Runs a function per event | Lambda | Functions | Cloud Functions |
+| Serverless functions | Runs a function per event | Lambda | Functions | Cloud Run functions (formerly Cloud Functions) |
 | Managed relational DB | A database engine you do not install | RDS / Aurora | Azure SQL / DB for PostgreSQL | Cloud SQL / AlloyDB |
 | Managed NoSQL | Key-value or document store | DynamoDB | Cosmos DB | Firestore / Bigtable |
 | Data warehouse | Analytical queries over large data | Redshift | Synapse Analytics | BigQuery |
@@ -52,7 +52,7 @@ Here is the catalog of ideas, with the corresponding product on each platform. T
 | Load balancer | Distributes traffic to backends | ELB / ALB | Load Balancer / App Gateway | Cloud Load Balancing |
 | DNS | Authoritative name service | Route 53 | Azure DNS | Cloud DNS |
 | CDN | Cached delivery at the edge | CloudFront | Front Door / CDN | Cloud CDN |
-| Infrastructure as code | Declarative resource definitions | CloudFormation | Bicep / ARM templates | Deployment Manager |
+| Infrastructure as code | Declarative resource definitions | CloudFormation | Bicep / ARM templates | Infrastructure Manager (successor to Deployment Manager) |
 | Cost management | Bills, budgets, forecasts | Cost Explorer | Cost Management | Cloud Billing reports |
 
 Two honest caveats about that table. First, the mappings are approximate — several are one-to-many, and product lines get merged, renamed, and retired. Treat it as a starting point for a lookup, never as an authority. Second, a name in the table is not an endorsement; where a provider has three overlapping products in a family, the table names the one you will meet most often.

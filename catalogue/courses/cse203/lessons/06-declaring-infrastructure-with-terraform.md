@@ -187,7 +187,7 @@ terraform {
 }
 ```
 
-Azure's equivalent is the `azurerm` backend over a storage account container; Google Cloud's is the `gcs` backend. All three give you the same three properties, which are the ones that matter: **shared** so a team can work, **locked** so only one apply runs at a time, and **encrypted** because of what state contains. Use a separate state file per environment — that `key` path is doing real work.
+`use_lockfile` is the S3 backend's native locking and needs Terraform 1.10 or later; if your project pins an older version (the `>= 1.6.0` example above would allow one), raise the pin or use the older pattern, a `dynamodb_table` argument naming a lock table you create separately. Check which your pinned version supports before relying on it. Azure's equivalent is the `azurerm` backend over a storage account container; Google Cloud's is the `gcs` backend. All three give you the same three properties, which are the ones that matter: **shared** so a team can work, **locked** so only one apply runs at a time, and **encrypted** because of what state contains. Use a separate state file per environment — that `key` path is doing real work.
 
 A handful of state commands are worth knowing before you need them in anger:
 
@@ -469,3 +469,9 @@ Rebuild, as Terraform code, the environment you created by hand in lessons 02 th
 14. Destroy everything with `terraform destroy`, then audit the account for survivors as you did in lesson 04. Compare the number of orphans with what you found after the manual teardown, and write two sentences on the difference.
 
 **Deliverable:** the committed repository (no state file, no secrets, `.terraform.lock.hcl` present), the plan output from steps 3, 11, 12, and 13 with your written reasoning for each, the locking error from step 10, and the teardown comparison.
+
+## Check your understanding
+
+1. Why is `.terraform.lock.hcl` committed while `terraform.tfstate` is not? *(The lockfile pins provider versions and contains nothing sensitive; state can hold secrets and belongs in a locked, encrypted remote backend.)*
+2. You have three subnets created with `count` and remove the first from the list. What will the plan show, and how would `for_each` have avoided it? *(Indexes shift, so later subnets are destroyed and recreated; `for_each` keys resources by name, so only the removed one is destroyed.)*
+3. What does `terraform state rm` do to the real resource? *(Nothing — Terraform stops managing it but does not delete it.)*
