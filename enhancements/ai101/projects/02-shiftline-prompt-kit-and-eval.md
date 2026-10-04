@@ -54,7 +54,7 @@ Your job is to produce a **prompt kit** — four reusable five-block prompts, on
 
 - [ ] Each of the four prompts contains all five blocks, labelled, with the email inside named delimiters.
 - [ ] Every prompt has an explicit escape hatch, and at least one output in `outputs/` shows it firing (a `null` or "not stated" where the email lacks the fact).
-- [ ] No extraction output contains an invented year or currency; `python check_outputs.py outputs/` reports no FAIL lines for the final kit.
+- [ ] No extraction output contains an invented year or currency; `python check_outputs.py outputs/` reports no FAIL lines for the final kit, and a human verifies extraction values against the source (the checker only checks JSON shape).
 - [ ] The injection email does not change any output's label, shape, or tone.
 - [ ] Accepted criteria were written before outputs (timestamps or version history are enough evidence).
 - [ ] `eval.csv` has a score and a one-line reason for every row; pass rate reported per task.
@@ -72,6 +72,7 @@ This is primarily a prompting project, so the main evidence is the kit, outputs,
 Lesson 07: "Check constraints mechanically -- count the words, search for the
 forbidden word -- because reading does not catch these reliably."
 """
+from collections import Counter
 import json
 import re
 import sys
@@ -121,8 +122,10 @@ def _numbers(text):
 def check_preserved(original, rewritten):
     """Lesson 05 preservation clause: every number and conditional phrase survives."""
     problems = []
-    for num in _numbers(original):
-        if num not in rewritten:
+    before_numbers = Counter(_numbers(original))
+    after_numbers = Counter(_numbers(rewritten))
+    for num, occurrences in before_numbers.items():
+        if after_numbers[num] < occurrences:
             problems.append(f"number lost: {num}")
     for phrase in CONDITIONALS:
         pattern = rf"\b{re.escape(phrase)}\b"
@@ -137,7 +140,7 @@ if __name__ == "__main__":
     # Usage: python check_outputs.py outputs/
     # Files named extract-*.txt get the JSON check; summary-*.txt the 60-word check.
     folder = Path(sys.argv[1] if len(sys.argv) > 1 else "outputs")
-    failed = 0
+    failed = checked = 0
     for path in sorted(folder.glob("*.txt")):
         text = path.read_text(encoding="utf-8")
         if path.name.startswith("extract-"):
@@ -146,9 +149,12 @@ if __name__ == "__main__":
             problems = check_max_words(text, 60)
         else:
             continue
+        checked += 1
         failed += bool(problems)
         print(f"{'FAIL' if problems else 'ok  '} {path.name} {'; '.join(problems)}")
-    sys.exit(1 if failed else 0)
+    if not checked:
+        print("FAIL no extraction or summary output files found")
+    sys.exit(1 if failed or not checked else 0)
 ````
 
 `test_check_outputs.py` — run `python -m pytest -q` to confirm the checker itself works before you trust it:
@@ -189,6 +195,11 @@ def test_word_limit():
     assert word_count("Site 2 scanners are offline.") == 5
     assert check_max_words("word " * 60, 60) == []
     assert check_max_words("word " * 61, 60) == ["61 words, limit 60"]
+
+
+def test_numbers_must_match_whole_tokens_and_counts():
+    assert "number lost: 250" in check_preserved("Refund $250", "Refund $2500")
+    assert "number lost: 3" in check_preserved("3 items in 3 boxes", "3 items in boxes")
 
 
 def test_preservation_clause():

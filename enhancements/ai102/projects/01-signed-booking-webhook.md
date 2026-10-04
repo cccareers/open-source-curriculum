@@ -69,7 +69,7 @@ export function sign(secret, timestamp, rawBody) {
 export function verify(secret, header, rawBody, nowSeconds, toleranceSeconds = 300) {
   const parts = Object.fromEntries(String(header || '').split(',').map((p) => p.split('=')));
   const t = Number(parts.t);
-  if (!t || !parts.v1) return { ok: false, reason: 'missing_signature' };
+  if (!Number.isSafeInteger(t) || t <= 0 || !/^[0-9a-f]{64}$/i.test(parts.v1 || '')) return { ok: false, reason: 'missing_signature' };
   if (Math.abs(nowSeconds - t) > toleranceSeconds) return { ok: false, reason: 'stale_timestamp' };
   const expected = Buffer.from(sign(secret, t, rawBody).split('v1=')[1], 'hex');
   const given = Buffer.from(parts.v1, 'hex');
@@ -85,6 +85,7 @@ export function verify(secret, header, rawBody, nowSeconds, toleranceSeconds = 3
 ```js
 // shape.mjs — the reference shaping step from lesson 10, as a pure function.
 export function shape(evt, receivedAt) {
+  if (!evt || typeof evt !== 'object' || Array.isArray(evt)) return null;
   const b = evt?.data?.booking;
   if (!b || typeof evt.id !== 'string' || !evt.type) return null;
   const items = Array.isArray(b.items) ? b.items : [];
@@ -96,7 +97,7 @@ export function shape(evt, receivedAt) {
     customer_email: b.customer?.email ?? 'unknown',
     customer_name: b.customer?.name ?? 'unknown',
     item_count: items.length,
-    is_rush: items.some((i) => i.sku === 'RUSH'),
+    is_rush: items.some((i) => i?.sku === 'RUSH'),
     received_at: receivedAt,
   };
 }
@@ -123,9 +124,10 @@ export function startReceiver({ secret, port = 0, now = () => Math.floor(Date.no
       return res.end(JSON.stringify(state));
     }
     if (req.method !== 'POST' || req.url !== '/hooks/booking') { res.writeHead(404); return res.end(); }
-    let raw = '';
-    req.on('data', (c) => (raw += c));
+    const chunks = [];
+    req.on('data', (c) => chunks.push(c));
     req.on('end', () => {
+      const raw = Buffer.concat(chunks).toString('utf8');
       const send = (code, body) => { res.writeHead(code, { 'content-type': 'application/json' }); res.end(JSON.stringify(body)); };
       // 1. Verify against the RAW body, before any parsing.
       const v = verify(secret, req.headers['x-signature'], raw, now());
@@ -133,6 +135,9 @@ export function startReceiver({ secret, port = 0, now = () => Math.floor(Date.no
       let evt;
       try { evt = JSON.parse(raw); } catch {
         state.exceptions.push({ reason: 'unparseable_json', raw }); return send(200, { received: true });
+      }
+      if (!evt || typeof evt !== 'object' || Array.isArray(evt)) {
+        state.exceptions.push({ reason: 'missing_data', raw }); return send(200, { received: true });
       }
       // 2. Deduplicate on the sender's event id.
       if (state.processed.includes(evt.id)) return send(200, { received: true, duplicate: true });
@@ -222,6 +227,19 @@ test('signature round-trips and rejects a one-character change', () => {
   assert.equal(verify(SECRET, sign(SECRET, NOW, body), body, NOW).ok, true);
   assert.equal(verify(SECRET, sign(SECRET, NOW, body), '{"a":2}', NOW).reason, 'bad_signature');
   assert.match(sign(SECRET, NOW, body), /^t=\d+,v1=[0-9a-f]{64}$/);
+});
+test('malformed hex signature is rejected', () => {
+  const body = '{}';
+  assert.equal(verify(SECRET, sign(SECRET, NOW, body) + 'zz', body, NOW).ok, false);
+});
+test('signed JSON null is dead-lettered without crashing', async () => {
+  const body = 'null';
+  const r = await fetch(`http://127.0.0.1:${srv.port}/hooks/booking`, {
+    method: 'POST', headers: { 'x-signature': sign(SECRET, NOW, body) }, body,
+  });
+  assert.equal(r.status, 200);
+  const current = await (await fetch(`http://127.0.0.1:${srv.port}/_state`)).json();
+  assert.ok(current.exceptions.some((e) => e.raw === 'null'));
 });
 test('genuine event is acknowledged with 200', () => assert.equal(results.genuine.status, 200));
 test('forged body is rejected 401 and never processed', () => {

@@ -41,7 +41,7 @@ Plus a status diagram (boxes and arrows, any tool) and a one-paragraph note on w
 1. **Status diagram (20 min).** List every status and legal transition before writing code.
 2. **Schema and `ingest` happy path (45 min).** Raw payload first, then normalise.
 3. **Validation and quarantine (40 min).** Four named rules.
-4. **Dedup on the natural key (30 min).** Enforce it in the store (a unique index) as well as in code, as the stage-04 hints recommend.
+4. **Dedup on the natural key (30 min).** Use a separate natural-key claim table with a unique key and claim it transactionally; keep duplicate audit rows in `records` without a global unique constraint on `records.natural_key`. This preserves one row per arrival while allowing only one original.
 5. **Stub and transitions (40 min).**
 6. **Outbound idempotency and reconciliation (40 min).**
 7. **Reflection note (15 min).**

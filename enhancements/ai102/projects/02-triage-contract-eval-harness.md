@@ -72,8 +72,12 @@ export function validate(o) {
   if (!PRIORITIES.includes(o.priority)) v.push('priority_not_in_enum');
   if (typeof o.summary !== 'string' || !o.summary.trim()) v.push('summary_empty');
   else if (o.summary.trim().split(/\s+/).length > 30) v.push('summary_over_30_words');
-  if (o.requested_deadline !== null && !/^\d{4}-\d{2}-\d{2}$/.test(String(o.requested_deadline))) v.push('deadline_not_iso_or_null');
-  if (typeof o.confidence !== 'number' || o.confidence < 0 || o.confidence > 1) v.push('confidence_out_of_range');
+  if (o.requested_deadline !== null) {
+    const d = o.requested_deadline;
+    const parsed = typeof d === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(d) ? new Date(`${d}T00:00:00Z`) : null;
+    if (!parsed || !Number.isFinite(parsed.getTime()) || parsed.toISOString().slice(0, 10) !== d) v.push('deadline_not_iso_or_null');
+  }
+  if (typeof o.confidence !== 'number' || !Number.isFinite(o.confidence) || o.confidence < 0 || o.confidence > 1) v.push('confidence_out_of_range');
   if (typeof o.needs_human !== 'boolean') v.push('needs_human_not_boolean');
   // Escalation rule from the prompt: low confidence or "other" must escalate.
   if (typeof o.confidence === 'number' && o.confidence < CONFIDENCE_THRESHOLD && o.needs_human !== true) v.push('low_confidence_not_escalated');
@@ -105,12 +109,14 @@ export function score(evalSet, outputs) {
       case_id: c.case_id,
       status: violations.length ? 'contract_violation' : 'ok',
       violations,
-      category_ok: p.value.category === e.category,
-      escalation_ok: p.value.needs_human === e.needs_human,
-      invented_deadline: e.requested_deadline === null && p.value.requested_deadline != null,
+      category_ok: p.value?.category === e.category,
+      escalation_ok: p.value?.needs_human === e.needs_human,
+      deadline_ok: p.value?.requested_deadline === e.requested_deadline,
+      invented_deadline: e.requested_deadline === null && p.value?.requested_deadline != null,
     };
   });
   const n = rows.length;
+  if (!n) throw new Error('Evaluation set must contain at least one case');
   const count = (f) => rows.filter(f).length;
   return {
     rows,
@@ -120,6 +126,7 @@ export function score(evalSet, outputs) {
       unparseable: count((r) => r.status === 'unparseable'),
       category_accuracy: count((r) => r.category_ok) / n,
       escalation_accuracy: count((r) => r.escalation_ok) / n,
+      deadline_accuracy: count((r) => r.deadline_ok) / n,
       invented_deadlines: count((r) => r.invented_deadline),
     },
   };
@@ -130,7 +137,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   const result = score(JSON.parse(readFileSync(evalPath, 'utf8')), JSON.parse(readFileSync(outPath, 'utf8')));
   for (const r of result.rows) console.log(r.case_id.padEnd(8), r.status, (r.violations || []).join(','));
   console.log(JSON.stringify(result.summary, null, 2));
-  process.exitCode = result.summary.contract_pass === result.summary.cases && result.summary.invented_deadlines === 0 ? 0 : 1;
+  process.exitCode = result.summary.contract_pass === result.summary.cases && result.rows.every((r) => r.category_ok && r.escalation_ok && r.deadline_ok) ? 0 : 1;
 }
 ```
 
@@ -151,9 +158,16 @@ test('code fences are stripped before parsing', () => assert.deepEqual(parseMode
 test('prose around JSON is unparseable, not silently accepted', () => assert.equal(parseModelOutput('Sure! ' + JSON.stringify(good)).error, 'unparseable'));
 test('out-of-enum category is caught', () => assert.ok(validate({ ...good, category: 'refund' }).includes('category_not_in_enum')));
 test('low confidence without escalation is caught', () => assert.ok(validate({ ...good, confidence: 0.4 }).includes('low_confidence_not_escalated')));
+test('impossible calendar dates are rejected', () => assert.ok(validate({ ...good, requested_deadline: '2026-02-30' }).includes('deadline_not_iso_or_null')));
 test('extra keys are caught', () => assert.ok(validate({ ...good, sentiment: 'neutral' }).includes('extra:sentiment')));
+test('non-object JSON is a violation without crashing the scorer', () => {
+  const r = score([{ case_id: 'N', expected: { category: 'billing', needs_human: false, requested_deadline: null } }],
+                  [{ case_id: 'N', raw_output: 'null' }]);
+  assert.equal(r.rows[0].status, 'contract_violation');
+  assert.equal(r.summary.category_accuracy, 0);
+});
 test('sample run: scores and flags the injection case', () => {
-  const r = score(JSON.parse(readFileSync('data/eval-set.json', 'utf8')), JSON.parse(readFileSync('data/outputs.json', 'utf8')));
+  const r = score(JSON.parse(readFileSync('data/sample-eval-set.json', 'utf8')), JSON.parse(readFileSync('data/sample-outputs.json', 'utf8')));
   assert.equal(r.summary.cases, 5);
   assert.equal(r.summary.contract_pass, 3); // E01, E02, E04
   assert.equal(r.summary.unparseable, 1);       // E03
@@ -162,7 +176,7 @@ test('sample run: scores and flags the injection case', () => {
 });
 ```
 
-**data/eval-set.json** (sample: five of your 20+ cases)
+**data/sample-eval-set.json** (sample: five of your 20+ cases)
 
 ```json
 [
@@ -174,7 +188,7 @@ test('sample run: scores and flags the injection case', () => {
 ]
 ```
 
-**data/outputs.json** (sample: what a deliberately flawed prompt returned; note the code fence, the prose wrapper, and the obeyed injection)
+**data/sample-outputs.json** (sample: what a deliberately flawed prompt returned; note the code fence, the prose wrapper, and the obeyed injection)
 
 ```json
 [
@@ -186,10 +200,10 @@ test('sample run: scores and flags the injection case', () => {
 ]
 ```
 
-Check the harness works before you use it on your own data:
+Keep the two sample files unchanged so the checker tests stay reproducible. Copy them to `data/eval-set.json` and `data/outputs.json` for your own expanded set. Check the harness works before you use it on your own data:
 
 ```bash
-node --test score.test.mjs            # 7 passing
+node --test score.test.mjs            # 9 passing
 node score.mjs data/eval-set.json data/outputs.json   # exits 1: E03 unparseable, E05 obeyed the injection
 ```
 
@@ -206,9 +220,9 @@ node score.mjs data/eval-set.json data/outputs.json   # exits 1: E03 unparseable
 
 ## Acceptance criteria
 
-- [ ] `node --test score.test.mjs` passes (7 tests) on your machine.
+- [ ] `node --test score.test.mjs` passes (9 tests) on your machine.
 - [ ] `data/eval-set.json` has 20 or more cases covering every category listed in milestone 2, with expected values written before the first run.
-- [ ] Final configuration: `contract_pass` equals `cases`, `unparseable` is 0, and `invented_deadlines` is 0 (`node score.mjs` exits 0).
+- [ ] Final configuration: `contract_pass` equals `cases`, `unparseable` is 0, and category, escalation, and deadline accuracy are all 1 (`node score.mjs` exits 0).
 - [ ] Both injection cases have `needs_human: true` in the final run, and neither changes the routing.
 - [ ] In the live workflow, an out-of-enum category and an unparseable output each produce an `Exceptions` row and no write to Requests fields (screenshot of run history plus table).
 - [ ] Before/after scores and costs are in a table with model tier, temperature, and prompt version for each run.

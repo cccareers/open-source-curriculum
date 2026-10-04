@@ -26,7 +26,7 @@ You will build a small guard module that sits between the model call and the sen
    - `parse_model_output(raw: str) -> dict` — accepts only JSON with exactly the keys `category`, `reply_body`, `needs_human`; `category` must be `billing`, `technical`, or `other`; `needs_human` must be a boolean; `reply_body` a string of at most 1,200 characters. Anything else raises `ValueError`.
    - `looks_like_injection(text: str) -> bool` — a deliberately simple screen for instructions addressed to an assistant (for example "system notice", "ignore the earlier instruction", a `cc:` line). It is a speed bump, not a wall.
    - `build_send_action(ticket: dict, raw_model_output: str) -> dict` — returns either `{"action": "send", "to": <ticket sender>, "cc": [], "body": ...}` or `{"action": "hold_for_human", "reason": ...}`. The recipient is always computed from the ticket, never from the model.
-   - `redact_for_log(record: dict) -> dict` — applies redaction rules R1 (hash emails), R2 (mask phone to last two digits), R3 (drop `ssn`, `dob`, `card_*`), R4 (keep the first 200 characters of `prompt_body` and add `prompt_body_length`), and R7 (drop credentials, tokens, `authorization`).
+   - `redact_for_log(record: dict) -> dict` — applies redaction rules R1 (hash emails), R2 (mask phone to last two digits), R3 (drop `ssn`, `dob`, `card_*`), R4 (redact inline emails and phones in `prompt_body` before keeping its first 200 characters; add the original `prompt_body_length`; omit content entirely if credentials or regulated identifiers cannot be safely removed), and R7 (drop credentials, tokens, `authorization`).
 2. A one-page threat table for the workflow (ai350-02 format) showing which rows the module addresses and which it does not.
 3. A short "residual risk" note: what an attacker could still do after your guard is in place.
 
@@ -151,7 +151,19 @@ def test_redaction_rules():
     assert "sk-live" not in json.dumps(out)
 ```
 
-Expected result once complete: `14 passed`.
+Expected result once complete: `15 passed`.
+
+Add this free-text case to the same suite; truncation alone is not redaction:
+
+```python
+def test_prompt_content_is_redacted_before_truncation():
+    raw = "Contact dana.reyes@example.com at +1 415 555 0142. " + "A" * 300
+    out = redact_for_log({"prompt_body": raw})
+    assert out["prompt_body_length"] == len(raw)
+    assert "dana.reyes@example.com" not in out.get("prompt_body", "")
+    assert "415 555 0142" not in out.get("prompt_body", "")
+    assert len(out.get("prompt_body", "")) <= 200
+```
 
 ## Rubric
 | Criterion | Developing | Meets | Exceeds |

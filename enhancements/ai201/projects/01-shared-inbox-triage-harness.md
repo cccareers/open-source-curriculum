@@ -295,7 +295,7 @@ Run from the project folder with `python -m pytest -q`. The `python -m` form put
 | Criterion | Developing | Meets | Exceeds |
 | --- | --- | --- | --- |
 | Intake safety | Some automated mail reaches the classifier | All header and address filters work and are tested before any model call | Adds thread matching on `In-Reply-To` with its own tests |
-| State and idempotency | Duplicates create extra records or calls | One record and one call per `Message-ID`; send is idempotent | Simulates a crash between send and record write and shows the stored ID prevents a resend |
+| State and idempotency | Duplicates create extra records or calls | One record and one call per `Message-ID`; send is idempotent | Simulates a crash after send but before the ID is stored; uses a provider idempotency key or reconciles delivery before retrying, since a local ID alone cannot close this gap |
 | Output validation | Model output used without parsing checks | Closed vocabulary enforced; retry then quarantine | Adds per-field checks (rationale length, entity date format) with tests |
 | Routing | Branching logic hard to read | Ordered table as data; first-match proven | Table loaded from a CSV a non-engineer can edit, with a test that every category reaches a row |
 | Golden set quality | Fewer than 30 cases or mostly happy path | 30+ cases covering the lesson 08 corpus mix | Includes second-labeler agreement figure for the cases |

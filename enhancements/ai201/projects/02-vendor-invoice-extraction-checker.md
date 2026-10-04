@@ -41,7 +41,7 @@ The interface the tests expect:
 | `ExtractionError` | Exception class |
 | `parse_extraction(raw) -> dict` | Parses JSON, requires every schema field with `value`, `evidence`, `confidence`, numeric types for `subtotal`/`tax`/`total`, `currency` in `USD/CAD/EUR/GBP`, and a `document_notes` block |
 | `extract_document(text, model) -> dict` | Calls `model(text, error_hint=None)`, one retry with the parse error, then `status: quarantined` with `raw_model_output` |
-| `evidence_failures(result, text) -> list` | Names every non-null field whose evidence is not in the document text or does not contain the value (numbers compared after stripping `$` and `,`) |
+| `evidence_failures(result, text) -> list` | Names every non-null field whose evidence is not in the document text or does not support the value: compare text case-insensitively and numbers with Decimal after stripping currency symbols and separators; check each line item against the full item evidence; currency must be an explicit ISO code in the evidence, not inferred from an ambiguous `$` symbol |
 | `arithmetic_failures(fields) -> list` | Messages naming both figures when line items do not sum to subtotal, or subtotal + tax does not equal total (tolerance 0.01) |
 | `route_document(result, text, po_lookup, known_vendors, seen_invoices, floor, today) -> dict` | Returns `route` (`exception`, `full_review`, `light_review`, `auto_post`, checked in that order), `failed_checks`, `untrusted_fields` |
 | `field_accuracy(predictions, gold) -> dict` | Per field: `correct`, `wrong`, `correctly_null`, `missed` |
@@ -92,7 +92,7 @@ GMA pallets 48x40      200   9.50         1,900.00
 Heat treatment         200   2.50         500.00
 Subtotal: 2,400.00
 Tax: 37.00
-Total: $2,437.00"""
+Total: USD $2,437.00"""
 
 PO_LOOKUP = {"PO-7781": 2437.00}
 KNOWN_VENDORS = {"Lakeshore Pallet Supply"}
@@ -111,14 +111,14 @@ def result_a(**overrides):
         "invoice_date": f("2026-03-02", "Invoice Date: 2026-03-02"),
         "due_date": f(None, None, 0),
         "po_number": f("PO-7781", "PO Number: PO-7781"),
-        "currency": f("USD", "Total: $2,437.00", 0.9),
+        "currency": f("USD", "Total: USD $2,437.00", 0.9),
         "subtotal": f(2400.00, "Subtotal: 2,400.00"),
         "tax": f(37.00, "Tax: 37.00"),
-        "total": f(2437.00, "Total: $2,437.00"),
+        "total": f(2437.00, "Total: USD $2,437.00"),
         "line_items": f([
             {"description": "GMA pallets 48x40", "quantity": 200, "unit_price": 9.50, "amount": 1900.00},
             {"description": "Heat treatment", "quantity": 200, "unit_price": 2.50, "amount": 500.00},
-        ], "GMA pallets 48x40      200   9.50         1,900.00"),
+        ], "GMA pallets 48x40      200   9.50         1,900.00\nHeat treatment         200   2.50         500.00"),
     }
     fields.update(overrides)
     return {"fields": fields,
@@ -139,8 +139,8 @@ def test_structural_accepts_good_output():
 @pytest.mark.parametrize("raw", [
     "Here is the JSON: {",                                                         # not JSON
     json.dumps({"fields": {}}),                                                     # missing keys
-    json.dumps(result_a(currency=f("US Dollars", "Total: $2,437.00"))),            # enum violation
-    json.dumps(result_a(total=f("2,437.00", "Total: $2,437.00"))),                 # wrong type
+    json.dumps(result_a(currency=f("US Dollars", "Total: USD $2,437.00"))),            # enum violation
+    json.dumps(result_a(total=f("2,437.00", "Total: USD $2,437.00"))),                 # wrong type
 ])
 def test_structural_rejects_bad_output(raw):
     with pytest.raises(ec.ExtractionError):
@@ -167,7 +167,7 @@ def test_fabricated_evidence_is_caught():
 
 
 def test_value_not_in_evidence_is_caught():
-    bad = result_a(total=f(2473.00, "Total: $2,437.00"))
+    bad = result_a(total=f(2473.00, "Total: USD $2,437.00"))
     assert "total" in ec.evidence_failures(bad, DOC_A)
 
 
@@ -202,7 +202,7 @@ def test_unmatched_po_goes_to_light_review():
 
 
 def test_low_confidence_required_field_goes_to_full_review():
-    r = result_a(total=f(2437.00, "Total: $2,437.00", confidence=0.62))
+    r = result_a(total=f(2437.00, "Total: USD $2,437.00", confidence=0.62))
     decision = route(r)
     assert decision["route"] == "full_review"
     assert "total" in decision["untrusted_fields"]
