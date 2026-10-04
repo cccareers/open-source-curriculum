@@ -78,6 +78,8 @@ ALTER TABLE sales_order DETACH PARTITION sales_order_2024_01 CONCURRENTLY;
 DROP TABLE sales_order_2024_01;
 ```
 
+(`DETACH PARTITION ... CONCURRENTLY` needs PostgreSQL 14 or later, cannot run inside a transaction block, and is not allowed while the table has a `DEFAULT` partition; on older versions drop `CONCURRENTLY` and accept a brief exclusive lock.)
+
 Dropping a partition is a metadata operation followed by an unlink. Deleting the same rows with `DELETE` would write a dead version of every row, generate write-ahead log traffic proportional to the data, leave the table bloated, and require a vacuum to reclaim anything. A retention policy expressed as "drop the oldest partition monthly" is orders of magnitude cheaper than one expressed as a `DELETE`.
 
 The same works in reverse for loading. Build next month's partition as a standalone table, load and index it at full speed with no concurrent readers, then `ATTACH` it. Add a `CHECK` constraint matching the intended bounds *before* attaching and Postgres skips the validation scan that `ATTACH` would otherwise run while holding a lock.

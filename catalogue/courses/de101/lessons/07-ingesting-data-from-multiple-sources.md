@@ -152,6 +152,7 @@ class ApiSource:
 Reading from a database is the most controllable source and the one where carelessness does the most damage to somebody else.
 
 ```python
+from datetime import date, datetime
 from sqlalchemy import create_engine, text
 
 class DatabaseSource:
@@ -163,10 +164,14 @@ class DatabaseSource:
     def read(self, since: str | None) -> Iterator[Batch]:
         watermark = since or "1970-01-01T00:00:00"
         last_id = 0
-        query = text("""
+        # SQLite stores timestamps as text: compare instants, not space/T separators.
+        timestamp_filter = ("julianday(updated_at) >= julianday(:since)"
+                            if self.engine.dialect.name == "sqlite"
+                            else "updated_at >= :since")
+        query = text(f"""
             SELECT order_id, customer_id, order_status, placed_at, updated_at
             FROM   orders
-            WHERE  updated_at >= :since
+            WHERE  {timestamp_filter}
               AND  order_id    > :last_id
             ORDER BY order_id
             LIMIT :limit
@@ -182,9 +187,18 @@ class DatabaseSource:
                 return
             records = [dict(r) for r in rows]
             last_id = records[-1]["order_id"]
-            high = max(str(r["updated_at"]) for r in records)
+            high = max(
+                datetime.fromisoformat(r["updated_at"])
+                if isinstance(r["updated_at"], str) else r["updated_at"]
+                for r in records
+            ).isoformat()
+            # JSON has no native date/datetime type; encode database values at this boundary.
+            records = [{key: value.isoformat() if isinstance(value, (date, datetime)) else value
+                        for key, value in record.items()} for record in records]
             yield Batch(self.name, records, watermark=high)
 ```
+
+Normalize timestamps before finding the maximum: some drivers return `updated_at` as a `datetime`, while SQLite with an untyped SQLAlchemy `text()` query returns a string. `datetime.fromisoformat()` accepts ISO text with either a space or a `T` between date and time; `.isoformat()` writes the watermark consistently with a `T`. Comparing differently formatted strings gives wrong answers, because a space sorts before `T`. Pick one text format for every watermark, in every source, and convert at the boundary.
 
 **Read from a replica, not the primary.** Your nightly scan competing with customer checkout traffic is a production incident waiting for a busy night. If there is no replica, ask for one, and until then run in the quietest window you can and keep batches small.
 
@@ -269,6 +283,8 @@ def run(source: Source, store: WatermarkStore, root: Path) -> dict:
         store.set(source.name, high)
     return {"run_id": run_id, "source": source.name, "rows": rows, "files": len(files)}
 ```
+
+The runner leans on three small helpers you write yourself. `overlap(since, minutes)` parses the ISO timestamp, subtracts the window, and returns it as ISO text again (`(datetime.fromisoformat(since) - timedelta(minutes=minutes)).isoformat()`). `WatermarkStore` is any object with `get(name)` and `set(name, value)` — a JSON file read and rewritten on `set` is enough to start. `log` is a standard `logging.getLogger("ingest")`. The code also uses the `X | None` type syntax, which needs Python 3.10 or later.
 
 The three load-bearing lines are the overlap window, the `raise`, and the fact that the watermark is written only after the loop completes. Together they make the job safe to re-run: a crash leaves the watermark where it was, the next run re-reads the same window, and because landed files are uniquely named and downstream loads are idempotent, the duplicate capture costs nothing.
 

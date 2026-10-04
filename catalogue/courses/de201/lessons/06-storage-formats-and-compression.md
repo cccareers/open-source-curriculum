@@ -134,12 +134,16 @@ Small files accumulate for structural reasons, not careless ones: a streaming jo
 
 ```python
 target_files = 8
+src = "/data/events/event_date=2026-07-01"
+staging = "/data/_compaction/events/event_date=2026-07-01"
+
 (
-    spark.read.parquet("/data/events/event_date=2026-07-01")
+    spark.read.parquet(src)
     .repartition(target_files)
     .write.mode("overwrite")
-    .parquet("/data/events/event_date=2026-07-01")
+    .parquet(staging)          # never the path you are reading from
 )
+# then swap: verify row counts match, move `staging` into place, delete the old files
 ```
 
 Two warnings. Never read and overwrite the same path in one job unless the framework supports it explicitly — write to a staging path and swap, or you can destroy the input mid-read. And decide `target_files` from actual size: measure the directory, divide by your target file size, round up.

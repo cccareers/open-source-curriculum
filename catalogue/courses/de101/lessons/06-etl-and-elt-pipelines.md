@@ -144,6 +144,8 @@ WHEN NOT MATCHED THEN INSERT (customer_id, full_name, email, state_code)
   VALUES (src.customer_id, src.full_name, src.email, src.state_code);
 ```
 
+`MERGE` is standard SQL and is available in PostgreSQL 15 and later, SQL Server, Oracle, and most cloud warehouses. MySQL and SQLite do not have it; there the same upsert is written `INSERT ... ON DUPLICATE KEY UPDATE` (MySQL) or `INSERT ... ON CONFLICT (customer_id) DO UPDATE` (SQLite, and older PostgreSQL). The pattern is identical: match on the business key, update if present, insert if not.
+
 **Full rebuild into a swap table.** Build the whole table under a temporary name, then swap it in atomically. Simple, always correct, and viable until the table gets large enough that the cost hurts. Do not dismiss it — for small tables it is the cheapest correctness you will ever buy.
 
 ### Full versus incremental loads
