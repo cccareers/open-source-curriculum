@@ -107,6 +107,12 @@ resource "aws_autoscaling_group" "app" {
     id      = aws_launch_template.app.id
     version = "$Latest"
   }
+
+  # The schedules below change these two values; without this, the next
+  # terraform apply would put them back to 2 overnight.
+  lifecycle {
+    ignore_changes = [min_size, desired_capacity]
+  }
 }
 
 resource "aws_autoscaling_policy" "cpu_target" {
@@ -127,13 +133,26 @@ resource "aws_autoscaling_schedule" "nightly_down" {
   scheduled_action_name  = "nightly-down"
   autoscaling_group_name = aws_autoscaling_group.app.name
   recurrence             = "0 19 * * MON-FRI"
+  time_zone              = "Europe/London"
   min_size               = 0
   desired_capacity       = 0
   max_size               = 8
 }
+
+resource "aws_autoscaling_schedule" "morning_up" {
+  scheduled_action_name  = "morning-up"
+  autoscaling_group_name = aws_autoscaling_group.app.name
+  recurrence             = "0 7 * * MON-FRI"
+  time_zone              = "Europe/London"
+  min_size               = 2
+  desired_capacity       = 2
+  max_size               = 8
+}
 ```
 
-Nine lines of policy, and the capacity strategy is now reviewable in a pull request like any other change. That is the sequencing argument from lesson 05 paying off: autoscaling is a property you declare on a resource, not a button somebody presses.
+Two details in those schedules are easy to miss. A scale-down with no matching scale-up leaves the group at zero until somebody notices, so the two actions are always written as a pair. And scheduled recurrences are evaluated in UTC unless you name a time zone, so a "7 a.m." schedule written without one is wrong by an hour for half the year in most of the world. Use the customer's time zone, not your own. Finally, once a schedule owns `min_size` and `desired_capacity`, Terraform must stop owning them: the `lifecycle { ignore_changes = ... }` block on the group stops an evening `terraform apply` from quietly restoring two instances and undoing the saving.
+
+A few short blocks, and the capacity strategy is now reviewable in a pull request like any other change. That is the sequencing argument from lesson 05 paying off: autoscaling is a property you declare on a resource, not a button somebody presses.
 
 ## Serverless functions as a demand-fitting tool
 
@@ -157,7 +176,7 @@ And four constraints that decide when it is wrong.
 
 **The cost curve crosses over.** Per unit of compute, serverless is expensive. It wins because you buy so much less of it.
 
-That crossover is arithmetic you should be able to do. A function billed per gigabyte-second at roughly seventeen dollars per million gigabyte-seconds, running for 200 ms at 512 MB, costs about 1.7 microdollars per invocation plus a small per-request charge. At 100,000 invocations a month that is well under a dollar; a small instance running all month is around fifteen. At 50 million invocations a month the function costs several hundred dollars, and a pair of small instances handling the same steady load costs thirty. **Spiky and intermittent favours functions; steady and high-volume favours instances.** Run the numbers with your provider's real prices rather than trusting either instinct.
+That crossover is arithmetic you should be able to do. A function billed per gigabyte-second at roughly seventeen dollars per million gigabyte-seconds, running for 200 ms at 512 MB, costs about 1.7 microdollars per invocation plus a small per-request charge. At 100,000 invocations a month that is well under a dollar; a small instance running all month is around fifteen. At 50 million invocations a month the function costs roughly ninety dollars — about $83 of compute plus around $10 of per-request charges at a typical twenty cents per million requests — and a pair of small instances handling the same steady load costs about thirty. Push the duration to one second or the memory to 2 GB and the function's figure multiplies by five or four respectively, while the instances' does not move. **Spiky and intermittent favours functions; steady and high-volume favours instances.** Run the numbers with your provider's real prices rather than trusting either instinct.
 
 A useful rule of thumb: if the workload has a duty cycle below roughly 10% — genuinely idle most of the time — functions are usually cheaper and always simpler. Above about 50%, provisioned capacity usually wins. In between, decide on the operational properties rather than the price, because the difference is small.
 
