@@ -41,7 +41,7 @@ An upgrade is where the suite pays for the hours you put into it. The shape:
 2. **Run the full suite before the upgrade.** This is the step people skip, and skipping it makes everything afterwards ambiguous. If a test is already red on the pre-upgrade clone, that failure is not the upgrade's fault, and you want to know that before you spend a day investigating.
 3. **Apply the upgrade** to that instance.
 4. **Run the full suite again.** Compare against the pre-upgrade run. The delta is your upgrade impact list, produced in the time the suite takes rather than in the time a room full of testers takes.
-5. **Work the skipped records** the upgrade produced, alongside the failures. A skipped record is a customization the upgrade did not overwrite; a failing test tells you which of those customizations actually matters to behavior. Reviewing skipped records without tests is guesswork about impact.
+5. **Work the skipped records** the upgrade produced, alongside the failures. The upgrade lists them in its upgrade history on the upgraded instance; each one needs a decision to keep your version, take the new base version, or merge. A skipped record is a customization the upgrade did not overwrite; a failing test tells you which of those customizations actually matters to behavior. Reviewing skipped records without tests is guesswork about impact.
 6. **Re-run after each fix,** then repeat the whole cycle on the next instance in the path, and finally deploy to production with the same production-safe validation as any other release.
 
 The tests also need maintaining across an upgrade. When out-of-box behavior legitimately changes, the correct response is sometimes to update the assertion, not to file a defect. What is never correct is deactivating the test to make the run green.
@@ -52,3 +52,12 @@ The tests also need maintaining across an upgrade. When out-of-box behavior legi
 2. Write the promotion order you would use for that update set across development, test, and production, and mark at each step which suite you would run and what you would do with the result.
 3. Write a five-line pre-upgrade checklist for a customer, in the order the steps happen, including the pre-upgrade suite run and the skipped-record review.
 4. Draft two or three sentences you would say to a project manager who asks to run the regression suite on production "just to be sure". Make the reason specific.
+
+## Check your understanding
+
+1. You built the test for a feature in next sprint's update set. What goes wrong on the test instance?
+2. After an upgrade, a test that was red on the pre-upgrade clone is still red. Should it go on the upgrade impact list?
+3. Out-of-box behavior legitimately changed in the upgrade and the customer wants the new behavior. What do you do with the failing test?
+4. What should a promotion note record about the suite run?
+
+*Answers:* (1) The feature arrives without its check, so nobody can verify it on the target instance until the test catches up. (2) No; it was failing before the upgrade. Raise it, but not as upgrade impact. (3) Update the assertion to the new requirement; never deactivate the test. (4) Which suites ran, the result, and any known failures with their defect references.

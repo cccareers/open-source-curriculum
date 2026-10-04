@@ -29,7 +29,7 @@ It is worth being precise, because "testing improves quality" is too vague to pl
 
 **They protect the upgrade window.** An upgrade is a compressed cycle: clone, upgrade the sub-production instance, resolve skipped records, validate, repeat on production. The validation step is the part that expands without limit if it is manual. A suite that runs in twenty minutes turns "two weeks of business users clicking" into "run it, read the failures, fix, run again."
 
-**They protect the definition of done.** If a test exists for a requirement, "done" is observable. Without it, done is an opinion, and the opinion is usually revised during UAT by the person who has to sign off.
+**They protect the definition of done.** If a test exists for a requirement, "done" is observable. Without it, done is an opinion, and the opinion is usually revised during UAT (user acceptance testing, where business users confirm the configuration does what they need) by the person who has to sign off.
 
 **They protect people's attention.** Manual regression is the least interesting work on an implementation, and it is done last, tired, under pressure. Automating the repetitive checks lets human testers spend UAT on judgment: is this usable, is this what we meant, does the approval routing match how the department really works. Those questions cannot be automated and are worth a person's time.
 
@@ -66,3 +66,12 @@ No instance work is required for this exercise. Write your answers down; you wil
 2. For each of the five, mark whether it would be caught today by (a) someone's manual UAT script, (b) a customer complaint, or (c) nothing until a support ticket arrives.
 3. Estimate how many minutes it takes one person to check all five by hand, then multiply by the number of times a year you would want them checked (each upgrade, plus each release you deploy). That number is the budget an automated suite is competing against.
 4. Write one sentence you could say to a project manager who asks why test-building hours belong in the estimate. Aim for something concrete about upgrades and regression, not "quality is important".
+
+## Check your understanding
+
+1. Name the three forces that change a ServiceNow instance underneath your configuration. Which one forces you to re-validate everything at once?
+2. A colleague says, "The suite is green, so UAT is done." What is wrong with that statement?
+3. Why is a small suite that people trust more valuable than a large suite that is often red?
+4. Where in the change cycle does ATF deliberately *not* run, and what concrete harm would running it there cause?
+
+*Answers:* (1) Your own changes, other people's changes, and platform upgrades; the upgrade. (2) A green suite proves the platform behaved as asserted; it cannot judge whether the requirement was right or usable, and sign-off is a person's decision. (3) A test that fails for bad reasons trains people to ignore failures, so real breakage gets missed. (4) Production; a run inserts real records, sends notifications, and calls integrations.

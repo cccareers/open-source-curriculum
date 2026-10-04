@@ -28,7 +28,7 @@ Recall the architecture lesson: each COE has its own case table in its own scope
 
 Suppose all HR cases lived in one table and you restricted employee relations cases with a condition — "you may read this row unless its category is employee relations." That control has to be correct in every ACL, every list view, every report, every export, every related list, and every script that queries the table with an elevated context. One missed path leaks. Worse, the leak is usually invisible: nobody notices they can see something they should not until it matters.
 
-Separate tables invert the default. An HR agent with no role on the employee relations table cannot read those rows through *any* path — list, search, report, related list, or scripted query in a user context. There is nothing to get right on each occasion, because the denial is structural.
+Separate tables give each COE a distinct ACL boundary. With the correct table and inherited ACLs, an HR agent without employee-relations access is denied through lists, search, reports, and related lists. Custom server scripts must still use `GlideRecordSecure` or explicit record and field ACL checks: plain `GlideRecord` does not enforce user ACLs merely because it runs in their session. Test inherited and parent-table access too.
 
 The practical rule: **when a population must never see a category of case, give that category its own table in its own scope.** Use conditions only to narrow access *within* a population that already has legitimate access to the table.
 
@@ -175,3 +175,12 @@ Work in a development instance with at least two HR COEs configured and a set of
 9. **Audit the side channels.** Review your notifications, one report, and your instance-clone configuration for sensitive-data exposure. List every place sensitive HR data could leave the restricted population, and state the fix for each.
 
 10. **Write a retention position.** Choose two categories of HR record from your build and state a retention period, the trigger that starts the clock, and how you would implement the deletion or anonymization. Note explicitly what you would need a legal or HR stakeholder to confirm.
+
+## Check your understanding
+
+1. Why is a separate COE table a stronger control than an ACL condition on a shared table?
+2. A facilities coordinator needs to complete a desk request on an onboarding case. What access do they get?
+3. Name three side channels that can leak HR data even when ACLs are correct.
+4. Who decides an HR record retention period: you or a stakeholder?
+
+*Answers:* (1) A separate table makes the COE ACL boundary easier to audit, but correct ACLs, inherited rules, and ACL-aware custom scripts are still required; table separation alone is not a denial. (2) The HR task only, never the parent case. (3) Any of: notification bodies, reports and scheduled exports, cloned lower environments, attachments, free-text fields. (4) An accountable legal or HR stakeholder, in writing; you build to the answer.

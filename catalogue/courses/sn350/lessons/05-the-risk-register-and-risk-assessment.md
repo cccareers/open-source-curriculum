@@ -213,3 +213,12 @@ Use a developer instance with Risk Management available.
 5. **Accept a risk, properly.** Record an acceptance on one Moderate risk with an accepting authority, rationale, compensating measure, and a 90-day expiry. Then write, in three sentences, what must happen on day 91 and what would go wrong in a real program if nothing did.
 
 6. **Break your own matrix.** Find a likelihood-impact pair whose band you consider indefensible under your current configuration. Change the matrix to fix it, then list every risk already in your register whose band changed as a result — and explain why that list is the reason to settle the framework before loading the register.
+
+## Check your understanding
+
+1. "We do not have multi-factor authentication." Risk, issue, or topic?
+2. Why must likelihood carry a time horizon?
+3. A risk scores likelihood 1, impact 5. Without a floor rule, where does it land on a product matrix, and why is that a problem?
+4. Why should a risk acceptance always have an expiry?
+
+*Answers:* (1) A control gap, so an issue; its consequence may be a risk. (2) Without one, raters use different windows and "likely" means different things. (3) Score 5, Low; a rare catastrophic exposure sits unmanaged at the bottom of the list. (4) Without expiry, a temporary decision becomes permanent policy without anyone deciding.
