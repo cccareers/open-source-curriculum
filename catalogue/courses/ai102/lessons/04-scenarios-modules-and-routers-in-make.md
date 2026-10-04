@@ -30,6 +30,8 @@ The vocabulary maps roughly like this, and you should hold the mapping loosely b
 | Billing unit | Operation | Task |
 | The run log | Scenario execution history | Zap History |
 
+A note on the billing row: Make now invoices in **credits**, not operations. For ordinary (non-AI) modules one operation uses one credit, so this course keeps counting operations. Make's built-in AI features can use more credits per run, so check the current pricing page before costing them.
+
 The single most important idea in Make, and the one with no clean equivalent in the previous lesson, is the **bundle**.
 
 ## Bundles: the unit that everything else follows from
@@ -79,7 +81,7 @@ Module 2: Database > Create a Record
   Source Row Id:   {{1.__ROW_NUMBER__}}
 ```
 
-Note the mapping syntax. `{{1.Details}}` means "the `Details` property of module 1's bundle." Field names containing spaces are wrapped in backticks. And note that the `Due` field is not a bare mapping but an **expression**: Make ships a large function library — `formatDate`, `parseDate`, `trim`, `upper`, `split`, `join`, `get`, `if`, `ifempty`, `length`, `replace` — usable inline anywhere a value goes. This is the low-code seam, and it removes most of the need for separate formatting steps. Where the previous lesson would add a Formatter action costing a task, Make does it inline for free.
+Note the mapping syntax. `{{1.Details}}` means "the `Details` property of module 1's bundle." Field names containing spaces are wrapped in backticks. And note that the `Due` field is not a bare mapping but an **expression**: Make ships a large function library — `formatDate`, `parseDate`, `trim`, `upper`, `split`, `join`, `get`, `if`, `ifempty`, `length`, `replace` — usable inline anywhere a value goes. This is the low-code seam, and it removes most of the need for separate formatting steps. Where the previous lesson would add a separate Formatter step to configure, test, and keep in order, Make does it inline in the field that needs it, and a function inside a mapping uses no extra operations.
 
 Two expression functions are worth committing to memory now:
 
@@ -212,3 +214,9 @@ You will need the same accounts as the previous lesson, plus a free Make account
 5. **Write the comparison, with your own numbers.** Produce a one-page table comparing your two builds on: modules or steps configured, units consumed per single-row event, units consumed per event when a list of five items is involved, minutes taken to build, and how many clicks it took to find the cause of a deliberately broken field mapping. Every cell must come from your own two builds, not from documentation.
 
 6. **Make a recommendation you can defend.** In 250 words, recommend one of the two platforms for the automation in exercise 3 and one for a hypothetical linear two-step notification running 8,000 times a month. Name the axis that decided each, and state the condition under which you would reverse the recommendation.
+
+## Check your understanding
+
+1. A Watch Rows trigger picks up one row, a Search module finds four matches, and two modules follow the search. How many operations does one run use? *Answer: 1 + 1 + 4 + 4 = 10. The search emits four bundles, so each downstream module runs four times.*
+2. A bundle satisfies the filters on two routes of a router. What happens, and in what order? *Answer: both routes run, one after the other in route order, top to bottom. A router is not a first-match switch, and routes do not run in parallel.*
+3. Your Text Aggregator produces one line per item instead of a single summary, with one chat message each. What setting do you check first? *Answer: the aggregator's source module. It must be the module that produced the multiple bundles (for example the Iterator), not the module immediately before the aggregator.*

@@ -91,7 +91,7 @@ Three fields deserve attention.
 
 **The text is nested.** It is not at the top level; it is inside a list. In the Claude API it is `content[0].text`; in the OpenAI API it is `choices[0].message.content`. Every beginner's first error is printing the whole object and wondering why it looks like that.
 
-**`stop_reason` tells you why generation ended.** `end_turn` means the model finished naturally. `max_tokens` means **you truncated it** — the answer is incomplete and any parsing you do downstream is operating on a fragment. Check this field. Silent truncation is a genuinely nasty bug, because a cut-off JSON object fails to parse in a way that looks like a model quality problem.
+**`stop_reason` tells you why generation ended.** `end_turn` means the model finished naturally. `max_tokens` means **you truncated it** — the answer is incomplete and any parsing you do downstream is operating on a fragment. Check this field. Silent truncation is a genuinely nasty bug, because a cut-off JSON object fails to parse in a way that looks like a model quality problem. In the OpenAI chat completions API the equivalent field is `finish_reason` on each choice, where `stop` is a natural ending and `length` means the output hit the token limit.
 
 **`usage` is the invoice.** Input tokens and output tokens, counted exactly. This is where cost stops being a guess.
 
@@ -116,7 +116,7 @@ Two more habits. Use a separate key per project so you can revoke one without br
 
 ## A script you can actually run
 
-Fifteen lines that reads a list of tickets, classifies each, and writes the results to a file:
+A short script that reads a list of tickets, classifies each, and prints the results with a token total:
 
 ```python
 import json
@@ -220,7 +220,7 @@ Four levers, in the order worth trying:
 
 Latency behaves differently. Response time scales mostly with *output* length, since tokens are generated one at a time — a 2,000-token answer takes many times longer than a 50-token one, largely regardless of input size. If a person is waiting, **streaming** (receiving tokens as they are produced) does not reduce total time but transforms the experience, because reading starts immediately. For batch work, latency barely matters; run requests concurrently and go and do something else.
 
-Two operational realities to plan for: providers enforce **rate limits** and will reject requests with an HTTP 429 when you exceed them, and any network call can fail transiently. The standard response to both is retry with exponential backoff — wait one second, then two, then four — with a cap on attempts. Every provider SDK has this built in, which is a decent argument for using one.
+Two operational realities to plan for: providers enforce **rate limits** and will reject requests with an HTTP 429 when you exceed them, and any network call can fail transiently. The standard response to both is retry with exponential backoff — wait one second, then two, then four — with a cap on attempts. The official SDKs from the major providers generally have this built in, which is a decent argument for using one.
 
 ## When to fine-tune, and when not to
 
@@ -263,3 +263,12 @@ You need an API key with a spending limit set. If you cannot get one, complete e
 3. **Cut the cost in half.** Take the run from exercise 2 and reduce total token spend by at least 40% without losing quality. Use at least two of the four levers. Verify quality with your evaluation set from lesson 07 and report the before-and-after pass rate alongside the before-and-after token counts. If quality dropped, say so and say which lever caused it.
 
 4. **Write the adaptation decision.** For each scenario, name the rung of the ladder you would choose and defend it in three sentences, including the one measurement you would take first. (a) Support replies must always follow a house voice nobody has successfully written down, across 30,000 messages a month. (b) The assistant must answer questions about a policy handbook that changes monthly. (c) Outputs are correct but too long and inconsistently formatted. (d) A cheap model classifies 200,000 documents a day at 84% accuracy against your test set, and you need 95%.
+
+## Check your understanding
+
+1. Your script prints the whole response object instead of the label. Where does the text actually live in the Claude API response?
+2. You send "Now draft a reply." as a single message and the model has no idea which ticket you mean. Why?
+3. At illustrative prices of $3 and $15 per million tokens, a call uses 1,000 input and 100 output tokens. What does it cost, and what does 5,000 calls a day cost per month?
+4. Your team says "we need to fine-tune so the assistant knows our updated returns policy". What rung of the ladder would you choose instead, and why?
+
+*Answers:* (1) `content[0].text` — inside a list, not at the top level. (2) The API is stateless; it only sees what you send, so earlier turns must be included in `messages`. (3) $0.003 + $0.0015 = $0.0045 per call; $22.50 a day, about $675 a month. (4) Retrieval: put the current policy text in the context at request time. Fine-tuning does not add knowledge reliably and would need retraining every time the policy changes.

@@ -200,7 +200,7 @@ Beyond the prompt, a model step has settings that change its behaviour in a work
 
 **Temperature.** For anything the workflow will branch on — classification, extraction, routing — set it at or near zero. Determinism is the goal, and creativity is a defect. For drafting, a low-to-moderate value is reasonable. Never leave it at whatever the step's default is without a decision.
 
-**Maximum output length.** Set it. It caps runaway cost and it fails loudly rather than silently truncating your JSON into something unparseable.
+**Maximum output length.** Set it, comfortably above the longest valid output your contract allows. It caps runaway cost. Know what happens when the cap is hit: the model stops mid-answer, and your JSON is cut off into something unparseable. The step itself usually reports success. The only thing that makes the failure loud is your parse step, which is one more reason it belongs on an error path (see "When the model step fails" below).
 
 **System versus user content.** Where the step separates them, put role, rules, and output format in the system portion and the untrusted data in the user portion. It is a modest additional defence against the injection problem above and it makes the prompt easier to maintain.
 
@@ -249,3 +249,9 @@ Use the automation and base you built in lessons 03 through 07.
 7. **Do a second task type.** Add one more AI step of a different kind — an extraction step with verbatim evidence fields, a summarisation step with a hard length limit, or an image-generation step assembling its prompt from record fields. Constrain it properly, run it over five real inputs, and state the specific failure that task type is prone to and what in your prompt guards against it.
 
 8. **Cost it.** Estimate the input and output tokens per run for your triage step, multiply by your published model rate and by 1,000 runs per month, and state the monthly figure. Then remove your longest example from the prompt, re-run the evaluation set, and report both the new cost and the accuracy change. Say whether you would keep the example.
+
+## Check your understanding
+
+1. Name the two contracts an AI step needs, and give one thing each must specify. *Answer: the input contract (which fields are sent, how they are cleaned and truncated, what happens when one is missing) and the output contract (exact keys, enumerated values with an escape value, confidence and escalation fields).*
+2. The model returns valid JSON with `"category": "refund"`, which is not in your list. Nothing errored. What should the workflow do? *Answer: treat it as a validation failure in a post-parse check. Route it to human review or the exceptions table, and never write the value into the record.*
+3. Why test a cheaper model first for a classification step? *Answer: classification and extraction with a clear schema are often handled well by smaller models. The cost difference can be an order of magnitude over thousands of runs, and the evaluation set tells you whether you really need a larger one.*

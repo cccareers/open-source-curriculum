@@ -211,3 +211,9 @@ Use the full build from lessons 03 through 14.
 9. **Complete the failure-mode table.** Every row filled for your build, with a real detection mechanism and a committed recovery time. For any row where detection is slower than the recovery target, either improve the detection or revise the target, and say which you chose.
 
 10. **Write and test the handover document.** All thirteen sections. Then give it to someone who did not build this, ask them to make one small configuration change and re-run three rows of your test table, and log every question they had to ask you. Fix the document and note what you changed.
+
+## Check your understanding
+
+1. Why measure platform units from a real execution rather than counting steps on the canvas? *Answer: searches, iterators, and routers multiply executions per run, and some platforms exclude certain built-in steps from billing. Only the run's actual consumption is reliable.*
+2. Which two failure modes in this lesson's table have no natural alarm, and what detects each? *Answer: model quality drift, detected by a scheduled evaluation-set re-run, and silently missing webhook deliveries, detected by a reconciliation sweep against the source API.*
+3. Your workflow should run hourly and has quietly stopped because the monthly quota ran out. Which alert catches it? *Answer: the no-runs (absence) alert, and ideally the 70%/90% consumption alert before that. No step failed, so a failure alert never fires.*

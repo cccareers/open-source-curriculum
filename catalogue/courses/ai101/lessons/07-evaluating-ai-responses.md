@@ -167,3 +167,12 @@ Reuse the ten-item test set you built in lesson 03 if you have it; extend it to 
 3. **Change one thing and re-measure.** Using your failure theme, make exactly one change to the prompt — the change the table above recommends. Re-run all twenty inputs. Report both pass rates side by side. If it got worse, keep the result and say what you think happened.
 
 4. **Run a swap test and a default audit.** For a prompt you use on real work: run it ten times with an attribute left unspecified and tabulate what the model chose; then run two versions differing in exactly one attribute, five times each, and compare tone, length, and what got explained. Write a paragraph on what you found and the specific edit you made to the prompt in response. If you found nothing, describe how you would have detected a difference if there was one.
+
+## Check your understanding
+
+1. In the safety-policy example, why is the OSHA claim the first thing to check, even though it sounds the most authoritative?
+2. A response is entirely accurate but compares all three warehouse sites when you asked only about Site 2. Which dimension failed, and how would the rubric score it?
+3. You ask the same model "Is that correct?" and it says yes. How much has that told you?
+4. Your pass rate goes from 18 of 30 to 16 of 30 after a prompt change you were confident about. What do you do with that result?
+
+*Answers:* (1) It is specific detail you did not supply and that is not in the source document — the classic fabrication profile — so it needs external verification. (2) Relevance (scope drift); it answers a different question, so relevance scores 0, or 1 at best if the Site 2 answer is clearly separable. (3) Very little: the model is generating a new response conditioned on a context where the claim is already present, and tends to agree with itself. Use a fresh conversation at minimum, ideally an independent source. (4) Keep it and log it: revert or rethink the change, look at which rows newly failed, and treat it as evidence — the evaluation set did its job.
