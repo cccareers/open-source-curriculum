@@ -255,7 +255,7 @@ You will move URLs. Three rules:
 ### The plan
 
 1. Create five hub pages, written as substantial standalone pages, not link lists.
-2. Move 310 posts into the five hub folders with 301 redirects. Update every internal link to the new URL.
+2. Keep the 310 posts at their existing flat `/blog/` URLs. Organize them through the five hubs and add reciprocal hub–spoke internal links; no post URL migration or redirects are needed.
 3. Build the money page at `/payroll-software-for-small-business`; redirect `/small-business-payroll` to it; repurpose `/product/payroll-runs` as a feature page.
 4. Add breadcrumbs sitewide.
 5. Cut the footer from 62 links to 18: five hubs, three templates, four help categories, six legal and company links.

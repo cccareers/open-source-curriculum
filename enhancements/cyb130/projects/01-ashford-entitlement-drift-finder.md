@@ -152,7 +152,7 @@ for acct, t in must_not:
 print(f"ALL TESTS PASSED ({len(rows)} findings)")
 ```
 
-Expected output: `ALL TESTS PASSED (17 findings)`. This includes two SOD_BREAK rows for Maya, one for each conflicting pair, and both ORPHANED and UNOWNED rows for each of the three unmatched ownerless accounts. The positive and negative checks distinguish these from active HR accounts and owned non-HR accounts; removing either Maya pair must fail. The count can differ if you also report a group that is *missing* from a role. If you add that as a `MISSING` type, the tests still pass.
+Expected output: `ALL TESTS PASSED (17 findings)`. This includes two SOD_BREAK rows for Maya, one for each conflicting pair, and both ORPHANED and UNOWNED rows for each of the three unmatched ownerless accounts. The positive and negative checks distinguish these from active HR accounts and owned non-HR accounts; removing either Maya pair must fail.
 
 ## Rubric
 | Criterion | Developing | Meets | Exceeds |

@@ -33,7 +33,7 @@ A page shows up in Google's results only if it passes three gates in order. Goog
 
 The gates are strictly sequential. A page never crawled cannot be indexed; a page not indexed cannot rank, however good the writing. When a stakeholder says "we published that page three weeks ago and it isn't ranking," your first job is not the title tag. It is finding which gate the page is stuck at. Optimizing a page Google has never fetched is like repainting a car with no engine.
 
-Your running example throughout the course is **Meridian Payroll** (meridianpayroll.com), a small-business payroll software company with about 640 indexable URLs across `/pricing`, `/product/...`, `/compare/...`, `/help/...`, `/blog/...`, and `/templates/...`. Over the last three months Search Console reports **41,300 clicks, 1,240,000 impressions, 3.3% average CTR, and average position 18.4** — plenty of pages through all three gates and sitting on page two. The shared Performance baseline covers Jan–Mar 2026; later diagnostic exports name their own scope.
+Your running example throughout the course is **Meridian Payroll** (meridianpayroll.com), a small-business payroll software company with about 640 indexable URLs across `/pricing`, `/product/...`, `/compare/...`, `/help/...`, `/blog/...`, and `/templates/...`. For Jan–Mar 2026, Search Console reports **41,300 clicks, 1,240,000 impressions, 3.3% average CTR, and average position 18.4** — plenty of pages through all three gates and sitting on page two. The shared Performance baseline covers Jan–Mar 2026; later diagnostic exports name their own scope.
 
 ## Discovery: how a URL becomes known at all
 
