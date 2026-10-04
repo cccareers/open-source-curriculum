@@ -174,7 +174,7 @@ Three findings from lesson 03's accounting firm, taken through the whole process
 
 **Risk 1.** *An opportunistic attacker obtains a staff mailbox password through reuse or spraying, and uses the mailbox to send fraudulent payment instructions to clients.*
 Likelihood: **Likely** — email is internet-facing, there is no second factor, password reuse is common, and credential attacks are continuous and automated. Impact: **Major** — client financial loss, a professional-conduct problem, notification obligations, and reputational harm to a firm whose product is trust. Rating: **High**.
-Response: **Reduce.** Enforce multi-factor authentication on all mailboxes (likelihood), enable alerting on impossible-travel logins and on new auto-forwarding rules (impact, by shortening dwell time). Residual: Unlikely × Major = **Medium**, accepted by the managing partner with a twelve-month review. Note honestly that MFA does not defeat session theft or prompt fatigue.
+Response: **Reduce.** Enforce multi-factor authentication on all mailboxes (likelihood), enable alerting on impossible-travel logins (sign-ins to one account from places too far apart to travel between in the time elapsed) and on new auto-forwarding rules (impact, by shortening dwell time). Residual: Unlikely × Major = **Medium**, accepted by the managing partner with a twelve-month review. Note honestly that MFA does not defeat session theft or prompt fatigue.
 
 **Risk 2.** *The reception PC, running an operating system past end of support, is compromised by commodity malware and used to reach the client file server.*
 Likelihood: **Possible** — not directly internet-facing, but unpatchable, on a flat network, and used by staff who browse and open attachments. Impact: **Major** — the file server holds seven years of client tax records; both confidentiality and availability are at stake. Rating: **High**.
@@ -202,3 +202,9 @@ Use your Rowan Veterinary Group findings table from lesson 03. If you did not co
 2. A **runbook** for "practice-management system credentials suspected compromised," in numbered steps, covering detection, containment, eradication, recovery, and who must be told at each stage. Include the offline contact list as an explicit item and mark the one step that requires authorization above a technician's level.
 
 **Deliverable:** one document containing the eight risk statements, the rated and ranked table, the five treatment entries, and the two-page plan contribution. A reviewer should be able to challenge any rating and find your one-sentence justification sitting next to it.
+
+## Check your understanding
+
+1. Is "We have no MFA on email" a risk? *No — it is a vulnerability. A risk names the actor or event, the weakness, the asset, and the harm.*
+2. A treatment moves a risk from Likely × Major to Unlikely × Major. Which axis did the control move, and what is the residual priority? *Likelihood only; Unlikely × Major reads Medium on the matrix.*
+3. What four conditions make a risk acceptance legitimate rather than neglect? *It is explicit, documented, owned by a named person, and has a review date.*

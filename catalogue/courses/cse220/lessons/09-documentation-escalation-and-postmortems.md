@@ -134,7 +134,7 @@ The structure that works:
 
 **Detection.** How did you find out, and how long did it take? If a customer told you before your monitoring did, that is one of the most important findings in the whole document and it belongs in the follow-ups.
 
-**Contributing causes, plural.** Almost nothing has a single root cause. The example incident has at least four: a query shipped without an index; a pipeline with no check for it; a connection pool with no queue-wait alerting, which delayed the diagnosis; and a disk alert set at a static level rather than a time-to-exhaustion projection. Keep asking "and what allowed that?" until you reach something you can actually change. Stopping at the first plausible cause is what produces postmortems whose only action item is "be more careful."
+**Contributing causes, plural.** Almost nothing has a single root cause. The example incident has at least four: a query shipped without an index; a pipeline with no check for it; a connection pool with no queue-wait alerting, which delayed the diagnosis; and a staging database too small for a full table scan to be slow, so the regression could not show up before release. Keep asking "and what allowed that?" until you reach something you can actually change. Stopping at the first plausible cause is what produces postmortems whose only action item is "be more careful."
 
 **What went well.** Genuinely — the rollback was fast, the dashboard localized it in two queries, comms met every update time. This is not morale management; it identifies the practices worth keeping when someone later proposes changing them.
 

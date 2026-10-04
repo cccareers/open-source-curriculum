@@ -253,3 +253,11 @@ Take one dataset in your lab environment and produce a data-flow inventory: ever
 **Exercise 5 — Design the key hierarchy.**
 
 For the clinic environment used throughout this course — production and non-production, PHI and general data, an audit log archive, and three external customer tenants — design the full set of keys. For each key give its name, what it protects, who holds administrative rights, who holds use rights, its rotation policy, and the specific revocation or shredding event it exists to enable. Then write the two-sentence justification for why you did not simply use one key, in terms your manager would accept, including the cost implication.
+
+## Check your understanding
+
+1. Requirement: "We must be able to revoke access to the payroll dataset within one hour, including backups." Which key tier is the lowest that satisfies it, and why not provider-managed keys?
+2. A principal has full read on a bucket but no permission on its customer-managed key. What happens when it reads an object?
+3. Why does one customer-managed key for the whole account defeat the purpose of cryptographic shredding?
+
+**Answers:** (1) Customer-managed keys (tier 2) — disabling the key blocks every new decrypt across all copies at once (resources already holding a decrypted data key, such as an attached encrypted volume, can keep working until they next call the key service, so check service-specific behavior); provider-managed keys give you no revocation switch. (2) Access denied — the key policy is a second, independent authorization gate (the error may appear to come from the storage service). (3) Destroying it would destroy everything; key scope sets your revocation and destruction granularity, so scope keys to classification, environment, and tenant.

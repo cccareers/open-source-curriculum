@@ -261,3 +261,12 @@ Use a lab or test tenant throughout. Do not modify production DNS. Any file anal
 **Part 6 — Write the response runbook.** Turn the ten-step response into a one-page procedure a colleague on their first week could execute, with the specific search you would run at step 4 and the exact list of account actions at step 7. Include the two metrics and where each is measured.
 
 **Deliverable:** one document containing Parts 1 through 6, with every DNS record written out in full rather than described, and every indicator defanged.
+
+## Check your understanding
+
+1. A message shows `spf=pass` for `smtp.mailfrom=bounce.vendor-mailer.example` and `header.from=harborridge.example`, with no DKIM signature. Does DMARC pass? Why or why not?
+2. Your SPF record has six `include:` mechanisms, and two of the included records each contain three more `include:`s. How many DNS lookups is that, and what happens to SPF evaluation?
+3. Why is `p=none` described as a listening mode rather than a policy, and what must be true before you move to `p=quarantine`?
+4. A user clicked a credential-harvesting link and you reset their password. Name two further account actions from the response procedure that the reset alone does not cover.
+
+**Answers:** (1) No — the SPF pass is for `vendor-mailer.example`, which does not align with `harborridge.example`, and there is no DKIM signature to align instead. (2) Twelve lookups (6 + 3 + 3), over the limit of ten, so evaluation returns `permerror` and most receivers treat the domain as having no SPF — it fails open. (3) `p=none` asks receivers to report but change nothing; advance only when aggregate reports show the remaining failing volume comes from sources you can explain (spoofers and known forwarding). (4) Revoke active sessions and tokens; check for attacker-created mailbox rules such as external forwarding; check for newly registered MFA methods.
