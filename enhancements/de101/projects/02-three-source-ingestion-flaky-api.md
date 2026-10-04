@@ -33,7 +33,7 @@ Everything runs locally with the Python standard library, `requests`, `sqlite3`,
 
 ## Before you start (prerequisites, starter files or data)
 
-- Python 3.10+, `pip install requests pyyaml pytest`.
+- Python 3.10+, `pip install requests sqlalchemy pyyaml pytest`.
 - **Inventory files** (generate three days into `fixtures/inventory/`): `inventory_2024-03-15.csv` etc. with `store_id,sku,count_date,on_hand`; 500 rows each. Give one file a UTF-8 byte-order mark and one a `sku` value containing a quoted comma (`"BK-119, blue"`).
 - **Campaigns API** (`fake_api.py --port 8799 --seed 3`): records `{campaign_id, name, channel, sent, opened, clicked, updated_at}`; `GET /campaigns?limit=&updated_since=` returns `{"data": [...], "next_page_url": "..."}`; returns `429` with `Retry-After: 0.1` every 10th request (deterministic counter so tests are stable); requires header `Authorization: Bearer <token>` matching env `CAMPAIGNS_API_TOKEN`.
 - **Database**: `shop.db` from lesson 4 (or de101-x01's generator) with `orders` carrying `updated_at`.

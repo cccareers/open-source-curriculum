@@ -93,8 +93,6 @@ def handler(event, context):
 
         if not key.endswith("/_SUCCESS"):              # ignore data files
             continue
-        if already_processed(record["messageId"]):
-            continue
 
         prefix = key.rsplit("/", 1)[0]
         resp = requests.post(
@@ -113,7 +111,7 @@ def handler(event, context):
 
 Two details carry most of the reliability. The function reacts to the `_SUCCESS` marker rather than to each data file, so it fires once per complete delivery instead of once per part. And the DAG run id is **derived from the event** rather than random — so if the same event is delivered twice, the second request collides with an existing run id and is rejected, which turns at-least-once delivery into exactly-once triggering for free. Notice that the function treats that rejection (HTTP 409 Conflict) as success; if it raised instead, the duplicate message would be retried until it landed in the dead-letter queue.
 
-One ordering trap in this sketch is worth seeing clearly. `already_processed` records the event *before* the DAG is triggered. If the trigger call then fails, the message is retried, but the retry finds the event already recorded and skips it — the delivery is lost with no error. Either record the event only after the trigger succeeds, or, as here, let the derived run id carry the deduplication and use the processed-events table for the sweep described later in this lesson rather than as a gate in front of the trigger.
+One ordering trap in this sketch is worth seeing clearly. `already_processed` records the event *before* the DAG is triggered. If the trigger call then fails, the message is retried, but the retry finds the event already recorded and skips it — the delivery is lost with no error. The handler above therefore does not call this helper; it lets the derived run id carry the deduplication and uses the processed-events table for the sweep described later in this lesson rather than as a gate in front of the trigger.
 
 On the DAG side, the payload arrives in `params` or `dag_run.conf`, and the DAG is defined with `schedule=None` because its trigger is external:
 

@@ -16,7 +16,7 @@ A strong, coherent entry course: the retailer e-commerce schema from lesson 3 ca
 | de101-04 | Practice, item 7 | Asks to reconcile a "header count of lines", but the lesson 3 `orders` table has no such column. | Tell learners to add `expected_line_count` and seed two wrong rows. | Applied |
 | de101-04 | "Derived columns and CASE" | `CURRENT_DATE - 30` is PostgreSQL-only arithmetic; the lesson says any of PostgreSQL/MySQL/SQLite is fine for practice. | Parenthetical with MySQL and SQLite equivalents. | Applied |
 | de101-06 | "Idempotency" | `MERGE` presented without engine caveat; MySQL and SQLite lack it, PostgreSQL only since 15. | One paragraph with `ON DUPLICATE KEY` / `ON CONFLICT` equivalents. | Applied |
-| de101-07 | "Reading databases" | Watermark built with `str(datetime)` (space separator) but compared with ISO `T` strings — string comparison is wrong. | Use `.isoformat()` and explain why. | Applied |
+| de101-07 | "Reading databases" | Watermark built with `str(datetime)` (space separator) but compared with ISO `T` strings — string comparison is wrong. | Normalize driver-returned strings or datetimes before taking the maximum, write with `.isoformat()`, and explain why. | Applied |
 | de101-07 | "The runner" | `overlap`, `WatermarkStore`, `log` are used but never defined; `X \| None` needs Python 3.10. | Short paragraph defining each helper. | Applied |
 | de101-08 | "Deduplication" | `ctid` is PostgreSQL-specific and unexplained; the in-place DELETE contradicts "never in place". | Explain `ctid`; give `ROW_NUMBER()` portable alternative. | Applied |
 | de101-08 | Practice intro | Practice corrupts `order_total`, which the schema does not have. | Say to compute it from `order_lines` in the export. | Applied |
@@ -60,7 +60,7 @@ A strong, coherent entry course: the retailer e-commerce schema from lesson 3 ca
 - `04-relational-databases-and-sql.md`, "Derived columns and CASE": engine-specific date arithmetic note.
 - `04-relational-databases-and-sql.md`, "Practice" item 7: added `expected_line_count` instruction so the reconciliation query is possible.
 - `06-etl-and-elt-pipelines.md`, "Idempotency": MERGE engine-support paragraph with upsert equivalents.
-- `07-ingesting-data-from-multiple-sources.md`, "Reading databases": watermark now `.isoformat()`; added paragraph explaining the string-comparison bug.
+- `07-ingesting-data-from-multiple-sources.md`, "Reading databases": watermark normalizes SQLite strings and native datetimes before taking the maximum and writing `.isoformat()`; SQLite filters compare timestamps with `julianday`, native date/datetime payloads become ISO text for JSON, and the paragraph explains the driver differences and string-comparison bug.
 - `07-ingesting-data-from-multiple-sources.md`, "The runner": defined `overlap`, `WatermarkStore`, `log`; noted Python 3.10 requirement.
 - `08-data-quality-fundamentals.md`, "Deduplication": explained `ctid`; added portable `ROW_NUMBER()` alternative.
 - `08-data-quality-fundamentals.md`, "Practice": instruct to compute `order_total` for the export.

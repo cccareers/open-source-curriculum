@@ -14,7 +14,7 @@ A mature, opinionated course that teaches orchestration as a set of guarantees (
 | Lesson | Location (heading) | Issue | Fix | Status |
 |---|---|---|---|---|
 | de210-03 | "Tasks and the TaskFlow API" | `extract_orders` calls `json.dumps` without importing `json`. | Added `import json`. | Applied |
-| de210-08 | "Serverless functions" | Dedupe record written *before* the trigger: a failed trigger is then skipped on retry, silently losing the event. Also `raise_for_status()` on the expected 409 duplicate would push duplicates to the DLQ, contradicting the text. | Treat 409 as success in code; added a paragraph explaining the ordering trap. | Applied |
+| de210-08 | "Serverless functions" | Dedupe record written *before* the trigger: a failed trigger is then skipped on retry, silently losing the event. Also `raise_for_status()` on the expected 409 duplicate would push duplicates to the DLQ, contradicting the text. | Remove the processed-event gate before the trigger, treat 409 as success in code, and explain the ordering trap. | Applied |
 | de210-07 | "Instrumenting the pipeline" (callbacks) | `sla` is an Airflow 2 feature removed in Airflow 3. | Version note added. | Applied |
 | de210-03 | Throughout | Lesson states "Airflow 2.x"; Airflow 3 (2025) changed authoring imports (`airflow.sdk`), the REST API path (`/api/v2`), and the backfill CLI. | Add a short "If you are on Airflow 3" callout listing the three differences. | Proposed (verify against the program's Airflow version) |
 | de210-05 / 06 | YAML test blocks | dbt 1.8+ prefers `data_tests:` (and adds unit tests); `tests:` still works but emits deprecation guidance in newer versions. | Add one sentence noting the newer key. | Proposed (verify against pinned dbt version) |
@@ -56,7 +56,7 @@ A mature, opinionated course that teaches orchestration as a set of guarantees (
 
 - `03-building-dags-with-apache-airflow.md`, "Tasks and the TaskFlow API": added missing `import json`.
 - `07-monitoring-alerting-and-debugging-runs.md`, "Instrumenting the pipeline": Airflow 2 vs 3 SLA note.
-- `08-cloud-native-and-event-driven-pipelines.md`, "Serverless functions": handler treats HTTP 409 as a duplicate; added paragraph on 409 handling and the dedupe-before-trigger ordering trap.
+- `08-cloud-native-and-event-driven-pipelines.md`, "Serverless functions": handler removes the unsafe processed-event gate and treats HTTP 409 as a duplicate; added paragraph on 409 handling and the dedupe-before-trigger ordering trap.
 
 ## Open questions for the course owner
 

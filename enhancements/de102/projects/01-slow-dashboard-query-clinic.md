@@ -71,8 +71,8 @@ FROM generate_series(1, 2000000) g;
 ```
 
 - **The three tiles:**
-  - **T1 Customer history:** `SELECT order_id, ordered_at, total FROM sales_order WHERE customer_id = $1 AND ordered_at >= now() - interval '90 days' ORDER BY ordered_at DESC LIMIT 50;`
-  - **T2 Pending queue:** `SELECT count(*) FROM sales_order WHERE status = 'pending' AND date_trunc('day', ordered_at) = current_date - 1;`
+  - **T1 Customer history:** `SELECT order_id, ordered_at, total FROM sales_order WHERE customer_id = $1 AND ordered_at >= timestamptz '2025-07-01 00:00:00+00' - interval '90 days' AND ordered_at < timestamptz '2025-07-01 00:00:00+00' ORDER BY ordered_at DESC LIMIT 50;`
+  - **T2 Pending queue:** `SELECT count(*) FROM sales_order WHERE status = 'pending' AND date_trunc('day', ordered_at) = date '2025-07-01' - 1;`
   - **T3 Monthly revenue by state:** `SELECT c.state, sum(o.total) FROM sales_order o JOIN customer c USING (customer_id) WHERE o.ordered_at >= '2025-06-01' AND o.ordered_at < '2025-07-01' AND c.city = 'Austin' AND c.state = 'TX' GROUP BY c.state;`
 
 ## Milestones
@@ -107,11 +107,12 @@ import pytest
 DSN = os.environ.get("CLINIC_DSN", "postgresql://postgres:clinic@localhost:5432/postgres")
 
 T1 = """SELECT order_id, ordered_at, total FROM sales_order
-        WHERE customer_id = 42 AND ordered_at >= now() - interval '90 days'
+        WHERE customer_id = 42 AND ordered_at >= timestamptz '2025-07-01 00:00:00+00' - interval '90 days'
+          AND ordered_at < timestamptz '2025-07-01 00:00:00+00'
         ORDER BY ordered_at DESC LIMIT 50"""
 T2 = """SELECT count(*) FROM sales_order
         WHERE status = 'pending'
-          AND ordered_at >= current_date - 1 AND ordered_at < current_date"""
+          AND ordered_at >= date '2025-07-01' - 1 AND ordered_at < date '2025-07-01'"""
 T3 = """SELECT c.state, sum(o.total) FROM sales_order_p o JOIN customer c USING (customer_id)
         WHERE o.ordered_at >= '2025-06-01' AND o.ordered_at < '2025-07-01'
           AND c.city = 'Austin' AND c.state = 'TX' GROUP BY c.state"""
@@ -133,6 +134,12 @@ def nodes(p):
     yield p
     for child in p.get("Plans", []):
         yield from nodes(child)
+
+
+def test_tiles_have_seeded_matches(conn):
+    assert conn.execute(T1).fetchall()
+    assert conn.execute(T2).fetchone()[0] > 0
+    assert conn.execute(T3).fetchall()
 
 
 def test_t1_uses_index_without_sort(conn):
@@ -202,6 +209,6 @@ def test_no_redundant_single_column_index_on_customer_id(conn):
 ## Instructor notes (common pitfalls, how to adapt for time)
 
 - The first run after seeding has no statistics; insist that learners capture that plan before `ANALYZE` — it is the best teaching artifact in the project.
-- `now()` in T1 makes timing slightly non-deterministic; fine for plan-shape assertions.
+- T1/T2 use a fixed as-of date inside the seeded range; keep it fixed so the clinic still measures nonempty queries in later years.
 - On laptops with little RAM, cut `sales_order` to 500,000 rows; plan shapes stay the same.
 - Plan choices can differ across PostgreSQL minor versions; tests assert shapes, not costs, for this reason.

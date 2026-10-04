@@ -51,12 +51,14 @@ This is engineer-facing work, not legal advice. Where an obligation depends on a
 ## Milestones
 
 1. **Classify.** Populate `governance.column_classification` for every column in the four tables using the four-label scheme. Direct and online identifiers are Confidential at minimum. Write one-line justifications in the `data_category` column or a comments file.
-2. **Revoke and grant.** Revoke defaults from `PUBLIC`; grant schema and table privileges to functional roles only; set `ALTER DEFAULT PRIVILEGES` for `mart`. Marketing reads `mart.customer_ltv_safe` (no `email`); support reads `mart.customer_ltv` restricted by RLS to `region = current_setting('app.user_region', true)`, with `FORCE ROW LEVEL SECURITY`. Explain in a comment where `app.user_region` would be set in production and why `sam` cannot set it.
+2. **Revoke and grant.** Revoke defaults from `PUBLIC`; grant schema and table privileges to functional roles only; set `ALTER DEFAULT PRIVILEGES` for `mart`. Marketing reads `mart.customer_ltv_safe` (no `email`); support reads `mart.customer_ltv` restricted by RLS using an administrator-owned `governance.user_regions(login_name, region)` mapping keyed by `session_user`, with `FORCE ROW LEVEL SECURITY`. Grant support read access to that mapping but no insert/update/delete privileges, and seed `sam` → `eu`. Do not trust a client-set `app.user_region`: ordinary users can change custom settings. Explain how the authenticated database login determines the region; pooled connections with a shared login need a separate trusted identity design.
 3. **Suppress at the edge.** Create `exports.campaign_audience_v` that joins `mart.customer_ltv` to `privacy.suppression_list` with an anti-join and requires `marketing_consent = true`. The vendor export job may read only this view.
 4. **Erase surgically.** Write `privacy.erase_subject(contact_id int, actor text)`: nulls identifiers in `raw.crm_contacts` and `mart.customer_ltv`, leaves `raw.orders` intact (seven-year tax retention, pending legal confirmation), and appends to `privacy.deletion_log`.
 5. **Detect.** Create `governance.v_unclassified_columns` (columns with no registry row) and `governance.v_grant_drift` (grants in `information_schema.table_privileges` not present in an `governance.approved_grants` table you populate from your access model).
 6. **Test.** Make `tests/test_controls.py` pass. Then introduce three deliberate defects (a stray `GRANT SELECT ON ALL TABLES IN SCHEMA raw TO analyst_marketing`, a new unclassified column, removing the suppression join) and show the right test fails for each. Restore.
 7. **Write the evidence pack.** Use the test file and its output as the method and artifacts. Include at least one honest gap (for example: no audit log of reads yet; `information_schema` visibility limits).
+
+Custom settings are client-controlled ([PostgreSQL documentation](https://www.postgresql.org/docs/16/runtime-config-custom.html)); the adversarial region test deliberately sets one to prove it cannot bypass the login mapping.
 
 ## Acceptance criteria
 
@@ -111,9 +113,15 @@ def test_analyst_cannot_read_raw(admin):
 
 def test_support_sees_only_own_region(admin):
     with connect_as("sam") as c:
-        c.execute("SET app.user_region = 'eu'")   # in production set by the trusted connection layer
+        c.execute("SET app.user_region = 'us_ca'")  # spoofed custom setting must not change access
         regions = {r[0] for r in c.execute("SELECT DISTINCT region FROM mart.customer_ltv")}
         assert regions == {"eu"}
+
+
+def test_support_cannot_change_region_mapping(admin):
+    with connect_as("sam") as c:
+        with pytest.raises(psycopg.errors.InsufficientPrivilege):
+            c.execute("UPDATE governance.user_regions SET region = 'us_ca' WHERE login_name = 'sam'")
 
 
 def test_rls_is_forced(admin):

@@ -36,9 +36,9 @@ The bicycle-share system from lesson 8's practice needs two stores: MongoDB behi
 
 - Docker, Python 3.10+, `pip install pymongo cassandra-driver pytest`. (Verify `cassandra-driver` supports your Python version; if not, use Python 3.11.)
 - **Synthetic data** (`generate.py --scale small`, `random.seed(5)`):
-  - 300 stations (`station_id`, `name`, `lat`, `lon`, `capacity`), 20,000 riders.
-  - 500,000 trips over 90 days: `trip_id`, `rider_id`, `start_station_id`, `end_station_id`, `started_at`, `duration_sec`, `fare`. Station popularity is skewed: 10 stations take 25% of trips.
-  - 2,000,000 dock readings: `station_id`, `observed_at` (every 5 min), `bikes_available`, `docks_available`.
+  - 300 stations (`station_id`, `name`, `lat`, `lon`, `capacity`, `borough` (five fixed borough labels, including every station in the tiny dataset)), 20,000 riders.
+  - 500,000 trips over 2026-01-01 through 2026-03-31: `trip_id`, `rider_id`, `start_station_id`, `end_station_id`, `started_at`, `duration_sec`, `fare`. Station popularity is skewed: 10 stations take 25% of trips.
+  - 2,000,000 dock readings: `station_id`, `observed_at` (every 5 min; include 2026-01-15 at both scales), `bikes_available`, `docks_available`.
   - `--scale tiny` (10,000 trips) for tests.
 
 **Access patterns (with targets on the small scale, local laptop):**
@@ -62,7 +62,7 @@ The bicycle-share system from lesson 8's practice needs two stores: MongoDB behi
 
 ## Acceptance criteria
 
-- [ ] Every access pattern is served by exactly one query against one collection/table, without `$lookup` in A1/A2 and without `ALLOW FILTERING` anywhere.
+- [ ] Every access pattern is served by exactly one query; A3 may join station names with `$lookup` after limiting to ten stations, while A1/A2 use one collection without `$lookup` and without `ALLOW FILTERING` anywhere.
 - [ ] No MongoDB document contains an array that grows without bound with traffic (recent-trips subset capped with `$push` + `$slice`).
 - [ ] No Cassandra partition in `readings_by_station_day` exceeds 100,000 rows at the small scale (show `nodetool tablestats` max partition size).
 - [ ] `TUNING.md` contains before/after p95 and the examined/returned ratio (MongoDB) or trace step timings (Cassandra) for two changes.

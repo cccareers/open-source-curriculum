@@ -29,14 +29,14 @@ The operator's pricing team wants rides and revenue per city in five-minute even
 
 ## Before you start (prerequisites, starter files or data)
 
-- Docker, Java 17, Python 3.10+, `pip install pyspark==3.5.* kafka-python-ng pytest pyarrow`. Spark needs the Kafka connector: start sessions with `spark.jars.packages=org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.1` (match your Spark and Scala versions).
+- Docker, Java 17, Python 3.10+, `pip install pyspark==3.5.1 kafka-python-ng pytest pyarrow`. Spark needs the Kafka connector: start sessions with `spark.jars.packages=org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.1` (match your Spark and Scala versions).
 - **Event schema** (JSON value, key = `city`): `ride_id` (string), `city` (one of `austin`, `dallas`, `columbus`, `fresno`), `fare` (double), `event_time` (ISO-8601 UTC).
 - **Producer** (`producer.py --topic rides --start 2026-07-01T10:00:00Z --minutes 30 --late-mode none|mixed|late-only`): emits 20 rides per city per minute of event time, in event-time order. `--late-mode mixed` additionally emits, at the end (and `late-only` emits only these, relative to the stream's current max event time), 10 rides with event time 5 minutes before the max (should count) and 10 with event time 40 minutes before the max (should be dropped with a 15-minute watermark). Ride ids are deterministic so duplicates are detectable.
 
 ## Milestones
 
 1. **Topic and producer.** Create `rides` with 6 partitions. Produce 30 minutes of clean events. Inspect with `kafka-topics.sh --describe`.
-2. **Parse with a schema.** `readStream` from Kafka, `from_json` with an explicit schema, filter null/invalid rows, keep `partition` and `offset` for provenance.
+2. **Parse with a schema.** `readStream` from Kafka with `startingOffsets="earliest"` for a new checkpoint (resumed checkpoints retain their offsets), `from_json` with an explicit schema, filter null/invalid rows, keep `partition` and `offset` for provenance.
 3. **Window and watermark.** `withWatermark("event_time", "15 minutes")`, `groupBy(window(event_time, "5 minutes"), city)`, `count` and `sum(fare)`; append mode to Parquet with a checkpoint.
 4. **Late data.** Run the mixed producer; show which late events were counted and which dropped, and connect each to the watermark arithmetic.
 5. **Kill and resume.** Run, kill mid-stream, restart from the same checkpoint; prove no gaps and no duplicates by reconciling window counts against the producer's own totals.
@@ -97,6 +97,7 @@ def test_clean_run_reconciles(spark, tmp_path):
     out = spark.read.parquet(str(tmp_path / "out"))
     # Windows close only once the watermark passes them; the last ~15 minutes stay open in append mode.
     closed = out.where(F.col("window_end") <= F.lit("2026-07-01 10:15:00").cast("timestamp"))
+    assert closed.count() == 8  # first two closed windows across four cities
     per_window = {r["rides"] for r in closed.collect()}
     assert per_window == {100}, per_window          # 20 rides/min x 5 min per city
 
@@ -107,7 +108,13 @@ def test_late_events_counted_or_dropped(spark, tmp_path):
     run_available_now(spark, topic, str(tmp_path / "out"), str(tmp_path / "ckpt"))
     produce(topic, late_mode="late-only", minutes=0)  # phase 2: only the late events, in a later batch
     run_available_now(spark, topic, str(tmp_path / "out"), str(tmp_path / "ckpt"))
+    # Advance event time so the moderately late 10:50 window is also finalised.
+    produce(topic, minutes=20)
+    run_available_now(spark, topic, str(tmp_path / "out"), str(tmp_path / "ckpt"))
     out = spark.read.parquet(str(tmp_path / "out"))
+    moderate = out.where(F.col("window_start") == F.lit("2026-07-01 10:50:00").cast("timestamp")) \
+                  .agg(F.sum("rides")).first()[0]
+    assert moderate == 410, "moderately late events must be included before finalisation"
     very_late_window = "2026-07-01 10:15:00"        # 40 minutes before max event time 10:59
     row = out.where(F.col("window_start") == F.lit(very_late_window).cast("timestamp")) \
              .agg(F.sum("rides")).first()[0]
@@ -123,6 +130,12 @@ def test_restart_from_checkpoint_has_no_duplicates(spark, tmp_path):
     out = spark.read.parquet(str(tmp_path / "out"))
     dupes = out.groupBy("window_start", "city").count().where("count > 1").count()
     assert dupes == 0
+    reference_topic = f"rides_{uuid.uuid4().hex[:8]}"
+    produce(reference_topic, minutes=40)
+    run_available_now(spark, reference_topic, str(tmp_path / "reference"), str(tmp_path / "reference_ckpt"))
+    expected = spark.read.parquet(str(tmp_path / "reference"))
+    assert out.exceptAll(expected).count() == 0
+    assert expected.exceptAll(out).count() == 0
 
 
 def test_state_is_bounded_with_watermark(spark, tmp_path):
@@ -133,7 +146,7 @@ def test_state_is_bounded_with_watermark(spark, tmp_path):
     assert state_rows <= 4 * 4, f"state holds {state_rows} rows; expected only open windows"
 ```
 
-Notes: `build_query` must select `window.start AS window_start`, `window.end AS window_end`. The producer's `--minutes` continuation must resume event time where the previous call stopped (store its cursor in a small state file). Expected numbers assume the default producer rates; recompute them if you change rates.
+Notes: `build_query` must select `window.start AS window_start`, `window.end AS window_end`. The producer's `--minutes` continuation must resume event time where the previous call stopped (store its cursor in a small state file keyed by topic; `late-only` reads the last maximum without advancing it). Expected numbers assume the default producer rates; recompute them if you change rates.
 
 ## Rubric
 

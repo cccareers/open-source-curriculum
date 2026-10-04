@@ -53,9 +53,9 @@ You do not need a cluster. Spark's `local[*]` mode runs the same DataFrame API, 
 
 ## Milestones
 
-1. **Ingest with a schema.** Read the JSON with an explicit `StructType` (no inference) and `mode=PERMISSIVE` plus a `_corrupt_record` column. Write `clean/` as Parquet after: trimming/lowercasing `city`, folding cities with fewer than 1,000 rows into `__other__`, casting `fare` to `decimal(10,2)`, dropping negative fares, deduplicating on `ride_id` keeping the latest `updated_at` (with `ride_id` as a stable tiebreaker). Print rows in, rows dropped by reason, rows out.
+1. **Ingest with a schema.** Read the JSON with an explicit `StructType` (no inference) and `mode=PERMISSIVE` plus a `_corrupt_record` column. Write `clean/` as Parquet after: trimming/lowercasing `city`, folding cities with fewer than 1,000 rows into `__other__`, casting `fare` to `decimal(10,2)`, dropping negative fares, for each requested `as_of`, filtering versions to `updated_at < as_of` before deduplicating on `ride_id` keeping the latest eligible `updated_at` (break equal timestamps with a stable payload hash, since every version shares its `ride_id`). Print rows in, rows dropped by reason, rows out.
 2. **Separate the placeholder.** Route `rider_id = "unknown"` rows to `quarantine/unknown_rider/`; they are not a real entity (lesson 7, worked diagnosis).
-3. **Features as of a parameter.** For a given `as_of` date, compute one row per rider with: `rides_all_time`, `fare_all_time`, `fare_avg`, `distance_median_approx`, `rides_7d`, `fare_30d`, `days_since_prev_ride`, `kiosk_share` (denominator guarded), and `region` from a broadcast join to `dim_city` on the rider's most frequent city. Use only rows with `started_at < as_of`. No `collect()`, `toPandas()`, or Python loops over data values.
+3. **Features as of a parameter.** For a given `as_of` date, compute one row per rider with: `rides_all_time`, `fare_all_time`, `fare_avg`, `distance_median_approx`, `rides_7d`, `fare_30d`, `days_since_prev_ride`, `kiosk_share` (denominator guarded), and `region` from a broadcast join to `dim_city` on the rider's most frequent city (break frequency ties by city name). Use a left join and an explicit unknown-region value for `__other__`, so rare-city riders in the tiny tests are retained. Use only rows with both `started_at < as_of` and `updated_at < as_of`; a correction not yet available at the cutoff must not replace the historical version. No `collect()`, `toPandas()`, or Python loops over data values.
 4. **Lay it out.** Write the feature table as Parquet, partitioned by `as_of_date`, zstd codec, `repartition` before `partitionBy`. Record file count and sizes.
 5. **Predict, then explain.** Before running, write the number of `Exchange` nodes you expect in the feature query. Run `explain(mode="formatted")`, count, and reconcile in `LAYOUT.md`.
 6. **Test.** Make `test_features.py` pass on a 50,000-row dataset.
@@ -152,6 +152,19 @@ def test_rides_on_as_of_date_are_excluded(spark, tmp_path):
     r = spark.read.parquet(out_path).where("rider_id = 'rX'").first()
     assert r["rides_all_time"] == 1
     assert r["kiosk_share"] == pytest.approx(1.0)
+
+
+def test_future_correction_does_not_leak(spark, tmp_path):
+    base = {"ride_id": "V1", "rider_id": "rV", "city": "austin", "fare": "5.00",
+            "distance_km": 1.0, "started_at": "2026-03-30T08:00:00",
+            "updated_at": "2026-03-30T08:00:00", "channel": "app"}
+    corrected = dict(base, fare="500.00", updated_at="2026-04-02T08:00:00")
+    raw, target = str(tmp_path / "raw"), str(tmp_path / "out")
+    spark.createDataFrame([base, corrected]).write.json(raw)
+    features.build(spark, raw, target, AS_OF)
+    row = spark.read.parquet(target).where("rider_id = 'rV'").first()
+    assert row["rides_all_time"] == 1
+    assert row["fare_all_time"] == 5
 
 
 def test_rerun_is_identical(spark, tmp_path):

@@ -36,13 +36,13 @@ The `partner_x` refund files from lesson 4 now arrive unpredictably between 04:0
 ## Before you start (prerequisites, starter files or data)
 
 - Python 3.11, `pip install pytest watchdog` (watchdog for the notifier; tests drive the queue directly so they do not depend on filesystem timing).
-- Reuse `fake_sources/drop.py` from de210-x01 to create deliveries: `drop.py --ds 2024-03-05 --root incoming/` writes CSVs then `_SUCCESS` last.
+- Extend `fake_sources/drop.py` from de210-x01 to create event-ready deliveries. Add `--root` (default `incoming/`); `drop.py --ds 2024-03-05 --root incoming/` writes the CSVs and `_MANIFEST.json` into `incoming/partner_x/2024-03-05/`, closes those files, then creates an empty `_SUCCESS` marker in that same directory last. The original x01 producer does not create this marker; its ingestion functions publish a separate marker under `raw/` after processing. Remove any old incoming marker before rewriting a delivery so the notifier cannot trigger on partially written files.
 - Correlation id: the notifier stamps each event with `corr_id = sha1(prefix)[:12]`; every log line, queue row, run row, and loaded row carries it.
 
 ## Milestones
 
 1. **Queue semantics.** Implement at-least-once delivery: a received message is invisible for `visibility_s`; if not acked, it reappears with `attempts + 1`; after 3 attempts it moves to `dead_letter`.
-2. **Filter at the source.** The notifier ignores data files and enqueues once per `_SUCCESS`.
+2. **Filter at the source.** Extend and run the producer as described above. Confirm CSVs and `_MANIFEST.json` alone enqueue nothing, then creation of the incoming `_SUCCESS` enqueues one event. The notifier ignores data files and enqueues once per `_SUCCESS`.
 3. **Idempotent trigger.** The handler derives `run_id = "evt__" + prefix.replace("/", "_")`. A duplicate delivery hits the existing run id and is acked as success. Record processing *after* the trigger succeeds, never before (the ordering trap noted in lesson 8).
 4. **Poison handling.** An event pointing at a missing prefix fails every attempt and lands in the DLQ; an alert function fires when DLQ depth > 0.
 5. **Coalesce a burst.** Drop 40 deliveries in one minute; implement a debounce window so the handler triggers one run per window covering all ready prefixes, and record runs triggered and total duration with and without coalescing.

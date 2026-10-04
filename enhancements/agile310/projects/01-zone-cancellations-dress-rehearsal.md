@@ -46,6 +46,8 @@ This does **not** replace the graded milestones, which must run in your cloud ac
 
 ## Milestones
 
+Define the daily fact measures `trips`, `cancellations`, `late_night_trips`, and `late_night_cancellations`. Late night means local hour >= 22 or < 4, attributed to the request's calendar date. The serving view exposes daily all-trip and late-night rows with `is_late_night` and computes each rate from its corresponding counts; the fact remains one row per zone/day. Seed zones 7, 23, 41 with a clearly higher baseline late-night cancellation probability (for example 30% versus 5%) as well as the weekly trend, so the small 14-day fixture can distinguish them.
+
 1. **Design first.** Write `docs/design.md`: question, decision and stakeholder, both sources, the layer table, grain of every table ("`fct_trip_daily`: one row per pickup zone per calendar day"), four non-goals (including streaming), five risks with trigger/response, milestone plan, open questions. Get a peer to run lesson 2's six critical questions against it.
 2. **Land raw, idempotently.** `run_ingest` writes to `landing/<source>/ingest_date=<date>/` via a temporary folder then an atomic rename (replace-partition), adds provenance (`_source`, `_fetched_at`, `_run_id`, source file name) without altering source fields, and appends a manifest line with every field lesson 4 requires.
 3. **Watermark after write.** Persist the watermark per source in `state/watermarks.json`, advanced only after the partition is committed. Simulate a crash between write and advance (an env var `CRASH_AFTER_WRITE=1`) and show the next run re-fetches the window.
