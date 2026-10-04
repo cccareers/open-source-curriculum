@@ -164,3 +164,9 @@ Every hands-on element below is confined to the instructor-provided, isolated la
 4. A module you were told to run against one lab host appears, from its description, likely to affect a second host on the same segment.
 
 **Deliverable:** one document containing Parts 1, 2, 3, 5, and 6, plus the artifacts from Part 4 as attachments. A reviewer should be able to tell, from your Part 4 artifacts alone, exactly which addresses you touched and when.
+
+## Check your understanding
+
+1. What is the difference between a vulnerability assessment and a penetration test? *An assessment validates and prioritizes weaknesses. A penetration test demonstrates, within scope, that specific weaknesses can be exploited and what an attacker gains.*
+2. In phase 5, who chooses which exploitation action runs? *The supervisor. The assistant executes exactly the approved action, records it, and stops at the stated boundary.*
+3. Why does running Kali Linux not make an action authorized? *Authorization comes from the signed scope and ROE, not from the tooling. The same tools run on any Linux system.*

@@ -140,3 +140,9 @@ Pick one real service you can describe concretely. If you have one running from 
 **Exercise 5 — Symptom and cause split.** Reorganize your table into two lists. Then answer in writing: if you were allowed to alert on only three of these signals, which three, and what does that tell you about the difference between the two lists?
 
 Keep the finished inventory. Lesson 03 configures collection for exactly these signals, and lesson 05 puts the symptom half of the list on a screen.
+
+## Check your understanding
+
+1. Error count doubled at noon and so did traffic. Is that an incident? *(Not on that evidence — express errors as a ratio of traffic; an unchanged ratio means the service is behaving the same under more load.)*
+2. Why is `customer_id` a bad metric label but a good log field? *(Unbounded cardinality multiplies stored series; logs are built to hold per-event detail and can be searched by it.)*
+3. Every panel on the dashboard is flat and calm. Name the one signal that tells you whether that means healthy or blind. *(The collection heartbeat.)*
