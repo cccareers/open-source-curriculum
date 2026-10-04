@@ -239,7 +239,7 @@ Pessimistic: assume 90% would have arrived anyway.
   Incremental contribution = (8.8 x $108) - $600 = $350.40
 ```
 
-Brand survives even the pessimistic assumption, because a $1.90 CPC is cheap enough that a small incremental share still pays. But $8,904 was never the real number. Somewhere between $350 and $2,251 is, and reporting $8,904 to the owner overstates the account's performance by roughly 50 percent, since brand is 63 percent of reported contribution.
+Brand survives even the pessimistic assumption, because a $1.90 CPC is cheap enough that a small incremental share still pays. But $8,904 was never the real number. Somewhere between $350 and $2,251 is. Because brand is 63 percent of reported contribution, that changes the whole account: total contribution is reported as $14,224, but on these assumptions the honest figure is somewhere between about $5,670 ($14,224 - $8,904 + $350) and $7,570 ($14,224 - $8,904 + $2,251) — roughly half of what the report says.
 
 The only way to settle it is a **brand holdout test**: split the service area into two randomly assigned halves, turn brand search off in one half for four weeks, and measure **total** leads in each half from all sources, not paid leads. If total leads hold up where brand is off, brand was mostly cannibalizing organic. Be honest about the power problem: 88 brand conversions a month split across two geographic halves is about 44 per arm, which by the sample size logic of the previous lesson is nowhere near enough to detect a modest effect. Run it for a quarter, or accept that you are reasoning from an assumption and label the assumption in the report.
 
@@ -414,3 +414,9 @@ Funnel figures, unchanged: 60 percent of leads book; repair job $410 revenue and
 8. **Draft the one-paragraph client verdict.** Under 200 words, no jargon, leading with money. It must name the weakest campaign, contain one forecast with a range, and disclose one thing you do not know.
 
 Submit the spreadsheet with formulas visible, the written diagnoses, and the verdict paragraph.
+
+## Check your understanding
+
+1. A campaign reports a 2.0 ROAS at a 40% gross margin. Is it profitable? *(Answer: no; break-even ROAS is 1 / 0.40 = 2.5, so every $1,000 of spend returns $800 of gross profit and loses $200.)*
+2. Furnace Install has the worst CPA in the account. Why is cutting it the wrong move? *(Answer: its leads are worth $432, not $108; by contribution it is the second-best campaign, and moving its budget to repair leads loses about $990 a month in the lesson's forecast.)*
+3. Blended CPA fell 9% this month and no campaign changed. What probably happened? *(Answer: the mix shifted toward a cheap campaign such as brand; report by campaign, not blended, before claiming an improvement.)*

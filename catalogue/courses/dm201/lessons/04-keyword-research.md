@@ -233,7 +233,7 @@ Mar   3,600   Jun   1,000   Sep   1,000   Dec  22,200
 Annual total 91,360   /12 = 7,613  → reported as "7,600/mo"
 ```
 
-December and January together are 62,700 searches — 68.6% of the year. The "7,600 a month" figure is wrong in every single month: it overstates demand March through October and understates it catastrophically in December and January.
+December and January together are 62,700 searches — 68.6% of the year. The "7,600 a month" figure is wrong in every single month: it overstates demand March through November and understates it in December through February — catastrophically in December and January.
 
 Three decisions fall out:
 
@@ -455,7 +455,7 @@ Priority = 3(4) + 2(3) + 2(0) + 2(3) + 1(5)
 
 29 — "next quarter" at best, despite by far the largest volume on the list. The rubric stopped the biggest number from winning, which is the whole point of scoring.
 
-Sorted descending, the do-now set is rows 1, 3, 11, 2, 4, 7, 10 — and five of those seven are *existing pages needing work*, not new builds. That is normal and it is good news: improving a page at position 12 is the cheapest traffic in SEO.
+Sorted descending, the do-now set is rows 1, 3, 11, 2, 4, 7, 10 — and six of those seven are *existing pages needing work*, not new builds (only row 2, the PayCadence alternatives page, has to be built; see CL-004 in the map below). That is normal and it is good news: improving a page at position 12 is the cheapest traffic in SEO.
 
 ## The keyword map artifact
 

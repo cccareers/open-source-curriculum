@@ -365,3 +365,9 @@ SERP features present (in order) | Depth to first organic | Go / No-go | Reasoni
 Requirements: fifteen rows minimum; the Evidence column must cite page-type counts ("7/10 roundups, no vendor pages"), never intuition; two rows minimum must be a genuine no-go with a defensible reason; one must be a query where the wording suggested one class and the SERP proved another.
 
 Beneath the table, add a note of no more than 200 words: the three queries representing the best real opportunity and why; the one query the site serves with the **wrong page type** and what type it should be; and the one query you would formally stop targeting. Come ready to defend the no-go verdicts — those are the ones people argue with.
+
+## Check your understanding
+
+1. The top ten for `payroll software for restaurants` shows six vendor landing pages, two roundups, one forum thread, and one video. What is the intent class, and what page type should Meridian build? *(Answer: commercial investigation, qualified; six of ten vendor pages means a segment landing page is the type Google accepts.)*
+2. Why can position 1 be worth very different amounts on two queries? *(Answer: SERP furniture — ads, AI overviews, People Also Ask — changes the pixel depth to the first organic result and how many searchers are answered before they reach it.)*
+3. A stakeholder wants a blog post to rank for `payroll tax calculator`. What do you tell them? *(Answer: the query is transactional (tool); a post is the wrong page type and no on-page work closes that gap. Build a calculator or stop targeting the query.)*

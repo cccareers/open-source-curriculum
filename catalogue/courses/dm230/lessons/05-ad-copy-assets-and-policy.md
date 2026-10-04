@@ -458,7 +458,7 @@ DRAFT 4
            term as a keyword is generally permitted; putting their
            mark in the copy is not, and is a standard complaint.
   Category: Trademark.
-  Fix:  H1: Switch to Northgate & Save 20%       [29]
+  Fix:  H1: Switch to Northgate & Save 20%       [30]
         Keep the competitor keyword in its own campaign if the CPA
         justifies it; keep their name out of the copy.
 

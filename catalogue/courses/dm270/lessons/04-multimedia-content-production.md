@@ -103,10 +103,10 @@ Spoken: 104 words
 TIME   AUDIO                          VIDEO / ON-SCREEN
 -----  -----------------------------  ------------------------------
 0:00   (no VO for 1s)                 COLD OPEN: split screen, two
-0:03   "One of these trays got         trays. Left tall + floppy,
-        six hours of light. The        right compact. LABELS: "18 in
-        other got eighteen inches       away" / "3 in away".
-        of it, three inches away."     TEXT: Same seeds. Same day.
+0:03   "One tray grew with its         trays. Left tall + floppy,
+        light eighteen inches away.    right compact. LABELS: "18 in
+        The other, three inches         away" / "3 in away".
+        away."                         TEXT: Same seeds. Same day.
 
 0:03   "If your seedlings look like    Push in on the leggy tray. A
 0:12    this - tall, thin, falling     finger gently tips a stem; it
@@ -216,11 +216,11 @@ Prefer to ship both: burned-in **open captions** for feeds that ignore caption f
 ```txt
 1
 00:00:03,000 --> 00:00:07,500
-One of these trays got six hours of light.
+One tray grew with its light eighteen inches away.
 
 2
 00:00:07,500 --> 00:00:11,800
-The other got eighteen inches of it, three inches away.
+The other, three inches away.
 
 3
 00:00:12,000 --> 00:00:15,400

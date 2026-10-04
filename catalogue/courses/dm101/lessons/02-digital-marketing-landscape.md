@@ -161,7 +161,7 @@ Cost per booking:           $9,600 / 96       = $100
 Margin per service call:    $180
 ```
 
-The plan is viable but thin — $100 to earn $180 leaves little room for error, and any drop in the booking rate makes it a loss. That single table is more useful than a page of channel descriptions, because it tells you exactly which lever matters most. Raising the site-to-booking rate from 6% to 8% cuts the required sessions to 1,875, which cuts the paid budget by roughly $4,300 a month. Improving the page is worth more than buying more traffic, and you can see it in the numbers before spending anything.
+The plan is viable but thin — $100 to earn $180 leaves little room for error, and paid acquisition breaks even at a booking rate of $6 / $180 = 3.33%; below that it loses money before other costs. That single table is more useful than a page of channel descriptions, because it tells you exactly which lever matters most. Raising the site-to-booking rate from 6% to 8% cuts the required sessions to 1,875, which shrinks the paid gap from 1,600 to 975 sessions and cuts the paid budget from $9,600 to $5,850 — a saving of $3,750 a month. Improving the page is worth more than buying more traffic, and you can see it in the numbers before spending anything.
 
 ## Common mistakes to avoid
 
