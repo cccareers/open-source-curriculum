@@ -60,7 +60,7 @@ Your team at Acme is standardizing on the `rag-api` FastAPI service from the ful
 - [ ] The image is pushed under a semantic version tag *and* a Git SHA tag; `latest`, if present, is only an alias.
 
 ## Automated checks (coding courses) / Evidence checklist (non-coding)
-Save as `check_image.sh` beside the `api/` folder. It needs only Docker, Bash, and `curl` on the host. Run it with `./check_image.sh`, or override the defaults with `IMAGE=me/rag-api:0.1.0 MAX_MB=500 ./check_image.sh`.
+Save as `check_image.sh` beside the `api/` folder. It needs Docker with Buildx, Bash, and `curl` on the host. Run it with `./check_image.sh`, or override the defaults with `IMAGE=me/rag-api:0.1.0 MAX_MB=500 ./check_image.sh`.
 
 ```bash
 #!/usr/bin/env bash
@@ -73,10 +73,13 @@ MAX_MB="${MAX_MB:-600}"
 PORT="${PORT:-18000}"
 NAME="rag-api-acceptance-$$"
 FAILED=0
+PROBE_DIR=$(mktemp -d)
 
 pass() { printf 'PASS  %s\n' "$1"; }
 fail() { printf 'FAIL  %s\n' "$1"; FAILED=1; }
 cleanup() {
+  rm -rf "$PROBE_DIR"
+  [ -f "$CTX/.git.acceptance-sentinel" ] && rm -rf "$CTX/.git" "$CTX/.git.acceptance-sentinel"
   docker rm -f "$NAME" >/dev/null 2>&1 || true
   [ -f "$CTX/main.py.acceptance-bak" ] && mv "$CTX/main.py.acceptance-bak" "$CTX/main.py"
   [ -f "$CTX/.env.acceptance-sentinel" ] && rm -f "$CTX/.env" "$CTX/.env.acceptance-sentinel"
@@ -87,6 +90,11 @@ trap cleanup EXIT
 if [ ! -e "$CTX/.env" ]; then
   echo "OPENAI_API_KEY=sk-acceptance-sentinel" > "$CTX/.env"
   touch "$CTX/.env.acceptance-sentinel"
+fi
+
+if [ ! -e "$CTX/.git" ]; then
+  mkdir "$CTX/.git"
+  touch "$CTX/.git/acceptance-probe" "$CTX/.git.acceptance-sentinel"
 fi
 
 # 1. Static Dockerfile checks
@@ -105,12 +113,17 @@ if echo "$DF" | grep -Eiq '^COPY .*requirements\.lock\.txt' && echo "$DF" | grep
   pass "Dockerfile copies and installs from requirements.lock.txt"
 else fail "Dockerfile must COPY requirements.lock.txt and pip install from it"; fi
 
-if [ -f "$CTX/.dockerignore" ] && grep -Eq '^\.env$' "$CTX/.dockerignore" && grep -Eq '^\.git/?$' "$CTX/.dockerignore"; then
-  pass ".dockerignore excludes .env and .git"
-else fail ".dockerignore must list .env and .git"; fi
-if [ -f "$CTX/.dockerignore" ] && grep -Eq '^!(\*\*/)?/?\.(env|git)/?$' "$CTX/.dockerignore"; then
-  fail ".dockerignore has a ! rule that re-includes .env or .git"
-else pass "no ! rule re-includes .env or .git"; fi
+# Export a scratch image of the effective context: Docker applies all ignore rules,
+# including broad negations such as !*, rather than guessing with grep.
+if docker buildx build --file - --output "type=local,dest=$PROBE_DIR" "$CTX" <<'DOCKERFILE'
+FROM scratch
+COPY . /context/
+DOCKERFILE
+then
+  if [ ! -e "$PROBE_DIR/context/.env" ] && [ ! -e "$PROBE_DIR/context/.git" ]; then
+    pass ".env and .git are excluded from the effective build context"
+  else fail ".env or .git is included in the effective build context"; fi
+else fail "could not inspect effective build context"; fi
 
 # 2. Build
 if docker build -q -t "$IMAGE" "$CTX" >/dev/null; then pass "image builds"; else fail "image builds"; exit 1; fi

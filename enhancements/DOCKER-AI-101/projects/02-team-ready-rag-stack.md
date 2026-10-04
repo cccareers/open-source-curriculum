@@ -69,7 +69,7 @@ A `rag-stack/` repository containing:
 ## Automated checks (coding courses) / Evidence checklist (non-coding)
 Save as `tests/test_stack.py` and run it from the `rag-stack/` root.
 
-- **Static checks only** (seconds; no models needed): `pytest tests -m "not live"`
+- **Static checks only** (no models needed; Docker and Buildx required): `pytest tests -m "not live"`
 - **Everything:** with the stack up and the models pulled, run `LIVE=1 pytest tests`
 - **Including the down/up persistence test:** `LIVE=1 DESTRUCTIVE_OK=1 pytest tests`. This runs `docker compose down` and then `up` (without `--volumes`).
 
@@ -83,6 +83,7 @@ import re
 import stat
 import subprocess
 import time
+import tempfile
 import urllib.request
 import uuid
 from pathlib import Path
@@ -162,15 +163,26 @@ def test_no_literal_secrets_and_env_example_complete():
 
 
 def test_env_is_ignored_everywhere():
-    for ignore in (ROOT / ".gitignore", ROOT / "api" / ".dockerignore"):
-        assert ignore.exists(), f"missing {ignore.relative_to(ROOT)}"
-        text = ignore.read_text()
-        assert re.search(r"^\.env$", text, re.M), f"{ignore.relative_to(ROOT)} must ignore .env"
-        assert not re.search(r"^!(\*\*/)?/?\.env\s*$", text, re.M), \
-            f"{ignore.relative_to(ROOT)} has a ! rule that re-includes .env"
-    # Ask Git for the effective result after every ignore rule is applied.
+    # Git evaluates the full rule set, including broad negations and tracked files.
     result = subprocess.run(["git", "check-ignore", "-q", ".env"], cwd=ROOT)
     assert result.returncode == 0, "git does not ignore .env (or rag-stack is not a git repository)"
+    ctx = ROOT / "api"
+    env = ctx / ".env"
+    existed = env.exists()
+    try:
+        if not existed:
+            env.write_text("ACCEPTANCE_PROBE=not-a-secret\n")
+        with tempfile.TemporaryDirectory() as dest:
+            subprocess.run(
+                ["docker", "buildx", "build", "--file", "-", "--output",
+                 f"type=local,dest={dest}", str(ctx)],
+                input="FROM scratch\nCOPY . /context/\n", text=True, check=True,
+            )
+            assert not (Path(dest) / "context" / ".env").exists(), \
+                "api/.env is included in the effective Docker build context"
+    finally:
+        if not existed:
+            env.unlink(missing_ok=True)
 
 
 def test_setup_script_is_executable_and_pulls_models():
@@ -210,8 +222,9 @@ def test_store_then_ask_returns_source():
 @pytest.mark.live
 @pytest.mark.skipif(os.environ.get("DESTRUCTIVE_OK") != "1", reason="set DESTRUCTIVE_OK=1 to run down/up")
 def test_documents_and_models_survive_down_up():
+    doc_id = f"persist-{uuid.uuid4().hex[:8]}"
+    http("POST", "/documents", {"id": doc_id, "text": "Persistence acceptance probe."})
     before = http("GET", "/health")["docs"]
-    assert before > 0, "add at least one document first"
     models_before = ollama_models()
     assert models_before, "pull the models first"
     subprocess.run(["docker", "compose", "down"], cwd=ROOT, check=True)
