@@ -196,3 +196,13 @@ These exercises need other people. Use classmates, your cohort's instructor, or 
 11. Write a status update for the organizer view in terms of criteria, naming what passes, what is blocked and on whom, and what remains. Keep it under sixty words.
 
 **Deliverable:** a committed `docs/vol-114-handoff.md` containing your acceptance criteria with classifications, the state inventory, the six-section hand-off note as revised after your QA run, the traceability table, and a short `NOTES.md` section recording which questions your first draft failed to answer.
+
+## Check your understanding
+
+1. Rewrite "The claim feels instant" as an observable, implementation-independent, single-outcome criterion.
+2. A PM says "use a modal for the confirmation." Is that a requirement, an implementation detail, or a preference, and what question do you ask to find the real requirement?
+3. Name four screen states a static design usually does not show, and the one that is specific to optimistic updates.
+4. Which section of a QA hand-off note gives QA a regression boundary, and why does it matter when you changed a shared component?
+5. You are blocked on whether organizers see volunteer emails and the PM is out until Thursday. What are the four parts of the message you send?
+
+**Answers:** (1) "The claimed state renders before the claim request completes." (2) Usually an implementation detail; ask what it is protecting (for example, "volunteers must not claim a shift by accident"). (3) Any four of loading, empty, retryable error, not-permitted error, partial or overlong data, small-screen and keyboard behavior; optimistic-pending is the one specific to optimistic updates. (4) "What I did not touch"; it tells QA where any behavior change is a regression, which is how breakage in other users of a shared component (such as `EventCard` on Home) gets caught. (5) The provisional decision, the reasoning, the cost of the alternative, and a deadline for objections.

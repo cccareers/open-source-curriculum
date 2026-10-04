@@ -115,7 +115,7 @@ Push your branch early, even before it is finished:
 git push -u origin feature/shift-claim
 ```
 
-The `-u` sets the upstream so later pushes are just `git push`. Pushing early means your work exists somewhere other than one laptop, and it means a teammate can see what you are up to without asking.
+`origin` is the name git gives by default to the **remote** — the shared copy of the repository on GitHub, GitLab, or your team's server — that you cloned from. The `-u` sets the upstream, meaning it records `origin/feature/shift-claim` as the remote branch your local branch tracks, so later pushes and pulls are just `git push` and `git pull`. Pushing early means your work exists somewhere other than one laptop, and it means a teammate can see what you are up to without asking.
 
 ## Keeping up with the shared branch
 
@@ -155,7 +155,7 @@ A conflict means two branches changed the same lines and git will not guess. It 
 >>>>>>> main
 ```
 
-The top block is your branch, the bottom is what you are merging in. Your job is to produce the correct final code — which is sometimes one side, sometimes the other, and quite often neither. Delete all three marker lines, leave the code you want, then:
+The top block is your branch, the bottom is what you are merging in. That is true for `git merge`. During a `git rebase` the sides swap: `HEAD` is the `main` you are replaying onto, and the bottom block is your own commit being replayed. Read the labels on the marker lines rather than assuming which side is yours. Your job is to produce the correct final code — which is sometimes one side, sometimes the other, and quite often neither. Delete all three marker lines, leave the code you want, then:
 
 ```bash
 git add js/render.js
@@ -252,3 +252,12 @@ Work through a full increment cycle on a repository of your own. If your `PLAN.m
 9. Use `git blame` on `index.html` to find which commit introduced one specific line, then `git show` that commit and read its message. Write one sentence in `NOTES.md` about whether your own commit message from step 4 was actually useful to your future self.
 
 **Deliverable:** a pushed repository with a committed `.gitignore` and `CONTRIBUTING.md`, one merged and deleted feature branch with at least three well-formed commits, a resolved conflict in the history, a reviewed pull request with your responses to both comments, a revert commit, and a `NOTES.md` holding your `git log --graph` output and the two short write-ups.
+
+## Check your understanding
+
+1. Your branch has been open for two weeks and `main` has moved a lot. Why is the merge likely to be painful, and what in your planning would have prevented it?
+2. A commit containing a bug was merged to `main` and teammates have already pulled it. Which command undoes it safely — `git reset` or `git revert` — and why?
+3. You are rebasing your feature branch onto `origin/main` and hit a conflict. Is the block under `<<<<<<< HEAD` your code or `main`'s?
+4. Write a commit summary for this change: you moved the count calculation into `render()` so that releasing a shift updates the counts.
+
+**Answers.** (1) The longer the branch lives, the more `main` changes underneath it, so there is more of other people's work to reconcile. One branch per day-sized increment keeps merges small. (2) `git revert`, because it adds a new commit and rewrites nothing; `git reset` rewrites history other people already have. (3) `main`'s — during a rebase the sides are the reverse of a merge. (4) For example: `Compute shift counts inside render()`, with a body explaining that releasing previously left the counts stale.

@@ -98,6 +98,8 @@ cd web
 npm run build
 ```
 
+Your version number, hash characters, and sizes will differ. What matters is the shape of the output.
+
 ```text
 vite v5.4.0 building for production...
 ✓ 41 modules transformed.
@@ -204,6 +206,7 @@ An artifact is only useful if the same input produces the same output on someone
 ```
 
 ```text
+# .nvmrc (one line, at the repository root)
 20.11.0
 ```
 
@@ -244,17 +247,29 @@ const here = path.dirname(fileURLToPath(import.meta.url));
 const webDist = path.join(here, "..", "..", "web", "dist");
 
 app.get("/api/events", (req, res) => {
-  res.json(events);
+  res.json(events); // the events array your node101 service already serves
 });
 
-app.use(express.static(webDist, { maxAge: "1y", index: false }));
+app.use(express.static(webDist, {
+  maxAge: "1y",
+  index: false,
+  setHeaders(res, filePath) {
+    // index: false disables directory indexes, not GET /index.html.
+    if (filePath === path.join(webDist, "index.html")) {
+      res.setHeader("Cache-Control", "no-cache");
+    }
+  },
+}));
 
-app.get("*", (req, res) => {
+app.get(/.*/, (req, res) => {
+  res.setHeader("Cache-Control", "no-cache");
   res.sendFile(path.join(webDist, "index.html"));
 });
 ```
 
-Three things are deliberate there. `express.static` comes after the API routes, so a request for `/api/events` is answered by your handler and never treated as a filename. `maxAge: "1y"` is safe precisely because the asset filenames are content-hashed. And the catch-all sends `index.html` for any unmatched path, which is what makes client-side routing work — a visitor who reloads on `/events/12` gets the app shell, and the front end router takes it from there. Note that `index.html` is served by that handler rather than by the static middleware, so it does not inherit the one-year cache.
+Older tutorials write the catch-all as `app.get("*", ...)`. That works in Express 4 and **crashes at startup in Express 5**, which is what `npm install express` gives you today: `Missing parameter name at index 1: *`. A regular expression, `/.*/`, means "any path" in both versions. (Express 5's own spelling is `"/{*splat}"`.)
+
+Three things are deliberate there. `express.static` comes after the API routes, so a request for `/api/events` is answered by your handler and never treated as a filename. `maxAge: "1y"` is safe precisely because the asset filenames are content-hashed. And the catch-all sends `index.html` for any unmatched path, which is what makes client-side routing work — a visitor who reloads on `/events/12` gets the app shell, and the front end router takes it from there. The fallback and the explicit `/index.html` static response both override the cache to `no-cache`, so the shell is revalidated on each visit. `index: false` alone only disables automatic directory indexes; it does not stop the static middleware serving `/index.html`. Keep other non-hashed public files on a short cache too.
 
 One release means one version number, one deploy, one thing to roll back. It is the simplest arrangement that works, and simple is worth a great deal when something breaks at five o'clock.
 
@@ -276,3 +291,12 @@ Produce a complete, inspectable artifact for both halves of the events board.
 12. Wire the API to serve `web/dist` using `express.static` plus a catch-all for `index.html`, with the API routes registered first. Start only the API — no dev server — and confirm the front end loads, a page reload on a nested route works, and `/api/events` still returns JSON.
 
 **Deliverable:** a `web/dist` produced by `npm run build`, an API that serves it as a single release, and a committed `BUILD-NOTES.md` documenting the artifact contents, the hashing experiment, and your reasoning about install commands.
+
+## Check your understanding
+
+1. You deploy the `web/` folder as it is and the browser reports it can't load `main.jsx`. What did you deploy, and what should you have deployed?
+2. Why is it safe to cache `/assets/index-b7a4e2d9.js` for a year but not `index.html`?
+3. A logo works in `npm run dev` but 404s after deploying to `https://example.org/events/`. What's the first setting you check?
+4. When do you use `npm install`, and when `npm ci`?
+
+*Answers:* (1) You deployed source, which needs the dev server to translate it. Deploy the `dist/` artifact from `npm run build`. (2) The hashed filename changes whenever the contents change, so a cached copy is never stale. `index.html` keeps its name and points at the current hashed files, so a stale copy points at a release that no longer exists. (3) Vite's `base` option, which must be `/events/` for a subdirectory deploy. (4) Use `npm install` only when you're deliberately changing dependencies. Use `npm ci` everywhere else, because it installs exactly what the lockfile says.

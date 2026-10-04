@@ -190,7 +190,7 @@ app.get("/events/archive", (req, res) => {
 
 Calling `res.status(404)` alone does nothing visible — it sets a number on an object. Nothing is sent until you call a terminating method like `send`, `json`, `end`, or `sendStatus`. A route that only calls `res.status(404)` leaves the browser spinning until it times out, which is a genuinely confusing bug the first time you cause it.
 
-**`res.sendStatus(code)`** is the shorthand for "this status and its standard name as the body": `res.sendStatus(204)` sends `204` with the body `No Content`.
+**`res.sendStatus(code)`** is the shorthand for "this status and its standard name as the body": `res.sendStatus(403)` sends `403` with the body `Forbidden`. The one exception is `204 No Content`, which by definition never carries a body. `res.sendStatus(204)` sends the status and nothing else, because Node drops the body.
 
 **`res.set(name, value)`** sets a response header:
 
@@ -293,6 +293,15 @@ process.on("SIGTERM", () => {
 
 That last block is worth having early. `SIGTERM` is the signal a host sends when it wants your process to stop — during a deploy, a restart, or a scale-down. `server.close()` stops accepting new connections and lets in-flight requests finish before exiting. Without it, the platform waits, gives up, and kills the process mid-request. Ten lines now, no mysterious truncated responses later.
 
+One thing that surprises people testing this locally: pressing Ctrl+C in the terminal does **not** send `SIGTERM`. It sends `SIGINT`, a different signal, so the handler above never runs and Node simply exits. To send the signal a host would send, find the process id and send it yourself from a second terminal:
+
+```bash
+pgrep -f "src/server.js"     # prints the process id, e.g. 48213
+kill -TERM 48213
+```
+
+If you also want Ctrl+C to shut down cleanly, register the same function for both signals: `process.on("SIGINT", shutdown)` and `process.on("SIGTERM", shutdown)`.
+
 ## A dev loop, and testing what you built
 
 Stopping and restarting the server by hand after every edit gets old within an hour, and worse, it makes you doubt your own changes — half of "my fix didn't work" is a server still running the old code.
@@ -348,13 +357,13 @@ curl -i http://localhost:3000/health
 HTTP/1.1 200 OK
 X-Powered-By: Express
 Content-Type: application/json; charset=utf-8
-Content-Length: 34
-ETag: W/"22-yQxJ2..."
+Content-Length: 30
+ETag: W/"1e-yQxJ2..."
 
 {"status":"ok","eventCount":3}
 ```
 
-Read every line of that. The status is `200`. The `Content-Type` proves `res.json` set the header. The `Content-Length` proves the body was fully written. `ETag` is a cache validator Express adds automatically.
+Read every line of that. The status is `200`. The `Content-Type` proves `res.json` set the header. The `Content-Length` proves the body was fully written: `{"status":"ok","eventCount":3}` is exactly 30 bytes. `ETag` is a cache validator Express adds automatically; the `1e` at its start is that same length in hexadecimal. `X-Powered-By` is there because this output came from a server without the `app.disable("x-powered-by")` line from the previous section. Add it, and the header disappears from your output.
 
 Useful flags:
 
@@ -383,6 +392,17 @@ Extend the `events-board` project into a real, inspectable HTTP server.
 7. Add a `dev` script using `node --watch`. With it running, change the text of the `/` route and confirm the new text appears without you restarting anything.
 8. Start the server with `PORT=4100 npm start` and confirm it binds to 4100 and that 3000 now refuses connections.
 9. Using `curl -i`, capture the status line and `Content-Type` for every route you wrote, plus one `curl -X POST http://localhost:3000/events`. Paste the eight results into `NOTES.md` and write one sentence for the `POST` result explaining why it is a `404`.
-10. Add the `SIGTERM` handler that calls `server.close()`, then stop the server with Ctrl+C and confirm your shutdown message prints.
+10. Add the `SIGTERM` handler that calls `server.close()`. Start the server, then from a second terminal send it `SIGTERM` with `kill -TERM <pid>` (find the pid with `pgrep -f "src/server.js"`) and confirm your shutdown message prints. Then press Ctrl+C on a fresh run and note that the message does *not* print, because Ctrl+C sends `SIGINT`. Register the same handler for `SIGINT` if you want both to shut down cleanly.
 
 **Deliverable:** a committed `src/server.js` serving five routes on a port read from the environment, a `dev` script that restarts on change, and a `NOTES.md` holding your annotated `curl -i` output.
+
+## Check your understanding
+
+1. A handler calls `res.status(404)` and nothing else. What does the browser see?
+   *Nothing. It spins until it times out. `res.status` only sets a number; no response is sent until a terminating method such as `send`, `json`, `end`, or `sendStatus` runs.*
+2. `res.send("Events")` and `res.send({ ok: true })`: which `Content-Type` does each produce?
+   *`text/html; charset=utf-8` for the string, `application/json; charset=utf-8` for the object.*
+3. A request for an event that does not exist: `404` or `500`? Why does the choice matter?
+   *`404`. The client asked for something that isn't there; the server did not break. Returning `500` makes monitoring page someone for typos in URLs.*
+4. Your app works locally and the host reports "no open port detected." What should you check first?
+   *That the app listens on `Number(process.env.PORT)` rather than a hard-coded `3000`.*

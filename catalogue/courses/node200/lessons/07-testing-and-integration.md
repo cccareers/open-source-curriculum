@@ -83,6 +83,7 @@ The cleanest way to make that possible is **dependency injection**: have the ser
 ```javascript
 // src/services/events.service.js
 import * as defaultRepo from "../repositories/events.repository.js";
+import { NotFoundError, ValidationError } from "../errors/index.js";
 
 export function makeEventsService({ repo = defaultRepo, now = () => new Date() } = {}) {
   async function create(input, organizerId) {
@@ -161,7 +162,7 @@ Four things there are worth copying as habits.
 
 **The second test asserts a security property**, not a happy path: the organizer id comes from the authenticated actor, and a client-supplied `organizerId` is ignored. That is the lesson-05 rule about not trusting client copies of facts, pinned down so it cannot silently regress.
 
-**The requirement id is in the test name.** `R-09:` makes the traceability matrix from lesson 03 reconstructable with a grep, and makes a test failure immediately meaningful to a project manager.
+**The requirement id is in the test name.** (`R-09` is not in the 3.4 extract from lesson 03, which stops at R-08. It stands for whatever id your register gives the event-creation rule "an event cannot start in the past", so use your own number.) `R-09:` makes the traceability matrix from lesson 03 reconstructable with a grep, and makes a test failure immediately meaningful to a project manager.
 
 **The fake is a plain object.** You rarely need a mocking library for this; `node:test` provides `mock.fn()` when you want call recording, but a hand-written fake is more readable and does not silently drift from the real interface. Whichever you use, when the real repository's signature changes, nothing tells the fake — which is why integration tests exist.
 
@@ -197,7 +198,9 @@ describe("GET /events", () => {
   });
 
   it("rejects an out-of-range page size with 400 and names the field", async () => {
-    const res = await request(app).get("/events?limit=5000").expect(400);
+    const res = await request(app).get("/events?limit=5000")
+      .set("Accept", "application/json")   // otherwise lesson 06's handler renders HTML
+      .expect(400);
     assert.equal(res.body.error.code, "validation_failed");
     assert.ok(res.body.error.details.some((d) => d.field === "limit"));
   });
@@ -251,19 +254,23 @@ export async function createOrganizer(overrides = {}) {
 }
 
 export async function createEvent(overrides = {}) {
+  // Tests speak camelCase; the table speaks snake_case. Translate here, once.
+  const { organizerId, startsAt, ...rest } = overrides;
   const [row] = await db("events")
     .insert({
       title: "Test Event",
-      starts_at: new Date(Date.now() + 7 * 86_400_000),
+      starts_at: startsAt ?? new Date(Date.now() + 7 * 86_400_000),
       venue: "Test Venue",
       capacity: 10,
-      organizer_id: overrides.organizerId,
-      ...overrides,
+      organizer_id: organizerId,
+      ...rest,
     })
     .returning(["id", "title"]);
   return row;
 }
 ```
+
+Note the destructuring in `createEvent`. Spreading `overrides` straight into the insert would hand Knex columns called `organizerId` and `startsAt`, which do not exist, and every test using the factory would fail with a Postgres "column does not exist" error. The factory does the same camelCase-to-snake_case translation the repository does, for the same reason.
 
 Five rules keep this from becoming the flakiest part of your project.
 
@@ -327,6 +334,20 @@ describe("POST /events/:id/cancel", () => {
 ```
 
 Note the assertion against the database after the `403`. Asserting only the status code proves the response was right, not that the side effect was prevented — and it is entirely possible to return `403` after having already cancelled the event. **For any test of a rule that forbids something, assert that the thing did not happen**, not just that the status was correct.
+
+If you mounted lesson 05's `verifyCsrf`, both of these tests need a valid token. Without one, the login inside `signedInAgent` and the cancel `POST` are refused with `403 csrf_failed` before your code runs, so the cancel test passes for the wrong reason and the login helper fails outright. Never switch CSRF checks off under `NODE_ENV=test`; you would be testing a different application. Fetch the token the way a browser does, from a page that renders a form:
+
+```javascript
+// test/helpers/csrf.js
+export async function csrfTokenFrom(agent, path) {
+  const res = await agent.get(path).set("Accept", "text/html").expect(200);
+  const match = res.text.match(/name="_csrf" value="([^"]+)"/);
+  if (!match) throw new Error(`No _csrf field rendered at ${path}`);
+  return match[1];
+}
+```
+
+In `signedInAgent`, call `csrfTokenFrom(agent, "/login")` before posting and send it as `_csrf`. Login regenerates the session, and the session holds the token, so fetch a fresh token after login for any later `POST`, for example ``csrfTokenFrom(agent, `/events/${event.id}`)``. Then send it with `.type("form").send({ _csrf: token })` or `.set("x-csrf-token", token)`. Keep one test that deliberately omits the token and asserts `403 csrf_failed`, so the protection itself is covered.
 
 Real password hashing makes these tests noticeably slower (argon2 is deliberately expensive). Two acceptable answers: create the account once per file rather than per test, or lower the cost parameters when `NODE_ENV === "test"`. If you take the second, do it in the config module so it is visible and cannot leak into production.
 
@@ -445,3 +466,17 @@ Build a test suite for the events board and report on it.
 12. Add requirement ids to every test name where one applies, then produce the traceability matrix by grep alone: `grep -rn "R-0" test/` should let you fill the "verified by" column of your lesson 03 matrix without opening a file.
 
 **Deliverable:** a committed suite that passes with `npm test` from a clean checkout, a test plan and a test run report under `docs/quality/`, an updated traceability matrix, and a `NOTES.md` recording the concurrency failure, the deliberate breakage, and your coverage assessment.
+
+## Check your understanding
+
+1. Does a supertest integration test need `npm run dev` running in another terminal? Why or why not?
+2. A test asserts `expect(403)` on a non-owner cancel and passes. Why is that not enough, and what should the test also check?
+3. Your suite passes when run file by file but fails when run with `npm test`. Name the two most likely causes given this lesson's setup.
+4. Coverage reports 100% for `registrations.service.js`. What can you still not conclude, and what is a better question to ask?
+
+**Answers**
+
+1. No. supertest takes the app returned by `createApp()`, binds a temporary port for each request, and closes it. That is why lesson 02 separated `app.js` from `server.js`.
+2. It proves the response was right, not that the side effect was prevented. The event could have been cancelled before the 403 was returned. Read the row back from the database and assert its status did not change.
+3. Test files running in parallel against one shared test database (missing `--test-concurrency=1`), or tests depending on each other's leftover rows (missing reset before each test, or a test that doesn't create what it needs).
+4. That the lines were *tested*. A line can run with no assertion about its result. Better question: does every risk-register row's "verified by" name a test that exists and has been seen to fail when its control is removed?

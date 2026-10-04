@@ -35,7 +35,7 @@ function requestLogger(req, res, next) {
 
 That third case is the single most common middleware bug, and it is worth burning into memory now: **forgetting `next()` does not "skip" your middleware, it hangs the request.** If a route that used to work stops responding right after you add a middleware, this is almost always the cause.
 
-Note also what is *not* in the signature. There is no return-a-response style, no promise contract that Express awaits, and no automatic error catching. Middleware is a callback chain, and the chain only moves when you move it.
+Note also what is *not* in the signature. There is no return-a-response style, and in Express 4 there is no promise contract that Express awaits and no automatic catching of async errors. Express 5 adds one narrow exception: if a middleware returns a promise that rejects, Express 5 forwards the error for you. Lesson 08 covers exactly what that changes. Either way, middleware is a callback chain, and the chain only moves when you move it. A resolved promise does not call `next()` for you.
 
 Your route handlers have had this signature all along. `app.get("/events", (req, res) => { ... })` is a middleware function that happens to be filtered by method and path, and that happens to end the chain by sending a response. There is no separate category of "handler" in Express — there are only middleware functions, some of which are mounted at a path with a method filter. Once you see that, the framework gets much smaller.
 
@@ -48,6 +48,8 @@ The corollary is that a request does not "search" the stack. Express holds an in
 Express keeps one ordered list of middleware, built in the order your file registers them. When a request arrives it walks that list from the top, running each entry whose mount path matches, and stops when something sends a response or the list runs out.
 
 ![How Express passes a request through an ordered stack of middleware before it reaches a route handler](./img/middleware-pipeline.png)
+
+(In this lesson, `app.js` means your application's entry file, the one that creates `app` and calls `app.use`. If you followed lesson 04's layout, that is `src/server.js`.)
 
 This means the order of the lines in `app.js` is not stylistic. It is the design of your service. Two files with identical middleware in different orders are two different systems.
 
@@ -110,7 +112,7 @@ app.use(express.urlencoded({ extended: true }));
 
 Three things bite people here:
 
-- **A parser that does not match the content type is a no-op.** It sees the header, decides the body is not its business, and calls `next()`. So a client that posts JSON without `Content-Type: application/json` produces `req.body` as `{}` — an empty object, not an error. Your handler then reads `req.body.title` as `undefined` and you go hunting in the wrong place. Check the request's headers first.
+- **A parser that does not match the content type is a no-op.** It sees the header, decides the body is not its business, and calls `next()`. So a client that posts JSON without `Content-Type: application/json` produces no error. On Express 4, `req.body` is `{}`, an empty object. On Express 5 it is `undefined`. Either way your handler reads `req.body.title` as `undefined` (or throws, on 5, if you did not guard with `req.body ?? {}`), and you go hunting in the wrong place. Check the request's headers first. One trap when testing with curl: `curl -d '{"title":"x"}'` *does* send a `Content-Type`, `application/x-www-form-urlencoded`. With `express.urlencoded()` mounted, your whole JSON string becomes a single form field name. To send a body with no `Content-Type` at all, remove the header explicitly with `-H "Content-Type:"`.
 - **`extended: true`** tells `urlencoded` to use a parser that can express nested objects and arrays in form field names. `extended: false` restricts values to strings and arrays. Either is defensible; pick one deliberately rather than copying whichever appeared in a tutorial.
 - **Body parsers have a size limit**, one megabyte by default. That default is protection, not an oversight: without it, anyone can exhaust your server's memory by posting a very large body. If you raise it, raise it on purpose, on the one route that needs it.
 
@@ -199,6 +201,7 @@ Lesson 04 gave the events board an `express.Router()`. A router is itself a midd
 ```js
 // routes/events.js
 import express from "express";
+import { events } from "../data/events.js";
 import { requireApiKey } from "../middleware/require-api-key.js";
 
 const router = express.Router();
@@ -210,7 +213,8 @@ router.get("/", (req, res) => {
 });
 
 router.get("/:id", (req, res) => {
-  const event = events.find((e) => e.id === req.params.id);
+  // ids are numbers in the data and strings in the URL: convert first (lesson 04)
+  const event = events.find((e) => e.id === Number(req.params.id));
   if (!event) {
     return res.status(404).json({ error: "No event with that id." });
   }
@@ -282,3 +286,16 @@ You will restructure the events board so that its cross-cutting concerns live in
 8. Move `express.json()` below the `/events` mount, POST a valid event, and record what `req.body` is now. Move it back.
 
 **Deliverable:** a `PIPELINE.md` in the project root containing the stage table from the previous section, filled in for your actual `app.js` and events router — one row per stage, in the order Express runs them, with the scope, what it reads, what it writes, and whether it can stop the request. Below the table, add three sentences: one naming a stage whose position you changed and why, one stating a precondition some later stage depends on, and one naming a concern you decided *not* to put in the pipeline and where it belongs instead.
+
+## Check your understanding
+
+1. You add a middleware and every route stops responding. No error appears anywhere. What is the most likely cause?
+   *The middleware neither calls `next()` nor sends a response, so every request hangs at that stage.*
+2. Your POST handler sees `req.body` as `undefined` even though the client sent JSON with the right header. Name two ordering or registration mistakes that cause this.
+   *`express.json()` is registered below the router (so the router answers before the parser runs), or it was registered as `express.json` without the parentheses (the factory, not the middleware).*
+3. How does a request timer log the duration *after* the response, when Express walks the stack strictly forward?
+   *It registers a `res.on("finish", ...)` listener on the way down, then calls `next()`. The listener fires when the response has been handed to the network.*
+4. Why put `router.use(requireApiKey)` inside the events router instead of `app.use("/events", requireApiKey)` in the entry file?
+   *The rule lives next to the routes it governs, so anyone adding a route to that file gets the gate automatically, and it can't accidentally cover unrelated paths such as a health check.*
+5. A function with the signature `(err, req, res, next)` never runs for ordinary requests. Why?
+   *Express treats any four-parameter middleware as an error handler and calls it only when something upstream passes an error to `next(err)` or throws.*

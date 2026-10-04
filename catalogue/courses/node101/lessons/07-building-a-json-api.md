@@ -49,7 +49,7 @@ Next, define the shape of an event as it appears on the wire, before you write a
 
 Decisions embedded there, each of which you should be able to defend:
 
-- `id` is a string, not a number. Strings survive a change of id scheme later; numbers invite consumers to do arithmetic on them.
+- `id` is a string, not a number. Strings survive a change of id scheme later; numbers invite consumers to do arithmetic on them. This is a change from the numeric ids you have used since lesson 02, so update `src/data/events.js` to match: `1` becomes `"e-101"`, `2` becomes `"e-102"`, and so on. Add a `capacity` to each event (an integer, or `null` for no limit). Any lookup that still converts with `Number(req.params.id)` must go back to comparing strings.
 - `startsAt` is an ISO 8601 timestamp in UTC, with an explicit `Z`. Dates are where APIs go wrong most reliably. `"15/08/2026"` is ambiguous between two continents and unparseable without a format guess. ISO 8601 is unambiguous, sorts correctly as a string, and every language can parse it.
 - Field names are consistently `camelCase`. `snake_case` is equally valid — what matters is that you pick one and no response ever mixes them.
 - The shape is flat and predictable. Every event has every field. A field that is unknown is `null`, not absent, because a consumer checking `event.capacity` should not have to distinguish "missing" from "empty".
@@ -139,6 +139,10 @@ router.get("/:id", (req, res) => {
 Creating one:
 
 ```js
+// Module scope, next to the imports: the next number to use for a new id.
+// Start it above the highest id already in your fixture, so "e-104" follows "e-103".
+let nextId = 104;
+
 router.post("/", (req, res) => {
   const { title, location, startsAt, capacity } = req.body ?? {};
 
@@ -274,8 +278,10 @@ npm install cors
 ```js
 import cors from "cors";
 
-app.use("/events", cors({ origin: "https://events.example.org" }));
+app.use("/api/v1/events", cors({ origin: "https://events.example.org" }));
 ```
+
+Mount it on the API path, above the API router. The rendered pages at `/events` are loaded by browsers navigating to them, not fetched cross-origin, so they do not need CORS headers.
 
 Naming the origin explicitly matters. `cors()` with no options sends `Access-Control-Allow-Origin: *`, which lets any page on the internet read your API. For a genuinely public read-only listing that is a reasonable choice made deliberately. For anything that returns data belonging to a particular person, it is a hole. Configure the origin list on purpose.
 
@@ -327,3 +333,18 @@ You will publish the events board's data as a versioned JSON API, designed on pa
 9. Install and mount `cors` for the `/api/v1` routes with an explicit origin rather than `*`. Write one sentence in `API.md` stating which origins may call the API and why.
 
 **Deliverable:** the `API.md` from step 1, updated to match what you actually built, with an appended "Transcript" section containing the step 7 requests and their status codes and bodies, your step 8 answer, and a short "Breaking changes" list naming three changes you could make to this API safely and three you could not.
+
+## Check your understanding
+
+1. A client sends `POST /api/v1/events` with no `title`. A different client sends `GET /api/v1/events/e-999`, and no such event exists. Which status does each get?
+   *`400` for the missing field (fix your request) and `404` for the unknown id (that thing is not here).*
+2. Why build the stored event field by field instead of `events.push(req.body)`?
+   *The body is untrusted. Pushing it stores any field the caller sent, including an `id` they chose or a huge string, so your data's shape is decided by strangers instead of by your code.*
+3. Why wrap the list in `{ data: [...] }` instead of returning a bare array?
+   *An object has room to grow. Adding `meta` for paging later is a safe change; adding anything to a bare array is a breaking one.*
+4. Your `DELETE` returns `res.status(204).json({ deleted: true })`. What is wrong?
+   *A `204` must have no body. Use `res.status(204).end()`.*
+5. A front end on another origin gets a CORS error, but the same request works from `curl`. Is the API broken?
+   *No. The same-origin policy is enforced only by browsers. The server has to opt in with CORS headers for that origin, using the `cors` middleware with an explicit `origin`.*
+6. Name one change you could make to `v1` safely and one that would require `v2`.
+   *Safe: adding a new response field or a new optional query parameter. Breaking: renaming `startsAt`, changing a field's type, or making an optional request field required.*

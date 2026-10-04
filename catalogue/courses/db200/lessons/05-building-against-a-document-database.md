@@ -96,6 +96,7 @@ import process from "node:process";
 import { connect, close } from "./db.js";
 import { eventsRouter } from "./routes/events.js";
 import { ensureIndexes } from "./repositories/events.js";
+import { ensureIndexes as ensureRsvpIndexes } from "./repositories/rsvps.js";
 
 const app = express();
 app.disable("x-powered-by");
@@ -106,6 +107,7 @@ const PORT = Number(process.env.PORT) || 3000;
 
 await connect();
 await ensureIndexes();
+await ensureRsvpIndexes();
 
 const server = app.listen(PORT, () => {
   console.log(`events-board listening on http://localhost:${PORT}`);
@@ -118,11 +120,13 @@ process.on("SIGTERM", async () => {
 });
 ```
 
+The `rsvps` repository later in this lesson defines its own `ensureIndexes`, imported here under a different name. Don't skip that call. It creates the unique index that makes double registration impossible, and without it the duplicate-key protection silently isn't there.
+
 Closing the client on `SIGTERM` matters more here than it did with a plain HTTP server: an unclosed pool leaves sockets open on the database side, and a service that restarts frequently will exhaust the server's connection limit.
 
 ## Documents, `_id`, and BSON
 
-Every document has an `_id`, unique within the collection and indexed automatically. If you do not supply one, the driver generates an `ObjectId` — a 12-byte value encoding a timestamp, a machine identifier, and a counter. Two consequences follow: `ObjectId` values sort roughly by creation time, so sorting by `_id` is a cheap proxy for sorting by insertion order, and you can supply your own `_id` when you have a natural key such as an email or an order number, which saves an index.
+Every document has an `_id`, unique within the collection and indexed automatically. If you do not supply one, the driver generates an `ObjectId` — a 12-byte value made of a 4-byte creation timestamp (in seconds), a 5-byte random value fixed per process, and a 3-byte counter. Older documentation describes a machine identifier and process id in the middle bytes; current drivers use the random value instead. Two consequences follow: `ObjectId` values sort roughly by creation time, so sorting by `_id` is a cheap proxy for sorting by insertion order, and you can supply your own `_id` when you have a natural key such as an email or an order number, which saves an index.
 
 The wire format is BSON, not JSON. It is JSON's data model plus real types: `Date`, `ObjectId`, `Decimal128`, `Binary`, 32- and 64-bit integers. This matters immediately in two places.
 
@@ -270,7 +274,7 @@ export async function updateEvent(slug, changes) {
 
 An allow-list of updatable fields is the same defence as building the insert explicitly: a `PATCH` body is attacker-controlled, and without the list a caller can set `host.userId` and take over someone's event.
 
-`findOneAndUpdate` applies the change and returns the document in one atomic round trip. `returnDocument: "after"` gives you the new version; `"before"` gives the old one, which is what you want when you need to know what changed. It returns `null` when nothing matched, which is how a route distinguishes `200` from `404`.
+`findOneAndUpdate` applies the change and returns the document in one atomic round trip. This code assumes version 6 or later of the `mongodb` driver, where `findOneAndUpdate` returns the document itself (or `null`). Version 5 and earlier returned a wrapper object with the document under `.value`, so older tutorials show `result.value`. `returnDocument: "after"` gives you the new version; `"before"` gives the old one, which is what you want when you need to know what changed. It returns `null` when nothing matched, which is how a route distinguishes `200` from `404`.
 
 The operators you will use constantly:
 
@@ -360,7 +364,16 @@ The **unique index on `{ eventId, userId }`** is what makes double registration 
 
 And the honest caveat: those are **two** writes, and nothing makes them atomic together. A crash between them leaves an RSVP with a stale count. Options are a transaction, a reconciliation job that recomputes counts, or accepting the drift because a count being off by one is cosmetic. Naming the exposure is the part that matters; picking silently is the failure.
 
-If you do need atomicity, a transaction requires a replica set — a standalone `mongod` will not do it, which is a common source of confusion when the code works on Atlas and fails locally:
+If you do need atomicity, a transaction requires a replica set — a standalone `mongod` will not do it, which is a common source of confusion when the code works on Atlas and fails locally. The `docker run` command at the top of this lesson starts a standalone server. To practice transactions locally, start a single-node replica set instead:
+
+```bash
+docker run -d --name mongo-rs -p 27017:27017 mongo:7 --replSet rs0
+docker exec mongo-rs mongosh --quiet --eval 'rs.initiate({_id: "rs0", members: [{_id: 0, host: "localhost:27017"}]})'
+```
+
+Then connect with `MONGODB_URI=mongodb://localhost:27017/?replicaSet=rs0`. A one-node replica set gives you transactions without any of the fault tolerance, which is fine for learning and never for production.
+
+The transaction version of `register`:
 
 ```javascript
 export async function registerAtomically(client, eventId, user) {
@@ -482,7 +495,7 @@ eventsRouter.patch("/:slug", async (req, res, next) => {
 });
 ```
 
-Two rules for async route handlers. Every one needs its errors forwarded — in Express 4, an async handler that rejects without a `try`/`catch` calling `next(err)` hangs the request forever, because the framework never sees the rejection. And **never put a driver error in a response body.** It can contain the connection string, the collection name, and the shape of the failing query. Log it server-side, send a generic message.
+Two rules for async route handlers. Every one needs its errors forwarded — in Express 4, an async handler that rejects without a `try`/`catch` calling `next(err)` hangs the request forever, because the framework never sees the rejection. Express 5 forwards rejected promises to the error handler automatically, but the explicit `try`/`catch` works in both versions, so keep it until you know which one your project runs. And **never put a driver error in a response body.** It can contain the connection string, the collection name, and the shape of the failing query. Log it server-side, send a generic message.
 
 `409 Conflict` for a duplicate RSVP is the right status: the request was well-formed and the state of the resource made it impossible, which is not a `400` and definitely not a `500`.
 
@@ -524,3 +537,12 @@ Build the events board feature end to end against a real MongoDB instance.
 10. Deliberately break something: crash the process between the RSVP insert and the count increment, then write a short `reconcile.js` script that recomputes `attendeeCount` for every event from the `rsvps` collection and reports how many were wrong.
 
 **Deliverable:** a committed events-board service with `db.js`, two repository modules, the routes, a seed script, and a `NOTES.md` holding your `curl -i` results from step 6, both `explain` outputs from step 9, and the reconciliation report from step 10.
+
+## Check your understanding
+
+1. Why create one `MongoClient` per process instead of one per request?
+2. `updateOne({ slug }, { title: "New title" })` — what would this have done without update operators, and what does a modern driver do instead?
+3. Two requests register the same user for the same event at the same moment. What stops both from succeeding, and what does the losing request see?
+4. Your `register` function does two writes. What's the exposure if the process crashes between them, and what are your three options?
+
+*Answers:* (1) The client holds a connection pool. Creating one per request opens and closes sockets constantly and falls over under load. (2) It would have replaced the whole document with `{ title }`. Modern drivers throw an error saying update documents need atomic operators. (3) The unique index on `{ eventId, userId }`. The second insert fails with error code 11000, which the code turns into `already_registered` and the route turns into `409`. (4) The RSVP exists but `attendeeCount` is one too low. You can use a transaction (needs a replica set), run a reconciliation job, or accept cosmetic drift, and you should name whichever you choose.

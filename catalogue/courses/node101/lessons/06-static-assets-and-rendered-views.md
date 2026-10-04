@@ -43,6 +43,8 @@ That is the whole feature. `express.static` takes a directory on disk and, for e
 
 Notice the `__dirname` reconstruction. This project uses ES modules (`"type": "module"` from lesson 02), and ES modules do not have `__dirname`. Two lines rebuild it from `import.meta.url`. Skip them and pass a bare `"public"` and Express resolves it relative to the **current working directory** — the directory you were standing in when you ran `node app.js`, not the directory the file lives in. It works when you run `node app.js` from the project root and breaks the moment anything runs it from elsewhere, which is exactly what a process manager on a host does. Always build an absolute path.
 
+Remember that `__dirname` is the directory of *the file that computes it*. The layout below puts the entry file at the project root next to `public/`. If you kept lesson 04's layout, where the entry file is `src/server.js`, then `__dirname` is `src/`, and `path.join(__dirname, "public")` points at `src/public`. Either put `public/` (and `views/`) inside `src/`, or step up a level with `path.join(__dirname, "..", "public")`. Pick one and log the resolved path to confirm it.
+
 The directory layout that follows:
 
 ```text
@@ -119,6 +121,8 @@ This course uses **EJS**, and the choice is genuinely interchangeable. Pug, Hand
 
 `app.set("views", …)` tells Express which directory to look in, and again you want an absolute path for the same reason as before. With the view engine set, Express appends `.ejs` for you.
 
+Before you write a template, update the data. The event shape grows in this lesson. The templates below read `event.location` (where the event happens) and `event.startsAt` (a full ISO 8601 timestamp such as `"2026-08-02T14:00:00.000Z"`, so the page can show a time as well as a date). Your array from lesson 04 still has `venue` and `date`. Rename `venue` to `location` and replace `date` with `startsAt` in `src/data/events.js` now. Otherwise every template renders the word `undefined` where the location should be.
+
 A template for the events list, at `views/events.ejs`:
 
 ```html
@@ -155,13 +159,15 @@ The detail page follows the same shape:
 
 ```js
 router.get("/:id", (req, res) => {
-  const event = events.find((e) => e.id === req.params.id);
+  const event = events.find((e) => String(e.id) === req.params.id);
   if (!event) {
     return res.status(404).render("not-found", { title: "Event not found" });
   }
   return res.render("event-detail", { title: event.title, event });
 });
 ```
+
+`String(e.id) === req.params.id` compares text to text, so it works whether your ids are still numbers from lesson 04 or the string ids lesson 07 introduces. Comparing `e.id === req.params.id` directly would 404 on every numeric id, for the reason lesson 04 spelled out: parameters are always strings.
 
 Note that `res.status(404).render(...)` sets the status *and* renders a page. Status and body are independent; a 404 with a helpful HTML page is entirely normal. What that page should say when something has genuinely gone wrong on the server, and how errors get routed to it at all, is lesson 08's subject — here you are only doing the ordinary "this id does not exist" case that your own handler detects.
 
@@ -284,6 +290,20 @@ This is the competency this lesson is graded on, so it is not a section to skim.
 
 `main`, `nav`, `header`, `footer`, `article`, `time` — each one tells a screen reader user something a generic container does not, and each gives a keyboard user landmarks to jump between. A list of things is a list element, which lets a screen reader announce "list, twelve items" before reading any of them.
 
+That template calls `formatDate`, which is not built into EJS. A template can only call functions it is given. Define it once on `app.locals`, an object whose properties are available in every template the app renders (like `res.locals`, but for the whole application rather than one request):
+
+```js
+const dateFormatter = new Intl.DateTimeFormat("en-US", {
+  dateStyle: "medium",
+  timeStyle: "short",
+  timeZone: "America/New_York", // the events' local time zone, not the server's
+});
+
+app.locals.formatDate = (iso) => dateFormatter.format(new Date(iso));
+```
+
+`Intl.DateTimeFormat` ships with Node, so there is no package to install. Set `timeZone` explicitly: your host's clock is almost certainly UTC, and without it a 10 a.m. event can render as 2 p.m. in production. The machine-readable value stays in the `datetime` attribute; the human-readable one goes between the tags. Forget to define `formatDate` and the page fails with `ReferenceError: formatDate is not defined`.
+
 **Exactly one first-level heading per page, and no skipped levels.** The heading outline is how many people navigate a page: they pull up a list of headings and jump. That list is only useful if it reflects the actual structure. One `h1` naming the page, `h2` for each section or item, `h3` beneath those. Never pick a heading level because of how big it looks — that is what CSS is for.
 
 **Every image needs an `alt`.** Descriptive when the image carries information, empty (`alt=""`) when it is purely decorative, because an empty alt tells the screen reader to skip it entirely while a missing alt makes it read out the filename.
@@ -404,3 +424,16 @@ You will give the events board a browsable, accessible front end backed by stati
 8. Audit it. Tab through every page from the keyboard without touching the mouse and confirm you can reach and activate every link, the form, and the submit button, and that focus is always visible. Resize the window to 320 pixels wide and confirm nothing scrolls horizontally. Run the browser dev tools accessibility audit on the events list page.
 
 **Deliverable:** the running application serving `/`, `/events`, `/events/:id`, and `/events/new` as rendered pages with a shared shell and a stylesheet loaded from `public/`, plus an `ACCESSIBILITY.md` in the project root recording the results of step 8: what the keyboard pass found, what the 320-pixel pass found, every issue the audit reported, and for each one either the fix you made or a one-line justification for leaving it. Include your written answer from step 5 about what escaping prevented.
+
+## Check your understanding
+
+1. `public/styles.css` exists, but `/styles.css` returns `404`. What do you check first?
+   *The absolute path passed to `express.static`. Log `path.join(__dirname, "public")` at startup; it is usually pointing somewhere other than where the file is.*
+2. Where is `public/img/logo.svg` served when static is mounted with `app.use(express.static(...))`? And with `app.use("/static", express.static(...))`?
+   *At `/img/logo.svg`, and at `/static/img/logo.svg`. The folder name `public` never appears in the URL.*
+3. When is `<%-` correct, and when is `<%=` required?
+   *`<%-` is only for markup your own code produced, such as an `include`. Anything that came from a user, an API, or stored data must go through `<%=` so it is escaped.*
+4. You deploy a fixed `styles.css` and still see the old styles. Your static mount uses `maxAge: "1h"`. Is your code wrong?
+   *Probably not. The browser was told it could reuse its copy for an hour without asking. Hard-reload, and change the filename when the file changes if you keep a long `maxAge`.*
+5. Why does a phone render your responsive page as a tiny zoomed-out desktop page, and what one line fixes it?
+   *There is no viewport meta tag, so the phone pretends to be about 980 pixels wide. Add `<meta name="viewport" content="width=device-width, initial-scale=1" />`.*

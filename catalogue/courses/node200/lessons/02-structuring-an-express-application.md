@@ -106,9 +106,11 @@ eventsRouter.get("/:id", async (req, res, next) => {
 
 eventsRouter.post("/", async (req, res) => {
   const created = await eventService.create(req.body);
-  res.status(201).redirect(`/events/${created.id}`);
+  res.redirect(303, `/events/${created.id}`);
 });
 ```
+
+A note on that last line: `res.redirect` always sets its own status — 302 unless you pass one — so writing `res.status(201).redirect(...)` silently throws the 201 away. For a browser form, `303 See Other` is the honest status: "the thing was created; now GET this page." That pattern is called Post/Redirect/Get, and it is why refreshing the page afterwards does not resubmit the form. A JSON API would instead answer `res.status(201).json(created)`.
 
 Three things in there are worth naming.
 
@@ -117,6 +119,8 @@ Three things in there are worth naming.
 **The handlers are thin.** Each one reads input, calls exactly one service function, and chooses a response. There is no rule in them. When a handler grows past about ten lines, something that belongs in the service has leaked upward.
 
 **`next()` with no argument means "no match here".** Calling `next()` in the `/:id` handler when the event does not exist falls through to the 404 handler you registered at the end of the stack, rather than duplicating a not-found response in every route. Passing a value — `next(err)` — jumps to the error handler instead. Both were in node101; what is new is that routers participate in the same chain.
+
+**Which Express, and which module system, this code assumes.** Every sample in this course uses ES modules (`import`/`export`), so your `package.json` needs `"type": "module"`. The handlers above are `async` with no `try/catch`, which is safe on **Express 5** — `npm install express` gives you 5 today — because Express 5 forwards a rejected promise from a handler to your error handler. On **Express 4** the same code is dangerous: a throw inside an async handler escapes Express entirely. Check `npm ls express` before you start. If you are on 4, lesson 04 shows the pattern you need on every async handler.
 
 Routers can carry their own middleware, which is the tidy way to apply something to one resource only:
 
@@ -232,6 +236,8 @@ export const config = {
 
 Three properties make this worth a whole module. It **fails fast**: a missing `DATABASE_URL` crashes at startup with a clear message rather than producing a confusing connection error twenty minutes into a shift. It **coerces at the boundary**: `port` is a number everywhere downstream, because environment variables are always strings. And it **documents itself**: this file plus `.env.example` is the complete list of what the service needs to run, which is the first thing anyone deploying it will ask you for.
 
+The `databaseUrl` and `sessionSecret` lines show where the module ends up. You add them in lessons 04 and 05, when there is a database and a session to configure. Leave them out today, or the service will refuse to start for want of a value it does not use yet.
+
 Everything below `config/` imports `config`, never `process.env`. One grep for `process.env` outside `src/config/` and `src/server.js` tells you whether the rule is holding.
 
 ## Designing the modules before you move the code
@@ -311,8 +317,10 @@ A structure that is not enforced decays back into one file, just spread across m
 **Test the direction.** A repository that imports a service is a bug you can detect with a grep in a script:
 
 ```bash
-grep -rn "from \"\.\./services" src/repositories/ && echo "LAYER VIOLATION" && exit 1
+if grep -rn "from \"\.\./services" src/repositories/; then echo "LAYER VIOLATION"; exit 1; fi
 ```
+
+Write it as an `if`, not as `grep ... && echo ... && exit 1`. `grep` exits with status 1 when it finds *nothing*, so the `&&` version exits 1 on a clean codebase and your check fails exactly when everything is fine. The `if` form fails only when a match is printed. If you put it in `package.json` as `check:layers`, escape the inner quotes for JSON, or move the line into `scripts/check-layers.sh` and run that instead.
 
 **Watch for the leaks.** The two most common are a service that takes `req` as a parameter — usually because someone wanted `req.user`, and the fix is to pass the actor id instead — and a route handler that contains an `if` about business rules rather than about HTTP.
 
@@ -336,3 +344,17 @@ Restructure the events board from node101 into modules, and produce the design a
 10. Write a short `NOTES.md` entry answering: which file would you edit to change the JSON shape returned to clients, which to change the rule about which events are public, and which to change where the data is stored? If any answer is "more than one file", the boundary is wrong — fix it before you finish.
 
 **Deliverable:** a branch in which `src/server.js` is under thirty lines, every route lives in a router, every rule lives in a service, and `ARCHITECTURE.md`, `docs/design-notes.md`, and the capacity work plan are committed alongside the code.
+
+## Check your understanding
+
+1. A new function needs to know whether the signed-in user is the event's organizer before allowing an edit. Which layer does it belong in, and what should the route pass to it instead of `req`?
+2. Why does `createApp()` return the app without calling `listen`? Name one thing that becomes possible because of it.
+3. Your `check:layers` script reports a violation: `src/repositories/events.repository.js` imports `../services/events.service.js`. What rule is broken, and what is the usual fix?
+4. A teammate registers the error handler *before* `app.use("/events", eventsRouter)`. What happens to an error thrown inside an events route, and why?
+
+**Answers**
+
+1. The service, because it is a decision about a business rule. The route passes the actor's id (for example `req.currentUser.id`) as a plain value, so the service never sees HTTP.
+2. So tests (and anything else) can get a fully wired application without binding a port. Lesson 07's supertest tests drive `createApp()` directly, with no port conflicts and nothing to shut down.
+3. Dependencies must point only downward: routes → services → repositories. The fix is usually to move the logic the repository wanted into the service, which then calls the repository.
+4. The error handler never sees it. Express runs middleware in registration order, so an error passed on by a later router finds no error handler after it and falls through to Express's default handler.

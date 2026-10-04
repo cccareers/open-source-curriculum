@@ -61,6 +61,7 @@ export const logger = pino({
     paths: [
       "req.headers.cookie",
       "req.headers.authorization",
+      'res.headers["set-cookie"]',  // the login response carries the new session id
       "req.body.password",
       "*.passwordHash",
       "*.password",
@@ -94,10 +95,12 @@ Registered first in `createApp()`, before anything that can fail, so every reque
 The output is one JSON object per line:
 
 ```json
-{"level":30,"time":1781530200123,"service":"events-board","env":"production",
+{"level":40,"time":1781530200123,"service":"events-board","env":"production",
  "reqId":"5f0d…","userId":"acc-91","req":{"method":"POST","url":"/events/12/registrations"},
  "res":{"statusCode":409},"responseTime":41,"msg":"request completed"}
 ```
+
+pino writes levels as numbers: 30 is `info`, 40 is `warn`, 50 is `error`, 60 is `fatal`. This line is a 409, so the `customLogLevel` function above logs it at 40.
 
 Five properties of that line are what make it useful at three in the morning.
 
@@ -109,7 +112,7 @@ Five properties of that line are what make it useful at three in the morning.
 
 **Levels are assigned by consequence, not by feeling.** `error` for things that are your fault (5xx, unhandled exceptions), `warn` for things that are the client's fault but may indicate abuse (4xx, rate limits), `info` for the normal record, `debug` for detail you turn on temporarily. The discipline that matters: **the error log must be empty when the service is healthy.** An error log with a steady background of validation failures is a log nobody reads.
 
-**Secrets are redacted at the logger, not at each call site.** Passwords, cookies, session ids, tokens, and hashes must never be written, and the only reliable way to guarantee that is a central redaction list. A log file is copied, shipped, and retained; treat it as though it will be read by someone who should not see your users' data.
+**Secrets are redacted at the logger, not at each call site.** Passwords, cookies, session ids, tokens, and hashes must never be written, and the only reliable way to guarantee that is a central redaction list. Remember that secrets travel in both directions: the request's `Cookie` header carries the session id in, and the login response's `Set-Cookie` header carries a brand-new one out. That is why both are on the list. A log file is copied, shipped, and retained; treat it as though it will be read by someone who should not see your users' data.
 
 Then log the events that carry meaning, not just the HTTP envelope:
 
@@ -133,8 +136,8 @@ jq 'select(.res.statusCode >= 500)' app.log
 # everything that happened during one request
 jq 'select(.reqId == "5f0d8a2c-...")' app.log
 
-# slowest 10 requests
-jq -s 'sort_by(-.responseTime) | .[:10] | .[] | {url: .req.url, ms: .responseTime}' app.log
+# slowest 10 requests (skip application lines, which have no responseTime)
+jq -s 'map(select(.responseTime != null)) | sort_by(-.responseTime) | .[:10] | .[] | {url: .req.url, ms: .responseTime}' app.log
 
 # error count by route
 jq -r 'select(.res.statusCode >= 500) | .req.url' app.log | sort | uniq -c | sort -rn
@@ -161,7 +164,7 @@ Many connections `idle in transaction` is the tell: something opened a transacti
 
 **A slow query that grew.** *Signature:* one endpoint slow, gradually worsening over weeks, correlated with table growth. *Cause:* a missing index, or a query that was fine at a thousand rows. *Confirm:* `EXPLAIN ANALYZE` the query and look for `Seq Scan` on a large table, then compare against the row count. Lesson 04's query log tells you what actually ran.
 
-**Unhandled promise rejection.** *Signature:* the process exits or the request hangs forever with nothing in the log. *Cause:* an async route handler without a `try/catch` on Express 4, or a promise created and never awaited — including in a `setTimeout` or an event listener. *Confirm:* a last-resort handler in `server.js` so it is at least recorded:
+**Unhandled promise rejection.** *Signature:* on Node 15 and later, the default is that the process exits: a stack trace on standard error, every in-flight request dropped, then the supervisor's restart. Clients see connections reset ("Empty reply from server"), not error responses. If something has installed an `unhandledRejection` listener that logs but does not exit, you get the other signature instead: the one request hangs forever, and nothing useful appears in the log. *Cause:* an async route handler without a `try/catch` on Express 4, or a promise created and never awaited, including in a `setTimeout` or an event listener. *Confirm:* a last-resort handler in `server.js` so it is at least recorded in your structured log before the process exits:
 
 ```javascript
 process.on("unhandledRejection", (reason) => {
@@ -283,7 +286,7 @@ You will break your own service deliberately, diagnose it from the outside, and 
 4. Add `unhandledRejection` and `uncaughtException` handlers that log at fatal level and exit. Trigger one deliberately and record the log line.
 5. **Fault 1 — pool exhaustion.** Introduce a transaction path that throws without releasing, or set `pool.max` to 2. Fire 30 concurrent registrations. Record the client-visible symptom, the log signature, and the output of the `pg_stat_activity` queries. Then diagnose it from that evidence alone and fix it.
 6. **Fault 2 — the slow query.** Seed 50,000 registrations, drop the index on `(event_id, status)`, and measure the detail page. Record the response time before and after, plus both `EXPLAIN ANALYZE` plans, and state which scan type each used.
-7. **Fault 3 — the silent hang.** Remove the `try/catch` from one async route handler and make it throw. Record what the client sees, what appears in the log, and how long the request takes to fail. Fix it and note which Express version behaves differently.
+7. **Fault 3 — the silent hang.** Remove the `try/catch` from one async route handler and make it throw. Record what the client sees, what appears in the log, and how long the request takes to fail. Fix it and note which Express version behaves differently. (On Express 5 you will see a clean `500`, because the rejection is forwarded to your error handler. On Express 4 with the step 4 handlers installed, expect a fatal log line and a process exit rather than a hang. To see the true silent hang, temporarily make the `unhandledRejection` handler log without exiting. Record which of the three you observed.)
 8. **Fault 4 — configuration.** Deliberately remove `SESSION_SECRET` and restart. Record the failure and how long it took to identify. Then remove the fail-fast check from your config module, restart, and record how the failure presents instead. Write one sentence on which you would rather debug.
 9. Ask three questions of your logs with `jq` and record the commands and answers: what time did the 5xx rate change, which route produces the most 5xx, and what were the ten slowest requests.
 10. Write a full defect report for Fault 1 in the six-part format from this lesson, with real request ids and real log excerpts from your own run.
@@ -291,3 +294,17 @@ You will break your own service deliberately, diagnose it from the outside, and 
 12. Write a short incident note for Fault 2: timeline, cause, fix, and what would have caught it sooner. Name the specific test or alert you would add, and add it to your lesson 06 risk register as a new row.
 
 **Deliverable:** a service with structured, correlated, redacted logging and split health checks, plus a `NOTES.md` documenting all four faults with their symptoms and evidence, a defect report, an escalation message, and an incident note with a new risk-register row.
+
+## Check your understanding
+
+1. Every endpoint, including `/healthz/live`, got slow at 14:07, and all response times cluster near the same value. Which failure from the field guide does that suggest, and which query confirms it?
+2. Why must the liveness check avoid touching the database?
+3. A user reports "it said something went wrong" and gives you request id `5f0d8a2c-…`. Write the `jq` command you run first.
+4. In a defect report, why is "Suspected cause" labelled as suspected, and why is "Not yet checked" worth a line of its own?
+
+**Answers**
+
+1. If `/live` itself is slow, suspect a blocked event loop first: every request waits for the same synchronous work, and CPU is pinned. If `/live` stays fast while database-touching routes all stall at the same value, suspect connection pool exhaustion and confirm it with `SELECT state, count(*) FROM pg_stat_activity GROUP BY state;`. Look for many `idle in transaction`.
+2. If it does, a brief database blip makes the platform think the process is dead and restart a healthy process, turning a small problem into an outage. Dependency health belongs in the readiness check.
+3. `jq 'select(.reqId == "5f0d8a2c-...")' app.log`, adjusted to the key your logger actually uses for the request id.
+4. Labelling it keeps fact separate from hypothesis, so a reviewer knows what to verify. "Not yet checked" marks the boundary of your work, so nobody assumes you covered what you did not.

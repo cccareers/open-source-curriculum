@@ -119,22 +119,26 @@ import { fetchEvents } from "./eventsThunks.js";
 
 const eventsSlice = createSlice({
   name: "events",
-  initialState: { entities: {}, ids: [], status: "idle", error: null },
+  initialState: { entities: {}, ids: [], status: "idle", error: null, currentRequestId: null },
   reducers: {
     eventsCleared(state) {
       state.entities = {};
       state.ids = [];
       state.status = "idle";
       state.error = null;
+      state.currentRequestId = null;
     },
   },
   extraReducers(builder) {
     builder
-      .addCase(fetchEvents.pending, (state) => {
+      .addCase(fetchEvents.pending, (state, action) => {
+        state.currentRequestId = action.meta.requestId;
         state.status = "loading";
         state.error = null;
       })
       .addCase(fetchEvents.fulfilled, (state, action) => {
+        if (state.currentRequestId !== action.meta.requestId) return;
+        state.currentRequestId = null;
         state.status = "succeeded";
         state.entities = {};
         state.ids = [];
@@ -144,6 +148,12 @@ const eventsSlice = createSlice({
         }
       })
       .addCase(fetchEvents.rejected, (state, action) => {
+        if (state.currentRequestId !== action.meta.requestId) return;
+        state.currentRequestId = null;
+        if (action.meta.aborted) {
+          state.status = "idle";
+          return;
+        }
         state.status = "failed";
         state.error = action.payload ?? action.error.message ?? "Unknown error";
       });
@@ -200,7 +210,9 @@ export default function EventList() {
 }
 ```
 
-That `status === "idle"` guard is doing real work. In React 18's StrictMode, effects run twice in development on purpose, to surface exactly this kind of bug. Without the guard you fire two requests on every mount. With it, the second effect run sees `"loading"` and does nothing.
+That `status === "idle"` guard is doing real work, but be precise about which work. It stops the effect from refetching on later renders: once the first dispatch moves `status` to `"loading"` and then `"succeeded"`, re-renders do not fire another request.
+
+It does **not** stop the doubled request in development. In StrictMode (React 18 and later), React mounts the component, runs the effect, runs its cleanup, and runs the effect again — all against the *same render*, so the second run reads the same `status` variable the first one did, which is still `"idle"`. The store has moved on to `"loading"`, but the effect's closure cannot see that. You will see two requests in the Network tab in development and one in production. The fix that actually reads live state is the `condition` option in the next section, because it calls `getState()` at dispatch time instead of trusting a value captured during render.
 
 Dispatching a thunk returns a promise, and it is a promise that **does not reject** when your request fails — it resolves with either the fulfilled or the rejected action. That surprises everyone once:
 
@@ -247,7 +259,9 @@ export const fetchEvents = createAsyncThunk(
 );
 ```
 
-Returning `false` aborts the dispatch entirely: no pending action, no request, and the returned promise rejects with a `condition` flag you can ignore. By default this also means no `rejected` action is dispatched, so a cancelled duplicate does not put your slice into a failed state.
+Returning `false` cancels the thunk before it starts: no pending action and no request. By default no `rejected` action reaches your reducers either, so a cancelled duplicate does not put your slice into a failed state. The promise returned from `dispatch` still settles the way every thunk promise does — it resolves with a rejected action whose `meta.condition` is `true`, which you can ignore. The one place that bites is `.unwrap()`: on a condition-cancelled thunk, `unwrap()` throws, so code that awaits `dispatch(fetchEvents()).unwrap()` must expect that or skip `unwrap()`.
+
+Because `condition` reads the store at dispatch time, it also fixes the StrictMode double request from the previous section: the second effect run dispatches, `condition` sees `"loading"`, and nothing is sent.
 
 `condition` is the right tool for deduplication and for cheap caching ("we already have this, do not fetch again"). It is not a substitute for a real cache with expiry — when you need that, the answer is RTK Query, mentioned at the end of this lesson.
 
@@ -264,17 +278,48 @@ useEffect(() => {
 }, [query, dispatch]);
 ```
 
-The promise returned by dispatching a thunk has an `abort()` method. Calling it fires the signal you passed to `fetch`, the browser cancels the request, and the thunk dispatches `rejected` with `action.meta.aborted` set to true. Handle that case by *not* treating it as an error:
+The promise returned by dispatching a thunk has an `abort()` method. Calling it fires the signal you passed to `fetch`, the browser cancels the request, and the thunk dispatches `rejected` with `action.meta.aborted` set to true. Handle that case by returning the current request to idle without showing an error. Guard results by `requestId`, as in the slice above, so an older cancellation cannot reset a newer request:
 
 ```js
 .addCase(fetchEvents.rejected, (state, action) => {
-  if (action.meta.aborted) return;   // superseded, not failed
+  if (state.currentRequestId !== action.meta.requestId) return;
+  state.currentRequestId = null;
+  if (action.meta.aborted) {
+    state.status = "idle"; // cancellation must not leave the slice loading
+    return;
+  }
   state.status = "failed";
   state.error = action.payload ?? action.error.message ?? "Unknown error";
 });
 ```
 
-Debounce as well as abort, for a search box. Aborting stops the stale result from winning; debouncing stops you making the request at all until the user pauses. Both, together, are how a search field should behave.
+Debounce as well as abort, for a search box. To **debounce** is to wait until a value has stopped changing for a set time — say 300 ms — before acting on it. Aborting stops the stale result from winning; debouncing stops you making the request at all until the user pauses. Both, together, are how a search field should behave. A small hook is enough:
+
+```jsx
+import { useEffect, useState } from "react";
+
+export function useDebouncedValue(value, delay = 300) {
+  const [debounced, setDebounced] = useState(value);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setDebounced(value), delay);
+    return () => clearTimeout(timer);   // a new keystroke cancels the pending update
+  }, [value, delay]);
+
+  return debounced;
+}
+```
+
+```jsx
+const debouncedQuery = useDebouncedValue(query, 300);
+
+useEffect(() => {
+  const promise = dispatch(fetchEvents({ query: debouncedQuery }));
+  return () => promise.abort();
+}, [debouncedQuery, dispatch]);
+```
+
+The input stays bound to `query`, so typing feels instant; only the request waits. Note that this search thunk should not share the `condition` from the previous section unchanged — a status of `"succeeded"` would block every new search. Give search its own thunk without that status-wide condition, or deduplicate by both query and active request. A global `"loading"` guard also blocks a replacement search while the aborted request is still settling.
 
 ## Optimistic updates
 
@@ -366,7 +411,7 @@ export const store = configureStore({
 });
 ```
 
-Note the shape of that `middleware` option. You must start from `getDefaultMiddleware()` — replacing the array outright removes the thunk middleware and the development checks, and then every thunk in your app silently stops working.
+Note the shape of that `middleware` option. You must start from `getDefaultMiddleware()` — replacing the array outright removes the thunk middleware and the development checks, and then every thunk in your app stops working: dispatching one throws an error saying actions must be plain objects, because nothing is left to intercept the function.
 
 ## Where this meets the router
 
@@ -385,9 +430,9 @@ export async function eventsLoader() {
 }
 ```
 
-Import the store directly in the loader module; loaders run outside React, so there are no hooks available. Use this sparingly. Every piece of data you move from the loader into the store is a piece you now have to invalidate yourself.
+Import the store directly in the loader module; loaders run outside React, so there are no hooks available. If `fetchEvents` has the `condition` option from earlier, the second visit to this route will be cancelled by `condition` and `.unwrap()` will throw, sending the user to the error element; drop `.unwrap()` here or check the status before dispatching. Use this sparingly. Every piece of data you move from the loader into the store is a piece you now have to invalidate yourself.
 
-One honest final note. Most of what you wrote in this lesson — request status, deduplication, cancellation, revalidation — is generic plumbing, and Redux Toolkit ships a library that generates it: **RTK Query**, in `@reduxjs/toolkit/query`. Define an endpoint and you get a hook with caching, deduplication, refetching, and tag-based invalidation. It is the recommended tool for server data in a new Redux application. You learned the manual version first because you will maintain codebases full of it, because RTK Query's behavior is only legible once you know what it is automating, and because the parts of async state that are genuinely yours — optimistic updates, cross-slice reactions, browser side effects — are still written exactly as above.
+One honest final note. Most of what you wrote in this lesson — request status, deduplication, cancellation, revalidation — is generic plumbing, and Redux Toolkit ships a library that generates it: **RTK Query**, imported from `@reduxjs/toolkit/query/react` when you want the React hooks (the plain `@reduxjs/toolkit/query` entry point has no hooks). Define an endpoint and you get a hook with caching, deduplication, refetching, and tag-based invalidation. It is the recommended tool for server data in a new Redux application. You learned the manual version first because you will maintain codebases full of it, because RTK Query's behavior is only legible once you know what it is automating, and because the parts of async state that are genuinely yours — optimistic updates, cross-slice reactions, browser side effects — are still written exactly as above.
 
 ## Practice
 
@@ -396,13 +441,23 @@ Extend the Community Events Board with a store-managed async layer. Point it at 
 1. Create `eventsSlice` with the four-value `status` field and a keyed `entities`/`ids` shape, plus a `fetchEvents` thunk built with `createAsyncThunk`. Handle all three lifecycle actions in `extraReducers`.
 2. Render the list from the store, branching once on `status`. All four states must have distinct output, including a real empty state that is not shown while loading.
 3. Make the API fail. Confirm the failure message you set with `rejectWithValue` appears, then add a "Try again" button and confirm it clears the error before retrying.
-4. Remove the `status === "idle"` guard from the effect, observe the doubled request in the Network tab under StrictMode, and record in `NOTES.md` what you saw. Restore the guard.
+4. Under StrictMode, count the requests in the Network tab with the `status === "idle"` guard and again with it removed, and record in `NOTES.md` what you saw and why the guard alone did not prevent the double request in development. Restore the guard; step 5 fixes the duplicate properly.
 5. Add a `condition` option so that mounting three components that all dispatch `fetchEvents` produces exactly one request. Prove it in the Network tab.
 6. Wire the search box to `fetchEvents({ query })` with no debounce and an artificial server delay that is longer for shorter queries. Reproduce the out-of-order race and describe the wrong result you saw.
-7. Fix the race by returning `promise.abort()` from the effect cleanup and passing `thunkApi.signal` to `fetch`. Skip the failed state when `action.meta.aborted` is true. Confirm the aborted requests show as cancelled in the Network tab and that no error is rendered.
+7. Fix the race by returning `promise.abort()` from the effect cleanup and passing `thunkApi.signal` to `fetch`. Reset the active request to idle without an error when `action.meta.aborted` is true; ignore stale request ids. Confirm the aborted requests show as cancelled in the Network tab and that no error is rendered.
 8. Add a 300 ms debounce on top of the abort and count the requests for typing the word "potluck" before and after.
 9. Convert shift claiming to an optimistic `createAsyncThunk`: apply on `pending` using `action.meta.arg`, confirm on `fulfilled`, revert on `rejected` with a visible message. Render the `pending: true` state differently from the confirmed state. Make the server reject one specific event id so you can demonstrate the rollback.
 10. Add the listener middleware to persist the theme preference to `localStorage`, prepending it to `getDefaultMiddleware()`. Then deliberately replace the middleware array instead of prepending, observe that every thunk stops working, read the error, and restore it.
 11. Write a short section in `NOTES.md` naming every piece of data in your app and stating whether it is owned by a route loader or by the store, with one sentence of justification each.
 
 **Deliverable:** a committed app with a status-modelled async slice, deduplicated and cancellable requests, one optimistic mutation with a working rollback, a persisted preference via listener middleware, and a `NOTES.md` holding your race-condition write-up, your request counts, and the loader-versus-store ownership table.
+
+## Check your understanding
+
+1. Why can a reducer not call `fetch`, and what does the thunk middleware do differently when `dispatch` receives a function?
+2. Why is `status: "idle" | "loading" | "succeeded" | "failed"` better than `loading` and `error` booleans? Name the bug the booleans cause.
+3. `await dispatch(fetchEvents())` finishes without throwing, but the request failed. Why, and what are the two ways to detect the failure?
+4. Results for "pot" appear after results for "potluck". What two techniques fix this, and what does each one prevent?
+5. A claim is applied in `pending` and the server returns 409. Which value lets the `rejected` handler know which event to roll back?
+
+**Answers:** (1) A reducer must be pure and synchronous; the thunk middleware calls the function with `dispatch` and `getState` instead of passing it to the reducers, so async work happens outside them. (2) One field makes the four states mutually exclusive; two booleans cannot tell "never asked" from "succeeded with nothing," which flashes "No events found" before the data arrives. (3) A dispatched thunk's promise resolves with either the fulfilled or the rejected action; check `fetchEvents.rejected.match(action)` or call `.unwrap()` inside try/catch. (4) Abort the superseded request (stops a stale result winning) and debounce the input (stops the request being sent until the user pauses). (5) `action.meta.arg`, the argument the thunk was dispatched with.

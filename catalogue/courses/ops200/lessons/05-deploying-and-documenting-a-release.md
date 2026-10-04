@@ -56,29 +56,49 @@ Two commands that answer "what is in this release" precisely. Everything below i
 
 Documentation that lives only in a repository leaves one question unanswered: which release is actually running right now? Answer it by baking the identity into the artifact and exposing it.
 
-In the pipeline, pass the commit and version into the build environment:
+There's a trap here. The obvious move is to set `APP_VERSION` and `GIT_SHA` as environment variables on the pipeline's build step. But the API isn't bundled, so nothing from the build step's environment survives into the artifact. By the time the server runs on the platform, those variables are gone and the endpoint reports `dev` forever. The identity has to travel inside the artifact as a file.
+
+In the pipeline's build job, write that file just before the artifact is uploaded:
 
 ```yaml
-      - name: Build
-        env:
-          APP_VERSION: ${{ github.ref_name }}
-          GIT_SHA: ${{ github.sha }}
-          BUILT_AT: ${{ github.event.repository.updated_at }}
-        run: npm run build
+      - name: Record build identity
+        run: |
+          cat > api/src/build-info.json <<EOF
+          {"version":"v$(node -p "require('./package.json').version")","commit":"${GITHUB_SHA}","builtAt":"$(date -u +%Y-%m-%dT%H:%M:%SZ)"}
+          EOF
 ```
 
-And have the service report them:
+The version comes from `package.json`, which `npm version` updates, so it's correct whether the run was triggered by a push to `main` or by a tag. (`github.ref_name` would just say `main` on a branch push.) Add `api/src/build-info.json` to `.gitignore`: it's build output, like `dist/`.
+
+Read it once at startup, with safe defaults for local runs where the file doesn't exist:
+
+```javascript
+// api/src/build-info.js
+import { readFileSync } from "node:fs";
+
+let info = { version: "dev", commit: "unknown", builtAt: null };
+try {
+  info = JSON.parse(readFileSync(new URL("./build-info.json", import.meta.url), "utf8"));
+} catch {
+  // No file: a local run, not a pipeline build.
+}
+
+export const buildInfo = Object.freeze(info);
+```
+
+And have the service report it:
 
 ```javascript
 // api/src/routes/health.js
 import process from "node:process";
+import { buildInfo } from "../build-info.js";
 
 export function health(req, res) {
   res.json({
     status: "ok",
-    version: process.env.APP_VERSION ?? "dev",
-    commit: (process.env.GIT_SHA ?? "unknown").slice(0, 7),
-    builtAt: process.env.BUILT_AT ?? null,
+    version: buildInfo.version,
+    commit: buildInfo.commit.slice(0, 7),
+    builtAt: buildInfo.builtAt,
     uptimeSeconds: Math.round(process.uptime()),
   });
 }
@@ -324,7 +344,7 @@ Cut a documented, traceable release of the events board.
 4. Add `APP_VERSION`, `GIT_SHA`, and `BUILT_AT` to the build environment in your pipeline and expose them from `/health`. Deploy and paste the live response into your record.
 5. Add an `Unreleased` section to `CHANGELOG.md` and write your entry under the correct heading, phrased for a reader rather than from the diff, with the ticket reference.
 6. Cut the version with `npm version` and push with `--follow-tags`. Confirm the tag exists on the remote, then run `git log --oneline` over the range between the previous tag and this one and check that every commit in the range is represented in the changelog.
-7. Move the `Unreleased` entries under a dated version heading and commit that as part of the release.
+7. Move the `Unreleased` entries under a dated version heading and commit that as part of the release. Do this before you run `npm version` in step 6, as in "Cutting the release" above, so the tagged commit already contains its own changelog entry.
 8. Write release notes for a non-developer audience: summary, what changed, who is affected, what they must do, known limitations, and a footer with the date, commit, and pipeline run number.
 9. Fill in a release record with automated and integration check tables. Include at least four integration checks that automation does not cover, each naming the environment, the result, and who ran it. One of them must be a check you first ran against the previous build to confirm the defect existed.
 10. Record at least one defect you found — even a trivial one — with an ID, a severity, and a decision to fix or defer.
@@ -333,3 +353,12 @@ Cut a documented, traceable release of the events board.
 13. Hand your release record and change notes to another learner and ask them to answer, using only those documents: what is running in production, what changed in it, what they are not allowed to modify, and how to undo it. Note anything they could not answer and fix the gap.
 
 **Deliverable:** a merged pull request with complete change notes, a tagged release, a `CHANGELOG.md` entry, published release notes, and a filled-in release record covering automated checks, manual integration checks, defects, and a timed rollback rehearsal.
+
+## Check your understanding
+
+1. Support asks, "What's running in production right now?" Which single command answers it, and which field leads you to every other record?
+2. You're changing the `/api/events` response shape by adding a field. Is this a PATCH, MINOR, or MAJOR bump? What if you renamed a field instead?
+3. Who reads the changelog, and who reads release notes? Give one way the two documents differ.
+4. What three things should every "must not be touched" entry state?
+
+*Answers:* (1) `curl -s <site>/health`. The commit hash leads to the pipeline run, pull request, tag, and change notes. (2) Adding a field is MINOR, because existing callers keep working. Renaming one is MAJOR, because callers that read the old name break. (3) Developers read the changelog, which is complete, technical, and cumulative. Affected people (support, product, clients) read release notes, which cover one release and lead with impact and required action. (4) What must stay as it is, why, and when the constraint expires.

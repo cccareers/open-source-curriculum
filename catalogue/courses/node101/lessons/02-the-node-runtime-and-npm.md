@@ -27,7 +27,7 @@ Finally, Node is versioned software with a real release cadence, and the version
 
 ## Installing Node and pinning a version
 
-Node publishes two tracks. Even-numbered releases (20, 22, 24) become **LTS** — long term support — and get bug and security fixes for years. Odd-numbered releases are short-lived proving grounds for new features. For anything you intend to hand to another person, run an LTS version. For this course, any current LTS is fine, and everything shown here assumes Node 20 or newer.
+Node publishes two tracks. Even-numbered releases (20, 22, 24) become **LTS** — long term support — and get bug and security fixes for years. Odd-numbered releases are short-lived proving grounds for new features. For anything you intend to hand to another person, run an LTS version. For this course, any current LTS is fine, and everything shown here assumes Node 20 or newer. Check the release schedule on nodejs.org before you pick: Node 20 reached end-of-life in April 2026, which means it no longer gets security fixes, so choose 22 or 24 for new work. Pinning an end-of-life line is pinning a version nobody will patch.
 
 You can install Node from the installer on nodejs.org, and that works. It is not what most working developers do, because it gives you exactly one Node on the whole machine. The moment you have two projects that need different versions — and you will, faster than you expect — a single global install becomes a problem you have to solve by uninstalling and reinstalling. Use a version manager instead. `nvm`, `fnm`, `Volta`, and `mise` all do the same core job: keep several Node versions side by side and switch between them per project.
 
@@ -208,6 +208,8 @@ Three things just happened. `express` was added to `dependencies` in `package.js
 }
 ```
 
+**Which Express you got.** The `^4.21.2` above is from Express 4. Express 5 has been the default release on npm since early 2025, so a fresh `npm install express` almost certainly gives you `^5.x` instead. Check with `npm ls express`. Nearly everything in this course works the same on both. Where they differ (path patterns, what `req.body` is when nothing parsed it, how async errors are caught), the lesson says so. If you want your project to match these samples exactly, install the older major on purpose with `npm install express@4`. Either way, know which one you are on, because "which version" is the first question anyone will ask when you report a bug.
+
 **Dependencies versus devDependencies.** A `dependency` is something the application needs *at runtime, in production*. Express is one: without it, the server cannot start. A `devDependency` is something only you and your teammates need while working — test runners, linters, formatters, restart watchers. Install those with `--save-dev`:
 
 ```bash
@@ -330,3 +332,14 @@ Build the project skeleton the rest of the course runs on. When you finish, `npm
 11. Write a `## Tooling decisions` section in `README.md`, no more than 150 words, that names your Node version and why it is pinned, why this project uses Express rather than `node:http` or Fastify, why it uses ESM rather than CommonJS, and one criterion from this lesson that decided each.
 
 **Deliverable:** a committed repository containing `package.json`, `package-lock.json`, `.nvmrc`, `.gitignore`, `src/server.js`, and `README.md`, with no `node_modules/` in version control, that runs on a fresh `npm ci && npm start`.
+
+## Check your understanding
+
+1. You type `document.title` into a Node script and get a `ReferenceError`. Is Node broken?
+   *No. `document` belongs to the browser host, not to JavaScript. Node is a different host for the same engine and never had a DOM.*
+2. A teammate's fresh clone crashes on the host with `Cannot find package 'express'`, but works on their laptop. What is the most likely cause?
+   *Express is in `devDependencies`. Production installs such as `npm ci --omit=dev` skip that section.*
+3. What is the difference between `.nvmrc` and `engines.node`?
+   *`.nvmrc` is a convenience a version manager reads so humans land on the right Node. `engines.node` travels with the package: npm warns on a mismatch, and most hosts read it to choose a runtime.*
+4. Why commit `package-lock.json` but never `node_modules/`?
+   *The lockfile records the exact resolved tree, so `npm ci` can rebuild the same install anywhere. `node_modules/` is just a cache of that tree, and committing it makes every diff unreadable.*

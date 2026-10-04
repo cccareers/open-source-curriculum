@@ -69,7 +69,7 @@ process.on("unhandledRejection", (reason) => {
 });
 ```
 
-Exiting is deliberate. A process that has thrown from somewhere unknown is in an undefined state, and the platform will restart it clean. What you must not do is swallow the error and continue.
+Exiting is deliberate. A process that has thrown from somewhere unknown is in an undefined state, and the platform will restart it clean. Since Node 15, an unhandled rejection already crashes the process by default; the handler's job is to make sure a structured log line goes out first. Synchronous throws that nothing catches arrive on a different event, `uncaughtException`, and deserve the same log-then-exit handler. What you must not do is swallow the error and continue.
 
 **Client-side errors.** A JavaScript exception in the browser never reaches your server unless you send it. An error tracking service — Sentry and its equivalents — catches unhandled browser errors, groups them by stack trace, and attaches the release version. This is why lesson 05 baked the commit SHA into the build: an error report that says "first seen in v1.4.3, commit b7a4e2d" has already told you where to look.
 
@@ -103,6 +103,7 @@ Log **structured JSON**, one object per line, with consistent field names:
 // api/src/logger.js
 import process from "node:process";
 import { config } from "./config.js";
+import { buildInfo } from "./build-info.js";
 
 const levels = { error: 50, warn: 40, info: 30, debug: 20 };
 const threshold = levels[config.logLevel] ?? levels.info;
@@ -113,8 +114,8 @@ function emit(level, fields) {
     JSON.stringify({
       time: new Date().toISOString(),
       level,
-      version: process.env.APP_VERSION ?? "dev",
-      commit: (process.env.GIT_SHA ?? "unknown").slice(0, 7),
+      version: buildInfo.version,
+      commit: buildInfo.commit.slice(0, 7),
       ...fields,
     }) + "\n",
   );
@@ -157,7 +158,14 @@ Add an automated scan to the pipeline so a regression fails a pull request:
       - run: npm ci
       - run: npm run build
       - run: npx start-server-and-test "npm start" 3000 "npx @lhci/cli autorun"
+        env:
+          DATABASE_URL: ${{ secrets.CI_DATABASE_URL }}
+          SESSION_SECRET: ci-only-not-a-real-secret
 ```
+
+The `env:` block matters. The config module from lesson 03 refuses to start without `DATABASE_URL` and `SESSION_SECRET`, and the pipeline has no `.env`, so without these values `npm start` crashes and the scan never runs. Point `CI_DATABASE_URL` at a disposable test database, never production.
+
+Lighthouse CI reads its settings from `lighthouserc.json` at the repository root:
 
 ```json
 {
@@ -180,7 +188,7 @@ Lighthouse CI, axe-core, and pa11y all do this job; axe-core is the engine under
 
 The standard these tools measure against is **WCAG 2.2 level AA**, which is what public-sector procurement, most corporate policy, and accessibility law in many jurisdictions require. The violations automated scans catch reliably are the mechanical ones, and they are worth catching: images with no alternative text, form inputs with no associated label, insufficient colour contrast, missing page language, invalid heading order, controls with no accessible name, landmark and duplicate-id problems.
 
-Now the limitation you must understand and must communicate honestly: **automated scanning finds roughly a third of accessibility problems.** A green score is not a compliant site. No tool can tell you that an alternative text says the wrong thing, that a focus order jumps around incoherently, that an error message is announced too late, that a custom control behaves like a button but not for a keyboard, or that a video has no captions. Reporting "the accessibility scan passes" as though it meant "the site is accessible" is a real and common failure, and it is the kind of overstatement a senior developer will correct you on.
+Now the limitation you must understand and must communicate honestly: **automated scanning finds only part of the accessibility problems on a page.** Estimates vary with how you count: roughly a third of WCAG success criteria can be fully tested by machine, and vendor studies of real audits put the share of issues found automatically somewhere between a third and a little over half. A green score is not a compliant site. No tool can tell you that an alternative text says the wrong thing, that a focus order jumps around incoherently, that an error message is announced too late, that a custom control behaves like a button but not for a keyboard, or that a video has no captions. Reporting "the accessibility scan passes" as though it meant "the site is accessible" is a real and common failure, and it is the kind of overstatement a senior developer will correct you on.
 
 So pair the automated signal with manual checks on a schedule — every release for anything you changed, and a fuller pass periodically:
 
@@ -303,3 +311,13 @@ Instrument the deployed events board, make it tell you something, and report it 
 13. Have another learner read only your P2 report and tell you what they would do first. If they have to ask you a question before they can act, the missing answer belongs in the report — add it.
 
 **Deliverable:** a deployed events board with a health endpoint, an external uptime monitor, structured JSON logging, and an accessibility check in the pipeline; a `MONITORING.md` holding your latency measurements, manual accessibility findings, audit results, and proposed alert thresholds; and two written issue reports at different severities.
+
+## Check your understanding
+
+1. Every health check passes, but `uptimeSeconds` never goes above 40. What's happening?
+2. The average response time is 300 ms. Why isn't that enough to say the API is fast?
+3. Your accessibility job scores 100. Can you report the site as WCAG 2.2 AA compliant? What would you add?
+4. You suspect a release caused a slowdown but haven't confirmed it. How should your report phrase that?
+5. You aren't sure whether an issue is P1 or P2. What do you do?
+
+*Answers:* (1) The process is crash-looping: it starts, fails, and restarts. Each check catches it alive. (2) An average hides the tail. The p95 or p99 may be several seconds, which means real users are waiting. (3) No. Automated scans miss many issues. Add keyboard-only, zoom/reflow, screen-reader, and color-only checks, and report what was and wasn't tested. (4) Label it as a suspicion, for example "I suspect `toISODate()`; I haven't confirmed it", and keep it separate from observed facts. (5) Escalate at the higher severity and say you're unsure.
