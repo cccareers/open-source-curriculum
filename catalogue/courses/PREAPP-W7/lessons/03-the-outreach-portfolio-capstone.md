@@ -23,10 +23,10 @@ This is the week's project. It is not a scrapbook and it is not a highlight reel
 
 ### Part 1 — The metrics story
 
-Pull your full pipeline history from your tracker and turn it into a narrative with numbers attached. The story needs three things:
+Pull your full pipeline history from your tracker — your CRM plus any spreadsheet or lab log where you recorded weekly numbers — and turn it into a narrative with numbers attached. The story needs three things:
 
 - **The totals.** Outreach attempted, responses received, conversations held, informational interviews completed, meetings booked, artifacts delivered. Whatever your tracker recorded, reported at the level of the whole program.
-- **The arc.** How the numbers moved over eight weeks. Almost everyone's response rate improves; find yours and say by how much. If a number got worse, that goes in too, with your read on why.
+- **The arc.** How the numbers moved through the completed weeks. Week 8 is still ahead: mark it pending and finalize the full-program totals after Demo Day. Almost everyone's response rate improves; find yours and say by how much. If a number got worse, that goes in too, with your read on why.
 - **The turn.** The specific change you made that moved a metric — a rewritten opening line, a switch in channel, a change in who you targeted, a different follow-up cadence. Name the change, name the week, and show the before and after.
 
 Write it as prose with the numbers embedded, roughly 400 to 600 words, not as a bare table. The numbers are the evidence; the sentences are the story.
@@ -38,7 +38,7 @@ Week 4      switched from generic intro to a one-line reference
             to something specific in the person's recent work
 ```
 
-That shape — segment, numbers, named change — is what makes a metrics story checkable rather than decorative.
+That shape — segment, numbers, named change — is what makes a metrics story checkable rather than decorative. Check the arithmetic before you publish it: 7 ÷ 68 = 0.103, or 10.3%; 14 ÷ 54 = 0.259, or 25.9%. Count outreach the same way in every segment (for example, first touches only, not follow-ups), and say which way you counted.
 
 ### Part 2 — The Personal Prospecting Playbook
 

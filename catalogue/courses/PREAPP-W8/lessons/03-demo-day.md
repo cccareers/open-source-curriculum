@@ -32,7 +32,7 @@ This is the program's culminating deliverable. It is graded on whether a strange
 
 **The portfolio.**
 
-7. A portfolio of your best artifacts is live and reachable at a single URL you can say out loud. Include only artifacts that evidence a skill you claim on stage or on your resume — three strong pieces beat nine mixed ones.
+7. A portfolio of your best artifacts is live and reachable at a single URL you can say out loud. This is the Outreach Portfolio you built in Week 7, at the same link your application cites; on stage you *show* only the few pieces your talk relies on. Include only artifacts that evidence a skill you claim on stage or on your resume — three strong pieces beat nine mixed ones.
 8. Every artifact carries one line of context: what it is, what problem it solved, and what your specific contribution was.
 9. A **personal playbook** is included as one of the artifacts: the repeatable process you actually used, written so someone else could run it. Outreach cadence, pipeline stages, how you research a contact, how you decide the next action, what you do when a reply goes cold. This is the artifact that proves the results were a process and not luck.
 

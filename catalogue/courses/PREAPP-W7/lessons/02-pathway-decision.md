@@ -15,7 +15,7 @@ objectives:
 
 ## Enthusiasm is a signal, not a decision
 
-Ask a room of participants which pathway they want on the Monday of Week 7 and most will answer in under three seconds. That speed should worry you. A three-second answer is a feeling, and feelings about a pathway are formed by things that have nothing to do with fit: which week had the best guest speaker, which cohort-mate you sat next to, which rotation happened most recently. Recency alone moves preference more than almost anything else, and your Digital Marketing rotation ended four days ago.
+Ask a room of participants which pathway they want on the Monday of Week 7 and most will answer in under three seconds. That speed should worry you. A three-second answer is a feeling, and feelings about a pathway are formed by things that have nothing to do with fit: which week had the best guest speaker, which cohort-mate you sat next to, which rotation happened most recently. Recency alone moves preference more than almost anything else, and your Digital Marketing rotation ended last week.
 
 Enthusiasm still matters. Nobody survives an apprenticeship in work they find tedious, and a pathway you dread is a pathway you will quit. But enthusiasm is one input among four, and the other three are the ones that distinguish a defensible declaration from a guess. Today you assemble all four, look at where they disagree, and write a justification that a coach — or an apprenticeship employer — could check line by line.
 
@@ -25,7 +25,7 @@ The four pathways on the table are the same four you rotated through: Software D
 
 **Rotation performance.** Each rotation produced numbers and delivered work. Outreach attempted and connected, meetings booked, tickets or builds completed, content shipped, prompts iterated to a working result. Pull the actual figures out of your tracker rather than remembering them — memory reliably inflates the weeks you enjoyed and deflates the weeks that were hard. Performance is not only volume: look at how quickly you got unstuck, how much rework a deliverable needed, and whether you finished what you started.
 
-**Your own reflections.** You wrote a reflection at the end of every rotation, in the week it happened. That version of you had no idea which pathway you would end up declaring, which makes those notes far more trustworthy than anything you recall today. Read all four before you rank anything. Pay particular attention to what you wrote about the parts of the week that were *boring* rather than the parts that were hard — difficulty fades with skill, but tedium usually does not.
+**Your own reflections.** You wrote a reflection at the end of every rotation, in the week it happened. That version of you had no idea which pathway you would end up declaring, which makes those notes far more trustworthy than anything you recall today. Read all four before you rank anything. If a rotation's reflection was never written, do not write one now and pass it off as contemporary: use what you *did* record that week — lab notes, CRM notes, messages to your coach — and label the cell "reconstructed from notes, [date]." Pay particular attention to what you wrote about the parts of the week that were *boring* rather than the parts that were hard — difficulty fades with skill, but tedium usually does not.
 
 **Interview intelligence.** Your informational interviews gave you something the rotations could not: what the job looks like on day 400, not day 4. A practitioner telling you that half of technical sales is CRM hygiene, or that most junior development time goes to reading code rather than writing it, is describing the steady state you are actually signing up for. Go back through your interview notes and pull the specific statements about daily reality, entry-level hiring, and what the person wishes they had known.
 
@@ -38,9 +38,9 @@ Put the evidence in one place before you weigh it. A simple matrix, one row per 
 ```text
 Pathway            | Performance    | My reflections | Interview intel | Coach input
 -------------------|----------------|----------------|-----------------|-------------
-Software Dev       | 12 tickets,    | "lost track of | "80% of junior  | "strongest
-                   | 3 needed       | time debugging"| work is reading | debugging
-                   | rework         |                | existing code"  | persistence"
+Software Dev       | script shipped,| "lost track of | "80% of junior  | "strongest
+                   | 7 commits,     | time debugging"| work is reading | debugging
+                   | peer ran it    |                | existing code"  | persistence"
 Technical Sales    | 41 outreach,   | "drained after | "CRM hygiene is | "best call
                    | 6 meetings     | cold calls"    | half the job"   | prep in cohort"
 Digital Marketing  | 4 posts, 1     | "enjoyed the   | "measurement is | "good copy,

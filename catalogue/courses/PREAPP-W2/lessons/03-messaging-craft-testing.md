@@ -37,15 +37,15 @@ Here is a baseline that has all four, short enough for a LinkedIn message:
 ```text
 Hi Dana — saw the apprentice-track analyst role your team posted last week.
 
-I'm a pre-apprentice with Creating Coding Careers, six weeks into training on
-Python and SQL; I just finished a project pulling transit data through a public
-API into a cleaned dataset.
+I'm a pre-apprentice with Creating Coding Careers, two weeks into a tech
+training program; last week I set up a CRM pipeline and ran outreach to 50+
+contacts at regional employers.
 
 Not asking about the role — I'd like 20 minutes to hear how your team actually
 uses analysts day to day. Would Thursday or Friday afternoon work?
 ```
 
-Four parts, roughly 70 words, one concrete ask with two options attached. That is your control. Everything you test this week is measured against something like it.
+Four parts, roughly 65 words, one concrete ask with two options attached. Notice the credibility line claims only what is true *this week*. Do not borrow a project or a skill you have not done yet; your credibility line grows as the program does, and in Week 5 it can name the script you shipped. That is your control. Everything you test this week is measured against something like it.
 
 ## Running an A/B test you can actually read
 

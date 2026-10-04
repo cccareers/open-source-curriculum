@@ -27,7 +27,7 @@ touch contacts.ts
 bun run contacts.ts
 ```
 
-If you are on Node instead of Bun, `npx ts-node contacts.ts` runs the same file. The file is empty, so nothing happens yet. That is fine — you now have a loop of write, run, look.
+If you are on Node instead of Bun, `npx tsx contacts.ts` runs the same file (`tsx` is a small TypeScript runner that `npx` downloads the first time; it runs your code without a separate setup step). The file is empty, so nothing happens yet. That is fine — you now have a loop of write, run, look.
 
 ## Variables: a name for a value
 
@@ -40,7 +40,7 @@ messagesSentToday = messagesSentToday + 1;
 console.log(`${myName} sent ${messagesSentToday} message(s).`);
 ```
 
-Three things worth noticing. `console.log` prints to your terminal — it is how you see inside a running program. The backtick string is a *template literal*, and `${...}` drops a value into the middle of text. And TypeScript quietly worked out that `myName` holds a string and `messagesSentToday` holds a number; if you later tried `messagesSentToday = "seven"`, it would refuse before the program ever ran. That refusal is the "Type" in TypeScript, and it is the reason we teach it here rather than plain JavaScript: the editor catches your mistake while you are typing instead of at 6 a.m. in front of a hiring manager.
+Three things worth noticing. `console.log` prints to your terminal — it is how you see inside a running program. The backtick string is a *template literal*, and `${...}` drops a value into the middle of text. And TypeScript quietly worked out that `myName` holds a string and `messagesSentToday` holds a number; if you later tried `messagesSentToday = "seven"`, a configured editor or TypeScript checker would flag it. Bun and `tsx` run TypeScript without type-checking, so run a checker or review editor diagnostics too. That refusal is the "Type" in TypeScript, and it is the reason we teach it here rather than plain JavaScript: the editor catches your mistake while you are typing instead of at 6 a.m. in front of a hiring manager.
 
 ## Objects and arrays: shaping your contact list
 
@@ -114,6 +114,8 @@ function needsFollowUp(c: Contact, maxTouches: number): boolean {
 
 console.log(needsFollowUp(contacts[2], 3));
 ```
+
+`contacts[2]` reads one item out of the array by position. Arrays count from zero, so `contacts[0]` is Dana, `contacts[1]` is Amir, and `contacts[2]` is Joy — who is "messaged" with 1 touch, so this prints `true`.
 
 The parts: `needsFollowUp` is the name, `c: Contact` and `maxTouches: number` are the parameters with their types, `: boolean` promises the answer is true or false, and `return` hands the answer back to whoever called it. `&&` means "and" — both sides must be true.
 

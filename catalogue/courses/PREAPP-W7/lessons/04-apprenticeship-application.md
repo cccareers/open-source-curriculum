@@ -70,7 +70,7 @@ CCC Tech Pre-Apprenticeship — Technical Sales pathway    Jan-Mar 2026
   brief that outperformed baseline engagement by 1.3 points
 ```
 
-**The projects or portfolio section.** Name the Outreach Portfolio explicitly with its link, and one line on what it contains. Do not bury the link in a header where an applicant tracking system may drop it.
+**The projects or portfolio section.** Name the Outreach Portfolio explicitly with its link, and one line on what it contains. Do not bury the link in a header where an applicant tracking system — the software many employers use to collect and filter applications before a person reads them — may drop it.
 
 Keep it to one page. Remove anything you would not want to be asked about in detail — everything on a resume is fair game in an interview, and a line you cannot discuss costs you more than the space it saved.
 

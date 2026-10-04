@@ -15,7 +15,7 @@ objectives:
 
 ## Why the CRM comes first
 
-Every activity in this program lands in your CRM. Your outreach, your follow-ups, your informational interviews, the employer who said "check back in March" — all of it. If it is not in the CRM, it did not happen, because nobody, including you, can remember the state of a hundred conversations.
+Every activity in this program lands in your CRM — your **customer relationship management** system, the database sales and recruiting teams use to track every person they are talking to. Your outreach, your follow-ups, your informational interviews, the employer who said "check back in March" — all of it. If it is not in the CRM, it did not happen, because nobody, including you, can remember the state of a hundred conversations.
 
 Your CRM is a system of record and a decision tool at the same time. As a record it answers "what did I say to this person and when." As a decision tool it answers the only question that matters at 9:00 a.m.: *who do I touch today, and with what?* A pipeline you have to think hard about is a pipeline you will stop using by Thursday. The setup work in this lab exists to make that morning question take thirty seconds.
 
@@ -26,7 +26,7 @@ This lesson is vendor-neutral. Whatever CRM your cohort is using, the objects ar
 Your pipeline models one thing: the journey from a name on a list to a conversation with a human being. Use these stages unless your instructor gives you a variant:
 
 1. **Researched** — the contact exists in your CRM with a company, a role, and one specific reason you are reaching out. No message sent yet.
-2. **Initiated** — you sent the first touch (connection request, email, or InMail). The clock starts here.
+2. **Initiated** — you sent the first touch (connection request, email, or InMail — LinkedIn's paid message to someone you are not connected to). The clock starts here.
 3. **Connected** — they accepted, replied, or otherwise acknowledged you. This is a real human relationship now, however thin.
 4. **In conversation** — an actual back-and-forth is happening, or a meeting is scheduled.
 5. **Interviewed** — you completed an informational interview or a hiring conversation.
@@ -70,6 +70,10 @@ At the end of each lab day, read five numbers off your pipeline:
 - **Conversation rate**: In conversation ÷ Connected
 - **Contacts with no open next action**
 - **Follow-ups overdue**
+
+Count each stage as "reached at least this stage," not "sitting in this stage right now." A contact who replied and then booked a call has left Connected, but they still count as connected; if you use your CRM's current-stage totals, your connect rate falls every time you succeed. Most CRMs show current-stage counts by default, so add them up yourself — Connected = Connected + In conversation + Interviewed, plus any Nurture or Closed contacts who accepted, replied, or otherwise acknowledged you first. Track human replies separately: a silent connection acceptance counts as Connected, but not as a reply in Week 2 tests or the Week 3 reply funnel.
+
+A quick worked read: 40 initiated, 9 have replied at some point (6 still in Connected, 2 in conversation, 1 interviewed), 3 of those 9 reached a real back-and-forth. Connect rate = 9 ÷ 40 = 22.5%. Conversation rate = 3 ÷ 9 = 33%.
 
 These are diagnostics, not a scoreboard. Each one points at a different fix:
 
