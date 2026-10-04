@@ -87,10 +87,13 @@ COPY . .
 
 ENV PORT=8080
 EXPOSE 8080
-CMD ["gunicorn", "--bind", "0.0.0.0:8080", "--access-logfile", "-", "app:app"]
+# Shell form so ${PORT} is read at start-up, not baked in at build time.
+CMD exec gunicorn --bind "0.0.0.0:${PORT:-8080}" --access-logfile - app:app
 ```
 
 Note `--access-logfile -`, which sends the access log to stdout. That one flag is the difference between a deployment you can debug and one you cannot.
+
+Note also that the start command reads `PORT` from the environment rather than hard-coding `8080`. A `CMD` written as a JSON array does not expand variables, so `["gunicorn", "--bind", "0.0.0.0:8080", ...]` would quietly ignore whatever port the platform assigns — rule 1 broken in the one line that matters. The `exec` keeps gunicorn as process 1 so it receives the platform's shutdown signal. One more detail: under gunicorn, the `if __name__ == "__main__":` block in `app.py` never runs, so the "starting on port" log line comes from gunicorn's own start-up output ("Listening at: http://0.0.0.0:8080"), not from your code. If you want your own configuration summary in the logs, log it at module level instead.
 
 Before deploying anything, run it exactly as the platform will:
 

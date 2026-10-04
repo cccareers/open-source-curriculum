@@ -68,6 +68,8 @@ IPsec is not one protocol but a framework operating at the network layer, which 
 - **Phase 1 / IKE SA** — the two peers authenticate each other and build a secure channel for negotiation. They agree an encryption algorithm, an integrity algorithm, a Diffie-Hellman group for key agreement, and a lifetime.
 - **Phase 2 / Child SA** — inside that channel, they negotiate the parameters for the actual data tunnel, including the **traffic selectors** naming which subnets the tunnel carries.
 
+"Phase 1" and "phase 2" are IKEv1 terms that everyone still uses. In IKEv2 the same two steps happen in the first two exchanges (`IKE_SA_INIT` and `IKE_AUTH`), which build the IKE SA and the first Child SA together, so you will see those names in IKEv2 logs instead.
+
 A **security association (SA)** is a one-directional agreed set of parameters and keys. Every working tunnel has at least two, one per direction. When you troubleshoot IPsec, you are almost always asking "did phase 1 complete, and if so, did phase 2, and do the selectors match?"
 
 A concrete parameter set for a branch tunnel, expressed generically:
@@ -270,3 +272,12 @@ Use two lab virtual machines you own. Do not build tunnels into any network you 
 Then write three sentences explaining, in terms a reviewer would accept, what `AllowedIPs` enforced in step 1 and what risk step 2 introduced.
 
 **Exercise 4 — The operational half.** For the tunnel you built, produce a one-page operations note containing: the MTU you set and how you determined it, what you would monitor and what would page someone, where each key is stored, the exact steps to revoke peer B's access, and how you would confirm the revocation actually took effect. Then perform the revocation and confirm it.
+
+## Check your understanding
+
+1. A vendor asks for "a VPN into the branch network" to support one HVAC controller. What do you offer instead?
+2. Phase 1 completes but phase 2 fails. What are the two most likely causes?
+3. Remote users receive addresses from the staff subnet `10.20.30.0/24`. Why is that the "bad answer" for the landing zone?
+4. Small pings across a new tunnel work; file copies hang. What is the likely cause and fix?
+
+**Answers:** (1) Access scoped to that one device on its one management port — a dedicated tunnel or brokered access landing in a zone with a single, logged, expiring rule — not general network access. (2) Mismatched proposals (encryption, integrity, group) or mismatched traffic selectors (for example `/16` on one side and `/24` on the other). (3) The tunnel lands inside an internal zone, so it reaches everything that zone reaches and no firewall rule governs it. (4) MTU: encapsulation overhead plus blocked ICMP "fragmentation needed"; lower the tunnel MTU or clamp TCP MSS.

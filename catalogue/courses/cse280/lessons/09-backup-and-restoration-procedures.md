@@ -60,7 +60,8 @@ Five parameters, and each of them is a decision with a compliance consequence.
 A tiered scheme is the normal answer:
 
 ```yaml
-backup_policy: appointments-db
+backup_policy:
+  name: appointments-db
   point_in_time_recovery:
     enabled: true
     window_days: 7          # covers corruption and deletion within a week

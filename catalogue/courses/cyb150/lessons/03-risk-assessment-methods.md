@@ -204,3 +204,9 @@ Assign one of mitigate, transfer, avoid, or accept to each of the five, with a o
 **Exercise 5 — Add the vendor row.**
 
 The analytics contractor from item 4 works through a small consultancy with production read access. Write the register entry for this vendor as a risk, assign a tier from the table in this lesson, list the four artifacts you would request from the consultancy, and name the one question in this situation that you must route to Dana rather than resolve yourself.
+
+## Check your understanding
+
+1. Rewrite "No MFA" as a risk. *For example: "An external attacker may take over a clinic administrator's account by exploiting password-only sign-in, resulting in exposure of PHI and a possible reportable event." A weakness alone is not a risk.*
+2. Two risks both score 12, one as 3×4 and one as 4×3. Are they equal? *No. Rank them by written reasoning: frequency versus severity, cost and speed of the fix, and whether the risk is within your control or inherited from a vendor.*
+3. Who can sign a risk acceptance at Meridian, and what must it contain? *A person who can bind the organization (the CTO). The record needs the risk ID, accepting party, date, rationale, expiry, and compensating measure.*

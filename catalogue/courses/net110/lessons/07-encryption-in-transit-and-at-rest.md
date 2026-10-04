@@ -96,6 +96,8 @@ openssl s_client -connect lab-app.internal:443 -servername lab-app.internal </de
 openssl s_client -connect lab-app.internal:443 -tls1_1 </dev/null
 ```
 
+One caution about that last command: recent OpenSSL releases may refuse TLS 1.1 *on the client side* because of their default security level, so a failed handshake can mean your client said no rather than your server. If you see an error before any server response, retry with `-cipher 'DEFAULT:@SECLEVEL=0'` added, and record which OpenSSL version you used.
+
 That last command is a configuration check, not an attack: you are asking your own server whether it still accepts an obsolete protocol. A correctly configured server refuses the handshake. Run these against your own lab services.
 
 ## Data at rest
@@ -183,3 +185,12 @@ All work on your own lab systems and lab certificates.
 3. Write three sentences: which adversary this control defeats, which adversary step 1 proves it does not defeat, and what additional control would address the second adversary for one specific field of the data.
 
 **Exercise 4 — Write a key-handling plan.** For a fictional but concrete system — an internal application with a database, nightly backups to offsite storage, and staff laptops — produce a one-page plan with a row per key covering: what the key protects, how it is generated, where it is stored, who may access it, its rotation interval and procedure, its revocation procedure, and its escrow or recovery path. Finish with two sentences naming the single key whose compromise would be worst and what compensating control limits that damage.
+
+## Check your understanding
+
+1. A manager says the patient database is safe from an application compromise because "the disk is encrypted." Which adversary does full-disk encryption address, and which control would actually help here?
+2. Read `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`: does it provide forward secrecy, and is the bulk cipher AEAD?
+3. A certificate has the hostname only in the Common Name field. What happens in a modern client?
+4. In envelope encryption, what is rotated when you rotate the KEK, and why is that cheap?
+
+**Answers:** (1) Physical loss of the storage; against an application compromise, field-level or application-level encryption with keys outside the database helps. (2) Yes to both — ECDHE is ephemeral key exchange, and AES-GCM is AEAD. (3) Validation fails; modern clients check the Subject Alternative Name only. (4) Only the data encryption keys are re-wrapped (re-encrypted) under the new KEK; the bulk data is untouched.

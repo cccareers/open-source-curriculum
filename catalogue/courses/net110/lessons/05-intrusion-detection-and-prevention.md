@@ -219,3 +219,12 @@ All exercises on your own lab network only.
 **Exercise 3 — Interpret and hand off.** Using the alert you produced, write a triage note containing: the literal claim of the signature (with SID), the internal host identified by name as well as address, the direction and initiator, whether the pattern repeats and at what interval, at least one corroborating piece of flow evidence you gathered yourself, what you ruled out, your assessment as *routine*, *needs more context*, or *escalate*, and your confidence in one sentence. Keep it under 200 words. The test of a good note is that a colleague could act on it without asking you a single question.
 
 **Exercise 4 — Tune, and document the cost.** Identify one rule in your deployment that fires on traffic you know is benign in your lab. Write a suppression or threshold for it, scoped as narrowly as you can, apply it, and confirm the noise stops while other alerts still appear. Then write three sentences: what you suppressed, what detection capability you gave up by doing so, and what would have to change for you to remove the suppression.
+
+## Check your understanding
+
+1. You can deploy only one network sensor. Where does the lesson say to put it, and why there rather than outside the perimeter firewall?
+2. A Suricata deployment produces almost no alerts for traffic leaving the network, even for test signatures. What configuration value do you check first?
+3. An alert names `198.51.100.77` and SID 9000101. What is "the alert is the pointer; the flow record is the evidence" asking you to do next?
+4. Your SPAN port mirrors two busy 1 Gb/s ports onto one 1 Gb/s monitor port. What failure will you not see in the alert console?
+
+**Answers:** (1) Inside the perimeter firewall — it sees only traffic that survived policy, so every alert concerns permitted traffic and the noise is far lower. (2) `$HOME_NET` (and `$EXTERNAL_NET`); if "my network" is wrong, every directional rule misbehaves. (3) Query flow data for the host pair to find the pattern — repetition, interval, byte counts — and identify the internal host from DHCP and inventory. (4) Silent packet drops at the oversubscribed mirror port, producing detection gaps; monitor the sensor's and switch's drop counters.

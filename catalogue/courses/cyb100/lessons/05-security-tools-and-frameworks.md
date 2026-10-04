@@ -100,7 +100,7 @@ Serious tools do both. Every alert falls into one of four cells, and you should 
 
 False positives waste time. False negatives are missed attacks. **Tuning** is the ongoing work of trading between them, and it is never finished because the environment keeps changing.
 
-Understand why this matters more than it sounds. Almost every well-known breach involved a tool that *did* alert, into a queue nobody could work through. A tool producing 400 alerts a day in a two-person team has a real detection rate near zero, whatever its specification says. So when you evaluate whether a tool addresses a risk, the honest questions are: does anyone look at its output, within what time, and what happens to an alert at 6 p.m. on a Friday? A detective control with no reviewer is not a control, which is the same conclusion lesson 02 reached about the quarterly access review — the principle simply scales up.
+Understand why this matters more than it sounds. Many well-known breaches involved a tool that *did* alert, into a queue nobody could work through. A tool producing 400 alerts a day in a two-person team has a real detection rate near zero, whatever its specification says. So when you evaluate whether a tool addresses a risk, the honest questions are: does anyone look at its output, within what time, and what happens to an alert at 6 p.m. on a Friday? A detective control with no reviewer is not a control, which is the same conclusion lesson 02 reached about the quarterly access review — the principle simply scales up.
 
 ## Frameworks: the other half of the map
 
@@ -117,7 +117,7 @@ A framework is an organized set of expectations about what a security program sh
 
 The functions are not a sequence, and the two most commonly starved are Govern and Detect.
 
-**The CIS Controls** are a prioritized list of specific safeguards, ordered so that an organization can start at the top and get most of the benefit early — inventory of devices and software first, then data protection, configuration, account and access management, and so on. Where the NIST functions tell you which areas exist, the CIS Controls tell you what to do on Monday. They are grouped by implementation tiers so a small organization is not expected to do everything a large one does.
+**The CIS Controls** are a prioritized list of specific safeguards, ordered so that an organization can start at the top and get most of the benefit early — inventory of devices and software first, then data protection, configuration, account and access management, and so on. Where the NIST functions tell you which areas exist, the CIS Controls tell you what to do on Monday. Their safeguards are sorted into three Implementation Groups (IG1 to IG3) so a small organization is not expected to do everything a large one does; IG1 is the essential starting set. Do not confuse these with the NIST CSF's "Implementation Tiers," which describe how mature an organization's risk practices are, not which safeguards to start with.
 
 **MITRE ATT&CK** is different in kind: a catalogue of the *techniques* attackers actually use, organized by the phases you met in lesson 03 — initial access, persistence, privilege escalation, lateral movement, exfiltration, impact. It is a shared vocabulary for describing adversary behavior, and its practical use is coverage mapping: for a technique that matters to us, do we have anything that would detect it? Detection rules in modern tools are frequently labelled with ATT&CK technique identifiers for exactly this reason.
 
@@ -199,3 +199,9 @@ You will occasionally be asked to compare two products. Four questions do most o
 **Part 3 — Interrogate an alert queue.** A small firm runs a SIEM that generates about 250 alerts a day into a queue watched by one part-time technician. Write a one-page assessment answering: what is this tool's realistic true detection rate, what are the three most likely causes of the volume, what would you measure over the next month to find out which cause dominates, and what would you change first? Use the four-cell table from this lesson explicitly, and state which cell the organization is currently optimizing at the expense of which other.
 
 **Deliverable:** one document containing the twenty matches, the coverage table with its ranked three, and the alert-queue assessment.
+
+## Check your understanding
+
+1. "Know which laptops are missing this month's updates" — tool category and CSF function? *Vulnerability scanning and patch management; Identify, then Protect when the fix is deployed.*
+2. Which cell of the four-cell table is the dangerous one, and why? *False negative — something bad happened and the tool stayed silent, so nobody acts.*
+3. A SIEM receives logs from only two sources. What is the main problem? *Coverage. It can correlate those two sources with each other, but it is blind to everything else, so most attack paths leave no trace it can see; until coverage improves, its correlation value is small and it is mostly an expensive log viewer.*
