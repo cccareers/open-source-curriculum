@@ -119,15 +119,15 @@ Containment usually comes in two stages. **Short-term containment** is fast and 
 You already know the mechanics of endpoint isolation from your endpoint security course, so this course does not reteach the button. What it teaches is the sentence you say before you press it:
 
 ```text
-Proposed containment, 14:22 UTC.
-Action:    Network-isolate WKS-4471 via the endpoint agent. Leave it powered on.
-Rationale: Host is beaconing outbound every 60s to 198.51.100.44. Isolation
+Proposed containment, 10:14 UTC, 2026-03-11 (IR-2026-0031).
+Action:    Network-isolate WKS-4471 and WKS-2210 via the endpoint agent. Leave both powered on.
+Rationale: Both hosts are beaconing outbound every 60s to 198.51.100.44. Isolation
            stops the channel while preserving memory and running processes.
-Cost:      User loses access to the workstation. No production service affected.
+Cost:      Two users lose access to their workstations. No production service affected.
 Evidence:  Memory capture will be taken before any reboot or reimage.
 Risk:      Attacker will observe loss of the channel and may have other footholds;
            scope on the two hosts that contacted the same address is not complete.
-Decision:  Approved by <name>, 14:24 UTC.
+Decision:  Approved by S. Vance, 10:16 UTC; executed 10:18 UTC; confirmed 10:19 UTC.
 ```
 
 That is a contained decision. It names the action, the reason, the cost, the evidence protection, and the residual risk, and it records who approved it. It takes ninety seconds to write and it is the difference between a decision and a reflex. Note the deliberate choice to leave the host powered on: unless the machine is actively destroying data, isolating while running preserves far more evidence than powering off. The detailed reasoning about what containment to choose in what situation is lesson 08's subject; here the point is only that the choice exists and is recorded.
@@ -183,6 +183,8 @@ The last question is the only one that produces value. A review that generates i
 ## Walking a case through the phases
 
 An abstract lifecycle is hard to hold. Here is one small case, phase by phase, with the decision at each handoff called out.
+
+This simplified walkthrough is a separate incident from IR-2026-0031; its times are local office time on an unspecified Tuesday.
 
 **The signal.** At 09:14 on a Tuesday, the help desk logs a ticket: a finance clerk reports that a spreadsheet she opened from an email "did nothing," and that her machine has been slow since.
 

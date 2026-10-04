@@ -67,6 +67,7 @@ The timeline is where documentation is won or lost, and it has a small number of
 **Separate observation from inference, visibly.** This is the rule that most improves a responder's work. An observation is what a source shows. An inference is what you think it means. Both belong in the timeline; confusing them is how a plausible early guess becomes the received truth of the incident by mid-afternoon and survives unchallenged into the report.
 
 ```text
+Times UTC; attacker observations 2026-03-10, response action 2026-03-11.
 14:02:11Z [OBS ] EDR event 40912 on WKS-4471: WINWORD.EXE (pid 6640)
                  spawned powershell.exe (pid 8812), cmdline includes
                  "-nop -w hidden -enc". Analyst: M. Okafor.
@@ -76,10 +77,11 @@ The timeline is where documentation is won or lost, and it has a small number of
 14:02:19Z [INF ] The encoded command at 14:02:11 likely retrieved the
                  script observed at 14:02:19. NOT YET CONFIRMED - decoding
                  of the command line is pending. Confidence: medium.
-14:22:40Z [ACT ] Network isolation applied to WKS-4471 via endpoint agent.
-                 Authorized by S. Vance (IR lead) at 14:21Z. Host left
+2026-03-11 10:18Z [ACT ] Network isolation applied to WKS-4471 and WKS-2210
+                 via endpoint agent.
+                 Authorized by S. Vance (IR lead) at 10:16Z. Hosts left
                  powered on. Performed by M. Okafor. Result: confirmed
-                 isolated, agent still reporting.
+                 isolated at 10:19Z, agents still reporting.
 ```
 
 Four tags carry a lot: `OBS` for observed fact, `INF` for inference, `ACT` for something the response team did, and `COM` for a communication. Some teams add `DEC` for decisions. Use whatever your team uses, but use something, and never let an inference into the record without its label and its confidence.
@@ -112,8 +114,8 @@ An evidence item is anything you preserved to support a finding: a disk image, a
 A cryptographic hash is the mechanism that makes integrity provable. Compute the hash of an item at the moment of collection, record it, and any later party can recompute it and confirm the item is unchanged. If the hash matches, the bytes are the same. If it does not, something changed and you have to find out what.
 
 ```text
-$ sha256sum WKS-4471_disk_2026-03-10.dd
-3f1c9b0d4a77e2f5c8ab1d6e90724c3fbb5a1e8d02c47f6a9b3d5e70118cc24a  WKS-4471_disk_2026-03-10.dd
+$ sha256sum WKS-4471_disk_2026-03-11.dd
+3f1c9b0d4a77e2f5c8ab1d6e90724c3fbb5a1e8d02c47f6a9b3d5e70118cc24a  WKS-4471_disk_2026-03-11.dd
 ```
 
 Practical rules that make hashing actually work:
@@ -129,11 +131,12 @@ Practical rules that make hashing actually work:
 Every item gets a unique identifier the moment it exists, and the identifier is written on the item — a physical label on a device, a filename convention for a digital item. A convention that carries the case, a sequence, and the source is enough:
 
 ```text
-IR-2026-0031-E001  Memory capture, WKS-4471, 14:31Z 2026-03-10
-IR-2026-0031-E002  Disk image, WKS-4471 internal drive, 15:52Z 2026-03-10
+IR-2026-0031-E001  Memory capture, WKS-4471, 14:31Z 2026-03-11
+IR-2026-0031-E002  Disk image, WKS-4471 internal drive, 15:52Z 2026-03-11
 IR-2026-0031-E003  Packet capture, VLAN 14 span, 14:05Z-15:00Z 2026-03-10
 IR-2026-0031-E004  Exported proxy logs, 2026-03-01 to 2026-03-10
 IR-2026-0031-E005  Laptop, WKS-4471, asset tag 88214, physical custody
+IR-2026-0031-E006  Flow search export, saved 09:52Z 2026-03-11
 ```
 
 The evidence log records, for every item: identifier; description; the exact source (make, model, serial, asset tag, or system and log name); collection time in UTC; the collector; the method and tool with version; the hash and algorithm; the current storage location; and the current holder.
@@ -151,9 +154,9 @@ Item: IR-2026-0031-E002  Disk image, WKS-4471 internal drive
 SHA-256: 3f1c9b0d4a77...cc24a
 
 Date/Time (UTC)   Released by     Received by     Purpose / Location
-2026-03-10 15:52  M. Okafor       M. Okafor       Acquisition; held on
+2026-03-11 15:52  M. Okafor       M. Okafor       Acquisition; held on
                                                   forensic workstation FW-01
-2026-03-10 16:40  M. Okafor       D. Aguilar      Transfer to evidence
+2026-03-11 16:40  M. Okafor       D. Aguilar      Transfer to evidence
                                                   store; safe #2, shelf B
 2026-03-12 09:15  D. Aguilar      L. Park         Analysis; working copy
                                                   made and verified,
@@ -213,24 +216,24 @@ Times UTC, 2026-03-11 unless dated. Lead: S. Vance. Record maintained by M. Okaf
 09:44Z [COM ] Notified IT operations manager (R. Bell) by phone that two
               finance workstations may require isolation. No action requested
               of them yet.
-09:52Z [OBS ] Flow records for 198.51.100.44, 2026-03-01 to present:
+09:52Z [OBS ] Flow records for 198.51.100.44, 2026-02-09 to present:
               two internal hosts only - 10.14.7.51 (WKS-4471) from
-              2026-03-10 14:03Z, 10.14.9.22 (WKS-2210) from 2026-03-10 13:51Z. Query and result set saved
-              as IR-2026-0031-E004. Analyst: M. Okafor.
+              2026-03-10 14:03Z, 10.14.9.22 (WKS-2210) from 2026-03-10 13:52Z. Query and result set saved
+              as IR-2026-0031-E006 (flow search export). Analyst: M. Okafor.
 09:55Z [OBS ] NEGATIVE: same query against all server subnets returns no
               results. No server has contacted this address in the retained
               period (30 days). Analyst: M. Okafor.
-09:58Z [ACT ] Network isolation applied to WKS-4471 and WKS-2210 via endpoint
-              agent. Authorized by S. Vance 09:57Z. Both hosts left powered
-              on to preserve memory. Performed by M. Okafor. Result: both
-              confirmed isolated; agents still reporting.
-10:03Z [INF ] WKS-2210's earlier start time (13:51Z vs 14:03Z) suggests it
+10:03Z [INF ] WKS-2210's earlier start time (13:52Z vs 14:03Z) suggests it
               may be the initial entry point rather than WKS-4471.
               NOT CONFIRMED - mail gateway records for both users not yet
               reviewed. Confidence: low. Owner: L. Park.
 10:05Z [OPEN] Q1: Which host was first? Q2: Did either user receive the same
               message? Q3: Is svc_backup activity at 14:07Z related?
               Owners: L. Park (Q1, Q2), M. Okafor (Q3).
+10:18Z [ACT ] Network isolation applied to WKS-4471 and WKS-2210 via endpoint
+              agent. Authorized by S. Vance 10:16Z. Both hosts left powered
+              on to preserve memory. Performed by M. Okafor. Result: both
+              confirmed isolated at 10:19Z; agents still reporting.
 ```
 
 Read it as a stranger would. The severity has a stated basis. The scope query is saved as evidence rather than described. There is a negative result establishing that servers were checked. The containment names its authorizer and its evidence-preserving choice. The most interesting idea in the passage is labelled as an unconfirmed inference with low confidence and an owner. And the open questions are numbered and assigned.

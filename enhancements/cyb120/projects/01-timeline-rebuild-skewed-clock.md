@@ -20,7 +20,7 @@ competency_ids:
 ---
 
 ## Scenario
-It is the morning of 2026-03-11. You are picking up IR-2026-0031 from M. Okafor's shift. The case record has the WKS-4471 events, but the WKS-2210 material arrived overnight from three teams in three formats: the endpoint export from WKS-2210 (whose clock was found to run **3 minutes fast**), the web proxy export (which the network team exports in **local office time, America/Chicago**, with no offset), and UTC exports from the mail gateway, flow collector, and directory. S. Vance wants one merged, sourced, tagged UTC timeline before the 10:00Z stand-up, and the answer to one question: *which host was first, and how did the second one get infected?*
+It is the morning of 2026-03-11. You are helping M. Okafor investigate overnight alerts; the case is declared IR-2026-0031 at 09:41Z. The initial case record has the WKS-4471 events, but the WKS-2210 material arrived overnight from three teams in three formats: the endpoint export from WKS-2210 (whose clock was found to run **3 minutes fast**), the web proxy export (which the network team exports in **local office time, America/Chicago**, with no offset), and UTC exports from the mail gateway, flow collector, and directory. S. Vance wants one merged, sourced, tagged UTC timeline before the 11:00Z stand-up, after the initial scope and containment records in lessons 05 and 08, and the answer to one question: *which host was first, and how did the second one get infected?*
 
 ## Scope and authorization
 Everything here is synthetic text describing malicious activity. No sample, no live system, no network access. Work in any folder on a machine you own. The defanged indicators (`hxxp`, `[.]`) must stay defanged.
@@ -76,6 +76,7 @@ start,src,dst,dport,bytes
 WKS-2210 = 10.14.9.22, user r.singh, Finance. Clock checked 2026-03-11 08:30Z against NTP: host reads 3 min 00 s AHEAD of UTC. EDR export is in host local time = UTC by config, so subtract 180 s.
 WKS-4471 = 10.14.7.51, user j.ruiz, Finance. Clock verified.
 Network team confirms server-side searches for 198.51.100.44 on all server subnets (2026-02-09 to 2026-03-11) returned zero results. Query ref: Q-SRV-0311.
+Mail team confirms a search for the attachment Q1_reconciliation.docm before 2026-03-10T13:44:02Z in retained logs (2026-02-09 onward) returned zero results. Query ref: Q-MAIL-0311.
 ```
 
 ## Milestones
@@ -163,5 +164,5 @@ Expected output for a passing timeline: `17 rows checked, 0 problems` (row count
 
 ## Instructor notes (common pitfalls, how to adapt for time)
 - The two traps are deliberate: the 3-minute host skew (sign errors are common — the host is *ahead*, so subtract) and DST (UTC−5 on 2026-03-10, not −6).
-- The data follows the next-day-response reading of IR-2026-0031 (see review.md open question); regenerate if the case chronology changes.
+- Canonical chronology: intrusion and 118 MB upload on 2026-03-10; detection at 09:14Z and declaration at 09:41Z on 2026-03-11; isolation executed 10:18Z and confirmed 10:19Z; WKS-4471 memory captured 14:31Z and disk imaged 15:04–15:52Z that day. This project reconstructs attacker activity before containment.
 - 2-hour version: give learners `conversions.md` pre-filled and have them build and check the timeline only.

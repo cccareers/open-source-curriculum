@@ -84,7 +84,7 @@ Dead acquisition means capturing storage while the system is not running. It giv
 Source device : SSD, serial S4K2NX0T512199, 512 GB, from WKS-4471
 Write blocker : hardware, model WB-3, verified by attempted write - refused
 Tool          : acquisition utility v3.4.2
-Started       : 2026-03-10T15:04Z    Completed: 2026-03-10T15:52Z
+Started       : 2026-03-11T15:04Z    Completed: 2026-03-11T15:52Z
 Image         : IR-2026-0031-E002.dd  (512,110,190,592 bytes)
 Source hash   : SHA-256 3f1c9b0d4a77e2f5c8ab1d6e90724c3fbb5a1e8d02c47f6a9b3d5e70118cc24a
 Image hash    : SHA-256 3f1c9b0d4a77e2f5c8ab1d6e90724c3fbb5a1e8d02c47f6a9b3d5e70118cc24a
@@ -156,6 +156,7 @@ A forensic timeline is a single chronological sequence assembled from every arti
 Here is a merged timeline from the case you have been following:
 
 ```text
+All events below occurred on 2026-03-10; response began on 2026-03-11.
 UTC time      Source                        Event
 13:44:02  Mail gateway log             Message to r.singh@corp with
                                        attachment "Q1_reconciliation.docm"

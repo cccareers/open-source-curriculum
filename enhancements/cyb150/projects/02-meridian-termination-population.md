@@ -39,7 +39,7 @@ This uses synthetic exports only. Nothing is queried from a live HR system or id
 ## Before you start (prerequisites, starter files or data)
 Lessons 04 and 05. Any spreadsheet tool or Python 3.
 
-Meridian's business-day calendar excludes weekends and US federal holidays. The 2026 holidays inside the period are 1 Jan, 19 Jan, 16 Feb, 25 May, and 19 Jun. Verify these against the official US OPM calendar before you rely on them.
+For this synthetic dataset, assess the deadline by UTC calendar date, inclusive through the next business day; no office time zone is supplied. Meridian's business-day calendar excludes weekends and US federal holidays. The 2026 holidays inside the period are 1 Jan, 19 Jan, 16 Feb, 25 May, and 19 Jun. Verify these against the official US OPM calendar before you rely on them.
 
 `hr_terminations.csv` (HR system of record export):
 ```text
@@ -156,7 +156,7 @@ for a, r in exc.items():
         want = DISABLED[a] or "empty (no disable event in the log)"
         fails.append(f"{a}: disabled_utc should be {want}")
 
-name = re.compile(r"^CC\d\.\d+_2026-(H1|Q[12])_[a-z0-9-]+_\d{4}-\d{2}-\d{2}\.(csv|pdf|md|json)$")
+name = re.compile(r"^MHA-AC-06_2026-(H1|Q[12])_[a-z0-9-]+_\d{4}-\d{2}-\d{2}\.(csv|pdf|md|json)$")
 files = [l.strip() for l in open(man_f) if l.strip()]
 if len(files) < 4: fails.append("manifest should list at least 4 artifacts (population, IdP log export, exceptions, cover note)")
 for f in files:
@@ -194,5 +194,5 @@ FAIL population incomplete - missing ['mnakamura'] (did you trust a hand-made li
 
 ## Instructor notes (common pitfalls, how to adapt for time)
 - Two traps are deliberate. The colleague's list omits the one never-disabled account. And `qrahman` looks late if you forget the 25 May holiday.
-- `efischer` was disabled *before* the end date. That is fine for the control, but worth discussing: was the employee locked out on their last afternoon?
+- `efischer` was disabled on the effective end date, before the end of the working day. That is fine for the control, but worth discussing: was the employee locked out on their last afternoon?
 - Shorter version (2 h): give learners the deadlines column and focus on population completeness and the escalation message.

@@ -78,7 +78,7 @@ Applied at the organization level, that survives a fully compromised account adm
 
 And from lesson 05: the log archive is encrypted with a key whose administration belongs to the security team, not to the platform team whose credentials might be the ones that get stolen.
 
-Finally, **alert on the act of tampering itself.** "Audit logging was disabled" is one of the highest-fidelity alerts you will ever write. It has almost no legitimate cause and an unmistakable malicious one.
+Finally, **alert on the act of tampering itself.** "Audit logging was disabled" is one of the highest-fidelity alerts you will ever write. Unexpected logging disablement can remove investigative visibility and deserves prompt review; corroborate with approved changes and actor context, because legitimate maintenance can also disable logging.
 
 ## Reading a record
 
@@ -379,4 +379,4 @@ From your Exercise 4 timeline, write the complete Security Event Handoff in the 
 2. Why is "audit logging was disabled" one of the highest-fidelity alerts you can write?
 3. A responder asks whether patient records were read during an incident. What log must have been enabled beforehand to answer, and what do you write if it was not?
 
-**Answers:** (1) `sourceIPAddress` — a machine identity should come from a fixed, known source, so a new source is almost always a leaked credential. (2) It has almost no legitimate cause and an unmistakable malicious one. (3) Data-plane (data-access) logging on that store; if it was off, state plainly that you cannot determine whether data was read and name the gap as a finding.
+**Answers:** (1) `sourceIPAddress`, compared with the pipeline’s expected runner/network baseline. A new source warrants investigation; hosted runners and AWS service-originated events can legitimately vary. Corroborate with role/session context and actions before concluding credential theft. See [CloudTrail field semantics](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.html). (2) Unexpected logging disablement can remove investigative visibility and deserves prompt review; corroborate with approved changes and actor context, because legitimate maintenance can also disable logging. (3) Data-plane (data-access) logging on that store; if it was off, state plainly that you cannot determine whether data was read and name the gap as a finding.

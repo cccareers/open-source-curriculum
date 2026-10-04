@@ -54,7 +54,7 @@ For any finding, four questions produce the translation.
 | Tester moved from a web server to a database server unimpeded | Network segmentation | Bypassed — segmentation exists at the perimeter and not internally | Nothing alerted on the lateral connection | Systemic: flat internal network, no east-west detection |
 | No alert raised during four days of active testing | Security monitoring and alerting | Unmonitored — logs collected, no detection rules for this activity | This *is* the detective control | Systemic and severe |
 
-Read the right-hand column. Six findings, four systemic causes: an incomplete asset inventory, a build standard with a gap, an enrollment gap in configuration management, and a monitoring capability that collects without detecting. Fix those four and you have addressed far more than these six findings — including the ones nobody found this time.
+Read the right-hand column. Six findings, five systemic causes: an incomplete asset inventory, a build standard with a gap, an enrollment gap in configuration management, missing internal segmentation, and a monitoring capability that collects without detecting. The customer-record authorization defect also needs endpoint-specific remediation and a search for similar defects. Fix those five and you have addressed far more than these six findings — including the ones nobody found this time.
 
 ## Deduplication and clustering
 

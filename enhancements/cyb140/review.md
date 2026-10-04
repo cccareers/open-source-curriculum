@@ -33,7 +33,7 @@ cyb140 handles a sensitive subject well. Authorization comes before technique, t
 ## Video and animation opportunities
 - **Redline a scope** (cyb140-02): reading a scope line by line suits an annotated screencast. **Drafted: `media/video-01-redline-a-scope.md`.**
 - **From scanner claim to finding** (cyb140-04): five-step validation of lab candidates, as a screencast. **Not drafted.** An attempt in this pass was interrupted and the partial file was removed; this should be re-scoped and drafted in a later pass.
-- **Six findings, four causes** (cyb140-06): clustering findings onto systemic control failures, as an explainer animation. **Drafted: `media/animation-01-findings-to-systemic-causes.md`.**
+- **Six findings, five causes** (cyb140-06): clustering findings onto systemic control failures, as an explainer animation. **Drafted: `media/animation-01-findings-to-systemic-causes.md`.**
 - **Stop-condition flowchart** (cyb140-02): halt, record, preserve, notify, wait. A short animation. Not drafted.
 
 ## Assessment ideas

@@ -350,7 +350,7 @@ Choose one machine identity in your lab that authenticates with a long-lived sta
 ## Check your understanding
 
 1. A principal has an identity policy allowing `s3:GetObject` on a bucket, and an organization-level policy denies all `s3` actions in the account. Allowed or denied, and why?
-2. `P2` holds `ec2:RunInstances` and `iam:PassRole` on `*` and no IAM-write permissions. Why is it effectively an administrator?
+2. `P2` holds `ec2:RunInstances` and `iam:PassRole` on `*` and no IAM-write permissions. Under what conditions can it gain administrator privileges?
 3. Two `Contributor` assignments look identical in a list. What single field do you record to tell their blast radius apart?
 
-**Answers:** (1) Denied — an explicit deny anywhere wins over every allow. (2) It can launch an instance with a privileged role attached and use that role's credentials from inside it. (3) The scope at which each was granted (resource group vs. subscription or higher), since inheritance is additive downward.
+**Answers:** (1) Denied — an explicit deny anywhere wins over every allow. (2) If an existing administrator role trusts EC2 and is available through an instance profile, and no other controls block the launch or role pass, it can launch an instance with that role and use its credentials. The two permissions alone do not create an administrator role. See [AWS PassRole requirements](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html). (3) The scope at which each was granted (resource group vs. subscription or higher), since inheritance is additive downward.
