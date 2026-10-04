@@ -217,3 +217,9 @@ DIRECTORY ENABLED ACCOUNTS (extract)
 **Part 5 — Instrument it.** Propose six metrics for Ashford's identity lifecycle. For each, give the definition, the data source, the target, the review frequency, and the specific behaviour it would drive if reported to the leadership team every month. Then name one metric that *looks* useful and would be misleading, and explain why.
 
 **Deliverable:** one document containing the traced entitlement table with its findings, the leaver runbook, the classified discrepancy list with remediations, the recertification specification, and the metric set.
+
+## Check your understanding
+
+1. What makes the mover procedure different from the joiner procedure? *It removes before it adds, or forces an explicit decision on every old entitlement; silence means removal.*
+2. Why is "disable the account" not enough at leaver time? *Tokens and sessions already issued can stay valid; revoke them, reset the credential, and de-register the person's factors.*
+3. An enabled account has no matching HR record. Delete it immediately? *No. Classify it first (service, contractor, shared, or a real leaver), find an owner, then disable or document it.*

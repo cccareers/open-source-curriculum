@@ -84,7 +84,7 @@ Dead acquisition means capturing storage while the system is not running. It giv
 Source device : SSD, serial S4K2NX0T512199, 512 GB, from WKS-4471
 Write blocker : hardware, model WB-3, verified by attempted write - refused
 Tool          : acquisition utility v3.4.2
-Started       : 2026-03-10T15:04Z    Completed: 2026-03-10T15:52Z
+Started       : 2026-03-11T15:04Z    Completed: 2026-03-11T15:52Z
 Image         : IR-2026-0031-E002.dd  (512,110,190,592 bytes)
 Source hash   : SHA-256 3f1c9b0d4a77e2f5c8ab1d6e90724c3fbb5a1e8d02c47f6a9b3d5e70118cc24a
 Image hash    : SHA-256 3f1c9b0d4a77e2f5c8ab1d6e90724c3fbb5a1e8d02c47f6a9b3d5e70118cc24a
@@ -156,6 +156,7 @@ A forensic timeline is a single chronological sequence assembled from every arti
 Here is a merged timeline from the case you have been following:
 
 ```text
+All events below occurred on 2026-03-10; response began on 2026-03-11.
 UTC time      Source                        Event
 13:44:02  Mail gateway log             Message to r.singh@corp with
                                        attachment "Q1_reconciliation.docm"
@@ -213,3 +214,9 @@ Escalating early is cheap. Escalating after you have run six tools across the or
 **Exercise 5 — Document your own footprint.** Perform a live-collection sequence on a lab virtual machine, keeping a full transcript. Afterwards, identify every change *your own activity* made to that system — logon records, files written, devices attached, processes created — and write the section of the case record that discloses it. Then have a classmate examine the system without your notes and list the artifacts they attribute to "unknown activity"; compare the two lists and discuss what you failed to record.
 
 **Exercise 6 — Draw the escalation line.** For each of five scenarios your instructor supplies, decide whether it is within first-responder scope or needs a specialist. For those needing escalation, write the handover: what you have preserved, the chain of custody, exactly what you ran and when, what you concluded, and the specific question you want the specialist to answer. Keep each handover under 250 words.
+
+## Check your understanding
+
+1. A running host is beaconing but not destroying data. Power off or network-isolate? *Network-isolate and leave it running; powering off destroys memory, network state, and running processes.*
+2. What do you collect first from a running host, and what one-line measurement must you not forget? *Memory; and the clock offset against a trusted source.*
+3. The host's own tools show no connection but the firewall log shows one. Which do you believe? *The firewall — it was collected on a system the attacker does not control. Record the discrepancy.*

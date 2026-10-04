@@ -252,3 +252,9 @@ Write your actual reply to each, in two to four sentences.
 3. Tom again, by email: *"While you're pulling that, can you send the full log export for the period so we can have a look around?"*
 
 For each, name the principle from this lesson your reply is applying, and where relevant, name who you copied.
+
+## Check your understanding
+
+1. The auditor asks for evidence that access reviews ran quarterly, and you send a screenshot of today's user list. What is wrong? *It proves current state, not operation across the period. The auditor needs one review record per quarter, with reviewer, date, accounts, decisions, and the revocations actually carried out.*
+2. Why must you supply the full population rather than "a few good examples"? *The auditor selects the sample. Handpicked examples are selection bias, and an incomplete population invalidates the whole test.*
+3. A system owner asks you to sign and back-date a missed review. What do you do? *Decline and escalate to Dana or the CISO. Back-dating is fabrication of audit evidence.*

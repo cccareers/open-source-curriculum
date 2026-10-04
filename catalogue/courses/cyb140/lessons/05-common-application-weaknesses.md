@@ -27,7 +27,7 @@ Two scope boundaries also carry over from the course plan. Your depth ceiling is
 
 The OWASP Top 10 is a periodically republished list of the most significant web application security risk categories, assembled from contributed data and practitioner survey. It is not a checklist, not a standard, and not a complete list of things that can go wrong. It is a *shared vocabulary*, and that is exactly why it matters to you: when a report says "broken access control" or a client asks "are we covered for the OWASP Top 10," you need to know precisely what is being named.
 
-The ten categories in the current edition, each with the question it really asks and the evidence that settles it.
+The ten categories below are from the 2021 edition, which most tools, reports, and client questionnaires still reference. OWASP has since published a newer edition that regroups some categories, so check which edition your client or employer cites. Each category is listed with the question it really asks and the evidence that settles it.
 
 **A01 Broken Access Control.** Does the application enforce, on the server, what each user is permitted to do and see? This category is first because it is found the most, and because the failure is almost always an omission rather than a mistake — a check that was never written on one endpoint out of forty. Its common shapes: an object identifier in a request that can be changed to reference another user's record and is not checked against the requester's entitlement; a privileged function reachable by requesting its address directly, with the only protection being that the link is not displayed; a permission enforced by the browser interface but not by the endpoint behind it. *Evidence:* two authenticated sessions for two different users, and a request made in user A's session that returns user B's data — with user B's data redacted in the screenshot down to whatever minimal marker proves the identity. Never more than one record.
 
@@ -126,3 +126,9 @@ Every activity below targets only the instructor-provided, intentionally vulnera
 **Part 6 — Severity and handoff.** Rate each of your three confirmed findings using the four questions in this lesson, and state a severity with the reasoning attached. Then identify one finding that you can characterize but not fully diagnose from the outside, and write the two-sentence handoff note requesting a secure code review of the specific component — naming what you observed, what you could not establish, and what the reviewer should look at.
 
 **Deliverable:** one document containing Parts 1, 2, 3, 5, and 6, with the Part 4 packets as attachments. A reviewer must be able to determine, for any finding you report, whether it is proof or suspicion — and must find no data in your evidence beyond the minimum needed to establish the issue.
+
+## Check your understanding
+
+1. An error page shows database syntax after you enter a quote character. Candidate, suspicion, or finding? *Suspicion. A finding needs a repeatable, controlled behavioural difference with a baseline, captured as a request/response pair.*
+2. What is the minimum evidence for a broken-access-control finding? *Two authenticated sessions for different users, a baseline request, and one request in user A's session returning exactly one of user B's records, redacted to a single marker.*
+3. Why will a scanner not find a negative-quantity refund flaw? *It is business logic. The scanner has no model of what the workflow should allow.*

@@ -213,3 +213,9 @@ Write the plan for the next DR test: scenario, level (tabletop, partial, or full
 **Exercise 5 — Answer the questionnaire.**
 
 A customer's security questionnaire asks: "Describe your disaster recovery capability, including RTO, RPO, and the date of your most recent test." Write the answer as you would send it today, given that the environment above has never had a DR test. It must be accurate, must not overstate, must distinguish what is designed from what is proven, and must not invent a test date. Then write, in one sentence, what you would need to do before you could send a materially better answer.
+
+## Check your understanding
+
+1. A database is synchronously replicated across three zones. Does that meet a 15-minute RPO against a bad migration that deletes rows? *(No — replication copies the deletion; only point-in-time recovery or backups recover from it.)*
+2. Detection takes 20 minutes. Does that count against a 60-minute RTO? *(Yes — the RTO clock starts at the failure, not at detection.)*
+3. Your DR budget totals 55 minutes against a 60-minute objective but has never been executed. What can you truthfully claim? *(That the design targets 55 minutes; it is unproven until a test measures it.)*

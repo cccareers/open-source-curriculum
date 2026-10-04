@@ -1,12 +1,13 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import path from 'node:path';
+import { createSampleCourses } from './fixtures/sample-courses.js';
 import { EventEmitter } from 'node:events';
 import { CoursePlayerServer } from '../server.js';
 
-test('Server End-to-End: handles API and lesson requests in-memory', async () => {
-  const sampleDir = path.resolve('sample-courses');
+test('Server End-to-End: handles API and lesson requests in-memory', async (t) => {
+  const sampleDir = createSampleCourses(t);
   const server = new CoursePlayerServer({ dir: sampleDir });
+  t.after(() => server.stop());
 
   // 1. Test GET /api/courses
   const coursesRes = await invokeHandler(server, 'GET', '/api/courses');
@@ -60,9 +61,8 @@ test('Server End-to-End: handles API and lesson requests in-memory', async () =>
   // 5. Test GET /index.html
   const indexRes = await invokeHandler(server, 'GET', '/');
   assert.equal(indexRes.statusCode, 200);
-  assert.ok(indexRes.body.includes('GitBook Player'), 'Serves web UI');
+  assert.ok(indexRes.body.includes('<title>Course Content Player</title>'), 'Serves web UI');
 
-  server.stop();
 });
 
 function invokeHandler(server, method, url, postBody = null) {
