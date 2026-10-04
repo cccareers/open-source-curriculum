@@ -21,18 +21,18 @@ competency_ids:
 ---
 
 ## Scenario
-Before L. Park lets you near the real IR-2026-0031 sample, she wants proof you can handle evidence without breaking it. You get a disposable "WKS-4471 stand-in" container holding synthetic artifacts (an event-log export, a scheduled-task export, a browser download record) and one "suspicious file". The suspicious file is the **EICAR anti-malware test file** — an industry-standard, harmless string that security tools are built to detect as if it were malware. You will acquire, hash, store, transfer, verify, and triage, producing an evidence package that a stranger could rely on.
+Before L. Park lets you near the real IR-2026-0031 sample, she wants proof you can handle evidence without breaking it. You get a disposable "WKS-4471 stand-in" container holding synthetic artifacts (an event-log export, a scheduled-task export, an endpoint download record) and one "suspicious file". The `-X-` evidence IDs identify practice substitutes, separate from real-case E001 memory, E002 disk, E003 packet capture, and E004 proxy logs. The download record models document → script → second-stage executable delivery; the stand-in file is not the real PE sample. The suspicious file is the **EICAR anti-malware test file** — an industry-standard, harmless string that security tools are built to detect as if it were malware. You will acquire, hash, store, transfer, verify, and triage, producing an evidence package that a stranger could rely on.
 
 ## Scope and authorization
 - Run only on a machine you own, inside a container started with `--network none`. Nothing contacts any network.
-- **No real malware is used.** The EICAR file contains no executable payload. Your host antivirus may still quarantine it, which is why it is created *inside* the container's own filesystem and only leaves it inside a password-protected archive (the lesson 07 convention).
+- **No real malware is used.** The EICAR file contains no executable payload. Your host antivirus may still quarantine it, which is why it is created *inside* the container's own filesystem and only leaves it inside an archive: password-protected when the prepared lab image supports it, or the documented `.tgz` deviation below.
 - Do not copy the EICAR file onto shared drives, tickets, or chat, exactly as you would not with a real sample. Reference it by hash.
 
 ## What you will build / produce
 1. `evidence/` — original items (read-only) and `IR-2026-0031-X-E00n` naming.
 2. `evidence_log.csv` — every item with the lesson 05 fields.
 3. `custody.csv` — at least three transfers for one item, including one to a classmate acting as custodian.
-4. `static_triage.md` — hashes, true type vs. extension, strings of interest, indicator records (lesson 04 format) for the sample, and a "not established" section.
+4. `static_triage.md` — hashes, true type vs. extension, strings of interest, indicator records (lesson 04 format) across the synthetic artifacts and sample, and a "not established" section.
 5. A passing run of `check_locker.sh`.
 
 ## Before you start (prerequisites, starter files or data)
@@ -43,13 +43,13 @@ mkdir locker && cd locker
 docker run --rm -it --network none -v "$PWD":/case -w /case alpine:3 sh
 ```
 
-Inside the container, build the stand-in host (in `/host`, which is *not* on your machine's disk):
+Inside the container, build the stand-in host (in `/host`, which is in the container filesystem, outside the host-mounted `/case` volume):
 
 ```sh
 mkdir -p /host/logs /host/tasks /host/Downloads
 printf '2026-03-10T14:02:11Z 4688 WINWORD.EXE -> powershell.exe -nop -w hidden -enc ...\n' > /host/logs/security_export.txt
 printf 'OneDriveSyncMaintenance;trigger=logon;action=%%APPDATA%%\\Microsoft\\OneDriveSync\\sync_helper.exe\n' > /host/tasks/tasks_export.txt
-printf '2026-03-10T14:02:19Z hxxp://cdn-updates-cache[.]example/win/upd.ps1 -> Downloads\\invoice_march.pdf\n' > /host/logs/browser_downloads.txt
+printf '2026-03-10T14:02:19Z powershell.exe retrieved hxxp://cdn-updates-cache[.]example/win/upd.ps1\n2026-03-10T14:02:20Z upd.ps1 retrieved second-stage executable to Downloads\\invoice_march.pdf (EICAR stand-in; not the real PE)\n' > /host/logs/endpoint_downloads.txt
 # EICAR test string written as a fake "PDF" (harmless; detected by AV by design)
 printf '%s' 'X5O!P%@AP[4\PZX54(P^)7CC)7}$EICAR-STANDARD-ANTIVIRUS-TEST-FILE!$H+H*' > /host/Downloads/invoice_march.pdf
 ```
@@ -58,11 +58,11 @@ Tools used: `sha256sum`, `md5sum`, `sha1sum`, `od`, and `grep` (BusyBox has no `
 
 ## Milestones
 1. **Plan first.** Write `plan.md`: items, order, destination (`/case/evidence`), what you will hash and when, and your expected footprint (e.g., reading files updates access times on some filesystems).
-2. **Acquire.** Copy each artifact to `/case/evidence/` with `cp -p`, hash it *immediately* (SHA-256 plus MD5/SHA-1 for the sample), record in `evidence_log.csv`, then `chmod a-w` the originals.
-3. **Package the sample.** Archive `invoice_march.pdf` into `evidence/IR-2026-0031-X-E004.sample.(7z|tgz)`; neuter the name inside notes as `invoice_march.pdf_`. Record the archive's hash and the inner file's hash.
+2. **Acquire.** Copy the three text artifacts to `/case/evidence/` with `cp -p`, hash each *immediately*, record in `evidence_log.csv`, then `chmod a-w` the originals. Keep the loose sample under `/host`; hash it there (SHA-256 plus MD5/SHA-1) before the next step.
+3. **Package the sample.** Archive `invoice_march.pdf` into `evidence/IR-2026-0031-X-E004.sample.(7z|tgz)`; neuter the name inside notes as `invoice_march.pdf_`. Create the archive directly in `/case/evidence/`, record the archive’s SHA-256 in `evidence_log.csv` and the inner file’s three hashes in `static_triage.md`, then `chmod a-w` the archive. Do not first copy the loose sample into `/case`.
 4. **Working copies.** Make `work/` copies, verify hashes match, and analyze only those.
 5. **Static triage.** True type (`file` if present, otherwise first bytes with `head -c 16 | od -c`), size, strings of interest, hashes. Conclude in one line what the file *really* is and why the extension is a lie.
-6. **Custody.** Transfer E002 (the task export) three times: you → classmate custodian → you (analysis) → evidence store. Re-hash on every receipt and record `hash_verified=yes`.
+6. **Custody.** Transfer IR-2026-0031-X-E002 (the practice task export) three times: you → classmate custodian → you (analysis) → evidence store. Re-hash on every receipt and record `hash_verified=yes`.
 7. **Prove integrity breaks.** Change one byte in a *working copy* of E001, re-hash, and write the timeline entry you would write if this happened unexpectedly.
 8. Run the checker; fix every failure.
 
@@ -71,7 +71,7 @@ Tools used: `sha256sum`, `md5sum`, `sha1sum`, `od`, and `grep` (BusyBox has no `
 - [ ] Every original in `evidence/` still matches its logged SHA-256 at the end.
 - [ ] `custody.csv` (`item,utc,released_by,received_by,purpose_location,hash_verified`) is continuous: each `released_by` equals the previous `received_by`, times strictly increase, and every receipt is verified.
 - [ ] No unarchived copy of the sample exists anywhere in `/case`, including `/case/work` (keep analysis copies of the sample under `/host/work`).
-- [ ] `static_triage.md` includes three hashes, the true-type finding, at least four indicator records with confidence and action, and a "not established" section.
+- [ ] `static_triage.md` includes three hashes, the true-type finding, at least four indicator records across the synthetic artifacts and sample with confidence and action; label EICAR findings as lab-only, and a "not established" section.
 - [ ] The one-byte-change timeline entry is present and correctly tagged.
 
 ## Automated checks (coding courses) / Evidence checklist (non-coding)
@@ -95,10 +95,11 @@ grep -q FAIL /tmp/ev.out && fail=1
 if ls -l evidence | grep '^-' | grep -vq '^-r--r--r--'; then bad "some originals are not chmod a-w"; else ok "originals are read-only"; fi
 
 # 3. Custody continuity
-awk -F, 'NR>1{ if(prev_item==$1){ if($3!=prev_rcv) {print "FAIL: gap - "$1" released by "$3" but last received by "prev_rcv; f=1}
-                                if($2<=prev_t){print "FAIL: time not increasing at "$2; f=1} }
+awk -F, 'NR>1{ for(c=1;c<=6;c++) if($c==""){print "FAIL: blank custody field at row "NR; f=1}
+               if(n[$1]){ if($3!=prev_rcv[$1]) {print "FAIL: gap - "$1" released by "$3" but last received by "prev_rcv[$1]; f=1}
+                          if($2<=prev_t[$1]){print "FAIL: time not increasing at "$2; f=1} }
                if($6!="yes"){print "FAIL: receipt not hash-verified at "$2; f=1}
-               prev_item=$1; prev_rcv=$4; prev_t=$2; n[$1]++ }
+               prev_rcv[$1]=$4; prev_t[$1]=$2; n[$1]++ }
      END{ for(i in n) if(n[i]>=3) t=1; if(!t){print "FAIL: no item has >= 3 transfers"; f=1}
           if(!f) print "PASS: custody chain continuous and verified"; exit f }' custody.csv || fail=1
 

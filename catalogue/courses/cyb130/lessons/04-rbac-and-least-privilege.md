@@ -39,7 +39,7 @@ The mature answer in most organizations is RBAC for the coarse shape of a job, p
 
 Four objects and the relationships between them:
 
-- **Permissions** are the atoms: read this share, approve a purchase order under $10,000, restart a service, reset another user's credential, add a member to a group. Permissions are always specific verbs on specific object types. There is no "admin" permission — only bundles that happen to contain everything.
+- **Permissions** are the atoms: read this share, approve a purchase order under USD 10,000 in a US company, restart a service, reset another user's credential, add a member to a group. Permissions are always specific verbs on specific object types. There is no "admin" permission — only bundles that happen to contain everything.
 - **Roles** are named bundles of permissions that correspond to something a person actually does: `ap-clerk`, `warehouse-supervisor`, `helpdesk-tier1`.
 - **Assignments** connect identities to roles.
 - **Constraints** limit assignments: mutual exclusion (nobody may hold both `vendor-maintainer` and `payment-approver`), cardinality (at most two people hold `domain-admin`), and prerequisites (you may hold `payment-approver` only if you hold `ap-clerk`).
@@ -74,7 +74,7 @@ The method is boring and it works. Five steps.
 
 ### Worked example: Cedar Point Distribution
 
-A 90-person distributor. Systems: a file server, an ERP, a warehouse management system, email, and a small server estate.
+A US distributor with 90 employees; its payment limits are in US dollars (USD). The selected job roles below cover 66 employees; the other 24 hold roles outside this extract. The integration account is additional to the employee count. Systems: a file server, an ERP, a warehouse management system, email, and a small server estate.
 
 | Role | Holders | Key permissions | Explicit exclusion |
 | --- | --- | --- | --- |
@@ -103,7 +103,7 @@ Some permissions are qualitatively different from the rest: those that grant per
 
 Four practices you should be able to recommend:
 
-**Named administrative accounts, separate from daily accounts.** Maya browses the web and reads email as `mokonkwo`; she administers servers as `mokonkwo-adm`. The administrative account has no mailbox, no internet browsing, and its own stronger MFA. This means the routine risks of daily computing do not sit on the privileged credential, and the audit log distinguishes ordinary work from privileged work.
+**Named administrative accounts, separate from daily accounts.** T. Okafor browses the web and reads email as `tokafor`; the systems administrator administers servers as `tokafor-adm`. The administrative account has no mailbox, no internet browsing, and its own stronger MFA. This means the routine risks of daily computing do not sit on the privileged credential, and the audit log distinguishes ordinary work from privileged work.
 
 **Administrative tiering.** Do not let a credential that administers workstations also administer the directory. Define tiers — directory and identity infrastructure at the top, servers and applications in the middle, workstations at the bottom — and forbid credentials from one tier being used to log into a lower tier, because a credential used on a machine can be recovered from that machine. This one rule prevents a large fraction of the escalation paths in a real environment.
 
@@ -153,9 +153,10 @@ The cure for both is the same: roles describe *jobs*, and genuinely person-speci
 
 ## Practice
 
-**Part 1 — Model an organization.** Ashford Community Housing has 140 staff:
+**Part 1 — Model an organization.** Ashford Community Housing is a UK organization with 110 staff and 30 volunteers, plus five non-human accounts. Its monetary limits are in pounds sterling (GBP):
 
 - 6 finance staff: 3 process invoices, 1 approves payments, 1 maintains supplier records, 1 is the finance manager
+- 5 procurement staff, including Maya Okonkwo as Procurement Manager; they manage suppliers and purchasing, with payment approval kept separate
 - 55 housing officers who read and update tenant records for their own patch and raise repair jobs
 - 12 team leaders who supervise housing officers, approve repair jobs over £2,000, and reassign cases
 - 20 maintenance technicians who use a mobile app to see assigned jobs and record completion, and who share four depot workstations

@@ -18,7 +18,7 @@ On-page optimization has a reputation for being fussy busywork — tweak a title
 
 The first half is **making the page's subject unmistakable to a machine**. A search engine arrives with no context. It cannot see your roadmap or the meeting where you decided this page was the definitive answer to "payroll tax deadlines." It has the URL, the `title` element, the headings, the body text, the links pointing in, and the markup. From those signals it decides what the page is about and which queries it could plausibly satisfy. Your job is to remove every reasonable alternative interpretation. If a smart person outside your company can read only your title, H1, and first paragraph and tell you exactly which question the page answers and for whom, a machine has a good chance too.
 
-The second half is **making the result worth clicking**. Ranking is not the goal; a session is. A page that ranks fourth with a compelling title and description will outperform a page that ranks third with a title that says "Blog | Meridian Payroll." Meridian's Search Console shows 1,240,000 impressions and 41,300 clicks over the last three months — a 3.3% average click-through rate at an average position of 18.4. Impressions are already being earned. A meaningful share of the opportunity sits in the gap between "we were shown" and "we were chosen," and that gap is on-page work.
+The second half is **making the result worth clicking**. Ranking is not the goal; a session is. A page that ranks fourth with a compelling title and description will outperform a page that ranks third with a title that says "Blog | Meridian Payroll." Meridian's Search Console shows 1,240,000 impressions and 41,300 clicks over the last three months — a 3.3% average click-through rate at an average position of 18.4. Impressions are already being earned. A meaningful share of the opportunity sits in the gap between "we were shown" and "we were chosen," and that gap is on-page work. The shared Performance baseline covers Jan–Mar 2026; later diagnostic exports name their own scope.
 
 When the two halves conflict, know which one you are trading away. A title crammed with every variant of a phrase is marginally more legible to a machine and distinctly less clickable to a human. That trade is almost always bad.
 
@@ -140,7 +140,7 @@ A good meta description does three jobs at once: it **matches the promise of the
 
 | URL | Before (chars) | After (chars) | Why |
 |---|---|---|---|
-| `/` | Meridian Payroll is payroll software for small business. Sign up today for the best payroll experience on the market. Trusted by thousands of businesses. (153) | Payroll software built for teams of 2 to 50. Run payroll in about four minutes, file federal and state taxes automatically, and pay $29/month plus $6 each. (154) | Replaces unverifiable superlatives with three checkable facts. Price pre-qualifies the click, raising conversion even if it lowers raw CTR. |
+| `/` | Meridian Payroll is payroll software for small business. Sign up today for the best payroll experience on the market. Trusted by thousands of businesses. (153) | Payroll software built for teams of 2 to 50. Run payroll in about four minutes, file federal and state taxes automatically, and pay $29/month plus $6 each. (155) | Replaces unverifiable superlatives with three checkable facts. Price pre-qualifies the click, raising conversion even if it lowers raw CTR. |
 | `/pricing` | (missing — Google generated one from the plan table) | See Meridian's payroll pricing: three plans from $29/month plus $6 per employee. No setup fee, no annual contract, and tax filing included on every plan. (153) | Answers the three objections that stop a pricing-page click: how much, setup fee, am I locked in. |
 | `/product/direct-deposit` | Direct deposit from Meridian Payroll. Fast, secure, reliable direct deposit for your employees. (95) | Run direct deposit in two business days at no extra cost. See how setup works, when funds leave your account, and what happens when a deposit is returned. (154) | "Fast, secure, reliable" is three adjectives and zero information. "Two business days" and "no extra cost" are the comparison points buyers use. |
 | `/blog/payroll-tax-deadlines` | Learn about payroll tax deadlines in this helpful blog post from the Meridian Payroll team, covering everything small business owners need to know. (147) | Every 2026 federal payroll tax due date in one table: Form 941, Form 940, W-2 filing, and the monthly and semi-weekly deposit schedules, plus late penalties. (157) | Names the specific forms and the format. A searcher checking a deadline wants a table, and now they know there is one. |
@@ -205,13 +205,15 @@ Two formats consistently do more work than prose:
 **Compact tables.** Three to six columns, plain values, a real header row. A table beats a paragraph any time the information is a grid.
 
 ```markdown
-| Form | Covers | 2026 due date | Late penalty starts at |
+| Form | Covers | Standard 2026 filing date | Filing penalty |
 |---|---|---|---|
-| 941 (Q1) | Jan-Mar | April 30 | 2% of the deposit |
-| 941 (Q2) | Apr-Jun | July 31 | 2% of the deposit |
-| 940 | Full year 2025 | February 2 | 2% of the deposit |
-| W-2 to SSA | Full year 2025 | February 2 | $60 per form |
+| 941 (Q1) | Jan-Mar 2026 | April 30 | Separate failure-to-file rules |
+| 941 (Q2) | Apr-Jun 2026 | July 31 | Separate failure-to-file rules |
+| 940 | Full year 2025 | February 2 | Separate failure-to-file rules |
+| W-2 to SSA | Full year 2025 | February 2 | $60 per form if corrected within 30 days |
 ```
+
+These are filing dates, not deposit due dates. [IRS Publication 509 (2026)](https://www.irs.gov/pub/irs-pdf/p509.pdf) also lists November 2 for Q3 Form 941 and allows extra filing time for qualifying timely deposits. The [failure-to-deposit penalty](https://www.irs.gov/payments/failure-to-deposit-penalty) starts at 2% for a deposit 1–5 days late; it does not describe a late return. The [$60 information-return tier](https://www.irs.gov/payments/information-return-penalties) applies to returns due in 2026 corrected within 30 days; later corrections cost more.
 
 ### Original data and first-hand experience are the differentiator
 
@@ -370,7 +372,7 @@ Article, on the same post:
   "headline": "2026 payroll tax deadlines for small businesses",
   "description": "Every 2026 federal payroll tax due date in one table, with deposit schedules and late penalties.",
   "image": ["https://meridianpayroll.com/img/2026-payroll-tax-calendar.png"],
-  "datePublished": "2026-01-06T09:00:00-05:00",
+  "datePublished": "2026-01-06T09:14:00Z",
   "dateModified": "2026-07-14T11:30:00-04:00",
   "author": {
     "@type": "Person",
@@ -420,6 +422,8 @@ After deployment, watch the **Enhancements** section in Search Console. It repor
 
 ### Before
 
+This teardown uses Apr–Jun 2026 page-wide performance, not lesson 02's early query-specific gate trace.
+
 | Signal | Value |
 |---|---|
 | `title` | Blog \| Payroll Tax Deadlines You Need to Know About in 2026 \| Meridian Payroll (78 chars, truncated) |
@@ -457,7 +461,7 @@ The impression count says Google already understands the subject and shows the p
 
 ### Expected effect, honestly
 
-The title and description changes affect click-through and can show up within days of recrawl, because CTR responds as soon as the new snippet is served. A move from 2.1% to somewhere in the 3–4% range at the same position is a reasonable hope, not a promise; at 61,400 impressions that is roughly 600–1,200 additional clicks per quarter.
+The title and description changes affect click-through and can show up within days of recrawl, because CTR responds as soon as the new snippet is served. A move from 2.1% to somewhere in the 3–4% range at the same position is a reasonable hope, not a promise; at 61,400 impressions that is roughly 550–1,170 additional clicks per quarter.
 
 The content changes — table, outline, original data — affect relevance, and relevance moves slowly and unevenly. Expect nothing definitive for four to eight weeks, expect the position number to bounce, and expect the honest answer to be "we do not know yet" for at least a month. The structured data will not move position at all; if a breadcrumb trail starts showing in the result, that is the whole of its contribution.
 

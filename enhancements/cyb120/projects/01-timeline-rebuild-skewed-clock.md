@@ -80,11 +80,11 @@ Mail team confirms a search for the attachment Q1_reconciliation.docm before 202
 ```
 
 ## Milestones
-1. **Read everything first.** List every source, its time basis, and the conversion it needs, in `conversions.md`. Note that the US switched to daylight time on 2026-03-08, so on 2026-03-10 America/Chicago is UTC−5, not UTC−6.
+1. **Read everything first.** List every source, its time basis, and the conversion it needs, in `conversions.md`. For these fixtures, America/Chicago on 2026-03-10 is UTC−5, not UTC−6; verify the offset with Python’s `zoneinfo.ZoneInfo("America/Chicago")` before converting.
 2. **Normalize.** Convert every timestamp to `YYYY-MM-DDTHH:MM:SSZ`. Subtract 180 s from WKS-2210 EDR times; add 5 h to proxy times.
 3. **Write the timeline** with columns `utc_time,tag,source,source_ref,statement,analyst,confidence`. Tags: `OBS`, `INF`, `ACT`, `COM`. One observation per line. `confidence` is required for `INF` rows (HIGH/MEDIUM/LOW) and empty otherwise.
 4. **Add negatives.** At least two `OBS` rows whose statement starts with `NEGATIVE:` (e.g., the server-subnet search).
-5. **Infer, labelled.** Add at least three `INF` rows: which host was first; how WKS-4471 was infected; whether the 118 MB POST is exfiltration (note what is *not* established — the archive contents).
+5. **Infer, labelled.** Add at least three `INF` rows: which host was first; how WKS-4471 was infected; whether the 118 MiB POST (123,731,968 bytes) is exfiltration (note what is *not* established — the archive contents).
 6. **Answer S. Vance** in 150 words.
 7. Run the checker and fix every failure.
 
@@ -132,7 +132,7 @@ anchors = {
     ("2026-03-10T13:51:19Z", "8871101"): "WKS-2210 proxy GET converted from CDT (UTC-5)",
     ("2026-03-10T13:58:41Z", "50240"): "WKS-2210 task creation with skew applied",
     ("2026-03-10T14:01:55Z", "MG-77188"): "internal forward to j.ruiz",
-    ("2026-03-10T14:31:40Z", "8871990"): "118 MB POST converted from CDT",
+    ("2026-03-10T14:31:40Z", "8871990"): "118 MiB POST converted from CDT",
 }
 for (t, ref), why in anchors.items():
     if not has(t, ref): fails.append(f"missing or mis-timed anchor: {why} (expected {t}, ref {ref})")
@@ -143,7 +143,7 @@ print(f"{len(rows)} rows checked, {len(fails)} problems")
 sys.exit(1 if fails else 0)
 ```
 
-Expected output for a passing timeline: `17 rows checked, 0 problems` (row count varies). Common failing output when the DST change is missed: `FAIL missing or mis-timed anchor: WKS-2210 proxy GET converted from CDT (UTC-5) (expected 2026-03-10T13:51:19Z, ref 8871101)`.
+Expected output for a passing timeline: `18 rows checked, 0 problems` (row count varies). Common failing output when the DST change is missed: `FAIL missing or mis-timed anchor: WKS-2210 proxy GET converted from CDT (UTC-5) (expected 2026-03-10T13:51:19Z, ref 8871101)`.
 
 ## Rubric
 | Criterion | Developing | Meets | Exceeds |
@@ -164,5 +164,5 @@ Expected output for a passing timeline: `17 rows checked, 0 problems` (row count
 
 ## Instructor notes (common pitfalls, how to adapt for time)
 - The two traps are deliberate: the 3-minute host skew (sign errors are common — the host is *ahead*, so subtract) and DST (UTC−5 on 2026-03-10, not −6).
-- Canonical chronology: intrusion and 118 MB upload on 2026-03-10; detection at 09:14Z and declaration at 09:41Z on 2026-03-11; isolation executed 10:18Z and confirmed 10:19Z; WKS-4471 memory captured 14:31Z and disk imaged 15:04–15:52Z that day. This project reconstructs attacker activity before containment.
+- Canonical chronology: intrusion and 118 MiB upload on 2026-03-10; detection at 09:14Z and declaration at 09:41Z on 2026-03-11; isolation authorized 10:16Z, executed 10:18Z and confirmed 10:19Z; WKS-4471 memory captured 14:31Z and disk imaged 15:04–15:52Z that day. This project reconstructs attacker activity before containment.
 - 2-hour version: give learners `conversions.md` pre-filled and have them build and check the timeline only.

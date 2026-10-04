@@ -100,7 +100,7 @@ That distribution is the whole strategy in five lines. PayCadence's center of gr
 
 **Brand strength and branded search share.** Look at how much of a competitor's visible organic footprint is its own brand name. You can approximate this for free: search the brand, see how many of the top ten results the brand itself owns, and check whether "brand + review", "brand + pricing", "brand + alternatives" appear in autocomplete. A competitor whose brand fills eight of its own top ten and generates a full set of modifier suggestions has demand you cannot copy quickly.
 
-For your own site, Search Console makes this measurable rather than estimated: filter the Performance report to `Query contains` your brand name and compare those clicks to the total. Meridian's brand filter returns 6,900 of 41,300 clicks — about 17% branded, which is low and consistent with a company whose organic footprint is built on free templates rather than on people looking for Meridian specifically. Low branded share is a weakness, but it also means the "PayCadence alternatives" style of query is a genuine opening: you compete for a competitor's brand demand by having the better comparison page, which is a legitimate and widely used tactic.
+For your own site, Search Console makes this measurable rather than estimated: filter the Performance report to `Query contains` your brand name and compare those clicks to the total. Meridian's brand filter returns 6,900 of 41,300 clicks — about 17% branded, which is low and consistent with a company whose organic footprint is built on free templates rather than on people looking for Meridian specifically. Low branded share is a weakness, but it also means the "PayCadence alternatives" style of query is a genuine opening: you compete for a competitor's brand demand by having the better comparison page, which is a legitimate and widely used tactic. The shared Performance baseline covers Jan–Mar 2026; later diagnostic exports name their own scope.
 
 **What a paid competitive suite adds.** If your employer licenses one, a competitive analysis suite will give you a competitor's estimated ranking keyword set, an automatic keyword-gap report between two or more domains, an estimated organic traffic figure per domain and per page, and a referring-domain list with vendor strength scores. The genuine saving is coverage and speed: an estimated ranking-keyword export takes seconds and would take you days by hand. What it does not do is tell you *why* a page wins, which is the part that decides your plan. Every suite output should be treated as a candidate list you then verify by opening the SERP and the page.
 
@@ -116,7 +116,7 @@ Put the profile in one table so it can be argued with. Meridian against its thre
 | SERP appearances (12 clusters) | 7 | 26 | 17 | 9 |
 | Top-3 appearances | 1 | 11 | 5 | 2 |
 | Strongest section | `/templates/` | `/compare/` and `/blog/` | `/blog/` | `/product/` |
-| Comparison pages | 2 | 34 | 11 | 0 |
+| Comparison pages | 6 | 34 | 11 | 0 |
 | Help center indexed | partial | full | full | none |
 | Blog cadence (last 6 mo) | 3/mo | 11/mo | 6/mo | 1/mo |
 | Original data or tools | none | salary calculator, annual report | pay-schedule tool | none |
@@ -170,7 +170,7 @@ A "content gap" is not one thing. Naming the type tells you what to build and ho
 
 **Detection.** Tag every cluster in your map by funnel stage, then count your existing pages per stage. Do the same for the competitor.
 
-**Worked example.** Meridian has 41 informational blog posts and templates, 6 product pages, and 2 comparison pages. PayCadence has 34 comparison pages. Meridian is well covered at the top of the funnel and nearly absent at the comparison stage, which is exactly where buying decisions are made. That is a funnel-coverage gap, and it is the single most expensive gap on this list to leave open.
+**Worked example.** Meridian's whole-site inventory has about 310 blog posts, 46 template landing pages, and 6 comparison pages. In this acquisition-focused sample, 41 informational posts and templates and 6 product pages are relevant; those 41 are a subset, not the whole blog. PayCadence has 34 comparison pages. Meridian is well covered at the top of the funnel and nearly absent at the comparison stage, which is exactly where buying decisions are made. That is a funnel-coverage gap, and it is the single most expensive gap on this list to leave open.
 
 ## The no-paid-tool path
 

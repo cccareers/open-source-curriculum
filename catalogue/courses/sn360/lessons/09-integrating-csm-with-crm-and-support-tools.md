@@ -148,13 +148,15 @@ The requirement: the CRM owns accounts and contacts; ServiceNow owns cases; the 
 
 **Outbound, case summary.** A flow triggered on case creation and on case closure calls an Integration Hub action to write a summary object to the CRM's activity timeline. The flow stores the CRM activity id back on the case's `correlation_id`, so updates address the existing record rather than creating a second one.
 
+For the Rivergate case from lesson 2, use Rivergate's account id `CRM-ACCT-88124` and Sunil Rao's contact id `CRM-CON-40926`. Dana Whitfield is the parent-account coordinator, with contact id `CRM-CON-40921` on `CRM-ACCT-88123`; her visibility of the case does not change its account or reporting contact. This payload is the closure update, after the resolved case has closed.
+
 ```json
 {
   "external_case_id": "CS0012345",
-  "account_external_id": "CRM-ACCT-88123",
-  "contact_external_id": "CRM-CON-40921",
+  "account_external_id": "CRM-ACCT-88124",
+  "contact_external_id": "CRM-CON-40926",
   "subject": "Controller alarms overnight at Rivergate",
-  "status": "resolved",
+  "status": "closed",
   "opened_at": "2026-03-11T22:14:07Z",
   "closed_at": "2026-03-13T09:02:44Z",
   "entitlement": "Gold",

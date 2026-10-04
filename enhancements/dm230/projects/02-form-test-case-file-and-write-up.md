@@ -21,7 +21,9 @@ competency_ids:
 
 ## Scenario
 
-Northgate Heating and Air ran the landing page test from lesson 10: the current seven-field "Book a Visit" form (A) against a three-field form asking only name, phone, and ZIP (B), pooled across all non-brand traffic for eight full weeks, randomized at the user level with the campaign experiment tool. The test record said: primary metric = conversion rate (form submits plus calls over 60 seconds) per session; MDE = 50% relative; planned sample about 650 sessions per variant; read once at the end.
+In this separate simulated case, Northgate Heating and Air used the pooled landing-page test design from lesson 10: the current seven-field "Book a Visit" form (A) against a three-field form asking only name, phone, and ZIP (B), pooled across all non-brand traffic for eight full weeks, randomized at the user level with the campaign experiment tool. The test record said: primary metric = conversion rate (form submits plus calls over 60 seconds) per session; MDE = 50% relative; planned sample about 650 sessions per variant; read once at the end.
+
+For this simplified case only, treat every resulting conversion as a repair-type service lead worth $108; the export does not reproduce the baseline campaign mix or count direct maintenance-plan sales. A real mixed repair/replacement test would need lead type and its value before comparing contribution.
 
 The owner has already seen the platform dashboard, which shows B at 16.1% against A at 11.1%, and he wants to roll B out and tell his brother-in-law, who runs a plumbing company, that "short forms add 45%." Two weeks into the test, the office manager also asked to stop it early because B was "obviously winning." You have the full export and the CRM lead log. Your job is to write the test up honestly.
 

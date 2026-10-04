@@ -89,8 +89,9 @@ SEV1  Confirmed compromise affecting production systems or regulated data;
       or active, spreading destructive activity (e.g. ransomware encrypting
       shares). Immediate 24/7 response. Executive and legal notified at once.
 
-SEV2  Confirmed compromise of a single host or account with no evidence of
-      spread or data access; or a control failure exposing sensitive data.
+SEV2  When no SEV1 criterion is met: confirmed compromise limited to
+      workstations or accounts, with no evidence yet of server compromise
+      or data access; or a control failure exposing sensitive data.
       Immediate response during any hours. Management notified within 1 hour.
 
 SEV3  Suspicious activity requiring investigation, contained by existing
@@ -184,7 +185,7 @@ The last question is the only one that produces value. A review that generates i
 
 An abstract lifecycle is hard to hold. Here is one small case, phase by phase, with the decision at each handoff called out.
 
-This simplified walkthrough is a separate incident from IR-2026-0031; its times are local office time on an unspecified Tuesday.
+This simplified walkthrough is a separate incident from IR-2026-0031; its times are local office time on Tuesday 17 March 2026 in America/Chicago (UTC−5).
 
 **The signal.** At 09:14 on a Tuesday, the help desk logs a ticket: a finance clerk reports that a spreadsheet she opened from an email "did nothing," and that her machine has been slow since.
 
@@ -221,7 +222,7 @@ Read that case again and notice how little of it is tool operation. What carried
 7. Searching every host for a file hash you have just recovered from one host.
 8. Writing down the phone number of the cyber insurance carrier.
 
-**Exercise 2 — Write the declaration.** Using the finance-clerk case above, write the incident declaration exactly as you would enter it in a case record. It must contain: timestamp in UTC, incident type, proposed severity with a one-sentence justification tied to impact, the two corroborating observations, current known scope, and the name of the person declaring. Keep it under 150 words. Then write a second version of the same declaration at the moment *before* the second host was found, and note in one sentence what changed about the severity and why.
+**Exercise 2 — Write the declaration.** Using the finance-clerk case above, write the incident declaration exactly as you would enter it in a case record. It must contain: timestamp in UTC (add five hours to this walkthrough’s local times), incident type, proposed severity with a one-sentence justification tied to impact, the two corroborating observations, current known scope, and the name of the person declaring. Keep it under 150 words. Then write a second version of the same declaration at the moment *before* the second host was found, and state in one sentence whether the severity changed and why.
 
 **Exercise 3 — Name the trade.** For each containment option below, write the three-part trade: what it stops, what it costs the business, and what evidence it risks destroying. Then choose one and write the full containment decision block in the format shown in this lesson.
 

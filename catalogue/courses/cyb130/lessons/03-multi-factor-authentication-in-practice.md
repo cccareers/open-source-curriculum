@@ -145,7 +145,7 @@ Reasonable controls, in rough order of effort:
 
 ## Practice
 
-**Part 1 — Allocate methods for a described organization.** Meridian Regional Clinic has 310 staff:
+**Part 1 — Allocate methods for a described organization.** Meridian Regional Clinic has 252 staff, 40 visiting specialists, and 18 non-human accounts — 310 identities in total:
 
 - 6 IT staff and 2 clinical-systems administrators, all with company laptops
 - 24 back-office staff (billing, scheduling, HR) at desks with company laptops

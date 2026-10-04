@@ -19,7 +19,7 @@ You have a finished draft. Someone researched the keyword, someone wrote the pie
 
 This lesson is about that step and only that step. Planning what to write, editorial calendars, and the craft of writing belong to dm270. How to compose a title tag or a heading structure belongs to lesson 06; here you learn where those values live in a CMS and how what you type in a field becomes what ships in the HTML.
 
-The running example is **Meridian Payroll** (meridianpayroll.com), a small-business payroll software company with about 640 indexable URLs across `/`, `/pricing`, `/product/`, `/compare/`, `/help/`, `/blog/` (roughly 310 posts) and `/templates/`. Search Console shows 41,300 clicks and 1,240,000 impressions over the last three months at 3.3% CTR and average position 18.4. You are publishing `/blog/payroll-tax-deadlines-2026` and then adapting it for four other channels.
+The running example is **Meridian Payroll** (meridianpayroll.com), a small-business payroll software company with about 640 indexable URLs across `/`, `/pricing`, `/product/`, `/compare/`, `/help/`, `/blog/` (roughly 310 posts) and `/templates/`. Search Console shows 41,300 clicks and 1,240,000 impressions over the last three months at 3.3% CTR and average position 18.4. You are publishing `/blog/payroll-tax-deadlines` and then adapting it for four other channels. The shared Performance baseline covers Jan–Mar 2026; later diagnostic exports name their own scope.
 
 ## The CMS Mental Model That Transfers
 
@@ -65,9 +65,9 @@ Worse, some themes wire these fields the other way round, printing the SEO title
 
 ### 2. The slug and permalink structure
 
-The **slug** is the last segment of the URL — `payroll-tax-deadlines-2026`. The **permalink structure** is the site-wide pattern that decides what comes before it: `/blog/{slug}`, `/{year}/{month}/{slug}`, `/?p=1841`.
+The **slug** is the last segment of the URL — `payroll-tax-deadlines`. The **permalink structure** is the site-wide pattern that decides what comes before it: `/blog/{slug}`, `/{year}/{month}/{slug}`, `/?p=1841`.
 
-Slug rules: lowercase, hyphens between words, no unnecessary stop words, no dates unless the content is genuinely time-stamped, short enough to read in a snippet. `payroll-tax-deadlines-2026` is good; `everything-small-businesses-need-to-know-about-payroll-tax-deadlines-in-2026` is not.
+Slug rules: lowercase, hyphens between words, no unnecessary stop words, no dates unless the content is genuinely time-stamped, short enough to read in a snippet. `payroll-tax-deadlines` is good; `everything-small-businesses-need-to-know-about-payroll-tax-deadlines-in-2026` is not.
 
 Permalink structure is a one-time architectural decision, and changing it rewrites every URL on the site — every old URL then needs a one-hop 301. Date-based structures are the usual regret: `/2026/01/payroll-tax-deadlines` visibly ages the piece and makes an evergreen refresh awkward.
 
@@ -187,18 +187,18 @@ Two practical notes. Platforms cache the card aggressively, so a fixed image may
 | 21 | Confirm the URL appears in the XML sitemap | Discovery; also confirms it is treated as indexable |
 | 22 | Share the social preview once and check the card renders | Catches a missing or badly cropped `og:image` |
 
-## Worked Publication: `/blog/payroll-tax-deadlines-2026`
+## Worked Publication: `/blog/payroll-tax-deadlines`
 
-The draft is written and approved. Here is every field, with the exact value entered.
+This is the initial 6 January 2026 publication, before lesson 06's July optimization. The original article describes the dates in prose and offers a downloadable calendar; its on-page tables and stronger search copy come later. This example demonstrates correct field mapping, not optimized copy: the generic title and description are the weaknesses diagnosed in lesson 06. Here is every field, with the exact value entered.
 
 | Field | Value entered |
 | --- | --- |
 | Content type | Blog post |
-| Post title (drives H1) | Payroll Tax Deadlines for 2026: Every Date Small Businesses Need |
-| Slug | `payroll-tax-deadlines-2026` |
+| Post title (drives H1) | Payroll Tax Deadlines |
+| Slug | `payroll-tax-deadlines` |
 | Permalink structure (site setting) | `/blog/{slug}` |
-| SEO title | Payroll Tax Deadlines 2026: Full Small Business Calendar |
-| Meta description | Every 2026 federal payroll tax deposit and filing deadline in one calendar, plus what happens if you miss one. Free printable version included. |
+| SEO title | Blog \| Payroll Tax Deadlines You Need to Know About in 2026 \| Meridian Payroll |
+| Meta description | Learn about federal payroll tax deadlines for small businesses in 2026, why timely payments matter and how to prepare for filing and deposit dates. |
 | Excerpt | A month-by-month calendar of 2026 federal payroll tax deadlines for small employers. |
 | Canonical override | (blank — self-canonical) |
 | Robots toggle | Indexable |
@@ -209,8 +209,8 @@ The draft is written and approved. Here is every field, with the exact value ent
 | Open Graph title | The 2026 Payroll Tax Calendar Every Small Employer Needs |
 | Open Graph description | Deposit dates, filing dates, and the penalty schedule if you miss one. |
 | Open Graph image | Same as featured image |
-| Author | Dana Okafor, Payroll Compliance Lead |
-| Publish date | 2026-01-06 09:00 |
+| Author | Dana Whitfield, Payroll Compliance Lead |
+| Publish date | 2026-01-06 09:14 UTC |
 
 The rendered `head` on the published URL, with the mapping visible:
 
@@ -218,14 +218,14 @@ The rendered `head` on the published URL, with the mapping visible:
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Payroll Tax Deadlines 2026: Full Small Business Calendar</title>
-  <meta name="description" content="Every 2026 federal payroll tax deposit and filing deadline in one calendar, plus what happens if you miss one. Free printable version included.">
-  <link rel="canonical" href="https://meridianpayroll.com/blog/payroll-tax-deadlines-2026">
+  <title>Blog | Payroll Tax Deadlines You Need to Know About in 2026 | Meridian Payroll</title>
+  <meta name="description" content="Learn about federal payroll tax deadlines for small businesses in 2026, why timely payments matter and how to prepare for filing and deposit dates.">
+  <link rel="canonical" href="https://meridianpayroll.com/blog/payroll-tax-deadlines">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta property="og:type" content="article">
   <meta property="og:title" content="The 2026 Payroll Tax Calendar Every Small Employer Needs">
   <meta property="og:description" content="Deposit dates, filing dates, and the penalty schedule if you miss one.">
-  <meta property="og:url" content="https://meridianpayroll.com/blog/payroll-tax-deadlines-2026">
+  <meta property="og:url" content="https://meridianpayroll.com/blog/payroll-tax-deadlines">
   <meta property="og:image" content="https://meridianpayroll.com/img/payroll-tax-calendar-2026.jpg">
   <meta name="twitter:card" content="summary_large_image">
 </head>
@@ -286,12 +286,12 @@ Rule: never post the same words twice. Same facts, native format.
 
 ```markdown
 Subject: The 2026 payroll deadline you are most likely to miss
-Preview text: January 31 is closer than it looks.
+Preview text: February 2 is closer than it looks.
 
 Hi Priya,
 
 Most small employers get the quarterly deadlines right and then miss
-January 31 — the day W-2s go to employees, Form 940 is due, and Q4's
+February 2 — the day W-2s go to employees, Form 940 is due, and Q4's
 Form 941 lands. Three obligations, one date.
 
 We put every 2026 federal payroll deadline into one calendar, month by
@@ -303,7 +303,7 @@ week to assemble and it will take you four minutes to read.
 If you would rather have it on the wall, the printable version is at the
 bottom of the post.
 
-— Dana Okafor, Payroll Compliance Lead, Meridian
+— Dana Whitfield, Payroll Compliance Lead, Meridian
 ```
 
 One hook instead of twelve months of dates, a named reason to care, a single call to action, and a length that survives a phone screen.
@@ -311,16 +311,20 @@ One hook instead of twelve months of dates, a named reason to care, a single cal
 ### The LinkedIn post
 
 ```markdown
-January 31, 2026 is three deadlines wearing one hat.
+February 2, 2026 is three deadlines wearing one hat.
+January 31 falls on a Saturday, so the standard filing dates roll forward.
 
 W-2s to employees. Form 940 for the year. Form 941 for Q4.
 
-Every small employer I talk to has the quarterly rhythm down. January is
+Every small employer I talk to has the quarterly rhythm down. Year-end is
 where it breaks, because three obligations land on the same square of the
 calendar and the Q4 one feels like it belongs to last year.
 
-The penalty for a late 941 deposit starts at 2% and reaches 15% once it
-passes ten days after a notice. On a $40,000 quarterly deposit, $800
+Late-deposit penalties start at 2%. The 15% tier applies if an amount remains
+unpaid more than 10 calendar days after the first notice requesting payment,
+or on receipt of an immediate-payment demand, whichever occurs first.
+Filing penalties are separate.
+On a $40,000 late deposit, $800
 becomes $6,000.
 
 We mapped all twelve months of 2026 federal payroll deadlines into one
@@ -335,7 +339,7 @@ Short lines for the mobile feed, one concrete number with the arithmetic done, t
 
 ```txt
 0:00-0:04  HOOK (on camera, no intro)
-           "January 31st is three payroll deadlines, not one.
+           "February 2nd is three payroll filing deadlines, not one.
             Most small employers only remember two."
 
 0:04-0:12  PROBLEM (b-roll: calendar with the date circled)
@@ -344,7 +348,7 @@ Short lines for the mobile feed, one concrete number with the arithmetic done, t
 
 0:12-0:24  STAKES (on-screen text: 2% → 15%)
            "Late deposit penalties start at 2 percent and climb
-            to 15 once you pass ten days after a notice.
+            to 15 at the IRS notice threshold. Filing penalties are separate.
             On a forty-thousand-dollar deposit that's eight hundred
             dollars turning into six thousand."
 
@@ -353,7 +357,7 @@ Short lines for the mobile feed, one concrete number with the arithmetic done, t
             federal payroll deadlines. Free, no email required."
 
 0:35-0:42  CTA
-           "Link's in the caption. Save this before January."
+           "Link's in the caption. Save this before February."
 
 CAPTION: Three deadlines, one date. The full 2026 payroll calendar → [link]
 ```
@@ -365,26 +369,29 @@ A single slide or PDF for the sales team and for partner accountants:
 ```markdown
 2026 FEDERAL PAYROLL DEADLINES — AT A GLANCE
 
-The four you cannot miss
-  Jan 31 — W-2s to employees, Form 940, Q4 Form 941
+Standard filing dates in 2026
+  Feb 2 — 2025 W-2s to employees and SSA, 2025 Form 940, Q4 2025 Form 941
   Apr 30 — Q1 Form 941
   Jul 31 — Q2 Form 941
-  Oct 31 — Q3 Form 941
+  Nov 2 — Q3 Form 941
 
 Deposit schedules
-  Monthly depositors: the 15th of the following month.
+  Monthly depositors: normally the 15th of the following month.
+  Weekend/holiday rollovers and the $100,000 next-day rule also apply.
   Semi-weekly depositors: Wednesday or Friday, depending on payday.
 
-What a miss costs
+What a late deposit costs (separate from late filing)
   1–5 days late 2% · 6–15 days 5% · over 15 days 10%
-  · more than 10 days after a notice 15%
+  · 15% after the IRS notice threshold (see source below)
 
 How Meridian helps
   Automatic deposit scheduling, filing reminders 10 days out, and a
   compliance dashboard showing every upcoming obligation.
 
-Full calendar: meridianpayroll.com/blog/payroll-tax-deadlines-2026
+Full calendar: meridianpayroll.com/blog/payroll-tax-deadlines
 ```
+
+The dates follow [IRS Publication 509 (2026)](https://www.irs.gov/pub/irs-pdf/p509.pdf): February 2 covers the 2025 year-end forms, while November 2 covers Q3 2026. Qualifying timely deposits allow extra return-filing time. Under the [IRS deposit penalty rules](https://www.irs.gov/payments/failure-to-deposit-penalty), 15% applies more than ten days after the first notice, or on receipt of an immediate-payment demand, whichever is earlier. These tiers replace each other; they do not add up. On $40,000, 2% = $800 and 15% = $6,000.
 
 ### Syndication and canonical rules
 
@@ -406,20 +413,20 @@ Every non-organic link you publish should be tagged, or the traffic lands in ana
 
 ```txt
 Email:
-https://meridianpayroll.com/blog/payroll-tax-deadlines-2026
+https://meridianpayroll.com/blog/payroll-tax-deadlines
   ?utm_source=newsletter&utm_medium=email&utm_campaign=payroll-deadlines-2026
 
 LinkedIn (organic post):
-https://meridianpayroll.com/blog/payroll-tax-deadlines-2026
+https://meridianpayroll.com/blog/payroll-tax-deadlines
   ?utm_source=linkedin&utm_medium=social&utm_campaign=payroll-deadlines-2026
 
 Short video caption:
-https://meridianpayroll.com/blog/payroll-tax-deadlines-2026
+https://meridianpayroll.com/blog/payroll-tax-deadlines
   ?utm_source=youtube&utm_medium=social&utm_campaign=payroll-deadlines-2026
-  &utm_content=short-jan31
+  &utm_content=short-feb2
 
 One-pager PDF (sales + partners):
-https://meridianpayroll.com/blog/payroll-tax-deadlines-2026
+https://meridianpayroll.com/blog/payroll-tax-deadlines
   ?utm_source=sales-onepager&utm_medium=partner&utm_campaign=payroll-deadlines-2026
 
 NEVER tag internal site-to-site links. UTMs on internal links

@@ -50,6 +50,8 @@ A budget is meaningless until you convert it into clicks, then leads, then jobs.
 | Non-brand - Furnace Install | $8.99 | 4.1% | 6.7% | Replacement | $432 |
 | Non-brand - Maintenance Plans | $4.79 | 6.3% | 6.3% | Repair | $108 |
 
+The Maintenance Plans campaign reports repair-type service leads worth $108, not completed $189 annual plan sales. A direct plan purchase carries $95 of first-year gross profit instead (lesson 08).
+
 The Maintenance Plans conversion rate is derived from the canonical 30-day report (9 conversions on 142 clicks = 6.34%, rounded to 6.3%); its CTR of 6.3% is an assumption, since that figure is not in the report.
 
 Now put the whole $200 into each one, hypothetically, to see what a dollar is worth in each place.
@@ -117,7 +119,7 @@ Now hold that against reality. The total monthly budget is $6,080. This single g
 
 Note carefully that the goal is not unprofitable. A $134.18 CPA on a lead worth $432 is well inside the $180 target CPA. Contribution per lead is $432.00 - $134.18 = $297.82. Forty of them is $11,913 in gross profit contribution. The economics are excellent. The problem is that the budget cannot fund it and still fund the rest of the business.
 
-Then check the second constraint: is the traffic even available? Suppose the Furnace Install search impression share is 34%. Current delivery is 178 clicks a month.
+Then check the second constraint: is the traffic even available? The baseline Furnace Install search impression share is 34%. Current delivery is 178 clicks a month.
 
 ```txt
 Clicks at 34% impression share:            178
@@ -164,9 +166,9 @@ Read the last column. Every dollar into Brand returns $14.84 in contribution, bu
 The defense of the split therefore reads like this:
 
 - **Brand gets exactly what it can spend and no more.** Fund it fully, cap it near observed demand, and never let it compete for budget with the campaigns that can actually absorb money. A brand campaign that runs out of budget at noon is an unforced error; it is the cheapest contribution in the account.
-- **Furnace Install is underfunded relative to its marginal return.** It has the second-best contribution per dollar and 66% of its impressions are unwon. If any campaign should get incremental money, it is this one.
+- **Furnace Install has strong economics but is primarily rank-limited.** It has the second-best contribution per dollar and 66% of its impressions are unwon, but 63 points are lost to rank and only 3 to budget. Improve relevance or test economically justified bids before offering it more budget; low share alone does not prove underfunding.
 - **AC Repair gets the largest share anyway**, because it is the volume engine and the operational backbone. Repair jobs keep technicians paid and feed the replacement funnel: a technician standing in front of a 16-year-old furnace is the best replacement lead source Northgate has. Judged purely on contribution per dollar it looks weak; judged as the top of the replacement pipeline it earns its slice. Say that out loud in the plan rather than letting it be an accident.
-- **Maintenance Plans gets the smallest slice** and is on probation. $292 of monthly contribution barely clears the cost of managing it. It survives because maintenance customers become repair and replacement customers, not because of its own arithmetic.
+- **Maintenance Plans gets the smallest slice** and is on probation. Its repair-lead conversions generate $292 of monthly contribution before management costs. Any later plan purchases, repairs, or replacements are potential additional value, not outcomes established by this report.
 
 A budget allocation you cannot defend in this form is not an allocation, it is a habit.
 
@@ -194,14 +196,17 @@ The exception is when a campaign is both cheap and budget-capped, which is exact
 ```txt
 Current: 41% IS, 390 clicks, 43 conv, $3,200 spend
 Clicks if IS rose to 63% (recover the budget loss):
-   390 x (63 / 41)             = 599.3 clicks
-Additional clicks              = 599.3 - 390 = 209.3
-Additional spend at $8.21      = 209.3 x $8.21 = $1,718.35
-Additional conv at 11%         = 209.3 x 0.11 = 23.0
-Additional contribution        = 23.0 x $33.58 = $772.34
+   390 x (63 / 41)             = 599.2683 clicks
+Additional clicks              = 599.2683 - 390 = 209.2683
+Additional spend at $8.21      = 209.2683 x $8.21 = $1,718.09
+Additional conv at 11%         = 209.2683 x 0.11 = 23.0195
+Additional gross profit        = 23.0195 x $108 = $2,486.11
+Additional contribution        = unrounded gross profit - unrounded spend
+                               = $768.01
+(Carry full precision internally; display rounded results.)
 ```
 
-Roughly $1,718 more spend to earn roughly $772 more contribution. Worth doing, with one honest caveat: marginal clicks are usually worse than average clicks. The impressions you are currently losing to budget skew toward late-day and lower-intent queries, so a realistic marginal CPA is 15% to 25% worse than the $74.42 average. At a 20% worse marginal CPA of $89.30, contribution per marginal lead falls to $108.00 - $89.30 = $18.70, and 23 leads produce $430 rather than $772. Still positive. Still worth funding. But quote the pessimistic number when you ask for the money.
+Roughly $1,718 more spend to earn roughly $768 more contribution under unchanged CTR, CPC, and conversion rate. Marginal clicks may be worse than average clicks, so stress-test the marginal CPA at 15% to 25% above the observed $3,200 / 43 = $74.4186. At 20% worse, CPA is $89.3023. Holding extra spend at $1,718.09 buys $1,718.09 / $89.3023 = 19.24 expected leads, not 23, and contribution is 19.24 x $108 - $1,718.09 = about $359.73 (computed before rounding). If instead you hold 23 leads fixed, spend must rise to about $2,054. Still positive in this modeled case, but quote the fixed-spend stress test when asking for the money.
 
 ## The Bid Strategies, One at a Time
 
@@ -212,9 +217,9 @@ Every bid strategy answers a single question: given this auction, what should we
 | Manual CPC | Nothing. You set a max CPC per keyword or ad group. | None | You cannot adjust per auction, so you leave money on the table in both directions |
 | Maximize clicks | The largest number of clicks the budget will buy | None | Buys cheap, low-intent clicks; ignores whether anyone converts |
 | Maximize conversions | The largest number of conversions the budget will buy | Working conversion tracking, some conversion history | Will spend the full budget regardless of CPA; no cost ceiling |
-| Target CPA | Conversions at an average cost you specify | Roughly 30 conversions in the trailing 30 days | Set too low, delivery collapses; set too high, you overpay |
+| Target CPA | Conversions at an average cost you specify | Working tracking; ~30 recent conversions is this course's evaluation heuristic | Set too low, delivery collapses; set too high, you overpay |
 | Maximize conversion value | The largest total conversion value the budget will buy | Conversion values assigned per action | Garbage values produce garbage bids |
-| Target ROAS | A ratio of conversion value to spend | Values plus roughly 50 conversions in 30 days | Same as above, plus a much higher data bar |
+| Target ROAS | A ratio of conversion value to spend | Reliable values; ~50 recent conversions is an evaluation heuristic; platform eligibility varies | Same as above, plus a much higher data bar |
 | Target impression share | A share of impressions at a chosen position | None | Ignores conversions entirely; will pay almost anything |
 
 A few notes that matter more than the table.
@@ -231,7 +236,7 @@ A few notes that matter more than the table.
 
 ## The Conversion Volume Prerequisite
 
-Automated bidding is a statistical model. Models need observations. The working rule of thumb is that a target-based strategy needs roughly 30 conversions in the trailing 30 days at the level the strategy runs, and value-based targeting wants closer to 50. Below that the model is fitting noise and your results will swing wildly for reasons that have nothing to do with your target.
+Automated bidding is a statistical model. Models need observations. For these exercises, use roughly 30 conversions in 30 days at the strategy level as a planning and evaluation heuristic, and closer to 50 for evaluating value-based targeting. These are not universal platform requirements or a guarantee of stable results. [Google's Target CPA guidance](https://support.google.com/google-ads/answer/6268632?hl=en) permits starting with no conversion history and recommends at least 30 conversions when evaluating performance. [Target ROAS eligibility](https://support.google.com/google-ads/answer/6268637?hl=en) varies by campaign type. Sparse data makes this account's results harder to evaluate and its targets harder to defend; it does not make automation categorically unavailable.
 
 Apply the test to Northgate directly from the canonical 30-day report:
 
@@ -242,7 +247,7 @@ Apply the test to Northgate directly from the canonical 30-day report:
 | Non-brand - Furnace Install | 12 | 0.40 | No | 75.0 |
 | Non-brand - Maintenance Plans | 9 | 0.30 | No | 100.0 |
 
-A campaign producing 9 conversions in 30 days cannot support target CPA. At 0.30 conversions per day, the model would need 100 days to see 30 events, by which time the season has changed and the data is stale. If you set a tCPA on it anyway, you will get a strategy making confident-looking decisions on almost no evidence: three good days followed by two weeks of near-zero delivery.
+A campaign producing 9 conversions in 30 days fails this course's conservative target-CPA planning heuristic. At 0.30 conversions per day, you would need 100 days to observe 30 campaign events, by which time the season has changed and the data is stale. A tCPA remains available, but a few conversions give you weak evidence for evaluating it. A run of good days followed by near-zero delivery could reflect noise, an unrealistic target, or changing demand.
 
 So the recommendation set for Northgate is:
 
@@ -322,7 +327,7 @@ Bid adjustments are percentage modifiers applied to bids for a device, location,
 
 Under target CPA, maximize conversions, maximize conversion value, and target ROAS:
 
-- **Device adjustments are ignored**, except for -100%, which still excludes the device entirely.
+- **Device adjustments under target CPA change the device-specific CPA target, rather than multiplying the auction bid.** A +40% mobile adjustment changes a $60 target to $84 for mobile. Other automated strategies generally ignore device bid adjustments; check the selected strategy’s supported exclusions before using -100%.
 - **Ad schedule bid adjustments are ignored**, but the ad schedule itself still controls when ads are eligible to run at all.
 - **Location bid adjustments are ignored**, but location targets and exclusions still control eligibility.
 - **Audience bid adjustments are ignored in targeting mode and in observation mode**, but audience membership still feeds the model as a signal.
@@ -330,7 +335,7 @@ Under target CPA, maximize conversions, maximize conversion value, and target RO
 
 What still works under automated bidding: eligibility controls (what you target and exclude), seasonality adjustments for known short-term spikes, and data exclusions for periods when your tracking was broken. Under manual CPC and maximize clicks, every adjustment above still applies normally, which is one reason manual bidding remains defensible on low-volume campaigns like Maintenance Plans.
 
-The practical takeaway: on automated campaigns, stop trying to express preferences as percentages and start expressing them as eligibility. If mobile converts twice as well, you do not need a +50% mobile adjustment; the strategy already knows. If a device converts so badly you would never want it, exclude it.
+The practical takeaway: on automated campaigns, use eligibility controls for hard restrictions. Under target CPA, a device adjustment changes what you are willing to pay per conversion on that device; it is not a manual bid multiplier. If mobile converts twice as well, you do not need a +50% mobile adjustment; the strategy already knows. If a device converts so badly you would never want it, exclude it.
 
 ## Targeting: Geography
 
@@ -346,7 +351,7 @@ For Northgate, use a 25-mile radius as the base, then layer zip-level exclusions
 
 Now the setting that leaks the most money. Location options offer two behaviours: **presence** (people in your targeted locations) and **presence or interest** (people in, or regularly in, or showing interest in your targeted locations). The second is the default in many setups, and it is what produces the classic leak: someone in Phoenix searching "AC repair Columbus Ohio" because they are researching a rental property, a relocation, or their parents' house. They match your location because of interest. They click. They never book.
 
-Look at a location report for AC Repair over the canonical 30 days:
+Look at a location report for AC Repair over the baseline 30 days. These segment spend columns model a constant rounded CPC of $8.21, so they sum to $3,201.90 rather than the observed $3,200; use observed spend for the campaign-level ROI. The hour and device tables below use the same convention, and Furnace Install's $8.99 device model sums to $1,600.22 rather than $1,600:
 
 | Location | Clicks | Conv | Spend at $8.21 | CPA |
 | --- | --- | --- | --- | --- |
@@ -381,21 +386,21 @@ Ad schedule controls the hours and days your ads are eligible. Here is AC Repair
 | 9pm - 12am | 24 | 2 | 8.3% | $197.04 | $98.52 |
 | **Total** | **390** | **43** | **11.0%** | **$3,201.90** | **$74.46** |
 
-The shape is exactly what you would expect from a business where a lead is mostly a phone call: mornings convert because someone answers the phone, evenings and overnight convert worse because nobody does. The 9am to 12pm block converts at 14.1% and costs $58.22 per lead, already under the $60 target. The overnight block costs $180.62 per lead, well above the $108 break-even.
+The shape is exactly what you would expect from a business where a lead is mostly a phone call: staff answer calls from 7am to 9pm, seven days. The lower staffed-evening rate is an observed pattern to investigate, while outside those hours a form submission or voicemail must wait for a callback. The 9am to 12pm block converts at 14.1% and costs $58.22 per lead, already under the $60 target. The overnight block costs $180.62 per lead, well above the $108 break-even.
 
-But be careful here, because this is exactly where beginners fabricate certainty. The overnight block has **one conversion on 22 clicks**. One. If that single caller had not rung, the block's conversion rate would be 0%; if two had, it would be 9.1%, which is unremarkable. You cannot make a -50% decision on one event. The 9pm to midnight block has two conversions on 24 clicks and is no better.
+But be careful here, because this is exactly where beginners fabricate certainty. The overnight block has **one conversion on 22 clicks**. One. If that single submission had not arrived, the block's conversion rate would be 0%; if two had arrived, it would be 9.1%, which is unremarkable. You cannot make a -50% decision on one event. The 9pm to midnight block has two conversions on 24 clicks and is no better.
 
 The honest procedure:
 
 1. Aggregate to 90 days before making hour-level decisions, so the thin cells have enough volume to mean something.
 2. Prefer coarse blocks over 24 individual hours. Seven blocks with 20 to 90 clicks each are already thin; 24 hourly rows would be almost pure noise.
-3. Make structural decisions where the mechanism is obvious, not just where the number is extreme. Northgate does not answer the phone between midnight and 6am, so a lead generated then is a voicemail. That is a reason to act, and it does not depend on the sample.
+3. Make structural decisions where the mechanism is obvious, not just where the number is extreme. Northgate does not answer the phone outside 7am to 9pm, so an overnight lead is a form submission or voicemail, not an answered service call. That is a reason to act, and it does not depend on the sample.
 
 Given all that, the schedule change to make is not a bid adjustment (which automated bidding ignores anyway) but an eligibility change and an operational one:
 
-- Keep ads running overnight only if there is call forwarding or an after-hours answering service, because emergency HVAC calls at 2am are real and lucrative when someone picks up.
-- If there is no after-hours coverage, turn the schedule off from midnight to 5am and redirect that $180 a month into the 9am to noon block where CPA is $58.22.
-- On a manual-bid campaign like Maintenance Plans, a -20% adjustment on the 6pm to midnight window is legitimate and will actually apply.
+- Restrict call-led ads and call assets to 7am–9pm, seven days, to match the baseline service and contact hours. Extending hours would require an explicit operational change, not a new headline.
+- The 12am–6am and 9pm–12am rows together contain 46 clicks and $377.66 of modeled spend. They establish at least that much outside-hours spend; the 6am–9am row also includes an unstaffed hour, but this coarse report cannot price it separately. Redirect recoverable spend toward staffed hours, then measure the result.
+- An overnight form-only campaign would need copy that promises a callback after 7am rather than immediate service, and its own evidence that those queued leads earn their cost.
 
 ## Targeting: Device
 
@@ -501,7 +506,7 @@ An honest accounting, because both overclaiming and underclaiming here cost mone
 
 **Automation is mediocre or worse at everything upstream of the bid.** It does not choose what counts as a conversion. If you count every form fill including the ones from vendors, it will confidently optimize toward vendor spam. It does not build your account structure, write your negative keyword lists, decide how much of the budget goes to furnace install versus AC repair, judge whether a lead was any good after the call, notice that your out-of-state clicks are worthless, or tell you that your target CPA embeds an assumption about margin that is now out of date. Those are all your job, and they are where most of the available improvement in a small account lives.
 
-**Automation is actively dangerous with thin or dirty data.** A target CPA on 9 conversions a month is not smarter than manual bidding; it is manual bidding with a random number generator attached. A maximize conversion value strategy fed the wrong values will bid hardest for the least valuable thing in your account.
+**Automation is actively dangerous with thin or dirty data.** A target CPA on 9 conversions a month is difficult to evaluate locally; do not treat its apparent precision as proof that your target or tracking is sound. A maximize conversion value strategy fed the wrong values will bid hardest for the least valuable thing in your account.
 
 The practical division of labour: let the machine set prices, and keep for yourself the decisions about what is worth buying. Which means the highest-leverage work you do on a bidding project is usually not the bidding. It is defining the conversion actions correctly, valuing them correctly, and cleaning the targeting so the machine is choosing among good options in the first place.
 

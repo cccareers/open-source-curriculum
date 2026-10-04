@@ -78,7 +78,7 @@ A practical loading note: install base data almost always arrives from an ERP or
 
 ## Worked example: modeling one customer
 
-Northwind Manufacturing buys your industrial controllers. They have a head office and two plants that raise their own support cases. They bought a Gold support contract at the head office level, and each plant has controllers on site.
+Northwind Manufacturing buys your industrial controllers. This is the CSM course's manufacturing customer, separate from Northwind Health, the healthcare payer in the IRM course. They have a head office and two plants that raise their own support cases. They bought a Gold support contract at the head office level, and each plant has controllers on site.
 
 The model:
 

@@ -26,7 +26,7 @@ Learners starting lesson 02. Comfortable with multiplication and division; no ac
 
 | Time | Visual / On screen | Narration |
 |---|---|---|
-| 0:00 | Whiteboard: a search box with "emergency ac repair columbus", clock reading 9:14 p.m., a phone icon. | "A homeowner in Westerville types this at 9:14 on a July night. In about a tenth of a second, four HVAC companies go to auction for that one search. Let's run it by hand." |
+| 0:00 | Whiteboard: a search box with "emergency ac repair columbus", clock reading 8:14 p.m., a phone icon. | "A homeowner in Westerville types this at 8:14 on a July night. In about a tenth of a second, four HVAC companies go to auction for that one search. Let's run it by hand." |
 | 0:20 | Caption: "Teaching simplification: Ad Rank = max bid x quality index. Not the production formula." | "We'll use the simplification from lesson two. Ad Rank equals your max bid times a quality index. The real formula has more inputs, like context and expected asset impact, but this version gets every decision in this video right." |
 | 0:40 | Four rows drawn: Olentangy $18.00 x 3.0; Buckeye $16.00 x 5.0; Northgate $12.00 x 8.0; Capital City $10.00 x 9.0. | "Four advertisers. Olentangy bids eighteen dollars with a quality index of three. Buckeye bids sixteen with five. Northgate bids twelve with eight. Capital City bids ten with nine." |
 | 1:05 | Presenter multiplies and writes Ad Rank: 54, 80, 96, 90. | "Multiply. Olentangy: fifty-four. Buckeye: eighty. Northgate: ninety-six. Capital City: ninety." |

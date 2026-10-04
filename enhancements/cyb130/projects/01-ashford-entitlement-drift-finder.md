@@ -27,15 +27,17 @@ Ashford Community Housing (lessons 04 and 05) liked your manual discrepancy list
 ## What you will build / produce
 1. `audit.py` (Python 3.9+, standard library only), usable as `python3 audit.py --asof YYYY-MM-DD FIXTURE_DIR OUT.csv`.
 2. `findings.csv` with columns `account,finding_type,detail`. `finding_type` is one of:
-   - `ORPHANED`: enabled account whose HR record is not `active`
+   - `ORPHANED`: enabled account with no corresponding active authoritative record: either a matching HR record whose status is not `active`, or no HR match and no `owner`. Owned non-HR accounts are reviewed separately as described below.
    - `UNOWNED`: no HR record and no `owner`
-   - `DORMANT`: last logon more than 90 days before `--asof`
-   - `DRIFT`: one row per group held beyond the job role's expected groups and not covered by an unexpired add-on; `detail` is the group name
-   - `SOD_BREAK`: holds both groups of a pair
+   - `DORMANT`: enabled account whose last logon is more than 90 days before `--asof`
+   - `DRIFT`: for enabled accounts with active HR records, one row per group held beyond the job role's expected groups and not covered by an unexpired add-on; `detail` is the group name
+   - `SOD_BREAK`: enabled account holds both groups of a pair; one row per conflicting pair. `detail` is the two group names separated by `;` (either order).
 3. A one-page memo to Ashford's IT manager: the top five findings in business language (lesson 05's "this person can approve payments..." style), each with an owner and remediation.
 
+For this export, an active HR match establishes a human account's owner. An unmatched account without an `owner` gets both `ORPHANED` (if enabled) and `UNOWNED`; unmatched does not prove it is a leaver. An unmatched account with an `owner`, such as `svc-backup` or `tokafor-adm`, is excluded from the HR-based `ORPHANED` and `UNOWNED` flags and routed to acceptable-with-documentation review. The owner field is a routing signal, not proof of legitimate access: a human must verify its purpose, sponsor/owner, and expiry or review date against its separate authoritative record, as lesson 05 requires. Other checks still apply.
+
 ## Before you start (prerequisites, starter files or data)
-Create `fixtures/` with these five files.
+Create `fixtures/` with these five files. This 27 July 2026 Ashford snapshot uses the selected directory groups from lesson 05; it does not inventory ERP-project access or mailbox delegations. Maya is employee 40881, hired by Ashford on 1 March 2021. Use GBP for monetary examples in the memo.
 
 `fixtures/hr.csv`
 ```text
@@ -94,7 +96,7 @@ role-vendor-maintainer,role-ap-clerk
 2. **Load and join.** Read the five files and join the directory to HR on `account`.
 3. **Implement one finding type at a time,** in this order: UNOWNED, ORPHANED, DORMANT, SOD_BREAK, DRIFT. Run the tests after each.
 4. **Handle add-ons.** An add-on only excuses a group while `approved_until >= asof`.
-5. **Explain the edge cases** in comments: why `svc-backup` is *not* unowned, why `drao`'s DRIFT is not reported (he is a leaver, so the whole account is the finding), and why `tokafor-adm` is owned by `tokafor`.
+5. **Explain the edge cases** in comments: why `svc-backup` is *not* unowned or HR-orphaned, why unmatched ownerless accounts receive both flags, why `drao`'s DRIFT is not reported (he is a leaver, so the whole account is the finding), and why `tokafor-adm` is owned by `tokafor`.
 6. **Write the memo.** Translate group names into business statements.
 
 ## Acceptance criteria
@@ -123,17 +125,26 @@ types = {(a, t) for a, t, _ in got}
 must = [
     ("drao", "ORPHANED"),            # leaver still enabled, and used after last day
     ("jbarnes", "UNOWNED"), ("helpdesk-shared", "UNOWNED"), ("volunteer-kiosk", "UNOWNED"),
+    ("jbarnes", "ORPHANED"), ("helpdesk-shared", "ORPHANED"), ("volunteer-kiosk", "ORPHANED"),
     ("fdiallo", "DORMANT"), ("jbarnes", "DORMANT"), ("volunteer-kiosk", "DORMANT"),
-    ("mokonkwo", "SOD_BREAK"),
 ]
 for m in must:
     assert m in types, f"missing finding {m}"
+maya_sod = [x for x in rows if x["account"] == "mokonkwo" and x["finding_type"] == "SOD_BREAK"]
+expected_pairs = {
+    frozenset(("role-vendor-maintainer", "role-ap-supervisor")),
+    frozenset(("role-vendor-maintainer", "role-ap-clerk")),
+}
+assert len(maya_sod) == 2, "Maya needs exactly two SOD_BREAK rows, one per pair"
+assert {frozenset(x["detail"].split(";")) for x in maya_sod} == expected_pairs, "missing or incorrect Maya SoD pair"
 for grp in ("role-ap-clerk", "role-ap-supervisor", "fs-hr-read"):
     assert ("mokonkwo", "DRIFT", grp) in got, f"missing DRIFT for mokonkwo/{grp}"
 assert ("tokafor", "DRIFT", "role-finance-clerk") in got, "missing DRIFT tokafor/role-finance-clerk"
 assert ("fdiallo", "DRIFT", "fs-finance-read") in got, "expired add-on must be DRIFT"
 
 must_not = [("sokoye", None), ("kbrooks", None), ("svc-backup", "UNOWNED"), ("tokafor-adm", "UNOWNED"),
+            ("svc-backup", "ORPHANED"), ("tokafor-adm", "ORPHANED"),
+            ("mokonkwo", "ORPHANED"), ("tokafor", "ORPHANED"), ("fdiallo", "ORPHANED"),
             ("mokonkwo", "DORMANT"), ("drao", "DRIFT")]
 for acct, t in must_not:
     bad = [x for x in got if x[0] == acct and (t is None or x[1] == t)]
@@ -141,7 +152,7 @@ for acct, t in must_not:
 print(f"ALL TESTS PASSED ({len(rows)} findings)")
 ```
 
-Expected output: `ALL TESTS PASSED (14 findings)`. The count can differ if you also report a group that is *missing* from a role. If you add that as a `MISSING` type, the tests still pass.
+Expected output: `ALL TESTS PASSED (17 findings)`. This includes two SOD_BREAK rows for Maya, one for each conflicting pair, and both ORPHANED and UNOWNED rows for each of the three unmatched ownerless accounts. The positive and negative checks distinguish these from active HR accounts and owned non-HR accounts; removing either Maya pair must fail.
 
 ## Rubric
 | Criterion | Developing | Meets | Exceeds |

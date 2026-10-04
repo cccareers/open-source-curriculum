@@ -17,7 +17,7 @@ objectives:
 
 A paid search ad is not brand advertising. Brand advertising creates demand where none existed and gets judged over quarters. A search ad arrives after the demand already exists, into a moment where somebody typed a specific string of words because they have a specific problem right now. Your ad has one job in that moment: **make a promise that answers the query, and be sure the landing page keeps it.**
 
-That framing rules out most of what people write. "Northgate Heating and Air - Central Ohio's Trusted HVAC Partner Since 2003" is a fine thing to put on the side of a truck. As an ad against the query `ac not blowing cold air`, it is nearly worthless, because it answers a question nobody asked. The searcher wants to know whether somebody can come today and roughly what it will cost. An ad that says so will beat an ad that says "trusted partner" every time, and the auction will reward it: a higher click-through rate improves your quality signals, which lowers your actual cost per click at the same position (lesson 02 has the mechanism).
+That framing rules out most of what people write. "Northgate Heating and Air - Central Ohio's Trusted HVAC Partner Since 1994" is a fine thing to put on the side of a truck. As an ad against the query `ac not blowing cold air`, it is nearly worthless, because it answers a question nobody asked. The searcher wants to know whether somebody can come today and roughly what it will cost. An ad that says so will beat an ad that says "trusted partner" every time, and the auction will reward it: a higher click-through rate improves your quality signals, which lowers your actual cost per click at the same position (lesson 02 has the mechanism).
 
 The promise framing also gives you the honest constraint that runs through the rest of this lesson. If the ad says "tech at your door in 90 minutes," a tech has to actually be at the door in 90 minutes. If the ad says "$79 diagnostic," the landing page has to say $79 and the invoice has to say $79. Copy that outruns the business is not clever marketing; it is a refund request, a bad review, and in several categories a policy violation that gets the ad blocked before anyone sees it. Ad copy and ad policy are the same subject approached from two sides, which is why they share a lesson.
 
@@ -25,7 +25,7 @@ The promise framing also gives you the honest constraint that runs through the r
 
 Message match is the continuity between what the searcher typed, what your ad promised, and what the landing page delivers. Break any one of the three links and you pay for a click you cannot convert.
 
-Here are the two versions side by side, for the query `emergency ac repair columbus` at 9pm on a July night.
+Here are the two versions side by side, for the query `emergency ac repair columbus` at 8pm on a July night.
 
 ```txt
 BAD MESSAGE MATCH
@@ -33,7 +33,7 @@ BAD MESSAGE MATCH
   Query:     emergency ac repair columbus
 
   Ad H1:     Northgate Heating & Air
-  Ad H2:     Serving Central Ohio Since 2003
+  Ad H2:     Serving Central Ohio Since 1994
   Ad H3:     Quality You Can Trust
   Ad D1:     Full-service residential and light commercial HVAC. Repair,
              installation, and maintenance for every major brand.
@@ -46,7 +46,7 @@ BAD MESSAGE MATCH
   Breaks:    Query said EMERGENCY. Ad said nothing about availability.
              Ad said nothing about tonight. Landing page said nothing
              about tonight. Searcher has to hunt for the phone number
-             at 9pm with a hot house. They bounce and call competitor #2.
+             at 8pm with a hot house. They bounce and call competitor #2.
 
 
 GOOD MESSAGE MATCH
@@ -54,10 +54,10 @@ GOOD MESSAGE MATCH
   Query:     emergency ac repair columbus
 
   Ad H1:     Emergency AC Repair, Columbus
-  Ad H2:     Open Now - Tech Out Tonight
+  Ad H2:     Open Now - Call Until 9pm
   Ad H3:     $79 Diagnostic, No Overtime
-  Ad D1:     AC out at 9pm? A licensed Northgate tech can be at your door
-             in 90 minutes. Same flat rate at 2am as at 2pm.
+  Ad D1:     AC out? Call 7am-9pm, seven days. $79 diagnostic, no overtime.
+             Arrival window confirmed.
   Assets:    Call asset (tap to call), Location asset, Sitelinks
   Final URL: northgateheatingair.com/emergency-ac-repair
 
@@ -67,10 +67,10 @@ GOOD MESSAGE MATCH
              screen. 3-field form as the secondary path. Nothing else.
 
   Holds:     Query -> ad -> page all say the same three things:
-             emergency, tonight, $79.
+             emergency, staffed availability, $79.
 ```
 
-The bad version is not badly written in a grammar sense. It is badly matched. Every sentence in it is true and none of it answers the query. The good version repeats "emergency," "now," and "$79" at all three stages, which is not repetitive to the searcher because they only see each stage once. Repetition across stages reads as confirmation: *yes, you are in the right place.*
+The bad version is not badly written in a grammar sense. It is badly matched. Its company facts are true, but none of them answers the query. The good version runs during staffed hours and repeats "emergency," "now," and "$79" at all three stages, which is not repetitive to the searcher because they only see each stage once. Repetition across stages reads as confirmation: *yes, you are in the right place.*
 
 Two practical rules follow. First, **the final URL is part of the copy**. If your ad group has one landing page for six unrelated keyword themes, you have already lost the match, and no headline will fix it. That is why keyword organization drives ad group organization (lesson 04) and why deep landing page design gets its own treatment in lesson 09. Second, **write the landing page headline and the ad headline at the same sitting**, so they cannot drift.
 
@@ -115,9 +115,9 @@ Use Ad Strength this way: if it says Poor, read why, because it usually means yo
 
 ### Lead with the searcher's problem, not the company
 
-The default failure is writing from the inside out: who we are, how long we have been here, what we value. The searcher does not have a relationship with you yet, and at 9pm with a dead air conditioner they will not be starting one. Open with their situation.
+The default failure is writing from the inside out: who we are, how long we have been here, what we value. The searcher does not have a relationship with you yet, and at 8pm with a dead air conditioner they will not be starting one. Open with their situation.
 
-Weak: "Northgate Heating & Air - Serving You Since 2003"
+Weak: "Northgate Heating & Air - Serving You Since 1994"
 Strong: "AC Not Cooling? We're Open"
 
 The second one is 26 characters, contains the searcher's exact symptom, and answers the only question they have. There is still a place for the brand name, but it is a supporting headline, not the lead.
@@ -128,19 +128,19 @@ This is the single highest-leverage habit in ad copy. Adjectives are free, which
 
 | Adjective version | Specific version | Why the second wins |
 | --- | --- | --- |
-| Fast, friendly service | Tech at your door in 90 min | A number the reader can plan around |
+| Fast, friendly service | Arrival window confirmed on call | A commitment the reader can plan around |
 | Affordable rates | $79 diagnostic, no overtime | Removes the fear of a surprise bill |
-| Experienced technicians | 22 years in central Ohio | Verifiable, and locally specific |
+| Experienced technicians | Serving central Ohio since 1994 | Verifiable, and locally specific |
 | Trusted by homeowners | 4,100 Columbus AC repairs | A count, not a feeling |
-| Available around the clock | Same flat rate at 2am as 2pm | Names the actual benefit of 24/7 |
+| Extended service hours | Open 7am-9pm, seven days | Names the actual hours someone answers |
 
-Run this test on every headline you write: **could a competitor put this exact line in their ad without changing anything?** If yes, it is an adjective, and it is doing nothing. "Fast, friendly service" passes that test for all four of Northgate's competitors. "Same flat rate at 2am as at 2pm" does not, because most of them charge overtime.
+Run this test on every headline you write: **could a competitor put this exact line in their ad without changing anything?** If yes, it is an adjective, and it is doing nothing. "Fast, friendly service" passes that test for all four of Northgate's competitors. "Open 7am-9pm, seven days" gives the reader a checkable schedule rather than a vague promise.
 
 ### Proof
 
 Specificity and proof are cousins. Proof is the reason to believe the promise, and for a local service business it comes in four reliable forms:
 
-- **Tenure.** "22 years in central Ohio." Cheap to state, hard to fake, and locally relevant.
+- **Tenure.** "Serving central Ohio since 1994." Cheap to state, hard to fake, and locally relevant.
 - **Credentials.** "Licensed & insured in Ohio." This one is table stakes for a trade, and it must be true - see the substantiation section below.
 - **Volume.** "4,100 Columbus AC repairs." Counts beat superlatives, because a count is checkable and a superlative is not.
 - **Ratings.** "4.8 stars, 900+ reviews," if it is accurate and current.
@@ -151,9 +151,11 @@ Notice what is not on that list: "#1," "best," "top-rated," "voted the finest." 
 
 An offer is a concrete thing the searcher gets. A call to action is the next physical step. They are different and you need both.
 
-Northgate's offer is the $79 diagnostic with no overtime charge. It is a good offer because it removes the specific fear that stops people from calling an HVAC contractor at 9pm: that they are about to be gouged for showing up after hours.
+Northgate's service and contact hours are 7am to 9pm, seven days. Schedule availability claims and call assets within those hours; online forms can be submitted overnight, with a callback after reopening. Its annual maintenance plan costs $189 and produces $95 of first-year gross profit.
 
-The call to action has to match the device and the mindset. On mobile, at 9pm, in an emergency, the call to action is "call," and the tap-to-call asset does most of the work. On desktop, at 2pm, researching a system replacement, the call to action is "get a quote" or "compare systems," because the searcher is not going to call a contractor from their office. Write both. The system will learn which pairs with which query.
+Northgate's offer is the $79 diagnostic with no overtime charge. It is a good offer because it removes the specific fear that stops people from calling an HVAC contractor at 8pm: that they are about to be gouged for an evening or weekend visit during staffed hours.
+
+The call to action has to match the device and the mindset. On mobile, at 8pm, in an emergency, the call to action is "call," and the tap-to-call asset does most of the work. On desktop, at 2pm, researching a system replacement, the call to action is "get a quote" or "compare systems," because the searcher is not going to call a contractor from their office. Write both. The system will learn which pairs with which query.
 
 ### Emergency mindset versus researching mindset
 
@@ -170,7 +172,7 @@ The same business serves two completely different psychological states, and copy
 | Lead value | $108 | $432 |
 | Target CPA | $60 | $180 |
 
-Writing "Free In-Home Estimate - Compare 4 System Options" against `ac not blowing cold air` is a mismatch that costs you money at $8.20 a click. Writing "We're Open Now - Tech Out Tonight" against `high efficiency furnace cost` is the same mistake in reverse.
+Writing "Free In-Home Estimate - Compare 4 System Options" against `ac not blowing cold air` is a mismatch that costs you money at $8.20 a click. Writing "We're Open Now - Call Until 9pm" against `high efficiency furnace cost` is the same mistake in reverse.
 
 ## Character-count discipline
 
@@ -182,13 +184,13 @@ NORTHGATE - AC REPAIR AD GROUP - RSA ASSETS
 
 HEADLINES
  1  AC Repair in Columbus, OH          [25]
- 2  Tech at Your Door in 90 Min        [27]
+ 2  Arrival Window Confirmed          [24]
  3  AC Not Cooling? We're Open         [26]
  4  $79 Diagnostic, No Overtime        [27]
  5  Same-Day AC Repair Service         [26]
  6  Licensed & Insured in Ohio         [26]
- 7  Open 24/7 for AC Emergencies       [28]
- 8  22 Years in Central Ohio           [24]
+ 7  Open 7am-9pm, Seven Days          [24]
+ 8  Serving Columbus Since 1994       [27]
  9  Book a Visit Online in 2 Min       [28]
 10  Upfront Pricing, No Surprise       [28]
 11  4,100 Columbus AC Repairs          [25]
@@ -198,24 +200,21 @@ HEADLINES
 15  The #1 AC Company in Ohio          [25]   <- weak AND non-compliant
 
 DESCRIPTIONS
- 1  AC out? A licensed tech can be at your Columbus door in 90 minutes.
-    $79 diagnostic fee.                                            [87]
- 2  22 years fixing central Ohio AC. Licensed, insured, upfront
-    pricing. Book online today.                                    [87]
- 3  No overtime charges nights or weekends. Same flat rate at 2am as
-    at 2pm. Book a visit.                                          [86]
+ 1  AC out? Call 7am-9pm, seven days. $79 diagnostic. We confirm your arrival window. [81]
+ 2  Serving central Ohio since 1994. Licensed, insured, upfront pricing. Book online today. [87]
+ 3  No overtime charges during 7am-9pm service hours, seven days. Call or book online. [82]
  4  We serve Columbus, Westerville, Dublin, and Grove City. Real
     techs, real trucks, today.                                     [87]
 
 PINNING PLAN
   Nothing pinned. No legal or brand requirement forces a position,
-  and the price claim already appears in headlines 4 and 10 and in
-  descriptions 1 and 3, so it will surface often without a pin.
+  and the $79 price claim already appears in headline 4 and
+  description 1, so it will surface often without a pin.
 ```
 
 ### Critique of the three weak headlines
 
-**#13 "Fast, Friendly Service" (22).** Two adjectives and a noun, zero information. It fails the competitor test completely: all four of Northgate's rivals could paste this line into their ads unchanged. It also wastes 8 characters of unused budget - at 22 of 30, there was room to say something. Rewrite: "Tech Out Tonight, Not Friday" [28], which is 28 characters and makes a claim a competitor who closes at 5pm cannot copy.
+**#13 "Fast, Friendly Service" (22).** Two adjectives and a noun, zero information. It fails the competitor test completely: all four of Northgate's rivals could paste this line into their ads unchanged. It also wastes 8 characters of unused budget - at 22 of 30, there was room to say something. Rewrite: "Call to Book Your AC Repair" [27], which is 27 characters and adds a phone-booking call to action alongside headline 9's online-booking option.
 
 **#14 "Quality You Can Trust" (21).** Worse, because it is not merely uninformative, it is unfalsifiable. There is no version of the world in which this statement is checkable, which means the reader's brain discards it. Rewrite: "4.8 Stars, 900+ Reviews" [23] - same reassurance function, but it is a number, and a number can be verified on the landing page.
 
@@ -251,7 +250,7 @@ Assets, still widely called extensions, are the extra lines, links, and buttons 
 | Price | A row of service-and-price cards | Recommended |
 | Promotion | A discount or offer with a currency amount or percent | Situational |
 
-For a local service business the first five are not optional. **Call and location are the ones that convert**, because at 9pm on a mobile phone the fastest path to a booked job is a thumb on a phone number. Sitelinks, callouts, and structured snippets are the ones that lift click-through rate by making the ad physically larger.
+For a local service business the first five are not optional. **Call and location are the ones that convert**, because at 8pm on a mobile phone the fastest path to a booked job is a thumb on a phone number. Sitelinks, callouts, and structured snippets are the ones that lift click-through rate by making the ad physically larger.
 
 A caution on lead form assets: they capture leads who never see your site, which is good for volume and bad for lead quality, because the person has not read anything about you. If you use one, expect a lower booking rate than a form on your own page and hold it to a different CPA target.
 
@@ -259,17 +258,17 @@ A caution on lead form assets: they capture leads who never see your site, which
 NORTHGATE - ASSET SET (AC Repair campaign)
 
 SITELINKS (link text / description line 1 / description line 2)
-  Emergency AC Repair    / Tech out tonight        / $79 diagnostic fee
+  Emergency AC Repair    / Call 7am-9pm        / $79 diagnostic fee
   $79 Diagnostic         / Flat rate, no overtime  / Nights and weekends
   Service Areas          / Columbus and suburbs    / 25-mile radius
   Book a Visit           / 3-field form, 2 minutes / Same-day slots
-  Maintenance Plans      / $19/mo, 2 tune-ups      / Priority scheduling
+  Maintenance Plans      / $189/year, 2 tune-ups      / Priority scheduling
 
 CALLOUTS (no links, keep each under about 25 characters)
   Licensed & Insured
   No Overtime Charges
   Same-Day Service
-  22 Years in Columbus
+  Columbus Since 1994
   Upfront Flat Pricing
   Financing Available
 
@@ -281,7 +280,7 @@ STRUCTURED SNIPPETS
     (only list brands Northgate is an authorized servicer for)
 
 CALL ASSET
-  (614) 555-0142, scheduled 24/7, call conversions on at 60 seconds
+  (614) 555-0142, scheduled 7am-9pm, seven days, call conversions on at 60 seconds
 
 LOCATION ASSET
   Linked to the verified business profile, single shop, 25-mile radius
@@ -293,7 +292,7 @@ IMAGE ASSET
 PRICE ASSET (header: Services)
   Diagnostic Visit       $79   / Flat fee, applied to repair
   AC Tune-Up             $129  / 21-point inspection
-  Maintenance Plan       $19/mo / Two visits per year
+  Maintenance Plan       $189/year / Two visits per year
 
 PROMOTION ASSET
   Not used in July. Emergency demand does not need a discount, and a
@@ -371,7 +370,7 @@ Every checkable claim in your copy creates an obligation. Before an ad goes live
 
 - "Licensed & insured in Ohio" - then the license must be current and the certificate of insurance in force. Put the license number on the landing page footer.
 - "$79 diagnostic" - then $79 must be findable on the landing page, and any conditions on it must be stated where a normal person will read them, not only in a footnote.
-- "22 years in central Ohio" - then the business must have been operating for 22 years, not the owner's personal experience across three employers.
+- "Serving central Ohio since 1994" - then the business's operating history must support 1994, not the owner's personal experience across three employers.
 - "4,100 Columbus AC repairs" - then somebody has to be able to produce the count from the job management system.
 - "Tech at your door in 90 minutes" - then the dispatch data has to support it for the hours the ad runs. If 90 minutes is true from 8am to 6pm and it is really 3 hours overnight, either fix the claim or schedule the ad.
 - "4.8 stars, 900+ reviews" - then the rating must be current, from a named platform, and shown on the site.

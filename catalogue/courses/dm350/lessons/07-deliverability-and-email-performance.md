@@ -93,7 +93,7 @@ Now read it like a practitioner. Three facts organize everything.
 
 **The list grew by 1,550 between September and October.** Nobody adds 1,550 contacts to a 5,900-person list organically in a month. Something was imported.
 
-**Hard bounces tripled, to 6 percent.** Hard bounces mean addresses that do not exist. Six percent of a list being fictional is the signature of old, purchased, or scraped data — precisely the uncleaned conference spreadsheet from lesson 02.
+**October's 6 percent hard-bounce rate alone exceeds September's 3 percent total bounce rate.** September's hard-bounce breakdown is not supplied, so you cannot calculate its change. Hard bounces mean addresses that do not exist. Six percent of a list being fictional is the signature of old, purchased, or scraped data — precisely the uncleaned conference spreadsheet from lesson 02.
 
 **Complaint rate quadrupled, to 0.35 percent.** People press the spam button when they do not recognize the sender. The 1,550 new contacts never opted in to anything.
 

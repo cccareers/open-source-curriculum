@@ -100,7 +100,7 @@ Analyze the supplied sample in your isolated VM, producing both:
 
 ### Part 7 — The merged timeline
 
-Build one UTC timeline that merges host artifacts, network telemetry, and sample behavior. Every entry carries a source. Every inference is labelled with a confidence rating. Negative results are included where they define scope. Apply and record the clock offset you measured in Part 2.
+Build one UTC timeline that merges host artifacts and network telemetry for the incident. Keep the dynamic lab run as a separately dated analysis track with its recorded UTC start and `T+` offsets; compare its behavior with the incident, but never assign lab-relative times to attacker events. Every entry carries a source. Every inference is labelled with a confidence rating. Negative results are included where they define scope. Apply and record the clock offset you measured in Part 2.
 
 ### Part 8 — Indicator deliverable
 

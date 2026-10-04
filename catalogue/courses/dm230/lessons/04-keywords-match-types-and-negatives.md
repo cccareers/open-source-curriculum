@@ -67,7 +67,7 @@ SERVICES
   ac repair
   air conditioning repair
   emergency ac repair
-  24 hour ac repair
+  same day ac repair
   hvac repair
   furnace repair
   heating repair
@@ -154,7 +154,7 @@ That is the whole method. Estimate a conversion rate, derive a CPC ceiling, comp
 
 The intent taxonomy you learned for SEO carries over, but the consequences are financial rather than editorial.
 
-**Commercial intent** means the searcher is trying to buy, hire, or book. In Northgate's world: `ac repair columbus`, `emergency ac repair`, `24 hour hvac repair near me`, `air conditioner installation quote`. These are what you buy, at your full ceiling, on tight match types.
+**Commercial intent** means the searcher is trying to buy, hire, or book. In Northgate's world: `ac repair columbus`, `emergency ac repair`, `same day hvac repair near me`, `air conditioner installation quote`. These are what you buy, at your full ceiling, on tight match types.
 
 **Informational intent** means the searcher wants to know something. `how does a heat pump work`, `what does seer rating mean`, `why is my ac leaking water`, `average life of an ac unit`. Most of these are money pits in paid search. A few sit on the border, and the border is where the symptom queries live. `why is my ac leaking water` is nominally informational, but a meaningful share of the people typing it will end the day booking a service call. You can buy border terms at a reduced ceiling with strict negatives, and you evaluate them on conversion data, not on how the phrase reads.
 
@@ -173,11 +173,11 @@ Auction insights compares your performance to other domains that entered the sam
 - **Position above rate** is how often the other advertiser's ad appeared in a higher position than yours, *when both of you showed*. It answers "when we are both in the room, who wins?"
 - **Top of page rate** is how often that advertiser's ad appeared above the organic results at all.
 
-Here is thirty days for Northgate's AC Repair ad group.
+Here is the same baseline 30-day period for Northgate's AC Repair campaign, using the campaign-level scope of lesson 06.
 
 | Advertiser | Impression share | Overlap rate | Position above rate | Top of page rate |
 | --- | --- | --- | --- | --- |
-| Northgate (you) | 34% | - | - | 61% |
+| Northgate (you) | 41% | - | - | 48% |
 | Buckeye Comfort Systems | 58% | 71% | 64% | 78% |
 | Scioto Mechanical | 41% | 52% | 47% | 66% |
 | Capital City HVAC | 22% | 33% | 29% | 52% |
@@ -198,31 +198,35 @@ Four different stories in one table.
 Impression share is the bridge between competitive data and budget decisions, because it tells you the size of the opportunity you are not buying.
 
 ```txt
-AC Repair ad group, 30 days
+AC Repair campaign, baseline 30 days
   Clicks                = 390
-  CTR                   = 6.4%
-  Impressions           = 390 / 0.064 = 6,094  (round to 6,100)
-  Impression share      = 34%
-  Eligible impressions  = 6,100 / 0.34 = 17,941  (round to 17,900)
-  Impressions missed    = 17,900 - 6,100 = 11,800
+  Spend                 = $3,200
+  Impression share      = 41%
+  Campaign CTR          = not supplied (6.4% is the ad-group benchmark)
+  Let c be the campaign CTR expressed as a decimal:
+  Impressions           = 390 / c
+  Eligible impressions  = (390 / c) / 0.41
+  Impressions missed    = (390 / c) x (0.59 / 0.41)
 
-Cost to capture ALL of it, at current CTR and CPC:
-  Extra clicks  = 11,800 x 0.064 = 755
-  Extra spend   = 755 x $8.20    = $6,191
+Cost to capture ALL of it, assuming unchanged campaign CTR and CPC:
+  Extra clicks  = (390 / c) x (0.59 / 0.41) x c
+                = 390 x (59 / 41) = 561.22
+  Extra spend   = (390 x 59 / 41) x ($3,200 / 390)
+                = $4,604.88 (rounded at the end)
 ```
 
-Northgate's entire monthly search budget is $6,080. Closing the impression share gap on one ad group would roughly double the account's spend. So the correct conclusion is not "raise bids until impression share is 100%." It is "impression share is a menu, and you buy the best-converting items on it." That means bidding up on `emergency ac repair` and the geo-qualified exacts, and letting Buckeye have the broad, low-intent volume they seem happy to pay for.
+Northgate's entire monthly search budget is $6,080. The campaign's aggregate CTR cannot be calculated from the supplied data, so its eligible-impression count remains unknown; the CTR cancels when estimating extra clicks under the unchanged-CTR assumption. Closing the campaign's full impression share gap at unchanged CTR and CPC would add about 76% to the account's spend. This is a sizing assumption, not a budget-only forecast: 22 points are lost to budget and 37 to rank, so recovering the full gap also requires better Ad Rank. So the correct conclusion is not "raise bids until impression share is 100%." It is "impression share is a menu, and you buy the best-converting items on it." That means bidding up on `emergency ac repair` and the geo-qualified exacts, and letting Buckeye have the broad, low-intent volume they seem happy to pay for.
 
 ### What to do about an aggressive competitor
 
 The instinct is to match their bids. Resist it, because the bid is the one lever where a better-funded competitor always wins. Four better moves:
 
-1. **Segment before you react.** Look at impression share by hour, by day, and by geography. An advertiser at 58% impression share is rarely at 58% everywhere. If Buckeye's share collapses after 6pm, buy the evening. Northgate answers the phone at 2am; if Buckeye does not, evenings and weekends are structurally yours.
+1. **Segment before you react.** Look at impression share by hour, by day, and by geography. An advertiser at 58% impression share is rarely at 58% everywhere. If Buckeye's share collapses after 6pm, buy the evening. Northgate answers calls from 7am to 9pm, seven days; if Buckeye closes at 6pm, the remaining staffed evening hours and weekends are an opportunity. Do not promise an answered call at 2am.
 2. **Compete where your conversion rate is highest.** Your CPC ceiling is set by conversion rate. If your emergency terms convert at 20% and theirs is a general contractor page, you can outbid them on those specific terms and still hit target.
 3. **Fix quality signals rather than bids.** A better click-through rate and a tighter landing page lower your actual CPC at the same position (lesson 02 has the mechanism). This is the only lever that makes you *cheaper* rather than just more expensive.
 4. **Read their ads and their landing pages.** This is manual work and it pays.
 
-Run the searches yourself - in an incognito window, ideally using the ad preview tool so you do not accumulate impressions against your own account - and write down what each competitor promises. You are looking for positioning gaps: a claim nobody is making that is true of your client. In Northgate's case, suppose all four competitors lead with "Fast, Friendly Service" and a phone number, and none of them state a price, name a response time, or mention weekend coverage. Then "$79 diagnostic, no overtime charges on nights or weekends, tech at your door in 90 minutes" is a genuine gap, and it is specific enough to be checkable. Also check where their ads land. If a competitor sends `emergency ac repair` traffic to a generic homepage, their conversion rate on that term is worse than yours could be, and that is exactly the term to take from them. Lesson 05 covers how to turn a positioning gap into copy.
+Run the searches yourself - in an incognito window, ideally using the ad preview tool so you do not accumulate impressions against your own account - and write down what each competitor promises. You are looking for positioning gaps: a claim nobody is making that is true of your client. In Northgate's case, suppose all four competitors lead with "Fast, Friendly Service" and a phone number, and none of them state a price, name a response time, or mention weekend coverage. Then "$79 diagnostic, no overtime charges, call 7am–9pm seven days; arrival window confirmed" is a genuine gap, and it is specific enough to be checkable. Also check where their ads land. If a competitor sends `emergency ac repair` traffic to a generic homepage, their conversion rate on that term is worse than yours could be, and that is exactly the term to take from them. Lesson 05 covers how to turn a positioning gap into copy.
 
 ## Match types
 
@@ -329,7 +333,7 @@ DO NOT ADD THESE (they look like junk and are not)
   "cost"         - price shoppers still buy; bid them down, do not block them
   "price"        - same
   "emergency"    - your best converting modifier
-  "24 hour"      - same
+  "same day"     - high-intent availability within staffed hours
   "reviews"      - late-stage commercial intent, often converts well
 ```
 
@@ -367,7 +371,7 @@ Here is thirty days of search terms for Northgate's Non-brand AC Repair ad group
 | 3 | ac not blowing cold air | Broad | 28 | $221.20 | 3 | Promote |
 | 4 | emergency ac repair columbus | Phrase | 22 | $198.00 | 5 | Promote |
 | 5 | hvac repair cost columbus | Broad | 18 | $142.20 | 1 | Investigate |
-| 6 | 24 hour ac repair columbus ohio | Broad | 14 | $131.60 | 3 | Promote |
+| 6 | same day ac repair columbus ohio | Broad | 14 | $131.60 | 3 | Promote |
 | 7 | how to fix ac unit yourself | Broad | 12 | $88.80 | 0 | Negative |
 | 8 | ac repair westerville ohio | Broad | 11 | $92.40 | 2 | Promote |
 | 9 | why is my ac leaking water | Broad | 9 | $65.70 | 0 | Investigate |
@@ -387,7 +391,7 @@ Here is thirty days of search terms for Northgate's Non-brand AC Repair ad group
 
 Rows 2, 4, and 6 clear the promotion bar outright, with three or more conversions each, and should become exact match keywords in their own right. Rows 8 and 10 do not clear it on their own numbers; the case for them rests on the suburb pattern described below. Rows 2 and 4 are the strongest: `air conditioner repair near me` produced 6 conversions on 36 clicks, a 16.7% conversion rate against the ad group's 11%, at a CPA of $302.40 / 6 = $50.40. That is under the $60 target. Promote it to exact and give it a higher bid ceiling, because its conversion rate supports $60 x 0.167 = $10.02 per click.
 
-`emergency ac repair columbus` did 5 conversions on 22 clicks: 22.7% conversion rate, CPA of $198.00 / 5 = $39.60, and a supported CPC of $60 x 0.227 = $13.62 against an actual CPC of $9.00. This term is underbid. It also deserves its own ad group so the copy can say "open now" and the landing page can lead with the phone number.
+`emergency ac repair columbus` did 5 conversions on 22 clicks: 22.7% conversion rate, CPA of $198.00 / 5 = $39.60, and a supported CPC of $60 x 0.227 = $13.62 against an actual CPC of $9.00. This term is underbid. It also deserves its own ad group so the copy can say "open now" during the 7am–9pm staffed schedule and the landing page can lead with the phone number.
 
 Rows 8 and 10, the suburb terms, converted 2 out of 11 and 2 out of 9. That is thin on its own, but they form a pattern with row 15: geo-qualified queries are converting. Promote both to exact and open a "Geo - Suburbs" ad group seeded with Westerville, Dublin, Grove City, Hilliard, Gahanna, and Worthington so the ads can name the suburb.
 
@@ -464,7 +468,7 @@ Two structural problems come out of aggressive keyword expansion, and both are w
 
 **Cannibalization** is subtler. It happens when two *different* keywords in different ad groups both match the same query, and the one Google picks is not the one you would pick. If you have `ac repair` on broad in the AC Repair ad group and `[ac repair westerville]` on exact in the suburbs ad group, a search for `ac repair westerville` will normally go to the exact match, which is what you want. But if you have `ac repair` on broad and `"ac repair westerville"` on phrase, the routing is less predictable and depends on Ad Rank. The general behavior is that the more specific match type wins when both are eligible, but you should not rely on it as a design principle. Design instead so that ad groups are separated by concepts, not just by wording, and use ad group negatives to enforce the separation you intend.
 
-That is where this lesson hands off to the structure you built in lesson 03. Your keyword organization *is* your account structure. When the search terms report tells you that suburb queries convert, that is not a keyword decision, it is a new ad group with its own copy and its own landing page. When it tells you that `emergency` converts at double the rate, that is not a bid change, it is a separate ad group so the copy can say "we are open right now." The general rule: **any group of queries that deserves a different ad or a different landing page deserves a different ad group**. Match types and negatives are the plumbing that routes the query to the right one. Bidding those ad groups against each other correctly is lesson 06.
+That is where this lesson hands off to the structure you built in lesson 03. Your keyword organization *is* your account structure. When the search terms report tells you that suburb queries convert, that is not a keyword decision, it is a new ad group with its own copy and its own landing page. When it tells you that `emergency` converts at double the rate, that is not a bid change, it is a separate ad group so the copy can say "we are open right now" during staffed hours. The general rule: **any group of queries that deserves a different ad or a different landing page deserves a different ad group**. Match types and negatives are the plumbing that routes the query to the right one. Bidding those ad groups against each other correctly is lesson 06.
 
 ## Practice
 

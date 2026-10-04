@@ -43,7 +43,7 @@ CPM  ->  impressions  ->  CTR  ->  clicks  ->  effective CPC
      ->  cost per order  ->  ROAS and contribution
 ```
 
-Every one of those arrows is a multiplication or a division, and every one of them compounds. A 20% improvement in CTR and a 20% improvement in landing page conversion rate together produce a 44% improvement in cost per order, because 1.2 x 1.2 = 1.44. This is why social people obsess over creative and landing pages and mostly ignore bid settings.
+Every one of those arrows is a multiplication or a division, and every one of them compounds. A 20% improvement in CTR and a 20% improvement in landing page conversion rate together produce 44% more orders at fixed spend, because 1.2 x 1.2 = 1.44. Cost per order falls by 1 - 1/1.44 = 30.6%. This is why social people obsess over creative and landing pages and mostly ignore bid settings.
 
 ## Loom & Larder on Meta, End to End
 
@@ -467,7 +467,7 @@ That lands almost exactly on the $180 target CPA, which means it is worth testin
 
 **Replacement page retargeting.** Anyone who visited the system replacement page and did not convert is a person actively considering an $8,500 purchase. A 30-day retargeting audience against that page, with a financing-focused creative, is the highest-intent social audience Northgate can build.
 
-What paid social should not do for Northgate: compete with search for emergency repair, run broad awareness with no offer, or absorb budget that Furnace Install search is currently losing to rank. Test it with money that is genuinely incremental, and hold it to the same $180 and $108 CPA thresholds as everything else.
+What paid social should not do for Northgate: compete with search for emergency repair, run broad awareness with no offer, or absorb budget that Furnace Install search is currently losing to rank. Test it with money that is genuinely incremental, and hold replacement leads to the $180 target ($432 break-even), repair leads to the $60 target ($108 break-even), and direct maintenance-plan sales to their separate $95 first-year break-even. A $189 annual plan sale is not a repair lead.
 
 ## Practice
 

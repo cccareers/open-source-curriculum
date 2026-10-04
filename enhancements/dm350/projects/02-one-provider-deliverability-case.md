@@ -48,7 +48,7 @@ SPF   (Jan) "v=spf1 include:_spf.google.com include:servers.example-esp.net ~all
 SPF   (Feb) "v=spf1 include:_spf.google.com include:billing.example-invoices.com -all"
 DKIM  esp1._domainkey.northlightbooks.com  -> REMOVED in Feb cleanup ("unused?")
 DMARC (Jan) "v=DMARC1; p=none; rua=mailto:dmarc@northlightbooks.com"
-DMARC (Feb) "v=DMARC1; p=reject; rua=mailto:dmarc@northlightbooks.com"
+DMARC (Feb) "v=DMARC1; p=quarantine; rua=mailto:dmarc@northlightbooks.com"
 Email platform sends from: newsletter@northlightbooks.com
   envelope sender: bounce.example-esp.net
 ```
@@ -56,8 +56,8 @@ Email platform sends from: newsletter@northlightbooks.com
 **`dmarc_report_excerpt.txt`** (aggregate report from provider B, Feb)
 ```txt
 source: servers.example-esp.net   count: 1,640
-  spf: pass (domain example-esp.net)  dkim: none
-  dmarc: fail (no aligned pass)   disposition: reject
+  spf: pass (domain bounce.example-esp.net)  dkim: none
+  dmarc: fail (no aligned pass)   disposition: quarantine
 ```
 
 ## Milestones
@@ -71,9 +71,9 @@ source: servers.example-esp.net   count: 1,640
 - [ ] Totals reconcile: Feb delivered 5,050 (platform-reported), opens 1,205, clicks 91.
 - [ ] Per-provider table shows B's February open rate near 2% while A and C held, and CTOR is computed per provider.
 - [ ] The diagnosis cites triage step 6 (one provider only) and links it to authentication rather than copy.
-- [ ] The learner explains that "delivered" in the platform does not mean inbox, and that the DMARC report shows rejections the platform may not report as bounces depending on how the provider handles them (state this as uncertain).
-- [ ] The DKIM removal and the SPF edit (platform include removed, `-all`) are both identified, and alignment is explained: SPF passes only for the platform's domain, DKIM is missing, so nothing aligns with northlightbooks.com.
-- [ ] The fix restores DKIM signing for northlightbooks.com first, restores the platform's SPF include without exceeding the ten-lookup limit, and keeps DMARC at a monitoring or quarantine policy until reports are clean.
+- [ ] The learner explains that "delivered" in the platform does not mean inbox, and that the DMARC report shows provider B quarantining accepted messages rather than rejecting them.
+- [ ] The DKIM removal and the root-domain SPF edit are both identified. SPF still passes for the external envelope domain, which does not align with northlightbooks.com; the root-domain edit cannot change that result. Missing custom DKIM leaves no aligned pass.
+- [ ] The fix restores DKIM signing for northlightbooks.com first, audits SPF for each actual envelope domain and, if an aligned custom return path is configured, authorizes the platform there, and keeps DMARC at a monitoring or quarantine policy until reports are clean.
 - [ ] Subject lines are explicitly ruled out with evidence (A and C opens unchanged).
 
 ## Evidence checklist
@@ -97,4 +97,6 @@ Recomputed report, per-provider table, triage walk, DNS explanation, fix plan wi
 - Which single number in the log most quickly ruled out the subject line?
 
 ## Instructor notes
-Key arithmetic: Jan delivered 5,020, opens 1,670 (33.3%), clicks 124 (2.5%), CTOR 7.4%. Feb delivered 5,050, opens 1,205 (23.9%), clicks 91 (1.8%). Provider B Feb: 35 / 1,640 = 2.1% opens vs Jan 31.9%; A and C unchanged (about 34%). The DMARC report shows B rejecting all 1,640 messages; the email platform still counted them as delivered in this simulated log, which is the teaching point about delivered ≠ inbox. Real platforms may report such rejections as bounces; tell learners to check how their platform records them rather than assuming. The 35 "opens" at B are plausibly machine or proxy activity; accept that interpretation if argued. Fix order: re-publish DKIM key and re-enable custom signing; restore the platform's SPF include (check lookup count); temporarily step DMARC back to `quarantine` or `none` only while fixing, then return to enforcement once aggregate reports show all legitimate sources aligned. Do not let learners propose sending from a different domain as the fix.
+Key arithmetic: Jan delivered 5,020, opens 1,670 (33.3%), clicks 124 (2.5%), CTOR 7.4%. Feb delivered 5,050, opens 1,205 (23.9%), clicks 91 (1.8%). Provider B Feb: 35 / 1,640 = 2.1% opens vs Jan 31.9%; A and C unchanged (about 34%). The DMARC report shows B quarantining all 1,640 accepted messages, consistent with the delivered count and low engagement. Some recipients may open mail in spam; tracked opens alone do not establish inbox placement. The changed root-domain SPF record does not govern bounce.example-esp.net, so restoring its include alone cannot repair alignment. Fix order: re-publish DKIM key and re-enable custom signing; audit SPF at the actual envelope domain (check lookup count), and configure an aligned custom return path if adding SPF alignment; keep quarantine while fixing, then review stronger enforcement once aggregate reports show legitimate sources aligned. Do not let learners propose sending from a different domain as the fix.
+
+Authentication reference for this case: [IETF RFC 9989, sections 4.4.2 and 4.7](https://www.rfc-editor.org/rfc/rfc9989.html) explain the MAIL FROM identity used for SPF alignment and the quarantine policy.

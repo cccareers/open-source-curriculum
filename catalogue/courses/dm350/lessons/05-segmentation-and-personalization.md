@@ -27,21 +27,21 @@ BLAST - all 5,900 opted-in contacts, one message
 
 SEGMENTED - the same offer, sent only where it can land, copy adjusted
 
-  Agencies and studios, not clients      2,500  ->  3.4% ->  85 clicks
-  Solo contractors, not clients          1,340  ->  2.9% ->  39 clicks
-  Business type unknown or "other"       1,820  ->  NOT SENT
-  Existing clients                         240  ->  NOT SENT
+  Eligible agencies and studios          2,500  ->  2,432 delivered -> 83 clicks
+  Eligible solo contractors              1,340  ->  1,293 delivered -> 37 clicks
+  Excluded by business type              1,600  ->  NOT SENT
+  Known target types, other exclusions     460  ->  NOT SENT
 
   Sent                     3,840
   Delivered                3,725
-  Clicks                     124
-  Unsubscribes                 6   (0.16%)
+  Clicks                     120   (3.2% of delivered)
+  Unsubscribes                 7   (0.19% of delivered)
   Complaints                   2   (0.05%)
 ```
 
-Read that carefully, because the obvious conclusion is wrong. Segmentation did **not** produce more clicks — 124 against 137. It produced roughly the same result from 35 percent less sending volume, with a third of the unsubscribes and a third of the complaints.
+Read that carefully, because the obvious conclusion is wrong. Segmentation did **not** produce more clicks — 120 against 137. It produced roughly the same result from 35 percent less sending volume, with fewer than half the unsubscribes and a third of the complaints.
 
-That is the actual case for segmentation, and it is worth stating plainly because the industry usually oversells it. A well-segmented send often wins modestly on the day. Where it wins enormously is over a year: the 1,820 people you did not email are still there next quarter, still opening things, still capable of becoming clients. The blast spent them. A list is a stock, not a flow, and every irrelevant email you send draws it down. Lesson 07 puts a number on what that drawdown costs in deliverability terms; for now, know that relevance is how you keep the right to keep sending.
+That is the actual case for segmentation, and it is worth stating plainly because the industry usually oversells it. A well-segmented send often wins modestly on the day. Where it wins enormously is over a year: avoiding an irrelevant send helps preserve relationships with the 2,060 excluded contacts, including 240 existing clients. Among the remaining 1,820 non-clients, those who qualify under future campaign eligibility rules may still become clients. The blast risks spending that future value. A list is a stock, not a flow, and every irrelevant email you send draws it down. Lesson 07 puts a number on what that drawdown costs in deliverability terms; for now, know that relevance is how you keep the right to keep sending.
 
 ## Strategy Before Tooling
 
@@ -59,7 +59,7 @@ A segment is a group of contacts who should receive something different. Five di
 
 **Lifecycle stage.** Where someone is in the relationship. This is the first cut, and it is usually the most important one, because the difference between a subscriber and a client is not a matter of tone — they need entirely different messages.
 
-**Firmographic and demographic.** What the person or company *is*: business type, size band, region, industry. Stable, drawn from properties, and the dimension most dependent on the field discipline from lesson 02. Northlight's `business_type` sits at 49 percent fill, which is why 1,820 contacts above were unmailable on this campaign. Poor data quality is not an abstract problem; it is 1,820 people you cannot talk to.
+**Firmographic and demographic.** What the person or company *is*: business type, size band, region, industry. Stable, drawn from properties, and the dimension most dependent on the field discipline from lesson 02. Lesson 02's last-quarter audit found `business_type` usable on 49 percent of all 8,400 CRM records. That historical full-database audit is separate from the current Q3 opted-in snapshot below. In this snapshot, 1,220 contacts have an unknown business type and another 380 have a known type Northlight does not target. Poor data quality and poor fit are different reasons to exclude someone; do not count them as the same problem.
 
 **Behavioral.** What the person has *done*: pages viewed, assets downloaded, emails clicked, chat conversations, forms submitted. Behavior is the strongest signal of intent and the most perishable.
 
@@ -67,15 +67,15 @@ A segment is a group of contacts who should receive something different. Five di
 
 **Declared preference.** What they told you they want, in a preference centre. The most respectful dimension and the most underused. Someone who says "quarterly only" and gets quarterly emails is a subscriber for life.
 
-Northlight's whole opted-in list, cut two ways:
+Northlight's Q3 opted-in snapshot, cut two ways. These are marginal totals: each column counts all 5,900 contacts independently, not campaign-eligible intersections:
 
 ```txt
 By lifecycle stage                    By business type
-  subscriber          1,980             agency            1,510
-  lead                2,730             design_studio        990
-  marketing_qualified   310             solo_contractor    1,340
+  subscriber          1,980             agency            1,700
+  lead                2,730             design_studio      1,100
+  marketing_qualified   310             solo_contractor    1,500
   client                240             other                380
-  former_client         180             unknown            1,680
+  former_client         180             unknown            1,220
   disqualified          460
   TOTAL               5,900             TOTAL              5,900
 
@@ -85,6 +85,8 @@ By email engagement recency
   91-180 days                         1,420   COOLING
   no engagement in 180+ days          1,650   DORMANT  <- 28% of the list
 ```
+
+Campaign eligibility applies lifecycle, country, recent-booking and suppression rules as well as business type. Of 2,800 agencies/studios, 2,500 qualify; of 1,500 solo contractors, 1,340 qualify. The 460 excluded target-type contacts plus 1,600 unknown/other contacts account for the 2,060 not sent. The 240 clients are suppressed wherever their business type falls; they are not a separate category to add to these business-type totals. No client-by-business-type breakdown is supplied.
 
 That last line is the number a new marketer at Northlight should notice first. More than a quarter of the list has ignored every email for six months. They are not neutral: they suppress the averages, they raise the complaint risk, and lesson 07 will show they actively damage the chance that the other 72 percent see anything at all.
 
@@ -244,7 +246,7 @@ If you want to know whether yours is clean, book a 20-minute call.
 
 Three things to take from that example.
 
-**The default branch is real copy, not a placeholder.** It is written to be true of everybody, and it is what 1,680 unknown-business-type contacts would see if you chose to include them. Writing the default first is a good habit — it forces you to have a message that works without data, which is what you actually have most of the time.
+**The default branch is real copy, not a placeholder.** It is written to be true of everybody, and it is what 1,220 unknown-business-type contacts could see if they passed the other eligibility checks and you chose to include that type. Writing the default first is a good habit — it forces you to have a message that works without data, which is what you actually have most of the time.
 
 **Each branch stands alone.** Delete the other two and the email still makes sense.
 
@@ -340,7 +342,7 @@ The "10x surprise" line has saved more sends than the rest of the list together.
 Report per segment, never only in aggregate. The aggregate hides everything you would want to act on.
 
 ```txt
-Q3 close push - results by segment
+Q3 close push - observed results by segment
 
   Segment            Sent   Deliv.   Open%   Click%   Bookings   Unsub%
   agency/studio     2,500   2,432    34.1%    3.4%        14      0.12%

@@ -56,7 +56,7 @@ CAMPAIGN BRIEF - Q3 Close Push
                   AND lifecycle_stage in (subscriber, lead, marketing_qualified)
                   AND business_type in (agency, design_studio, solo_contractor)
                   AND country = United States
-                  = 3,940 contacts of the 5,900 subscribed
+                  = 3,840 contacts of the 5,900 subscribed
   Excluded        clients, former_clients, disqualified, anyone with a fit call
                   already booked in the last 30 days
   Send window     Tue 8 Sept, 10:00 local time, three weeks before quarter end
@@ -78,9 +78,9 @@ Three things to defend in that brief.
 Is twenty realistic? Do the arithmetic before committing, because a target you invented is worse than no target.
 
 ```txt
-  Delivered            3,940 x 0.97 =  3,822   (3% bounce, lesson 07)
+  Delivered            3,840 x 0.97 =  3,725   (3% bounce, lesson 07)
   Expected click rate                    2.4%   (Northlight's trailing average)
-  Clicks                                   92
+  Clicks                                   89
   Booking page conversion                 22%   (email traffic converts far
                                                  better than cold traffic, which
                                                  runs 5.1% on the same page)
@@ -89,6 +89,8 @@ Is twenty realistic? Do the arithmetic before committing, because a target you i
   New clients at 22% close                3-4
   Lifetime gross profit at $6,435   $19,000-25,000
 ```
+
+These are planning estimates, rounded to whole people at each stage: 3,840 × 0.97 = 3,724.8 delivered; 3,725 × 0.024 = 89.4 clicks; 89 × 0.22 = 19.58 bookings; 20 × 0.78 = 15.6 completed calls; 16 × 0.22 = 3.52 new clients. Lesson 05 reports the observed segmented send separately.
 
 Twenty is reachable and the campaign is worth roughly twenty thousand dollars in lifetime gross profit. Now you know what it is worth to spend a day writing it well.
 
@@ -232,7 +234,7 @@ SUBJECT LINE VARIANTS - Q3 Close Push
 
 Notice that each variant states its angle and its risk. That discipline stops a subject-line meeting from becoming a preference poll. Notice also that variant D was rejected on a *data* ground, not a taste ground — Northlight's data has 1,470 contacts with no reliable first name (mostly older records created before the field was enforced; lesson 05 returns to them), and 1,470 emails beginning "Hi ," is a bigger loss than any lift personalization could buy.
 
-**On A/B testing subject lines:** you can test them, and you should, but be honest about the arithmetic. With 3,822 delivered split evenly, each arm gets about 1,911. At a 30 percent open rate that is roughly 573 opens per arm, and a difference of a percentage point or two between arms is well inside the range that random variation produces. You will learn something from a large difference and nothing from a small one. Test the *angle* rather than the wording — consequence versus curiosity is a question worth several campaigns; comma placement is not — and let the same test run for several quarters before you believe it. The pathway's analytics course covers how to size and read a test properly; apply that discipline here rather than declaring a winner on a fifty-open gap.
+**On A/B testing subject lines:** you can test them, and you should, but be honest about the arithmetic. With 3,725 delivered split evenly, each arm gets about 1,862. At a 30 percent open rate that is roughly 559 opens per arm, and a difference of a percentage point or two between arms is well inside the range that random variation produces. You will learn something from a large difference and nothing from a small one. Test the *angle* rather than the wording — consequence versus curiosity is a question worth several campaigns; comma placement is not — and let the same test run for several quarters before you believe it. The pathway's analytics course covers how to size and read a test properly; apply that discipline here rather than declaring a winner on a fifty-open gap.
 
 ## The Call to Action
 

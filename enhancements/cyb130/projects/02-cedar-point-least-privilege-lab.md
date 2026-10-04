@@ -17,7 +17,7 @@ competency_ids:
 ---
 
 ## Scenario
-Cedar Point Distribution (lesson 04's worked example) wants proof that its role table works, not just a table. You will build a miniature, disposable version of four Cedar Point roles in a container. Linux groups stand in for resource groups and directories stand in for ERP functions. Then you run an allow/deny test matrix against it. Next you play a mover event the way most organizations do it, adding the new role without removing anything, and watch the separation-of-duties test fail. Finally you fix it properly.
+Cedar Point Distribution (the US company in lesson 04; payment limits in USD) wants proof that its role table works, not just a table. You will build a miniature, disposable version of four Cedar Point roles in a container. Linux groups stand in for resource groups and directories stand in for ERP functions. Then you run an allow/deny test matrix against it. Next you play a mover event the way most organizations do it, adding the new role without removing anything, and watch the separation-of-duties test fail. Finally you fix it properly.
 
 This lab models the **two-tier pattern** from lesson 04: people get roles, roles map to resource groups, and resources grant only resource groups. POSIX groups cannot nest, so `build.sh` does the role-to-resource-group expansion. That expansion is the job a provisioning system (SCIM, lesson 05) does in a real environment.
 
@@ -83,7 +83,7 @@ echo "build complete"
 3. **Mover the wrong way.** `asup1` covers procurement for a month. Run `addgroup asup1 erp-vendors-write` and re-run `verify.sh`. Record both failures and explain the harm in one sentence: this person can now create a payee and approve paying it.
 4. **Mover the right way.** Revert with `delgroup asup1 erp-vendors-write`. Then write `mover.sh USER NEW_ROLE`. It must print the user's current groups, remove every resource group that the new role does not include, add the new role's groups, and log each change with a UTC timestamp. Move `asup1` to `role-vendor-maintainer` and re-run `verify.sh`. The supervisor allow/deny checks will now fail because the person changed jobs. Update `roles.csv` and the expected matrix to match, and record that the test change was a deliberate decision.
 5. **Direct grant.** Run `chown whop1 /srv/wms` and re-run `verify.sh`. Explain why a resource that grants a named user is invisible to a role review, then put the ownership back.
-6. **Leaver.** Write `leaver.sh USER`. It must lock the account (`passwd -l`), record the user's groups to a file, remove all groups, and print the record. Run it on `whop1` and show that `verify.sh` now reports DENY for the operator's ALLOW check. Then update the matrix, because the leaver *should* be denied.
+6. **Leaver.** Write `leaver.sh USER`. It must lock the account (`passwd -l`; the lab-created account may already be password-locked, so record that status and continue), record the user's groups to a file, remove all groups, and print the record. Run it on `whop1` and show that `verify.sh` now reports DENY for the operator's ALLOW check. Then update the matrix, because the leaver *should* be denied.
 
 ## Acceptance criteria
 - [ ] Baseline `verify.sh` passes.

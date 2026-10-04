@@ -64,10 +64,10 @@ A workable indicator record looks like this — the format is unimportant, the f
 ```text
 indicator:   cdn-updates-cache[.]example
 type:        domain
-context:     Hosted the stage-2 script retrieved by the malicious document
+context:     Hosted the script retrieved by the malicious document
              on WKS-4471; resolved to 198.51.100.44 during the incident.
-first_seen:  2026-03-10T14:02Z (internal)
-last_seen:   2026-03-10T15:41Z (internal)
+first_seen:  2026-03-10T14:02:19Z (WKS-4471 proxy; this host only)
+last_seen:   2026-03-10T15:41Z (WKS-4471 DNS; this host only)
 source:      Internal incident IR-2026-0031
 confidence:  High - directly observed in our environment
 tlp:         TLP:AMBER
@@ -122,7 +122,7 @@ Fourth, record the mapping with the evidence attached. A mapping without a point
 Observation:  WINWORD.EXE (pid 6640) spawned powershell.exe (pid 8812) with
               "-nop -w hidden -enc ..." at 2026-03-10T14:02:11Z on WKS-4471.
 Evidence:     EDR process_create, event id 40912; corroborated by proxy
-              request at 14:02:19Z for the stage-2 script.
+              request at 14:02:19Z for the script.
 Tactic:       Execution
 Technique:    Command and scripting interpreter (script host), triggered by
               user execution of a malicious document.
@@ -139,7 +139,7 @@ Confidence:   High - direct telemetry, two sources.
 
 ## Characterizing an intrusion end to end
 
-Put it together. Here is the raw material from a case, in the order it was discovered rather than the order it happened.
+Put it together. Here is the raw material from IR-2026-0031 on 10 March 2026, in the order it was discovered rather than the order it happened. Sizes below use MiB (1,048,576 bytes); 118 MiB is 123,731,968 bytes.
 
 ```text
 1. 14:02:11Z WKS-4471: WINWORD.EXE spawned powershell.exe, encoded command.
@@ -148,15 +148,15 @@ Put it together. Here is the raw material from a case, in the order it was disco
 3. 14:03:00Z onward: WKS-4471 -> 198.51.100.44:443, ~12 packets / ~3.1 KB,
               every 60s, low variance.
 4. 14:06:44Z WKS-4471: scheduled task "OneDriveSyncMaintenance" created,
-              runs at logon, action = script host with a path under
-              the user profile.
+              runs at logon, action = %APPDATA%\Microsoft\OneDriveSync\
+              sync_helper.exe (the executable analyzed in lesson 07).
 5. 14:07:03-06Z FS-07: svc_backup, 12 auth failures then 1 success,
               all from 10.14.9.22.
-6. 14:19:02Z WKS-4471: archive file created, 118 MB, containing documents
-              from the finance share.
-7. 14:31Z    egress: WKS-4471 uploaded 118 MB to an external file-sharing
+6. 14:19:02Z WKS-4471: archive file created, 118 MiB; source-directory artifacts suggest documents
+              from the finance share, but archive contents are not established.
+7. 14:31Z    egress: WKS-4471 uploaded 118 MiB to an external file-sharing
               service never previously used by this host.
-8. 13:51Z    WKS-2210: same destination 198.51.100.44, same 60s cadence.
+8. 13:52Z    WKS-2210: same destination 198.51.100.44, same 60s cadence.
 ```
 
 Reordered by time and mapped, this becomes a characterization:
@@ -165,24 +165,27 @@ Reordered by time and mapped, this becomes a characterization:
 Initial access  A user opened a malicious document attachment (item 1's parent
                 process; delivery confirmed from the mail gateway record).
 Execution       Script interpreter invoked from the document with an encoded
-                command line (1), retrieving a second-stage script (2).
+                command line (1), retrieving a script (2), which retrieves and
+                launches the second-stage executable (lesson 07).
 Persistence     Scheduled task disguised with a plausible sync-service name,
                 triggered at logon (4).
 Defense evasion Encoded command line and a benign-looking task name; the
-                stage-2 path sits inside the user profile, avoiding the need
+                implant path sits inside the user profile, avoiding the need
                 for administrative rights.
 C2              Regular 60-second beacon to a single external address over
-                443 (3), present on a second host from 13:51 (8).
+                443 (3), present on WKS-2210 from 13:52 (8).
 Cred access     Service-account authentication attempts from a workstation,
                 a spray pattern ending in success (5) - requires confirmation
-                that the credential came from WKS-4471's user context.
-Collection      Local archive of finance-share documents (6).
-Exfiltration    118 MB uploaded to an unfamiliar file-sharing service (7).
+                of how the credential was obtained on WKS-2210. The source
+                address establishes its use, not the theft mechanism.
+Collection      Local archive created; finance-share contents inferred (6).
+Exfiltration    118 MiB uploaded to an unfamiliar file-sharing service (7);
+                probable archive exfiltration, contents not established.
 ```
 
-Read what that document now does for you. It puts the events in causal order rather than discovery order. It states, in one place, that data collection *and* an upload of matching size occurred — which is the sentence that determines whether this is a data breach with notification obligations, and therefore the sentence that changes who needs to be in the room. It flags an inference that is not yet proven (the credential-access link) instead of asserting it. And it gives the next analyst a list of things to check that were not in any alert.
+Read what that document now does for you. It puts the events in causal order rather than discovery order. It states, in one place, that data collection *and* an upload of matching size occurred — which is a reason to involve the people responsible for assessing data exposure and notification obligations. A matching size supports probable exfiltration; it does not prove archive contents or settle notification requirements. It flags an inference that is not yet proven (the credential-access link) instead of asserting it. And it gives the next analyst a list of things to check that were not in any alert.
 
-**Now use it predictively.** Given persistence on WKS-4471, ask: is there persistence on WKS-2210, which was beaconing *earlier*? Given a successful service-account authentication on FS-07, ask what that account did next and everywhere it has been used in thirty days. Given a scheduled task with that name, search every host for the same task name — a name is a weak indicator but a free one. Given collection and exfiltration on one host, check whether the same archive tool, path, and naming pattern appear elsewhere. Each of those questions comes from the *shape* of the characterization, not from any alert.
+**Now use it predictively.** Given persistence on WKS-4471, ask: is there persistence on WKS-2210, which was beaconing *earlier*? Given a successful service-account authentication on FS-07, ask what that account did next and everywhere it has been used in thirty days. Given a scheduled task with that name, search every host for the same task name — a name is a weak indicator but a free one. Given collection and probable exfiltration on one host, check whether the same archive tool, path, and naming pattern appear elsewhere. Each of those questions comes from the *shape* of the characterization, not from any alert.
 
 **And use it to identify what would have been missed.** For each technique in the table, ask whether your environment would have detected it independently. Suppose the honest answers are: initial access, only if the gateway had scanned the attachment type; execution, yes; persistence, no — nothing watches scheduled-task creation on workstations; C2, yes by cadence, though nothing alerted; collection, no; exfiltration, yes by volume. That is a gap list, derived from a real intrusion, and it is a far better input to a security-improvement conversation than a generic best-practice checklist. This is what "identify threats and vulnerabilities in networks and information systems" looks like in daily practice: not a scanner report, but a claim about what your organization can and cannot see, backed by an incident.
 
@@ -195,7 +198,7 @@ Write it down before you start:
 ```text
 Hypothesis:  If the actor from IR-2026-0031 is present elsewhere, other hosts
              will have a logon-triggered scheduled task whose action points to
-             a script host with a path under a user profile directory.
+             an executable under a user profile directory, directly or through a script host.
 Data:        Scheduled-task creation events, all workstations, last 60 days.
 Method:      List all such tasks; exclude those matching the four known-good
              management tasks; review the remainder by name and action path.

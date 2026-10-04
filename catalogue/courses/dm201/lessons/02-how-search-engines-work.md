@@ -33,7 +33,7 @@ A page shows up in Google's results only if it passes three gates in order. Goog
 
 The gates are strictly sequential. A page never crawled cannot be indexed; a page not indexed cannot rank, however good the writing. When a stakeholder says "we published that page three weeks ago and it isn't ranking," your first job is not the title tag. It is finding which gate the page is stuck at. Optimizing a page Google has never fetched is like repainting a car with no engine.
 
-Your running example all course is **Meridian Payroll** (meridianpayroll.com), a small-business payroll software company with about 640 indexable URLs across `/pricing`, `/product/...`, `/compare/...`, `/help/...`, `/blog/...`, and `/templates/...`. Over the last three months Search Console reports **41,300 clicks, 1,240,000 impressions, 3.3% average CTR, and average position 18.4** — plenty of pages through all three gates and sitting on page two.
+Your running example throughout the course is **Meridian Payroll** (meridianpayroll.com), a small-business payroll software company with about 640 indexable URLs across `/pricing`, `/product/...`, `/compare/...`, `/help/...`, `/blog/...`, and `/templates/...`. For Jan–Mar 2026, Search Console reports **41,300 clicks, 1,240,000 impressions, 3.3% average CTR, and average position 18.4** — plenty of pages through all three gates and sitting on page two. The shared Performance baseline covers Jan–Mar 2026; later diagnostic exports name their own scope.
 
 ## Discovery: how a URL becomes known at all
 
@@ -118,14 +118,14 @@ The most valuable habit in this report: **classify every non-indexed reason as i
 
 ### Reading the Pages report on Meridian
 
-Here is Meridian's "Why pages aren't indexed" table, reproduced as you would see it:
+Here is a 12 September 2026 follow-up export from Meridian's Pages report, joined to the 640 intended content URLs and 150 audited variants or retired URLs. This 790-URL cohort excludes the separate tag-archive and PDF inventories in lesson 08; it is not the whole domain-property total. The April–July template noindex incident has been fixed; the remaining unintended exclusions are listed below.
 
 ```txt
-Indexing > Pages                                          Last updated: 12 Jun 2026
+Pages export: audited 790-URL cohort                       Snapshot: 12 Sep 2026
 
   Indexed pages ................................. 579
   Not indexed ................................... 211
-  Total known URLs .............................. 790
+  Total URLs in cohort .......................... 790
 
 Why pages aren't indexed
   Reason                                              Pages    Trend
@@ -142,7 +142,7 @@ Why pages aren't indexed
   Total                                                211
 ```
 
-Do the arithmetic out loud; this is how you brief a client. Of 790 known URLs, 150 are non-indexed *on purpose*: paginated and filtered variants correctly declaring a canonical (74), print views and internal search pages carrying noindex (41), old URLs redirecting to replacements (29), two admin paths blocked in robots.txt, four genuine 404s. That leaves 640 URLs Meridian intends to have indexed — and 579 are. The 61-URL gap is 38 duplicate-canonical disputes, 17 crawled-not-indexed, 6 discovered-not-indexed. **That gap is the entire technical indexing agenda for this site**, and the +12 duplicate-canonical row goes first because it is the only reason growing fast enough that the cause is still findable.
+Do the arithmetic out loud; this is how you brief a client. Of 790 URLs in this cohort, 150 are non-indexed *on purpose*: print, tracking and duplicate filtered variants correctly declaring a canonical (74), print views and internal search pages carrying noindex (41), old URLs redirecting to replacements (29), two admin paths blocked in robots.txt, four genuine 404s. That leaves 640 URLs Meridian intends to have indexed — and 579 are. The 61-URL gap is 38 duplicate-canonical disputes, 17 crawled-not-indexed, 6 discovered-not-indexed. **That gap is the technical indexing agenda for this cohort**, and the +12 duplicate-canonical row goes first because it is the only reason growing fast enough that the cause is still findable.
 
 ### URL Inspection: indexed version vs live test
 
@@ -253,42 +253,42 @@ Everything else — including this lesson — is interpretation. When a conferen
 
 ## Worked example: tracing one Meridian URL through all three gates
 
-Meridian published `/blog/payroll-tax-deadlines` on **3 March 2026 at 09:14 UTC** — a 1,400-word article with the 2026 federal deposit schedule, a table of monthly and semiweekly deadlines, and a downloadable calendar. On publish the CMS linked it from the `/blog/` index and added it to the XML sitemap, and an editor linked it from `/help/payroll-tax-setup`.
+Meridian published `/blog/payroll-tax-deadlines` on **6 January 2026 at 09:14 UTC** — a 1,400-word article describing the 2026 federal deposit schedule in prose, with a downloadable calendar. The on-page deadline tables are added in lesson 06’s July optimization. On publish the CMS linked it from the `/blog/` index and added it to the XML sitemap, and an editor linked it from `/help/payroll-tax-setup`.
 
 ### The server log
 
 ```txt
-66.249.66.14 - - [03/Mar/2026:14:22:07 +0000] "GET /sitemap.xml HTTP/1.1" 200 18442 "-" "Googlebot/2.1 (+http://www.google.com/bot.html)"
-66.249.66.9  - - [03/Mar/2026:14:23:51 +0000] "GET /blog/ HTTP/1.1" 200 41209 "-" "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X) ... Googlebot/2.1"
-66.249.66.9  - - [04/Mar/2026:22:07:33 +0000] "GET /help/payroll-tax-setup HTTP/1.1" 200 33871 "-" "... Googlebot/2.1"
-66.249.66.21 - - [05/Mar/2026:03:41:18 +0000] "GET /blog/payroll-tax-deadlines HTTP/1.1" 200 52318 "-" "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X) ... Googlebot/2.1"
-66.249.66.21 - - [05/Mar/2026:03:41:19 +0000] "GET /assets/app.4f2a.js HTTP/1.1" 200 118904 "-" "... Googlebot/2.1"
-66.249.66.21 - - [05/Mar/2026:03:41:20 +0000] "GET /assets/deadline-table.css HTTP/1.1" 200 9122 "-" "... Googlebot/2.1"
-66.249.66.14 - - [11/Mar/2026:06:12:44 +0000] "GET /blog/payroll-tax-deadlines HTTP/1.1" 304 0 "-" "... Googlebot/2.1"
-66.249.66.9  - - [02/Apr/2026:19:55:02 +0000] "GET /blog/payroll-tax-deadlines HTTP/1.1" 200 52411 "-" "... Googlebot/2.1"
+66.249.66.14 - - [06/Jan/2026:14:22:07 +0000] "GET /sitemap.xml HTTP/1.1" 200 18442 "-" "Googlebot/2.1 (+http://www.google.com/bot.html)"
+66.249.66.9  - - [06/Jan/2026:14:23:51 +0000] "GET /blog/ HTTP/1.1" 200 41209 "-" "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X) ... Googlebot/2.1"
+66.249.66.9  - - [07/Jan/2026:22:07:33 +0000] "GET /help/payroll-tax-setup HTTP/1.1" 200 33871 "-" "... Googlebot/2.1"
+66.249.66.21 - - [08/Jan/2026:03:41:18 +0000] "GET /blog/payroll-tax-deadlines HTTP/1.1" 200 52318 "-" "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X) ... Googlebot/2.1"
+66.249.66.21 - - [08/Jan/2026:03:41:19 +0000] "GET /assets/app.4f2a.js HTTP/1.1" 200 118904 "-" "... Googlebot/2.1"
+66.249.66.21 - - [08/Jan/2026:03:41:20 +0000] "GET /assets/deadline-table.css HTTP/1.1" 200 9122 "-" "... Googlebot/2.1"
+66.249.66.14 - - [14/Jan/2026:06:12:44 +0000] "GET /blog/payroll-tax-deadlines HTTP/1.1" 304 0 "-" "... Googlebot/2.1"
+66.249.66.9  - - [05/Feb/2026:19:55:02 +0000] "GET /blog/payroll-tax-deadlines HTTP/1.1" 200 52411 "-" "... Googlebot/2.1"
 ```
 
-Read what the log says. The sitemap was fetched five hours after publish; the `/blog/` index carrying the new internal link a minute later. The article itself was not fetched for another **41 hours**, at 03:41 on 5 March, by the smartphone crawler. Its CSS and JS came in the same second — the render step gathering resources. The 11 March fetch returned **304 Not Modified**: the server said "unchanged since your last visit" and Googlebot spent almost nothing. The next full fetch was a month later.
+Read what the log says. The sitemap was fetched five hours after publish; the `/blog/` index carrying the new internal link a minute later. The article itself was not fetched for another **37 hours** after discovery (42 hours 27 minutes after publication), at 03:41 on 8 January, by the smartphone crawler. Its CSS and JS came in the following two seconds — the render step gathering resources. The 14 January fetch returned **304 Not Modified**: the server said "unchanged since your last visit" and Googlebot spent almost nothing. The next full fetch was a month later.
 
 ### The gate-by-gate trace
 
 | Date | Gate | Search Console state | What is happening |
 | --- | --- | --- | --- |
-| 3 Mar 09:14 | — | URL is not on Google | Published. Nothing knows it exists yet |
-| 3 Mar 14:23 | Discovery | Discovered – currently not indexed | Found via the `/blog/` index link and the sitemap. Never fetched |
-| 5 Mar 03:41 | Crawl | Crawled – currently not indexed | Fetched, 200, rendered. Under evaluation; **not yet a problem** |
-| 7 Mar | Index | URL is on Google | Selected. Google-selected canonical matches the declared one |
-| 9 Mar | Serve | 3 impressions, avg position 61.2 | First appearances, deep on page six. Zero clicks |
-| 24 Mar | Serve | 190 impressions, 4 clicks, avg position 34.5 | Settling as Google gathers relevance evidence |
-| 12 Jun | Serve | 1,910 impressions, 71 clicks, avg position 12.7, CTR 3.7% | Established at the bottom of page one / top of page two |
+| 6 Jan 09:14 | — | URL is not on Google | Published. Nothing knows it exists yet |
+| 6 Jan 14:23 | Discovery | Discovered – currently not indexed | Found via the `/blog/` index link and the sitemap. Never fetched |
+| 8 Jan 03:41 | Crawl | Crawled – currently not indexed | Fetched, 200, rendered. Under evaluation; **not yet a problem** |
+| 10 Jan | Index | URL is on Google | Selected. Google-selected canonical matches the declared one |
+| 12 Jan | Serve | 3 impressions, avg position 61.2 | First appearances, deep on page six. Zero clicks |
+| 27 Jan | Serve | 190 impressions, 4 clicks, avg position 34.5 | Settling as Google gathers relevance evidence |
+| 17 Apr | Serve | 1,910 impressions, 71 clicks, avg position 12.7, CTR 3.7% | Established on page two, in striking distance |
 
 Four lessons live in that table.
 
-**"Crawled – currently not indexed" on day two is normal.** It is a snapshot mid-evaluation, not a verdict. Judge it at three to four weeks, not at 48 hours. "Fixing" the page on 6 March would have fixed nothing.
+**"Crawled – currently not indexed" on day two is normal.** It is a snapshot mid-evaluation, not a verdict. Judge it at three to four weeks, not at 48 hours. "Fixing" the page on 9 January would have fixed nothing.
 
 **Publish to first impression was six days; first impression to a settled position, about fourteen weeks.** A typical shape for a new page on an established site with existing crawl demand — a brand-new domain with no external links routinely takes longer, and weak internal linking can stretch it to months. Give ranges with reasons. Never promise a timeline; you do not control the queue.
 
-**Position improved without anyone touching the page.** Between March and June it picked up two internal links from newer posts and one external link from an accountancy newsletter, and started collecting real query data. Early positions are provisional, and judging a page in its first fortnight produces panic edits that destroy the evidence you needed.
+**Position improved without anyone touching the page.** Between January and April it picked up two internal links from newer posts and one external link from an accountancy newsletter, and started collecting real query data. Early positions are provisional, and judging a page in its first fortnight produces panic edits that destroy the evidence you needed.
 
 **One 304 saved a full fetch.** Trivia at Meridian's size. At three million URLs, conditional-request handling decides whether the crawler ever reaches your new pages.
 

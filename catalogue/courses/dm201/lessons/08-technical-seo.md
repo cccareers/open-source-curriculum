@@ -36,7 +36,7 @@ no matter how easy the Tier 3 item is.
 
 That last line is the whole discipline. Compressing images is satisfying and visible. It is also pointless on a page carrying a `noindex` tag.
 
-Throughout this lesson you are the SEO lead at **Meridian Payroll** (meridianpayroll.com), a small-business payroll software company with roughly 640 indexable URLs across `/`, `/pricing`, `/product/`, `/compare/`, `/help/`, `/blog/` (about 310 posts), and `/templates/`. The last three months in Search Console show 41,300 clicks, 1,240,000 impressions, 3.3% average CTR, and average position 18.4. Your competitors are PayCadence, Wagebase, and Sumner HR.
+Throughout this lesson you are the SEO lead at **Meridian Payroll** (meridianpayroll.com), a small-business payroll software company with roughly 640 indexable URLs across `/`, `/pricing`, `/product/`, `/compare/`, `/help/`, `/blog/` (about 310 posts), and `/templates/`. The healthy Jan–Mar 2026 Performance window in Search Console shows 41,300 clicks, 1,240,000 impressions, 3.3% average CTR, and average position 18.4. Your competitors are PayCadence, Wagebase, and Sumner HR.
 
 ## Crawl Control: robots.txt
 
@@ -186,8 +186,8 @@ The idea people reach for is "PageRank sculpting": `nofollow` four of ten links 
 ```txt
 /blog/payroll-deadlines
     → 301 → /blog/2024/payroll-deadlines
-    → 301 → /blog/payroll-tax-deadlines
-    → 301 → https://meridianpayroll.com/blog/payroll-tax-deadlines-2026
+    → 301 → http://meridianpayroll.com/blog/payroll-tax-deadlines
+    → 301 → https://meridianpayroll.com/blog/payroll-tax-deadlines
     → 200
 ```
 
@@ -466,25 +466,25 @@ Work in tier order. The primary tool is Search Console; the fallback is a browse
 
 ## Worked Audit: Meridian Payroll
 
-The baseline — 41,300 clicks and 1,240,000 impressions at 3.3% CTR and average position 18.4 — is many impressions converting to few clicks, your first hint that the wrong URLs may be surfacing. Pages shows 640 URLs submitted across five sitemaps, 486 indexed, 154 not.
+The baseline — 41,300 clicks and 1,240,000 impressions at 3.3% CTR and average position 18.4 — is many impressions converting to few clicks, your first hint that the wrong URLs may be surfacing. The technical snapshot is 31 July 2026, during the April–July staging-noindex incident, rather than that healthy performance window. Pages filtered to the five content sitemaps shows 640 submitted URLs: 486 indexed and 154 not indexed. The 154 are 92 blog URLs (61 crawled-not-indexed and 31 canonical disputes), 46 template landing pages carrying noindex, and 16 help URLs with server errors. These buckets are mutually exclusive. The six indexed-but-robots-blocked comparison URLs belong to the 486 indexed, not to the 154. Tag archives, downloadable PDFs, and other non-submitted URLs are outside this sitemap cohort. Lesson 02 uses a later, explicitly scoped export.
 
 | # | Finding | Evidence | Severity | Affected URLs | Fix | Owner |
 | --- | --- | --- | --- | --- | --- | --- |
 | 1 | `/compare/` blocked in robots.txt since a 2024 rewrite; pages show "Indexed, though blocked" | robots.txt line `Disallow: /compare/`; Pages report, 6 URLs in that status; SERP shows a bare URL | Tier 1 — critical | 6 comparison pages | Remove the `Disallow` line; request indexing on each URL | Marketing owns robots.txt; engineering deploys |
 | 2 | Staging `noindex` survived on templates after the April replatform | URL Inspection live test on `/templates/payroll-register`: "Excluded by 'noindex' tag"; view source confirms | Tier 1 — critical | 46 template landing pages | Remove the tag from the templates template; validate fix in Pages | Engineering |
-| 3 | `/help/` returns intermittent 503 during the nightly reindex job | Pages report: 31 URLs in "Server error (5xx)", clustered 01:00–01:40 | Tier 1 — high | ~120 help articles | Serve cached help pages during the window; send `Retry-After` | Engineering |
+| 3 | `/help/` returns intermittent 503 during the nightly reindex job | Pages report: 31 URLs in "Server error (5xx)" (16 submitted, 15 outside the sitemap cohort), clustered 01:00–01:40 | Tier 1 — high | ~120 help articles | Serve cached help pages during the window; send `Retry-After` | Engineering |
 | 4 | Duplicate canonical elements — theme and plugin both emit one | View source shows two canonical elements; URL Inspection reports Google-selected canonical `/compare/` | Tier 2 — high | 6 comparison pages | Disable the theme's canonical output, keep the plugin's | Engineering, verified by marketing |
-| 5 | Blog sitemap lists 310 URLs; 92 not indexed, 61 "Crawled, currently not indexed" | Sitemaps report; Pages filtered to `sitemap-blog.xml` | Tier 2 — high | 92 blog posts | Triage the 61 for thin content per lesson 05; the other 31 are correctly excluded | Marketing |
+| 5 | Blog sitemap lists 310 URLs; 92 not indexed, 61 "Crawled, currently not indexed" | Sitemaps report; Pages filtered to `sitemap-blog.xml` | Tier 2 — high | 92 blog posts | Triage the 61 for thin content per lesson 05; the other 31 have canonical disputes to investigate | Marketing |
 | 6 | Both www and non-www serve 200 on https with no redirect | Network tab: `https://www.meridianpayroll.com/pricing` returns 200 with a self-canonical | Tier 2 — high | ~640 URLs | 301 www to non-www; update sitemap and links | Engineering |
 | 7 | Trailing-slash inconsistency across `/product/` | Spot-check of 10 product URLs; 4 resolve both ways | Tier 2 — medium | ~18 product pages | One 301 rule to the no-slash form; fix links and sitemap | Engineering |
 | 8 | Blog body copy is client-rendered; raw HTML has only a loading container | View source shows an empty `article`; rendered HTML has the copy | Tier 2 — medium | 310 blog posts | Server-render the blog template | Engineering |
 | 9 | Nav links to `/product/reports` pass through a two-hop chain | Network tab: `/products/reports` → 301 → `/product/reports/` → 301 → `/product/reports` | Tier 2 — medium | Site-wide nav | Point the nav at the final URL; flatten to one hop | Engineering |
 | 10 | 1,140 tag-archive URLs indexed with one to three posts each | `site:meridianpayroll.com inurl:/blog/tag/` plus Pages report growth | Tier 2 — medium | ~1,140 archives | `noindex, follow` on tag archives; keep the 14 category archives; drop them from the sitemap | Marketing, in the CMS |
-| 11 | 46 template PDFs outrank their landing pages | Performance report: PDF URLs take 2,100 clicks, landing pages 380 | Tier 2 — medium | 46 PDF files | `X-Robots-Tag: noindex` on `/templates/*.pdf` | Engineering |
+| 11 | 46 template PDFs outrank their landing pages | Performance report: Jan–Mar 2026 PDF-versus-landing-page sample: PDF URLs take 2,100 clicks, landing pages 380 | Tier 2 — medium | 46 PDF files | `X-Robots-Tag: noindex` on `/templates/*.pdf` | Engineering |
 | 12 | Blog template fails LCP and CLS on mobile at the 75th percentile | Core Web Vitals: mobile group of 310 URLs, LCP 4.1s, CLS 0.24, example `/blog/how-to-run-payroll`; PageSpeed Insights names a 2.4MB hero | Tier 3 — medium | 310 blog posts | Responsive AVIF hero, `fetchpriority="high"`, no lazy-load; reserve the widget's height | Engineering |
 | 13 | Full-screen promotional modal fires at 0s on mobile from organic entry | Three organic results loaded on a phone in incognito | Tier 3 — medium | Site-wide | Delay to 30s or exit intent; bottom banner under 768px | Marketing |
 
-Findings 1 to 3 alone put more than 170 URLs back on the board; the templates section earned zero organic clicks for four months because of one leftover tag. No amount of hero-image compression would have found that.
+Findings 1 to 3 affect 6 + 46 + about 120 = about 172 distinct content URLs, but that is not 172 missing from the index: six comparisons are already indexed and the help errors are intermittent. During April–July 2026, the 46 template landing pages earned zero organic clicks because of one leftover tag; PDF downloads are a separate URL set. This incident window does not replace the healthy Jan–Mar template-performance data in lesson 03. No amount of hero-image compression would have found that.
 
 ## Practice
 

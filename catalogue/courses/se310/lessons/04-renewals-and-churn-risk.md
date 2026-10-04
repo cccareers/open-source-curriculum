@@ -91,7 +91,7 @@ Two rules keep it honest. Score from evidence you can cite, not from your mood â
 | 4 Workarounds | 2 | 4 | West spreadsheet keyed by Ruth, ~4 hrs/week |
 | 5 Champion engagement | 0 | 0 | Dana responsive, met 14 Aug, gave candid answers |
 | 6 Champion stability | 0 | 0 | Same role since kickoff |
-| 7 Executive coverage | 1 | 3 | Marcus Bell met at day 45; nothing since |
+| 7 Executive coverage | 1 | 3 | Marcus joined a 12 January progress call, over 6 months ago; planned day-45 result review was missed |
 | 8 Value evidence | 0 | 0 | Late-billed call-outs 12.4% to 4.1%, current |
 | 9 Problem still a priority | 0 | 0 | Confirmed in the August review |
 | 10 Commercial events | 2 | 6 | Software spend review in September, utilization is an input |

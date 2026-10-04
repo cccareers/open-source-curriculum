@@ -21,7 +21,7 @@ Two pages can both mention "payroll software pricing" a dozen times. One is a pr
 
 The rule that makes this expensive to get wrong: **a page-type mismatch cannot be fixed with on-page tweaks.** If the query wants a comparison table and you published a blog post, no title rewrite, no heading restructure, and no amount of link building closes the gap. The systems are not confused about what your page is; they have correctly identified it as the wrong kind of thing. The only fixes are to change the page type, build the right one instead, or stop targeting the query — all bigger decisions than an on-page edit, which is why intent classification happens *before* you write anything.
 
-Meridian Payroll's Search Console data shows mismatch at scale. Over the last three months the site has 41,300 clicks from 1,240,000 impressions — 3.3% average CTR at average position 18.4. By section:
+Meridian Payroll's Search Console data shows mismatch at scale. In the healthy Jan–Mar 2026 window the site has 41,300 clicks from 1,240,000 impressions — 3.3% average CTR at average position 18.4. By section:
 
 | Section | Impressions | Clicks | CTR | Avg position |
 | --- | --- | --- | --- | --- |
@@ -68,7 +68,7 @@ The highest-value class for Meridian — budget and timeline but no vendor yet. 
 
 **Product-adjacent how-tos.** `how to run payroll` looks purely informational, but the SERP often mixes step-by-step guides with vendor pages, because doing it and doing it with a tool overlap. Mixed intent; handled below.
 
-**Competitor names.** `paycadence pricing` is navigational — the person wants PayCadence's own page. A Meridian `/compare/meridian-vs-paycadence` page can legitimately appear, because a slice of that audience is comparison shopping. The line: your comparison must be *honest and useful about the competitor*, not a bait page pretending to be them. Misrepresenting whose site a visitor is on is a spam-policy problem and a brand problem.
+**Competitor names.** `paycadence pricing` is navigational — the person wants PayCadence's own page. A Meridian `/compare/paycadence` page can legitimately appear, because a slice of that audience is comparison shopping. The line: your comparison must be *honest and useful about the competitor*, not a bait page pretending to be them. Misrepresenting whose site a visitor is on is a spam-policy problem and a brand problem.
 
 **Calculator and template queries.** `payroll tax calculator` looks informational because it produces a number. It is transactional: the person wants a working tool this session, and a 1,500-word explanation of payroll mathematics loses to any page with an input box.
 
@@ -290,8 +290,10 @@ SERP STACK (incognito, desktop, US, observed 14 Jun 2026)
 
 ### Read 3 — `free payroll register template excel` (transactional)
 
+This is the healthy March 2026 template read, before lesson 08's April–July noindex incident. The template-versus-blog CTR comparison above uses Jan–Mar 2026.
+
 ```txt
-SERP STACK (incognito, desktop, US, observed 14 Jun 2026)
+SERP STACK (incognito, desktop, US, observed 14 Mar 2026)
 ------------------------------------------------------------
 [ Sponsored - 1 ad, ~110px ]
  1. templatelab.com/payroll-register ............ template download

@@ -27,7 +27,7 @@ The last question makes it a *prioritized* map rather than an inventory. You wil
 
 You classified search intent and read SERP layouts in lesson 03. Here intent is an *input* — a column in the map — while this lesson covers where keyword data comes from, what the numbers mean, how to cluster, and how to score. Lesson 05 asks who else already ranks for your map; lesson 07 stops two pages fighting over one cluster.
 
-Throughout you work for **Meridian Payroll** (meridianpayroll.com), a small-business payroll software company with roughly 640 indexable URLs across `/`, `/pricing`, `/product/...`, `/compare/...`, `/help/...`, `/blog/...`, and `/templates/...`. Its Search Console property shows 41,300 clicks and 1,240,000 impressions over three months, a 3.3% average CTR, and an average position of 18.4. That last number is the interesting one: Meridian is *seen* enormously and clicked rarely, which is what living on page two looks like.
+Throughout you work for **Meridian Payroll** (meridianpayroll.com), a small-business payroll software company with roughly 640 indexable URLs across `/`, `/pricing`, `/product/...`, `/compare/...`, `/help/...`, `/blog/...`, and `/templates/...`. Its Search Console property shows 41,300 clicks and 1,240,000 impressions over three months, a 3.3% average CTR, and an average position of 18.4. That last number is the interesting one: Meridian is *seen* enormously and clicked rarely, which is what living on page two looks like. The shared Performance baseline covers Jan–Mar 2026; later diagnostic exports name their own scope.
 
 ## Where keywords actually come from
 
@@ -136,7 +136,7 @@ payroll software for 10 employees,141,2600,5.42%,6.6
 Read that as a diagnostic, not a list. Three patterns jump out:
 
 - **`certified payroll report`: 14,100 impressions, 12 clicks, position 48.2.** Shown for a query with no real page behind it. Demand proven, supply absent — this is a build.
-- **`how to calculate overtime pay`: 26,300 impressions at position 31.7.** Same shape: enormous demand, no dedicated asset.
+- **`how to calculate overtime pay`: 26,300 impressions at position 31.7.** Same shape: enormous demand, no dedicated asset. Its 31.7 position belongs to an existing general guide; row 12 below scores improvement of that guide, rather than assigning its position to a new calculator.
 - **`semi monthly vs biweekly payroll`: position 4.8, 10.64% CTR.** Already working. Leave it alone and treat it as Meridian's template for "good."
 
 **The caveat that matters most:** Search Console only shows queries you *already appear for*, and is blind by construction to everything else. If Meridian has no page about garnishments, garnishment queries never appear in this export no matter how much demand exists. It describes your current footprint, not the territory beyond it — that is what the rest of expansion is for.
@@ -189,7 +189,7 @@ payroll software    × for restaurants        → payroll software for restauran
 payroll software    × for franchises         → payroll software for franchises            no  (no suggestion, no impressions)
 payroll app         × for nonprofits         → payroll app for nonprofits                 no
 payroll service     × alternatives           → payroll service alternatives               weak (brand form wins instead)
-payroll software    × alternatives + brand   → paycadence alternatives                    yes (GSC, 18,900 impr on pricing)
+payroll software    × alternatives + brand   → paycadence alternatives                    yes (autocomplete; related pricing query has 18,900 GSC impressions)
 ```
 
 The matrix is also how you find the *comparison* and *alternatives* space `/compare/...` serves, and the template queries feeding `/templates/...`.
@@ -377,7 +377,7 @@ A and B are one cluster on one page; C is its own cluster on `/pricing`. Three q
 - Average position oscillates — 9, then 22, then 11 — as Google swaps which page it serves.
 - Neither page accumulates the internal links or engagement one consolidated page would.
 
-Meridian has this now: `/blog/best-payroll-software-small-business` and `/product/payroll` both appear for the "payroll software for small business" cluster, the product page averaging 12.6, the blog post drifting between 18 and 34, impressions split roughly 70/30.
+Meridian has this now: `/blog/best-payroll-software-small-business` and `/product/payroll` both appear for the "payroll software for small business" cluster, in the Jan–Mar 2026 broad query-family export (41,600 impressions), the product page averages 12.6, the blog post drifts between 18 and 34, and impressions split roughly 70/30. This family is broader than lesson 11's exact-query filter.
 
 Mapping by cluster is the *prevention* — with one `target_url` per cluster you cannot accidentally commission two pages for one job. The *cure* for cannibalization that already exists (consolidating, redirecting, canonicalizing, rebalancing internal links) is structural work belonging to lesson 07. Here, detect it, flag it in the status column, and create no more.
 
@@ -412,15 +412,15 @@ Bands: **38+ do now**, **28–37 next quarter**, **18–27 backlog**, **under 18
 
 ### A worked scored table for Meridian
 
-Sixteen clusters. Volume and difficulty are vendor estimates; position comes from the 3-month Search Console export.
+Sixteen clusters. Volume and difficulty are vendor estimates; position comes from the 3-month Search Console export for the mapped page. An unbuilt target has no position and P = 0, even if an unrelated page already receives impressions for its query. The 29.4 pricing-query position is not an alternatives-page position; the 48.2 certified-payroll query appears on an incidental page, not on the unbuilt help article.
 
 | # | Primary keyword | Vol | KD | Pos | V | D | I | B | P | Priority |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 1 | payroll software for 10 employees | 320 | 19 | 6.6 | 2 | 4 | 5 | 5 | 5 | **45** |
-| 2 | paycadence alternatives | 880 | 24 | 29.4 | 2 | 4 | 5 | 4 | 3 | **38** |
+| 2 | paycadence alternatives | 880 | 24 | none | 2 | 4 | 5 | 4 | 0 | **32** |
 | 3 | payroll software pricing | 1,300 | 38 | 7.9 | 3 | 3 | 5 | 5 | 5 | **44** |
 | 4 | switch payroll providers | 590 | 26 | 11.3 | 2 | 4 | 4 | 4 | 4 | **38** |
-| 5 | certified payroll report | 4,400 | 31 | 48.2 | 4 | 3 | 3 | 2 | 2 | **26** |
+| 5 | certified payroll report | 4,400 | 31 | none | 4 | 3 | 3 | 2 | 0 | **22** |
 | 6 | payroll software with time tracking | 1,600 | 44 | none | 3 | 3 | 5 | 4 | 0 | **31** |
 | 7 | payroll software for small business | 12,100 | 71 | 12.6 | 5 | 1 | 4 | 5 | 4 | **38** |
 | 8 | best payroll software for small business | 8,100 | 74 | 21.4 | 4 | 1 | 3 | 4 | 3 | **30** |
@@ -455,7 +455,7 @@ Priority = 3(4) + 2(3) + 2(0) + 2(3) + 1(5)
 
 29 — "next quarter" at best, despite by far the largest volume on the list. The rubric stopped the biggest number from winning, which is the whole point of scoring.
 
-Sorted descending, the do-now set is rows 1, 3, 11, 2, 4, 7, 10 — and six of those seven are *existing pages needing work*, not new builds (only row 2, the PayCadence alternatives page, has to be built; see CL-004 in the map below). That is normal and it is good news: improving a page at position 12 is the cheapest traffic in SEO.
+Sorted descending, the do-now set is rows 1, 3, 11, 4, 7, 10 — all six are existing pages. Row 2, the unbuilt PayCadence alternatives page (CL-004), scores 3(4) + 2(5) + 2(4) + 2(0) + 2 = 32: next quarter. The unbuilt certified-payroll article scores 22: backlog. That is normal and it is good news: improving a page at position 12 is the cheapest traffic in SEO.
 
 ## The keyword map artifact
 
@@ -478,19 +478,19 @@ owner               string   Person accountable
 notes               string   Seasonality, cannibalization detail, SERP sample date
 ```
 
-A ten-row extract of the Meridian map:
+An eleven-row extract of the Meridian map:
 
 ```csv
 cluster_id,cluster_name,primary_keyword,secondary_keywords,intent,page_type,target_url,status,volume,difficulty,value_score,priority
 CL-001,Small business payroll category,payroll software for small business,best payroll software for small business|small business payroll software|payroll software for small businesses,commercial,product,/product/payroll,cannibalized,12100,71,5,38
 CL-002,Company size fit,payroll software for 10 employees,payroll software for 5 employees|payroll for 10 employees|small team payroll software,commercial,product,/product/payroll-small-teams,live-needs-work,320,19,5,45
 CL-003,Pricing,payroll software pricing,payroll software cost|how much does payroll software cost|payroll cost per employee,commercial,pricing,/pricing,live-needs-work,1300,38,5,44
-CL-004,PayCadence competitive,paycadence alternatives,paycadence competitors|alternatives to paycadence|paycadence vs,commercial,comparison,/compare/paycadence-alternatives,to-build,880,24,4,38
+CL-004,PayCadence competitive,paycadence alternatives,paycadence competitors|alternatives to paycadence|paycadence vs,commercial,comparison,/compare/paycadence-alternatives,to-build,880,24,4,32
 CL-005,Provider migration,switch payroll providers,how to change payroll companies|payroll migration checklist|leaving payroll provider,commercial,blog,/blog/switch-payroll-providers,live-needs-work,590,26,4,38
 CL-006,Template library entry,free payroll templates,payroll template|payroll register template|pay stub template,informational,template,/templates,live-ok,5400,18,3,39
 CL-007,Pay frequency explainer,semi monthly vs biweekly payroll,biweekly vs semi monthly|pay frequency comparison|24 vs 26 pay periods,informational,blog,/blog/semi-monthly-vs-biweekly-payroll,live-ok,6600,15,2,38
 CL-008,Time tracking feature,payroll software with time tracking,payroll and time tracking software|integrated time clock payroll,commercial,product,(new) /product/time-tracking,to-build,1600,44,4,31
-CL-009,Certified payroll,certified payroll report,wh-347 form|certified payroll requirements|prevailing wage reporting,informational,help,(new) /help/certified-payroll,to-build,4400,31,2,26
+CL-009,Certified payroll,certified payroll report,wh-347 form|certified payroll requirements|prevailing wage reporting,informational,help,(new) /help/certified-payroll,to-build,4400,31,2,22
 CL-010,Multi-state payroll,multi state payroll,payroll for employees in multiple states|out of state employee payroll,commercial,product,(new) /product/multi-state,to-build,1900,41,4,29
 CL-011,Year-end W-2 deadlines,w2 deadline for employers,w2 filing deadline|when are w2s due|form w-2 due date,informational,blog,(new) /blog/w2-deadline-employers,to-build,40500,20,2,27
 ```

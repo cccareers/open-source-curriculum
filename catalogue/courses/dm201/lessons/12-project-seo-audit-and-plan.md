@@ -37,6 +37,8 @@ Pick one, in this order of preference:
 
 Whichever you choose, the site must have at least thirty indexable pages and some existing organic traffic. A brand-new site with no history cannot support the measurement sections.
 
+For Meridian, keep the data-pack snapshot scopes intact: Jan–Mar 2026 is the healthy Performance baseline; 12 May is the dirty-sitemap example; 31 July is the submitted-URL incident audit; 12 September is the 790-URL follow-up cohort. A technical finding from one snapshot is not a current defect in another unless its evidence confirms that. Tag archives and PDFs are outside the 640 intended content URLs.
+
 Write your choice, the access you have, and any limitations it imposes into the first page of the audit. Stating your evidence boundaries is part of the professional standard here.
 
 ## What you will hand in
@@ -130,7 +132,7 @@ This is the deliverable the client actually buys. Required:
 1. **A prioritized action list** scored with an explicit model. Use impact, confidence, and effort, define your scoring bands in the document, and show the score for every action. The ranking must follow from the scores; if you override a score, say why in one line.
 2. **A month-by-month schedule** across three months, with each action assigned to a month and an owner, and with the monthly totals fitting inside eight developer-hours and twenty writer-hours. If your plan exceeds the capacity, it fails — cut it and say what you cut and why.
 3. **Dependencies made explicit.** Some work is ordered: you do not rewrite titles on pages that are about to be consolidated, and you do not pitch a resource page a link to an article that has not been published yet.
-4. **Expected outcomes stated as ranges with assumptions**, never as single numbers and never as guarantees. Show the arithmetic. For example: "Nine striking-distance URLs currently averaging position 13.4 with 62,000 combined monthly impressions. If four of them move into positions 5–8, that is roughly a 3 to 5 point CTR improvement on those URLs' share of impressions, or about 700 to 1,200 additional clicks a month. Assumptions: impressions hold flat, no competitor displacement, changes ship in month one so effect is visible in months two and three."
+4. **Expected outcomes stated as ranges with assumptions**, never as single numbers and never as guarantees. Show the arithmetic. For example: "Nine striking-distance URLs currently averaging position 13.4 with 62,000 combined monthly impressions. If four of them move into positions 5–8, and those four currently account for 24,000 of the 62,000 monthly impressions, a 3 to 5 percentage-point CTR improvement gives 24,000 × 0.03 to 24,000 × 0.05 = 720–1,200 additional clicks a month. Assumptions: impressions hold flat, no competitor displacement, changes ship in month one so effect is visible in months two and three."
 5. **A risk section**: what could make this plan wrong. Broad search updates, a competitor's investment, seasonality, a site migration already scheduled, the developer being pulled onto something else.
 
 ### Part G — Measurement plan
@@ -170,10 +172,10 @@ The walkthrough is ten to fifteen minutes of you presenting it. Prepare for the 
 | 2.0 | Part B opportunity analysis: keyword map, competitor set, gap list |
 | 1.5 | Part C technical audit and findings table |
 | 1.5 | Part D on-page and architecture findings, three page specs, link plan |
-| 0.75 | Part E off-page assessment |
+| 0.5 | Part E off-page assessment |
 | 1.5 | Part F the 90-day plan and the arithmetic |
 | 0.5 | Part G measurement plan |
-| 0.75 | Part H executive summary and walkthrough prep |
+| 0.5 | Part H executive summary and walkthrough prep |
 
 The most common time sink is Part B, because it is the part where the data is messiest. If you are running long, cut the keyword map to exactly forty well-sourced rows rather than chasing eighty half-sourced ones. Coverage is not the point; defensibility is.
 
@@ -195,20 +197,21 @@ Fix: Fix the sitemap.
 Strong:
 
 ```txt
-Finding: The XML sitemap lists 1,180 URLs but the site has 640 indexable pages;
-         the extra 540 are 480 paginated archive URLs that all carry a
+Finding: In the 12 May 2026 dirty-sitemap audit, the XML sitemap lists 1,180 URLs but the site has 640 intended content pages;
+         the extra 540 are 480 duplicate tag-archive URLs that all carry a
          canonical pointing elsewhere, plus 60 URLs that now return 404.
 Evidence: /sitemap.xml fetched 12 May; URL count from the Sitemaps report
          ("Discovered URLs 1,180"); a spot-check of 20 non-archive URLs found 3 returning 404,
          triggering a full status check that counted the 60 dead URLs above
-         (the sample percentage is not extrapolated to the sitemap). Pages report shows 512 URLs under
-         "Alternate page with proper canonical tag".
+         (the sample percentage is not extrapolated to the sitemap). The full URL-level join to the Pages export identifies all 480 archives under
+         "Alternate page with proper canonical tag"; its whole-property total
+         is not this 1,180-URL sitemap cohort.
 Severity: Misdirecting. Not blocking indexation of the money pages, but it
          wastes crawl attention and makes the Sitemaps report useless as a
          health signal.
-Affected: ~540 URLs. Examples: /blog/page/12/, /blog/page/13/, /help/old-w4/
+Affected: 540 URLs. Examples: /blog/tag/payroll-tax/, /blog/tag/federal-payroll/, /help/old-w4/
 Fix: Regenerate the sitemap to include only canonical, indexable, 200-status
-         URLs. In the CMS SEO settings, exclude paginated archives and any URL
+         URLs. In the CMS SEO settings, exclude duplicate tag archives and any URL
          with a noindex flag. Resubmit and confirm Discovered drops to ~640.
 Owner: Marketing (CMS setting), no developer time required.
 Effort: 0.5 hours.
@@ -224,9 +227,11 @@ Strong:
 
 ```csv
 cluster,primary_keyword,intent,page_type,target_url,volume,volume_source,difficulty,difficulty_source,value,current_position,priority
-payroll-software-smb,payroll software for small business,commercial,comparison,/compare/small-business-payroll (new),8100,suite export May,62,vendor estimate (suite),5,none,1
-payroll-tax-deadlines,payroll tax deadlines 2026,informational,guide,/blog/payroll-tax-deadlines,14800,GSC impressions Q1 + suite,34,vendor estimate (suite),3,9.4,2
+payroll-software-smb,payroll software for small business,commercial,product,/product/payroll,12100,suite export Jan–Mar 2026,71,vendor estimate (suite),5,12.6,38
+payroll-tax-deadlines,payroll tax deadlines 2026,informational,blog,/blog/payroll-tax-deadlines,14800,suite export Apr–Jun 2026,34,vendor estimate (suite),3,14.2,34
 ```
+
+Priority uses lesson 04's 0–50 formula, not an ordinal rank. Row one is V5 D1 I4 B5 P4: 15 + 8 + 2 + 8 + 5 = 38. Row two is V5 D3 I3 B3 P4: 9 + 6 + 6 + 8 + 5 = 34. The 14,800 figure is vendor monthly volume; Search Console impressions are a separate measure.
 
 Every number has a source, difficulty is labeled as an estimate, and the row says what page type the SERP demands.
 

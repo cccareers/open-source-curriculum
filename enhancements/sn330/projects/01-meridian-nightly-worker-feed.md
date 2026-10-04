@@ -36,7 +36,7 @@ This project can be done on a Personal Developer Instance (PDI) **with or withou
 - Create three departments in `cmn_department` with a custom field `u_source_code`: `OPS` (Operations), `FIN` (Finance), `HRS` (Human Resources).
 - Create the two custom tables from lesson 9: `u_hris_value_map` (fields: `source_system`, `field_name`, `source_value`, `target_value`) and `u_hris_feed_issue` (fields: `import_set_row` reference, `employee_number`, `severity` choice of error/warning, `message`). Verify the actual dictionary names for these custom-table fields (Global creation commonly adds `u_`); replace every query, assignment, and dot-walk in the lesson and verifier with those names. Set `import_set_row` to reference `sys_import_set_row`. Populate `u_hris_value_map` for `FT`, `PT`, `TMP` only (deliberately leave `CONTR` unmapped).
 - Add custom fields to `sys_user` for `u_employee_number` (string, unique), `u_employment_type`, and `u_hire_date` (date), or use your HR profile equivalents if HRSD is active.
-- Save this starter file as `meridian_workers.csv` (12 rows shown; extend to 50 following the same patterns, and keep a key of every planted defect):
+- Save this starter file as `meridian_workers.csv` (12 rows shown; extend to a 50-row lab sample following the same patterns, and keep a key of every planted defect). This sample is a test population, not Meridian's full roughly 4,000-person worker feed:
 
 ```csv
 employee_number,first_name,last_name,email,employment_type,hire_date,department_code,manager_employee_number

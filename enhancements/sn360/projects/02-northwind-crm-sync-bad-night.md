@@ -19,7 +19,7 @@ competency_ids:
 
 ## Scenario
 
-Northwind Manufacturing's CRM is the system of record for accounts and contacts (lesson 9's contract table). Last week the CRM's webhook delivered every update twice, a new Ashcroft contact arrived before her account existed, and an outage meant twelve contact changes never arrived at all. Nobody noticed for four days. You will build the inbound contact resource, an error table, a replay path, and a daily reconciliation, then run the six "ugly cases" from lesson 9 and prove each produces a defined, observable outcome.
+Northwind Manufacturing's CRM is the system of record for accounts and contacts (lesson 9's contract table). Last week the CRM's webhook delivered every update twice, a new Eastfield contact arrived before her account existed, and an outage meant twelve contact changes never arrived at all. Nobody noticed for four days. You will build the inbound contact resource, an error table, a replay path, and a daily reconciliation, then run the six "ugly cases" from lesson 9 and prove each produces a defined, observable outcome.
 
 ## What you will produce
 
@@ -31,11 +31,11 @@ Northwind Manufacturing's CRM is the system of record for accounts and contacts 
 
 ## Before you start (prerequisites, starter files or data)
 
-- PDI with CSM activated. Update set `NORTHWIND-CRM-001`.
+- PDI with CSM activated. Update set `NORTHWIND-CRM-001`. Use a clean PDI fixture population, rebuilding lesson 2's Northwind Manufacturing account tree as needed. U1 tests contact insertion, so start without Dana's earlier lesson contact rather than creating a second copy of the same person.
 - Add `u_external_id` (string, unique) to `customer_account` and `customer_contact`. Set `CRM-ACCT-88123` on Northwind Manufacturing, `CRM-ACCT-88124` on Rivergate, `CRM-ACCT-88125` on Ashcroft.
 - Create `u_crm_contact_extract` (fields `external_id`, `email`, `account_external_id`, `last_modified`) to simulate the CRM's nightly full extract, and `u_integration_error` (fields `integration`, `payload` (string, 4000), `http_status` integer, `error`, `retry_count` integer, `state` choice: open / replayed / abandoned).
-- Seed five synthetic contacts through the handler and create matching extract rows before the ugly cases: Dana (`CRM-CON-40921`) plus `CRM-CON-40922` through `CRM-CON-40925`, all under `CRM-ACCT-88123`, with unique `.example` emails. For U1, start Dana absent locally so the first delivery is 201, then include her in the extract. Use 40922 for U5 and 40923–40925 for U6. Reconciliation must be scoped to this CRM integration's external IDs, so unrelated demo contacts are not reported as deleted.
-- Example valid payload for Dana (change external_id/email for the other fixtures): `{"external_id":"CRM-CON-40921","email":"dana@northwind.example","first_name":"Dana","last_name":"Shah","account_external_id":"CRM-ACCT-88123"}`.
+- Seed four additional synthetic contacts through the handler and create matching extract rows before the ugly cases: `CRM-CON-40922` through `CRM-CON-40925`, all under `CRM-ACCT-88123`, with unique `.example` emails. U1 creates Dana Whitfield (`CRM-CON-40921`) on that parent account as the fifth fixture contact; then include her in the extract. Use 40922 for U5 and 40923–40925 for U6. Reconciliation must be scoped to this CRM integration's external IDs, so unrelated demo contacts are not reported as deleted.
+- Example valid payload for Dana (change external_id, email, first_name, and last_name for the four additional fixture contacts): `{"external_id":"CRM-CON-40921","email":"dana@northwind.example","first_name":"Dana","last_name":"Whitfield","account_external_id":"CRM-ACCT-88123"}`.
 - Use only synthetic data in the error table; restrict payload read access to the integration operators and define retention. Verify actual dictionary names of all custom fields (Global fields normally gain a `u_` prefix), and adapt the query examples accordingly.
 - You will call the resource with **System Web Services > REST API Explorer** or any HTTP client using a dedicated integration user with only the roles the resource requires.
 
@@ -50,7 +50,7 @@ Northwind Manufacturing's CRM is the system of record for accounts and contacts 
    - **U4 CRM unavailable (outbound simulation):** if you build the outbound case summary flow, point its connection alias at an unreachable URL and close a case; expect retries with backoff, an error row, and an alert at your threshold. If you skip outbound, simulate by inserting five error rows within an hour and confirm the alert fires.
    - **U5 Deleted in CRM:** remove a contact from `u_crm_contact_extract` and run reconciliation; expect the contact reported (and, per your agreed policy, flagged or deactivated, never deleted).
    - **U6 Missed changes:** change three emails in the extract table without posting webhooks; reconciliation must report all three as drift.
-4. **Replay.** Create account `CRM-ACCT-99999` ("Northwind - Eastfield Plant"), then replay U2's error row with a UI action or a small scheduled flow that re-posts the stored payload to the same handler logic. Expect the contact created and the error row marked replayed.
+4. **Replay.** Create account `CRM-ACCT-99999` ("Northwind - Eastfield Plant") as a child of Northwind Manufacturing, then replay U2's error row with a UI action or a small scheduled flow that re-posts the stored payload to the same handler logic. Expect the contact created and the error row marked replayed.
 5. **Alerting.** A scheduled job or flow that counts `u_integration_error` rows created in the last hour and notifies an integration group at five or more.
 6. **Reconciliation.** Daily scheduled job comparing extract to local contacts by external id: missing locally, missing in CRM, and email drift. Write a summary record or notification, not just a log line.
 7. **Bad-night log** and a one-page runbook for the on-call integration analyst.

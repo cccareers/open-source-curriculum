@@ -104,7 +104,7 @@ Replacement lead
   Gross profit per lead = 0.18 x $2,400 = $432.00
 ```
 
-Brand, AC Repair, and Maintenance Plans generate repair-type leads. Furnace Install generates replacement leads. That single distinction reorders the entire account, as you are about to see.
+Brand, AC Repair, and Maintenance Plans generate repair-type leads. The Maintenance Plans campaign's nine conversions are service leads, not completed plan sales; do not multiply them by the annual plan price or use plan-purchase gross profit for this table. Furnace Install generates replacement leads. That single distinction reorders the entire account, as you are about to see.
 
 ## The Contribution Table
 
@@ -207,7 +207,7 @@ Target CPA is break-even minus the contribution you require:
   Replacement: $432 - $252 target contribution = $180
 ```
 
-Contribution per lead is then just break-even minus actual CPA, and total contribution is that times lead count. It reconciles exactly to the table above:
+Contribution per lead is then just break-even minus actual CPA, and total contribution is that times lead count. Using full-precision CPA, it reconciles exactly to the table above. With displayed CPA rounded to cents, the illustrative products below differ by a few cents; compute the actual contribution as leads times lead value minus observed spend:
 
 ```txt
 Brand           ($108 - $6.82)   x 88 = $101.18 x 88 = $8,903.84
@@ -227,7 +227,7 @@ The people clicking that ad searched for "Northgate Heating and Air." They alrea
 The honest way to think about it is **incremental** contribution: only the leads that would not otherwise have arrived count.
 
 ```txt
-Assume 70% of brand clicks would have converted organically anyway.
+Assume 70% of brand leads would have arrived organically anyway.
   Incremental leads       = 88 x 0.30      = 26.4
   Incremental CPA         = $600 / 26.4    = $22.73
   Incremental gross profit = 26.4 x $108   = $2,851.20
@@ -250,35 +250,40 @@ The blended $40.00 CPA in the canonical report is a number that hides both the b
 Worse, blended figures move when the mix moves, with no change in performance anywhere. Suppose brand demand rises 20 percent seasonally and nothing else changes:
 
 ```txt
-Brand: 106 conversions for $720 spend (same $6.79 CPA)
+Brand: 105.6 expected conversions for $720 spend (same $6.8182 CPA)
 All other campaigns unchanged.
 
 New total spend = $6,080 - $600 + $720 = $6,200
-New total conv  = 152 - 88 + 106       = 170
-New blended CPA = $6,200 / 170         = $36.47
+New total conv  = 152 - 88 + 105.6     = 169.6
+New blended CPA = $6,200 / 169.6       = $36.56
 ```
 
-Blended CPA "improved" 8.8 percent. Not one campaign got better. This is why blended numbers belong in a report only as a headline, never as a diagnosis, and why a client who is only shown blended figures cannot tell a good month from a favourable mix.
+Blended CPA "improved" 8.6 percent. Not one campaign got better. This is why blended numbers belong in a report only as a headline, never as a diagnosis, and why a client who is only shown blended figures cannot tell a good month from a favourable mix.
 
 The reporting discipline is three layers: **blended** for the top-line business answer, **channel** for the budget conversation across search, social, and organic, and **campaign or ad group** for every decision you actually make. Optimize at the level you can act on.
 
 ## Lifetime Value Versus First Purchase
 
-The Maintenance Plans campaign looks marginal at $292 of contribution on $680 of spend. But a maintenance plan customer is not a one-transaction relationship.
+The Maintenance Plans campaign looks marginal at $292 of contribution on $680 of spend, but that report measures repair leads. It does not tell us how many of those leads buy or renew a plan. Keep that campaign's $108 repair-lead value separate from the direct plan-sale scenario below.
 
-Assume, and label this as an assumption, that a plan sells for $189 a year with $95 of gross profit, and that 70 percent of members renew each year, giving an average of about 2.3 renewal years beyond the first.
+A plan sells for $189 a year with $95 of first-year gross profit. For this separate lifetime-value exercise, assume 70 percent of members renew at each annual opportunity, the price and gross profit remain constant, and we ignore discounting and future cost changes. The expected renewal years follow a geometric series:
 
 ```txt
-Additional lifetime gross profit per booked member = 2.3 x $95 = $218.50
-Booked members per lead                            = 0.60
-Additional lifetime value per lead = 0.60 x $218.50 = $131.10
+Expected paid years       = 1 / (1 - 0.70) = 3.3333
+Renewal years after first = 0.70 / (1 - 0.70) = 2.3333
+Future gross profit       = 2.3333 x $95 = $221.67 (rounded at the end)
+Lifetime gross profit per plan purchaser = $95 / 0.30 = $316.67
+Break-even CPA on first plan purchase    = $95
+Break-even CPA on lifetime plan value    = $316.67
 
-Lifetime lead value  = $108 + $131.10 = $239.10
-Break-even CPA on first purchase     = $108
-Break-even CPA on lifetime value     = $239.10
+Hypothetical $150 CPA per completed plan purchase:
+  First-year contribution = $95 - $150 = -$55
+  Lifetime contribution   = $316.67 - $150 = $166.67
 ```
 
-At $75.56 this campaign clears both, so the conclusion does not change. But a $150 CPA would look like a loser on first purchase and a winner on lifetime, and that is a decision you must make deliberately. Two cautions. **The lifetime money arrives over three years and the ad spend leaves today**, so a business without cash cannot fund a lifetime-value strategy no matter how good the arithmetic looks. And a renewal rate assumed today is not a renewal rate measured; use first-purchase economics as the default and lifetime economics as a stated, evidenced exception.
+A $150 plan-purchase CPA would lose money in year one and look profitable on this assumed lifetime basis. That does not make a $150 repair-lead CPA profitable: a repair lead still has a $108 first-job break-even, and applying plan lifetime value to it requires a measured plan-adoption rate and a rule that avoids counting the same customer's profit twice.
+
+Two cautions. **The lifetime money arrives over future years and the ad spend leaves today**, so a business without cash cannot fund a lifetime-value strategy no matter how good the arithmetic looks. And a renewal rate assumed today is not a renewal rate measured; use first-purchase economics as the default and lifetime economics as a stated, evidenced exception.
 
 ## Attribution Changes the Numbers Without Changing the Business
 
@@ -298,7 +303,7 @@ Two rules follow. **Pick one model and report it consistently.** Switching model
 
 ## From Analysis to Action
 
-Analysis that does not end in a decision is a hobby. Use this mapping. Impression share figures are assumed for this example and would come from the account's own reporting.
+Analysis that does not end in a decision is a hobby. Use this mapping. The impression-share table below is an explicitly assumed optimization scenario, separate from the observed baseline in lessons 02/04/06. It reuses the baseline spend and conversion economics to isolate a different inventory constraint; it is not another report of the same period. All diagnoses, reallocations, and the sample client verdict that follow use these assumed share figures.
 
 | Campaign | Search IS | Lost IS (budget) | Lost IS (rank) |
 | --- | --- | --- | --- |
@@ -381,7 +386,7 @@ A monthly performance report should contain, in this order:
 
 The verdict for Northgate's month, written the way you would actually send it:
 
-> The account produced 152 leads for $6,080 in October, an average of $40 per lead. After running those leads through your close rates and job margins, we estimate they generated about $20,300 in gross profit, leaving roughly $14,200 after ad costs. The strongest line is furnace replacement: it looks expensive at $133 per lead, but a replacement lead is worth about $432 to you, so it returned close to $3,600. The weakest is AC repair, which took over half the budget and returned about $1,400, because clicks there cost $8.21 and the page converts at 11 percent. Next month I want to move $500 from AC repair into furnace replacement, which I expect to add somewhere between $200 and $900 in monthly contribution, and I want to rebuild the AC repair page. One caution: the brand campaign accounts for most of the reported return, and some of those customers would have found you without the ad, so the true figure is lower than $14,200. I would like to run a test to find out how much lower.
+> The account produced 152 leads for $6,080 in this 30-day scenario, an average of $40 per lead. After running those leads through your close rates and job margins, we estimate they generated about $20,300 in gross profit, leaving roughly $14,200 after ad costs. The strongest line is furnace replacement: it looks expensive at $133 per lead, but a replacement lead is worth about $432 to you, so it returned close to $3,600. The weakest is AC repair, which took over half the budget and returned about $1,400, because clicks there cost $8.21 and the page converts at 11 percent. Next month I want to move $500 from AC repair into furnace replacement, which I expect to add somewhere between $200 and $900 in monthly contribution, and I want to rebuild the AC repair page. One caution: the brand campaign accounts for most of the reported return, and some of those customers would have found you without the ad, so the true figure is lower than $14,200. I would like to run a test to find out how much lower.
 
 Notice what that paragraph does. It leads with money, not clicks. It states the arithmetic in plain words. It names the weakest line rather than hiding it. It gives a forecast with a range instead of a point estimate. And it volunteers the one fact that makes the agency's own numbers look worse.
 
@@ -391,7 +396,7 @@ That last one is the ethical duty of this job. You are the only person in the ro
 
 Spreadsheet work only. No live spend, no campaign changes.
 
-Northgate's following month, which spans the first freeze of the winter, produced the report below. Furnace Repair is a new campaign. Lead types follow the same rule as before: **Brand, AC Repair, Furnace Repair, and Maintenance produce repair leads; Furnace Install produces replacement leads.**
+For a separate follow-up practice scenario, use the 30-day first-freeze report below. Furnace Repair is a new campaign. Lead types follow the same rule as before: **Brand, AC Repair, Furnace Repair, and Maintenance produce repair leads; Furnace Install produces replacement leads.**
 
 | Campaign | Spend | Clicks | Avg CPC | Conv | Lost IS (budget) | Lost IS (rank) |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -410,7 +415,7 @@ Funnel figures, unchanged: 60 percent of leads book; repair job $410 revenue and
 4. **Write a diagnosis for each campaign** using the framework table in this lesson. Name the observation, the likely cause, and the action. Use the impression share columns. Decompose at least two CPAs into CPC and conversion rate to justify the diagnosis.
 5. **Adjust brand for incrementality.** Assume 70 percent of brand leads would have arrived organically. Recompute brand's incremental CPA and incremental contribution, and restate the account's total contribution on that basis. State how much lower the honest number is.
 6. **Propose a budget reallocation** of at least $500 a month between two campaigns. Forecast the contribution change with explicit arithmetic, using a marginal CPC assumption you state and defend. Give a range, not a single number, and say what would make you reverse the decision.
-7. **Explain the blended CPA.** The account's blended CPA is $43.22, up from $40.00 last month. Compute how much of that movement is explained by the mix of campaigns changing rather than by any campaign getting worse. Show your working.
+7. **Explain the blended CPA.** The account's blended CPA is $43.22, compared with $40.00 in the baseline report. Furnace Repair has no baseline CPA: label any assumed reference CPA for its new volume before decomposing mix and within-campaign effects. Compute how much of that movement is explained by the mix of campaigns changing rather than by any campaign getting worse. Show your working.
 8. **Draft the one-paragraph client verdict.** Under 200 words, no jargon, leading with money. It must name the weakest campaign, contain one forecast with a range, and disclose one thing you do not know.
 
 Submit the spreadsheet with formulas visible, the written diagnoses, and the verdict paragraph.

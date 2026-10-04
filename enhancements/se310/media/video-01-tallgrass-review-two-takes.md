@@ -36,7 +36,7 @@ Setting: video call. **Rep** and **Dana Whitfield**, Director of Field Operation
 | 0:40 | Jordan. | **Jordan:** "Any issues at all?" |
 | 0:42 | Dana. | **Dana:** "Nothing major." |
 | 0:44 | Jordan. | **Jordan:** "Perfect. I'll send this over. Same time next quarter?" |
-| 0:48 | Freeze. Callouts with icons and text. | Host VO: "Pleasant, efficient, and empty. A verdict question invited a polite verdict. Sixty-eight percent adoption was read aloud and nobody asked which region was missing. 'Any issues at all?' was asked in a tone that requests 'no.' The account is five months from renewal and there is no evidence for it." |
+| 0:48 | Freeze. Callouts with icons and text. | Host VO: "Pleasant, efficient, and empty. A verdict question invited a polite verdict. Sixty-eight percent adoption was read aloud and nobody asked which region was missing. 'Any issues at all?' was asked in a tone that requests 'no.' The account is five months from renewal. The planned day-forty-five executive touchpoint was missed; Marcus last heard an initial progress update on January twelfth, over six months ago." |
 | 1:25 | Title: "Take 2." | |
 | 1:28 | Rep (Alex). Card: no word lit yet. | **Alex:** "Before I go through the numbers — walk me through what a bad week looks like for dispatch now. Not an average week, a bad one." |
 | 1:36 | Dana. Chip under her line: "hedge." | **Dana:** "Honestly it's much better. The bad weeks are mostly billing now rather than dispatch." |
@@ -50,7 +50,7 @@ Setting: video call. **Rep** and **Dana Whitfield**, Director of Field Operation
 | 2:20 | Alex. | **Alex:** "That's the first I've heard of the logout. Tell me exactly what happens — a technician's in the yard, they open the form, and then?" |
 | 2:27 | Dana. | **Dana:** "They fill it in, signal drops, and when it comes back they're at the login screen and the form's gone. Twice a day, Ray says." |
 | 2:34 | Alex. | **Alex:** "What else has that changed? Does anything downstream depend on West's data being a week behind?" |
-| 2:40 | Dana. Card lights "Change." | **Dana:** "Marcus's month-end. He asked me about it in April, actually. He wanted to know why we're paying for four hundred seats when three regions are on it." |
+| 2:40 | Dana. Card lights "Change." | **Dana:** "Marcus's month-end. He asked me about it in April, actually. He wanted to know why we're paying for four hundred seats when only East and Central are using it." |
 | 2:50 | Alex writes; does not respond for two seconds. | **Alex:** "Say more about that conversation." |
 | 2:55 | Dana. | **Dana:** "It wasn't a big deal. He's doing a review of all the software spend before the budget goes in — September, I think. He asked me to have a number for what we're actually using." |
 | 3:05 | Alex. Chip: "playback." | **Alex:** "So there's a spend review in September, and one of the inputs is a seat-utilization number that currently looks bad because of West. Have I got that right?" |
