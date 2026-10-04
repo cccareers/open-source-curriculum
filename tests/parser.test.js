@@ -53,6 +53,27 @@ Body`;
   assert.equal(data.kind, 'lesson');
 });
 
+test('Frontmatter Parser: folds colon-containing continuations and preserves subsequent keys', () => {
+  const { data } = parseFrontmatter(`---
+  objectives:
+    - Explain wrapped
+      objectives: accurately
+  title: Example
+  order: 2
+  tags:
+    - node
+  kind: lesson
+---
+Body`);
+  assert.deepEqual(data, {
+    objectives: ['Explain wrapped objectives: accurately'],
+    title: 'Example',
+    order: 2,
+    tags: ['node'],
+    kind: 'lesson',
+  });
+});
+
 test('Video Helper: identifies YouTube URLs', () => {
   const yt = parseVideoUrl('https://www.youtube.com/watch?v=dQw4w9WgXcQ');
   assert.ok(yt);

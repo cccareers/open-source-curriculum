@@ -93,16 +93,19 @@ test('Catalogue: lesson frontmatter objectives match course.json', () => {
   for (const courseId of courseIds) {
     const { meta } = loadCourse(courseId);
     const lessonsDir = path.join(coursesDir, courseId, 'lessons');
-    for (const lesson of meta.lessons || []) {
-      const file = path.join(lessonsDir, `${String(lesson.order).padStart(2, '0')}-${lesson.slug}.md`);
-      assert.ok(fs.existsSync(file), `${courseId}: lesson file missing for ${lesson.lesson_id}: ${path.basename(file)}`);
+    const lessons = new Map((meta.lessons || []).map(lesson => [lesson.lesson_id, lesson]));
+    const seen = new Set();
+    for (const file of markdownFilesIn(lessonsDir)) {
+      const rel = `${courseId}/${path.basename(file)}`;
       const { data } = parseFrontmatter(fs.readFileSync(file, 'utf8'));
-      assert.equal(data.lesson_id, lesson.lesson_id, `${courseId}/${path.basename(file)}: lesson_id drifted`);
-      assert.deepEqual(
-        asList(data.objectives),
-        lesson.objectives || [],
-        `${courseId}/${path.basename(file)}: frontmatter objectives drifted from course.json`
-      );
+      assert.ok(lessons.has(data.lesson_id), `${rel}: unknown lesson_id ${data.lesson_id}`);
+      assert.ok(!seen.has(data.lesson_id), `${rel}: duplicate lesson_id ${data.lesson_id}`);
+      seen.add(data.lesson_id);
+      assert.deepEqual(asList(data.objectives), lessons.get(data.lesson_id).objectives || [],
+        `${rel}: frontmatter objectives drifted from course.json`);
+    }
+    for (const lessonId of lessons.keys()) {
+      assert.ok(seen.has(lessonId), `${courseId}: lesson file missing for ${lessonId}`);
     }
   }
 });

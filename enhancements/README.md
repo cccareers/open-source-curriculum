@@ -87,7 +87,7 @@ First robustness pass over all 81 courses in `catalogue/courses/`. The goal was 
 | [ai101](ai101/review.md) | Fundamentals of AI & Prompt Engineering | 7 / 8 | 2 | 2 | 2 |
 | [ai102](ai102/review.md) | No-Code & Low-Code AI Integration | 11 / 16 | 2 | 2 | 2 |
 | [ai201](ai201/review.md) | AI-Powered Automation & Workflows | 11 / 13 | 2 | 2 | 2 |
-| [ai210](ai210/review.md) | Human-Centered AI Desig | 8 / 8 | 2 | 2 | 2 |
+| [ai210](ai210/review.md) | Human-Centered AI Design | 8 / 8 | 2 | 2 | 2 |
 | [ai350](ai350/review.md) | AI Security & Compliance | 6 / 7 | 2 | 2 | 2 |
 | [db305](db305/review.md) | Data Handling, APIs & AI Infrastructure | 7 / 8 | 2 | 2 | 1 |
 
