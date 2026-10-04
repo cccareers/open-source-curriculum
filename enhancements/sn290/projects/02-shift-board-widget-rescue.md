@@ -116,22 +116,25 @@ api.controller = function($interval) {
 
 1. **Baseline.** As your own user (not admin-impersonating someone else), load the page with the browser network panel open and **System Diagnostics > Session Debug > Debug SQL** (or your release's equivalent) enabled. Record: document response time, number of SQL statements, size of the document response, and how long the page sits before the list appears. Run an automated accessibility checker (for example the axe browser extension or Lighthouse) and record the count of findings. Try to mark a row seen using only the keyboard; record whether you could.
 2. **Diagnose into buckets** (lesson 6): which defects are server, asset, or browser? Write the list before fixing anything. You should find at least: no `setLimit`; a query per row; unused fields (`description`, `work_notes`) serialized; an unconditional-looking side effect that also has no permission check; full `c.server.update()` for a single action; polling with `$interval`; no `track by`; non-focusable click target; color-only priority signal; hard-coded colors and font size; a non-heading title; a table with no header cells.
-3. **Fix the server script.** Limit the query (and add an option for the limit), dot-walk or display-value the assignee instead of querying per row, send only rendered fields, and branch on an explicit `input.action` with a write-permission check:
+3. **Fix the server script.** Limit the query (and add an option for the limit), dot-walk or display-value the assignee instead of querying per row, use `GlideRecordSecure` for the list and send only ACL-readable rendered fields, and branch on an explicit `input.action` with a write-permission check:
 
 ```javascript
 if (input && input.action === 'seen') {
-  var rec = new GlideRecord('incident');
-  if (rec.get(input.sys_id) && rec.canWrite()) {
+  var rec = new GlideRecordSecure('incident');
+  if (typeof input.sys_id === 'string' && /^[0-9a-f]{32}$/i.test(input.sys_id) &&
+      rec.get(input.sys_id) && rec.canRead() && rec.canWrite() && rec.comments.canWrite() &&
+      rec.getValue('opened_by') === gs.getUserID() && rec.getValue('active') === '1') {
     rec.comments = 'Seen by charge nurse';
-    rec.update();
-    data.message = gs.getMessage('Marked {0} as seen', rec.getDisplayValue('number'));
+    data.message = rec.update()
+      ? gs.getMessage('Marked {0} as seen', rec.getDisplayValue('number'))
+      : gs.getMessage('The update could not be saved.');
   } else {
     data.message = gs.getMessage('You cannot update that record.');
   }
 }
 ```
 
-4. **Fix the client.** Use `c.server.get({action: 'seen', sys_id: r.sys_id})` for the action, then refresh; replace the `$interval` poll with `spUtil.recordWatch` on the same filter; add `track by r.sys_id`; one-time bind the static title.
+4. **Fix the client.** Use the action response to set `c.data.message` for the live region, since `server.get` does not apply response data automatically. Use `c.server.get({action: 'seen', sys_id: r.sys_id})` for the action, then refresh; replace the `$interval` poll with `spUtil.recordWatch` on the same filter; add `track by r.sys_id`; one-time bind the static title.
 5. **Fix accessibility and theme.** Real `<button type="button">` controls with row-specific accessible names (for example `aria-label="Mark INC0010001 seen"`); a real heading for the title; `<th scope="col">` header cells; a word or icon-with-text beside the priority dot; a `role="status" aria-live="polite"` region for `data.message`; theme variables instead of hex values; no inline styles.
 6. **Fix the phone layout.** At 375 px the seven-column table must be usable: either wrap it in an `overflow-x: auto` region, or render a stacked card list below the small breakpoint. Confirm 44 by 44 px tap targets for the button.
 7. **Re-measure** every baseline number under the same conditions and fill in the evidence table.
@@ -139,10 +142,10 @@ if (input && input.action === 'seen') {
 
 ## Acceptance criteria
 
-- [ ] The widget shows the same information to the same user as before (number, short description, state, priority, assignee, updated).
-- [ ] SQL statement count for the widget is constant regardless of how many incidents the user has (no per-row query).
+- [ ] The widget retains the rendered fields (number, short description, state, priority, assignee, updated), while omitting records and field values denied by ACLs; the limited list uses a stable sort.
+- [ ] No explicit query runs per incident; related-record reads are cached by assignee, so query growth depends on distinct assignees in the bounded result, not the full incident population. Measure dot-walk queries too.
 - [ ] The server query is limited and the limit is an instance option.
-- [ ] The action validates `input.action` and checks write permission before updating; attempting it against a record the user cannot write returns a message, not an error.
+- [ ] The action validates `input.action` and checks record and comments-field write permission plus the displayed-record filter before updating; attempting it against a record the user cannot write returns a message, not an error.
 - [ ] No polling timer remains.
 - [ ] A keyboard-only user can mark a row seen, with visible focus, and a screen reader announces the result.
 - [ ] Priority is conveyed by text, not color alone.

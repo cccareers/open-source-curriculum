@@ -67,17 +67,17 @@ Plus: a suite run result showing all four passing, and one deliberate regression
        stepResult.setOutputMessage('work_started was not stamped on move to In Progress');
        return false;
      }
-     outputs.table = wo.getValue('work_started'); // keep for the next check
+     outputs.work_started_stamp = wo.getValue('work_started'); // custom String output
      stepResult.setOutputMessage('work_started = ' + wo.getValue('work_started'));
      return true;
    })(outputs, steps, params, stepResult, assertEqual);
    ```
 
-   For the second check, compare `wo.getValue('work_started')` with the value captured by the first script step (`steps('<first script step sys_id>').table`) using `assertEqual({name: 'stamp unchanged', shouldbe: first, value: wo.getValue('work_started')})`.
+   Use a custom server step configuration with a String output named `work_started_stamp`; the shipped `table` output is a table reference, not timestamp storage. For the second check, compare `wo.getValue('work_started')` with the value captured by the first script step (`steps('<first script step sys_id>').work_started_stamp`) using `assertEqual({name: 'stamp unchanged', shouldbe: first, value: wo.getValue('work_started')})`.
 4. **Test 3 — abort completion without part costs.** New test `WO - cannot complete with uncosted parts`. Steps:
    1. *Record Insert* — work order, state In Progress.
    2. *Record Insert* — `x_acme_facilities_work_order_part`, work_order = step 1 record, part = any, quantity 1, **unit_cost empty**.
-   3. *Record Update* — work order state = Closed Complete, with **Assert type = "Record not successfully updated"** (the step's expected-failure option; label may vary by release).
+   3. *Record Update* — work order state = Closed Complete, supplying the required close_code and close_notes, with **Assert type = "Record not successfully updated"** (the step's expected-failure option; label may vary by release).
    4. *Record Validation* — work order state is still In Progress (30).
    5. *Record Update* — set the part's unit_cost = 10.
    6. *Record Update* — work order state = Closed Complete (expect success).
@@ -105,7 +105,7 @@ Plus: a suite run result showing all four passing, and one deliberate regression
 
 ## Acceptance criteria
 - [ ] Suite contains exactly the four tests, all owned by the `x_acme_facilities` scope.
-- [ ] Every test creates its own data; no test depends on a record that existed before the run (ATF rolls back data it created).
+- [ ] Every test creates its own work-order and work-order-part data (ATF rolls back data it created); users, locations, and catalog parts are documented shared reference fixtures.
 - [ ] Test 1 covers both On load/visibility and Reverse if false.
 - [ ] Test 3 proves both the abort *and* the close-state behaviour.
 - [ ] Test 4 checks visibility for two roles, and includes a server-side `canRead()` assertion.

@@ -28,8 +28,8 @@ Lesson 6 ended with a refactor: two business rules on `incident`, each with its 
 In a scoped application `x_acme_routing` (any scope name you own is fine; record it):
 
 1. **Script include `AcmeRoutingUtils`** (server-side class) with public methods `groupForIncident(incidentGr)` and `groupIdByName(name)` and a per-instance cache, as in lesson 6, reading group names from system properties `x_acme_routing.network_group` and `x_acme_routing.hardware_group` (defaults `Network`, `Hardware` — demo-data group names; adjust to your PDI).
-2. **One before business rule** on `incident` (Insert, Update), condition `category changes OR priority changes`, calling the include in ≤ 4 lines.
-3. **Client-callable script include `AcmeIncidentAjax`** with `getCallerSummary()` returning a JSON string `{openCount, vip, location}`; validates `sysparm_caller` is a 32-char hex sys_id and returns `{}` otherwise.
+2. **One before business rule** on `incident` (Insert, Update), condition `insert OR category changes OR priority changes`; order it after the priority derivation on your instance, calling the include in ≤ 4 lines.
+3. **Client-callable script include `AcmeIncidentAjax`** with `getCallerSummary()` returning a JSON string `{openCount, vip, location}`; validates `sysparm_caller` is a 32-char hex sys_id and returns `{}` otherwise; require the fulfiller role on the client-callable include and in its methods, and use ACL-aware reads for caller fields. A valid sys_id is not authorization.
 4. **onChange client script** on `caller_id` calling `getCallerSummary` with `getXMLAnswer` (async), showing a field message when `openCount > 3`; guards `isLoading` and empty values.
 5. **UI policy** (not script): when `category` is `hardware`, `cmdb_ci` is visible and mandatory (Reverse if false, On load).
 6. **ATF suite** `Acme Routing — Regression` (4 tests) and a **background verifier** with PASS/FAIL output.
@@ -43,7 +43,7 @@ In a scoped application `x_acme_routing` (any scope name you own is fine; record
 
 ## Milestones
 1. **Reproduce the mess.** Create lesson 6's Rule A and Rule B verbatim (inactive at first). Activate both, save an incident with category network and priority 1, and use Session debug > *Debug Business Rule* to capture evidence that Rule B re-runs rules (recursion). Deactivate both.
-2. **Write the include.** Implement `AcmeRoutingUtils` with input guards. Every public method must return `''` (not throw) for `null`, `''`, an unqueried GlideRecord, and an invalid sys_id.
+2. **Write the include.** Implement `AcmeRoutingUtils` with input guards. Every public method must return `''` (not throw) for `null`, `''`, an unqueried GlideRecord, and an invalid sys_id. The routing method must also accept an initialized new incident in a before-insert rule; guard record type/methods and required routing values rather than rejecting every record not yet persisted.
 3. **Write the rule.** Before, Insert+Update, condition on the record (not in script):
    ```javascript
    (function executeRule(current, previous) {
@@ -97,7 +97,7 @@ T3 script:
   var t0 = new GlideDateTime().getNumericValue();
   for (var i = 0; i < 200; i++) { u.groupIdByName(netName); }
   var ms = new GlideDateTime().getNumericValue() - t0;
-  check('200 cached lookups under 200 ms (' + ms + ' ms)', ms < 200);
+  gs.info('INFO 200 cached lookups took ' + ms + ' ms; verify no repeated group query with Debug SQL.');
 
   // Rule fires from script, not just forms (dry: insert then delete).
   var inc = new GlideRecord('incident');
@@ -108,9 +108,10 @@ T3 script:
   inc.setValue('urgency', '1');
   var id = inc.insert();
   check('insert succeeded', !!id);
-  inc.get(id);
-  check('rule routed scripted insert', inc.getValue('assignment_group') === netId);
-  inc.deleteRecord();
+  if (id && inc.get(id)) {
+    check('rule routed scripted insert', inc.getValue('assignment_group') === netId);
+    inc.deleteRecord();
+  }
 
   var ajaxRec = new GlideRecord('sys_script_include');
   ajaxRec.addQuery('name', 'AcmeIncidentAjax');
@@ -145,7 +146,7 @@ The verifier inserts and deletes one incident. Run it only on your PDI.
 | Include design | Logic duplicated or no guards | One include, guarded, cached, property-driven | Contract comments on every public method; rules/data-access split |
 | Timing choice | After rule with `current.update()` | Before rule, condition on record | Explains interaction with other rules from Debug Business Rule output |
 | Client performance | Synchronous call or GlideRecord on client | Async GlideAjax; UI policy for show/require | Measured request counts and explained the trade-off vs display rule |
-| Security | Client-callable accepts arbitrary input | Validates sys_id; returns minimal data | Uses GlideRecordSecure or role check and justifies it |
+| Security | Client-callable accepts arbitrary input | Validates sys_id and authorization; returns ACL-readable minimal data | Uses GlideRecordSecure or role check and justifies it |
 | Tests | Manual only | ATF 4/4 + verifier all PASS | Adds negative client test and nightly ATF schedule |
 
 ## Stretch goals

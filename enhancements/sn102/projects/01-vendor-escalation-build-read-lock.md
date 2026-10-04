@@ -23,7 +23,7 @@ In lesson 4 you reverse-engineered a "Vendor Escalation" table somebody else bui
 
 ## What you will build / produce
 - A table **Vendor Escalation** (`u_vendor_escalation`) that extends `task`, with two custom fields: **Vendor** (reference to `core_company`) and **Commercial terms** (string, 4000).
-- Three test users, two groups, two roles, and four access control rules implementing the lesson 5 requirements.
+- Three test users, two groups, two roles, and nine access control rules implementing the lesson 5 requirements.
 - An evidence pack (screenshots + a short written explanation) and the output of a read-only verification script.
 
 ## Before you start (prerequisites, starter files or data)
@@ -47,7 +47,9 @@ In lesson 4 you reverse-engineered a "Vendor Escalation" table somebody else bui
    | Type | Operation | Name | Requires role | Condition |
    |---|---|---|---|---|
    | record | create | `u_vendor_escalation` (None) | — | — |
+   | record | create | `u_vendor_escalation.*` | — | — |
    | record | read | `u_vendor_escalation` (None) | `u_vendor_management` | — |
+   | record | read | `u_vendor_escalation.*` | — | — |
    | record | read | `u_vendor_escalation` (None) | — | Opened by **is (dynamic)** Me |
    | record | write | `u_vendor_escalation` (None) | `u_vendor_management` | — |
    | record | write | `u_vendor_escalation.*` | `u_vendor_management` | — |
@@ -124,7 +126,7 @@ check('no direct grants of vendor roles (found ' + ur.getRowCount() + ')', ur.ge
 var acl = new GlideRecord('sys_security_acl');
 acl.addQuery('name', 'u_vendor_escalation.u_commercial_terms');
 acl.addQuery('operation.name', 'read');
-acl.addActive();
+acl.addActiveQuery();
 acl.query();
 check('active field read ACL on u_commercial_terms', acl.hasNext());
 ```
@@ -142,7 +144,7 @@ Scripting is not a sn102 objective — you are running, not writing, this script
 
 ## Stretch goals
 - Add a **Status** choice field with three choices and use `sys_choice.list` to show label vs stored value.
-- Add a read ACL so Vendor Management Leads can see escalations *only* for vendors in their own country (condition with dot-walk). Predict, then test.
+- Redesign both existing record-read grants so Vendor Management Leads can see escalations *only* for vendors in their own country (condition with dot-walk); exclude leads from the unconditional agent grant and constrain the opened-by grant too. Adding another read ACL would only add access. Predict, then test.
 - Open the Schema Map for `u_vendor_escalation` and annotate the screenshot with which arrows are extension and which are references.
 
 ## Reflection prompts
@@ -153,6 +155,6 @@ Scripting is not a sn102 objective — you are running, not writing, this script
 ## Instructor notes (common pitfalls, how to adapt for time)
 - **Elevation is the #1 blocker.** Learners create an ACL, cannot save it, and assume they are wrong. If the Elevate role option is missing, check that `admin` holds `security_admin` (it does on a standard PDI). Menu labels vary by release — not verified on the current PDI release.
 - **Auto-generated ACLs.** Depending on release and settings, creating a table can create default CRUD ACLs tied to an auto-created role (e.g. `u_vendor_escalation_user`). Learners who skip milestone 7's inventory get confusing impersonation results. Not verified per release.
-- **Self-service users and task ACLs.** `plain.employee` creating a record through `u_vendor_escalation.form` works only if no other rule (e.g. inherited `task` rules) blocks it; if it fails, this is a good debug exercise rather than a defect.
+- **Self-service users and task ACLs.** `plain.employee` creating a record through `u_vendor_escalation.form` works only if no other rule (e.g. inherited `task` rules) blocks it; if it fails, debug the deciding record/field create ACL and adjust the prototype rules until the required create test passes; do not waive the acceptance criterion. Confirm `opened_by` defaults to the current user on creation.
 - **Time-box:** for a 3-hour version, skip milestones 5 and 9 and the stretch goals.
 - Remind learners this is a *prototype in their own PDI*; in client work this table would be built in a scoped application (sn201).

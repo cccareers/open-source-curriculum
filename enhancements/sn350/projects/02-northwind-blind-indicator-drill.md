@@ -33,6 +33,7 @@ Northwind Health's dormant-privileged-account indicator (lesson 7) has reported 
 
 - PDI with Policy and Compliance Management (and GRC core) activated if possible. If GRC indicators or issues are not available on your PDI, build the evaluation as a Script Include plus scheduled job, and use a custom `u_grc_issue_sim` table with fields `related_control` (string), `source_type`, `state`, `severity`, `detail`, `work_notes` (journal). Record which path you used.
 - Create `u_privileged_account` (fields: `ci` reference to `cmdb_ci_server`, `account_name`, `active` true/false, `last_used_on` date/time) and `u_privileged_account_load` (fields: `ci` reference, `rows_loaded` integer). Pick two demo servers as "FIN-APP-01" and "FIN-DB-01" stand-ins.
+- Confirm every custom field name in the dictionary before running the scripts; replace illustrative names such as `ci`, `active`, `last_used_on`, and `source_type` with the actual names (Global custom fields normally have a `u_` prefix). Use choice stored values `closed`, `cancelled`, and `indicator` on the fallback issue table, or adapt the verifier to your values.
 - Seed data: four accounts per server, all used within the last 10 days; one load record per server dated today.
 
 ## Milestones

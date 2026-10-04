@@ -37,7 +37,7 @@ Northwind Regional Health (the lesson 12 customer) has incident management that 
 
 ## Milestones
 1. **Priority sanity.** Without changing anything, create incidents at I1/U1, I2/U2, I3/U3 and record priorities. Locate the priority data lookup (System Policy > Rules > Priority Data Lookup, or `dl_u_priority.list`). Do **not** change it; write one sentence on why a matrix change is a customer decision.
-2. **State rules.** Data policy on `incident`: condition State is Resolved → `close_code`, `close_notes` mandatory; tick *Apply to import sets* and *Use as UI policy on client* as you judge (justify). UI policy: State is On Hold → `hold_reason` mandatory, Reverse if false, On load.
+2. **State rules.** Data policy on `incident`: condition State is Resolved → `close_code`, `close_notes` mandatory; enable *Use as UI policy on client* so the ATF mandatory-field assertion is satisfied (or add an equivalent UI policy); decide and justify *Apply to import sets* separately. UI policy: State is On Hold → `hold_reason` mandatory, Reverse if false, On load.
 3. **Assignment rules.** System Policy > Rules > Assignment (`sysrule_assignment`): rule 1 order 100, table incident, condition Category is Hardware AND Caller.Location is North → group NW North; rule 2 order 200 for South. Create one incident per site and confirm routing. Create one Software incident and confirm neither rule fires.
 4. **Schedules.** Build the three schedules; add three holiday dates (one must be a weekday in the next month); set business hours to exclude the holiday schedule. Set the business-hours schedule's time zone explicitly and record it.
 5. **SLA definitions.** Build NW P1 (Start: Priority is 1 - Critical; Pause: State is On Hold AND Hold reason is Awaiting Caller; Stop: State is Resolved; Duration 4 h; Schedule 24x7) and NW P2 (8 h, business hours). Then copy NW P1 as **TEST** with 10 minutes and add a 50% warning (via the SLA's flow or a notification on `task_sla` condition `percentage ≥ 50` — record which mechanism your release supports). Make TEST's start condition also require Short description *starts with* `[SLATEST]` so it never attaches to real records.
@@ -84,6 +84,7 @@ Northwind Regional Health (the lesson 12 customer) has incident management that 
   inc.setValue('urgency', '1');
   var id = inc.insert();
   check('test incident inserted', !!id);
+  if (!id) { return; } // Do not query or delete using a missing verifier id.
   check('priority derived as 1', inc.getValue('priority') === '1');
   inc.setValue('state', '6');          // Resolved, no close code
   var ok = inc.update();

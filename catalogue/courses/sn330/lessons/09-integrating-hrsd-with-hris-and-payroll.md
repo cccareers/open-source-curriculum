@@ -117,6 +117,8 @@ This is the part of an integration that separates a build that survives contact 
 
 **Validate in the transform, before the write.** An `onBefore` transform script is the natural place: it can inspect the incoming row, correct what is safely correctable, and reject what is not by setting `ignore = true`, which skips the row without failing the whole run. (`ignore` is a variable the transform engine provides to the script; assigning it inside the wrapper function, as below, still sets the engine's variable. Rows already written earlier in the run are not rolled back.)
 
+Verify the dictionary names of custom-table fields before using the example; Global custom fields normally have a `u_` prefix, so adapt all value-map queries and issue-table assignments to the names you actually created.
+
 What to validate on a worker feed:
 
 - Required identifiers present and non-blank — employee number above all.
@@ -148,8 +150,12 @@ Here is a worked `onBefore` script for a worker feed. It shows validation, trans
     if (!/^\d{4}-\d{2}-\d{2}$/.test(hireRaw)) {
       errors.push('Unparseable hire_date: ' + hireRaw);
     } else {
-      hire.setDisplayValueInternal(hireRaw + ' 00:00:00');
-      target.u_hire_date = hire.getDate();
+      hire.setValue(hireRaw + ' 00:00:00');
+      if (!hire.isValid() || hire.getValue().slice(0, 10) !== hireRaw) {
+        errors.push('Invalid calendar hire_date: ' + hireRaw);
+      } else {
+        target.u_hire_date = hire.getDate();
+      }
     }
   }
 
@@ -179,7 +185,8 @@ Here is a worked `onBefore` script for a worker feed. It shows validation, trans
     if (dept.next()) {
       target.department = dept.getUniqueValue();
     } else {
-      // Not fatal: the worker is still usable, but routing may be wrong.
+      // Not fatal: clear any previous department; do not retain a stale reference.
+      target.department = '';
       logFeedIssue(empNo, 'warning', 'Unresolved department code: ' + deptCode);
     }
   }

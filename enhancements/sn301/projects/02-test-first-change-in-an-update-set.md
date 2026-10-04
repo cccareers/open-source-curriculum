@@ -55,15 +55,7 @@ You will write the test first, watch it fail for the right reason, build the con
    ```
    Step names differ slightly between releases (for example "Order Catalog Item" versus "Submit Catalog Item"); pick the shipped Service Catalog step that submits the item on your release. If your release's Record Query step cannot output the matched record for step 6, replace steps 5 and 6 with a single Record Query whose conditions include the expected short description.
 2. **Run it and confirm it fails at step 6** (or the combined query step) with a message about the short description. A test that fails at step 2 or 4 is failing for the wrong reason; fix that first.
-3. **Build the configuration.** Example business rule on `sc_req_item`, before insert, condition: Item is New Laptop:
-   ```javascript
-   (function executeRule(current, previous /*null when async*/) {
-       var model = current.variables.model.getDisplayValue();
-       var who = current.variables.requested_for.getDisplayValue();
-       current.short_description = 'New Laptop - ' + model + ' for ' + who;
-   })(current, previous);
-   ```
-   (A flow that updates the RITM short description is an equally valid answer. Note that a flow runs asynchronously; if you choose a flow, explain in the promotion note how your test copes with that, per lesson 3's warning about async work.)
+3. **Build the configuration.** Create a flow with a **Service Catalog** trigger and associate it with the New Laptop item. Use **Get Catalog Variables** with the trigger's Requested Item record to retrieve `model` and `requested_for`, then **Update Record** on that RITM to set `New Laptop - <model label> for <requested_for display name>` (choose labels/display values, not stored choice values or sys_ids). A before-insert rule on `sc_req_item` must not assume catalog variables already exist. Add a bounded wait/retry to the assertion in steps 5–6 so it waits for the expected short description, and fails with a timeout if the flow never sets it. Document the timeout in the promotion note. See [Service Catalog flows](https://www.servicenow.com/docs/r/build-workflows/workflow-studio/create-sc-flow.html) and [Get Catalog Variables](https://www.servicenow.com/docs/r/xanadu/build-workflows/workflow-studio/get-cat-variables-flow-designer.html).
 4. **Run the test until green twice in a row.** Then make it fail on purpose by changing the business rule's text, confirm the message points to the short description, and revert.
 5. **Verify the update set contents** with the script in the Evidence checklist. You should see the test, its steps, and the business rule. Fix anything missing before you close the set.
 6. **Close and export** the update set to XML.

@@ -21,21 +21,21 @@ competency_ids:
 Facilities Work Orders 1.0 is in test. The facilities manager's first change request: technicians must pick parts from an approved **parts catalogue** with standard costs, and the `part` records must exist on every instance the app is installed on. Lesson 8 told you `part` records do not travel by default. This release fixes that properly, promotes cleanly, and leaves an audit trail a release manager would accept.
 
 ## What you will build / produce
-- `x_acme_facilities_part` marked so its records are captured (`update_synch=true`), seeded with 8 standard parts.
+- `x_acme_facilities_part` marked so its records are captured (`update_synch=true`), seeded with 8 standard parts plus 1 inactive test part.
 - A new field `part_category` (Choice: Electrical, Plumbing, HVAC, General) on `part`, and a reference qualifier on `work_order_part.part` limiting parts to active ones whose category matches the work order's `work_type` (advanced/dynamic qualifier is acceptable; justify).
 - Update set `Facilities Work Orders v1.1 — parts catalogue`, application version bumped to 1.1.0.
 - A promotion to a second instance (partner's PDI) **or** a documented XML import/preview/commit back onto your own PDI after a controlled back-out (see milestone 6).
 - A release note and a back-out plan.
 
 ## Before you start (prerequisites, starter files or data)
-- Facilities Work Orders app at the end of lesson 8 (data model, parts tables, update set habits).
+- Facilities Work Orders app at the end of lesson 8 (data model, parts tables, update set habits). Record any existing parts separately: the verifier below expects exactly the nine drill parts in a clean dataset; otherwise filter its aggregate queries to your recorded drill sys_ids.
 - Application picker on Facilities Work Orders; create the named update set *before* any change and confirm it is current.
-- If you can pair with another learner, exchange PDI URLs and create a read-only admin account for each other's **Update Source** (System Update Sets > Update Sources). Otherwise use the XML route.
+- If you can pair with another learner, exchange PDI URLs and create a dedicated retrieval account with the roles required by Update Sources (admin is not a read-only role) for each other's **Update Source** (System Update Sets > Update Sources). Otherwise use the XML route.
 
 ## Milestones
 1. **Plan the release.** Write the release note skeleton first: what changes, what data travels, dependencies (1.0 must be installed), back-out.
 2. **Mark the table.** Open the `x_acme_facilities_part` table's collection dictionary entry (the row with no column name) and add attribute `update_synch=true`. Confirm in the update set that the dictionary change was captured.
-3. **Seed data.** Create 8 parts (2 per category) with SKU, standard cost, active. Confirm each part record appears as a customer update in your update set. Then create one deliberately *inactive* part.
+3. **Seed data.** On a clean drill dataset, create 8 parts (2 per category) with SKU, standard cost, active. Confirm each part record appears as a customer update in your update set. Then create one deliberately *inactive* part.
 4. **Field and qualifier.** Add `part_category`; set categories on all parts. On `work_order_part.part`, add a reference qualifier: `javascript:'active=true^part_category=' + current.work_order.work_type` (or a script include if you prefer — justify). Test from a work order with work type HVAC: only active HVAC parts are offered.
 5. **Version and audit.** Bump the application version to 1.1.0. Open the update set and audit every customer update: classify each as *table/dictionary*, *choice*, *data (part)*, *qualifier*, *other*. Anything unexpected (a global record, a test incident) must be explained or removed (move it to another set; do not delete the update record blindly).
 6. **Promote.**

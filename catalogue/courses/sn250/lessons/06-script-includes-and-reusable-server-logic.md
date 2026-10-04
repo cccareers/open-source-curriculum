@@ -90,7 +90,6 @@ AcmeIncidentUtils.prototype = {
     var closed = [];
     var gr = new GlideRecord('incident');
     gr.addQuery('state', '6');
-    gr.addQuery('active', true);
     gr.setLimit(limit || 500);
     gr.query();
 
@@ -146,7 +145,7 @@ AcmeIncidentAjax.prototype = Object.extendsObject(global.AbstractAjaxProcessor, 
 
   getOpenCountForCaller: function () {
     var callerId = this.getParameter('sysparm_caller');
-    if (!callerId) {
+    if (!gs.hasRole('itil') || typeof callerId !== 'string' || !/^[0-9a-f]{32}$/i.test(callerId)) {
       return '0';
     }
     var ga = new GlideAggregate('incident');
@@ -160,11 +159,14 @@ AcmeIncidentAjax.prototype = Object.extendsObject(global.AbstractAjaxProcessor, 
 
   getCallerSummary: function () {
     var callerId = this.getParameter('sysparm_caller');
+    if (!gs.hasRole('itil') || typeof callerId !== 'string' || !/^[0-9a-f]{32}$/i.test(callerId)) {
+      return '{}';
+    }
     var summary = { openCount: 0, vip: false, location: '' };
 
-    var user = new GlideRecord('sys_user');
+    var user = new GlideRecordSecure('sys_user');
     if (user.get(callerId)) {
-      summary.vip = user.getValue('vip') === 'true';
+      summary.vip = user.getValue('vip') === '1';
       summary.location = user.getDisplayValue('location');
       summary.openCount = parseInt(this.getOpenCountForCaller(), 10);
     }
@@ -228,7 +230,10 @@ AcmeMajorIncidentUtils.prototype = Object.extendsObject(AcmeIncidentUtils, {
 
   isEligibleForAutoClose: function (incidentGr) {
     // Major incidents are never auto-closed.
-    if (incidentGr.getValue('u_major') === 'true') {
+    if (!incidentGr || !incidentGr.isValidRecord()) {
+      return false;
+    }
+    if (incidentGr.getValue('u_major') === '1') {
       return false;
     }
     return AcmeIncidentUtils.prototype.isEligibleForAutoClose.call(this, incidentGr);
@@ -372,7 +377,9 @@ AcmeRoutingUtils.prototype = {
    * or '' when no rule applies.
    */
   groupForIncident: function (incidentGr) {
-    if (!incidentGr || !incidentGr.isValidRecord()) {
+    if (!incidentGr || typeof incidentGr.isValidRecord !== 'function' ||
+        (!incidentGr.isValidRecord() && !incidentGr.isNewRecord()) ||
+        !incidentGr.getValue('category')) {
       return '';
     }
     var category = incidentGr.getValue('category') || '';

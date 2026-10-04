@@ -34,16 +34,19 @@ Northwind Manufacturing's CRM is the system of record for accounts and contacts 
 - PDI with CSM activated. Update set `NORTHWIND-CRM-001`.
 - Add `u_external_id` (string, unique) to `customer_account` and `customer_contact`. Set `CRM-ACCT-88123` on Northwind Manufacturing, `CRM-ACCT-88124` on Rivergate, `CRM-ACCT-88125` on Ashcroft.
 - Create `u_crm_contact_extract` (fields `external_id`, `email`, `account_external_id`, `last_modified`) to simulate the CRM's nightly full extract, and `u_integration_error` (fields `integration`, `payload` (string, 4000), `http_status` integer, `error`, `retry_count` integer, `state` choice: open / replayed / abandoned).
+- Seed five synthetic contacts through the handler and create matching extract rows before the ugly cases: Dana (`CRM-CON-40921`) plus `CRM-CON-40922` through `CRM-CON-40925`, all under `CRM-ACCT-88123`, with unique `.example` emails. For U1, start Dana absent locally so the first delivery is 201, then include her in the extract. Use 40922 for U5 and 40923–40925 for U6. Reconciliation must be scoped to this CRM integration's external IDs, so unrelated demo contacts are not reported as deleted.
+- Example valid payload for Dana (change external_id/email for the other fixtures): `{"external_id":"CRM-CON-40921","email":"dana@northwind.example","first_name":"Dana","last_name":"Shah","account_external_id":"CRM-ACCT-88123"}`.
+- Use only synthetic data in the error table; restrict payload read access to the integration operators and define retention. Verify actual dictionary names of all custom fields (Global fields normally gain a `u_` prefix), and adapt the query examples accordingly.
 - You will call the resource with **System Web Services > REST API Explorer** or any HTTP client using a dedicated integration user with only the roles the resource requires.
 
 ## Milestones
 
 1. **Build the resource** `POST /api/x_nw_crm/contacts` (or global scope equivalent) from the lesson 9 handler. Extend it: on any rejection, also insert a `u_integration_error` row with the raw payload and status 422; set `retry_count` 0.
-2. **Use a dedicated account.** Create `svc.northwind.crm` with only the roles needed; require authentication on the resource; confirm an unauthenticated call is refused.
+2. **Use a dedicated account.** Create `svc.northwind.crm` with only the roles needed; require authentication and a resource ACL for a dedicated CRM integration role (authentication alone admits any authenticated caller); confirm an unauthenticated call is refused.
 3. **Run the six ugly cases** and log each:
    - **U1 Duplicate delivery:** post the same valid payload for Dana three times. Expect one contact; responses 201, 200, 200.
    - **U2 Child before parent:** post a contact for `CRM-ACCT-99999` (not yet known). Expect 422 with "account ... is not known", an error row, and **no** account auto-created.
-   - **U3 Missing field:** post without `email`. Expect 422 naming the field, nothing written.
+   - **U3 Missing field:** post without `email`. Expect 422 naming the field, no contact/account written, and an error row. Also test an absent body and non-string email; both must reject without throwing.
    - **U4 CRM unavailable (outbound simulation):** if you build the outbound case summary flow, point its connection alias at an unreachable URL and close a case; expect retries with backoff, an error row, and an alert at your threshold. If you skip outbound, simulate by inserting five error rows within an hour and confirm the alert fires.
    - **U5 Deleted in CRM:** remove a contact from `u_crm_contact_extract` and run reconciliation; expect the contact reported (and, per your agreed policy, flagged or deactivated, never deleted).
    - **U6 Missed changes:** change three emails in the extract table without posting webhooks; reconciliation must report all three as drift.

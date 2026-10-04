@@ -23,7 +23,7 @@ Lesson 6 told the story of one Tuesday: an expired certificate takes down the ex
 
 ## What you will build / produce
 - One linked set of ITSM records: 1 parent incident + 3 child incidents, 1 emergency change with 2 change tasks, 1 problem, 1 normal change linked as the problem's fix, and 1 catalog request (REQ → RITM → SCTASK).
-- One flow, **Critical incident alert**, with a trigger, two actions, and (milestone 5) an approval wait.
+- One flow, **Critical incident alert**, with a trigger, two actions, and (milestone 8) an approval wait.
 - A one-page "replay guide" mapping each record to the process and the question it answers.
 
 ## Before you start (prerequisites, starter files or data)
@@ -42,12 +42,12 @@ Lesson 6 told the story of one Tuesday: an expired certificate takes down the ex
    - Action 1: **Update Record** on the trigger incident — Work notes: "Critical alert sent to on-call."
    - Action 2: **Send Email** to your own admin email address, subject "CRITICAL: " + the incident's Number (drag the data pill).
    - Save, **Activate**.
-7. **Fire it.** Create a fresh incident at Impact 1 / Urgency 1, or raise an existing one. Confirm the work note on the record; find the email in **System Logs > Emails** (`sys_email.list`) — PDIs usually do not deliver outbound email, so the log entry is your evidence. Open the flow's **Executions** and read the run step by step.
+7. **Fire it.** Create a fresh incident below P1, save it, then update it to Impact 1 / Urgency 1, or raise an existing non-P1 incident. The Updated trigger does not run on insert. Confirm the work note on the record; find the email in **System Logs > Emails** (`sys_email.list`) — PDIs usually do not deliver outbound email, so the log entry is your evidence. Open the flow's **Executions** and read the run step by step.
 8. **Add a wait.** Insert **Ask for Approval** (approver: your own user) between Action 1 and Action 2. Fire it again on a different incident. Show the execution paused at the approval; approve it from **My Approvals** (`sysapproval_approver.list`, filter Approver is you); show the execution completed.
 9. **Run the verification script** and write the replay guide.
 
 ## Acceptance criteria
-- [ ] Four incidents share one parent; all four reference the same problem.
+- [ ] Three child incidents reference the parent incident; all four incidents reference the same problem.
 - [ ] One emergency change linked from the parent incident, with exactly two change tasks.
 - [ ] One normal change linked to the problem as its fix.
 - [ ] One REQ with at least one RITM; SCTASK present or the waiting stage documented.
