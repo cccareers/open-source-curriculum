@@ -229,7 +229,10 @@ authRouter.post("/login", async (req, res, next) => {
     // anything you need from the old session first.
     const returnTo = req.session.returnTo;
     const safeReturnTo =
-      typeof returnTo === "string" && returnTo.startsWith("/") && !returnTo.startsWith("//")
+      typeof returnTo === "string" &&
+      returnTo.startsWith("/") &&
+      !returnTo.startsWith("//") &&
+      !/[\\\u0000-\u0020\u007f]/.test(returnTo)
         ? returnTo
         : "/events";
 
@@ -255,7 +258,7 @@ authRouter.post("/logout", (req, res, next) => {
 });
 ```
 
-`req.session.regenerate` is not optional and it is not decoration. Without it, the session id the visitor had *before* logging in stays valid *after*. An attacker who can set a cookie in someone's browser — through a shared machine, a subdomain, or a link — can fix a known session id in advance, wait for the victim to log in, and then use that id as the now-authenticated user. This is **session fixation**, and regenerating the id at the moment privilege changes is the entire fix. Regenerating also throws away everything stored in the old session, which is why the handler reads `returnTo` *before* calling `regenerate`. Read it afterwards and it is always `undefined`, and every login lands on `/events`. The check that `returnTo` starts with a single `/` keeps the redirect on your own site; a value like `//evil.example` would otherwise send a freshly logged-in user somewhere else (an **open redirect**). Do the same on logout (destroy, not just clear the user id) and on any other privilege change, such as an account switching to admin.
+`req.session.regenerate` is not optional and it is not decoration. Without it, the session id the visitor had *before* logging in stays valid *after*. An attacker who can set a cookie in someone's browser — through a shared machine, a subdomain, or a link — can fix a known session id in advance, wait for the victim to log in, and then use that id as the now-authenticated user. This is **session fixation**, and regenerating the id at the moment privilege changes is the entire fix. Regenerating also throws away everything stored in the old session, which is why the handler reads `returnTo` *before* calling `regenerate`. Read it afterwards and it is always `undefined`, and every login lands on `/events`. The check requires a single leading `/` and rejects backslashes, spaces, and control characters before redirecting. Browsers normalize backslashes to slashes and strip tabs/newlines, so a slash check alone can still allow an external redirect. With those checks, the redirect stays on your own site; a value like `//evil.example` would otherwise send a freshly logged-in user somewhere else (an **open redirect**). Do the same on logout (destroy, not just clear the user id) and on any other privilege change, such as an account switching to admin.
 
 The explicit `req.session.save` before redirecting matters when the store is a database: the redirect can otherwise race the asynchronous write, and the next request arrives before the session row exists. The symptom is a login that appears to work but leaves you logged out, intermittently, more often on a fast connection.
 

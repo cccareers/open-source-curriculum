@@ -33,7 +33,7 @@ Event 12 is seeded full on staging, so a claim on it returns `409`.
 
 Inside your existing Community Events Board repository:
 
-1. A `shifts` slice whose state is `{ byEventId, lastError }`, with `claimShift` and `releaseShift` thunks built with `createAsyncThunk`, an optimistic `pending` handler, a `rejected` rollback, and a `condition` that blocks a duplicate claim.
+1. A `shifts` slice whose state is `{ byEventId, lastError }`, with `claimShift` and `releaseShift` thunks built with `createAsyncThunk`, an optimistic `pending` handler, a `rejected` rollback (including cancellation), and a `condition` that blocks a duplicate claim.
 2. A `ShiftClaimPanel` component that renders three visible states: unclaimed, pending, and claimed.
 3. A `MyShiftsPage` at `/my/shifts` and a `ShiftBadge` in the root layout nav.
 4. A `makeStore(preloadedState)` factory so tests (and the app) can build a fresh store.
@@ -44,7 +44,7 @@ Inside your existing Community Events Board repository:
 | Export | File | Behavior |
 |---|---|---|
 | `makeStore(preloadedState?)` | `src/app/store.js` | Returns `configureStore({ reducer: { shifts, preferences, … }, preloadedState })`. Also export `store = makeStore()` for the app. |
-| `claimShift({ eventId, role })` | `src/features/shifts/shiftsSlice.js` | `POST /api/events/:eventId/shifts` with body `{ role }`. On `201` returns `{ eventId, role, claimedAt }`. On any non-OK status, `rejectWithValue("That shift is no longer available.")` for `409`, otherwise `"Could not claim that shift."`. `condition` returns `false` when the event already has an entry in `byEventId`. |
+| `claimShift({ eventId, role })` | `src/features/shifts/shiftsSlice.js` | `POST /api/events/:eventId/shifts` with body `{ role }`. Pass `thunkApi.signal` to `fetch`. On `201` returns `{ eventId, role, claimedAt }`. On any non-OK status, `rejectWithValue("That shift is no longer available.")` for `409`, otherwise `"Could not claim that shift."`. `condition` returns `false` when the event already has an entry in `byEventId`. |
 | `releaseShift({ eventId })` | same | `DELETE /api/events/:eventId/shifts`. On `204` returns `{ eventId }` (do not call `response.json()` on a 204). |
 | `selectShiftCount(state)` | same | Number of keys in `byEventId`, pending entries included (the claim is shown, so it is counted). |
 | `selectLastError(state)` | same | `state.shifts.lastError`. |
@@ -90,8 +90,8 @@ afterEach(() => cleanup());
 ## Milestones
 
 1. **Store factory.** Refactor `src/app/store.js` to export `makeStore(preloadedState)` and `store = makeStore()`. The app still runs exactly as before. Commit.
-2. **Slice and thunks.** Rework `shiftsSlice` to the `{ byEventId, lastError }` shape. Add `claimShift` with `pending` (add `{ role, pending: true }` from `action.meta.arg`), `fulfilled` (replace with the confirmed record, `pending: false`), and `rejected` (delete the entry, set `lastError`, ignore `meta.aborted`). Add `releaseShift`. Add the `condition`. Export the selectors. Commit.
-3. **Panel.** Build `ShiftClaimPanel` with all three states and the dismissible alert. Put it on `EventDetail`. Commit.
+2. **Slice and thunks.** Rework `shiftsSlice` to the `{ byEventId, lastError }` shape. Add `claimShift` with `pending` (add `{ role, pending: true }` from `action.meta.arg`), `fulfilled` (replace with the confirmed record, `pending: false`), and `rejected` (delete the entry, set `lastError`, roll back aborted claims too, but suppress their error message). Add `releaseShift`. Add the `condition`. Export the selectors. Commit.
+3. **Panel.** Build `ShiftClaimPanel` with all three states and the dismissible alert. Clear the error on unmount or when `eventId` changes, so navigation dismisses it too. Put it on `EventDetail`. Commit.
 4. **My shifts and badge.** Add the `/my/shifts` route under the root layout and the badge in the nav. Commit.
 5. **Tests green.** Copy the acceptance sketch below into `src/features/shifts/shifts.test.jsx` and make every test pass without editing the tests. Commit.
 6. **Hand-off.** Write `docs/vol-114-handoff.md` using the six sections from lesson 07, including the seeded event 12 and at least two edge cases you did not test.
@@ -125,7 +125,7 @@ import userEvent from "@testing-library/user-event";
 import { Provider } from "react-redux";
 import { createMemoryRouter, RouterProvider } from "react-router-dom";
 import { makeStore } from "../../app/store.js";
-import { claimShift, selectShiftCount } from "./shiftsSlice.js";
+import { claimShift, selectShiftCount, selectLastError } from "./shiftsSlice.js";
 import ShiftClaimPanel from "./ShiftClaimPanel.jsx";
 import ShiftBadge from "./ShiftBadge.jsx";
 import MyShiftsPage from "./MyShiftsPage.jsx";
@@ -226,6 +226,21 @@ describe("claiming a shift", () => {
   });
 });
 
+it("rolls back an aborted claim and allows a retry without showing an error", async () => {
+  const store = makeStore();
+  fetch.mockReturnValueOnce(new Promise(() => {}));
+  const pending = store.dispatch(claimShift({ eventId: 7, role: "general" }));
+  expect(selectShiftCount(store.getState())).toBe(1);
+  pending.abort();
+  await pending;
+  expect(selectShiftCount(store.getState())).toBe(0);
+  expect(selectLastError(store.getState())).toBeNull();
+  fetch.mockResolvedValueOnce(jsonResponse({ eventId: 7, role: "general", claimedAt: "2026-10-02T09:00:00.000Z" }, 201));
+  await store.dispatch(claimShift({ eventId: 7, role: "general" }));
+  expect(fetch).toHaveBeenCalledTimes(2);
+  expect(selectShiftCount(store.getState())).toBe(1);
+});
+
 // --- AC3: rollback on rejection --------------------------------------------
 
 describe("a rejected claim", () => {
@@ -261,6 +276,17 @@ describe("a rejected claim", () => {
     await user.click(screen.getByRole("button", { name: "Dismiss" }));
     expect(screen.queryByRole("alert")).not.toBeInTheDocument();
   });
+});
+
+it("dismisses a claim error when navigating away", async () => {
+  const user = userEvent.setup();
+  fetch.mockResolvedValueOnce(jsonResponse({ message: "Event is full" }, 409));
+  const { store } = renderWithStore(<><ShiftBadge /><ShiftClaimPanel eventId={12} /></>);
+  await user.click(await screen.findByRole("button", { name: "Claim a shift" }));
+  await screen.findByRole("alert");
+  await user.click(screen.getByRole("link", { name: /my shifts/i }));
+  await screen.findByRole("heading", { name: "My shifts" });
+  expect(selectLastError(store.getState())).toBeNull();
 });
 
 // --- AC4: release ----------------------------------------------------------
@@ -314,7 +340,7 @@ Notes on the sketch:
 | Criterion | Developing | Meets | Exceeds |
 |---|---|---|---|
 | State shape and ownership | Event records copied into the store, or shifts held as an array | `{ byEventId, lastError }`, keyed by event id, serializable, events stay in loaders | `NOTES.md` justifies the shape and names one thing deliberately kept out of the store |
-| Async lifecycle | Only the happy path is handled | `pending`, `fulfilled`, and `rejected` all handled; `rejectWithValue` used; aborted rejections ignored | `condition` and an `addMatcher` rule are used where repetition is real, with a one-line justification |
+| Async lifecycle | Only the happy path is handled | `pending`, `fulfilled`, and `rejected` all handled; `rejectWithValue` used; aborted claims rolled back without an error | `condition` and an `addMatcher` rule are used where repetition is real, with a one-line justification |
 | Optimistic UX | Claim waits for the server, or a failure reverts silently | Three visible states; rollback shows a persistent, dismissible alert | Pending state is announced to screen readers and keyboard focus stays on the control after rollback |
 | Encapsulation | Components index into `state.shifts` | All reads go through exported selectors | Selectors that derive arrays are memoized and the re-render count is measured |
 | Tests | Some tests edited to pass | All sketch tests pass unedited | One additional test of your own covers a case from your "not tested" list |
@@ -334,6 +360,7 @@ Notes on the sketch:
 
 ## Instructor notes (common pitfalls, how to adapt for time)
 
+- **Cancellation is not a failed claim message, but it still needs rollback.** Delete the pending entry before checking `meta.aborted`; otherwise it remains disabled forever and `condition` blocks retries. An aborted HTTP mutation may already have committed on the server: reconcile with `GET /api/me/shifts` before retrying in a production app.
 - **Calling `response.json()` on a 204.** The release thunk throws a parse error and the test sees a rejection. Return `{ eventId }` from `meta.arg` instead.
 - **Storing the caught `Error` in `lastError`.** Trips the serializability check; store the message string.
 - **Badge counts confirmed shifts only.** The test expects pending entries to count, because the UI already shows them as claimed. If your cohort disagrees, change the contract table and the test together and record the decision; that disagreement is a good lesson 07 discussion.

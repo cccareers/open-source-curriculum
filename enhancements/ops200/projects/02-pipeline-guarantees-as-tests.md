@@ -96,7 +96,11 @@ test("deploy depends on build, is gated to pushes on main, and uses the artifact
   const found = findJob((job) => job.environment === "production" || job.environment?.name === "production");
   assert.ok(found, "no job attached to the production environment");
   const [name, deploy] = found;
-  assert.ok(asList(deploy.needs).length > 0, `${name} must declare needs:`);
+  const build = findJob((job) => (job.steps ?? []).some((s) =>
+    String(s.uses ?? "").startsWith("actions/upload-artifact"),
+  ));
+  assert.ok(build, "no artifact-producing build job");
+  assert.ok(asList(deploy.needs).includes(build[0]), `${name} must depend on the artifact-producing job ${build[0]}`);
   assert.match(String(deploy.if), /refs\/heads\/main/, `${name} must be gated to main`);
   assert.match(String(deploy.if), /push/, `${name} must only run on push events`);
   assert.ok((deploy.steps ?? []).some((s) => String(s.uses ?? "").startsWith("actions/download-artifact")), `${name} must download the artifact`);

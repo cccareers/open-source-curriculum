@@ -44,13 +44,13 @@ The events board's last deploy went out on a Friday afternoon. A teammate copied
 1. **Config contract.** `SESSION_SECRET` and `DATABASE_URL` are required; `PORT` and `WEB_DIST` are optional, with `WEB_DIST` defaulting to `web/dist`. The process must exit non-zero, naming the missing variable, before it listens.
 2. **Build identity.** Add `build-info.js` with safe defaults and expose `version`, a 7-character `commit`, `builtAt`, and `uptimeSeconds` from `/health`.
 3. **Route order.** Health and API routes first. Then a catch-all `404` JSON response for anything else under `/api`. Then static assets. Then the app-shell fallback.
-4. **Caching.** Static assets get `maxAge: "1y"`. The fallback sets `Cache-Control: no-cache` on `index.html`. Explain in `RELEASE-CHECK.md` why each is correct.
+4. **Caching.** Static assets get `maxAge: "1y"`. Both the fallback and direct `/index.html` requests set `Cache-Control: no-cache` on the shell (use `setHeaders` on the static middleware; `index: false` alone does not protect the direct URL). Explain in `RELEASE-CHECK.md` why each is correct.
 5. **Run the tests**, then add the "Record build identity" step to your pipeline's build job and confirm the deployed `/health` reports the real version and commit.
 6. **Write `RELEASE-CHECK.md`.**
 
 ## Acceptance criteria
 
-- [ ] `npm test` passes all six tests from the repository root.
+- [ ] `npm test` passes all seven tests from the repository root.
 - [ ] Starting the server with `SESSION_SECRET` unset exits within a second, with a message naming the variable.
 - [ ] `curl -s <deployed>/health` shows a version matching `package.json` and the commit of the pipeline run that built it.
 - [ ] `curl -sI <deployed>/assets/<hashed file>` shows `max-age=31536000`; `curl -sI <deployed>/events/12` doesn't.
@@ -155,6 +155,13 @@ test("hashed assets are served with a long cache lifetime", async () => {
   assert.match(res.headers.get("cache-control") ?? "", /max-age=31536000/);
 });
 
+test("direct index.html requests revalidate the shell", async () => {
+  const res = await fetch(`${BASE}/index.html`);
+  assert.equal(res.status, 200);
+  assert.match(await res.text(), /<div id="root">/);
+  assert.match(res.headers.get("cache-control") ?? "", /(?:^|[, ])no-cache(?:$|[, ])/);
+});
+
 test("deep links get the app shell, and the shell is not cached for a year", async () => {
   const res = await fetch(`${BASE}/events/12`);
   assert.equal(res.status, 200);
@@ -174,7 +181,7 @@ If every test fails at once, the server probably never started. Run `SESSION_SEC
 | Criterion | Developing | Meets | Exceeds |
 |---|---|---|---|
 | Configuration | Values hard-coded or read from `process.env` all over the code | One frozen config module; fails fast with named variables | `.env.example` updated in the same commit, with comments explaining each key |
-| Artifact serving | Deep links 404 or API errors return HTML | All six tests pass | Explains each `Cache-Control` choice in terms of content hashing |
+| Artifact serving | Deep links 404 or API errors return HTML | All seven tests pass | Explains each `Cache-Control` choice in terms of content hashing |
 | Traceability | `/health` reports `dev` in production | Deployed `/health` matches `package.json` and the run's commit | Release record links the `/health` output to the pipeline run and tag |
 | Communication | No write-up | `RELEASE-CHECK.md` maps each test to a failure it prevents | Write-up includes the Friday incident's timeline and which test would have caught each step |
 
@@ -191,7 +198,7 @@ If every test fails at once, the server probably never started. Run `SESSION_SEC
 
 ## Instructor notes (common pitfalls, how to adapt for time)
 
-- Learners on Express 5 who copy older tutorials hit the `"*"` crash, and every test fails. A reference run confirmed that swapping in `app.get("*")` takes the suite from 6 passing to 0. Good teaching moment: read the first error, not the last.
+- Learners on Express 5 who copy older tutorials hit the `"*"` crash, and every test fails. A reference run confirmed that swapping in `app.get("*")` takes the suite from 7 passing to 0. Good teaching moment: read the first error, not the last.
 - Placing `express.static` before the `/api` 404 handler still passes, but placing the app-shell fallback before `/api` routes fails tests 3 and 4.
 - If learners' config uses `??` for optional values, an empty `PORT=` becomes `Number("") = 0` and the server binds a random port. Worth a discussion.
 - Shorter session (3 hours): provide `build-info.js` and skip milestone 5's pipeline step.

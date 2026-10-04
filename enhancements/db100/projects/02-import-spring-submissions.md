@@ -133,17 +133,21 @@ END $$;
 DO $$ DECLARE n int; BEGIN
   SELECT count(*) INTO n FROM (
     SELECT s.submission_id,
-           (SELECT count(DISTINCT lower(trim(t))) FROM unnest(string_to_array(s.categories, ',')) AS t
-             WHERE trim(t) <> '') AS expected,
-           (SELECT count(*) FROM event_categories ec WHERE ec.event_id = e.event_id) AS actual
+           (SELECT coalesce(array_agg(category ORDER BY category), ARRAY[]::text[])
+            FROM (SELECT DISTINCT lower(trim(t)) AS category
+                  FROM unnest(string_to_array(s.categories, ',')) AS t
+                  WHERE trim(t) <> '') names) AS expected,
+           (SELECT coalesce(array_agg(DISTINCT lower(trim(c.name)) ORDER BY lower(trim(c.name))), ARRAY[]::text[])
+            FROM event_categories ec JOIN categories c USING (category_id)
+            WHERE ec.event_id = e.event_id) AS actual
     FROM event_submissions s JOIN events e ON e.source_submission_id = s.submission_id
-  ) x WHERE expected <> actual;
-  ASSERT n = 0, format('%s imported events have the wrong number of categories', n);
+  ) x WHERE expected IS DISTINCT FROM actual;
+  ASSERT n = 0, format('%s imported events have the wrong category set', n);
 END $$;
 
 -- 6. Imported events start as drafts so nothing goes public unreviewed.
 DO $$ BEGIN
-  ASSERT NOT EXISTS (SELECT 1 FROM events WHERE source_submission_id IS NOT NULL AND status <> 'draft'),
+  ASSERT NOT EXISTS (SELECT 1 FROM events WHERE source_submission_id IS NOT NULL AND status IS DISTINCT FROM 'draft'),
     'imported events must have status draft';
 END $$;
 

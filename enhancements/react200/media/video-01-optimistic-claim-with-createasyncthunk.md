@@ -58,9 +58,10 @@ Code blocks referenced as **Code A–D** are listed in full under "Code shown on
 ```js
 export const claimShift = createAsyncThunk(
   "shifts/claimShift",
-  async ({ eventId, role }, { rejectWithValue }) => {
+  async ({ eventId, role }, { rejectWithValue, signal }) => {
     const response = await fetch(`/api/events/${eventId}/shifts`, {
       method: "POST",
+      signal,
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ role }),
     });
@@ -91,8 +92,8 @@ extraReducers(builder) {
       state.byEventId[eventId] = { role, claimedAt, pending: false };
     })
     .addCase(claimShift.rejected, (state, action) => {
-      if (action.meta.aborted) return;
       delete state.byEventId[action.meta.arg.eventId];
+      if (action.meta.aborted) return; // undo pending state without showing an error
       state.lastError = action.payload ?? "Could not claim that shift.";
     });
 },
@@ -101,6 +102,7 @@ extraReducers(builder) {
 **Code C — the panel**
 
 ```jsx
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   claimShift,
@@ -114,6 +116,10 @@ export default function ShiftClaimPanel({ eventId }) {
   const shift = useSelector((state) => selectShiftFor(state, eventId));
   const error = useSelector(selectLastError);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    return () => dispatch(shiftErrorDismissed());
+  }, [eventId, dispatch]);
 
   let control;
   if (shift?.pending) {

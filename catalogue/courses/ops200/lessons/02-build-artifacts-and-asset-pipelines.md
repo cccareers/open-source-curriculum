@@ -250,16 +250,26 @@ app.get("/api/events", (req, res) => {
   res.json(events); // the events array your node101 service already serves
 });
 
-app.use(express.static(webDist, { maxAge: "1y", index: false }));
+app.use(express.static(webDist, {
+  maxAge: "1y",
+  index: false,
+  setHeaders(res, filePath) {
+    // index: false disables directory indexes, not GET /index.html.
+    if (filePath === path.join(webDist, "index.html")) {
+      res.setHeader("Cache-Control", "no-cache");
+    }
+  },
+}));
 
 app.get(/.*/, (req, res) => {
+  res.setHeader("Cache-Control", "no-cache");
   res.sendFile(path.join(webDist, "index.html"));
 });
 ```
 
 Older tutorials write the catch-all as `app.get("*", ...)`. That works in Express 4 and **crashes at startup in Express 5**, which is what `npm install express` gives you today: `Missing parameter name at index 1: *`. A regular expression, `/.*/`, means "any path" in both versions. (Express 5's own spelling is `"/{*splat}"`.)
 
-Three things are deliberate there. `express.static` comes after the API routes, so a request for `/api/events` is answered by your handler and never treated as a filename. `maxAge: "1y"` is safe precisely because the asset filenames are content-hashed. And the catch-all sends `index.html` for any unmatched path, which is what makes client-side routing work — a visitor who reloads on `/events/12` gets the app shell, and the front end router takes it from there. Note that `index.html` is served by that handler rather than by the static middleware, so it does not inherit the one-year cache.
+Three things are deliberate there. `express.static` comes after the API routes, so a request for `/api/events` is answered by your handler and never treated as a filename. `maxAge: "1y"` is safe precisely because the asset filenames are content-hashed. And the catch-all sends `index.html` for any unmatched path, which is what makes client-side routing work — a visitor who reloads on `/events/12` gets the app shell, and the front end router takes it from there. The fallback and the explicit `/index.html` static response both override the cache to `no-cache`, so the shell is revalidated on each visit. `index: false` alone only disables automatic directory indexes; it does not stop the static middleware serving `/index.html`. Keep other non-hashed public files on a short cache too.
 
 One release means one version number, one deploy, one thing to roll back. It is the simplest arrangement that works, and simple is worth a great deal when something breaks at five o'clock.
 

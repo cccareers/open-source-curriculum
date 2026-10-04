@@ -119,22 +119,26 @@ import { fetchEvents } from "./eventsThunks.js";
 
 const eventsSlice = createSlice({
   name: "events",
-  initialState: { entities: {}, ids: [], status: "idle", error: null },
+  initialState: { entities: {}, ids: [], status: "idle", error: null, currentRequestId: null },
   reducers: {
     eventsCleared(state) {
       state.entities = {};
       state.ids = [];
       state.status = "idle";
       state.error = null;
+      state.currentRequestId = null;
     },
   },
   extraReducers(builder) {
     builder
-      .addCase(fetchEvents.pending, (state) => {
+      .addCase(fetchEvents.pending, (state, action) => {
+        state.currentRequestId = action.meta.requestId;
         state.status = "loading";
         state.error = null;
       })
       .addCase(fetchEvents.fulfilled, (state, action) => {
+        if (state.currentRequestId !== action.meta.requestId) return;
+        state.currentRequestId = null;
         state.status = "succeeded";
         state.entities = {};
         state.ids = [];
@@ -144,6 +148,12 @@ const eventsSlice = createSlice({
         }
       })
       .addCase(fetchEvents.rejected, (state, action) => {
+        if (state.currentRequestId !== action.meta.requestId) return;
+        state.currentRequestId = null;
+        if (action.meta.aborted) {
+          state.status = "idle";
+          return;
+        }
         state.status = "failed";
         state.error = action.payload ?? action.error.message ?? "Unknown error";
       });
@@ -268,11 +278,16 @@ useEffect(() => {
 }, [query, dispatch]);
 ```
 
-The promise returned by dispatching a thunk has an `abort()` method. Calling it fires the signal you passed to `fetch`, the browser cancels the request, and the thunk dispatches `rejected` with `action.meta.aborted` set to true. Handle that case by *not* treating it as an error:
+The promise returned by dispatching a thunk has an `abort()` method. Calling it fires the signal you passed to `fetch`, the browser cancels the request, and the thunk dispatches `rejected` with `action.meta.aborted` set to true. Handle that case by returning the current request to idle without showing an error. Guard results by `requestId`, as in the slice above, so an older cancellation cannot reset a newer request:
 
 ```js
 .addCase(fetchEvents.rejected, (state, action) => {
-  if (action.meta.aborted) return;   // superseded, not failed
+  if (state.currentRequestId !== action.meta.requestId) return;
+  state.currentRequestId = null;
+  if (action.meta.aborted) {
+    state.status = "idle"; // cancellation must not leave the slice loading
+    return;
+  }
   state.status = "failed";
   state.error = action.payload ?? action.error.message ?? "Unknown error";
 });
@@ -304,7 +319,7 @@ useEffect(() => {
 }, [debouncedQuery, dispatch]);
 ```
 
-The input stays bound to `query`, so typing feels instant; only the request waits. Note that this search thunk should not share the `condition` from the previous section unchanged — a status of `"succeeded"` would block every new search. Compare the requested query with the one already loaded, or give search its own thunk.
+The input stays bound to `query`, so typing feels instant; only the request waits. Note that this search thunk should not share the `condition` from the previous section unchanged — a status of `"succeeded"` would block every new search. Give search its own thunk without that status-wide condition, or deduplicate by both query and active request. A global `"loading"` guard also blocks a replacement search while the aborted request is still settling.
 
 ## Optimistic updates
 
@@ -429,7 +444,7 @@ Extend the Community Events Board with a store-managed async layer. Point it at 
 4. Under StrictMode, count the requests in the Network tab with the `status === "idle"` guard and again with it removed, and record in `NOTES.md` what you saw and why the guard alone did not prevent the double request in development. Restore the guard; step 5 fixes the duplicate properly.
 5. Add a `condition` option so that mounting three components that all dispatch `fetchEvents` produces exactly one request. Prove it in the Network tab.
 6. Wire the search box to `fetchEvents({ query })` with no debounce and an artificial server delay that is longer for shorter queries. Reproduce the out-of-order race and describe the wrong result you saw.
-7. Fix the race by returning `promise.abort()` from the effect cleanup and passing `thunkApi.signal` to `fetch`. Skip the failed state when `action.meta.aborted` is true. Confirm the aborted requests show as cancelled in the Network tab and that no error is rendered.
+7. Fix the race by returning `promise.abort()` from the effect cleanup and passing `thunkApi.signal` to `fetch`. Reset the active request to idle without an error when `action.meta.aborted` is true; ignore stale request ids. Confirm the aborted requests show as cancelled in the Network tab and that no error is rendered.
 8. Add a 300 ms debounce on top of the abort and count the requests for typing the word "potluck" before and after.
 9. Convert shift claiming to an optimistic `createAsyncThunk`: apply on `pending` using `action.meta.arg`, confirm on `fulfilled`, revert on `rejected` with a visible message. Render the `pending: true` state differently from the confirmed state. Make the server reject one specific event id so you can demonstrate the rollback.
 10. Add the listener middleware to persist the theme preference to `localStorage`, prepending it to `getDefaultMiddleware()`. Then deliberately replace the middleware array instead of prepending, observe that every thunk stops working, read the error, and restore it.

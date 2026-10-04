@@ -42,7 +42,7 @@ Recording setup: Chrome with DevTools docked at the bottom (Application → Cook
 | 4:15 | Slide: "Regenerate on every privilege change: login, logout (destroy), role change, password change." | "Do this every time privilege changes: login, an account becoming an admin, a password change. On logout, go further and destroy the session." |
 | 4:35 | VS Code: show `requireAuth` setting `req.session.returnTo = req.originalUrl`. Then, in the browser, signed out, visit `/organizer/events`. Get redirected to `/login`, log in, and land on `/events`, not `/organizer/events`. | "Now the trap that comes with the fix. `requireAuth` remembers where you were going in `req.session.returnTo`. I visit an organizer page signed out, get sent to login, sign in... and land on `/events`. The page I asked for is lost." |
 | 5:05 | VS Code: highlight `res.redirect(req.session.returnTo ?? "/events")` *inside* the regenerate callback. Overlay arrow: "new, empty session". | "Why? `regenerate` replaced the session with an empty one. By the time we read `returnTo`, it belongs to a session that no longer exists." |
-| 5:25 | VS Code: type the final version (block C). The `returnTo` value is captured before `regenerate`, with the relative-path check. | "Read it first, then regenerate. And check that it starts with a single slash. `returnTo` came from the request, so a value like `//evil.example` would turn your login into an open redirect to someone else's site." |
+| 5:25 | VS Code: type the final version (block C). The `returnTo` value is captured before `regenerate`, with the relative-path check. | "Read it first, then regenerate. And check that it starts with a single slash and contains no backslashes or whitespace/control characters. Browsers normalize those, so the slash check alone is insufficient. `returnTo` came from the request, so a value like `//evil.example` would turn your login into an open redirect to someone else's site." |
 | 5:55 | Browser: repeat. Sign in from `/organizer/events` and land on `/organizer/events`. | "Signed out, ask for the organizer page, log in, and land where I meant to go." |
 | 6:10 | psql: `SELECT count(*) FROM user_sessions;` before and after an anonymous visit to `/events`. Count unchanged. | "One more check from lesson 05. An anonymous visit to a public page creates no row, because `saveUninitialized` is false. Only a session something writes to gets saved. That's also why `/hello` existed for this demo." |
 | 6:30 | Recap card with three lines. | "To recap. Session fixation works when login upgrades an existing session. The fix is `regenerate` at every privilege change. And anything you need from the old session, read it before you regenerate." |
@@ -94,7 +94,10 @@ authRouter.post("/login", async (req, res, next) => {
 
     const returnTo = req.session.returnTo;
     const safeReturnTo =
-      typeof returnTo === "string" && returnTo.startsWith("/") && !returnTo.startsWith("//")
+      typeof returnTo === "string" &&
+      returnTo.startsWith("/") &&
+      !returnTo.startsWith("//") &&
+      !/[\\\u0000-\u0020\u007f]/.test(returnTo)
         ? returnTo
         : "/events";
 

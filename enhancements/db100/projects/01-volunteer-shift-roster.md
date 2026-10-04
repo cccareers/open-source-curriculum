@@ -125,6 +125,15 @@ DO $$ BEGIN
   END;
 END $$;
 
+DO $$ BEGIN
+  BEGIN
+    INSERT INTO volunteer_shifts (event_id, role_id, attendee_id, shift_start, shift_end)
+      SELECT 1, role_id, 999, '2026-08-02 08:00-04', '2026-08-02 10:00-04' FROM volunteer_roles WHERE name = 'test-setup';
+    RAISE EXCEPTION 'FAIL: shift for a non-existent attendee was accepted';
+  EXCEPTION WHEN foreign_key_violation THEN NULL;
+  END;
+END $$;
+
 -- 5. The same person cannot hold the same role twice at the same event.
 DO $$ BEGIN
   BEGIN
@@ -145,12 +154,17 @@ BEGIN
   ASSERT c2 = 0, format('expected 0 (not NULL, not missing) for event 2, got %s', c2);
 END $$;
 
+-- Add a real shift on event 2 so the cascade check tests both child tables.
+INSERT INTO volunteer_shifts (event_id, role_id, attendee_id, shift_start, shift_end)
+  SELECT 2, role_id, 2, '2026-08-09 08:00-04', '2026-08-09 10:00-04' FROM volunteer_roles WHERE name = 'test-setup';
+
 -- 7. Deleting an event removes its needs and shifts (no orphans, no error).
 DO $$ BEGIN
   DELETE FROM registrations    WHERE event_id = 2;
   DELETE FROM event_categories WHERE event_id = 2;
   DELETE FROM events WHERE event_id = 2;
   ASSERT NOT EXISTS (SELECT 1 FROM volunteer_needs WHERE event_id = 2), 'volunteer_needs rows survived their event';
+  ASSERT NOT EXISTS (SELECT 1 FROM volunteer_shifts WHERE event_id = 2), 'volunteer_shifts rows survived their event';
 END $$;
 
 \echo 'All db100-x01 checks passed.'
