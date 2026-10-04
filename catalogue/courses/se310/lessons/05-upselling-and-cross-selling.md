@@ -158,3 +158,9 @@ Your product line includes: the core work-order platform they own; an **inventor
 4. **Write the ask.** For the single candidate you would raise first, write the exact three or four sentences you would say in the next review — opening from Priya's or Elena's own words, and ending in a specific next step that is not a request for money. Then write the sentence you would use to keep the review and the ask separate.
 5. **Update the record.** Write out what you would put in the CRM today: which items become opportunities with amount, close date, stage, and the event backing each; which stay as candidates with triggers and review dates; and what you would change on the renewal opportunity as a result of what you have learned. State in one sentence what your total forecast for Bayfront is after this exercise, and defend why nothing else is in it.
 6. **Argue against yourself.** Pick your strongest candidate and write the three sentences a sceptical manager would use to say you are about to sell too early. Then answer them, or concede.
+
+## Check your understanding
+
+1. Upsell or cross-sell? (a) 30 more seats for a new marina. (b) A customer portal for end customers. *(Answers: (a) upsell; (b) cross-sell — usually involving different users and often a different decision-maker.)*
+2. What is the gate that must be passed before any expansion is proposed? *(Answer: expand from proof — the measures from kickoff are being produced and mostly on target, adoption is healthy across in-scope teams, and open issues have owners and dates.)*
+3. Why was Tallgrass's Northern-region candidate recorded with a trigger rather than forecast? *(Answer: no pain was established, the owner and authority were unclear, and no budget exists until the bid is won — two clear noes on the six tests.)*

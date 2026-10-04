@@ -187,3 +187,9 @@ You need a Salesforce environment. A free Developer Edition org or a Trailhead p
 **5. Build your daily views.** Create (a) a list view of your open opportunities closing in the current quarter, sorted by close date; (b) a Kanban view of the same list grouped by stage; and (c) a report of opportunities grouped by stage with the Amount summed. Screenshot or export all three.
 
 **6. Write the handover note.** In under 300 words, explain to a new colleague joining your org: where new leads land, what the qualification bar is, what conversion creates, what Amount means here, and the one guardrail most likely to block their first save. This note is the deliverable that proves you understood the org rather than the software.
+
+## Check your understanding
+
+1. You search Accounts for a company you know is in the system and find nothing. What is the likely explanation? *(Answer: the company exists only as text in the Company field of an unconverted Lead.)*
+2. After conversion, a custom field you collected on the lead is missing from the Contact. Why? *(Answer: custom lead fields carry across only if an administrator has mapped them.)*
+3. Two deals are both in Negotiation. One has a signed order form awaiting countersignature; the other's champion has gone quiet. Which field expresses the difference? *(Answer: Forecast Category — Commit for the first, Best Case at most for the second.)*

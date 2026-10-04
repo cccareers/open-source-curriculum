@@ -76,6 +76,8 @@ Northstar | 555-0142
 
 Ninety-four words. The first line is the trigger. The problem is in operational language, not product language. One piece of proof. One specific ask with a time.
 
+A warning about that proof line. Meridian Mechanical is a stand-in for this example. In your own sequence, name only a customer you are allowed to name and whose result you can back up if Dana asks — an approved case study, or a reference your company has cleared. If you have none yet, use a segment-level observation instead ("the multi-branch contractors we work with usually find…") rather than inventing a story. A fabricated reference is deception, and in a small industry it is discovered.
+
 ### Touch 2 — Day 4: the different-angle email
 
 ```text
@@ -94,7 +96,7 @@ Otherwise — Thursday 2:00, or Friday morning?
 Alex
 ```
 
-Fifty-nine words. It threads on the original subject so it reads as a genuine follow-up. Critically, it does not say "just bumping this to the top of your inbox" — it introduces a new, more specific symptom. And it gives an explicit out, which raises reply rates because "no, we're fine" is an easy message to send.
+Fifty-nine words. It is sent as a reply in the same thread as touch 1, so the "re:" is added by the mail client and is honest — this is different from putting "Re:" on a first message that was never a reply, which the rules below forbid. Critically, it does not say "just bumping this to the top of your inbox" — it introduces a new, more specific symptom. And it gives an explicit out, which raises reply rates because "no, we're fine" is an easy message to send.
 
 ### Touch 3 — Day 9: the value / social proof email
 
@@ -207,3 +209,9 @@ Build the sequence you will actually run in the final project.
 6. **Peer review.** Swap sequences with a partner. As the reviewer, answer three questions in writing for each email: What is the ask? What would make me delete this in the first two seconds? Which sentence is doing the least work? Revise from their answers.
 
 7. **Send touch 1 to ten real prospects** from your target list — verified addresses only, from lesson 3's clean list. Record opens, replies, and bounces. If your bounce rate is above a couple of percent, stop sending and go fix the data before you continue.
+
+## Check your understanding
+
+1. Which of these subject lines would you send, and why? (a) "Revolutionize Your Dispatch Today!" (b) "Re: our conversation" on a first email (c) "dispatch across 4 branches" *(Answer: (c). (a) reads as marketing; (b) is a false reply and is deceptive.)*
+2. What should change from touch to touch, and what should stay the same? *(Answer: the angle and the new information change; the specific meeting ask stays the same in touches 1–3.)*
+3. Your first ten sends produce two bounces. What do you do? *(Answer: stop sending — a 20% bounce rate is a data problem that will damage your domain — and fix verification before continuing.)*

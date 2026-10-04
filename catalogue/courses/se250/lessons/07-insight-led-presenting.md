@@ -185,3 +185,9 @@ The data you have:
 **Exercise 7 — the fallback.** Fairmount's analyst says in the meeting: *"Your location-change number includes seasonal resets. We move 1,800 items every October by design and they are not errors."* Write your response in no more than four sentences. It must not be defensive, it must establish whether the finding survives, and it must return to the thread. Then state what you would have done before the meeting to avoid needing it.
 
 **Exercise 8 — argue the other side.** Make the three-sentence case that this presentation should open with a playback rather than an insight, given this specific room. Then say which you would actually choose and why. A defensible answer either way; an undefended one is the failure.
+
+## Check your understanding
+
+1. State the three tests for a commercial insight. *(Answer: is it new to them; can you prove it, preferably with their data; does it lead to a capability you actually have.)*
+2. What is the failure mode of the reframe sequence, and why is it so damaging? *(Answer: compression — jumping from the reframe straight to your solution, which turns an insight into an unsupported accusation followed by a pitch.)*
+3. Give one situation where a playback is the better opening. *(Any one: you have no real insight; the buyer's diagnosis is already correct; trust is not yet established; a procurement-scored meeting with no authority to change the frame.)*

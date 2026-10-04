@@ -235,3 +235,9 @@ You are preparing the data slides for the **Fairmount Distribution** readout. Fa
 **Exercise 6 — apply the honesty checks.** Go through your three specified charts against the six honesty failures in this lesson. For each chart, name any that apply and say what you changed. Then identify the one figure in the data above that is *unfavourable* to your argument, and say where in the deck you would put it and why.
 
 **Exercise 7 — sequence and squint.** Put your three charts in presentation order and write the one-sentence transition you would say between each pair. Then, for the chart you consider most complex, describe what survives the squint test and what you would delete if it did not.
+
+## Check your understanding
+
+1. Label or assertion? "Callback Rate by Month." *(Answer: a label. An assertion states the point: "Callbacks grew 31% while first-visit demand stayed flat.")*
+2. Your claim is "one district stands out among eleven." Which form, and how is it coloured? *(Answer: horizontal bars sorted by value, the one district in the accent colour, the rest grey, labelled directly.)*
+3. When is a non-zero axis baseline acceptable? *(Answer: on a line chart, where the encoding is slope, if it is clearly labelled — never on a bar chart, where length is the encoding.)*

@@ -112,3 +112,9 @@ Work on **Bayfront Marine Services**, a boat-maintenance and dock-services compa
 3. **Build the 90-day plan** as a table with the five columns used above: days, who is in it, purpose, artifact, exit criteria. It must include the handoff, a kickoff, a baseline capture that happens before go-live, an executive touchpoint with Tom that carries no ask, an explicit plan for Elena, the finance-team dependency with an owner and a date, and all three checkpoint reviews.
 4. **Handle the baseline problem.** Nobody knows the real un-invoiced rate. Write exactly how you would establish a defensible "before" figure at Bayfront in under two weeks, naming the source of the number and stating in one sentence why the customer would accept it as fair.
 5. **Run a slip.** At day 22, Priya tells you the finance person is unavailable until day 60 and Elena's marina has not started training. Write the two actions you take this week — one for each problem — with who you contact, what you ask for, and what you record on the account. Then say which of the two you would do first, and why.
+
+## Check your understanding
+
+1. Name four of the six items in a handoff record. *(Any four: why they bought; what we promised; what success was defined as; who is who; what we already know is hard; what was deliberately not sold.)*
+2. Why was "East region dispatches from the platform only by day 28" a better first milestone than "full rollout across all three regions by day 30"? *(Answer: one team can achieve it without waiting on others, outsiders can see the difference, it is measured with a number Dana already tracks, and it is useful on its own — the full rollout would likely be missed and teach the customer your dates are decorative.)*
+3. Why does the day-45 executive touchpoint carry no ask? *(Answer: its job is to turn a stranger into a relationship while there is good news to carry; asking for money wastes the only easy meeting you will get.)*

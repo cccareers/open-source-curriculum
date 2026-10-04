@@ -178,3 +178,9 @@ You need access to a GoHighLevel sub-account — an employer's, an agency's, or 
 **6. Break it, then fix it.** Submit the form twice with the same contact. Document what happened: did they enter the workflow twice, did they receive the message twice, was a second opportunity created? Then change the configuration so that the second submission behaves the way you want, and write down which setting you changed.
 
 **7. Compare the platforms.** In 300–400 words, answer: which distinctions from lesson 2's model does GoHighLevel collapse, what does that buy the kind of business it was built for, and what specific discipline would you have to impose by hand to sell a six-person buying committee on this platform?
+
+## Check your understanding
+
+1. A deal died in the Proposal stage. How is that recorded in GoHighLevel, and why is it useful? *(Answer: the stage stays at Proposal and the status is set to Lost or Abandoned, so the board still shows where deals die.)*
+2. Your texts "are not being received." What do you check first? *(Answer: SMS sender registration — the 10DLC brand and campaign status — before debugging the workflow.)*
+3. Name three behaviours to confirm before relying on a workflow. *(Answer: re-entry rules, wait-step timing windows, and stop conditions — especially stopping on reply.)*

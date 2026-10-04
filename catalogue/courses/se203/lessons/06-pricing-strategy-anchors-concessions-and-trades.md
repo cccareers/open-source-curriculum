@@ -82,9 +82,9 @@ A worked plan, for the $200,000 deal above with a walk-away at $160,000:
 | Rung | You move to | Discount | You require in return | Margin impact |
 | --- | --- | --- | --- | --- |
 | Opening | 200,000 | 0% | Nothing | Baseline |
-| 1 | 184,000 | 8% | 24-month term, signature this quarter | -8k margin/yr, +1 yr locked |
-| 2 | 178,000 | 11% | Annual prepay instead of quarterly | -3k, cash forward, churn risk down |
-| 3 | 174,000 | 13% | Named reference + one case study | -2k, marketing asset |
+| 1 | 184,000 | 8% | 24-month term, signature this quarter | -16k margin/yr, +1 yr locked |
+| 2 | 178,000 | 11% | Annual prepay instead of quarterly | -6k, cash forward, churn risk down |
+| 3 | 174,000 | 13% | Named reference + one case study | -4k, marketing asset |
 | Floor | 168,000 | 16% | All of the above, plus exec sponsor call | Approval required at VP |
 | Walk-away | 160,000 | 20% | Not available at this scope | Reduce scope instead |
 
@@ -185,3 +185,9 @@ Work in pairs; an observer with a calculator is useful. Around two hours.
 6. **Tactic recognition round.** The buyer runs four of the six plays above in a fifteen-minute negotiation without announcing them. The seller must name each one aloud immediately after it happens ("that's a nibble") and then respond. Score the recognition and the response separately.
 
 7. **Debrief on paper.** Write down the final package and compare it against your ladder. Which rung did you land on? What did you receive for it? Any concession you cannot name a payment for was given away, and that is the number to bring to the next round.
+
+## Check your understanding
+
+1. A $100,000 deal at 80% gross margin is discounted 10%. What share of the deal's margin is lost? *(Answer: $10,000 of $80,000 = 12.5% — discount comes entirely out of margin.)*
+2. Which concession pattern signals you are approaching your limit: 5%, 5%, 5% or 8%, 3%, 1%? *(Answer: 8%, 3%, 1% — shrinking concessions. A flat pattern promises another round.)*
+3. The buyer insists on a number below your walk-away. What do you offer instead of a further discount? *(Answer: reduced scope — fewer seats, modules, a lower support tier — priced as a smaller deal.)*

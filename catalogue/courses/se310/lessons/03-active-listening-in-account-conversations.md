@@ -153,3 +153,9 @@ Do this with a partner playing the customer. Give them the card and do not read 
 4. **Write the account note** in the Heard / Concluded / Committed format, dated. Each commitment needs an owner and a date.
 5. **Debrief on one question only:** at what point in the conversation did the second fact (the acquisition) become reachable, and what did you do or fail to do at that moment? If it never surfaced, identify the exact question you should have asked instead of the one you did.
 6. **Re-run with a different partner and a hard constraint:** you may ask six questions in total, and you must spend at least half the meeting silent. Notice which six you keep.
+
+## Check your understanding
+
+1. Rewrite "How are you finding the platform?" as a question about their world. *(One good answer: "Walk me through what a bad week looks like for dispatch now.")*
+2. A customer says "We've been managing." What do you do? *(Answer: repeat the hedge — "Managing?" — and stop talking.)*
+3. In a Heard / Concluded / Committed note, where does "West adoption is a product-fit problem" go, and why does the distinction matter? *(Answer: Concluded — it is your interpretation. Keeping it separate from what the customer actually said stops you escalating the wrong problem.)*

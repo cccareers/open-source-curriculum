@@ -142,7 +142,7 @@ Sanity-check the list before you touch it. Pull ten rows at random and, for each
 
 Build a real ICP and target list you will use for the rest of this course. Choose one product to sell: your employer's, a product you know well, or the field-service scheduling platform described above.
 
-1. **Write the ICP.** Produce a one-page profile with all five blocks: firmographics, technographics, operational signals, at least three named buying triggers, and at least three explicit disqualifiers. Every line must exclude something. Then run the deletion test on each attribute — remove it and ask whether your list would grow. Delete any line that fails.
+1. **Write the ICP.** Produce a one-page profile with all five blocks — the four attribute families above, with buying triggers pulled out as their own block: firmographics, technographics, operational signals, at least three named buying triggers, and at least three explicit disqualifiers. Every line must exclude something. Then run the deletion test on each attribute — remove it and ask whether your list would grow. Delete any line that fails.
 
 2. **Name your personas.** Identify the primary persona, one secondary influencer, and the likely economic buyer. For each, write one sentence about what they are measured on. You will use these in lessons 3 through 5.
 
@@ -153,3 +153,9 @@ Build a real ICP and target list you will use for the rest of this course. Choos
 5. **Run hygiene.** Deduplicate by legal entity, resolve any parent/subsidiary questions, and note any rows you removed and why.
 
 6. **Defend ten rows.** Pick ten accounts at random and write the sentence "I am calling this company because ___" for each. Bring the three weakest to your cohort or coach and discuss whether they belong on the list at all.
+
+## Check your understanding
+
+1. Run the deletion test on this ICP line: "Companies that value operational excellence." Does it pass? *(Answer: no — deleting it would not change the list, because it cannot be filtered on. It is decoration.)*
+2. A new VP of Operations started at a tier-A account 110 days ago and nothing else has changed. Where should the account sit now? *(Answer: tier B — a leadership-change trigger is stale after about ninety days.)*
+3. Complete the sentence for a sound target-list row: "I am calling this company because ___." What makes the answer good? *(Answer: a specific, observable fact — for example, "they posted twelve dispatcher roles in the last 60 days" — not "they matched the industry filter.")*

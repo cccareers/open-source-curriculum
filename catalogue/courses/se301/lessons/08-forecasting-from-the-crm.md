@@ -203,7 +203,7 @@ If your business historically needs about 3× coverage to hit a number, 2.6× is
 
 Three things in this pipeline should be stated out loud alongside the number.
 
-**Concentration.** The largest deal is 19% of open pipeline; the four commit deals are 100% of the commit number, and one of them ($120,000, Calder) is 20% of it. If Calder slips, the commit misses regardless of anything else.
+**Concentration.** The largest deal is 19% of open pipeline; the four commit deals are the whole of the open commit, and one of them ($120,000, Calder) is 43% of that $280,000 — about 20% of the $590,000 commit forecast including closed business. If Calder slips, the commit misses regardless of anything else.
 
 **Date clustering.** 44% of open pipeline is dated the last day of the quarter. Close dates that all land on a period boundary are usually not forecasts at all — they are placeholders — and they are the single most common reason a quarter that looked fine in week ten misses in week thirteen.
 
@@ -281,3 +281,9 @@ Use the dataset in this lesson for parts 1 and 2 so your arithmetic can be check
 **5. Write the artifact.** Produce the half-page forecast document using all eight elements above, for a real or realistic pipeline. It must name the commit deals individually with the one thing each needs, state the coverage gap in dollars, and identify at least two risks that the arithmetic alone does not show.
 
 **6. Start the accuracy record.** Snapshot the forecast from part 5 with today's date. Create the tracking table — period, forecast, actual, error, signed error — and enter this period's forecast row. If you have access to past periods, backfill them and compute your bias.
+
+## Check your understanding
+
+1. A rep's forecast equals quota for four quarters running. What is the likely problem? *(Answer: anchoring to quota — the forecast is built backwards from the target.)*
+2. Why can the default-weighted number sit far above the commit? *(Answer: weighting credits every early-stage deal with a slice of value, even buyers who have not yet seen a proposal, and assumes every deal closes inside the period.)*
+3. Remaining gap $300,000; open pipeline $750,000; your business needs 3× coverage. How much more pipeline do you need? *(Answer: 3 × $300,000 = $900,000 needed, so $150,000 more — and it must be created early enough to close inside the period.)*

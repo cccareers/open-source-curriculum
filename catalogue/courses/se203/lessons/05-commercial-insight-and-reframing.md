@@ -195,3 +195,9 @@ Work in pairs; an observer helps. Around two hours, and the writing is most of i
 5. **Survive the pushback.** Same round, but the buyer is instructed to respond with "I don't think that's true for us." The seller must neither retreat nor insist — they must propose a way the buyer could test it in their own data, in one sentence.
 
 6. **Practice all four reframes.** Take one buyer statement — "we just need a better tool than the one we have" — and write four different reframes of it: one changing the unit of measure, one the time horizon, one the departmental boundary, one the comparison set. Deliver each to your partner and record which one produced the strongest reaction. That is your default for this persona.
+
+## Check your understanding
+
+1. Which of the five tests does this fail, and why? "Companies that adopt better process discipline cut rework by 20%." *(Answer: test 4 — it leads to "better process discipline," which is free or available from any competitor, not to your strength.)*
+2. Name the four reframes. *(Answer: change the unit of measure, the time horizon, the departmental boundary, or the comparison set.)*
+3. The buyer says "that doesn't sound like us." What do you do? *(Answer: neither retreat nor insist — propose a way they could test it in their own data.)*
