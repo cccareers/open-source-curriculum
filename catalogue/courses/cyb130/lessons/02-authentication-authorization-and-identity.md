@@ -31,7 +31,7 @@ Hold onto this framing for the rest of the course. Lesson 03 is entirely about s
 
 Four words that get used interchangeably in conversation and must not be in your notes.
 
-An **identity** is the record of a person, a service, or a device that the organization recognizes. Maya Okonkwo, hired March 3, employee number 40881, works in Accounts Payable. There is exactly one of her.
+An **identity** is the record of a person, a service, or a device that the organization recognizes. Maya Okonkwo, hired 1 March 2021, employee number 40881, works in Accounts Payable. There is exactly one of her.
 
 An **account** is a usable login bound to an identity in some system. Maya may have several: a directory account for her workstation and email, a separate named administrative account if she has elevated duties, a login in the ERP system, a badge record in the physical access system. One identity, many accounts. When people say "she still has access," they almost always mean one of her accounts survived somewhere.
 
@@ -223,3 +223,9 @@ Your findings must include at least one about attribution, one about a control t
 **Part 4 — Inventory one system.** Pick any system you legitimately administer or study — a lab domain, a personal cloud tenant, a home router, a workstation. Produce a short table listing every account it holds, whether each is local, directory, or federated, what credential types each account can use, whether a second factor is possible for it, and when each last authenticated if the system records that. Finish with two sentences naming the account on that list that would cause the most damage if its credential were exposed, and what specifically limits that damage today.
 
 **Deliverable:** one document containing the classification table with its follow-up answer, the labelled trace, the six ranked log findings, and the system inventory.
+
+## Check your understanding
+
+1. A user can sign in but gets "access denied" on the payroll folder. Which A is failing, and where do you look? *Authorization; check group membership and the folder's permissions, not the password.*
+2. Password plus security question: is it MFA? *No. Both are knowledge, so it is one factor used twice.*
+3. Classify a corporate IP range and an employee number. *Neither is a factor. The IP range is a contextual signal; the employee number is an identifier, not an authenticator.*

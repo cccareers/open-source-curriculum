@@ -175,3 +175,12 @@ For each, write one sentence naming the ATT&CK-style technique the action resemb
 - One paragraph naming a detection your tuning made *less* likely to fire, and what compensating visibility you would keep.
 
 A reviewer should be able to disagree with your tuning decision and find your reasoning written down.
+
+## Check your understanding
+
+1. A colleague proposes excluding `C:\Users\*\Downloads` from scanning because a developer tool keeps triggering alerts there. Which rule from "Handle exclusions as exceptions" does this break, and what rung of the tuning ladder would you try first instead?
+2. Your coverage report shows 2,000 inventoried endpoints, 1,960 with an agent, 1,610 checked in during the last 24 hours, and 1,580 on current content. Which number is your real coverage figure, and how many open findings do you have?
+3. An administrator ran a remote service-creation command during an approved maintenance window and your rule fired. Is this a false positive? What would you change so the rule stays valuable?
+4. In one sentence each, explain the difference between suppression and exclusion, and say which one keeps the telemetry searchable.
+
+**Answers:** (1) It excludes a user-writable directory with a wildcard; start at rung 1 (fix the environment, for example a sanctioned tool path) or rung 2 (narrow by the tool's signer, image path, and user). (2) Coverage is the number passing *all four* health questions — at most 1,580 here, and possibly fewer once policy is checked — so at least 420 endpoints are open findings. (3) No — it is a true positive in a benign context; move the work to designated management hosts and narrow the rule to sources that are not those hosts (rung 1). (4) Suppression hides the alert but keeps collecting and storing the telemetry; exclusion stops the agent inspecting or recording at all. Suppression keeps it searchable.

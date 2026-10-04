@@ -162,12 +162,12 @@ A-103 14:03      Proxy: script file downloaded from    WKS-4471      low
                  uncategorized site
 A-104 14:07      Auth: 12 failures then success for    FS-07         med
                  svc_backup from 10.14.9.22
-A-105 14:11      DLP: 240 MB uploaded to personal      WKS-2210      high
+A-105 14:11      DLP: 240 MB uploaded to personal      WKS-3307      high
                  cloud storage
 A-106 14:15      AV: PUA detected and quarantined      WKS-0918      low
 ```
 
-**Cluster first.** A-101, A-102, and A-103 all reference WKS-4471 within five minutes. That is one investigation, and its narrative writes itself in the right order: a download at 14:02 (A-103), a script interpreter spawning from a document at 14:02 (A-102), and an outbound connection to a new domain at 13:58 (A-101). Note that the timeline is not the alert order — A-101 is stamped earlier than the download it supposedly follows, which is either a clock skew to check or an earlier, separate connection. Either way you have found the first question worth asking.
+**Cluster first.** A-101, A-102, and A-103 all reference WKS-4471 within five minutes. That is one investigation, and its narrative writes itself in the right order: a script interpreter spawning from a document at 14:02:11 (A-102), then that script fetching a file from an uncategorized site at 14:02:19 (A-103, queued at 14:03), and an outbound connection to a new domain at 13:58 (A-101). Note that the timeline is not the alert order — A-101 is stamped earlier than the download it supposedly follows, which is either a clock skew to check or an earlier, separate connection. Either way you have found the first question worth asking.
 
 **Now the four questions on the WKS-4471 cluster.** Real? Three independent sources agree — endpoint, proxy, and network sensor — so yes. Authorized? The host is a finance workstation, the change calendar is empty, and a document spawning a hidden encoded script has no benign explanation anyone can offer. Blast radius? Finance workstation with mapped access to the finance share; the user is not privileged, which caps it, but the data reachable is sensitive. What else looks like this? Search the environment for the destination address and the download URL. Suppose that search returns one more workstation with the same destination since 13:51.
 
@@ -175,11 +175,11 @@ That cluster is an incident. Declare it.
 
 **A-105, the 240 MB upload,** is the one that should worry you next, and here the discipline of question two earns its keep. Real? The proxy confirms the volume and destination. Authorized? Check with the user's manager before assuming — and suppose the answer is that the user is a designer who routinely moves large asset files and has an approved exception. That is a *benign true positive*: the rule fired correctly, the activity happened, and it is sanctioned. It closes with a note recording the exception, and the tuning list gets an entry proposing that the exception be encoded so it stops costing an analyst twenty minutes a week. What it must not get is a shrug.
 
-**A-104, the service-account spray,** is real and is not authorized: `svc_backup` should authenticate from the backup server, and 10.14.9.22 is a workstation. Blast radius is high, because a service account often has broad file access. What else looks like this? Search for every authentication by that account in the last thirty days and identify every source. This is a second incident, unrelated to the first, and it is arguably more urgent — but note that it *looks* less exciting in the queue than A-105 did, which is precisely why the tool's severity field cannot be trusted as the ordering.
+**A-104, the service-account spray,** is real and is not authorized: `svc_backup` should authenticate from the backup server, and 10.14.9.22 is a workstation. Blast radius is high, because a service account often has broad file access. What else looks like this? Search for every authentication by that account in the last thirty days and identify every source. At this stage, treat it as a second incident pending correlation with the workstation cluster; independence has not been established. Resolve 10.14.9.22 against the asset inventory before deciding whether to merge the cases. It is arguably more urgent — but note that it *looks* less exciting in the queue than A-105 did, which is precisely why the tool's severity field cannot be trusted as the ordering.
 
 **A-106, the quarantined potentially-unwanted application,** is real, is not authorized by policy, and was successfully blocked. Blast radius is minimal. It closes as a low-priority policy item routed to desktop support, with one pivot first: check whether the same detection appears on other hosts, because the same PUA on forty machines is a software-distribution problem rather than a user problem.
 
-The shift's honest output: two incidents, one benign true positive with a tuning proposal, one policy referral, and one open question about clock skew. Written down in that form, it takes a colleague ninety seconds to pick up where you left off.
+The shift's initial output: two provisional incident records pending correlation, one benign true positive with a tuning proposal, one policy referral, and one open question about clock skew. Written down in that form, it takes a colleague ninety seconds to pick up where you left off.
 
 ## Watching network traffic on purpose
 
@@ -212,3 +212,9 @@ None of these is a verdict. Each is a question, and the answer is usually mundan
 **Exercise 5 — Normalize a mixed log set.** Take four log excerpts from different sources supplied by your instructor, each in its own format and at least one in local rather than UTC time. Produce a single normalized table with the columns: `utc_time`, `source`, `src_host`, `src_ip`, `user`, `action`, `target`, `result`, `raw_ref`. Convert all times to UTC, and add a column noting any record whose time you had to infer or correct. Then answer in writing: which single record changes meaning most once the times are aligned, and what wrong conclusion would a responder have drawn from the unaligned set?
 
 **Exercise 6 — Build a tuning proposal.** Identify a detection rule in your lab environment that fires frequently and is almost always benign. Document it as a tuning proposal: rule name, sample of five recent firings, the common characteristic of the benign ones, the precise proposed change, what the change would *stop* detecting, and how you would verify after the change that the rule still catches the malicious case. The last two items are the ones that make it a proposal rather than a request to turn something off.
+
+## Check your understanding
+
+1. An alert fires because the backup agent read every file on a share at 02:00, exactly as designed. What is the disposition, and why is "false positive" wrong? *Benign true positive — the rule worked and the activity happened; it is authorized. Handle it with an exception or enrichment, not by weakening the rule.*
+2. Why is "what is the blast radius?" asked third rather than last? *It sets how much time the alert deserves before you spend an hour on deep analysis of something low-stakes.*
+3. Which log source would you ask "what program made this outbound connection?" *Endpoint telemetry — the only source that ties a network connection to the process that made it.*

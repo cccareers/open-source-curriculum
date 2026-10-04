@@ -199,3 +199,12 @@ Deny by default. If you end up with more than about a quarter of the cells permi
 4. Write a three-sentence verification note: what you tested, what you observed, and what evidence proves the boundary is enforced rather than merely drawn.
 
 **Exercise 4 — Find the flaw.** A colleague submits this design for review: *"Six VLANs — users, servers, printers, cameras, guest, and management — all trunked to a single layer-3 switch that routes between them. The firewall sits at the internet edge. Management is VLAN 1. The hypervisor host has a management interface and also carries the server VLAN. Guest Wi-Fi is on its own VLAN with a rule blocking it from the server VLAN."* Write a numbered review listing every problem you can find and the specific change that fixes each. There are at least five.
+
+## Check your understanding
+
+1. A colleague splits a flat network into eight VLANs routed on one layer-3 switch with no ACLs. What changed for an attacker on a compromised laptop, and what is missing?
+2. In the clinic design, why do the medical devices get their own zone rather than sharing the IoT zone?
+3. Using the `10.<site>.<zone>.<host>` plan, which zone is `10.20.60.14` in, and should it be able to initiate a connection to `10.20.40.20`?
+4. Name the review-checklist item that finds "a router your policy does not control."
+
+**Answers:** (1) Almost nothing — broadcast domains are separated, but inter-VLAN traffic routes freely; a chokepoint with default-deny enforcement and logging is missing. (2) Their permitted flows are completely different (one port to the EHR application server only); sharing a zone would force a wider policy for the cameras. (3) IoT and printers (zone 60); no — the matrix denies IoT to everything internal. (4) "Does any host have interfaces in two zones?"

@@ -41,6 +41,7 @@ Budget three hours. Two of them are writing. If you are ninety minutes in and st
 - A **shared mailbox**, `accounts@`, which four people access. It receives invoices from contractors and bank-detail change requests from landlords.
 - A **cloud storage account** on a consumer file-sharing service, opened three years ago by a property manager to send large photo sets to landlords. Nobody knows how many links are still live or whether any point at folders containing identity documents.
 - A **printer/scanner** in the main office used to scan identity documents; it emails the scan to whoever pressed the button. It has a web administration page, and its password is the factory default.
+- An **internet router** supplied by the broadband provider, with its built-in firewall left at the provider's default settings. Nobody has logged into its administration page since it was installed.
 - A **guest wireless network** for visitors that is the same network the laptops and the server use. The password is on a laminated card at reception and was last changed when the office moved in 2019.
 
 **How they work.**

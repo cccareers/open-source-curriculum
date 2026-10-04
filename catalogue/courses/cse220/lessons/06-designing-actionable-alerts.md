@@ -210,3 +210,9 @@ Use the storefront's signal inventory from lesson 02 and the dashboard from less
 **Exercise 5 — Design the storm suppression.** The database becomes unreachable. List every alert from your set that would fire, in the order they would fire. Then write the inhibition rules that reduce that to one notification naming the real problem, and state what a responder loses by suppressing the rest.
 
 **Exercise 6 — Write one runbook.** For your highest-severity alert, write the runbook it links to: what the alert means, who is affected, the first three checks with the exact query or dashboard panel for each, at least two possible causes with the action for each, what to do if none apply, and who to escalate to. Keep it to one page. Then answer honestly: if the answer to "what does the responder do" is "look at it and wait," should this rule be page severity at all?
+
+## Check your understanding
+
+1. A disk sits at 85 percent every day and the "disk above 80 percent" alert fires daily. What should replace it? *(A time-to-exhaustion rule — fire when the current fill rate would fill the disk within a few hours.)*
+2. Your error-ratio alert fires at 03:00 on one error out of four requests. Name two fixes. *(Add a minimum-volume condition, or lengthen the evaluation window overnight.)*
+3. Which three cause signals legitimately earn a page? *(Predictable exhaustion, loss of redundancy, loss of visibility.)*
