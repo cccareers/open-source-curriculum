@@ -53,7 +53,7 @@ Environment: staging (build #4021) and prod (build #4020), Chrome 126
 Severity:  Critical — blocks all guest purchases
 Priority:  P0 — fix before next deploy
 Attachments: screenshot of 500 page; server log excerpt showing
-             "TypeError: cannot read property 'id' of undefined"
+             "TypeError: Cannot read properties of undefined (reading 'id')"
              at services/checkout.ts:88
 Linked story: STORY-108 (search fix deployed this morning) — suspect
               related; needs confirmation
@@ -88,7 +88,7 @@ Your responsibilities at each transition:
 - **In Progress → Fixed**: the developer marks it fixed and it comes back to you. Don't just trust the label — this is where verification happens.
 - **Fixed → Verified**: re-run the original repro steps against the fix. If it passes, verify related areas too — a fix that touches shared code can introduce a new problem elsewhere (a quick regression check, not a full re-test).
 - **Verified → Closed**: only after you've confirmed the fix, not when the developer says "should be fixed now."
-- **→ Reopened**: if verification fails, reopen with the same rigor as the original report — what you tried, what still fails, and any new information (the previous fix attempt might be relevant to the real cause).
+- **→ Reopened**: if verification fails, the defect goes back to the developer (Reopened, then In Progress again). Reopen it with the same rigor as the original report — what you tried, what still fails, and any new information (the previous fix attempt might be relevant to the real cause).
 
 The single most common failure in this loop is skipping straight from "developer says fixed" to "closed" without ever re-running the repro. Monitoring bug-resolution efforts means actually watching the pipeline — how long defects sit in each state, whether "fixed" reliably becomes "verified" or bounces back to "reopened" — not just filing and forgetting.
 
@@ -121,3 +121,11 @@ You find this bug while testing: on the order-history page, orders placed more t
 1. Write a complete defect record for this bug using the template above, including a severity and priority judgment with one sentence justifying each.
 2. Walk the defect through the full state flow (New → Confirmed → In Progress → Fixed → Verified → Closed) and, for each transition, write one sentence describing what you specifically would check or do before moving it to the next state.
 3. Before filing, you check the known-defects database and find a closed bug from two sprints ago: "Order history pagination shows wrong page count," marked Fixed and Verified. Is your new bug a duplicate, related, or unrelated to that one? Justify your answer in one or two sentences.
+
+## Check your understanding
+
+1. A developer comments "should be fixed now" and moves BUG-150 to Fixed. What do you do before it can be Closed?
+2. Classify severity and priority: the company logo is misaligned by a few pixels on the homepage the week of a major marketing launch.
+3. You're about to file "Wishlist button unresponsive on mobile." What's the first thing you do, and why?
+
+*Answers:* (1) Re-run the original repro steps against the fixed build, run a quick regression on nearby paths (e.g. logged-in checkout), and only then move it to Verified and Closed; if it still fails, reopen with what you tried and what still fails. (2) Low severity (cosmetic, nothing broken), high priority (highly visible at a critical moment). (3) Search the tracker and known-defects database for an existing report, so you link to it or add detail instead of creating a duplicate.

@@ -144,6 +144,8 @@ A conversion rate is a fraction, and fractions improve when the denominator shri
 
 Hide the checkout button from hesitant visitors and completion rate rises beautifully while orders fall. So alongside the primary metric, always watch: the **count** at the step above, **revenue per session**, **average order value**, and **returns or cancellations**, because a change that pushes people into buying the wrong thing shows up weeks later in the returns queue.
 
+Kestrel's own proposal is exposed to exactly this. Showing the delivery cost on the product page may simply move some of the abandonment upstream: fewer surprised people reach checkout, so completion rises while `begin_checkout` falls and orders barely move. That is why lesson 05 set mobile `begin_checkout` count as the guardrail. If completion reaches 21 percent but mobile purchases per period have not risen, the change relocated the loss and did not remove it.
+
 Here is the trap in full, using the most popular idea in ecommerce.
 
 ```txt
@@ -159,12 +161,14 @@ Here is the trap in full, using the most popular idea in ecommerce.
     The $6.95 is given up on EVERY order, including desktop's 302,
     which were converting fine.
       Desktop cost   302 x $6.95 = $2,099 per period
-    Net effect  $1,404 - $2,099 = -$695 per period
+      Tablet cost     21 x $6.95 =   $146 per period
+    Net effect  $1,404 - $2,099 - $146 = -$841 per period
 
-  For free delivery to break even, desktop must also gain:
-    $2,099 / $29.17 = 72 more desktop orders
-    302 -> 374, which is desktop completion 41.9% -> 51.9%
-    a 24% relative lift on a step that is already performing well.
+  For free delivery to break even, desktop and tablet must also gain:
+    $2,245 / $29.17 = 77 more orders
+    If all 77 came from desktop: 302 -> 379, which is desktop
+    completion 41.9% -> 52.6%, a 25% relative lift on a step that is
+    already performing well.
 ```
 
 The mobile-only slide shows a win. The whole-business arithmetic shows a loss unless a fairly optimistic desktop lift also materializes. That is not an argument against free delivery — it is an argument for computing the effect on the whole business, in gross profit, before recommending anything. **Optimize revenue and profit; conversion rate is the diagnostic, not the goal.**

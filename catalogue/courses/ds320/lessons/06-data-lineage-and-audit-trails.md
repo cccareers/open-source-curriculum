@@ -107,8 +107,7 @@ A data platform produces audit evidence from at least five sources, and evidence
 -- Audit every read and write against the Confidential contacts table,
 -- for every role, without drowning in mart queries.
 create role auditor nologin;
-alter table raw.crm_contacts owner to data_owner;
-grant select on raw.crm_contacts to auditor;
+grant select, insert, update, delete on raw.crm_contacts to auditor;
 
 -- Object-level audit configuration (pgaudit.role model)
 alter system set pgaudit.role = 'auditor';
@@ -116,7 +115,9 @@ alter system set pgaudit.log = 'ddl, role';
 select pg_reload_conf();
 ```
 
-The pattern is worth understanding beyond the syntax: you grant a dedicated audit role privileges on exactly the objects you want audited, and the extension logs any statement touching an object that role can see. It is classification-driven auditing, which is why the lesson-4 registry is a prerequisite.
+The pattern is worth understanding beyond the syntax: you grant a dedicated audit role privileges on exactly the objects you want audited, and the extension logs any statement touching an object that role can see. It is classification-driven auditing, which is why the lesson-4 registry is a prerequisite. Note that the audit role logs exactly the statement types it holds privileges for — grant it only `SELECT` and writes go unrecorded.
+
+Two practical notes before you try this. `pgaudit` must be listed in `shared_preload_libraries` and the server restarted before `CREATE EXTENSION pgaudit` works; managed PostgreSQL services expose this as a parameter-group or flag setting. And pgaudit records statements that *execute*. A read refused with `permission denied` never executes, so it does not appear as a pgaudit entry; it appears in the server's error log, provided `log_min_error_statement` is at `error` or lower, which is the default. Your evidence for a denied attempt therefore comes from that error log line, correlated by user and timestamp.
 
 **Cloud control-plane logs.** Every API call against your storage, database, and key services — who called it, from which principal and address, and whether it was allowed or denied. Denied calls are the most interesting rows in the entire platform and the ones teams most often filter out.
 

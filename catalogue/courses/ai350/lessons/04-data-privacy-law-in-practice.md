@@ -46,14 +46,14 @@ Here is the translation table. Read the left column as the legal concept and the
 | Data minimisation | GDPR (and CPRA) | The prompt contains only fields the task needs — the same deletion exercise from the previous lesson, now with a legal reason behind it. |
 | Storage limitation / retention | Both | Every copy has a stated retention period and something actually enforces it. |
 | Individual rights | Both | You can locate, export, correct, and delete one person's data across every copy, within the statutory window. |
-| Opt-out of sale or sharing | CCPA/CPRA | If personal information goes to a third party outside a service-provider contract, an opt-out mechanism exists and your workflow honours it. |
+| Opt-out of sale or sharing | CCPA/CPRA | Where a disclosure qualifies as a sale or sharing for cross-context behavioural advertising, provide and honour the applicable opt-out; a third-party disclosure does not automatically qualify. |
 | Limits on sensitive information | CPRA / GDPR | Special category or sensitive data is identified and handled under the stricter rules, or excluded. |
 | Vendor contracts | Both | A data processing agreement (GDPR) or service-provider contract (CCPA) is in place with the model vendor and the automation platform. |
 | International transfers | GDPR | Personal data leaving the EU/EEA has a lawful transfer mechanism; you supply the fact of where processing happens. |
 | Records of processing | GDPR | Your data inventory feeds the organisation's processing record. |
 | Automated decision-making | GDPR (Art. 22) | Where a decision is made solely by automation and has legal or similarly significant effects on someone, additional protections apply, including human involvement. You flag which decisions those are. |
 | Security of processing | Both | The controls from the previous lesson, which are themselves a legal requirement, not just good practice. |
-| Breach notification | GDPR (and state laws) | You know who to tell, and how fast, when personal data is exposed. GDPR's controller notification deadline is 72 hours from awareness, which is short. |
+| Breach notification | GDPR (and state laws) | You know who to tell, and how fast, when personal data is exposed. Under GDPR Art. 33, notify the supervisory authority without undue delay and, where feasible, within 72 hours of awareness unless risk to individuals is unlikely; processors notify the controller without undue delay. Document the assessment and any delay. |
 
 ## Working a concrete example
 
@@ -112,11 +112,13 @@ Underneath all four is one habit, and it is the same one the security lesson arr
 
 You do not need to be able to argue the differences, but you do need to notice when a fact matters to one and not the other.
 
-GDPR is basis-first: you need a lawful reason before you process, transparency about it, and demonstrable accountability. It applies based on where the individuals are, not where your company is, which is why a small US company with European customers is in scope. Its rights include access, rectification, erasure, restriction, portability, and objection.
+GDPR is basis-first: you need a lawful reason before you process, transparency about it, and demonstrable accountability. Article 3 covers processing in the context of an EU establishment, and certain processing by non-EU organisations offering goods or services to people in the Union or monitoring their behaviour there. Having a European customer alone does not settle scope. Its rights include access, rectification, erasure, restriction, portability, and objection.
 
 CCPA and CPRA are notice-and-choice-first: broadly, you may collect if you disclose, and the consumer's leverage is the right to know, delete, correct, opt out of sale or sharing, and limit use of sensitive information. Applicability is thresholded on business size and data volume, so a small business may fall outside it entirely — again, not your call.
 
 The practical convergence is that both regimes reward the same engineering: collect less, say what you do, know where it went, be able to delete it, and keep a human in the loop for consequential decisions. If you build to those five, most of a privacy review becomes paperwork rather than rework.
+
+The scope and breach rules above follow [GDPR Articles 3 and 33](https://eur-lex.europa.eu/eli/reg/2016/679/oj). The California distinction follows the [Attorney General’s CCPA guidance](https://oag.ca.gov/privacy/ccpa). Verify applicability with your privacy owner.
 
 ## Practice
 
@@ -129,3 +131,9 @@ Work with a real workflow that processes personal data — yours if it qualifies
 5. **Write the escalation memo.** Half a page addressed to your privacy reviewer or manager containing: what the workflow does, the personal data it processes, the recipients and locations, the retention gaps you found, the deletion steps that do not currently work, and a numbered list of questions you need answered. Explicitly mark it as a request for a decision, not a proposal of one.
 
 A good memo from this exercise is the single most professionally useful artifact in this course. It is also the thing that gets a project approved instead of shelved.
+
+## Check your understanding
+
+1. You replace customer names with tokens like "customer 8842" before the prompt. Is the prompt now free of personal data? *No. Pseudonymised data is still personal data under GDPR because your workflow can re-link it. It does reduce what crosses the vendor boundary and sits in logs.*
+2. Which two locations on the deletion runbook do builders most often forget? *Retrieval corpora or vector stores derived from tickets, and the model vendor's retained logs.*
+3. A later version of the workflow auto-denies refunds with no review. What changes in your privacy analysis, and what do you do? *It may now be a solely automated decision with significant effects on a person, which carries additional protections. Flag it and escalate to your privacy reviewer; do not decide it yourself.*

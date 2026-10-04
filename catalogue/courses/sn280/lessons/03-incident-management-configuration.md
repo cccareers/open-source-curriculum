@@ -165,6 +165,13 @@ Work in a personal developer instance with the ITSM baseline installed.
 
 5. **CI-driven assignment.** Pick a configuration item, set its support group, and describe — in writing, with the specific field names — how you would route incidents by CI support group instead of by category rule. State one advantage and one risk of doing so at this customer.
 
-6. **Major incident.** Propose an incident as a major incident, then accept it using an account with the appropriate role. Create two further incidents and relate them as children. Resolve the parent and record exactly what happened to the children. Then write the two-sentence recommendation you would give a customer about whether child incidents should auto-resolve, and why.
+6. **Major incident.** Major incident handling ships as a separate plugin (Major Incident Management) that may not be active on a personal developer instance; check for the **Propose as Major Incident** action first, and if it is missing, activate the plugin through the developer portal or complete the parent-child half of this exercise and describe the rest. Propose an incident as a major incident, then accept it using an account with the appropriate role. Create two further incidents and relate them as children. Resolve the parent and record exactly what happened to the children. Then write the two-sentence recommendation you would give a customer about whether child incidents should auto-resolve, and why.
 
 7. **Notification audit.** List every notification that fires on the `incident` table in your instance. For each, write the recipient, the decision it supports, and the action it prompts. Nominate at least two for removal and justify each.
+
+## Check your understanding
+
+1. An agent sets Impact 2 and Urgency 1. What priority does the baseline matrix produce, and where would you change that mapping? *2 – High; in the data lookup rows (`dl_u_priority`), as a data change, not a script.*
+2. A customer wants a new state "Awaiting Vendor." What do you propose instead, and why? *A hold reason on On Hold; states multiply reporting and SLA logic, reasons do not.*
+3. Why make "Resolved requires close code" a data policy rather than only a UI policy? *UI policies run only in the browser; imports and integrations would bypass them.*
+4. What is the difference between a priority-1 incident and a major incident? *Major is a declared operating mode, accepted by a named role, with communications and review attached; priority is derived from impact and urgency.*

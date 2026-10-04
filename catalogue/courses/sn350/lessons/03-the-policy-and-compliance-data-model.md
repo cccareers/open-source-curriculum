@@ -169,3 +169,12 @@ Use a developer instance with Policy and Compliance Management available.
 3. **Map and justify.** Map each of your three statements to at least one citation from your loaded document. For one mapping, write a two-sentence justification of the kind you would read aloud in an audit walkthrough. For one citation you chose *not* to map, write why it is out of scope.
 
 4. **Objective to control.** Create one control objective from your best statement. Attach it to two entities (any two records available to you) and confirm two controls are generated. Then change something about the objective's test definition and describe what does and does not propagate to the existing controls, and why that behavior is the right default for a live program.
+
+## Check your understanding
+
+1. A citation's wording is confusing. Where do you clarify it?
+2. Why coalesce citation imports on authority document plus reference, not on name?
+3. "Privileged access is reviewed quarterly and removed within 24 hours of separation." What is wrong with this statement?
+4. A new edition of a standard arrives. Edit the existing authority document, or something else?
+
+*Answers:* (1) In your policy statement; citations are quotations and are never edited. (2) Names repeat across standards; references within a document do not. (3) It is two assertions with different owners, evidence, and failure modes; split it. (4) Load it as a new authority document, map editions, re-map statements, and retire the old edition.

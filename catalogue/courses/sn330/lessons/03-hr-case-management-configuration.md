@@ -230,3 +230,12 @@ Work in a development instance with HRSD available. Build in one COE — HR shar
 6. **Run the three-person test.** For your finished "employment verification letter" service, execute the employee / assigned agent / other-team agent test described above and write down the result of each. The third test must produce a denial; if it does not, note what you would change and why.
 
 7. **Break something on purpose.** Empty the assignment group your primary rule targets, submit a case, and document exactly what happened — where the case went, whether anyone was notified, and how long it would have sat unnoticed. Then describe in two or three sentences the configuration you would add to prevent that.
+
+## Check your understanding
+
+1. A case is "waiting for legal review." Should that be a new case state? What should it be instead?
+2. Ninety percent of cases arrive correctly assigned, but 25 percent land in manual triage. What does that tell you?
+3. Why must the SLA pause on the awaiting-info state?
+4. Name the field you should check first if HR wants to know which services are badly routed.
+
+*Answers:* (1) No; it is an open task on the case. Extra states for sub-status produce an unreportable state model. (2) The service catalog is too coarse; the triage share is a backlog of missing services. (3) Otherwise the SLA measures how slowly the employee replies, not HR's performance. (4) The reassignment count, reported by service.

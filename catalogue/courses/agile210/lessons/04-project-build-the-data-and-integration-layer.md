@@ -123,6 +123,8 @@ integration failures 2   (1 timeout, retried and succeeded; 1 permanent 404)
 in terminal state   25
 ```
 
+Read those counts as a funnel, not a list. Of the 25 received, 4 were quarantined at validation; of the 21 that validated, 3 were duplicates of records already held. That leaves 18 unique records, which went through enrichment and output, and one of them hit a permanent 404 and landed in the failed state. So the 25 terminal states are 17 completed, 1 failed, 4 quarantined, and 3 duplicate-skipped — and 17 + 1 + 4 + 3 = 25.
+
 The numbers must balance: everything received ends somewhere countable. If they do not balance, you have a silent drop, and finding it is part of the work.
 
 ## Choosing where the record lives
@@ -302,3 +304,9 @@ The last question is the one that most often exposes a silent drop. If the numbe
 8. Evidence of each error path being triggered on purpose.
 9. The 25-record run: record list, terminal states, and the balancing reconciliation counts.
 10. A short note of anything found in the real data that changes the design or the brief, and what you propose to do about it.
+
+## Check your understanding
+
+1. Why write the record with its raw payload before parsing anything? *So that if every later step fails, the original input still exists to diagnose and reprocess.*
+2. The same invoice arrives five times. What should your store contain? *One processed record and four records in a duplicate-skipped state, enforced by a uniqueness rule on the natural key.*
+3. Your reconciliation shows 25 received and 24 in terminal states. What does that mean? *A silent drop or a stuck record exists; finding it is part of the stage's work.*

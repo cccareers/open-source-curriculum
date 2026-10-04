@@ -215,6 +215,12 @@ systems_affected (array of strings), people_blocked (integer or null),
 first_noticed (string or null), workaround_in_use (string or null).
 
 Use null for anything not stated. Do not infer. Return JSON only.
+
+<<<MSG>>>
+Hi - the handheld scanners at Site 2 have been down since this morning.
+Six of us can't receive any stock, so we're writing receipts by hand
+for now. Can someone look at this today?
+<<<MSG>>>
 ```
 
 Output:
@@ -272,3 +278,12 @@ Now consider what you gained. Step 1 is verifiable against the email by eye. Ste
 3. **Convert a bad single prompt into a chain.** Find a prompt you have written that tries to do three or more things. Decompose it into three or four steps. For each step, write the prompt, state its temperature, name its expected output shape, and define its null output. Run the chain on two real inputs, saving every intermediate. Then compare against the original single prompt on the same inputs and write a short paragraph on what improved and what it cost you in calls and time.
 
 4. **Add critique and a checkpoint.** Take the chain from exercise 3 and insert a critique step that receives the draft plus an explicit checklist and returns only a list of problems, followed by a revision step that takes both. Run it. Then deliberately corrupt one field in the first step's output, run the chain again, and record how far the bad value travelled and which of your validation checks — if any — caught it. State where you would place the human review point and why.
+
+## Check your understanding
+
+1. Your few-shot classifier labels every angry message URGENT. What is the most likely problem with your examples, and how do you fix it?
+2. Give two reasons why "generate, then critique, then revise" across three calls works better than asking for a self-corrected draft in one call.
+3. In the worked chain, why can step 3 not invent a system name?
+4. A chain's final reply contains a wrong date. Where do you start looking, and why not the last prompt?
+
+*Answers:* (1) The examples do not cover the boundary — include angry-but-not-blocked and calm-but-blocked messages, keep their format identical, and balance the labels. (2) The critique is generated separately rather than rationalizing a draft already committed in the same response, and in the revision step the criticism is already present as input before any revision token is chosen; you can also inspect the critique. (3) It never sees the raw email — only the extracted facts and the assessment — and is told to use only the facts provided. (4) Read the intermediates from the top and find the first wrong output; the last step is where you noticed the error, rarely where it started.

@@ -92,6 +92,8 @@ Schema languages cannot express everything. Cross-field rules go beside the sche
 }
 ```
 
+Every field a cross-field rule mentions must also be declared in the schema. With `"additionalProperties": false`, a shipped order carrying `shipped_at`, or a USD order carrying `fx_rate`, would be rejected as having an unexpected field — so add both to `properties` (as optional) before using these rules. The same care applies to `"default": "GBP"`: in JSON Schema a default is documentation, and most validators do not fill it in. Apply defaults in your transform step, as the transform table below does, and let the schema confirm the result.
+
 The clock-skew tolerance in the third rule is deliberate. A rule of `placed_at <= now()` will fail a handful of legitimate records a day because two machines disagree about the time by a second, and a rule that cries wolf gets switched off.
 
 ## Validating what the model returned
@@ -208,3 +210,9 @@ Work with a real source you already pull — the API from lesson 03 is ideal.
 6. **Store it properly.** Ensure every stored record has a natural key, an idempotent upsert, `received_at` and `processed_at` in UTC, a `schema_version`, and a `deleted_at` column that reads filter out. Run the pipeline twice and show record counts unchanged.
 7. **Reconcile.** Log the seven batch counts and confirm they balance. If they do not, find the gap — that is the exercise.
 8. **Detect drift.** Add a fill-rate check per field and a category-proportion check per batch. Then simulate drift: rename a field in a test fixture and add an unseen enum value, and confirm each is reported as a distinct, named event rather than a null in a record.
+
+## Check your understanding
+
+1. Why store `total_minor` as an integer number of pence instead of a decimal number? *Binary floating point cannot represent many decimal amounts exactly (such as 8.81); integer minor units can.*
+2. The model returns `"Confirmed"` where the contract says `"confirmed"`. Normalise or fail? *Fail the vocabulary check. Normalising hides a prompt that has started drifting.*
+3. Name the four legitimate responses to a validation failure, and the one that is never acceptable. *Reject, quarantine, default (only when genuinely correct), repair (deterministic and logged). Never discard silently.*

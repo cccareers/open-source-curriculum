@@ -22,7 +22,7 @@ Prototypes are especially load-bearing in AI work because two of the biggest unk
 
 ## The riskiest assumption goes first
 
-You cannot prototype everything, and you should not try. Go back to the assumptions section of your requirements document and rank each assumption on two axes: how badly the project fails if it is wrong, and how uncertain you are about it. The one that scores highest on both is what this prototype is for.
+You cannot prototype everything, and you should not try. Go back to the assumptions section of your requirements document and rank each assumption on two axes: how badly the project fails if it is wrong, and how uncertain you are about it. The one that scores highest on both is what this prototype is for. A simple way to rank: score each axis from 1 to 5 and multiply. "Operators will accept a machine-drafted reply" at impact 5, uncertainty 4 scores 20; "the data fits in one prompt" at impact 3, uncertainty 2 scores 6. Prototype the 20 first.
 
 Typical top-of-list assumptions in AI-powered work:
 
@@ -148,3 +148,12 @@ Use the requirements document from the previous lesson, or a partner's.
 5. **Make it clickable** with whatever tool you already have. The only requirement is that a person can move through the flow without you narrating it.
 6. **Run two logged iterations.** Round one: run your content prototype against the fixed sample, make one change based on what failed, and re-run against the same sample. Round two: put the clickable prototype in front of two people, watch without helping, and make one change based on what you saw. Fill in every column of the iteration log for both rounds.
 7. **Write the stop note.** In three sentences: what question you asked, what the evidence said, and what you would do next — including whether the honest answer is to stop.
+
+## Check your understanding
+
+1. Your riskiest assumption is "operators will notice a wrong draft." Which rung of the fidelity ladder answers it most cheaply, and why not a functional slice?
+2. Why should you not quote a quality number measured on AI-generated test inputs?
+3. You changed the prompt and the layout in the same round, and results improved. What can you conclude?
+4. Your prototype shows the idea does not work. Is that a failed prototype?
+
+Answers: (1) Wizard of Oz (or a clickable prototype with seeded drafts, including a planted wrong one) — it tests the interaction without needing a working model; a functional slice costs far more and mixes interface and model quality. (2) Generated inputs are cleaner than real ones and flatter the system; only real inputs answer "does quality hold up." (3) Only a direction, not a finding — you cannot tell which change caused it; record that in the log. (4) No — it answered its question and saved the client the build. Report it as a result.

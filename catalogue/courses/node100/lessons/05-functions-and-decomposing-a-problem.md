@@ -137,3 +137,11 @@ Create a file named `functions.js`:
    ```
 
 4. For each function you wrote in steps 1–3, call it at least twice with different inputs and log the results — this is the same "call it, check the output" pattern you'll formalize with real assertions in lesson 07.
+
+## Check your understanding
+
+1. Is `function addTax(price) { return price * 1.08; }` pure? Is `function logTotal(total) { console.log(total); }` pure?
+2. A teammate names a function `validateAndSaveUser`. What does the name tell you, and what would you suggest?
+3. Why can you check `applyBulkDiscount` without building a full order?
+
+*Answers:* (1) `addTax` is pure; `logTotal` is not, because printing is a side effect. (2) It does two jobs; split it into `validateUser` (pure, easy to assert against) and `saveUser` (the side effect). (3) It takes a number and returns a number, so one call with a known subtotal (for example `200`, expecting `180`) is a complete check.

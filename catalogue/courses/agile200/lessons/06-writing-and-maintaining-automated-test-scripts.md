@@ -45,12 +45,12 @@ Follow the risk-based plan from your Lesson 05 test strategy — write unit test
 For end-to-end tests with your browser automation library, target elements the way a real user would — visible text, labels, roles — rather than brittle internal selectors that break on any markup change:
 
 ```javascript
-// example E2E test using a generic browser automation library
-test("user can log in with valid credentials", async () => {
+// example E2E test, written in Playwright's syntax; other libraries have equivalents
+test("user can log in with valid credentials", async ({ page }) => {
   await page.goto("/login");
-  await page.fill("Email", "test.user@example.com");
-  await page.fill("Password", "correct-horse-battery");
-  await page.click("Log in");
+  await page.getByLabel("Email").fill("test.user@example.com");
+  await page.getByLabel("Password").fill("correct-horse-battery");
+  await page.getByRole("button", { name: "Log in" }).click();
   await expect(page.getByText("Welcome back")).toBeVisible();
 });
 ```
@@ -92,8 +92,18 @@ function makeTestUser(overrides = {}) {
 }
 ```
 
+One caution about this example: two calls in the same millisecond produce the same email, which is exactly the kind of intermittent collision that makes a suite flaky. A simple counter (`let nextUserId = 1;` outside the function, then `` `user-${nextUserId++}@example.com` ``) guarantees uniqueness within a run.
+
 Build one such utility, use it in at least three of your own tests, and document what it does and why in a short comment or README section — a tool nobody else can figure out how to use is not much of a tool.
 
 ## Practice
 
 Write at least six automated tests for your capstone spanning at least two levels (unit and integration, or integration and end-to-end), following the risk priorities from your Lesson 05 strategy. Then deliberately change one piece of application behavior on purpose (rename a field, change a validation rule) and update the tests that reference it in the same commit. Build one small reusable test utility per the examples above, use it in at least three tests, and add a short note to your defect database or test-debt list identifying one test in your suite that is currently awkward, slow, or flaky, with your best guess at the root cause.
+
+## Check your understanding
+
+1. A test for the signup error message fails after the product owner approved new copy. Do you fix the code or the test?
+2. Why is replacing an exact assertion with `assert.equal(result.ok, false)` a dangerous way to make a red test green?
+3. Name two common root causes of a flaky test.
+
+*Answers:* (1) The test, in the same commit as the copy change, keeping the assertion exact. (2) It passes for many wrong outputs too, so the test stops protecting the behavior. (3) Fixed waits instead of waiting for a condition; shared state between tests; dependence on external services; non-unique test data (for example `Date.now()` collisions).

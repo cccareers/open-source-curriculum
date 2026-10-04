@@ -445,7 +445,7 @@ The impression count says Google already understands the subject and shows the p
 1. Title rewritten to `2026 Payroll Tax Deadlines: Federal Due Dates` (45 chars). Year front-loaded; brand dropped to buy room; "Blog" removed.
 2. Meta description rewritten to name Form 941, Form 940, W-2, both deposit schedules, and penalties, and to say the dates are in a table (157 chars).
 3. H1 changed to "2026 payroll tax deadlines for small businesses" — states subject and audience, agrees with the title without duplicating it.
-4. Outline rebuilt to the eleven H2s shown earlier, drawn from People Also Ask and the support team's most common questions.
+4. Outline rebuilt to the nine H2s shown earlier, drawn from People Also Ask and the support team's most common questions.
 5. First hundred words rewritten to give the three headline dates immediately.
 6. Summary table of all 2026 due dates added above the first H2, plus smaller tables for deposit schedules and penalty tiers.
 7. Original data added: the anonymized aggregate on missed deposits after holidays, with the sample size stated.

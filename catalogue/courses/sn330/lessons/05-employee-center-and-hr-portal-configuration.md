@@ -201,3 +201,12 @@ Work in a development instance with the Employee Center available and with the H
 7. **Read the search log.** Perform at least ten searches as different test users, including several that you expect to fail. Then open the portal's search log and list the zero-result terms. For three of them, state whether the fix is new content, a new service, or a synonym or keyword change.
 
 8. **Draw the configuration line.** Take three portal requirements — invent them if you like, but make one of them cosmetic, one of them about targeting, and one of them a genuinely novel interaction — and classify each as theme configuration, content configuration, or portal development. For the development one, write two or three sentences on what you would build and what ongoing cost you would be asking the customer to accept.
+
+## Check your understanding
+
+1. HR asks for its own portal "to have its own look." What do you recommend, and why?
+2. Adding a new HR service to the Employee Center: page edit or record?
+3. A content item is hidden from contractors by targeting. Can a contractor still read the underlying knowledge article?
+4. An employee with no work country sees an empty "Leave and Time Off" topic. What was skipped?
+
+*Answers:* (1) One Employee Center with targeting; separate portals duplicate branding, announcements, and request tracking, and force the employee to pick a department first. (2) A content item record in the taxonomy. (3) Possibly, if ACLs and user criteria on the article allow it; targeting is relevance, not access control. (4) An untargeted fallback content item.

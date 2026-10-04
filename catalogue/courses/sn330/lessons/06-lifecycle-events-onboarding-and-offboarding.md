@@ -230,3 +230,12 @@ Work in a development instance with HRSD lifecycle events available, using the H
 8. **Produce the completion evidence.** For one completed test case, describe the report or record you would give an auditor to prove that all access was revoked and all assets returned by the last working day — what it lists, where the data comes from, and what it does with exceptions.
 
 9. **Compare to onboarding.** In one paragraph, name three ways your offboarding design differs structurally from an onboarding design, and explain each difference in terms of risk rather than in terms of process.
+
+## Check your understanding
+
+1. Eight relocation activities all need the condition "relocating = true." Where should the condition live?
+2. Why is offboarding access revocation better time-triggered than task-triggered?
+3. Which onboarding metric best shows that onboarding "failed quietly"?
+4. A start date moves a week later. What is the defensible default for open, completed, and overdue activities?
+
+*Answers:* (1) On the activity set. (2) A task depends on someone doing it that day; a scheduled trigger fires regardless, and the task can verify. (3) The percentage of onboardings with all pre-start activities complete before day one. (4) Reschedule open activities, leave completed ones, notify the coordinator, and decide deliberately (and test) how overdue ones are handled.

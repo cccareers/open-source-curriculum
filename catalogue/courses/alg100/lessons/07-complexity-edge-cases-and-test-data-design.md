@@ -104,12 +104,14 @@ const knownDefects = [
     id: "DEF-101",
     summary: "Order total shows negative when a discount exceeds the subtotal",
     reproInput: { items: [{ price: 5 }], discount: 10 },
+    expectValid: false,
     fixedInVersion: "2.3.1",
   },
   {
     id: "DEF-104",
     summary: "Duplicate detection missed a match when defect text differed only by whitespace",
     reproInput: { newDefect: "login  broken", existing: "login broken" },
+    expectValid: true,
     fixedInVersion: "2.4.0",
   },
 ];
@@ -117,12 +119,13 @@ const knownDefects = [
 function regressionCasesFromDefects(defects) {
   return defects.map((d) => ({
     name: `regression: ${d.id} — ${d.summary}`,
-    input: d.reproInput,
+    order: d.reproInput,       // same field names runCases reads below
+    expectValid: d.expectValid,
   }));
 }
 ```
 
-Structuring the defect database this way — with each entry's original repro input kept, not just a prose description — turns "maintain a database of known defects" from record-keeping into an active source of test cases: every future run can replay every historical `reproInput` and confirm the bug hasn't quietly resurfaced. This is the same discipline as designing test data from first principles, applied retroactively to inputs that are already known to be dangerous rather than merely suspected of it.
+Structuring the defect database this way — with each entry's original repro input kept, not just a prose description — turns "maintain a database of known defects" from record-keeping into an active source of test cases: every future run can replay every historical `reproInput` and confirm the bug hasn't quietly resurfaced. Each record also keeps `expectValid`, the correct answer for that input. A repro input with no recorded expected result can't be checked automatically. It can only be run and eyeballed. In practice you keep one defect list per function under test. `DEF-101` is an order-validation defect, while `DEF-104` belongs to the duplicate matcher's list. Replay each list only against the function its `reproInput` was written for. This is the same discipline as designing test data from first principles, applied retroactively to inputs that are already known to be dangerous rather than merely suspected of it.
 
 ## Validating a change before it ships
 
@@ -163,3 +166,11 @@ function isValidOrder(order) {
 3. **Automated utility:** Run your test-case array through the `runCases` function from this lesson (or your own version of it) against `isValidOrder`, and paste the pass/fail output. If anything fails, decide whether the failure reveals a bug in `isValidOrder` or a mistake in your expected value, and fix whichever is wrong.
 4. **Defect database:** Invent two plausible historical defects for a function like `isValidOrder` (for example, floating-point rounding causing `sum === order.total` to fail when it shouldn't), and record them in the `knownDefects` shape from this lesson, including a concrete `reproInput` for each.
 5. **Validate a change:** Write a `smokeCases` array (one or two obviously-valid orders), then call `validateChange(isValidOrder, { smokeCases, edgeCases: <your array from step 2>, knownDefects: <your array from step 4> })` and report whether the change would be considered safe to ship, based on the output.
+
+## Check your understanding
+
+1. A function has a nested loop that compares every record with every other record. It handles 1,000 records in 0.5 seconds. What do you predict for 10,000, and what does that tell you about the size of your performance test data?
+2. Using the four-step procedure, which step produces the test case "items is missing entirely"?
+3. Why does `validateChange` run the smoke cases before the full regression set?
+
+**Answers:** (1) About 50 seconds, because 10 times the input means roughly 100 times the work. Your performance data should go up to the record count production will actually reach, not just a size where the quadratic cost is still hidden. (2) Step 3, the structural edges of the input: a value that is missing where one was expected. (3) If the ordinary path is broken, the edge-case results tell you nothing new, so failing fast on a small, quick set saves a full regression run against code that is obviously not ready.

@@ -86,3 +86,11 @@ These are exactly the questions a QA engineer is positioned to ask that a purely
 2. Open your own pull request from a branch you created in an earlier lesson (or a new small change). Write a description that states what changed, why, and how a reviewer can verify it.
 3. Swap PRs with a partner (or review your own with fresh eyes after a break) and leave at least one blocking comment and one suggestion, each written the way this lesson describes — a concrete observation plus a question or recommendation, not a bare judgment.
 4. Imagine you're in a design review for a new "save for later" cart feature, and the proposal doesn't mention what happens if a saved item goes out of stock before the user returns to it. Write the question you would raise, in the tone this lesson recommends.
+
+## Check your understanding
+
+1. A PR changes an endpoint so `limit` is now required, but `docs/api.md` still says it is optional. Which documentation lens does this fail, and is it worth a blocking comment?
+2. Rewrite "this is wrong" as a review comment on the out-of-stock diff in this lesson.
+3. Name one question a QA engineer might raise in a design review before any code exists.
+
+*Answers:* (1) Technical accuracy; yes, because the next person will trust the docs and send requests that now fail. (2) For example: "This returns 0 for out-of-stock items. Is that intended, or should they count at their real quantity once restocked? I don't see a test for the out-of-stock case." (3) For example: "How will we verify this works, and what happens when the API is slow or returns an error?"

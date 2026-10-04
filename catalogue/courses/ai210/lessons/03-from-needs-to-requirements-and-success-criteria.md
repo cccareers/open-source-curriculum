@@ -62,7 +62,7 @@ A success criterion is a test the finished thing either passes or fails, agreed 
 3. **It names the sample.** On what set of items, of what size, drawn how. A criterion measured on the three examples the client happened to send is not a criterion.
 4. **It names who judges.** For subjective outputs, the judge and their rubric are part of the criterion.
 
-The threshold conversation is the hard one, and it is a business conversation, not a technical one. The right anchor is the current state, which you already have from discovery. If a human reviewer currently catches 92% of the errors and takes six minutes an item, then a system that is right 90% of the time with a two-minute human check may be a clear win — or may be unacceptable, if the 10% that slip through are the expensive ones. Ask the client to describe the failure they cannot tolerate, then write the criterion around it.
+The threshold conversation is the hard one, and it is a business conversation, not a technical one. The right anchor is the current state, which you already have from discovery. If a human reviewer currently catches 92% of the errors and takes six minutes an item, then a system that is right 90% of the time with a two-minute human check may be a clear win — or may be unacceptable, if the 10% that slip through are the expensive ones. Ask the client to describe the failure they cannot tolerate, then write the criterion around it. Be careful with the comparison itself: a reviewer's catch rate and a system's accuracy rate are different measures, so the criterion must say which one is being judged — usually the error rate that reaches the customer after any human check, because that is the number the business feels.
 
 Distinguish three kinds of criterion, because clients conflate them:
 
@@ -73,6 +73,19 @@ Distinguish three kinds of criterion, because clients conflate them:
 Only business criteria survive a change of sponsor. Always write at least one, tie it to a number the client already tracks, and record the baseline for that number today — a target with no baseline cannot be evaluated, and capturing the baseline is a task that quietly gets skipped until it is too late.
 
 Finally, write the **failure criteria** alongside the success ones. What is the maximum acceptable rate of confidently wrong output? What must never happen even once? What is the plan when the system cannot answer at all? Naming these turns a whole class of later surprises into planned behavior, and it is the input the interface design will depend on.
+
+For the support-reply example in the table above, the failure criteria might read:
+
+```text
+F1  Never-event: no reply quoting a price or refund term reaches a
+    customer without a named human approving it.
+F2  Confident error: at most 2% of drafts accepted without edits contain
+    a factual error, measured on a 200-item monthly sample, judged by
+    the ops lead.
+F3  Cannot answer: if no draft can be produced, the item goes to the
+    human queue within 1 minute with the customer context attached,
+    and the operator is told why.
+```
 
 ## A requirements and success-criteria template
 
@@ -155,3 +168,12 @@ Use the discovery notes you produced in the previous lesson. If you do not have 
 4. **Write five success criteria** — at least one quality, one experience, and one business criterion. Each must name the measure, the threshold, the sample, and the judge. For the business criterion, state today's baseline and how you would get it if you do not have it.
 5. **Write the failure criteria.** Name one never-event, one maximum tolerated rate of confident error, and the required behavior when the system cannot answer.
 6. **Run a review with a partner playing the sponsor.** Ask them your three specific questions. Then have them try to argue that a Should is really a Must. Record how the argument resolves, and update the document — including a version note saying what changed and why.
+
+## Check your understanding
+
+1. Rewrite "The system should use a language-detection model" as a requirement. What was wrong with the original?
+2. A draft criterion reads "Summaries are accurate at least 95% of the time." Which of the four properties are missing?
+3. Why must at least one success criterion be a business criterion with a recorded baseline?
+4. Name the three template sections clients most often skip, and what each protects you from.
+
+Answers: (1) "The system must detect non-English input and route it to the human queue" — the original names a technology instead of a checkable behavior. (2) It names a threshold, but not exactly what is measured, the sample, or who judges. (3) Only business criteria survive a change of sponsor, and a target with no baseline cannot be evaluated. (4) Out of scope (scope creep), assumptions (hidden, unverified decisions), and failure criteria (an imperfect system being judged as broken when it is performing as agreed).

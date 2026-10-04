@@ -115,6 +115,7 @@ The AI produces information; **rules decide what happens**. Express the decision
 | Category returned off-vocabulary | Human review queue, flagged | Office manager | 1 working day |
 | Format gate rejected | Escape hatch: manual handling | Office manager | 2 working days |
 | Any step failed after retries | Failed state, alert | Me | Same day |
+| No other row matches (default) | Human review queue | Office manager | 1 working day |
 
 Rules for this table:
 
@@ -270,7 +271,7 @@ Every one of these is easier to prevent now than to diagnose in stage 07, and ea
 - **Prefer a rule.** If a step can be done deterministically, it must be. Rules are faster, cheaper, auditable, and they do not drift.
 - **Human-in-the-loop on anything consequential**, implemented as a state, not as a habit.
 - **Content from your data sources is data, not instruction.** Delimit it, tell the model to treat it as content only, and never let text inside a record change what the workflow does.
-- **Do not tune on your test set.** Keep a handful of real records aside, unopened, for stage 07. Every record you look at while tuning is a record that can no longer tell you whether the workflow generalises.
+- **Do not tune on your test set.** Keep at least 20 real records aside, unopened, for stage 07 — that stage's evaluation needs a hold-out of at least 20. Every record you look at while tuning is a record that can no longer tell you whether the workflow generalises.
 - **Cost and rate limits are yours to manage.** Know your per-record cost; do not discover it from a bill.
 - **Personal data stays minimised.** Send the model the fields the task needs, not the whole record. Stage 06 will audit exactly this.
 - **Eight hours.** A defensible split: one hour on the chain design, three on prompts, one and a half on chaining and validation, one on routing and the review gate, half an hour on the output, and one on the development run and iteration. If you overrun, cut a chain step, not the output validation.
@@ -390,3 +391,9 @@ The payload question catches two things at once: prompts that quietly send the w
 9. The iteration log, at least four entries.
 10. The per-record cost estimate and the projected cost at the client's real volume.
 11. The named hold-out records reserved for stage 07, and a one-paragraph honest note on where the workflow is still weak.
+
+## Check your understanding
+
+1. Extraction returns confidence 0.4 and categorisation returns 0.97. Where should the record go? *To human review: route on the lowest confidence across steps, otherwise the unsure extraction is laundered into a confident-looking record.*
+2. The model returns prose instead of JSON twice in a row. What happens? *One repair attempt with the parse error, then quarantine with the raw output preserved. Never loop.*
+3. Why should few-shot examples include a missing-field case? *Examples teach behaviour better than rules; a missing-field example shows the model the null-and-low-confidence answer instead of inventing a value.*

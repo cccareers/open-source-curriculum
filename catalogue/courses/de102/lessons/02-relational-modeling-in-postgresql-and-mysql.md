@@ -41,7 +41,7 @@ A few type choices in there are worth defending:
 - **`timestamptz`, not `timestamp`.** `timestamptz` stores an absolute instant and converts on the way in and out using the session time zone. Plain `timestamp` stores a wall-clock reading with no time zone at all, which means two rows written from two servers are not comparable. Use `timestamptz` for anything that records when something happened.
 - **`bigint` identity, not `int`.** Four-byte integers run out at about 2.1 billion. The extra four bytes per row is cheaper than the migration.
 
-MySQL differences worth knowing now: `AUTO_INCREMENT` is the usual identity mechanism, though MySQL 8 also understands the standard-ish `GENERATED` syntax in fewer places; `DATETIME` is the time-zone-naive type and `TIMESTAMP` is the one that converts, which is the reverse of the naming intuition Postgres gives you; and `DECIMAL` is the money type. Always create MySQL schemas with `utf8mb4` character set — the older `utf8` alias is a three-byte encoding that cannot store emoji or many CJK characters.
+MySQL differences worth knowing now: `AUTO_INCREMENT` is the identity mechanism (MySQL has no `GENERATED ... AS IDENTITY`; its `GENERATED ALWAYS AS (expr)` syntax declares computed columns, not identities); `DATETIME` is the time-zone-naive type and `TIMESTAMP` is the one that converts, which is the reverse of the naming intuition Postgres gives you; and `DECIMAL` is the money type. Always create MySQL schemas with `utf8mb4` character set — the older `utf8` alias is a three-byte encoding that cannot store emoji or many CJK characters.
 
 ## Keys: which row is this?
 
@@ -159,7 +159,7 @@ ALTER TABLE device_reading
 
 Schema changes are code and belong in version control as forward-only migration files, applied in order, each one small enough to reason about. Two habits keep them safe:
 
-**Know which operations take an exclusive lock.** In modern PostgreSQL, adding a nullable column, or a column with a constant default, is fast metadata-only work. Adding a `NOT NULL` column without a default, or changing a column's type, rewrites the whole table and blocks readers for the duration. The safe pattern for adding a required column to a large live table is three steps: add it nullable, backfill in batches, then add the constraint — using `NOT VALID` first and `VALIDATE CONSTRAINT` afterwards so the validation scan does not hold a blocking lock.
+**Know which operations take an exclusive lock.** In modern PostgreSQL, adding a nullable column, or a column with a constant default, is fast metadata-only work. Adding a `NOT NULL` column without a default, or changing a column's type, rewrites the whole table and blocks readers for the duration. The safe pattern for adding a required column to a large live table is three steps: add it nullable, backfill in batches, then add the constraint — using `NOT VALID` first and `VALIDATE CONSTRAINT` afterwards so the validation scan does not hold a blocking lock. One wrinkle: `NOT VALID` applies to `CHECK` and foreign-key constraints, not to `NOT NULL` itself. The usual recipe is `ADD CONSTRAINT ... CHECK (col IS NOT NULL) NOT VALID`, then `VALIDATE CONSTRAINT`, then `ALTER COLUMN col SET NOT NULL` — PostgreSQL 12 and later see the validated check and skip the full-table scan — and finally drop the now-redundant check.
 
 **Expand before you contract.** To rename or retype a column without downtime: add the new column, write to both, backfill, switch readers, then drop the old one — as separate deploys.
 

@@ -62,7 +62,7 @@ Report the disappointing numbers plainly. A capstone that honestly reports 88% a
 Use the evaluation to set every routing threshold that was provisional.
 
 - Compare the confidence values on correct outputs against those on wrong outputs. If they barely differ, say so — that is a real finding about your prompt, and the honest response is to route more conservatively rather than pretend the number means something.
-- Choose the threshold that gives the error rate the brief can live with, and write the trade-off down: at 0.85, you catch nine of the eleven errors and send four correct records to review unnecessarily.
+- Choose the threshold that gives the error rate the brief can live with, and write the trade-off down, in this form (illustrative numbers): at 0.85, you catch nine of the eleven errors and send four correct records to review unnecessarily.
 - Update the routing table to version 2 and re-run enough records to confirm the new behaviour.
 
 ### 3. Break it and troubleshoot
@@ -198,3 +198,9 @@ When something breaks, the difference between twenty minutes and two hours is me
 8. Evidence of all four detectors firing, redacted.
 9. Per-record time and cost, before and after the efficiency improvement.
 10. The success-criteria scorecard: every criterion from the brief, measured result against target, with sample size and date, including the unmet ones.
+
+## Check your understanding
+
+1. You looked at several hold-out records while fixing a prompt. Can you still report accuracy on them? *No. They are now development records; collect fresh unseen records for the evaluation.*
+2. Confidence values on correct and incorrect outputs are almost identical. What do you do with the routing threshold? *Report it as a finding and route more conservatively; the confidence number cannot separate good from bad outputs.*
+3. Which alert catches the failure that produces no error at all? *The absence alert, which fires when run volume drops below what is expected.*

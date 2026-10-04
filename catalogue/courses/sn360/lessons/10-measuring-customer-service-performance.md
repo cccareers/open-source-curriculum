@@ -94,3 +94,12 @@ Six indicators, four breakdowns, one nightly collection job, one dashboard with 
 5. **Build the manager dashboard.** Assemble the six-tile service manager view with targets displayed on the charts and an account breakdown selector. Include at least one operational report alongside the trends and explain in one sentence why that tile is a report rather than an indicator.
 
 6. **Break the collection.** Disable the collection job for two days, then look at the dashboard. Describe what a viewer would wrongly conclude, and configure the monitoring that would have told them instead.
+
+## Check your understanding
+
+1. A manager asks whether backlog is improving. Report or Performance Analytics indicator?
+2. Why show the median time to resolve alongside the mean?
+3. SLA attainment reads 100%. What should be beside it on the tile?
+4. The collection job silently stopped two days ago. What does the dashboard look like, and what monitoring prevents the wrong conclusion?
+
+*Answers:* (1) An indicator; trends need stored, dated scores. (2) A few very old cases distort the mean. (3) The absolute count, so 100% of two cases is visible for what it is. (4) A flat line that looks like stability; monitor the collection job and alert when it does not run.

@@ -129,10 +129,11 @@ Two mechanisms, for two different needs.
 // Scripted REST resource: POST /api/x_acme/monitoring/alert
 (function process(request, response) {
 
-  var body = request.body.data;
+  var body = request.body ? request.body.data : null;
 
-  // Validate before touching any table.
-  if (!body.alert_id || !body.node || !body.summary) {
+  // Validate before touching any table. A request with no body at all
+  // must get a 400, not a 500 from reading a property of null.
+  if (!body || !body.alert_id || !body.node || !body.summary) {
     response.setStatus(400);
     return { error: 'alert_id, node and summary are required' };
   }

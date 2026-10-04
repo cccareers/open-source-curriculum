@@ -173,7 +173,7 @@ window.dataLayer.push({
 });
 ```
 
-Which one Kestrel should use is a real decision with a real reason, and the reason is turnaround rather than elegance: the site is maintained by one contractor on a two-week release cycle, so a container that lets you add or repair an event the same afternoon is worth a great deal. Whichever is chosen, **pick exactly one**. The most common cause of double-counted revenue anywhere is a hardcoded snippet left behind after a migration into a container.
+Which one Kestrel should use is a real decision with a real reason, and the reason is turnaround rather than elegance: the site is maintained by one contractor on a two-week release cycle, so a container that lets you add or repair an event the same afternoon is worth a great deal. Whichever is chosen, **pick exactly one**. A hardcoded snippet left behind after a migration can double-fire. [GA4 deduplicates same-ID web purchases from the same user](https://support.google.com/analytics/answer/12313109?hl=en), so a DebugView double fire alone does not prove doubled reported revenue. Missing or inconsistent IDs can inflate totals; empty-string IDs can collapse distinct purchases. Fix duplicate implementations regardless.
 
 Where this course stops: you are not being asked to design a tagging architecture, build variables and triggers, or debug container scope. You are being asked to read a snippet, say what it will fire and when, and then prove what it actually fired.
 

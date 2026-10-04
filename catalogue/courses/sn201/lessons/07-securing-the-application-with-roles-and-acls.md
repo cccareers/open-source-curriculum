@@ -76,7 +76,7 @@ Here is the rule that decides everything else: **within a single ACL, the role c
 
 For a given operation on a given field of a given record, the platform works from most specific to least specific, in two passes.
 
-**Field-level pass.** Look for a rule matching `table.field` exactly. If one exists, evaluate it. If not, look for `table.*`. If neither exists on this table, walk up the table hierarchy — because your table extends Task, a rule on `task.*` applies to your records too.
+**Field-level pass.** Look for a rule matching `table.field` exactly. If none exists, look for the same field on the parent tables (`task.field`), then on the wildcard table (`*.field`). Only then fall back to the any-field rules in the same order: `table.*`, then `task.*`, then `*.*`. The first level that has a matching rule decides the pass. Because your table extends Task, rules written on Task apply to your records too.
 
 **Record-level pass.** Evaluate `table.None`, again walking up the hierarchy if there is nothing at your level.
 
@@ -170,3 +170,10 @@ Work in the `Facilities Work Orders` application. Elevate to `security_admin` wh
 8. **Set application access.** Set `work_order` to be accessible from this application scope only. Then, from a global background script or another scope, attempt to read it and observe the result. Restore whatever setting your project needs.
 
 9. **Document the authentication decision.** Write a short note for your application's documentation stating which authentication method a production deployment of this application should assume, why, and one risk that method introduces. Half a page. This is the kind of note a real implementation specialist is asked for constantly.
+
+## Check your understanding
+
+1. A technician switches to the Default view and still cannot see `total_cost`. Which mechanism is responsible? *The field-level read ACL; views only change presentation.*
+2. `work_order.*` grants write to technicians; `work_order.total_cost` grants write to managers only. Can a technician write `total_cost`? *No. The more specific rule decides that field's pass; rules do not stack across levels.*
+3. Three `read` rules exist on `work_order` (None) with different roles and conditions. How many must a user pass? *One. Rules at the same level combine with OR.*
+4. What does application access control that ACLs do not? *Whether code in other scopes may reach the table at all, regardless of the user.*

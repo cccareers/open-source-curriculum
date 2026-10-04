@@ -63,7 +63,7 @@ Apple's Mail Privacy Protection, and similar features elsewhere, pre-fetch image
 
 Three practical consequences:
 
-**Never automate on opens.** A workflow branch that says "if opened, send X; if not opened, send Y" is now branching partly on which mail client the recipient uses. Lesson 06's day-6 branch was written on "opened or clicked" for exactly this reason — the click carries the signal.
+**Never automate on opens.** A workflow branch that says "if opened, send X; if not opened, send Y" is now branching partly on which mail client the recipient uses. Lesson 06's day-6 branch does use "opened or clicked", but only to decide whether to re-send email 2; a machine-generated open there costs one skipped re-send, which is cheap. Anything with real consequences, such as a score change or a handoff to an advisor, should branch on clicks, replies, or form submissions.
 
 **Use open rate as a trend, not a level.** "Our open rate is 34 percent" means very little. "Our open rate fell from 34 to 19 percent over three sends" means a great deal, because whatever inflation exists is roughly constant across your own sends.
 

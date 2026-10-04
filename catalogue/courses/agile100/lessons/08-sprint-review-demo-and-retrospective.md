@@ -18,7 +18,7 @@ objectives:
 The sprint's last day usually holds two distinct meetings back to back:
 
 - **Sprint review (demo)** — the team shows stakeholders (Product Owner, sometimes wider — other teams, leadership) what was built this sprint. Outward-facing, about the product.
-- **Retrospective** — the team, alone, reflects on how the sprint went as a *process* and agrees on what to change. Inward-facing, about the team.
+- **Retrospective** — the Scrum team alone (developers, QA, Product Owner, and Scrum Master, without outside stakeholders) reflects on how the sprint went as a *process* and agrees on what to change. Inward-facing, about the team.
 
 They ask different questions — "what did we ship, and is it really done?" versus "how did we work, and how do we work better?" — and this lesson covers your distinct job in each.
 
@@ -115,3 +115,11 @@ Sprint recap: your team committed to three stories this sprint. STORY-101 (wishl
 1. Write your sprint review verification summary (the "STORY-101 / STORY-104 / STORY-108" structured format above) for this sprint.
 2. Write two to three sentences of spoken opening remarks for the review — the "lead with the summary" line plus enough context to orient the room in under 20 seconds when read aloud.
 3. Write one retrospective note (What didn't go well) about the late code-complete dates, following the "specific and evidence-based" example format, and pair it with one concrete "try next time" suggestion.
+
+## Check your understanding
+
+1. A teammate opens the review with "Everything's done!" but STORY-101's AC3 is still open as BUG-155. What should the verification report say instead?
+2. Is "The wishlist page feels clunky" useful review feedback? Rewrite it.
+3. Which belongs in the review and which in the retrospective: (a) "BUG-160 means the out-of-stock badge can lag up to 5 minutes"; (b) "Two stories weren't testable until Day 4."
+
+*Answers:* (1) Separate built, verified, and not verified: "STORY-101 is built; AC1 and AC2 are verified; AC3 is not verified, open as BUG-155, P1, target fix next sprint." (2) Not as written. Make it specific and observed, e.g. "In testing I mis-clicked between 'Add to Wishlist' and 'Add to Cart' twice because they look nearly identical; worth a visual distinction." (3) (a) is product status, so it goes in the review; (b) is process friction, so it goes in the retrospective.

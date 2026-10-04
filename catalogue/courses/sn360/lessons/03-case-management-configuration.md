@@ -161,3 +161,12 @@ Notice how little of that is code. One guard rule, one task-count check, one sch
 5. **Auto-close.** Configure a scheduled job that closes cases resolved more than seven days ago, and a notification sent two days before it happens. Run the job against a backdated test case and confirm both the notification and the state change.
 
 6. **Write the state diagram.** On one page, draw the legal state transitions you have configured with the condition on each arrow. Identify one transition your configuration currently allows that the business process does not, and fix it.
+
+## Check your understanding
+
+1. Why keep Resolved and Closed as separate states?
+2. A requirement says "Pending Engineering", "Pending Parts", and "Pending Vendor" must be states. What do you propose?
+3. Your resolution guard is a UI policy. Which channels bypass it?
+4. Why read `previous.state` in the resolution business rule?
+
+*Answers:* (1) Resolved means the agent believes it is done; Closed means the customer agrees or time has passed. Collapsing them destroys reopen-rate measurement. (2) One blocked state plus a "blocked reason" field. (3) Portal, inbound email, Virtual Agent, integrations, and scripts; enforce it on the server. (4) So it fires only on the transition into Resolved, not on every later update.

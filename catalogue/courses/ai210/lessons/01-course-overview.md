@@ -17,6 +17,8 @@ You will spend most of your time on design thinking rather than code. You will r
 
 Nothing here assumes design or front-end coursework. You will work with sketches, written wireframe descriptions, and clickable low-fidelity prototypes rather than production interfaces, and the tools are yours to choose. What you take away is a repeatable way of turning a vague request into a solution an organization will actually adopt and keep using.
 
+One example runs through the middle of the course: a support team's screen where an operator reviews an AI-drafted reply before sending it. You will prototype it, design its states, add disclosure and correction paths, and test it with users. Each lesson's practice builds on the artifacts from the one before, so keep everything you produce — discovery notes, requirements, wireframes, logs — in one place.
+
 ## Objectives
 
 - Run a discovery conversation that surfaces a client's real AI automation needs rather than their first stated request

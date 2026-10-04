@@ -84,7 +84,7 @@ Retry on:          408, 429, 500, 502, 503, 504, connection timeout
 Do not retry on:   400, 401, 403, 404, 409, 422
 ```
 
-Exponential backoff matters because a fixed one-minute retry against a service under load is part of the load. And retries are only safe if the operation is **idempotent** — which is why the next section is the one that actually makes retries usable.
+Exponential backoff matters because a fixed one-minute retry against a service under load is part of the load. The block above is a design target, not a screen you will find. Make's Break directive retries a set number of times at a **fixed** interval you choose, and the list-shaped platform's automatic replay follows its own schedule. Where you cannot get true exponential spacing, choose a fixed interval long enough for the service to recover, and record in the failure contract below that this deviates from the policy. And retries are only safe if the operation is **idempotent** — which is why the next section is the one that actually makes retries usable.
 
 ## Idempotency, or why retries are not enough
 
@@ -189,3 +189,9 @@ Use the automation and base you built in lessons 03 through 06.
 6. **Run the six-case failure matrix.** Manufacture bad input, an auth failure, a rate limit, a downstream outage, a duplicate event, and an oversized batch. Produce a table with one row per case and three columns: what the run history showed, what the destination contains afterward, and what a human was told. Fix every row where the third column is empty.
 
 7. **Handle the partial batch.** Give your loop 10 items where item 4 fails. Implement "continue and collect" with a per-item status recorded in the database, a cap of 50, and a summary message stating processed, failed, and skipped counts. Then argue in three sentences whether this workflow should instead stop on first failure.
+
+## Check your understanding
+
+1. A filter reads `Status does not equal Cancelled`. A record arrives with Status empty. Does it pass, and how would you make the intent explicit? *Answer: it passes, because empty is not "Cancelled". Use `Status exists AND Status does not equal Cancelled` if blanks should stop.*
+2. A step returns `422`. Should it retry? What about `503`? *Answer: no for 422, a permanent validation failure, so dead-letter it with the payload. Yes for 503, a transient failure, so retry with backoff and dead-letter after the last attempt.*
+3. Why is a retry around a create step unsafe without one of the three idempotency mechanisms? *Answer: after a timeout you do not know whether the first attempt succeeded, so a retry may create a duplicate. Find-or-create, upsert, or a processed-events check makes a second attempt harmless.*

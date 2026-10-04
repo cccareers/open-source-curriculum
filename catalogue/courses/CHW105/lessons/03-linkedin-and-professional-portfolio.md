@@ -43,7 +43,7 @@ This is not a style preference. Putting client-identifying information into a po
 De-identify before anything goes in the portfolio, and de-identify thoroughly:
 
 - Remove names of clients and their family members. Do not substitute initials — initials plus a neighborhood plus a diagnosis is still identifying. Use a generic label instead.
-- Remove dates of birth, exact ages for anyone unusual, addresses, phone numbers, email addresses, medical record numbers, insurance and member ID numbers, and case or referral numbers.
+- Remove dates of birth, exact dates of contact (keep the year at most, and remove even the year if it indicates an age over 89), ages over 89 and any exact age that would stand out, addresses, phone numbers, email addresses, medical record numbers, insurance and member ID numbers, and case or referral numbers.
 - Remove or generalize anything that identifies by rarity: an uncommon diagnosis, an unusual occupation, a specific building or program site, a small clinic name paired with a specific date.
 - Generalize geography. "A rural county in the Central Valley" is safe; a named neighborhood of 400 people paired with a health condition is not.
 - Strip photos of clients entirely unless you have a written release, and even then, think hard about whether you need it.

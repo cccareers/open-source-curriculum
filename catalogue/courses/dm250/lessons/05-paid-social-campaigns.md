@@ -70,8 +70,8 @@ Jul 10  Reel "Two clicks finer"    11,650    204     249      17.5      21.4    
 Jul 13  Carousel "What we paid"     3,010     46      21      15.3       7.0     No (both short)
 Jul 17  Reel "Water temp"           5,240     58      33      11.1       6.3     No
 Jul 20  Carousel "Storing beans"    3,660     71      29      19.4       7.9     No (shares short)
-Jul 24  Photo "Cardamom cold brew"  2,980     22      36       7.4      12.1     Local only (1.2x)
-Jul 31  Reel "One morning"          4,410     40      27       9.1       6.1     No
+Jul 24  Photo "Cardamom cold brew"  2,980     40      36      13.4      12.1     Local only (1.2x)
+Jul 31  Reel "One morning"         38,400     42      88       1.1       2.3     No
 ```
 
 Two national candidates out of seven, one local. That ratio is normal and it is the point: the gate exists to stop you spending on the other four.

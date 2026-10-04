@@ -171,7 +171,7 @@ Dynamic allocation lets the job return idle executors and request more under loa
 --conf spark.shuffle.service.enabled=true
 ```
 
-The external shuffle service matters here: without it, removing an executor also removes the shuffle files it was serving, forcing recomputation.
+The external shuffle service matters here: without it, removing an executor also removes the shuffle files it was serving, forcing recomputation. On Kubernetes, where an external shuffle service is usually not available, Spark 3.0 and later offer `spark.dynamicAllocation.shuffleTracking.enabled=true` instead: executors holding live shuffle data are kept until that data is no longer needed.
 
 Provisioning the underlying cluster and choosing instance types is out of scope for this course — assume the cluster you are given and tune the job to fit it.
 

@@ -98,3 +98,10 @@ Warning signs worth taking seriously: no one can describe what you would do day 
 2. Pick your top two and write a short profile of each — roughly 150 words — describing what you believe a CHW does there on a typical day and what evidence you used to conclude that.
 3. Draft an informational-interview request of no more than 120 words that you could send to a CHW or supervisor at one of those organizations. Say who you are, what you are studying, what you want to ask about, and how little of their time you need.
 4. Write a one-paragraph fit statement for your leading choice that names the population, the skills you expect to build, and one logistical risk you will need to resolve.
+
+## Check your understanding
+
+1. A posting says "Care Coordinator — member outreach, NEMT scheduling, outreach attempts tracked weekly." Which setting is this most likely, even though the title does not say CHW? *A Medi-Cal health plan. Searching by setting and tasks, not title, is what lets you place it.*
+2. Two sites interest you. Site A has an exciting program but no one has supervised a student before. Site B is less exciting, with a supervisor who meets interns weekly. Which criterion should weigh most, and why? *Supervision. Good supervision turns an average site into a strong placement; its absence sinks a great one.*
+3. Name two logistics items to ask about in the first conversation, not the last. *Any two of: background check, TB clearance, immunization records, onboarding timeline, schedule fit, commute.*
+

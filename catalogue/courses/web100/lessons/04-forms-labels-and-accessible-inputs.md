@@ -137,6 +137,8 @@ A red asterisk or a message floating near a field is not connected to it unless 
 
 `aria-describedby` points at the error message's `id`, so a screen reader announces the error along with the field. `aria-invalid="true"` marks the field as currently failing validation — toggle it off once the field passes. `role="alert"` on the message causes it to be announced immediately when it appears, without the user needing to navigate to it. A form that shows red text near a field with none of these three things attached is, to assistive technology, a form with no visible error at all.
 
+One timing detail matters when you test this: `role="alert"` announces content that is *added or changed* after the page loads. An error message that is already in the markup when the page first renders (as in this lesson's practice) will usually not be announced on its own. In a real form, JavaScript inserts or fills in the message and sets `aria-invalid="true"` only after validation fails; you will build exactly that in web101.
+
 ## Practice
 
 Build `contact-form.html`, a real contact/signup form, as a standalone page (or as a new `<section>` inside your running `roster.html`):
@@ -148,3 +150,11 @@ Build `contact-form.html`, a real contact/signup form, as a standalone page (or 
 5. Add `required` to at least two fields, and add `aria-describedby` + `role="alert"` error text (statically present in markup, for this exercise) to one of them, as shown above.
 6. Add a `<button type="submit">`.
 7. Test it: unplug the mouse (or just don't touch it) and Tab from the top of the page through every field and the submit button, in order, confirming each one shows a visible focus outline and that clicking each `<label>` moves focus to its input.
+
+## Check your understanding
+
+1. A field has `placeholder="Email address"` and no `<label>`. List two problems this causes.
+2. You Tab through a form and a custom "Country" dropdown is skipped. What is the likely cause?
+3. Which three attributes connect a visible error message to its field, and what does each do?
+
+*Answers:* (1) The name disappears as soon as the user types, it is not reliably announced, and a test cannot find the field by its label. (2) It is built from a `<div>` without `tabindex="0"` and keyboard handling, so it is not in the tab order; a native `<select>` would be. (3) `aria-describedby` (reads the message with the field), `aria-invalid="true"` (marks the field as failing), and `role="alert"` (announces the message when it appears).

@@ -19,7 +19,7 @@ That is the frame for this lesson. Writing good articles is a content discipline
 
 ## Bases, categories, and where the boundary goes
 
-A **knowledge base** (`kb_knowledge`, organized under `kb_knowledge_base`) is the unit of ownership and, more importantly, the unit of access. Categories organize articles within a base and are a navigation aid; they are not a security boundary in any design you should ship.
+A **knowledge base** (`kb_knowledge_base`, whose articles live in `kb_knowledge`) is the unit of ownership and, more importantly, the unit of access. Categories organize articles within a base and are a navigation aid; they are not a security boundary in any design you should ship.
 
 The first decision on every CSM engagement is how many knowledge bases you need. The reliable answer is: **one per distinct audience**, plus one internal.
 
@@ -70,7 +70,7 @@ For customer-facing bases, the criteria you actually need are rarely role-based.
 })();
 ```
 
-Treat that script as a shape, not a copy-paste: confirm the contract table and the tier field your instance actually uses, and prefer matching a tier reference over a string in a description. What matters is the pattern — the criterion asks a question about the *customer relationship*, not about group membership, so it stays true as contracts renew and contacts change.
+Treat that script as a shape, not a copy-paste. In advanced user criteria scripts, the platform supplies a `user_id` variable for the user being evaluated, and its guidance is to use that rather than `gs.getUserID()`, because criteria results are cached and may be evaluated for a user other than the one logged in; check the documentation for your release and switch the lookup to `user_id`. Also confirm the contract table and the tier field your instance actually uses, and prefer matching a tier reference over a string in a description. What matters is the pattern — the criterion asks a question about the *customer relationship*, not about group membership, so it stays true as contracts renew and contacts change.
 
 Two practical warnings. Scripted criteria run on every knowledge query, so keep them cheap and bounded — `setLimit(1)`, no unindexed wildcard queries, no nested loops. And write the deny criteria you need explicitly rather than relying on the absence of an allow; an article that is readable because nothing matched is an article whose access nobody can explain.
 
@@ -152,3 +152,12 @@ When a customer asks for community in the first phase of a CSM programme, the ho
 6. **Tune findability.** Take one article and add the keywords a customer would actually type, drawn from three real case short descriptions. Search using the customer's wording before and after and record the difference.
 
 7. **Scope a community.** In half a page, write the design note you would give a customer asking for community in phase one: which forums, who moderates, how content is promoted to knowledge, and what you would require them to commit to before enabling it.
+
+## Check your understanding
+
+1. Why use separate knowledge bases for internal, customer, and partner audiences instead of one base with an audience field?
+2. A contact matches the customer base's can-read criterion and an article's cannot-read criterion. What do they see?
+3. Why must a draft article created from a case never be published automatically?
+4. When a customer asks for a community in phase one, what is the usual advice?
+
+*Answers:* (1) Each base is one access statement a stakeholder can confirm; an audience field makes every article one mis-set value away from public. (2) Not the article; deny wins. (3) Case notes contain customer names, serials, and internal shorthand; publishing them is a data leak. (4) Publish good articles first, measure deflection, then revisit, and only with a named moderator.

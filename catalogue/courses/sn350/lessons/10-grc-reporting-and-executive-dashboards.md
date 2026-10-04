@@ -127,6 +127,9 @@ GRC reporting is the point where a well-secured implementation most often leaks,
 // their groups. Practitioners, auditors, and admins are unaffected.
 (function executeRule(current, previous) {
 
+  // Role names and the entity-to-support-group path below are illustrative.
+  // Use your release's IRM role names, and confirm how the risk's entity
+  // resolves to a group before relying on the dot-walk.
   if (gs.hasRole('sn_risk.admin') || gs.hasRole('sn_risk.practitioner') ||
       gs.hasRole('sn_audit.auditor') || gs.hasRole('admin')) {
     return;
@@ -174,3 +177,12 @@ Use a developer instance carrying your work from the earlier lessons.
 5. **Secure it.** Implement the before-query rule for one sensitive table, including the deny-by-default branch. Then open your executive dashboard as: an administrator, a practitioner, a control owner in one group, and a user with no groups. Record what each sees. Any difference you did not predict is a finding against your own design — write down the fix.
 
 6. **Defend one number.** Pick one executive widget and write the three sentences you would say if a director asked "where does that number come from, and what would make it wrong?" If you cannot answer the second half, the widget is not ready to publish.
+
+## Check your understanding
+
+1. Two people open the same shared report and see different numbers. Is that a defect?
+2. Why does a trend chart need a Performance Analytics indicator rather than a report over live records?
+3. A scheduled weekly report is created by an administrator and emailed to all control owners. What can go wrong?
+4. What two things must every executive percentage show?
+
+*Answers:* (1) Usually not; sharing a report shares its definition, and each reader still sees only rows they can read. (2) Reports read current records and can only show today; trends need collected, dated scores. (3) It renders once with administrator visibility and sends those rows to everyone on the list. (4) Its denominator, and untested items counted separately from failed ones (plus an as-of date).

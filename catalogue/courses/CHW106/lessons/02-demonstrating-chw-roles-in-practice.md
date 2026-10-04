@@ -63,16 +63,15 @@ Three of these roles account for most of the supervised competency you will be s
 
 An evidence log is a short, dated, de-identified record of your practice, kept by you, for you. It is not the program's chart, it is not a substitute for your required documentation in the agency's system, and it never leaves your own control.
 
-One entry per meaningful activity. Keep it to four lines.
+One entry per meaningful activity. Keep it to four labeled fields — date, role(s), what you did, outcome and follow-up — each a line or two long.
 
 ```text
 Date: 2026-03-14
 Role(s): Care coordination / system navigation; Advocacy
-What I did: Placed a specialty referral for a client whose prior referral had
-  lapsed. Called the scheduling line twice, then asked the referral coordinator
-  to review the lapse. Appointment scheduled for 3/28.
-Outcome / follow-up: Client confirmed appointment by phone 3/21. Reminder call
-  set for 3/27. Supervisor notified of the intake line's two-week callback lag.
+What I did: Placed a lapsed specialty referral again. Called scheduling twice,
+  then asked the referral coordinator to review the lapse. Appointment set for 3/28.
+Outcome / follow-up: Appointment scheduled; confirmation call planned for 3/21,
+  reminder for 3/27. Supervisor notified of the intake line's two-week callback lag.
 ```
 
 Write it the same day. An entry written a week later is a memory, and memories drift toward whatever story you have started telling. Aim for a handful of entries a week rather than every encounter — you want the ones that show something, not a duplicate log of your shifts.

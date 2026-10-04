@@ -27,7 +27,7 @@ docker run --rm -it \
   uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
 ```
 
-The source is an absolute host path, so Docker treats it as a bind mount rather than a named volume — that is the only syntactic difference. `$(pwd)` supplies the path; a relative path will not work. `--reload` tells uvicorn to restart when a file changes, so saving a file in your editor updates the running service within a second.
+The source is a host path, so Docker treats it as a bind mount rather than a named volume — that is the only syntactic difference. `$(pwd)` supplies an absolute path, which works on every Docker version. Recent versions also accept a relative path that starts with `./`, but a bare name such as `app:/app` is always read as a *named volume* called `app`, not as your `app` folder — a quiet mistake that leaves you editing files the container never sees. `--reload` tells uvicorn to restart when a file changes, so saving a file in your editor updates the running service within a second.
 
 The image still supplies Python and the installed dependencies. Only your source is coming from the host.
 

@@ -30,8 +30,8 @@ Every AI step should write one record, whether it succeeded or not. This is the 
   "workflow_version": "2026-03-09",
   "prompt_version": "extract-notes-v4",
   "deployment": "orders-extractor-prod",
-  "model": "gpt-4o-mini",
-  "model_version": "2024-07-18",
+  "model": "chat-model-mini",
+  "model_version": "2026-01-15",
   "source_record_id": "ORD-1041",
   "input_chars": 214,
   "prompt_tokens": 212,
@@ -200,3 +200,9 @@ Instrument a workflow you have already built — the extraction workflow from ea
 6. **Set the three alerts** with explicit thresholds and a stated owner. Trigger the volume anomaly deliberately and confirm it fires.
 7. **Make one optimization** from the menu, changing exactly one variable. Re-run the frozen set and produce a side-by-side comparison of every field plus latency and cost.
 8. **Report honestly.** Write a short note: what you changed, which numbers improved, which regressed, whether you would ship it, and what you would try next. A change you decided not to ship, with the evidence for that decision, is a complete and successful answer to this exercise.
+
+## Check your understanding
+
+1. Why report p95 latency instead of the average? *A few very slow runs hide in a mean; percentiles show what a noticeable minority of users actually experience.*
+2. A cheaper model halves cost per call but doubles retries and human rework. Which metric shows whether it is really cheaper? *Cost per usable (successful) record.*
+3. A prompt change raises `access_code` accuracy but lowers `special_equipment` accuracy. How do you catch this before shipping? *Re-run the frozen evaluation set and compare field by field, not just the headline number.*
