@@ -236,3 +236,9 @@ A last habit, and the one that separates a consumer of intelligence from a user 
 **Exercise 6 — Run a documented hunt.** Write a hunt using the template in this lesson against a data set your instructor supplies. Execute it, record the result including negatives, and finish with a short after-action note covering: what you found, how long it took, what you would automate, and how you would word the scheduled detection so it does not become one of the noisy rules from lesson 03.
 
 **Exercise 7 — Critique a report.** Take a published threat report supplied by your instructor. Highlight every claim that is direct observation, every claim that is inference, and every claim sourced to a third party. Then write a half-page relevance assessment for your own environment answering: do we run the affected technology, would the described initial access work here, which of the report's indicators are worth ingesting and at what confidence, and which are not worth ingesting and why.
+
+## Check your understanding
+
+1. Why does a file hash sit at the bottom of the pyramid of pain? *The adversary can change it in seconds by recompiling; behaviors cost them retooling.*
+2. A feed lists an address once, with no context, at low confidence. What do you do with it? *Hunt only. Never take an automated blocking action on a low-confidence indicator.*
+3. Your mapping says the activity "is the work of" a named group. What is wrong? *That is attribution. A responder's correct output is "consistent with publicly reported activity of X" — or, better, no actor name.*

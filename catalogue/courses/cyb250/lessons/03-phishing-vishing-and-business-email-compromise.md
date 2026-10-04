@@ -82,7 +82,7 @@ Someone will forward you a fraudulent message and ask, in a tone somewhere betwe
 
 **Your DMARC policy is not enforcing.** A policy of `p=none` publishes a preference and blocks nothing. If your own domain is being spoofed and you are still in monitoring mode, say so plainly and treat it as a finding to raise, not a fact to hide.
 
-**Alignment passed on a domain the user cannot see.** A message can pass SPF on its envelope sender while displaying a completely different name and address to the reader. Users judge the display name, which is free text that anyone can set. Explaining this gap to a colleague — "the check confirmed the delivery envelope, not the name on the front of it" — is usually the single most useful sentence you will say about mail security all week.
+**Authentication passed on a domain the user cannot see.** A message can pass SPF on its envelope sender while displaying a completely different name and address to the reader. The pass is real, but it is for the envelope domain, not for what the reader sees. DMARC alignment closes that gap for spoofs of your own domain once you enforce it; it cannot help when the visible address is a lookalike or a freemail account carrying a borrowed display name. Users judge the display name, which is free text that anyone can set. Explaining this gap to a colleague — "the check confirmed the delivery envelope, not the name on the front of it" — is usually the single most useful sentence you will say about mail security all week.
 
 **The infrastructure is too new to have a reputation.** Domain registered yesterday, sent from a shared cloud provider with a clean address range, no volume history. Reputation-based filtering needs a history it does not yet have.
 
@@ -151,3 +151,12 @@ For case 3 specifically, state what makes the exposure worse than a plain creden
 **Part 2 — Write the explanations.** Using the annotated header block in this lesson, write two explanations of why the message was delivered: one of about 60 words for the recipient, and one of about 120 words for a manager who is asking whether the mail filtering needs replacing. The second must be accurate about what authentication does and does not prove, must not blame the recipient, and must end with one concrete improvement you would recommend.
 
 **Part 3 — Build the intake form.** Draft the fields for a suspicious-message report form that a non-technical employee can complete in under 60 seconds on a phone. Justify each field in one line by naming which triage step it feeds, and name three fields you deliberately left out because they slow reporting more than they help. Then write the automatic acknowledgement the reporter receives — under 80 words, thanking them, telling them what happens next, and telling them explicitly what to do if they realize later that they interacted with it.
+
+## Check your understanding
+
+1. A user scanned a QR code, entered their password, and approved an MFA prompt on a page that then showed an error. Why is a password reset alone not enough?
+2. A colleague asks why the filter let through a message from `nortonfield-group[.]net` when your domain is `nortonfield[.]example`. Give the one-sentence answer.
+3. Your triage finds one reporter, but the mail platform shows 46 recipients and 3 clicks. Which triage step does this belong to, and what does it change?
+4. A payment has already gone to a changed bank account. Who do you route to, and why in parallel?
+
+**Answers:** (1) It is likely adversary-in-the-middle phishing; the attacker may hold a valid session token, so sessions and refresh tokens must be revoked and the mailbox checked for new inbox rules. (2) Nothing was spoofed — it is a lookalike domain the attacker owns, so it passes authentication for its own domain; your report is the control that caught it. (3) Step 4, establishing scope; it turns a single report into a 46-recipient case with three exposure assessments and a tenant-wide purge. (4) Finance leadership and the bank at the same time as incident response, because recall windows are measured in hours.

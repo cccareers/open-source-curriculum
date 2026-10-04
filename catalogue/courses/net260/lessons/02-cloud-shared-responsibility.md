@@ -226,3 +226,11 @@ A vendor tells your manager that their SaaS product is "fully secure and complia
 **Exercise 5 — Write the note for a real workload.**
 
 Pick one workload in your lab environment, or one your instructor assigns, and produce a Workload Responsibility Note in the format shown above. It must include: every component named by exact service, the provider column, the customer column broken into data / identity / configuration / code, all four edges checked, at least one item marked `OPEN` or `FINDING`, and an assumptions section. Keep it to one page — this artifact is only useful if a busy person will actually read it, and you will reuse it as the opening section of the project in lesson 11.
+
+## Check your understanding
+
+1. A managed Postgres instance is exposed to the internet through its public endpoint and a `0.0.0.0/0` firewall rule. The engine is fully patched. Whose finding is it, and which layer failed?
+2. Which three rows of the responsibility table never change across on-premises, IaaS, PaaS, and SaaS?
+3. The lesson 02 bucket held 14,000 intake forms and had at-rest encryption enabled the whole time. Why didn't the encryption matter?
+
+**Answers:** (1) The customer's: configuration (and identity/access) failed; engine patching is the provider's and was fine. (2) Data, identity and access, and application configuration. (3) At-rest encryption protects against theft of the physical media; the service decrypted and served every object to the anonymous reader the public ACL allowed.

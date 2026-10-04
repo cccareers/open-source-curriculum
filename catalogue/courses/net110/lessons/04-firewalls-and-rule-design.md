@@ -181,6 +181,8 @@ iptables -A INPUT -s 10.20.30.0/24 -p tcp --dport 443 -j ACCEPT
 iptables -A INPUT -s 10.20.20.0/24 -p tcp --dport 22 -j ACCEPT
 ```
 
+One lab-safety note on the order above: setting `-P INPUT DROP` first is fine at a console, but if you are connected over SSH it cuts your own session before the established-traffic rule exists. Over SSH, add the accept rules first and set the drop policy last.
+
 Note that `-A` appends, so **the order you type the commands is the order the rules evaluate in**. Adding a deny after an allow that already covers the traffic accomplishes nothing — the same first-match trap as before, now with the added hazard that it is easy to append in the wrong sequence during a late-night change.
 
 ## Objects, groups, and keeping a rule set readable
@@ -253,3 +255,12 @@ Then verify, from a second lab VM, and record the evidence for each:
 Write a short verification note stating what you tested, what you observed, and one sentence naming a path you did *not* test that a reviewer should check.
 
 **Exercise 4 — Audit a rule set for decay.** Take the rule set you built and deliberately add three defects: one shadowed rule, one rule with `any` where a `/24` belongs, and one rule with no comment or owner. Trade rule sets with a classmate if you can, or set yours aside for a day. Then audit it as if you had never seen it: list each finding, its category, its risk in one sentence, and the exact change that fixes it.
+
+## Check your understanding
+
+1. Why does the HR rule set contain no rule permitting `10.20.40.22 -> 10.20.30.0/24`?
+2. Rule 10 is `allow 10.20.30.0/24 -> any tcp/443`; rule 20 is `deny 10.20.30.0/24 -> 198.51.100.0/24 tcp/443`. What is wrong, and what is the fix?
+3. After adding a permit for TCP 443 to one host, which two adjacent tests prove you did not open an unintended path?
+4. Where should a workstation's DNS traffic be allowed to go, and what does a deny log on outbound UDP 53 tell you?
+
+**Answers:** (1) The firewall is stateful, so replies are admitted by the connection table; a reverse rule would let a compromised server initiate connections to staff laptops. (2) Rule 20 is shadowed — every packet it targets matches rule 10 first; put the specific deny above the general allow. (3) 443 to a neighbouring host is still refused, and a different port (for example 8443) to the same host is still refused. (4) Only to the internal resolvers; a deny log means a host tried to bypass your resolvers, which is itself a signal.
