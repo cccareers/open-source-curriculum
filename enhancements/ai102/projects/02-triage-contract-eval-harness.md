@@ -94,6 +94,7 @@ export function validate(o) {
 // eval-set.json: [{ "case_id", "input_body", "expected": { "category", "needs_human", "requested_deadline" } }]
 // outputs.json:  [{ "case_id", "raw_output" }]   (raw text exactly as the model step returned it)
 import { readFileSync } from 'node:fs';
+import { pathToFileURL } from 'node:url';
 import { parseModelOutput, validate } from './contract.mjs';
 
 export function score(evalSet, outputs) {
@@ -132,7 +133,7 @@ export function score(evalSet, outputs) {
   };
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const [evalPath, outPath] = process.argv.slice(2);
   const result = score(JSON.parse(readFileSync(evalPath, 'utf8')), JSON.parse(readFileSync(outPath, 'utf8')));
   for (const r of result.rows) console.log(r.case_id.padEnd(8), r.status, (r.violations || []).join(','));
