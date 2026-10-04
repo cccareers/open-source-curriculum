@@ -50,13 +50,13 @@ week | dates | initiated_total | initiated_this_week | connected | in_conversati
 ## Milestones
 
 1. **Create the ledger** (15 min). Make the file and the three tabs in a personal account. Paste the column headers above. Share view access with your instructor.
-2. **Record the Week 1 numbers** (30 min). Read each number off your CRM, not from memory. For `connected`, `in_conversation`, and `interviewed`, count every contact who has *reached at least* that stage — a contact now in "In conversation" also counts as connected. Compute `connect_rate` (connected ÷ initiated_total) and `conversation_rate` (in_conversation ÷ connected) to one decimal place. In `notes`, write which number you most want to move in Week 2.
+2. **Record the Week 1 numbers** (30 min). Read each number off your CRM, not from memory. For `connected`, `in_conversation`, and `interviewed`, count every contact who has *reached at least* that stage — a contact now in "In conversation" also counts as connected. Compute `connect_rate` (connected ÷ initiated_total) and `conversation_rate` (in_conversation ÷ connected) as percentages to one decimal place. If a denominator is zero, record `N/A (no initiated contacts)` or `N/A (no connected contacts)` instead of dividing by zero. Save a dated CRM export or stage-history snapshot with this row; a current CRM view later cannot prove past weekly counts. In `notes`, write which number you most want to move in Week 2.
 3. **Caption your first artifact: the before-and-after first touch** (30 min). Take the first message you wrote this week and your best message from Friday. Paste both into the Artifacts tab with a caption card:
 
 ```text
 Artifact:  First touch, Monday vs. Friday (Week 1)
 Skill:     Writing a personalized connection request with a checkable hook
-Context:   Cold LinkedIn outreach to regional employers, 300-character note limit
+Context:   Cold LinkedIn outreach to regional employers, the account's connection-note character limit
 Result:    [e.g. Monday version: 0 of 8 accepted; Friday version: 3 of 9 accepted]
 My part:   Wrote both; Friday hook revised after instructor feedback in lab
 ```
@@ -68,7 +68,7 @@ My part:   Wrote both; Friday hook revised after instructor feedback in lab
 ## Acceptance criteria
 
 - [ ] The ledger lives in a personal account (not a cohort or program account) and your instructor can view it.
-- [ ] The Week 1 row is complete, with both rates computed and a "number to move" note.
+- [ ] The Week 1 row is complete, with both rates computed or explicitly marked N/A for zero denominators and a "number to move" note.
 - [ ] Every count matches what your CRM shows today; a partner verified two of them.
 - [ ] Two caption cards exist, each with all five fields filled.
 - [ ] At least one result field reports something that did not work or did not move.

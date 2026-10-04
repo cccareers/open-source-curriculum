@@ -39,7 +39,7 @@ Hi Dana — saw the apprentice-track analyst role your team posted last week.
 
 I'm a pre-apprentice with Creating Coding Careers, two weeks into a tech
 training program; last week I set up a CRM pipeline and ran outreach to 50+
-regional employers.
+contacts at regional employers.
 
 Not asking about the role — I'd like 20 minutes to hear how your team actually
 uses analysts day to day. Would Thursday or Friday afternoon work?

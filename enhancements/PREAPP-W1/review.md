@@ -16,7 +16,7 @@ These are strong lab guides: direct, concrete, and every section ends in action 
 | PREAPP-W1-02 | "Why the CRM comes first" | "CRM" is never expanded or defined; many participants have never used one | Expand to "customer relationship management" with a one-clause definition on first use | Applied |
 | PREAPP-W1-02 | "The stages of a prospecting pipeline" | "InMail" used without definition | Add a parenthetical definition | Applied |
 | PREAPP-W1-02 | "Reading your funnel" | Connect rate = Connected ÷ Initiated is ambiguous: CRMs show current-stage counts, so a contact who advances to In conversation leaves Connected and the rate drops as the learner succeeds | Add "reached at least this stage" rule plus a short worked calculation | Applied |
-| PREAPP-W1-03 | "The anatomy of a personalized request" | The example connection request is ~347 characters; LinkedIn connection notes are capped around 300, so the model message would be truncated if copied | Add a note on the limit and a trimmed 288-character version keeping all four parts | Applied |
+| PREAPP-W1-03 | "The anatomy of a personalized request" | The example connection request is ~347 characters; LinkedIn Help currently documents a 200-character note cap, so the model message would be truncated if copied | Add a note on the limit and a trimmed 167-character version keeping all four parts | Applied |
 | PREAPP-W1-03 | "The daily routine" | "Quota" used as program jargon without definition | Define on first use | Applied |
 | PREAPP-W1-02 vs PREAPP-W2-02 | Priority tier (1/2/3) vs fit tier (A/B/C) | Two tiering systems with similar names; learners conflate them in Week 2 | Clarified in W2-02 (see that review) | Applied (in W2) |
 | PREAPP-W1-04 | "Skills-first, not history-first" | "A missing photo measurably suppresses connection acceptances" is asserted without a source | Cite a source or soften to "noticeably" | Proposed |
@@ -53,12 +53,12 @@ These are strong lab guides: direct, concrete, and every section ends in action 
 - `02-pipeline-crm-operations.md`, "Why the CRM comes first": defined CRM on first use.
 - `02-pipeline-crm-operations.md`, "The stages of a prospecting pipeline": defined InMail.
 - `02-pipeline-crm-operations.md`, "Reading your funnel": added the "reached at least this stage" counting rule and a worked 40-contact example.
-- `03-outreach-fundamentals.md`, "The anatomy of a personalized request": added connection-note character-limit caution and a trimmed under-300-character version of the example.
+- `03-outreach-fundamentals.md`, "The anatomy of a personalized request": added connection-note character-limit caution and a trimmed under-200-character version of the example.
 - `03-outreach-fundamentals.md`, "The daily routine": defined quota.
 - `04-personal-brand-going-live.md`: appended a three-question "Check your understanding" block.
 
 ## Open questions for the course owner
 
-- LinkedIn's connection-note limit (about 300 characters) and the monthly cap on personalized notes for free accounts have changed several times; I hedged in the lesson. Please confirm current figures before cohort start.
+- LinkedIn Help currently documents 200 characters and three personalized invitations per month on basic accounts; the lesson uses a 167-character note and appropriate alternate outreach channels. Confirm account limits before cohort start.
 - Is the "missing photo suppresses acceptances" claim from a source you want cited?
 - The W1 milestone gates stipend disbursement. Should the evidence ledger (supplementary) be required, or stay optional? It is designed to be optional, but W7 is much easier with it.

@@ -53,8 +53,8 @@ TOTAL: __ claims | __ verified | __ unsupported | __ overstated
 ## Milestones
 
 1. **Write the runbook** (45 min). Use these headings: Purpose · Trigger · Inputs (and where they come from) · Steps (numbered, one sentence each) · Output (and where it lands) · How to check the output · Known failures · Time saved (calculation with inputs). Keep it to one page.
-2. **Run the accuracy audit** (75 min). Run the automation on five real inputs, including your messiest one. List every factual claim in every output. Check each against its source and mark it Verified, Unsupported, or Overstated (Lesson 3's "overstated inference"). Tally.
-3. **Fix one failure** (30 min). Pick the most common failure from the audit and change the prompt or template to prevent it (for example: require a source number per bullet, add a NOT SUPPORTED section). Re-run on the same five inputs and record the new tally.
+2. **Run the accuracy audit** (75 min). Run the automation on five real inputs, including your messiest one. List every factual claim in every output. Check each against its source and mark it Verified, Unsupported, or Overstated (Lesson 3's "overstated inference"). Tally. Compute `audit_verified_pct` as verified claims ÷ total factual claims × 100; record N/A if there are no factual claims, and explain what output checks you used instead.
+3. **Fix one failure** (30 min). If the audit found no failures, record that result and test an additional edge case; do not invent an error. Otherwise, pick the most common failure from the audit and change the prompt or template to prevent it (for example: require a source number per bullet, add a NOT SUPPORTED section). Re-run on the same five inputs and record the new tally.
 4. **Head-to-head** (30 min). Run the automation's core prompt unchanged in both Claude and ChatGPT on one input. Score both on the four criteria from Lesson 2 and write a one-sentence verdict.
 5. **Peer run** (20 min). Give a partner only the runbook. They run your automation on one input without asking you anything. Note every place they hesitated, and fix the runbook.
 6. **Update the ledger** (20 min). Week 4 row with new columns `automation_minutes_saved_per_week` and `audit_verified_pct`. Caption card for the runbook + audit. Dated reflection: hard, boring, surprising — and whether you enjoyed the building or the judging more.
@@ -63,7 +63,7 @@ TOTAL: __ claims | __ verified | __ unsupported | __ overstated
 
 - [ ] Runbook is one page, has all eight headings, and a peer ran the automation from it alone.
 - [ ] Audit covers five real inputs and every factual claim, with a tally.
-- [ ] One failure type was fixed and the re-run tally shows the effect (even if small).
+- [ ] One observed failure type was addressed and the re-run tally shows the effect (even if small), or a failure-free audit is documented with an additional edge-case check.
 - [ ] Head-to-head comparison uses an unchanged prompt and the four criteria, with a reasoned verdict.
 - [ ] The time-saved calculation shows measured inputs, upkeep, and payback.
 - [ ] Nothing in the automation sends outreach without human review.

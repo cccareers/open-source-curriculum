@@ -59,16 +59,16 @@ Outcome: [next step + date] or [explicit no-fit + reason]
 
 ## Milestones
 
-1. **Rewatch and time-stamp** (60 min). Watch your recording once with the template open. Fill every field; use timestamps, not impressions. Estimate talk time by timing your own speaking turns in the first five minutes and the last five minutes and averaging them.
+1. **Rewatch and time-stamp** (60 min). Watch your recording once with the template open. Fill every field; use timestamps, not impressions. If you never pitched or surfaced all three criteria, mark that field "not observed" with the relevant evidence instead of inventing a failure. Estimate talk time by timing your own speaking turns in the first five minutes and the last five minutes and averaging them.
 2. **Write three rewrites** (20 min). For the three weakest questions you asked, write the open-question version using the Lesson 3 table as a model.
-3. **Finalize the funnel table** (30 min). Use "reached at least this stage" counts (Lesson 4, "Your pipeline is a funnel"). Include the sixth row for qualification decisions (advance / nurture / disqualify counts).
+3. **Finalize the funnel table** (30 min). Use "reached at least this stage" counts (Lesson 4, "Your pipeline is a funnel"). Add a separate qualification-decision tally (advance / nurture / disqualify counts), not a sixth funnel stage.
 4. **Write the brief** (45 min). One page, five parts in order: numbers, weakest stage, evidence (cite the objection tally and message versions), corrective plan with a date and a measurable target, what you are stopping. Every number traces to your CRM or spreadsheet.
 5. **Pressure-test the plan** (20 min). A partner asks: "Does your fix match the cause?" If your weakest stage is messaged → replied and your fix is "send more," rewrite it (Lesson 4: scaling a failure).
 6. **Update the ledger** (25 min). Week 3 row with new columns `qualified_advance`, `qualified_nurture`, `disqualified`, `weakest_stage`. Two caption cards. Dated reflection: hard, boring, surprising — and one sentence on whether a full-time SDR seat appeals to you, with your reason.
 
 ## Acceptance criteria
 
-- [ ] Call review has every field filled with timestamps and quoted language.
+- [ ] Call review has every field filled with timestamps and quoted language, or an evidence-based "not observed" explanation.
 - [ ] Three weak questions rewritten as open, neutral questions that name no product or service.
 - [ ] Funnel table uses "reached at least" counts and correct stage-to-stage arithmetic.
 - [ ] Brief fits on one page and has all five parts in order.

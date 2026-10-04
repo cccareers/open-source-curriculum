@@ -75,4 +75,4 @@ Two actors: **Rep** (a new SDR at a fictional onboarding-software company) and *
 
 1. Rewrite "Do you have budget for this?" as an open question. **Answer:** e.g. "How does your team usually fund something like this?"
 2. Why did Call 2's confirm-back matter? **Answer:** It proved listening and corrected a wrong number (60 to 50 hires) before it reached the notes or a proposal.
-3. A hiring contact says, "We might open a junior role sometime next year; I'd have to check with my director." Score authority and timing. **Answer:** Authority 1 (can influence, does not decide; you now know the director decides). Timing 1 (vague window).
+3. A hiring contact says, "We might open a junior role sometime next year; I'd have to check with my director." Score authority and timing. **Answer:** Authority 1 (can influence, but "check with my director" does not establish who has final hiring authority). Timing 1 (vague window).

@@ -26,7 +26,7 @@ This is the week's project. It is not a scrapbook and it is not a highlight reel
 Pull your full pipeline history from your tracker — your CRM plus any spreadsheet or lab log where you recorded weekly numbers — and turn it into a narrative with numbers attached. The story needs three things:
 
 - **The totals.** Outreach attempted, responses received, conversations held, informational interviews completed, meetings booked, artifacts delivered. Whatever your tracker recorded, reported at the level of the whole program.
-- **The arc.** How the numbers moved over eight weeks. Almost everyone's response rate improves; find yours and say by how much. If a number got worse, that goes in too, with your read on why.
+- **The arc.** How the numbers moved through the completed weeks. Week 8 is still ahead: mark it pending and finalize the full-program totals after Demo Day. Almost everyone's response rate improves; find yours and say by how much. If a number got worse, that goes in too, with your read on why.
 - **The turn.** The specific change you made that moved a metric — a rewritten opening line, a switch in channel, a change in who you targeted, a different follow-up cadence. Name the change, name the week, and show the before and after.
 
 Write it as prose with the numbers embedded, roughly 400 to 600 words, not as a bare table. The numbers are the evidence; the sentences are the story.

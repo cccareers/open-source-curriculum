@@ -82,7 +82,7 @@ This parser splits on every comma, so a company name containing a comma will bre
 
 ## Path B: the live API
 
-If your CRM exposes an API and your instructor has a key for you, fetch over the network instead. `fetch` is built into both Bun and modern Node, and it returns a promise — a value that is not ready yet. `await` waits for it, and `await` only works inside a function marked `async`.
+If your CRM exposes an API and your instructor has a key for you, fetch over the network instead. `fetch` is built into both Bun and modern Node, and it returns a promise — a value that is not ready yet. `await` waits for it, and `await` works inside a function marked `async` or at the top level of an ES module.
 
 ```ts
 async function pullContacts(): Promise<Row[]> {
@@ -147,5 +147,5 @@ Build `pipeline.ts` alongside your apprentice partner. Keep the four steps in fo
 3. Write a transform that produces your follow-up queue, using your own rule for what "needs a follow-up" means. Print the count.
 4. Build a count-by-company report and print it. Which three companies are you most invested in?
 5. Write the queue to `follow-ups.csv` and open it in a spreadsheet.
-6. **Order the steps.** Given these five lines shuffled, write the correct execution order and one sentence on why each depends on the one before it: `writeFileSync(...)`, `const rows = toRows(raw)`, `const raw = readFileSync(...)`, `const stale = rows.filter(...)`, `if (!res.ok) throw ...`.
-7. If you have API credentials, swap the fetch step for `pullContacts` and change nothing else. Then break it on purpose: use a wrong token and read the status you get back.
+6. **Order the steps.** Order the CSV path: `writeFileSync(...)`, `const rows = toRows(raw)`, `const raw = readFileSync(...)`, `const stale = rows.filter(...)`. Then order the API path: `writeFileSync(...)`, `const rows = await res.json()`, `const res = await fetch(...)`, `const stale = rows.filter(...)`, `if (!res.ok) throw ...`. Explain each dependency; the response check belongs only to the API path.
+7. If you have API credentials, replace the CSV fetch-and-parse pair with `const rows = await pullContacts();`. It already parses JSON; do not pass its result to `toRows`. Keep transform and output unchanged. The URL above is a placeholder: use your instructor's documented endpoint, authentication scheme, response shape, and pagination rules. Then break it on purpose: use a wrong token and read the status you get back.

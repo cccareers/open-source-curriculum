@@ -45,5 +45,5 @@ A slider per joint (0-100%) and an input slider. Learners enter their own five c
 ## Production notes
 
 - Numbers in scenes 1-2 must match the lesson's example table exactly (120/95/19/7/2).
-- Scene 4 numbers are illustrative: 95 × 40% = 38; 38 × 37% ≈ 14; 14 × 29% ≈ 4. Later joints keep the lesson's rates; round down to whole contacts.
+- Scene 4 numbers are illustrative: 95 × 40% = 38; 38 × 37% ≈ 14; 14 × 29% ≈ 4. Later joints keep the lesson's rates; round to the nearest whole contact (14 × 29% = 4.06 → 4), not down at each step. These are illustrative expected outcomes, not measured results.
 - Use "reached at least this stage" counting, consistent with the clarification added to W3-04 in this pass.

@@ -45,13 +45,13 @@ It closes the eight-week chain: the ledger you opened in Week 1 becomes the evid
 ## Milestones
 
 1. **Choose the stage numbers from the register** (30 min). Pick one headline number and at most two supporting numbers, each already verified in the Week 7 claim register. Write each with its denominator ("19% of 214 contacts").
-2. **Build the evidence slides** (45 min). One number per slide, large enough for the back row (Lesson 2 rules). A footnote line on each slide names the source in plain language ("CRM export, Weeks 1-8, first touches only").
+2. **Build the evidence slides** (45 min). One number per slide, large enough for the back row (Lesson 2 rules). A footnote line on each slide names the source in plain language ("CRM export, Weeks 1-7, first touches only").
 3. **Write the source card** (20 min). For each number: where it lives, how it was counted, and a one-sentence answer to "Where does that come from?" that you can say in under fifteen seconds.
 4. **Source-on-demand drill** (30 min, in pairs). Your partner plays an employer partner and asks about two numbers at random. You answer from the card, then open the actual source on your phone or laptop. Target: under one minute each. Repeat until clean.
 5. **Leave-behind and hallway kit** (40 min). One page: name, pathway, headline result with denominator, portfolio URL, QR code (test it with two different phones), and your ask. Write your three follow-up sentences. Set up the fastest way to capture a contact (a CRM mobile form, a sign-up sheet, or a note template) and practice logging one contact in under a minute.
 6. **Demo Day** (the event). Present. Capture every person who approaches you and log each in the CRM with a dated next action before you leave (Lesson 3 definition of done).
 7. **Seed the thirty-day plan** (40 min, within 48 hours). Every Demo Day contact gets a follow-up row in days 1-3 of the plan and a CRM task. Add your Week 6 campaign results card (prediction vs. actual attendance).
-8. **Archive and verify** (45 min). Export the CRM (Lesson 4). Copy the evidence ledger, claim register, portfolio source, playbook, and Week 5 repository link into one dated folder in a personal account, with a second copy elsewhere. Run Lesson 4's verification checklist, and also open the ledger from the archive copy to confirm it is complete.
+8. **Archive and verify** (45 min). Add the final Week 8 numbers row, a caption card for the evidence pack, and a dated hard/boring/surprising reflection. Export the CRM (Lesson 4). Copy the evidence ledger, claim register, portfolio source, playbook, and Week 5 repository link into one dated folder in a personal account, with a second copy elsewhere. Run Lesson 4's verification checklist, and also open the ledger from the archive copy to confirm it is complete.
 
 ## Acceptance criteria
 

@@ -34,7 +34,7 @@ One repository containing:
 
 **2. Published to GitHub.** Create an empty public repository on GitHub named `pipeline-tools` (or better — name it for what it does), connect it as the remote, and push. Your work is visible at a public URL.
 
-**3. Nothing private in the history.** No API tokens, no real contact names, no employer emails. Commit `contacts.sample.csv` with invented people; keep the real export out via `.gitignore`.
+**3. Nothing private in the history.** No API tokens, no real contact names, no employer emails, including hard-coded arrays and generated follow-up reports. Replace Lesson 02's real entries with invented data before staging the script. Commit `contacts.sample.csv` with invented people; keep the real export out via `.gitignore`.
 
 **4. A README a non-expert can use.** Written for a career-services colleague who has never opened a terminal. It must contain, in this order:
 
@@ -90,12 +90,13 @@ git push -u origin main
 
 `remote add origin` records where "the copy on the internet" lives. `push` sends your commits there. The `-u` on the first push remembers the destination, so later pushes are just `git push`.
 
-**Write the `.gitignore` before your first commit.** Once a secret is committed, deleting it later does not remove it from the history — you would start the repository over. Create the file first:
+**Write the `.gitignore` before your first commit.** Once a secret is committed, deleting it later does not remove it from the history — revoke or rotate an exposed credential immediately, then ask your instructor to help remove private data from history before publishing. Starting a repository over does not invalidate an exposed token. Create the file first:
 
 ```text
 node_modules/
 .env
 contacts.csv
+follow-ups.csv
 ```
 
 **Commit as you work, not at the end.** Good five-commit shape: add the `.gitignore`, add the script's fetch and parse steps, add the transform, add the sample CSV, add the README. Run `git status` before every commit to see exactly what you are about to save, and `git log --oneline` after to watch the history grow.

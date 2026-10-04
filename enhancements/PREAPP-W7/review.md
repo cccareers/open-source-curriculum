@@ -18,8 +18,8 @@ Week 7 is rigorous and well framed: "enthusiasm is a signal, not a decision" and
 | PREAPP-W7-03 | Metrics story example | Rates given without showing arithmetic or what counts as "outreach" (first touches vs. all touches) | Add arithmetic check and a "count the same way in every segment" rule | Applied |
 | PREAPP-W7-04 | "Update the resume" | "Applicant tracking system" used without definition | Define inline | Applied |
 | PREAPP-W7-03, W7-04 | Example numbers | Sample totals (68 outreach in Weeks 1-3; 122 over 8 weeks) are below the Week 1 milestone alone (50+ initiated in Week 1), so learners with 300+ contacts may think they did something wrong | Raise example totals (e.g. 210 and 160) consistently across W7-03, W7-04, and the W7 animation, or note that examples count only first-touch cold outreach to non-partners | Proposed |
-| PREAPP-W7-02 | "Enthusiasm is a signal, not a decision" | "Your Digital Marketing rotation ended four days ago" — Friday to Monday is three days | Change to "last week" | Proposed |
-| PREAPP-W7-02 | Sample fit matrix | Software Dev row cites "12 tickets"; the W5 rotation has no tickets (it builds one script) | Use a W5-shaped performance cell (e.g. "script shipped, 7 commits, partner ran it first try") | Proposed |
+| PREAPP-W7-02 | "Enthusiasm is a signal, not a decision" | "Your Digital Marketing rotation ended four days ago" — Friday to Monday is three days | Change to "last week" | Applied |
+| PREAPP-W7-02 | Sample fit matrix | Software Dev row cites "12 tickets"; the W5 rotation has no tickets (it builds one script) | Use a W5-shaped performance cell (e.g. "script shipped, 7 commits, partner ran it first try") | Applied |
 
 ## Depth and coverage gaps
 

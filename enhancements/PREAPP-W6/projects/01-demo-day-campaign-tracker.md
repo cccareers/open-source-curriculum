@@ -52,7 +52,7 @@ date | type (post / DM / email / comment / reminder) | segment | person (DMs onl
 ## Milestones
 
 1. **Build the tracker** (40 min). Load every calendar row and every named invitation from your list. Each personal invitation is its own row.
-2. **Run days 1-5** (spread across the week; about 20 min/day for tracking). Mark each row done or skipped as it happens, not at the end of the week. Log results 48 hours after each post.
+2. **Run days 1-5** (spread across the week; about 20 min/day for tracking). Mark each row done or skipped as it happens, not at the end of the week. Log results 48 hours after each post; rows younger than 48 hours are pending and updated later.
 3. **Keep the attribution log** (ongoing). For every reply or yes, record trigger and prior touches. Where unclear, ask the person what made them respond.
 4. **Mid-flight check** (40 min, end of campaign week one). Compute invitation reply rate per segment and engagement rate per post. Identify the weakest diagnostic and match it to its cause using Lesson 4's "Checking mid-flight." Write the memo naming one change. Make only that change.
 5. **Positioning audit** (20 min). Read every post and invitation you have sent against your positioning statement. Mark any that drifted.
@@ -65,7 +65,7 @@ date | type (post / DM / email / comment / reminder) | segment | person (DMs onl
 - [ ] Post results are logged at 48 hours from platform analytics, not memory.
 - [ ] The attribution log records trigger and prior touches for every inbound response.
 - [ ] The mid-flight memo names exactly one change, tied to a diagnostic and a cause.
-- [ ] The results card compares the pre-registered prediction with the actual count of attendees from the named list.
+- [ ] Before Demo Day, the results card labels attendance as pending and reports invitations, replies, and confirmed yeses as of a stated date. After Demo Day, it compares the prediction with actual attendees from the named list, verified using sign-in records or documented attendance checks.
 - [ ] The primary metric is a conversation-tier number, not impressions.
 - [ ] Ledger updated.
 
@@ -101,6 +101,6 @@ date | type (post / DM / email / comment / reminder) | segment | person (DMs onl
 - **Pitfall: impressions as the headline.** Push the results card to lead with attendees from the named list.
 - **Pitfall: changing three things mid-flight.** Enforce one change.
 - **Privacy:** the tracker contains named individuals. Portfolio versions should show segments and counts, not names.
-- **Timing:** this project spans Weeks 6-8. Milestones 1-6 belong in Week 6; milestone 7 happens after Demo Day. Instructors can collect the results card with the Week 8 transition plan.
+- **Timing:** this project spans Weeks 6-8. Plan the tracker and baseline in Week 6; execute the two-week calendar in Weeks 7-8, as Lesson 4 specifies. Milestones 2-4 and live campaign counts are updated then; mark Week 6 campaign counts as not started rather than inventing sends. Milestone 7 happens after Demo Day. Instructors can collect the results card with the Week 8 transition plan.
 - **Short on time:** Milestones 1, 2, 4 (tracker, execution, mid-flight memo).
-- **Arc:** sixth link (`enhancements/PREAPP-ARC.md`). The final results card is a ready-made evidence slide for Demo Day.
+- **Arc:** sixth link (`enhancements/PREAPP-ARC.md`). The in-progress results card can support Demo Day evidence slides; actual attendance is finalized after the event for the archive.

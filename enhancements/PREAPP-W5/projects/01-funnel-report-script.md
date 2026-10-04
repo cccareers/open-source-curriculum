@@ -22,7 +22,9 @@ competency_ids:
 
 ## Scenario
 
-In Week 3 you built your funnel table by hand in a spreadsheet, counting "reached at least this stage" for each row. In Week 7 you will need that table again, for every week of the program, as the backbone of your metrics story. Doing it by hand eight times is exactly the kind of repetitive, rule-based step Week 4 taught you to automate.
+In Week 3 you built your funnel table by hand in a spreadsheet, counting "reached at least this stage" for each row. In Week 7 you will need that table again, for every week of the program, as the backbone of your metrics story. Use the dated weekly snapshots saved with your ledger: a current export cannot recreate earlier stage states. Doing it by hand eight times is exactly the kind of repetitive, rule-based step Week 4 taught you to automate.
+
+This script reports the Week 1 CRM-stage funnel (Connected includes accepted invitations; In conversation can include a scheduled meeting). It is not identical to Week 3's human-reply / held-call / next-step funnel. Track those events separately and label both tables rather than treating acceptance as reply or booking as attendance.
 
 This project extends your Week 5 script so it reads your CRM export and prints the funnel: counts per stage, stage-to-stage conversion, and the weakest transition. It ships in the same GitHub repository as your milestone script, with tests a stranger can run. It becomes your **Software Development rotation artifact** for the Week 7 portfolio, and its output feeds your metrics story directly.
 
@@ -37,7 +39,7 @@ This project extends your Week 5 script so it reads your CRM export and prints t
 ## Before you start (prerequisites, starter files or data)
 
 - Your Week 5 repository with `toRows` working (Lesson 3).
-- A CRM export with at least a `name` and `stage` column. Add a `furthest_stage` column for contacts in Nurture or Closed so the script knows how far they got before being parked. If your CRM cannot export this, fill it by hand for those rows only.
+- A CRM export with at least a `name` and `stage` column. Add a `furthest_stage` column for any contact whose current stage is earlier than the furthest stage they ever reached, including Nurture or Closed contacts. Populate it from CRM history or dated activity evidence; do not guess. `furthestStage` uses this historical value when supplied, otherwise the current stage.
 - Bun installed (the tests use Bun's built-in test runner: `bun test`).
 - Your apprentice partner for a code review at milestone 5.
 
@@ -156,7 +158,7 @@ Note: Contact A is still in Researched, so A counts only in the first row. Conta
 
 ## Stretch goals
 
-- Accept a `--week` filter that uses an `initiated_date` column to compute the funnel for a single week, so you can produce the eight-week arc for your Week 7 metrics story in one command.
+- Accept a `--week` filter using `initiated_date` to group first-touch cohorts. Label these as cohort results as of the export date; they are different from the historical end-of-week snapshots in the ledger. To reproduce those snapshots, run the report separately on each dated export.
 - Unknown stage names (typos in the CRM) are reported as warnings, not silently dropped.
 
 ## Reflection prompts
@@ -167,7 +169,7 @@ Note: Contact A is still in Researched, so A counts only in the first row. Conta
 ## Instructor notes (common pitfalls, how to adapt for time)
 
 - **Pitfall: current-stage counting.** The first test exists to catch it. If learners count `r.stage === stage`, the counts come out `[1, 2, 1, 1, 1]` and the test message points them to the lesson's "reached at least" rule.
-- **Pitfall: `indexOf` returns -1** for Nurture/Closed rows without a `furthest_stage`, so they count nowhere. That behavior is acceptable; discuss it as a stated limitation in the README.
+- **Pitfall: `indexOf` returns -1** for Nurture/Closed rows without a `furthest_stage`, so they count nowhere. Report those rows as unresolved and exclude them explicitly; do not present incomplete counts as a verified real-data funnel. Recover their history before using the totals in the ledger.
 - **Short on time:** drop milestone 4's real-data wiring and ship with the sample data only (about 3 hours). Tests and README are the non-negotiables.
 - **Pairing:** the apprentice partner should review, not write. A useful review question is "what happens if the CSV is empty?"
 - **Arc:** fifth link (`enhancements/PREAPP-ARC.md`). The printed funnel goes straight into the ledger and then the Week 7 metrics story.

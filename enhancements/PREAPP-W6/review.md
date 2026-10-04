@@ -29,7 +29,7 @@ Week 6 has excellent worked examples: the P1-P7 analytics table and the campaign
 
 ## Proposed additional projects
 
-- **Drafted:** `projects/01-demo-day-campaign-tracker.md` — tracker, attribution log, mid-flight memo, and a prediction-vs-actual results card spanning Weeks 6-8. This is the Digital Marketing artifact for W7 and an evidence slide for Demo Day.
+- **Drafted:** `projects/01-demo-day-campaign-tracker.md` — tracker, attribution log, mid-flight memo, and a prediction-vs-actual results card spanning Weeks 6-8. This is the Digital Marketing artifact for W7 and an in-progress evidence slide for Demo Day; final attendance is recorded afterward.
 - Idea: "Hook Lab" — each learner writes five hooks for the same post; the cohort votes blind; the winning hook is published and its 48-hour numbers are compared with the learner's average.
 - Idea: "Positioning Swap Test Circle" — six learners swap statements with names removed and try to match statements to people.
 

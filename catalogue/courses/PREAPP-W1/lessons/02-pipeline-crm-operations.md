@@ -71,7 +71,7 @@ At the end of each lab day, read five numbers off your pipeline:
 - **Contacts with no open next action**
 - **Follow-ups overdue**
 
-Count each stage as "reached at least this stage," not "sitting in this stage right now." A contact who replied and then booked a call has left Connected, but they still count as connected; if you use your CRM's current-stage totals, your connect rate falls every time you succeed. Most CRMs show current-stage counts by default, so add them up yourself — Connected = Connected + In conversation + Interviewed, plus any Nurture or Closed contacts who did reply first.
+Count each stage as "reached at least this stage," not "sitting in this stage right now." A contact who replied and then booked a call has left Connected, but they still count as connected; if you use your CRM's current-stage totals, your connect rate falls every time you succeed. Most CRMs show current-stage counts by default, so add them up yourself — Connected = Connected + In conversation + Interviewed, plus any Nurture or Closed contacts who accepted, replied, or otherwise acknowledged you first. Track human replies separately: a silent connection acceptance counts as Connected, but not as a reply in Week 2 tests or the Week 3 reply funnel.
 
 A quick worked read: 40 initiated, 9 have replied at some point (6 still in Connected, 2 in conversation, 1 interviewed), 3 of those 9 reached a real back-and-forth. Connect rate = 9 ÷ 40 = 22.5%. Conversation rate = 3 ÷ 9 = 33%.
 
