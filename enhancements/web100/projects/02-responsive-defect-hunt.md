@@ -77,7 +77,7 @@ p { color: #bbbbbb; }
 2. Drag the viewport from 1280px to 320px in DevTools responsive mode. Log every problem with the exact width range where it appears.
 3. Inspect each card's box model; record content, padding, border, margin, and the rendered width. Explain the difference from the declared `width`.
 4. Explain, using specificity, why `.primary` never turns the button green. Decide with your "developer" whether it should.
-5. Write `styles-fixed.css`: `box-sizing: border-box`, mobile-first column defaults, a breakpoint that switches to rows, wrapping cards, no fixed heights that clip enlarged text, contrast of at least 4.5:1 for body text.
+5. Write `styles-fixed.css`: `box-sizing: border-box`, mobile-first column defaults, a breakpoint that switches to rows, wrapping cards, no fixed heights that clip enlarged text, contrast of at least 4.5:1 for body text. Update the stylesheet link in `signup.html` to `styles-fixed.css` before verifying in the browser.
 6. Write at least four defect reports. Run the automated check.
 
 ## Acceptance criteria
@@ -124,6 +124,10 @@ const contrast = (a, b) => {
 
 test("page has a viewport meta tag", () => {
   assert.match(html, /<meta\b[^>]*name="viewport"[^>]*width=device-width/i);
+});
+
+test("page loads the repaired stylesheet", () => {
+  assert.match(html, /<link\b[^>]*href="styles-fixed\.css"/i);
 });
 
 test("border-box sizing is applied to everything", () => {

@@ -59,7 +59,7 @@ Save as `blast-radius.test.js` and run `node --test`.
 // Run with: node --test
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { reverseGraph, affectedBy } from "./blast-radius.js";
+import { reverseGraph, affectedBy, regressionPlan } from "./blast-radius.js";
 
 // The lesson 06 graph, extended with test files.
 const imports = {
@@ -94,6 +94,12 @@ test("affectedBy lists everything downstream of auth.js, nearest first", () => {
 
 test("the changed module itself is not in its own blast radius", () => {
   assert.ok(!affectedBy(imports, "api.js").some((r) => r.module === "api.js"));
+});
+
+test("regressionPlan keeps only affected tests in breadth-first order", () => {
+  assert.deepEqual(regressionPlan(imports, "auth.js"), ["login.test.js", "router.test.js"]);
+  assert.deepEqual(regressionPlan(imports, "app.js"), []);
+  assert.deepEqual(regressionPlan(imports, "does-not-exist.js"), []);
 });
 
 test("a leaf nobody imports has an empty blast radius", () => {

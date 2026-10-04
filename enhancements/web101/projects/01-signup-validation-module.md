@@ -23,13 +23,13 @@ competency_ids:
 
 ## Scenario
 
-Support tickets say the signup form from lesson 05 "rejects good emails", "accepts a password of eight spaces", and "keeps saying my email is invalid after I fixed it". Your lead asks you to split validation into a pure, testable module, harden its rules, wire it to the page with correctly connected error messages, and file a defect report for each original ticket.
+Support tickets say the signup form from lesson 05 "accepts malformed emails like ada@", "accepts a password of eight spaces", and "has no visible labels". Your lead asks you to split validation into a pure, testable module, harden its rules, wire it to the page with correctly connected error messages, and file a defect report for each ticket.
 
 ## What you will build / produce
 
 - `validate-signup.js`: a pure `validateSignupForm(email, password, confirmPassword)` returning an array of `{ field, message }` in field order (email, password, confirmPassword). Exported with `module.exports` (and attached to `window` for the page; see starter).
 - `signup.html` + `signup.js`: the form from lesson 05, wired to the module, using the lesson 05 `showErrors` pattern (including the clearing of stale `aria-invalid`/`aria-describedby`).
-- `defects.md`: three defect reports (one per support ticket) against the *original* lesson 05 code, in the five-part lesson 07 shape.
+- `defects.md`: three defect reports (one per support ticket) against the lesson 05 validator and starter markup, in the five-part lesson 07 shape.
 
 ## Before you start (prerequisites, starter files or data)
 
@@ -48,9 +48,9 @@ if (typeof window !== "undefined") window.validateSignupForm = validateSignupFor
 
 ## Milestones
 
-1. Reproduce each support ticket against the original lesson 05 code; write the three defect reports (steps, expected, actual, location, severity).
+1. Reproduce the two validation tickets by calling `validateSignupForm` directly (native `type="email"` validation can block `submit` before your handler runs). Inspect the starter markup for the missing-label ticket. Write the three defect reports (steps, expected, actual, location, severity).
 2. Write `validateSignupForm` as a pure function; run the acceptance tests until they pass.
-3. Wire it into the page with `preventDefault()` on submit and `showErrors`; confirm each message element has the `id` its field's `aria-describedby` names (Elements panel).
+3. Add `novalidate` to the form so native email validation does not bypass your custom error handler. Wire it into the page with `preventDefault()` on submit and `showErrors`; confirm each message element has the `id` its field's `aria-describedby` names (Elements panel).
 4. Keyboard-only pass: Tab through, submit with Enter, fix one error, resubmit, and confirm the fixed field loses `aria-invalid`.
 5. Add two cases of your own to the test file for anything the suite misses.
 

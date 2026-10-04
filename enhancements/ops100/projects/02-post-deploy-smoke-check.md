@@ -41,7 +41,7 @@ Also produce `deploy-log.md` with the tool's output for at least two deploys of 
 ## Before you start (prerequisites, starter files or data)
 
 - Lessons 02, 07 and 09; Node 18+ (`node --version`); a folder with `package.json` containing `{"type": "module"}`.
-- Useful built-ins: `new URL(href, base)` resolves relative links; `url.origin` compares sites; `url.hash = ""` drops fragments; `html.matchAll(/<a\b[^>]*\bhref="([^"]*)"/gi)` finds links (a regex is fine for a smoke check, though it is not a real HTML parser); `` import.meta.url === `file://${process.argv[1]}` `` detects "run directly".
+- Useful built-ins: `new URL(href, base)` resolves relative links; `url.origin` compares sites; `url.hash = ""` drops fragments; `html.matchAll(/<a\b[^>]*\bhref="([^"]*)"/gi)` finds links (a regex is fine for a smoke check, though it is not a real HTML parser); `import { pathToFileURL } from "node:url";` followed by `process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href` detects "run directly" (including paths with spaces).
 
 ## Milestones
 
@@ -60,7 +60,7 @@ Also produce `deploy-log.md` with the tool's output for at least two deploys of 
 
 ## Automated checks (coding courses) / Evidence checklist (non-coding)
 
-Save as `smoke-check.test.mjs` and run `node --test smoke-check.test.mjs`. Verified in this pass: 6/6 pass against a reference implementation on Node 24.
+Save as `smoke-check.test.mjs` and run `node --test smoke-check.test.mjs`. Verified in this pass: 7 checks are provided; rerun them against your implementation.
 
 ```javascript
 // Run with: node --test smoke-check.test.mjs   (Node 18+; needs no network)
@@ -119,6 +119,12 @@ test("a wrong title is reported with both values", async () => {
   const r = await smokeCheck(`${base}/`, { expectTitle: "Team Roster v2" });
   assert.equal(r.ok, false);
   assert.match(r.failures.join("\n"), /title was "Team Roster", expected "Team Roster v2"/);
+});
+
+test("missing expected text is reported", async () => {
+  const r = await smokeCheck(`${base}/`, { expectText: ["Release ready", "<h1>Team Roster</h1>"] });
+  assert.equal(r.ok, false);
+  assert.deepEqual(r.failures, ['page does not contain "Release ready"']);
 });
 
 test("a broken internal link is reported with its URL and status", async () => {

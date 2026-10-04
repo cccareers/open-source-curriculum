@@ -66,7 +66,7 @@ if (typeof window !== "undefined") Object.assign(window, { addTask, toggleComple
 
 ## Automated checks (coding courses) / Evidence checklist (non-coding)
 
-Save as `tasks.test.js` and run `node --test tasks.test.js`. Verified in this pass: 8/8 pass against a reference implementation.
+Save as `tasks.test.js` and run `node --test tasks.test.js`. Nine checks are provided; rerun them against your implementation.
 
 ```javascript
 // Run with: node --test tasks.test.js   (Node 18 or newer)
@@ -103,6 +103,16 @@ test("toggleComplete flips exactly one task, by id, both ways", () => {
   const twice = toggleComplete(once, 3);
   assert.deepEqual(twice, start);
   assert.notEqual(once, start, "returns a new array");
+});
+
+test("toggle and delete do not mutate their inputs", () => {
+  const input = structuredClone(start);
+  const copy = structuredClone(input);
+  toggleComplete(input, 3);
+  assert.deepEqual(input, copy);
+  deleteTask(input, 2);
+  assert.deepEqual(input, copy);
+  assert.notEqual(deleteTask(input, 99), input, "even an unknown id returns a new array");
 });
 
 test("deleteTask removes exactly the task with that id, even after earlier deletes", () => {

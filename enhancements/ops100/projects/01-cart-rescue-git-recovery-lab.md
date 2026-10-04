@@ -36,7 +36,12 @@ It's Monday morning on the cart team. Over the weekend a teammate pushed "Hardco
 # Builds the "cart rescue" lab: a shared remote (origin.git) and your clone (work/).
 set -euo pipefail
 LAB="${1:-$PWD/cart-rescue-lab}"
-rm -rf "$LAB" && mkdir -p "$LAB" && cd "$LAB"
+if [[ -e "$LAB" || -L "$LAB" ]]; then
+  echo "Refusing to overwrite existing path: $LAB" >&2
+  exit 1
+fi
+mkdir -p "$LAB" && cd "$LAB"
+LAB="$PWD"
 git init --quiet --bare --initial-branch=main origin.git
 git clone --quiet origin.git work 2>/dev/null
 cd work
@@ -191,7 +196,7 @@ test('your own commits follow the summary-line-plus-body convention', () => {
 
 test('local clone is clean and free of conflict markers', () => {
   assert.equal(git(['status', '--porcelain']), '', 'working tree has uncommitted changes');
-  assert.equal(ok(() => git(['grep', '-n', '-E', '^(<<<<<<<|>>>>>>>) '])), false, 'conflict markers found');
+  assert.equal(ok(() => git(['grep', '-n', '-E', '^(<<<<<<<|=======|>>>>>>>)($| )'])), false, 'conflict markers found');
 });
 ```
 

@@ -91,6 +91,13 @@ test("getDefect and hasDefect handle an unknown id", () => {
   assert.equal(store.hasDefect("DEF-404"), false);
 });
 
+test("compareDefectIds rejects malformed ids in either argument", () => {
+  for (const invalid of ["DEF-", "DEF-1x", "def-1", "XDEF-1", "DEF-1\n", null, undefined, 101]) {
+    assert.throws(() => compareDefectIds(invalid, "DEF-1"), TypeError);
+    assert.throws(() => compareDefectIds("DEF-1", invalid), TypeError);
+  }
+});
+
 test("compareDefectIds orders by number, not by text", () => {
   assert.ok(compareDefectIds("DEF-99", "DEF-101") < 0); // text comparison gets this wrong
   assert.ok(compareDefectIds("DEF-110", "DEF-102") > 0);
@@ -133,7 +140,7 @@ test("binary search stays within log2 comparisons on 1,000 ids; linear does not"
 | Criterion | Developing | Meets | Exceeds |
 |---|---|---|---|
 | Structure choice | Single array with `.find()`/`.includes()` | Array + Set + Map, each justified in a comment | Explains the memory cost of keeping three structures and when one could be dropped |
-| Comparison correctness | Uses string `<` | Numeric comparison used for both sort and search | Rejects malformed ids with a clear error and a test for it |
+| Comparison correctness | Uses string `<` | Numeric comparison used for both sort and search | Adds numeric edge cases with a clear comparison contract |
 | Search boundaries | Some boundary tests fail | All pass | Learner deliberately breaks `low = mid + 1` and records what the tests report |
 | Cost explanation | No numbers | Comparison counts reported and interpreted | Predicts counts before running and explains any difference |
 
