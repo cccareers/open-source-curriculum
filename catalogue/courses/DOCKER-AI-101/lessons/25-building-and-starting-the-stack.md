@@ -78,3 +78,11 @@ The design rule follows directly: **every piece of state you want to keep must b
 2. Bring it up detached, then use `docker compose ps` to confirm both services.
 3. Write a file into a volume-backed path and another into a non-volume path inside a container. Run `docker compose down`, then `up` again, and check which file survived.
 4. Change a line in your Dockerfile, run `docker compose up -d` without `--build`, and confirm nothing changed. Then run it with `--build` and confirm it did.
+
+## Check your understanding
+
+1. After `docker compose down`, you run `docker compose up -d`. Is the `llama3.2` model you pulled yesterday still available? What about the package you installed with `docker compose exec api pip install rich`?
+2. You add `httpx` to `api/requirements.txt` and run `docker compose up -d`. The API crashes with `ModuleNotFoundError: httpx`. Why, and what is the fix?
+3. Which single command would make the next `up` re-download every model?
+
+*Answers:* (1) The model is still there, because it lives in the `ollama-models` named volume. The `pip install` is gone, because the container was recreated from the image. (2) Without `--build`, Compose reused the old image; run `docker compose up -d --build`. (3) `docker compose down --volumes`.
