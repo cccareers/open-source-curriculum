@@ -29,6 +29,22 @@ See [LICENSE.md](https://github.com/cccareers/open-source-curriculum/blob/main/L
 
 ---
 
+## Astro website foundation
+
+The Astro/Starlight site is the starting point for the new curriculum website. It currently displays a landing page; course loading and interactive player features remain in the existing Node player below.
+
+```bash
+# Use Node.js 22.12+ (or a current LTS release)
+npm install
+npm run dev:site  # Astro website at http://localhost:4321
+npm run build    # Static output in dist/
+npm run preview  # Preview the built site
+```
+
+`npm start` and `npm run dev` continue to run the existing course player. The player itself uses Node built-ins; Astro dependencies are needed for the new website.
+
+---
+
 ## 🎓 Course Player
 
 A modern, fast, zero-dependency course content player and catalog for Markdown (`.md`) and MDX (`.mdx`) curriculum files. Built for students and educators with interactive quizzes, 3D flashcards, H5P interactive learning embeds, responsive video players, and progress tracking.
