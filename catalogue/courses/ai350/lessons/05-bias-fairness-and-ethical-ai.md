@@ -50,7 +50,7 @@ Published responsible-AI frameworks converge on a similar list. Stated abstractl
 
 **Contestability.** A person affected can challenge the outcome and reach a human. Action: publish a route to a human and make sure it does not lead back into the same automation.
 
-**Reliability.** The system performs as intended and degrades safely. Action: the monitoring you build in the next lesson.
+**Reliability.** The system performs as intended and degrades safely. Action: the monitoring you build in the final lesson of this course.
 
 **Privacy and security.** Already covered, and part of the same duty.
 
@@ -98,7 +98,7 @@ Set the rule before you look: for example, a difference of one full priority ban
 
 Two interpretation errors are worth pre-empting, because both are comfortable and both are wrong.
 
-The first is **explaining away a real difference**. You will be tempted to note that the model's replies to variant b were shorter but "still perfectly polite," or that the priority difference was "only one band, and the band boundaries are arbitrary anyway." Both may be true. Neither is a reason to dismiss the result, because the whole point of writing the decision rule in step 1 was to stop you from adjudicating your own system after seeing which way the evidence went. If you genuinely believe the rule was wrong, change it — in writing, with the reason, before the next test — rather than making an exception for this one.
+The first is **explaining away a real difference**. You will be tempted to note that the model's replies to variant b were shorter but "still perfectly polite," or that the priority difference was "only one band, and the band boundaries are arbitrary anyway." Both may be true. Neither is a reason to dismiss the result, because the whole point of writing the decision rule before you looked at the results was to stop you from adjudicating your own system after seeing which way the evidence went. If you genuinely believe the rule was wrong, change it — in writing, with the reason, before the next test — rather than making an exception for this one.
 
 The second is **overclaiming a clean result**. A passing test says that on these cases, along this axis, with this model version and this prompt, you found no difference beyond your threshold. It does not say the system is fair. Small corpora have limited power to detect small effects; you tested one axis and there are many; and intersections — a combination of two attributes — behave differently from either alone and are the hardest to test with a small sample. State the limits alongside the result. A reviewer trusts a record that says "no difference detected on name origin; dialect and intersectional effects untested" far more than one that says "test passed."
 
@@ -150,3 +150,9 @@ Use an automation of yours that produces an output about a person — a classifi
 5. **Interpret it honestly.** State whether your decision rule was breached. If it was, run the causal check by removing the varied attribute. If it was not, say what your test would have failed to detect — every test has blind spots, and naming yours is part of the deliverable.
 6. **Apply one mitigation and re-run.** Choose from the ordered list, implement it, re-run the same corpus, and record the before-and-after table.
 7. **Write the fairness record**: claim, corpus, method, model and prompt versions, results, decision rule, finding, mitigation, and the date of the next scheduled re-test. Half a page is enough. Name yourself as the owner.
+
+## Check your understanding
+
+1. You change both the customer's name and the message's formality between two variants and see a priority difference. What can you conclude? *Nothing about either attribute specifically: vary one axis at a time, or you cannot tell which change caused the difference.*
+2. You remove the name field and the difference persists. Where do you look next? *Prompt wording (vague evaluative adjectives), the few-shot examples, the retrieval results, and proxies such as postcode or phone prefix that carry the same signal.*
+3. Which mitigation is both strongest and cheapest, and what is its main pitfall? *Removing the attribute from the input; the pitfall is proxies that carry the same signal.*

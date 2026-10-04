@@ -276,7 +276,7 @@ Report on the funnel, not on the top of it. Northlight's monthly view:
 
 The "too high" note is the kind of thing this table exists to surface. If nine out of ten marketing-qualified contacts book a call, the threshold is almost certainly set so high that it is only qualifying people who already asked for a call — which means the scoring model is doing no work. Either lower the threshold and find out whether the extra contacts convert, or admit the model is decorative and simplify it.
 
-The other habit: put a monetary number next to a lead. At Northlight a new client is worth $6,435 in lifetime gross profit, so a marketing-qualified contact is worth about $960 (74 MQLs produce 11 clients, so roughly one in seven, times $6,435), and a new contact of any kind is worth about $245. Those numbers make every argument you will ever have about budget shorter.
+The other habit: put a monetary number next to a lead. At Northlight a new client is worth $6,435 in lifetime gross profit, so a marketing-qualified contact is worth about $960 (74 MQLs produce 11 clients, so roughly one in seven, times $6,435), and a new contact of any kind is worth about $247 (11 clients from 287 contacts, times $6,435). That second figure happens to sit close to the $245 cost per new client in the table; they are different numbers, so label them. Those numbers make every argument you will ever have about budget shorter.
 
 ## Practice
 

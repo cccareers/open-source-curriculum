@@ -204,3 +204,9 @@ Work through these in order. The output of exercise 4 is your stage-02 deliverab
 **4. Write the solution brief.** All nine sections, two to four pages, using the skeleton above. Do not skip section 7; write at least three assumptions, each with a test and a fallback.
 
 **5. Get it corrected.** Send sections 3, 4, and 5 to your stakeholder — the client, or your instructor in the client role — and ask one question: "Where is this wrong?" Record every correction you get back in section 9, and revise. A brief that comes back with no corrections almost always means it was too vague to disagree with; push for specifics and send it again.
+
+## Check your understanding
+
+1. A stakeholder says success means "people like it". What do you do? *Convert it into a criterion with a metric, a baseline with sample and date, a threshold target, a measurement method, and an owner — for example, the fraction of drafts accepted without edit on a test batch — and write the sentence that would prove it not met.*
+2. Your problem statement in section 2 mentions "a chatbot". Why is that a warning sign? *The problem statement should be writable without naming any technology; naming one suggests you started from the solution.*
+3. You cannot build a rough version of the whole solution in one day. What should you change? *Narrow to the narrowest complete slice — one request type, format, or channel handled properly end to end — and record the deferred slices as "out of scope, for now".*

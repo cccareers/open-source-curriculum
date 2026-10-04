@@ -210,3 +210,9 @@ Work in pairs with an observer. Around two hours; the plan-building is most of i
 6. **Write the recap.** Produce the confirmation email: goal, table with owners and dates, your committed tasks, the two-minute review agreement, and a request for corrections. Under 200 words. Have your partner mark anything ambiguous — ambiguity here becomes a stall in six weeks.
 
 7. **The negative close.** Two review points have passed and the buyer has gone silent. Deliver a sincere negative close in two sentences. Your partner responds however they genuinely feel like responding; debrief on whether it read as honest or as a technique.
+
+## Check your understanding
+
+1. In this lesson's definition, what is "closing"? *(Answer: converting a decision into a dated plan with named owners on both sides.)*
+2. In the worked plan, which step is the critical path, and why? *(Answer: the six-week security review — it must start by 12 August for a 26 September signature and a 1 November go-live.)*
+3. A buyer will happily take another meeting but will not give you thirty minutes of an engineer's time. What rung are you really on? *(Answer: rung one — mild interest. The evaluation is not real yet.)*

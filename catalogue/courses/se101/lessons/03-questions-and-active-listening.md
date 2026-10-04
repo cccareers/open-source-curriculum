@@ -106,3 +106,9 @@ Do this with a partner playing the customer. Give them this card and do not read
 3. In the last two minutes, deliver a playback of no more than four sentences using their words, ending with "have I got that right, or did I miss something?" Write down verbatim how they corrected you.
 4. Debrief with your partner on one question only: at what point in the conversation did they first feel understood? Compare that to the point where you thought they did.
 5. Re-run the same scenario with a different partner and one constraint: you may ask only five questions total. Notice which ones you keep.
+
+## Check your understanding
+
+1. Rewrite this leading question as an open one: "So reporting is a real headache for you, right?" *(One good answer: "What happens when a report is late or wrong?")*
+2. When is a closed question the right tool? *(Answer: to pin down a specific fact — a number, a name, a date — or to close a loop, as in "Eleven — is that counted somewhere?")*
+3. What are the three properties of a good playback? *(Answer: it uses the customer's words, separates the mechanism from the consequence, and ends with an easy invitation to correct you.)*

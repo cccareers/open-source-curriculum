@@ -90,6 +90,8 @@ Choose using the cost of a wrong answer, not by preference. Ask the business own
 | `complaint` | never | never | Always escalate |
 | `legal_or_safety` | never | never | Always escalate, priority route |
 
+Once calibrated, these per-category floors replace the placeholder 0.70 and 0.90 in the tier rule above: each category uses its own auto-draft floor and assisted band, and anything below its assisted band escalates. The escalate-wins conditions stay global and are still checked first.
+
 Write the chosen numbers, the measured wrong rate at each, and the date into a threshold record stored with the workflow. When someone asks in six months why the floor is 0.9, the evidence is attached. Re-measure after any prompt, model, or knowledge-base change — a threshold calibrated against a prompt you have since edited is a number with no meaning.
 
 ## Escalation design
@@ -177,3 +179,9 @@ Design and build a customer-service automation for one narrow service domain —
 7. **Build the escalation path**: the handoff payload with every field above, the customer-facing acknowledgement, business-hours handling, and a backstop timer that notifies a named person past SLA.
 8. **Test the failure modes.** Break retrieval, break the model call, and feed unparseable output. Confirm each degrades toward a human and that the customer is acknowledged in every case.
 9. **Prove the review gate.** Demonstrate that no path in your workflow sends a customer message without a `status = approved` transition performed by a person. Then report your four measures over the labeled set, together, in one table.
+
+## Check your understanding
+
+1. A request has classification confidence 0.96 and strong retrieval, but the order has already shipped, so the rule check fails. Which tier, and why not average the signals? *Answer: ESCALATE. Escalate conditions are checked first and any one wins. Averaging would let three strong signals hide the one that makes an automated answer wrong.*
+2. Does AUTO_DRAFT mean the reply is sent without a person? *Answer: no. In this course's designs every customer-facing reply passes a human review gate. The tier only decides how much scrutiny the case gets and whether a draft is prepared.*
+3. A customer writes "can I talk to a person?" in an otherwise simple `hours_and_locations` question. What happens? *Answer: they get a person, immediately. An explicit request for a human is an absolute escalation trigger, whatever the confidence.*

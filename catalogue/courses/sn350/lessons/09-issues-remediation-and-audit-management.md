@@ -173,3 +173,12 @@ Use a developer instance with the IRM applications available, building on your e
 5. **Scope a mini engagement.** Create an audit engagement for one entity type, scoped from the entity type you built in Lesson 6, with at least two audit tasks and one evidence request to a control owner. Take one task to a finding and confirm the finding produces an issue in the same queue as your indicator-raised one.
 
 6. **Test independence.** Write down the four access rules from this lesson as testable statements. Then, with a test account holding only an auditor role, try to edit a control's evidence and try to alter a submitted attestation response. Report what happened, and if either succeeded, name the specific control you would implement.
+
+## Check your understanding
+
+1. Why should every detection source raise the same kind of issue record?
+2. Who should verify that an issue is fixed?
+3. A requirement does not apply to a legacy server until it is decommissioned in June. Issue, policy exception, or risk acceptance?
+4. What does a rising cancellation rate on issues usually mean?
+
+*Answers:* (1) One queue, one aging report, one escalation ladder, and one honest answer to "what is wrong," regardless of source. (2) Someone other than the fixer, ideally by re-running the failed test (for example an indicator passing for several consecutive days). (3) A policy exception: scoped, approved, and expiring. (4) The queue is being cleaned rather than worked; it is an early sign the program is losing legitimacy.

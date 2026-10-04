@@ -76,11 +76,13 @@ Individual conversations feel like luck. Fifty conversations are a system, and a
 | Conversations held | 7 | 37% |
 | Next steps booked | 2 | 29% |
 
+Count each stage as "reached at least this stage": a contact who replied and then held a conversation counts in *both* rows. If your CRM uses the Week 1 stage names, contacts messaged = everyone who reached Initiated or beyond; replies received = everyone who replied at any point (Connected or beyond, but not silent connection acceptances); conversations held = Interviewed, plus any real call that happened. Your CRM's current-stage totals will undercount every row except the last.
+
 Conversion is stage-to-stage: divide each count by the count above it. Do it in a spreadsheet so you can update it weekly.
 
 Read the table as a diagnosis, not a scoreboard. Three questions:
 
-**Where is the biggest drop?** In the example, 95 → 19 is the worst absolute loss and 20% is the lowest rate. That is the constraint. Nothing you improve downstream of a bottleneck moves your final number.
+**Where is the biggest drop?** In the example, 95 → 19 is the worst absolute loss and 20% is the lowest rate. That is the constraint. Downstream improvements can still raise the final number, but this stage loses the most contacts and is a strong candidate to investigate first.
 
 **Is any stage too good?** A stage converting suspiciously well usually means the stage above it was too permissive — for example, a 90% reply-to-conversation rate paired with a tiny reply count often means you only counted the easy ones.
 
@@ -115,6 +117,6 @@ All four parts feed the week's milestone: a presented pipeline review.
 
 2. **Log and count.** Go back through every outreach conversation since Week 2 and record each objection verbatim in your CRM against the contact, then tally them by type. Write one paragraph on what the most frequent objection tells you about your targeting or your message — not about the prospects.
 
-3. **Build the funnel.** In a spreadsheet, record your counts for all five stages and compute stage-to-stage conversion for each. Include your qualification decisions from Lesson 03 (advance / nurture / disqualify) as a sixth row so the review reflects a scored pipeline, not a raw one. Identify your weakest stage by conversion rate and note whether it is also your biggest absolute loss.
+3. **Build the funnel.** In a spreadsheet, record your counts for all five stages and compute stage-to-stage conversion for each. Include your qualification decisions from Lesson 03 (advance / nurture / disqualify) as a separate tally below the funnel, without a conversion-from-previous value; these are decisions, not a sixth sequential stage. Identify your weakest stage by conversion rate and note whether it is also your biggest absolute loss.
 
 4. **Present the review.** Deliver a five-minute pipeline review to your cohort using the five-part structure: numbers, weakest stage, evidence, corrective plan with a date, and what you are stopping. Take questions. Afterward, write down the one question you could not answer — that gap is your next week's work.

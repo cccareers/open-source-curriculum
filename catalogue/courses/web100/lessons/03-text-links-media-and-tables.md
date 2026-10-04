@@ -70,7 +70,7 @@ Screen reader users often navigate a page by pulling up a list of all links on i
 
 Two attributes worth knowing:
 
-- `target="_blank"` opens a link in a new tab. When you use it, pair it with `rel="noopener"` — without it, the new page has partial access to the opening page's `window` object, a real security consideration.
+- `target="_blank"` opens a link in a new tab. When you use it, pair it with `rel="noopener"`. Without it, older browsers give the new page partial access to the opening page's `window` object (through `window.opener`), a real security consideration. Current versions of the major browsers now apply `noopener` to `target="_blank"` links by default, but writing it explicitly costs nothing, protects users on older browsers, and makes the intent obvious to anyone reviewing the markup.
 - Links to a section of the current page use a fragment: `<a href="#roster">Jump to roster</a>`, matching a target element's `id="roster"` — the same `id` attribute you used for test selectors in Lesson 02, doing double duty for navigation.
 
 ## Media: images and video with a text fallback
@@ -140,3 +140,11 @@ Extend the `roster.html` file from Lesson 02 (or start a fresh file if you prefe
 5. A table with a `<caption>`, a `<thead>` row of column headers using `scope="col"`, and at least two data rows in `<tbody>` — for example, a table of team members' names and roles.
 
 Open the page in DevTools and confirm: every link is a real `<a href>`, every image has an `alt` attribute (empty or descriptive, deliberately), and the table's headers show `scope` in the Elements panel.
+
+## Check your understanding
+
+1. A "Delete" control is written as `<a href="#" onclick="deleteRow()">Delete</a>`. What is wrong, and what should it be?
+2. Which image needs `alt=""` and which needs descriptive `alt`: a team photo, or a decorative wave divider?
+3. What does `scope="col"` on a `<th>` give a screen reader user?
+
+*Answers:* (1) It performs an action rather than navigating, so it should be a `<button type="button">`; `href="#"` can also jump the page to the top. (2) The divider gets `alt=""`; the team photo gets a description of who and what is shown. (3) The column header is read along with each cell, for example "Minimum version, 124".

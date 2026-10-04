@@ -142,7 +142,7 @@ X-RateLimit-Reset: 1773412800
 Content-Type: application/json
 ```
 
-Read them on every response rather than only on failures. When `Remaining` drops below about 10 percent of `Limit`, slow down voluntarily. Staying under the limit is far better than discovering it.
+`X-RateLimit-Reset` here is a Unix timestamp (seconds since 1 January 1970) marking when the window refills; some APIs send the number of seconds remaining instead, so check which one your docs describe. Read them on every response rather than only on failures. When `Remaining` drops below about 10 percent of `Limit`, slow down voluntarily. Staying under the limit is far better than discovering it.
 
 When you do get a 429, the correct response is **wait, then retry the same request**. If a `Retry-After` header is present, honour it exactly — it is the server telling you the answer. Otherwise back off exponentially with jitter:
 
@@ -240,3 +240,9 @@ Pick a real API you can get a key for — your platform's own API, a public data
 6. **Build the error table into the workflow.** Route each status class to its own branch — retry, quarantine, or alert — and confirm a 404 does not fail the run while a 401 does alert.
 7. **Add response validation** using the eight checks above, including the known-value check on one enum field. Introduce an unknown value in a test fixture and confirm the workflow raises it rather than defaulting it.
 8. **Go incremental.** Store a sync cursor with a five-minute overlap, advance it only on a fully successful run, and prove it: run the pull twice and show that the second run fetches only the overlap window and writes zero new records.
+
+## Check your understanding
+
+1. Your nightly pull returns 4 orders instead of the usual 1,800, with status 200. What do you suspect and how should the workflow react? *A filter parameter was silently rejected or changed. Log the count every run and alert on a large deviation instead of treating 200 as success.*
+2. A `POST` that creates an order times out. Should you retry it? *Only if the API supports an idempotency key and you send the same key; otherwise you may create a duplicate order.*
+3. Why use offset paging only with care on a live table? *Inserts during the pull shift rows across page boundaries, causing duplicates and misses; cursors are stable under concurrent writes.*

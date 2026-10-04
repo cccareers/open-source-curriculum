@@ -190,7 +190,7 @@ Rewritten:
 > Direct bank feeds for 94% of US small-business accounts pull transactions in automatically, so you stop re-typing them Friday afternoon. Built for bookkeepers running 5 to 30 clients.
 > **See the reconciliation queue** — 3-minute tour, no signup.
 
-Word count dropped by roughly a third, every claim traces to the positioning statement, and the CTA tells the reader exactly what happens.
+The word count is about the same (it actually rises slightly, from 34 to about 43 words including the CTA line) — length was never the problem. What changed is that every word now does work: every claim traces to the positioning statement, three of them can be checked by an outsider, and the CTA tells the reader exactly what happens.
 
 ## Failure modes to recognize in your own drafts
 

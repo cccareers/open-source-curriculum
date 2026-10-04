@@ -51,7 +51,7 @@ Systems-level advocacy in a CHW's daily practice looks like this: you notice a p
 
 CHWs are uniquely positioned for this because you are the only person who sees the same barrier from twenty different households. A clinic manager sees complaints as individual events. You see the shape.
 
-Three cautions. Report through your organization's process rather than freelancing — public advocacy on your employer's behalf usually has rules, and CHW105 covers the professional boundaries in full. Keep client-identifying details out of pattern reports unless you have explicit consent. And describe the effect, not the villain: "Eleven of the fourteen families I referred in March could not complete the online-only intake, and nine gave up" moves a system that "the intake process is discriminatory" will not.
+Three cautions. Report through your organization's process rather than freelancing — public advocacy on your employer's behalf usually has rules, and CHW103 (Lessons 5 and 7) covers the professional boundaries and reporting channels in full. Keep client-identifying details out of pattern reports unless you have explicit consent. And describe the effect, not the villain: "Eleven of the fourteen families I referred in March could not complete the online-only intake, and nine gave up" moves a system that "the intake process is discriminatory" will not.
 
 ## Coaching self-advocacy
 

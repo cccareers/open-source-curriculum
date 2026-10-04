@@ -195,3 +195,9 @@ Diagnose it in three sentences: what it does to a live room, what it does to a f
 **Exercise 7 — run the read-without-you test.** Give your storyboard to someone who does not know the scenario, allow four minutes, and ask the four questions. Record their exact answers, then list every change you made as a result. If nobody is available, wait twenty-four hours and grade your own storyboard against the four questions in writing — and answer the fifth question honestly.
 
 **Exercise 8 — the pacing pass.** Click or read through your storyboard silently at presentation speed with a timer. Report the elapsed time against the substance budget you computed in lesson 2, and name the specific slides you cut if it ran long.
+
+## Check your understanding
+
+1. What does the headline test check, and what does a failing deck produce? *(Answer: whether the headlines alone, read in order, form a complete argument; a failing deck produces a table of contents — "Introduction / Our Company / Our Solution….")*
+2. In the six-step build order, at which step does the presentation tool first appear? *(Answer: step 4, grey boxes — after the brief, the spine, and the paper storyboard.)*
+3. Name two things to check before you send a deck to a customer. *(Any two: export to PDF; read the speaker notes; a front summary slide; sources on data slides; a document-style filename; the accessibility floor.)*

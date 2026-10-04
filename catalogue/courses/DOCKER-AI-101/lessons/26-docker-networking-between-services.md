@@ -89,6 +89,12 @@ curl http://ollama:11434
 curl http://chroma:8000/api/v1/heartbeat
 ```
 
+The `api` image is built `FROM python:3.11-slim`, which does not include `curl`. Either add it to a development image (`RUN apt-get update && apt-get install -y --no-install-recommends curl && rm -rf /var/lib/apt/lists/*`) or use the Python standard library, which every Python image has:
+
+```bash
+python -c "import urllib.request as u; print(u.urlopen('http://ollama:11434').read().decode())"
+```
+
 If the name does not resolve, the two services are not on the same network — usually because one is in a different Compose project or an explicit `networks:` block separated them. If it resolves but the connection is refused, the service is not listening yet, or it is bound to its own loopback rather than `0.0.0.0`, or you used the host-published port by mistake.
 
 ## Practice
@@ -97,3 +103,11 @@ If the name does not resolve, the two services are not on the same network — u
 2. From the same shell, try `curl http://localhost:11434` and observe the failure. Explain it in one sentence.
 3. Publish Chroma as `"8001:8000"`, then confirm the host reaches it at `localhost:8001` while `api` still uses `chroma:8000`.
 4. Switch `OLLAMA_HOST` to `http://host.docker.internal:11434` and describe what would need to be true on your machine for it to work.
+
+## Check your understanding
+
+1. Chroma is published as `"8001:8000"`. Which URL does your laptop's browser use, and which does the `api` container use?
+2. Your API logs `Connection refused` for `http://localhost:11434`, but `curl http://localhost:11434` works from your Mac's terminal. Explain both results.
+3. You delete Chroma's `ports:` entry entirely. Can `api` still reach it?
+
+*Answers:* (1) The browser uses `localhost:8001`; `api` uses `chroma:8000`. (2) On your Mac, `localhost:11434` hits Ollama's published port. Inside `api`, `localhost` is the API container itself, where nothing listens on 11434; use `http://ollama:11434`. (3) Yes. Container-to-container traffic uses the project network and ignores publishing; you lose only host access.

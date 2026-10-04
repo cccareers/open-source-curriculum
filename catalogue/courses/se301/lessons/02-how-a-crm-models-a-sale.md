@@ -186,3 +186,9 @@ Work through all four parts. Parts 1–3 need only paper or a text file; part 4 
 - One field on the sale record you do not recognize — then find out what it does and write a one-line definition.
 
 Finish by writing a short paragraph naming one distinction this platform collapses that the model in this lesson keeps separate, and what that tells you about the kind of selling it was designed for.
+
+## Check your understanding
+
+1. Object, record, or field? "Opportunity" / "Close Date" / "Calder Logistics — Support Platform Renewal". *(Answers: object; field; record.)*
+2. Why does the person-to-sale relationship need a junction record? *(Answer: it is many-to-many — one deal involves several people and one person can be on several deals — and the junction carries the role each person plays on that deal.)*
+3. A rep types "lost on price, maybe timing" into a notes field. What is wrong, and what is the fix? *(Answer: free text cannot be counted or filtered; use a Closed Lost Reason picklist with defined values.)*

@@ -191,6 +191,8 @@ query = (
 )
 ```
 
+A caution on the two `txn` options: `txnAppId` and `txnVersion` are understood by the Delta Lake writer, which uses them to skip a batch it has already committed. A plain Parquet writer ignores them. In this example the idempotency actually comes from the path — each batch overwrites its own `batch={batch_id}` directory, so a replayed batch replaces its earlier output rather than adding to it. For a database sink, the equivalent is a `MERGE` keyed on the window and city, or a delete-then-insert of that batch's keys inside one transaction.
+
 `foreachBatch` also unlocks operations Structured Streaming does not support directly on a stream, since inside it you hold an ordinary DataFrame.
 
 ## Joins

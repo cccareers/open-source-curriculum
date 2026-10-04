@@ -87,3 +87,9 @@ Do this live, on your real profile. Publishing is part of the Week 1 milestone.
 4. **Run the alignment check.** Put one sent message beside your profile and check role direction, capabilities, program affiliation, and tone. Fix whichever side is wrong — sometimes it is the message.
 5. **Publish your first post.** Pick one of the three topic patterns, write it, publish it during business hours on a lab day, and log the link in your CRM notes so your instructor can find it.
 6. **Work the post.** Reply to every comment within the day and leave substantive comments on three other posts. Note in your lab log whether profile views or connection acceptances moved in the following 48 hours.
+
+## Check your understanding
+
+1. Your message says you are training toward data analysis; your headline says "Aspiring tech professional | Open to opportunities." What does a contact who clicks through conclude, and which side do you fix? *(They see a mismatch and resolve it against you. Fix the headline to name the same target role and program as the message — or fix the message if the headline is the truer statement of your direction.)*
+2. Why is "I'm passionate about helping people" weaker in an About section than "I handled 60+ customer escalations a week and built the shift's triage checklist"? *(The second is specific and checkable, and it names a transferable capability at a stated scale. The first describes a feeling anyone could claim.)*
+3. Your first post got 400 impressions and no comments. Which part of the post do you look at first? *(The closing line. A post with no light question at the end gives readers no reason to comment. Check the first line next — it may not have earned the "see more" click.)*

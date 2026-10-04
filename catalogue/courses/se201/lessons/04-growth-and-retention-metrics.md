@@ -78,7 +78,7 @@ Gross revenue churn = (contraction + churn) / beginning ARR
                     = 900,000 / 4,800,000 = 18.75%
 ```
 
-Notice that revenue churn (18.75%) is materially worse than logo churn (12.5%). That tells you the accounts that left were **larger than average**: five accounts representing 12.5% of the count took 12.3% of the ARR in cancellations alone, plus $310,000 of downgrades from survivors. When revenue churn exceeds logo churn, your losses are concentrated at the top of the book — the most expensive kind.
+Notice that revenue churn (18.75%) is materially worse than logo churn (12.5%). Look at where the gap comes from before you conclude anything. The five cancelled accounts took $590,000 — 12.3% of beginning ARR, almost exactly their 12.5% share of the count — so the accounts that left were roughly average-sized ($118,000 each against a $120,000 book average). The gap is the **$310,000 of contraction**: money leaving from customers who still count as retained, which a logo count cannot see at all. When gross revenue churn runs well above logo churn, there are two possible causes and you should check both: either the accounts that left were **larger than average** — losses concentrated at the top of the book, the most expensive kind — or **survivors are shrinking**, which is next year's churn line forming. In this book it is the second.
 
 The reverse pattern — logo churn well above revenue churn — means you are losing small accounts and keeping big ones. That is usually a self-service or SMB tail problem, and it is far less urgent.
 
@@ -212,7 +212,7 @@ Remaining 35 accounts      = 2,900,000, averaging $82,857
 
 Losing one top-five account — call it $420,000 — is 8.75% of the entire book from a single logo churn of 2.5%. No blended metric will warn you about that in advance; only the distribution will. Compute two things for your own book and keep them current: the share of ARR held by your top five accounts, and the largest single-account ARR as a percentage of the whole. Those two numbers are your real exposure, and they are what a manager should hear before any average.
 
-Concentration also explains the earlier finding that revenue churn exceeded logo churn. When money is concentrated, the *identity* of who leaves matters more than how many leave.
+Concentration is the other way revenue churn can outrun logo churn, even in a year with no contraction at all. When money is concentrated, the *identity* of who leaves matters more than how many leave.
 
 ## Cohorts, because averages hide the trend
 
@@ -248,7 +248,7 @@ None of these require bad faith. They are what happens when nobody agrees on def
 
 ## What a rep does with these numbers
 
-**Rank your book by revenue at risk, not by account count.** Gross revenue churn told us the losses are concentrated. Sort accounts by ARR, look at the top 20%, and ask what would happen if any one of them left. That number, not the count, is your exposure.
+**Rank your book by revenue at risk, not by account count.** Gross revenue churn told us more money is leaving than the logo count suggests. Sort accounts by ARR, look at the top 20%, and ask what would happen if any one of them left. That number, not the count, is your exposure.
 
 **Treat contraction as an early warning, not a small loss.** Downgrades almost always precede cancellation by a renewal cycle or two. A $310,000 contraction year is a forecast of next year's churn line.
 
@@ -284,3 +284,9 @@ Kestrel Software's mid-market book started the fiscal year at **28 accounts and 
 3. How much new ARR would this rep have needed to source if NRR had been 110% instead of what it was, holding ending ARR constant?
 
 **Exercise 4 — one page for your manager.** The book's three largest accounts are $410,000, $355,000, and $290,000 of ARR — 31% of the starting book across three logos. Write a short assessment (250 words maximum) of this book's health that a sales manager could act on. It must name a specific number for the concentration risk, state whether the immediate priority is new logos or the existing base, and justify that choice with the retention metrics rather than with an opinion.
+
+## Check your understanding
+
+1. A book starts at $1,000,000 ARR, adds $150,000 of new logos and $80,000 of expansion, and loses $40,000 to contraction and $60,000 to churn. What are GRR and NRR? *(Answer: GRR = (1,000,000 − 40,000 − 60,000) / 1,000,000 = 90%; NRR = (1,000,000 + 80,000 − 100,000) / 1,000,000 = 98%. New logos are excluded from both.)*
+2. A quarterly NRR of 98% is quoted. Roughly what is the annual NRR? *(Answer: 0.98⁴ ≈ 92.2% — compounding, not 4 × 2%.)*
+3. Gross revenue churn is well above logo churn. Name the two possible explanations. *(Answer: the accounts that left were larger than average, or surviving accounts contracted — or both. Check the bridge to see which.)*

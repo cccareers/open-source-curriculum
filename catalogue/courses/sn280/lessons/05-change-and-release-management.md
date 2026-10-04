@@ -102,7 +102,7 @@ Everything above governs change to the customer's environment. Now the other sid
 
 - **One update set per unit of work.** Named for the story or change it implements, not "Dev Work March." An update set you cannot describe in one sentence is one you cannot review or back out.
 - **Set your current update set before you start.** Work captured into the default set is work you will hand-migrate later.
-- **Data does not travel.** Update sets capture configuration, not table data. Choice lists, data lookup rows, catalog item variable values, assignment rules — several of these are data, and moving them requires an explicit mechanism such as adding the record to the update set deliberately, or a data-loading step. Assuming data travels is the most common migration failure.
+- **Data does not travel.** Update sets capture configuration, not table data. The line is not always where you expect: choice lists and catalog item definitions (including their variables) are captured as configuration, but data lookup rows such as the priority matrix in `dl_u_priority`, groups and group memberships, schedules' holiday entries, and most reference records are data. Check each table before you rely on it, and move data deliberately — by adding the record to the update set from its context menu, or by an XML export and import. Assuming data travels is the most common migration failure.
 - **Batch related sets** so dependent changes commit together and in order.
 - **Preview before commit, always,** and read the collisions rather than skipping them. A collision means the target instance has a newer version of a record you are about to overwrite.
 

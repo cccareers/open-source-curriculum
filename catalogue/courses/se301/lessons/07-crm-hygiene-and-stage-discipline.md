@@ -220,3 +220,9 @@ Work in an environment with real or realistic data; if you have no messy dataset
 **5. Design your loss reason taxonomy.** Produce a picklist of six to ten loss reasons for your business, each with a one-sentence definition and the specific thing your company would learn from it. Justify why "price" is or is not on your list and what you would do to stop it absorbing losses that belong elsewhere.
 
 **6. Write the standard.** One page, aimed at a new rep on your team: the stage definitions, the four movement rules, the close-date rule, the next-step invariant, the closing-out rules, and the weekly ritual. This is the deliverable a manager could actually adopt — write it so they could.
+
+## Check your understanding
+
+1. "Sent proposal" — is that a valid exit criterion? *(Answer: no — it is your action. A valid criterion is about the buyer and verifiable: "Buyer confirmed the proposal is under formal evaluation and named the approver.")*
+2. A deal's close date has been pushed for the third time. What should you do? *(Answer: re-qualify the deal rather than re-schedule it — three pushes signal an unqualified assumption.)*
+3. What is the first view in the weekly ritual, and what state should it end in? *(Answer: open deals with a close date in the past; it should end the session empty.)*

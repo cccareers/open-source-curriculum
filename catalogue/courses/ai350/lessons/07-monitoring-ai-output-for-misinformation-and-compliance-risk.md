@@ -60,7 +60,7 @@ This is the artifact. Write it as a table so it can be reviewed by someone who i
 
 Three design points worth internalising. **Every rule names an action, not just a condition** — a rule that fires into a dashboard nobody watches is not a control. **Severity determines whether you block or flag**: blocking is expensive and correct for anything irreversible or public. And **M14 is the rule people forget**, even though a silent model upgrade is the single most common cause of "it worked last month."
 
-M03 and M08 deserve a note. The most reliable defence against fabrication in a grounded workflow is to require that specifics come from the retrieved source and to check them mechanically. Extract the numbers, dates, and identifiers from the output and confirm each appears in the source text. It is a crude check and it catches a remarkable share of confident invention.
+M03 and M08 deserve a note. A **groundedness score** (M08) is a rating — produced here by a second model call, usually on a 0 to 1 scale — of how fully the output's claims are supported by the source text you supplied; 0.7 is a starting threshold to calibrate against your own reviewed samples, not a standard. The most reliable defence against fabrication in a grounded workflow is to require that specifics come from the retrieved source and to check them mechanically. Extract the numbers, dates, and identifiers from the output and confirm each appears in the source text. It is a crude check and it catches a remarkable share of confident invention.
 
 ### Writing conditions you can actually implement
 
@@ -152,3 +152,9 @@ Use the workflow you have carried through this course.
 5. **Run one sampled review.** Take 15 real or simulated outputs, score them against the rubric, and record the escape rate. For every defect, name the rule that should have caught it and add or amend that rule.
 6. **Write the response runbook** for your workflow: the severity definitions, the exact containment step including where the pause switch is, who is notified for each severity with their contact, and the correction path. Keep it to one page.
 7. **Rehearse it.** Simulate an S2 — take one bad output you have actually produced and walk the runbook end to end, timing yourself. Record where you had to guess or search for something, and fix the runbook so the next person does not have to.
+
+## Check your understanding
+
+1. Which monitoring layer is the only one that prevents rather than detects, and what belongs there? *Layer 1, pre-publication automated checks; the highest-severity deterministic rules belong there.*
+2. In the 60-day worked example, why would "fix the prompt" have been the wrong response? *The model faithfully quoted a real but outdated page in the retrieval corpus; the cause was the corpus, so the fix was removing the stale page and checking policy figures against the system of record.*
+3. Your vendor silently updates the model. Which rule fires and what does it require? *M14: run the regression set before resuming automation.*

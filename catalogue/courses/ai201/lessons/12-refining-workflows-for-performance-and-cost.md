@@ -109,10 +109,12 @@ So hold a fixed **evaluation set** and re-run it on every change. It is the labe
 
 | variant | model | tokens in | cost/1k cases | p95 latency | accuracy | review rate | cost/case incl. review |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| A (baseline) | large | 2,840 | $18.40 | 9.2s | 94.1% | 18% | $1.36 |
-| B (trimmed prompt) | large | 1,190 | $8.10 | 7.8s | 93.8% | 19% | $1.28 |
-| C (smaller model) | small | 1,190 | $1.90 | 4.1s | 88.2% | 34% | $2.14 |
-| D (rules first + B) | large | 1,190 | $5.60 | 5.3s | 94.0% | 18% | $1.09 |
+| A (baseline) | large | 2,840 | $18.40 | 9.2s | 94.1% | 18% | $0.45 |
+| B (trimmed prompt) | large | 1,190 | $8.10 | 7.8s | 93.8% | 19% | $0.46 |
+| C (smaller model) | small | 1,190 | $1.90 | 4.1s | 88.2% | 34% | $0.82 |
+| D (rules first + B) | large | 1,190 | $5.60 | 5.3s | 94.0% | 18% | $0.44 |
+
+The last column is model cost per case plus review rate times the cost of one review, assumed here at four minutes of a reviewer's time at a loaded $36 an hour, or $2.40. Substitute your own figure; the ranking is what matters.
 
 Variant C is the lesson. It cut model spend by 90% and made the process more expensive, because a 6-point accuracy drop pushed review rate from 18% to 34% and human minutes cost more than tokens. Without the last two columns, C looks like the obvious winner and someone ships it.
 

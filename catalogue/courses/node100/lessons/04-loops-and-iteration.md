@@ -128,3 +128,11 @@ Create a file named `loops.js`:
 2. Given `const words = ["pass", "fail", "pass", "skip", "fail", "pass"];`, use a `for...of` loop and an accumulator to count how many entries equal `"fail"`. Log the final count.
 3. Write a `while` loop that starts a `let total = 0;` and a `let n = 1;`, and adds `n` to `total`, incrementing `n` each pass, stopping as soon as `total` is greater than `50`. Log the final `total` and the final `n`.
 4. Given `const ids = ["x1", "x2", "x3", "x4", "x5"];`, write a `for...of` loop that uses `break` to stop as soon as it finds `"x3"`, storing the found value in a variable declared before the loop. Log the variable after the loop and confirm it holds `"x3"`, not the full array.
+
+## Check your understanding
+
+1. You need to read every value in an array and you never use the index. Which loop do you reach for?
+2. A `while` loop never ends. What is the first thing you check?
+3. Trace this by hand: `const codes = [200, 500, 404]; let failures = 0; for (const c of codes) { if (c >= 400) { failures = failures + 1; } }`. What is `failures` after each pass?
+
+*Answers:* (1) `for...of`. (2) Whether anything inside the body moves the condition toward `false` (a counter that never increments, a flag that never flips). (3) `0`, then `1`, then `2`.

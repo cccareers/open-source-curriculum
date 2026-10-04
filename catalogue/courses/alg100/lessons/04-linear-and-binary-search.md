@@ -65,6 +65,8 @@ console.log(binarySearch(sortedIds, "DEF-999")); // -1
 
 Each pass through the loop throws away roughly half of what's left, so a list that would take a million comparisons to exhaust linearly takes about twenty with binary search. That difference is not a rounding error at scale — it is the difference between a lookup that's instant and one that's noticeably slow.
 
+One trap hides in the example above. The `<` comparison on strings is alphabetical (character by character), not numeric. It works on `sortedIds` only because every id has the same number of digits. Once the tracker reaches `DEF-1000`, alphabetical order puts `"DEF-1000"` before `"DEF-101"`, and `"DEF-99" < "DEF-101"` is `false`. A binary search is only correct when the array is sorted by the *same* comparison the search uses. If the ids are sorted one way and searched another, the search quietly returns `-1` for ids that are present. If your ids vary in length, compare the numeric part (or zero-pad the ids, as in `DEF-0099`) for both the sort and the search.
+
 ## Tracing the steps
 
 The picture below walks one search through a sorted array, showing where `low`, `mid`, and `high` land at each iteration as the candidate range halves.
@@ -106,3 +108,11 @@ The practical decision is rarely "which is the better algorithm" in the abstract
 2. Deliberately introduce the off-by-one bug described above — change `low = mid + 1` to `low = mid` in your `binarySearch` — and run it against a two-element sorted array searching for the element at index 1. Describe what happens and why.
 3. Using the seven boundary cases listed in this lesson, write out (in comments, no test framework needed yet) the exact input array and target for each case, and what the correct return value should be.
 4. Given a sorted array of 1,000,000 defect ids, estimate — without running code — roughly how many comparisons `linearSearch` would need in the worst case versus `binarySearch`, and explain your reasoning in a sentence or two.
+
+## Check your understanding
+
+1. What single precondition must hold before `binarySearch` can be trusted, and what happens if it doesn't?
+2. On an empty array, `high` starts at `-1`. Does the `while (low <= high)` loop body run? What does the function return?
+3. Roughly how many comparisons does `binarySearch` need, at most, on a sorted list of 1,000 items?
+
+**Answers:** (1) The array must be sorted by the same comparison the search uses. If it isn't, the search can discard the half that holds the target and return `-1` for a value that is present. It won't crash, so the bug is easy to miss. (2) No. `0 <= -1` is false, so the loop never runs and the function returns `-1`. (3) About 10, because 2 to the 10th power is 1,024, and each comparison halves the remaining range.

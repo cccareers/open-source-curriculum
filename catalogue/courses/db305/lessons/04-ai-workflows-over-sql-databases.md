@@ -145,6 +145,8 @@ do update set note       = excluded.note,
               updated_at = now();
 ```
 
+One requirement makes this work: `on conflict (order_id)` needs a unique constraint (or primary key) on `order_notes.order_id`, and the schema at the top of this lesson does not declare one — PostgreSQL will refuse the statement with an error saying no unique constraint matches. If the design is one extracted note per order, ask the database owner to add `unique (order_id)`. If an order can have several notes, as the join section assumes, the upsert needs a key that identifies one note, such as `(order_id, source_message_id)`, and the conflict target names those columns.
+
 Run that twice with the same input and you get one row, not two. That single property removes most of the duplicate-record incidents a workflow can cause.
 
 When several writes must succeed or fail together, wrap them in a transaction:
@@ -241,3 +243,9 @@ Use a database you can safely write to — a local PostgreSQL, a free hosted ins
 6. **Write safely.** Build a workflow step that stores an extraction result into `order_notes` using an upsert and parameters. Run it three times with the same input and show that exactly one row exists.
 7. **Break it on purpose.** Attempt the same write by concatenating a value containing an apostrophe into the query text and observe the failure. Then attempt it with a parameter and observe it succeed. Keep both outputs as evidence.
 8. **Lock it down.** Create a read-only database user, point a copy of your workflow at it, and confirm that the write step now fails with a permission error. Add the generated-SQL guard rails from the last section and test them with a question crafted to produce a forbidden statement.
+
+## Check your understanding
+
+1. `where region <> 'EU'` returns fewer customers than you expected. Why? *Rows where `region` is null are excluded, because null never compares equal or unequal to anything. Use `region is distinct from 'EU'` or add `or region is null`.*
+2. An inner join of 500 orders to customers returns 460 rows. What happened, and what query shows it? *40 orders reference customers that do not exist; a `left join` returns all 500 with null customer columns, which identifies them.*
+3. The model writes your SQL. Which single control actually guarantees it cannot delete data? *Running it as a read-only database user; prompt rules and keyword checks reduce noise, but permissions provide the guarantee.*

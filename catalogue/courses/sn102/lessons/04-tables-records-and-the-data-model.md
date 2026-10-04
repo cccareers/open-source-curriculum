@@ -24,7 +24,7 @@ The vocabulary in ServiceNow is worth being precise about, because two names exi
 
 Open any list and you are looking at a table. Open a record and you are looking at one row of it. This is the whole model, and it does not get more complicated as you go up; it only gets wider.
 
-Four fields exist on essentially every record, added by the platform without anyone configuring them: `sys_id`, `sys_created_on`, `sys_created_by`, `sys_updated_on`, and `sys_updated_by`. You will use them more than you expect. "Who touched this and when" is answerable on any record on the platform.
+Five fields exist on essentially every record, added by the platform without anyone configuring them: `sys_id`, `sys_created_on`, `sys_created_by`, `sys_updated_on`, and `sys_updated_by`. You will use them more than you expect. "Who touched this and when" is answerable on any record on the platform.
 
 ## The dictionary: tables about tables
 
@@ -75,7 +75,7 @@ The canonical example is `task`. The task table defines what any unit of work ne
 - `sc_req_item` (a requested item) extends `task` and adds a pointer to the catalog item that produced it.
 - HR cases and customer service cases extend `task` through their own intermediate tables.
 
-The database side of this is worth one sentence: ServiceNow stores an extended table's own fields in its own physical table and joins to the parent, so querying the parent returns rows of every child. That is why `task.list` shows incidents and change requests side by side, each row knowing its own class.
+The database side of this is worth one sentence: however the platform physically stores a hierarchy (for `task` it usually keeps parent and children together in one physical table; other hierarchies use other strategies), querying the parent returns rows of every child, and each row records its own class in a field called `sys_class_name`. That is why `task.list` shows incidents and change requests side by side, each row knowing what it is.
 
 Extension is not only for work. `cmdb_ci` is the base for configuration items and extends into `cmdb_ci_computer`, `cmdb_ci_server`, `cmdb_ci_appl`, and many more. `sys_user` does not extend anything but is referenced by nearly everything.
 
@@ -118,3 +118,10 @@ Use a personal developer instance with demo data.
 5. **Read a related list backwards.** Open a user record and find a related list of records that point at that user. Then find the field on the *other* table that creates that relationship. Write one sentence explaining where the relationship is actually stored.
 
 6. **Design decision.** For each of the following, decide whether you would extend `task`, extend `cmdb_ci`, or create a standalone table, and justify it in one sentence each: (a) a request to have a new laptop provisioned, (b) a record of a printer on the third floor, (c) a list of the office's parking-space assignments, (d) a security incident that must be worked, assigned, and closed.
+
+## Check your understanding
+
+1. You filter `sys_dictionary.list` to `Table is incident` and do not see `assignment_group`. Is the field missing? *No. It is defined on `task`, so its dictionary entry belongs to `task`; incident inherits it. The table's Columns related list shows inherited fields as well.*
+2. The incident State shows "In Progress." A colleague's filter in a script says `state=2`. Are they looking at different things? *No. 2 is the stored value; "In Progress" is the label of the same choice.*
+3. What does a reference field actually store? *The sys_id of the target record. It displays the target table's display value.*
+4. Why does one query on `task` return incidents, problems, and changes? *They extend `task`, so querying the parent returns every child's rows; `sys_class_name` tells you which kind each row is.*

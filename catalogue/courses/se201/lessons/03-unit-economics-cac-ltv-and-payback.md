@@ -186,7 +186,7 @@ And the enterprise customer, at $78,750 of CAC and $4,680 a month:
 | 24 | $112,320 | +$33,570 |
 | 36 | $168,480 | +$89,730 |
 
-Two things fall out of these tables that the ratios cannot show you. First, for seventeen months the enterprise customer is a **liability**, and if they churn in month 14 the company lost roughly $23,000 on them despite everything having looked fine. Every early-life churn is a loss, not a smaller gain. Second, the SMB customer spends the remaining thirty-eight months of their life as pure profit — which is precisely why retention, not acquisition, is where SaaS margins are made. Lesson 4 is the direct consequence of these two tables.
+Two things fall out of these tables that the ratios cannot show you. First, for seventeen months the enterprise customer is a **liability**, and if they churn after month 12 the company has lost roughly $22,600 on them despite everything having looked fine. Every early-life churn is a loss, not a smaller gain. Second, the SMB customer spends the remaining thirty-eight months of their life as pure profit — which is precisely why retention, not acquisition, is where SaaS margins are made. Lesson 4 is the direct consequence of these two tables.
 
 ## Payback is a cash question, so billing terms move it
 
@@ -283,3 +283,9 @@ New customers acquired: **45**, split as **36 mid-market** and **9 enterprise**.
 **Exercise 2 — the discount question.** An enterprise prospect wants 15% off list. Recompute that account's ACV, monthly gross profit, LTV, LTV:CAC, and payback at the discounted price. State in one sentence, with the numbers, what you would tell deal desk.
 
 **Exercise 3 — recommend.** Riverbend can fund exactly one additional quota-carrying rep, in mid-market or in enterprise. Write a short recommendation (150 words maximum) using at least three of the numbers you calculated. Name one figure in the dataset you do not trust and say what you would need to see to trust it.
+
+## Check your understanding
+
+1. A customer pays $1,000 a month at 80% gross margin and churns at 2.5% a month. What is the simple LTV? *(Answer: $1,000 × 0.80 / 0.025 = $32,000.)*
+2. With $12,000 of CAC, what is that customer's gross-margin payback, and what would the revenue payback be? *(Answer: $12,000 / $800 = 15 months gross-margin; $12,000 / $1,000 = 12 months revenue. Always ask which one you are being quoted.)*
+3. Why can an 8.9:1 LTV:CAC ratio still be a problem for a cash-constrained company? *(Answer: the ratio ignores time; the CAC is spent up front and may take well over a year to recover, so the company carries the cash hole.)*

@@ -30,7 +30,7 @@ Whatever unit your team uses, the goal is the same: agree on a shared sense of "
 A sprint test plan is a short, working document — not a formal audit artifact — that answers five questions for the sprint you just committed to:
 
 1. **Scope** — which stories, and which acceptance criteria within them, need verification this sprint?
-2. **Approach** — for each story, how will it be tested? Manual click-through, an existing automated suite, both?
+2. **Approach** — for each story, how will it be tested? Manual click-through, an existing automated suite, both? Two terms you'll see in the skeleton below: a **regression** check re-tests existing behavior to confirm a change didn't break something that used to work, and a **smoke test** is a short, fast pass over the most critical paths (can you log in, search, check out?) to confirm the build is basically healthy before deeper testing.
 3. **Environment and data** — what test environment, accounts, and data does verification need, and is it ready?
 4. **Schedule** — when in the sprint does each story become testable (usually: after a developer marks it ready), and how much time is reserved for it?
 5. **Risks** — what could make testing slip — a dependency on another team, an environment that's been flaky, a story likely to need rework?
@@ -99,7 +99,9 @@ A sprint test plan is only realistic if it's built against your actual available
 - **Waiting time.** If a story isn't code-complete until Day 3, the hours between Day 1 and Day 3 aren't testing hours for that story, even though they're inside the sprint window. A test plan that counts them as available capacity will look fine on paper and fail in practice.
 - **Interruptions.** Answering a developer's question about a defect, pairing to reproduce something tricky, or re-testing a fix that came back faster than expected all take real time that a plan built purely from "5 days × 8 hours" won't account for.
 
-A more honest capacity estimate discounts the nominal week — a common starting rule of thumb is to plan against roughly 60-70% of nominal hours as truly available testing time, and adjust as you learn your team's actual rhythm sprint over sprint. Getting this wrong in the optimistic direction is exactly how a test plan quietly turns into "test whatever we have time for at the end," which Lesson 08 will show you is a bad position to present in a sprint review.
+A more honest capacity estimate discounts the nominal week — a common starting rule of thumb is to plan against roughly 60-70% of nominal hours as truly available testing time, and adjust as you learn your team's actual rhythm sprint over sprint.
+
+Worked through for the sprint above: 5 days × 8 hours = 40 nominal hours. At 65%, that's about 26 hours of real testing time. Now subtract what the schedule already tells you: on Days 1-2 you're writing test cases, not executing them, so the hours for actually *running* tests sit almost entirely in Days 3-5, roughly 15-16 of those 26 hours. If your test cases for STORY-101, STORY-104, and STORY-108 add up to 12 hours of first-pass execution, you have only 3-4 hours left for retesting fixes and the final regression pass. That's tight, and it's worth saying out loud in planning, before the sprint starts. Getting this wrong in the optimistic direction is exactly how a test plan quietly turns into "test whatever we have time for at the end," which Lesson 08 will show you is a bad position to present in a sprint review.
 
 ## Practice
 
@@ -110,3 +112,11 @@ Using the sprint test plan skeleton above as your template, write a sprint test 
 - STORY-209: "Redesign checkout button styling" (visual-only change, low risk)
 
 Fill in all five sections (Scope, Approach, Environment & data, Schedule, Risks), and in your Schedule section, justify in one sentence why you chose the testing order you chose — which story gets tested first, and why.
+
+## Check your understanding
+
+1. Your test plan schedules all testing for Day 5 "once everything is done." Name two problems with that schedule.
+2. On Day 3 you learn STORY-104's dependency has slipped by a day. What do you do with that information, and when?
+3. What's the difference between a regression check and a smoke test?
+
+*Answers:* (1) It leaves no time to retest defect fixes, and it ignores stories that become testable earlier (like STORY-108), so all verification gets crushed against the deadline. (2) Raise it at the next standup or sooner, update the plan's Schedule and Risks sections, and say what will be cut or deferred; don't quietly skip verification. (3) A regression check confirms existing behavior still works after a change; a smoke test is a short, fast pass over the most critical paths to confirm the build is healthy enough to test further.

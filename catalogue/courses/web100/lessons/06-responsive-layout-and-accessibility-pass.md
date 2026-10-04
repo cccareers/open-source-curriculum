@@ -127,3 +127,11 @@ Take the `roster.html` page (with its card layout and contact form) you have bui
 2. Slowly resize the browser (or use DevTools' responsive mode) from 320px up to 1280px, watching continuously, and find at least one real width-dependent problem — even a small one, like uneven card heights, a heading wrapping awkwardly, or the contact form's fieldset overflowing its container.
 3. Run through the accessibility pass checklist above against the full page and note every item that fails, however minor — an unlabeled decorative image, a skipped heading level, low-contrast text, anything.
 4. Write up your single best finding (from either step 2 or step 3) as a full defect report in the format shown above: title, steps to reproduce with a specific viewport width or state, expected behavior, actual behavior, and, if you can identify one, the likely CSS or markup cause.
+
+## Check your understanding
+
+1. Your media queries work in a desktop browser's responsive mode but never fire on a real phone. What is the first thing you check in the `<head>`?
+2. Rewrite this as a reproducible defect title: "Cards look bad on small screens."
+3. Lighthouse reports an Accessibility score of 100. Name two things it cannot have checked for you.
+
+*Answers:* (1) The viewport `<meta>` tag; without it the phone lays the page out at a desktop-width virtual viewport. (2) For example: "Roster cards overflow their container horizontally between 320px and 360px viewport width". (3) Whether link text is meaningful, whether tab order is logical, whether `alt` text is accurate, and whether the page is usable with a screen reader.

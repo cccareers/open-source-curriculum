@@ -58,7 +58,7 @@ Most CRMs will hand you a CSV. Export your contacts to `contacts.csv` and drop i
 import { readFileSync } from "node:fs";
 
 const raw = readFileSync("contacts.csv", "utf8");
-console.log(raw.split("\n").length - 1, "data rows");
+console.log(raw.trim().split(/\r?\n/).length - 1, "data rows");
 ```
 
 **Parse** turns that text into an array of objects. Read this one slowly — it is the densest code in the week:
@@ -67,7 +67,7 @@ console.log(raw.split("\n").length - 1, "data rows");
 type Row = Record<string, string>;
 
 function toRows(text: string): Row[] {
-  const [head, ...lines] = text.trim().split("\n");
+  const [head, ...lines] = text.trim().split(/\r?\n/);
   const cols = head.split(",");
   return lines.map((line) => {
     const cells = line.split(",");
@@ -76,13 +76,13 @@ function toRows(text: string): Row[] {
 }
 ```
 
-`Record<string, string>` means "an object whose keys and values are all strings" — you do not know the column names ahead of time, so you cannot write a fixed type. `.trim()` drops the blank line at the end of the file. `const [head, ...lines]` takes the first line as `head` and the rest as `lines`. `Object.fromEntries` builds an object from pairs, so a header of `name,company,status` and a line of `Dana Ruiz,Sentinel Health,replied` become one object with those three properties. `cells[i] ?? ""` supplies an empty string when a row is short.
+`Record<string, string>` means "an object whose keys and values are all strings" — you do not know the column names ahead of time, so you cannot write a fixed type. `.trim()` drops the blank line at the end of the file. `split(/\r?\n/)` splits on line breaks whether the file uses Mac/Linux line endings (`\n`) or Windows line endings (`\r\n`) — many CRM exports use the Windows style, and splitting on `"\n"` alone leaves an invisible `\r` stuck to the last column, so if `status` is your last column, `r.status === "messaged"` silently fails on every row. `const [head, ...lines]` takes the first line as `head` and the rest as `lines`. `Object.fromEntries` builds an object from pairs, so a header of `name,company,status` and a line of `Dana Ruiz,Sentinel Health,replied` become one object with those three properties. `cells[i] ?? ""` supplies an empty string when a row is short.
 
 This parser splits on every comma, so a company name containing a comma will break it. That is a real limitation, and naming it is more honest than pretending otherwise — in production you would reach for a CSV library.
 
 ## Path B: the live API
 
-If your CRM exposes an API and your instructor has a key for you, fetch over the network instead. `fetch` is built into both Bun and modern Node, and it returns a promise — a value that is not ready yet. `await` waits for it, and `await` only works inside a function marked `async`.
+If your CRM exposes an API and your instructor has a key for you, fetch over the network instead. `fetch` is built into both Bun and modern Node, and it returns a promise — a value that is not ready yet. `await` waits for it, and `await` works inside a function marked `async` or at the top level of an ES module.
 
 ```ts
 async function pullContacts(): Promise<Row[]> {
@@ -147,5 +147,5 @@ Build `pipeline.ts` alongside your apprentice partner. Keep the four steps in fo
 3. Write a transform that produces your follow-up queue, using your own rule for what "needs a follow-up" means. Print the count.
 4. Build a count-by-company report and print it. Which three companies are you most invested in?
 5. Write the queue to `follow-ups.csv` and open it in a spreadsheet.
-6. **Order the steps.** Given these five lines shuffled, write the correct execution order and one sentence on why each depends on the one before it: `writeFileSync(...)`, `const rows = toRows(raw)`, `const raw = readFileSync(...)`, `const stale = rows.filter(...)`, `if (!res.ok) throw ...`.
-7. If you have API credentials, swap the fetch step for `pullContacts` and change nothing else. Then break it on purpose: use a wrong token and read the status you get back.
+6. **Order the steps.** Order the CSV path: `writeFileSync(...)`, `const rows = toRows(raw)`, `const raw = readFileSync(...)`, `const stale = rows.filter(...)`. Then order the API path: `writeFileSync(...)`, `const rows = await res.json()`, `const res = await fetch(...)`, `const stale = rows.filter(...)`, `if (!res.ok) throw ...`. Explain each dependency; the response check belongs only to the API path.
+7. If you have API credentials, replace the CSV fetch-and-parse pair with `const rows = await pullContacts();`. It already parses JSON; do not pass its result to `toRows`. Keep transform and output unchanged. The URL above is a placeholder: use your instructor's documented endpoint, authentication scheme, response shape, and pagination rules. Then break it on purpose: use a wrong token and read the status you get back.

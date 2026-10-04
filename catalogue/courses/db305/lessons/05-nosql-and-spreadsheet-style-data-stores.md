@@ -163,6 +163,8 @@ Filtering server-side uses a formula:
 GET /v0/appA1b2C3d4E5f6G7/Orders?filterByFormula=AND({Status}='Confirmed',{Extracted}=BLANK())
 ```
 
+That is the formula as you would type it. In a raw HTTP request the value must be URL-encoded — spaces, braces, quotes, and `=` all need escaping — so let your HTTP step or client library build the query string from the plain formula rather than pasting it into a URL by hand.
+
 Prefer a **view** to a hand-written formula when you can. The view lives in the base where a human can see and adjust it, and it keeps a fragile formula string out of your workflow configuration.
 
 Writes are batched, up to ten records per request:
@@ -232,3 +234,9 @@ Model the same small dataset twice and build a workflow against each.
 6. **Hit a limit on purpose.** Write 200 records to the base one request at a time until you are throttled, then rewrite it batched with pacing and compare the elapsed time and the error count.
 7. **Break a field name.** Rename one Airtable field a workflow reads and observe exactly how the failure presents. Then add a check that fails the run loudly instead of writing a null.
 8. **Write the fit memo.** One page: which store you would put this dataset in, answering all six questions, and the two conditions that would make you change your mind.
+
+## Check your understanding
+
+1. A workflow reads `fields["Customer Note"]` from Airtable and occasionally fails with a missing-key error. Why? *Airtable omits empty fields from `fields` entirely; reads must tolerate an absent key.*
+2. You need to write 400 extraction results back to a base. How? *Batched `PATCH` requests of up to ten records, paced under the rate limit, with backoff on throttling.*
+3. Give one strong signal for a relational store over a spreadsheet-style one. *Any of: money or audited data that needs bad writes refused, cross-cutting aggregations, two or more relationship hops per question, or volumes beyond tens of thousands of records.*

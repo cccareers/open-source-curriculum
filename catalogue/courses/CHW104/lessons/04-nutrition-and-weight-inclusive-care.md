@@ -73,7 +73,7 @@ Ask about it without making it an interrogation:
 
 Then act on the answers. Frozen and canned vegetables are nutritionally solid, cheap, and shelf-stable. Beans and lentils are inexpensive protein. Store brands are usually identical products. A no-cook or microwave-only plan is a legitimate plan. And a large part of this work is not education at all — it is navigation: SNAP and WIC enrollment, food pantries, produce prescription and market-match programs, congregate and home-delivered meals for older adults, school meal programs, and summer food sites.
 
-Screen for food insecurity directly and without judgment, because it changes everything downstream: "In the last year, did you ever worry that food would run out before you had money to buy more?" If the answer is yes, the resource connection comes before the education session.
+Screen for food insecurity directly and without judgment, because it changes everything downstream: "In the last year, did you ever worry that food would run out before you had money to buy more?" That question closely follows the first item of the Hunger Vital Sign, a widely used two-question food insecurity screener; if your program uses a validated screener, read its items exactly as written. If the answer is yes, the resource connection comes before the education session.
 
 ## Culture Is Not a Barrier to Nutrition
 

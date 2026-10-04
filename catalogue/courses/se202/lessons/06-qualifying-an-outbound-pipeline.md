@@ -138,3 +138,9 @@ Use the accounts you have actually touched in lessons 3 through 5.
 5. **Disqualify at least two accounts.** Write, for each, the specific evidence that supports disqualifying, the dated nurture date if any, and the sentence you would say to the prospect. If you genuinely cannot disqualify two, your bar for "qualified" is too low — re-score with a stricter reading.
 
 6. **Run one review out loud.** Present your three highest-scoring accounts to a partner or coach in under two minutes each: score, weakest field, next action, date. Have them challenge every 3 you claimed. Any score you cannot defend with a source and a quote gets lowered on the spot.
+
+## Check your understanding
+
+1. Your champion told you the CFO's name, but you have never spoken to the CFO. What does Economic buyer score? *(Answer: 2 — named by the champion. A 3 requires that you have met them and know their priority.)*
+2. A deal scores 3 on Pain and Champion and 0 on Decision process. What is your next action? *(Answer: raise Decision process — for example, ask the champion to walk you through the last time they bought software of this size. The weakest field is the next action.)*
+3. Why is a fast, clean disqualification valuable? *(Answer: it returns weeks of capacity and keeps the forecast honest; moving the account to a dated nurture preserves the relationship.)*

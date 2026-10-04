@@ -22,7 +22,7 @@ Start with the commands you will use constantly:
 pwd                     # print the current directory
 ls -la                  # list files, including hidden dotfiles
 cd project-name         # change directory
-mkdir scratch && cd $_  # make a directory and move into it
+mkdir scratch && cd $_  # make a directory and move into it ($_ is the last argument of the previous command)
 cat README.md           # print a file's contents
 ```
 
@@ -74,7 +74,7 @@ npm install
 npm run dev
 ```
 
-`npm install` reads `package.json` and downloads every dependency the project declares, recording the exact versions it resolved in `package-lock.json`. Never hand-edit that lockfile, and never skip `npm install` after pulling changes — a teammate may have added a dependency your local `node_modules` does not have yet, and the failure that produces (a missing-module error at startup) looks nothing like the dependency problem it actually is.
+`npm install` reads `package.json` and downloads every dependency the project declares, recording the exact versions it resolved in `package-lock.json`. Never hand-edit that lockfile, and never skip `npm install` after pulling changes. (When you want your install to match the lockfile exactly, which is what CI servers do, use `npm ci`: it deletes `node_modules` and installs precisely what `package-lock.json` records, failing if the two files disagree.) — a teammate may have added a dependency your local `node_modules` does not have yet, and the failure that produces (a missing-module error at startup) looks nothing like the dependency problem it actually is.
 
 `npm run dev` starts whatever the project defines as its development server, usually on a local port such as `http://localhost:5173` or `http://localhost:3000`. Open that URL in Chrome and confirm the page loads before you touch anything else — a broken local setup is the single most common reason a learner (or a professional) reports a defect that does not exist.
 
@@ -115,3 +115,11 @@ Keep your tooling current deliberately. When the project updates a dependency or
 2. Clone any small public repository that includes a `package.json` (ask your instructor for one if you don't have a preference). Run `npm install`, then `npm run dev` (or the equivalent start script), and confirm in Chrome that the page loads.
 3. Locate the project's `.env.example` or configuration documentation. Write two sentences explaining what would happen to your local setup if you skipped that configuration step entirely, based on what the file's variables appear to control.
 4. Run the project's lint and test scripts (`npm run lint`, `npm run test`). If either fails, copy the first error line into a note and explain, in one sentence, whether you think it is an environment problem or a code problem — and what you would check next to find out.
+
+## Check your understanding
+
+1. A teammate says the app crashes at startup with `Cannot find module 'dayjs'` right after they pulled `main`. What is your first suggestion?
+2. The project's `package.json` says `"engines": { "node": ">=20.0.0" }` and `node --version` prints `v18.19.0`. What do you do before testing anything?
+3. `npm run dev` works but `npm run test` fails on a fresh clone. Name three possible causes you would distinguish between.
+
+*Answers:* (1) Run `npm install` (or `npm ci`): a dependency was added since their last install. (2) Switch to a matching version (for example `nvm install 20 && nvm use 20`), then reinstall dependencies. (3) A missing environment variable, a Node version mismatch, or a genuine defect in the code.

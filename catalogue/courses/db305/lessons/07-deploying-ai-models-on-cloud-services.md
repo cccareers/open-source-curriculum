@@ -88,7 +88,7 @@ The configuration you are choosing amounts to this:
 }
 ```
 
-Once created, calling it is an ordinary HTTP request of the shape you already know:
+Once created, calling it is an ordinary HTTP request of the shape you already know. The host, path, and `api-version` below are illustrative; copy the exact endpoint URL and API version from your deployment's details page, because they differ by resource type and change over time.
 
 ```http
 POST /v1/deployments/orders-extractor-prod/chat/completions?api-version=2026-01-01 HTTP/1.1
@@ -237,3 +237,9 @@ Use a cloud account you are permitted to use — a personal free tier, a sandbox
 7. **Handle truncation.** Set `max_tokens` low enough to truncate a JSON response, confirm `finish_reason` is `length`, and add a check that treats it as a distinct failure rather than a parse error.
 8. **Write the configuration sheet** using the table above, filling every row including the reason column.
 9. **Practise rollback.** Deploy a second version under a second name, repoint the workflow, verify it works, then roll back. Time both directions and record the steps as a runbook someone else could follow.
+
+## Check your understanding
+
+1. Why does the workflow call `orders-extractor-prod` rather than a model name? *The deployment name is an indirection: you can change the model version once, in the deployment, without editing any workflow, and roll back the same way.*
+2. A response has `finish_reason: "length"`. What happened and what do you change? *The output hit `max_tokens` and was truncated, so the JSON is incomplete. Raise `max_tokens` to fit the expected output and treat this as its own failure, not a prompt problem.*
+3. Your deployment uses a floating "latest" model alias. What is the risk? *The model can change underneath your prompts with no deployment on your side; pin the version and record when you evaluated it.*

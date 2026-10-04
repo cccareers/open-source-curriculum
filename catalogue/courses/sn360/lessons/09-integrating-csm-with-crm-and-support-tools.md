@@ -71,12 +71,17 @@ An integration that writes bad data is worse than one that fails, because failur
 ```javascript
 // Scripted REST resource: validate an inbound contact before writing.
 (function process(request, response) {
-  var body = request.body.data;
+  var body = request.body && request.body.data;
+  if (!body || typeof body !== 'object' || Array.isArray(body)) {
+    response.setStatus(422);
+    response.setBody({ status: 'rejected', errors: ['a JSON object body is required'] });
+    return;
+  }
   var errors = [];
 
-  if (!body.external_id) { errors.push('external_id is required'); }
-  if (!body.email || body.email.indexOf('@') < 0) { errors.push('a valid email is required'); }
-  if (!body.account_external_id) { errors.push('account_external_id is required'); }
+  if (typeof body.external_id !== 'string' || !body.external_id.trim()) { errors.push('external_id is required'); }
+  if (typeof body.email !== 'string' || body.email.indexOf('@') < 1) { errors.push('a valid email is required'); }
+  if (typeof body.account_external_id !== 'string' || !body.account_external_id.trim()) { errors.push('account_external_id is required'); }
 
   var account = new GlideRecord('customer_account');
   account.addQuery('u_external_id', body.account_external_id);
@@ -105,12 +110,19 @@ An integration that writes bad data is worse than one that fails, because failur
   contact.setValue('first_name', body.first_name || '');
   contact.setValue('last_name', body.last_name || '');
   contact.setValue('account', account.getUniqueValue());
-  var sysId = isNew ? contact.insert() : (contact.update(), contact.getUniqueValue());
+  var sysId = isNew ? contact.insert() : contact.update();
+  if (!sysId) {
+    response.setStatus(500);
+    response.setBody({ status: 'error', error: 'Contact could not be saved' });
+    return;
+  }
 
   response.setStatus(isNew ? 201 : 200);
   response.setBody({ status: 'ok', sys_id: sysId, created: isNew });
 })(request, response);
 ```
+
+Require an authenticated resource ACL restricted to a dedicated CRM integration role; plain `GlideRecord` in this handler does not enforce user table ACLs. Limit that role to the intended integration and grant cross-scope access deliberately. Put a unique index on each external-id field to prevent concurrent inserts from creating duplicates; handle a collision by re-reading/retrying the keyed update or returning a retryable conflict. The example demonstrates sequential redelivery, not atomic concurrent upsert.
 
 Three properties of that handler are the point of the example. It **rejects with a reason** — a 422 listing what was wrong, which is a message the other team can act on, unlike a 500. It is **idempotent**: the same message delivered twice produces one contact, because the query is keyed on the external id. And it **resolves references rather than inventing them**: an unknown account is a rejection, not a newly created account, because auto-creating parents from a child payload is how a clean account list becomes a landfill.
 
@@ -189,3 +201,12 @@ Most CSM implementations replace something, and the replaced system holds histor
 6. **Alert and reconcile.** Configure the alert threshold for repeated failures and a daily reconciliation job that compares record counts on both sides and reports the drift. Introduce a deliberate divergence and confirm the job finds it.
 
 7. **Rehearse a bad night.** Take the six ugly cases listed above, run each against your integration, and write one line per case describing the observed behavior. Fix anything whose only output was a log entry.
+
+## Check your understanding
+
+1. The same webhook is delivered twice. What design makes that harmless?
+2. A contact payload names an account your instance does not have. Create the account, or reject the contact?
+3. Which HTTP failures should retry and which should not?
+4. Name the control that catches failures nobody predicted.
+
+*Answers:* (1) An idempotent upsert keyed on the external id. (2) Reject with a 422 and a reason; auto-creating parents from a child payload corrupts the account list. (3) Retry transient ones (timeouts, 429, 503) with backoff and a cap; never retry permanent ones (400, 401, 422). (4) A daily reconciliation comparing both sides and reporting drift.

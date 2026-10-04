@@ -25,7 +25,7 @@ Trauma is common. Childhood adversity, community and interpersonal violence, med
 
 ## The Five Principles
 
-These five run through everything else in this lesson.
+These five come from the trauma-informed care framework developed by Maxine Harris and Roger Fallot. You will also see a widely used six-principle version from SAMHSA (the federal Substance Abuse and Mental Health Services Administration) that adds peer support and attention to cultural, historical, and gender issues, and folds choice into "empowerment, voice, and choice." The ideas overlap almost entirely; use whichever version your organization uses. These five run through everything else in this lesson.
 
 **Safety.** Physical and emotional. The room, the schedule, and the tone all count. Predictability is a form of safety: say what will happen, then do that.
 

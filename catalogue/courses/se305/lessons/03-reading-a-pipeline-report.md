@@ -165,7 +165,7 @@ Coverage as reported            $612,000 / $154,000 = 3.97x
 Break-even coverage             1 / 0.25 = 4.0x
 ```
 
-Read literally, you are one basis point under the line. But run the hygiene check before you believe it: **seven of those 21 opportunities have a close date that is already in the past**, and they carry $196,000. They appear in a "closing this quarter" filter only because the filter catches every date at or before the end of Q4, including dates that expired in July.
+Read literally, you are a hair under the line — 3.97x against 4.0x. But run the hygiene check before you believe it: **seven of those 21 opportunities have a close date that is already in the past**, and they carry $196,000. They appear in a "closing this quarter" filter only because the filter catches every date at or before the end of Q4, including dates that expired in July.
 
 ```text
 Clean Q4 pipeline    = $612,000 - $196,000 = $416,000 across 14 opportunities
@@ -196,6 +196,12 @@ All figures come from the tables in this lesson.
 
 **Exercise 2 — reweight the pipeline.** Suppose a review of your open deals finds that four opportunities currently sitting in proposal, worth $124,000 in total, have never had a proposal formally reviewed by the buyer and belong back in solution validation. Rebuild the open-pipeline snapshot with those four moved, then recompute the weighted total using your own cohort probabilities. State the new weighted figure, the change from $410,842, and what that change tells you about stage discipline.
 
-**Exercise 3 — the coverage argument.** Your manager looks at the same report and says coverage is 3.97x, which is fine. Write the four-sentence reply that changes their mind. It must name the seven stale opportunities, show the recomputed coverage and expected value, compare both to the $154,000 gap, and end with the specific thing you are asking for.
+**Exercise 3 — the coverage argument.** Your manager looks at the same report and says coverage is 3.97x, which is fine. Write the four-sentence reply that changes their mind. It must identify the seven stale opportunities as a group (account names are not supplied), show the recomputed coverage and expected value, compare both to the $154,000 gap, and end with the specific thing you are asking for.
 
 **Exercise 4 — read the flow.** Using the September movement table, answer three questions with arithmetic: how far below the sustaining rate was creation, what share of the open pipeline had its close date pushed, and what the six September losses were worth relative to a month's share of quota. Then write the single sentence you would put at the top of your monthly note.
+
+## Check your understanding
+
+1. A snapshot shows 14 deals in discovery and 9 in validation. Is the discovery-to-validation conversion 64%? *(Answer: no — those are different deals at different ages. Conversion needs a cohort of closed opportunities.)*
+2. What reconciliation should you always run on a cohort table? *(Answer: cumulative conversion from the first stage to closed won must equal your win rate.)*
+3. Why does the "closing this quarter" filter overstate coverage, and what filter fixes it? *(Answer: it includes open deals whose close dates have already passed; filter for close dates between today and quarter end.)*

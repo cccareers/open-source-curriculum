@@ -175,3 +175,9 @@ Work from the 30-account target list you built in lesson 2.
 5. **Clean the list.** Apply suppression, deduplicate, and split your contacts into a verified list and a low-confidence list. Report the counts in each and state which one you would send to first and why.
 
 6. **Set up one alert** — a saved search or a job-change alert on your persona in your tier-A accounts — and write the specific action you will take when it fires, including the timeframe. Bring the alert definition and the action to your next coaching session.
+
+## Check your understanding
+
+1. Why search on function plus seniority rather than title keywords? *(Answer: titles vary wildly for the same buyer; function and seniority catch the whole set, and title keywords should only refine.)*
+2. In one sentence each, what does the professional network tell you and what does the contact database tell you? *(Answer: the network tells you who and why — current title, tenure, priorities; the database tells you how to reach them — email and phone.)*
+3. Your committee map shows the dispatch manager built the current spreadsheet process. What two roles might he hold at once, and why does it matter? *(Answer: end user and blocker — he owns what you would replace, which changes how you run the deal.)*

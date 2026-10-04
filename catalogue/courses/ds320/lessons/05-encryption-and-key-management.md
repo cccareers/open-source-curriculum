@@ -34,6 +34,8 @@ verify-ca   encrypts and verifies the certificate chain
 verify-full encrypts, verifies the chain, and checks the hostname matches
 ```
 
+(Two more values, `allow` and `prefer`, also exist. `prefer` is the libpq default: it tries TLS and silently falls back to plaintext if the server does not offer it, which is why leaving `sslmode` unset is itself a finding.)
+
 `require` is the trap. It encrypts, so a packet capture looks reassuring, but it accepts any certificate, which means an attacker positioned in the path can terminate the connection and read everything. Use `verify-full` and supply the certificate authority bundle:
 
 ```text

@@ -40,7 +40,7 @@ The| quick| brown| fox| jumps| over| the| lazy| dog|.
 Un|remark|ably|,| tok|eniz|ation| of| rare| words| costs| more|.
 ```
 
-Nine tokens for the first sentence, fourteen for the second, even though the second sentence has fewer words. That asymmetry is the first practical consequence: **you are billed and limited in tokens, not in words**, so dense jargon and unusual identifiers cost you more than plain prose saying the same thing.
+Ten tokens for the first sentence, thirteen for the second, even though the second sentence has only seven words to the first's nine. That asymmetry is the first practical consequence: **you are billed and limited in tokens, not in words**, so dense jargon and unusual identifiers cost you more than plain prose saying the same thing.
 
 The second consequence is subtler and worth internalizing early. Because the model never sees individual characters inside a token, character-level questions are structurally awkward for it. Asking "how many letter R's are in this word" or "reverse this string" is asking a system that perceives `straw` + `berry` to reason about something it cannot directly observe. It will often get it right anyway, by pattern rather than by counting, and it will sometimes get it confidently wrong. That is not a bug in a particular model; it falls out of the representation.
 
@@ -82,7 +82,7 @@ Having a distribution is not the same as having an answer. Something has to **ch
 
 The simplest strategy is *greedy*: always take the highest-probability token. It produces flat, repetitive text and tends to fall into loops. So real systems sample randomly from the distribution, and give you knobs to reshape it first.
 
-**Temperature** rescales the distribution before sampling. Low temperature exaggerates the differences between candidates, making the likely ones even more likely; high temperature flattens the differences, giving unlikely candidates a real chance. Typical ranges run from `0` to about `2`, with `1` meaning "use the distribution as computed".
+**Temperature** rescales the distribution before sampling. Low temperature exaggerates the differences between candidates, making the likely ones even more likely; high temperature flattens the differences, giving unlikely candidates a real chance. The allowed range depends on the provider — commonly `0` to `1` or `0` to `2` — and on either scale `1` means "use the distribution as computed".
 
 Take the flat `My favorite color is` example. Roughly what happens at three settings:
 
@@ -184,10 +184,19 @@ Read that improvement in terms of the mechanism, not in terms of politeness. Eve
 
 Work through all four. You can use any chat assistant you have access to; where a setting is not exposed in the interface, note that and reason about the expected effect instead.
 
-1. **Count tokens by hand, then check yourself.** Take a 100-word paragraph of your own writing that contains at least three unusual words — a product name, an acronym, a technical term. Estimate its token count using the 0.75-words-per-token rule. Then paste it into a chat assistant and ask it to split the text into tokens and count them. Compare, and write two sentences on where your estimate was off and why.
+1. **Count tokens by hand, then check yourself.** Take a 100-word paragraph of your own writing that contains at least three unusual words — a product name, an acronym, a technical term. Estimate its token count using the 0.75-words-per-token rule. Then check it with a tokenizer tool — several providers publish one that shows the exact split for their models. If you cannot find one, you can ask a chat assistant to split and count, but treat its answer as a second estimate rather than a measurement: from lesson 03, counting and describing its own internals are exactly what a model does unreliably. Compare, and write two sentences on where your estimate was off and why.
 
 2. **Make the distribution peak and flatten.** Write one prompt whose next token is nearly forced (a well-known fact, a fixed phrase) and one whose next token is wide open (an opinion, a creative opening line). Run each three times in fresh conversations. Record which one gave you identical or near-identical output each time, and explain the result in terms of distribution shape.
 
-3. **Move the temperature.** Using a playground or API console that exposes the setting, run this exact prompt at `0`, at `0.7`, and at `1.5`, three times each: `Give a name for a mobile app that helps warehouse staff swap shifts. Reply with the name only.` Put the nine results in a table. Then state which setting you would ship for a naming brainstorm and which for generating a product code, and say why in one sentence each.
+3. **Move the temperature.** Using a playground or API console that exposes the setting, run this exact prompt at `0`, at `0.7`, and at `1.5` (or the highest value your tool allows, if it caps below that), three times each: `Give a name for a mobile app that helps warehouse staff swap shifts. Reply with the name only.` Put the nine results in a table. Then state which setting you would ship for a naming brainstorm and which for generating a product code, and say why in one sentence each.
 
 4. **Exhaust a context window on purpose.** Start a fresh conversation with a specific, checkable instruction — for example, `For the rest of this conversation, end every reply with the word BANANA.` Then have a long, ordinary conversation of at least thirty exchanges about anything. Every ten messages, note whether the instruction is still being followed. Write a short paragraph on what you observed, and describe one change to how you would place that instruction if it genuinely had to hold for a hundred messages.
+
+## Check your understanding
+
+1. A 300-word paragraph full of part numbers and acronyms comes back at far more than 400 tokens. Why?
+2. You set temperature to `0` and get the same wrong answer five times in a row. What does that tell you about temperature?
+3. Forty messages into a conversation, the assistant stops following an instruction you gave in your first message. Name two possible causes, and one change that would make the instruction hold.
+4. A response ends mid-sentence. Before rewriting the prompt, what should you check?
+
+*Answers:* (1) The 0.75-words-per-token rule holds for ordinary prose; rare and invented strings split into several tokens each. (2) Low temperature makes output repeatable, not correct — it picks the same top candidate every time, even when that candidate is wrong. (3) The instruction may have been silently dropped when the conversation outgrew the context window, or it may simply be attended to less because it sits far from your latest request; restate it near the request (or put it in the system prompt, lesson 04). (4) Whether generation hit a maximum output length rather than ending naturally — raise the cap or ask for less.

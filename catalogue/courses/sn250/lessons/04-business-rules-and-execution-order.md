@@ -105,13 +105,15 @@ The trade-offs are real. `previous` is **null** in an async rule, so you cannot 
 (function executeRule(current, previous /*null when async*/) {
 
   // Recalculate a rolled-up count on the parent — safe to be a second late.
-  var parentId = current.getValue('parent');
+  // Rule on incident_task. Its link to the incident is the 'incident' field,
+  // the same one the after-rule example above queries.
+  var parentId = current.getValue('incident');
   if (!parentId) {
     return;
   }
 
   var ga = new GlideAggregate('incident_task');
-  ga.addQuery('parent', parentId);
+  ga.addQuery('incident', parentId);
   ga.addQuery('active', true);
   ga.addAggregate('COUNT');
   ga.query();
@@ -250,8 +252,10 @@ That is three pieces of work with three different timings, and putting them in o
 **Stamp the assignment time** is field manipulation on the record being saved. Before rule, condition `current.assignment_group.changes() && current.priority == 1`:
 
 ```javascript
-current.setValue('u_assigned_at', gs.nowDateTime());
+current.setValue('u_assigned_at', new GlideDateTime().getValue());
 ```
+
+Use `new GlideDateTime()` here rather than `gs.nowDateTime()`: the latter returns the time formatted for the *user's* display and time zone, which is the wrong format to store in a date/time field, and it is not available in scoped applications at all.
 
 **Notify the manager** needs the saved record and touches something else, and the user should not wait for it. After or async — async, because an email send should never be inside a user's save. The condition goes on the rule, since `previous` is null in the script. The one line below hands the work to the platform's event queue, which is lesson 9's subject; all that matters here is the timing decision:
 
@@ -285,3 +289,10 @@ Work on a sub-production instance. Give every rule a name that says what it does
 7. **Query rule.** Add a checkbox field to a table you own, write a query business rule that hides checked records from users without a role you choose, and verify with impersonation. Then find and describe the flaw in your own early-return condition.
 
 8. **Choose the timing.** For each of these, name the When value and one sentence of justification: recalculating a due date from a priority; sending a record to an external ticketing system; preventing deletion of a record with children; showing a client script the caller's contract tier; hiding archived rows from a related list.
+
+## Check your understanding
+
+1. A rule must set `u_region` from the caller's location whenever an incident is saved. Which When, and does it call `update()`? *Before; no — it changes the record already being written.*
+2. Why is `previous` useless inside an async rule's script, and where does the "did it change?" test go instead? *It is null in async rules; put `changes()`/`changesTo()` in the rule's condition, evaluated at write time.*
+3. Two before rules set `assignment_group`, orders 100 and 200. Which value is saved? *The order-200 rule's, because it runs last.*
+4. Which tool shows every rule that ran for a save, in order? *Session debug: Debug Business Rule.*

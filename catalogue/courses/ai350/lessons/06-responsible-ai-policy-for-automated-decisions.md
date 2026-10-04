@@ -50,6 +50,8 @@ Now assign every decision in your automations to a tier and write the resulting 
 | Publish content to the public website       | Med  | Named editor approves each item       |
 ```
 
+If you checked that table against the criteria, you noticed that a refund under $50 "affects money" and so meets the High criteria, yet it sits at Medium. That is deliberate, and it is how a real table should look: the criteria set the default, and a downgrade is a recorded decision with a reason — here, the outcome is favourable to the customer, small, and reversible, and an agent still approves it. The reverse never happens: an adverse money decision, such as denying a refund, does not get downgraded. Whenever your table departs from the criteria, write the reason next to the row so the next reader does not mistake a decision for a mistake.
+
 ### Finding the decisions you did not know you had
 
 Most people list four or five decisions and stop, because they are listing the ones with obvious names. The interesting ones hide inside steps that look purely technical.
@@ -219,3 +221,9 @@ Finally, write down what you were unsure about. A policy draft that says "we hav
 5. **Design the decision record** for your workflow: the exact field list, where it is written, its retention, and who can read it. Check it against your redaction rules from the security lesson — the record must not become a new store of personal data.
 6. **Write the policy.** Two pages, using the template, with sections 5, 6, 10, and 12 complete and the rest at least sketched. Fill in the owner and reviewer names. Mark unresolved questions explicitly as open questions with the argument on each side.
 7. **Send it for approval.** Identify the actual person who would approve it, write the covering paragraph, and — if your circumstances allow — send it and record what came back. Note every place your draft was corrected; that feedback is the most useful part of the exercise.
+
+## Check your understanding
+
+1. A reviewer approves 99.8% of drafts at eight seconds each. What does the policy need? *Evidence that review is real: either fix the review conditions (time, information to disagree, authority, overload fallback) or move the decision to a tier that reflects what is actually happening.*
+2. Why does "denying a warranty claim" sit at High while "approving" one might not? *Adverse outcomes climb a tier: the denial is where harm and the need for recourse live, so it needs a human decision.*
+3. Why does the decision record hold a `subject_ref` instead of the customer's name and email? *So the record can be retrieved for a rights request without becoming a second store of personal data.*

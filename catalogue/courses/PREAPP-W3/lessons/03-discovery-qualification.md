@@ -72,6 +72,12 @@ The single hardest habit to build is silence. After you ask a real question, sto
 
 Discovery produces information. Qualification is the decision you make with it. You need explicit criteria written down *before* you look at your pipeline, or you will rationalize every contact you like into staying.
 
+Your pipeline is not a list of buyers; it is a list of people who might hire you or point you toward someone who will. The framework still applies — translate it before you score:
+
+- **Need** — does their team have a gap you could fill? An open junior or apprentice-track role, a team that is growing, or a practitioner who told you they are short-handed.
+- **Authority** — can they hire, or do they know exactly who does? A hiring manager or early-career program owner is a 2; a practitioner who offered to refer you is a 1.
+- **Timing** — is there a hiring window? A role posted this month, an apprenticeship cohort with an application date, or "we're hiring again in Q3."
+
 Use a simple, defensible scheme. Score every contact in your pipeline 0-2 on each of the three:
 
 - **Need** — 0: none identified. 1: a plausible need you inferred. 2: a need they described in their own words.

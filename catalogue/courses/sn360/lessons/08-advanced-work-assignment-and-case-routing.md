@@ -164,3 +164,12 @@ Then read the design back critically, which is the part that separates a working
 6. **Route the chat handoff.** Connect lesson 07's live agent transfer to a chat queue with a short offer timeout, verify the transcript arrives with the item, and implement the out-of-hours path that creates a case quoting the correct SLA.
 
 7. **Interrogate your own design.** Write down two cases whose correct routing your configuration currently gets wrong — as in the Premium-versus-German conflict above — and for each, state the two options and which you would recommend to the customer, with the reason.
+
+## Check your understanding
+
+1. When is Advanced Work Assignment justified over assignment rules or a flow?
+2. Two queues both match an item. Which one takes it?
+3. Why order a queue by SLA time remaining rather than creation time?
+4. Weekly catch-all volume is rising. What does that usually mean?
+
+*Answers:* (1) When agents work multiple channels, work must reach a person rather than a list, capacity matters, or skills decide eligibility. (2) The first matching queue in evaluation order. (3) Fairness and correctness diverge when you are behind; SLA order works the case closest to breach first. (4) A routing bug, often a new queue with a wrong condition, not a demand signal.

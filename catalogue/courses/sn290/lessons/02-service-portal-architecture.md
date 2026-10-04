@@ -180,3 +180,12 @@ Work in a personal developer instance. Do not edit the out-of-box portal or its 
 4. **Place and configure instances.** Drop any list-style out-of-box widget into your 8-unit column and a second copy of the *same widget* into the 4-unit column. Give the two instances different titles and different option values so they show different data. Confirm you did this with two instances and one widget.
 5. **Prove role gating.** Put a fourth instance in the third band and set a role on it that your test user does not have. Impersonate that user, reload, and confirm the instance is absent — not empty, absent.
 6. **Break it on purpose.** Change the second band's row so its columns are sized 8 and 8. Reload, observe the wrap, and explain in one sentence why it happened. Set it back.
+
+## Check your understanding
+
+1. A stakeholder says the card on the right of the home page shows the wrong title. Name, in order, the records you walk to reach the one you change.
+2. You need "the same list, but for changes." Second widget or second instance? Why?
+3. Why do you copy the theme before changing a single colour?
+4. A rule that only one page needs is sitting in the theme. What will go wrong, and where should it live?
+
+*Answers:* (1) Portal (URL suffix) → page (the `id` in the URL) → container → row → column → widget instance; the title is on the instance. (2) A second instance with different option values; the difference is data, not behaviour. (3) Themes are shared by reference, so editing the original changes every portal that points at it. (4) It applies to every page and confuses whoever debugs an unrelated screen; put it in the page's CSS field.

@@ -90,7 +90,6 @@ AcmeIncidentUtils.prototype = {
     var closed = [];
     var gr = new GlideRecord('incident');
     gr.addQuery('state', '6');
-    gr.addQuery('active', true);
     gr.setLimit(limit || 500);
     gr.query();
 
@@ -146,7 +145,7 @@ AcmeIncidentAjax.prototype = Object.extendsObject(global.AbstractAjaxProcessor, 
 
   getOpenCountForCaller: function () {
     var callerId = this.getParameter('sysparm_caller');
-    if (!callerId) {
+    if (!gs.hasRole('itil') || typeof callerId !== 'string' || !/^[0-9a-f]{32}$/i.test(callerId)) {
       return '0';
     }
     var ga = new GlideAggregate('incident');
@@ -160,11 +159,14 @@ AcmeIncidentAjax.prototype = Object.extendsObject(global.AbstractAjaxProcessor, 
 
   getCallerSummary: function () {
     var callerId = this.getParameter('sysparm_caller');
+    if (!gs.hasRole('itil') || typeof callerId !== 'string' || !/^[0-9a-f]{32}$/i.test(callerId)) {
+      return '{}';
+    }
     var summary = { openCount: 0, vip: false, location: '' };
 
-    var user = new GlideRecord('sys_user');
+    var user = new GlideRecordSecure('sys_user');
     if (user.get(callerId)) {
-      summary.vip = user.getValue('vip') === 'true';
+      summary.vip = user.getValue('vip') === '1';
       summary.location = user.getDisplayValue('location');
       summary.openCount = parseInt(this.getOpenCountForCaller(), 10);
     }
@@ -228,7 +230,10 @@ AcmeMajorIncidentUtils.prototype = Object.extendsObject(AcmeIncidentUtils, {
 
   isEligibleForAutoClose: function (incidentGr) {
     // Major incidents are never auto-closed.
-    if (incidentGr.getValue('u_major') === 'true') {
+    if (!incidentGr || !incidentGr.isValidRecord()) {
+      return false;
+    }
+    if (incidentGr.getValue('u_major') === '1') {
       return false;
     }
     return AcmeIncidentUtils.prototype.isEligibleForAutoClose.call(this, incidentGr);
@@ -372,7 +377,9 @@ AcmeRoutingUtils.prototype = {
    * or '' when no rule applies.
    */
   groupForIncident: function (incidentGr) {
-    if (!incidentGr || !incidentGr.isValidRecord()) {
+    if (!incidentGr || typeof incidentGr.isValidRecord !== 'function' ||
+        (!incidentGr.isValidRecord() && !incidentGr.isNewRecord()) ||
+        !incidentGr.getValue('category')) {
       return '';
     }
     var category = incidentGr.getValue('category') || '';
@@ -434,3 +441,10 @@ Work in a scoped application on a sub-production instance so the scope behaviour
 7. **Cross scope.** Set your include's *Accessible from* to `This application scope only` and try to call it from a global background script. Read the error. Widen it, call it with the full API name, and note both forms in a comment.
 
 8. **Test it.** Write an ATF test with a server-side script step that asserts two behaviours of your routing or formatting include, including one negative case. Run it and confirm it passes; then break the include deliberately and confirm the test fails.
+
+## Check your understanding
+
+1. A script include named `AcmeRouting` contains `var AcmeRoutingUtils = Class.create();`. Why does `new AcmeRoutingUtils()` fail from a business rule? *The loader finds the script by the record's Name; Name and class name must match exactly.*
+2. Inside a class method you call `groupIdByName('Network Support')` and get "not defined". What is missing? *`this.` — methods call each other as `this.groupIdByName(...)`.*
+3. Why must a client-callable method return a string? *The answer crosses the network to the browser; serialise objects with `JSON.stringify`.*
+4. A client-callable method accepts a table name and an encoded query from `sysparm_*`. What is wrong with it? *Any authenticated user can call it with any table and query; it is a data-exfiltration tool. Answer specific questions and check roles or use GlideRecordSecure.*

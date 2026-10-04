@@ -17,7 +17,7 @@ An instance can feel overwhelming for about a week and then feels small forever,
 
 Sign in and look at the top of the window. The **banner** carries the instance's identity, global search, and your profile menu. The profile menu is where you find settings, and — much more importantly for an implementer — where you find **Impersonate User**, which lets you see the instance exactly as another person sees it. You will use impersonation constantly once you get to access control, because it is the only honest way to test whether a permission change worked.
 
-Down the left is the **navigator**. It has two tabs worth knowing: **All**, which lists every application and module you have access to, and **Favorites**, which lists the ones you pinned. Some instances also show a History tab holding recently-visited records. At the top of the navigator is a filter box, and that box is the single most useful control in the product.
+The **navigator** is where you find applications and modules. On the classic interface it runs down the left of the window; on instances using the Next Experience header (the default on new personal developer instances) the same menus open from **All**, **Favorites**, and **History** in the top bar. Either way it has two parts worth knowing: **All**, which lists every application and module you have access to, and **Favorites**, which lists the ones you pinned. Some instances also show a History tab holding recently-visited records. At the top of the navigator is a filter box, and that box is the single most useful control in the product.
 
 Type into the filter box and the menu narrows as you type. Type `incident` and you get the Incident application and its modules. But the filter box also accepts two shortcuts that experienced implementers use more than the menu itself:
 
@@ -86,7 +86,7 @@ Someone asks: *"How many active critical incidents does the Network team have, a
 
 1. In the navigator filter box, type `incident.list` and press Enter. You are on the incident list with whatever filter you last used, which is why the breadcrumb matters — click **All** to clear it.
 2. Open the condition builder. Add `Active` `is` `true`. Add a second row: `Priority` `is` `1 - Critical`. Add a third: `Assignment group` `is` `Network`. Run the filter. The breadcrumb now reads back your three conditions and the footer shows the count. That is the number.
-3. Right-click the **Priority** column header and choose **Group By** if you want the breakdown by another dimension, or right-click a header and use **Configure > List Layout** to add columns the requester will want, such as Opened and Assigned to.
+3. Right-click the header of the column you want a breakdown by — **Category**, say — and choose **Group By**, or right-click a header and use **Configure > List Layout** to add columns the requester will want, such as Opened and Assigned to.
 4. Use the list's context menu to **Export > CSV**. The export contains exactly the rows and columns on screen.
 
 Then, because you will be asked this again next week, save the filter with a clear name and share it with the group. The whole exchange took no configuration, no report builder, and no script.

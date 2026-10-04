@@ -60,7 +60,7 @@ Now convert the specification into dated slots. The calendar is the deliverable,
 
 Sequence the two weeks with a shape. A reliable one:
 
-- **Days 1 to 4 — story.** Content about the work, not the event. Behind the scenes of what you are building, a problem you hit, a decision you made. This warms the audience and gives the algorithm a reason to show your later posts to more of them.
+- **Days 1 to 4 — story.** Content about the work, not the event. Behind the scenes of what you are building, a problem you hit, a decision you made. This warms the audience and gives the algorithm — the automated system that decides which posts each person's feed shows — a reason to show your later posts to more of them.
 - **Days 5 to 8 — proof.** The result. A screenshot, a short clip, a number, a before-and-after. This is where the invitation gets its credibility.
 - **Days 9 to 12 — invitation.** Explicit asks, in public and in private. The event, the date, the link, and why the reader specifically would want to be there.
 - **Days 13 to 14 — reminder.** Short, low-effort, aimed only at people who already said yes or engaged.

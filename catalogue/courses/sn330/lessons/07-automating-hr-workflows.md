@@ -58,6 +58,9 @@ Here is a compact before-rule example: deriving a case's due date and confidenti
   // Purpose: derive values so agents and SLAs have them at insert time.
   // NOTE: all person-based logic reads the SUBJECT person, not the caller.
 
+  // Field names below (subject_person, hr_service.confidential, work_region,
+  // u_work_region) are illustrative. Check the dictionary of your HR case and
+  // HR profile tables on your release and use the actual field names.
   var subject = current.subject_person; // reference to the person the case is about
 
   // 1. Confidentiality flag: some services are always restricted.
@@ -196,3 +199,12 @@ Work in a development instance, using the HR services, tasks, and lifecycle even
 7. **Break it deliberately.** Remove the manager from your test subject's HR profile and run the flow. Then empty the fulfillment assignment group and run it again. For each, record what happened, whether a human would have found out, and what you changed to make the failure visible.
 
 8. **Read the execution log.** Open the flow execution details for one failed run and identify the exact action and input that caused the failure. Write two or three sentences describing what you saw and how you would explain it to a support colleague who did not build the flow.
+
+## Check your understanding
+
+1. "Set the case's region from the subject's HR profile at insert." Business rule or flow? Before or after?
+2. "Ask the manager to approve, remind after three days, escalate after five." Business rule or flow?
+3. The flow works when an administrator tests it and fails for everyone else. What do you check first?
+4. What four non-approved paths must every HR approval design answer?
+
+*Answers:* (1) A before insert business rule; it is synchronous field derivation on one record. (2) A flow; it involves a human and waiting. (3) Scope and cross-scope access, then the run-as context and ACLs. (4) Rejection, no response (reminder, escalation, timeout), approver is the subject, and approver has left or is on leave.

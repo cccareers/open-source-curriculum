@@ -54,7 +54,7 @@ Small accounts should usually run bundle tests, and should say so out loud. The 
 
 Northgate gets paid for booked jobs, not for clicks. So the primary metric on an ad test is conversion rate, or better, cost per acquisition. Click-through rate is a diagnostic, not a verdict.
 
-Here is why that matters, with numbers. Two AC Repair ads, same ad group, same 30-day window, same 10,000 impressions each.
+Here is why that matters, with numbers. Two AC Repair ads, same ad group, same 30-day window, roughly 10,000 impressions each.
 
 | Variant | Impressions | Clicks | CTR | Spend | Conversions | Conv rate | CPA |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -375,7 +375,8 @@ Changed:          Headline set and description 1. Landing page,
 Primary metric:   Conversion rate (form + call over 60s)
 Secondary:        CTR, CPA, call duration
 Baseline:         10.99%
-MDE:              +40% relative
+MDE:              +50% relative (formula gives 614 per variant;
+                  650 planned for a small margin)
 Sample planned:   650 clicks per variant
 Run planned:      8 full weeks, 2024-05-06 to 2024-06-30
 Stop rule:        Read once at end of window. No interim decisions.

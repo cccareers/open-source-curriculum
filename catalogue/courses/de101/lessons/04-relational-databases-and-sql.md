@@ -88,7 +88,7 @@ SELECT
 FROM orders;
 ```
 
-`CASE` evaluates top to bottom and stops at the first match, so order the branches from most specific to least. Always give a derived column an explicit alias — an unnamed expression column arrives downstream with a database-generated name that differs between engines.
+`CASE` evaluates top to bottom and stops at the first match, so order the branches from most specific to least. (`CURRENT_DATE - 30` is PostgreSQL date arithmetic and means "30 days ago"; MySQL writes it `CURRENT_DATE - INTERVAL 30 DAY` and SQLite `DATE('now', '-30 days')`.) Always give a derived column an explicit alias — an unnamed expression column arrives downstream with a database-generated name that differs between engines.
 
 ## Joining across tables
 
@@ -314,7 +314,7 @@ Then write and run a query for each of the following. For every one, write a one
 4. Monthly order count and revenue for the whole dataset, with one row per month.
 5. The top five products by units sold, with their category name and their share of total units.
 6. Customers who have ordered from more than one category, with the count of distinct categories.
-7. Orders whose header count of lines disagrees with the number of `order_lines` rows actually present — a reconciliation query that should return zero rows against clean data.
+7. Orders whose header count of lines disagrees with the number of `order_lines` rows actually present — a reconciliation query that should return zero rows against clean data. The lesson 3 `orders` table has no header count, so add an `expected_line_count INT` column to `orders` when you generate your data, set it from the lines you create, and deliberately make two orders wrong so the query has something to find.
 8. Average order value by customer state, treating a null state as its own group labelled `unknown`.
 
 **Deliberate-error exercise.** Write the revenue-by-category query a second time, this time joining `orders` to `order_lines` and summing an order-level total instead of a line-level one. Run both. Report the two numbers, explain precisely why they differ, and state the rule you will use in future to catch this before it reaches a dashboard.

@@ -127,7 +127,7 @@ Close the loop out loud. Tell participants what changed because of them, and tel
 
 ## Practice
 
-Use the prototype you have been iterating, updated with the trust and accessibility changes from the previous lesson.
+Use the prototype you have been iterating, updated with the trust and accessibility changes from the previous lesson. The three sessions asked for below are a practice minimum, not the five to eight recommended above; treat findings from three participants as directional, and say so in your write-up.
 
 1. **Write the session plan.** Name the three questions the session will answer. Name your participant group and say honestly how close it is to the real users.
 2. **Write three tasks** in task form, not instruction form. At least one must involve an output that is subtly wrong. Prepare the actual seeded content — real examples, plus your planted error.
@@ -136,3 +136,12 @@ Use the prototype you have been iterating, updated with the trust and accessibil
 5. **Do the three-step analysis.** Produce the observation list, then the findings-to-changes table with evidence counts, severities, and decisions. At least one row must be a finding no participant reported.
 6. **Make the two highest-severity changes** to the prototype, then re-test them with one new participant on the same tasks. Record in your iteration log whether the change worked, made no difference, or created a new problem.
 7. **Write the loop-closing note** — under 150 words, to your participants: what you saw, what you changed because of them, and what you did not change and why.
+
+## Check your understanding
+
+1. Rewrite "Click the Reject button if the draft is wrong" as a task.
+2. Why plant a subtly wrong output in the prototype instead of asking participants whether they would catch errors?
+3. Three participants sent the planted error without checking. Is that one finding or three? How severe?
+4. A participant asks, "Should I click that?" What do you say?
+
+Answers: (1) Something like "This reply is wrong about our refund window. Do whatever you'd normally do." (2) What people do is evidence; what they say they would do is a prediction, and the two disagree. (3) One finding with three observations as evidence — likely critical, judged against your failure criteria, even though nobody complained. (4) "What would you do if I weren't here?"

@@ -146,3 +146,12 @@ The correct product is 26,714,132. Two runs right, one wrong, all three delivere
 3. **Make a selection decision and justify it.** For each of these three scenarios, choose a capability tier and name the axis that decided it: (a) a browser tool that rewrites a sentence as you type, used a few thousand times a day; (b) a weekly job summarizing every clause in a set of 60-page vendor contracts; (c) an internal helper that routes incoming email into six folders. Write no more than three sentences per scenario, and for each state the one measurement you would take before committing.
 
 4. **Build a ten-item test set.** Pick one real recurring task from exercise 1. Collect ten genuine inputs and write the output you would accept for each. Run all ten through two different models or two capability tiers. Score each output pass or fail against your own accepted answer, and report the two pass rates plus one sentence on which model you would use and why. Keep the file — you will reuse this test set in lesson 07.
+
+## Check your understanding
+
+1. Using this lesson's question — how bad is a wrong answer, and how cheaply can you detect one? — place each task in "delegate freely", "delegate and verify", or "do not delegate": rewriting a meeting note for tone; stating a customer's current account balance from memory; listing twenty edge cases for a test plan.
+2. A model's answer includes a precise statistic with a named source you did not supply. What is your first move, and why?
+3. A cheap model costs a quarter of a strong one per call but its outputs need a careful human review, while the strong model's need only a glance. What else must you count before choosing the cheap one?
+4. Why is "Are you good at math?" a poor probe, and what does a good probe look like?
+
+*Answers:* (1) Tone rewrite: delegate freely (source present, errors visible). Account balance: do not delegate — the data is private and not in the model, and a wrong figure is expensive. Edge cases: delegate freely — you are the filter and a bad idea costs nothing. (2) Verify it against the named source: specificity without a source in the context is the classic sign of fabrication. (3) Retry and verification cost — the human minutes spent checking often dwarf the API bill. (4) It asks for self-knowledge, which is just generated text; a good probe is a checkable task run several times and compared against a known answer.

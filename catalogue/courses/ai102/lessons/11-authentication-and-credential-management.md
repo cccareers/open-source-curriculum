@@ -164,3 +164,9 @@ Use the platforms, base, and API from lessons 03 through 10.
 9. **Run a leak drill.** Pick one credential and walk the full response sequence on paper against a real timeline: exactly where would you revoke it, where is the replacement issued, which workflows need updating, where is the provider's audit log, and who is told. Then run steps one and two for real on a low-value test key and time it.
 
 10. **Do a quarterly review now.** Go through every connection in both platforms and answer the four review questions. Delete what is unused, and write a short list of the changes you made and the two riskiest items remaining in your build.
+
+## Check your understanding
+
+1. An automation authorised with OAuth by a colleague stops the day after they leave. Why, and what prevents it next time? *Answer: an OAuth grant belongs to the user who approved it, and deactivating their account ends it. Authorise integrations from a service account or a client-credentials app owned by a team, and record every connection in the register.*
+2. In the six-step rotation sequence, what does checking the provider's usage log before revoking the old key protect against? *Answer: a forgotten second workflow still using the old key, which would break the moment you revoke it.*
+3. A key has been pasted into a team chat. What is the very first action? *Answer: revoke it, then investigate. Issue a replacement, update connections, check the audit log for the exposure window, and record how the leak happened.*

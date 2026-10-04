@@ -105,7 +105,7 @@ Three disciplines around this:
 
 **Keep the clause library separate from the template.** One clause, one identifier, one owner, one approval date. Templates reference clauses by ID. This is what makes "update the liability clause everywhere" a five-minute job instead of a search across 40 templates.
 
-**Compute all money in the workflow.** Line-item totals, subtotals, taxes, the grand total. The model never sees an arithmetic task. Then assert: `sum(deliverables.hours * rate) == engagement.total_value`, and fail generation if it does not hold. A document whose line items do not sum to its total is the kind of error that ends up in a dispute.
+**Compute all money in the workflow.** Line-item totals, subtotals, taxes, the grand total. The model never sees an arithmetic task. Then assert: `sum(deliverables.hours * rate) == engagement.total_value`, and fail generation if it does not hold. The data contract above has no `rate` field yet; add one — a single hourly rate from your rate card, or a rate per deliverable — before you write the assertion. With one rate of 525.00, the 160 hours above reconcile to 84,000.00 exactly. A document whose line items do not sum to its total is the kind of error that ends up in a dispute.
 
 ## Prompting the generated sections
 

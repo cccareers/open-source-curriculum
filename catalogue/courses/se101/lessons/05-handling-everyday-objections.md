@@ -91,6 +91,8 @@ Five steps. Practice them until they are automatic, then stop thinking about the
 
 No argument, no discount, and the customer's own number is doing the persuading.
 
+One caution about the evidence step. The rep above can cite "two companies I've worked with in your sector" only because that is true. If you are new and have no comparable customers of your own, do not borrow someone else's story as if it were yours — use a published case study your company has approved, the customer's own numbers, or an offer to test on their data. A reference the customer later finds you exaggerated costs far more than the objection did.
+
 **Price.**
 
 > **Customer:** That's a lot more than we budgeted.
@@ -118,3 +120,9 @@ Work in pairs, five minutes per round, swapping roles each time. The customer pl
 3. Take the round that went worst and write out the four-sentence response you wish you had given: acknowledgement, clarifying question, evidence, confirmation.
 4. Now do one round where the customer plays a genuine blocker of their own invention. The representative's job is to stop selling within thirty seconds and leave with a specific date to return.
 5. Write down the two objections you personally find hardest to hear and one sentence on why. That is your drill list for next week.
+
+## Check your understanding
+
+1. Brush-off, objection, or blocker? (a) "Just send me a brochure." early in a first call. (b) "Our data policy forbids storing client records outside our own servers." (c) "We tried a tool like this two years ago and nobody used it." *(Answers: (a) brush-off; (b) blocker, if the policy is real and current — confirm it; (c) objection.)*
+2. Which step in the five-step pattern do people most often skip, and why does it matter? *(Answer: the clarifying question — without it you answer the objection you assumed rather than the one the customer actually has.)*
+3. Give two reasons a discount is the wrong first response to "too expensive." *(Any two: it answers a question that was probably not asked; it teaches the customer that pushing works; it signals your price was never real.)*

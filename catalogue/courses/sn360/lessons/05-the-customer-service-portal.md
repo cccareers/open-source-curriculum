@@ -177,3 +177,12 @@ Steps 1 through 5 take an afternoon. Step 6 takes longer and matters more.
 6. **Restrict a reference field.** Make the installed product field on the customer-facing case form show only install base items belonging to the logged-in user's account. Prove the restriction holds when the field is queried directly rather than through the form.
 
 7. **Run the security checklist.** Work through the six-item checklist in this lesson against your portal and write one line per item saying pass, fail, or not applicable, with what you changed for each failure.
+
+## Check your understanding
+
+1. In what order should you customize the shipped customer portal?
+2. A case list widget is filtered to the user's account. Is that enough to stop one customer reading another's case?
+3. Why should a B2B registration flow use domain matching only to suggest an account?
+4. What does a customer need on the login page that is easy to forget?
+
+*Answers:* (1) Portal record and theme, then widget instance options, then cloned page layouts, then a new widget only if nothing else works. (2) No; filters shape what a page shows, access controls decide what a user may retrieve. (3) Domains are shared, personal, or lookalike; human approval confirms the account. (4) A documented human path (phone or monitored email) for people who cannot log in.
