@@ -167,3 +167,9 @@ For each row, write the finding as one sentence that a non-technical practice ma
 **Part 3 — Trace an intrusion.** Choose three of your findings from Part 2 and, for each, write a short paragraph describing a realistic sequence of intrusion phases in which that weakness is used — which phase it serves, what the attacker would do immediately before and after, and at which phase Rowan would most plausibly have noticed. This is a defensive reasoning exercise: describe the phases at the level of the table in this lesson, not as instructions.
 
 **Deliverable:** one document with the eight-item sort, the findings table, and the three traces. You will re-use the findings table in lesson 04 — do not throw it away.
+
+## Check your understanding
+
+1. "A shared administrator password used by four people" — threat, threat actor, vulnerability, or attack vector? *Vulnerability: a weakness in your environment (and it destroys non-repudiation).*
+2. Why does password spraying succeed where brute force fails? *It tries one common password against many accounts, staying under per-account lockout thresholds.*
+3. Rewrite "They could be targeted by a nation-state" as a usable finding about Harlow & Finch. *Example: "The reception PC runs an unsupported operating system on the same network as the client file server, so any opportunistic malware that reaches it has a permanent foothold." A finding describes a local weakness, not a frightening actor.*

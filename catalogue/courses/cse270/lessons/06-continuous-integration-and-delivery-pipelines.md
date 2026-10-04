@@ -27,7 +27,7 @@ A **runner** (also called an agent or executor) is the machine that does the wor
 
 Three products you will meet: **GitHub Actions**, where the file lives at `.github/workflows/` and jobs run on GitHub-hosted or self-hosted runners; **Jenkins**, where a `Jenkinsfile` describes stages and an agent executes them; and **Azure DevOps Pipelines**, with `azure-pipelines.yml` and its own agent pools. Their syntax differs and their words differ — Jenkins says "stage" where Actions says "job" — but the model above is the same in all three, which is why the examples in this lesson use a generic runner. Translate the keys; do not re-learn the concepts.
 
-Here is the generic form used throughout:
+Here is the generic form used throughout. It borrows GitHub Actions' shape because it is the most widely seen, but drops the `actions/` owner prefix on `uses:` lines to stay neutral; in a real Actions workflow you would write `actions/checkout@v4`. Expressions such as `${{ secrets.X }}` and `github.ref` are likewise Actions syntax, and each platform has its own equivalent.
 
 ```yaml
 name: deploy-inventory-tool
@@ -195,7 +195,7 @@ Use a repository containing the Bash script from lesson 03 and the Python script
 
 3. **Split the trigger.** Add `push` to `main` alongside the pull-request trigger, then add a `deploy` job that depends on `lint` and `test` and is conditional on the branch being `main`. For now, make it echo the commit it would deploy. Open a pull request and confirm the deploy job does not run; merge it and confirm it does.
 
-4. **Wire a real secret.** Store a sandbox credential in the platform's secret store, inject it as an environment variable in the deploy job only, and have the job run your Python script in dry-run mode against the sandbox. Confirm the credential is not visible anywhere in the job log or in the repository. Then deliberately try to `echo` it and observe what the runner masks — and what it does not.
+4. **Wire a real secret.** Store a sandbox credential in the platform's secret store, inject it as an environment variable in the deploy job only, and have the job run your Python script in dry-run mode against the sandbox. Confirm the credential is not visible anywhere in the job log or in the repository. Then add a *second*, throwaway secret whose value is a harmless dummy string (never the real credential), deliberately `echo` it, and observe what the runner masks — then echo it reversed or with a character inserted and observe what it does not. Delete the dummy secret afterwards.
 
 5. **Publish an artifact.** Have the deploy job write its dry-run report to a file and upload it as a build artifact. Download it from the run summary and confirm the contents.
 

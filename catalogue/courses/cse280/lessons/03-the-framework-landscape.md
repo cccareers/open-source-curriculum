@@ -18,7 +18,7 @@ People say "SOC 2, HIPAA, GDPR, and NIST" in one breath, as though they were fou
 
 - **SOC 2** is an **audit and reporting standard**. It is a way of having an independent accounting firm examine your controls and publish an opinion about them. It is not a law. Nobody can require you to have one by statute; customers require it by contract.
 - **HIPAA** is a **United States federal law** with implementing regulations, applying to a specific sector — healthcare — and to the organizations that handle health information on its behalf.
-- **GDPR** is a **European data protection regulation** with direct legal force, applying based on whose personal data you process and where you offer goods and services, not on where your company is incorporated.
+- **GDPR** is a **European data protection regulation** with direct legal force, whose territorial scope includes processing in the context of an EU establishment and certain activities directed at people in the Union.
 - **NIST** is a **standards body** that publishes **control catalogues and frameworks**. Its publications are voluntary in most contexts and mandatory in some — most notably in United States federal contracting, where a contract clause pulls them in.
 
 That taxonomy alone answers a surprising fraction of real questions. "Do we need SOC 2?" is a sales and contract question. "Does HIPAA apply to us?" is a legal question about what your organization does. "Are we NIST compliant?" is often not a well-formed question at all, because NIST publishes many things and the asker usually means one specific one.
@@ -71,7 +71,7 @@ Technical safeguards map onto things this course covers directly: access control
 
 **Category.** A European Union regulation on the protection of personal data. It has direct legal force in EU member states; the United Kingdom operates a closely related regime of its own after leaving the EU, and a growing number of jurisdictions have laws built on similar concepts. Treat "GDPR" as shorthand for a family of data protection regimes with shared vocabulary rather than as one isolated law.
 
-**Who it applies to.** Not "EU companies." It reaches organizations established in the EU, and also organizations outside it that offer goods or services to people in the EU or monitor their behaviour. That extraterritorial reach is why a company that has never had an office in Europe can still find itself in scope. Whether it applies to a given business is, again, a legal determination.
+**Who it applies to.** [Article 3](https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng) covers processing in the context of an EU establishment, regardless of where the processing takes place or the data subjects are located. For organizations without an EU establishment, it covers processing related to offering goods or services to people in the Union or monitoring their behaviour there. That extraterritorial reach is why a company that has never had an office in Europe can still find itself in scope. Whether it applies to a given business is, again, a legal determination.
 
 **The two roles.** This is the vocabulary you need most.
 
@@ -179,3 +179,9 @@ Below are five statements an engineer might write in a customer email. For each,
 5. "HIPAA doesn't apply to us because we never see patient names."
 
 Exchange the routing card from Exercise 1 with a classmate and test it against each other's Exercise 2 answers: if the card does not let a stranger route all six questions correctly, it is not finished.
+
+## Check your understanding
+
+1. A colleague writes "we are SOC 2 certified." What two things are wrong? *(SOC 2 produces an auditor's report, not a certificate; and the sentence should name the report type and period.)*
+2. Your company hosts a hospital's scheduling app. Which HIPAA role does your company most likely hold, and who decides for certain? *(Business associate; that is a legal determination for counsel.)*
+3. Why can a company with no European office still be in scope for GDPR? *(It applies to organizations offering goods or services to, or monitoring, people in the EU.)*

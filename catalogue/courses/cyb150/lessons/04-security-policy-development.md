@@ -299,3 +299,9 @@ Append a traceability table to your policy with one row per statement, mapping t
 **Exercise 5 — Write the exception, and find the one you cannot grant.**
 
 The analytics consultancy needs remote access from unmanaged laptops. Write the full exception record in the format shown in this lesson, including a compensating measure specific enough to be tested. Then: Meridian's largest clinic customer has a signed agreement requiring that all remote access to PHI use company-managed devices. Explain in three sentences what changes about your exception, who it now has to go to, and what you would write in the ticket to hand it over.
+
+## Check your understanding
+
+1. "Access must be reviewed regularly." What two defects does this statement have? *No frequency and no actor. Rewrite it with a role, a frequency, and a record, for example "System owners must review... at least once per quarter and record the outcome."*
+2. A statement names a specific VPN product. Where should the product name go? *In a standard beneath the policy, so the policy survives a technology change without re-approval.*
+3. Three exception requests arrive against the same statement in one quarter. What does that tell you? *The statement is probably a drafting defect. Review and fix the statement rather than granting exceptions indefinitely.*

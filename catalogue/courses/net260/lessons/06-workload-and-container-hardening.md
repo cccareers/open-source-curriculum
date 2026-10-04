@@ -297,3 +297,11 @@ Draft the image policy for the clinic environment as a fenced YAML block: block 
 **Exercise 5 — Run the review.**
 
 Against your lab environment, run the provider's posture management service (or an equivalent benchmark scan) plus a registry scan of at least two images. Produce a Workload Hardening Review in the format above with at least five findings covering both VM and container workloads. Each finding needs severity, evidence, the effect stated as what an attacker gains, a specific fix, an owner, a target date, and a verification step. Include at least one accepted risk with compensating controls and an expiry date. Keep this artifact — project 11 builds directly on it.
+
+## Check your understanding
+
+1. Why does `FROM python:3.12-slim` make a build non-reproducible, and what fixes it?
+2. An image was clean when it was built in March. In June it has two critical CVEs, and nothing in it changed. Which scanning point catches this?
+3. Name the two metadata-service settings that turn an SSRF from "stolen cloud credential" into a much smaller problem.
+
+**Answers:** (1) A tag is a mutable pointer, so the same line can pull different bytes later; pin by digest (`@sha256:...`). (2) Continuous registry re-scanning — the world changed, not the image. (3) Require the token-based metadata protocol (IMDSv2 or the provider's required-header equivalent) and set the response hop limit to 1.
