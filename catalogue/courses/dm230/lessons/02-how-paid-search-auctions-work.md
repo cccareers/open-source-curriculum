@@ -20,11 +20,11 @@ The correct model is this. A paid search auction is a ranking contest scored on 
 
 Everything in this course rests on that mechanism. Structure, keywords, ad copy, landing pages, and bidding all exist to move one of the two inputs, and the arithmetic in this lesson is what tells you which input to move. When Northgate Heating and Air, our running example, pays $8.20 per click for an emergency AC repair click in Columbus, that number is not a price tag posted by Google. It is an output of an auction that ran in about a tenth of a second, and it is negotiable through means other than raising or lowering the bid.
 
-Northgate is a residential heating and cooling contractor working a 25-mile radius from a single shop. A lead is a phone call over 60 seconds or a submitted "Book a Visit" form. Sixty percent of leads become booked jobs, the average repair job carries $180 in gross profit, so a repair lead is worth 0.60 x $180 = $108 in gross profit. That $108 is the ceiling on what Northgate can pay per lead before losing money, and their target is $60 per repair lead so that each one contributes $48. Hold those numbers. By the end of this lesson you will be able to say, in dollars, what a change in quality signals is worth to that business per month.
+Northgate is a residential heating and cooling contractor founded in 1994, working a 25-mile radius from a single shop. Staff answer calls and provide service from 7am to 9pm, seven days; an overnight form submission waits for the office to reopen. A lead is a phone call over 60 seconds or a submitted "Book a Visit" form. Sixty percent of leads become booked jobs, the average repair job carries $180 in gross profit, so a repair lead is worth 0.60 x $180 = $108 in gross profit. That $108 is the ceiling on what Northgate can pay per lead before losing money, and their target is $60 per repair lead so that each one contributes $48. Hold those numbers. By the end of this lesson you will be able to say, in dollars, what a change in quality signals is worth to that business per month.
 
 ## From Query to Rendered Page
 
-A homeowner in Westerville types "emergency ac repair columbus" at 9:14 p.m. on a July Tuesday. Between the keystroke and the pixels, roughly the following happens.
+A homeowner in Westerville types "emergency ac repair columbus" at 8:14 p.m. on a July Tuesday. Between the keystroke and the pixels, roughly the following happens.
 
 The search engine parses the query and its context: the device, the approximate location, the language setting, the time, and whatever signals it holds about this user. It then assembles the set of ads that are eligible to compete for that specific query in that specific context. Eligibility is a filter, not a contest. Being eligible only means you have earned the right to be scored.
 
@@ -40,7 +40,7 @@ Eligibility asks a series of yes-or-no questions, and a "no" anywhere removes yo
 
 Does a keyword in your account match this query, under the match type you assigned it? Match types control how loosely a keyword can be stretched to cover a query, and they are the subject of lesson 04. For now, treat matching as a gate: Northgate's keyword `emergency ac repair` must be judged by the engine to cover the query "emergency ac repair columbus" before anything else can happen.
 
-Is the campaign serving right now? A paused campaign, an exhausted daily budget, an ad schedule that excludes 9:14 p.m., or a geographic target that excludes the searcher's location all end the story here. Northgate's service radius is 25 miles from the shop, so a searcher in Zanesville does not trigger their ads no matter how good the keyword match is.
+Is the campaign serving right now? A paused campaign, an exhausted daily budget, an ad schedule that excludes 8:14 p.m., or a geographic target that excludes the searcher's location all end the story here. Northgate's service radius is 25 miles from the shop, so a searcher in Zanesville does not trigger their ads no matter how good the keyword match is.
 
 Is the ad approved and policy-compliant? A disapproved ad is invisible. Policy is covered in lesson 05.
 
@@ -99,7 +99,7 @@ The formula also explains something that surprises new managers: your CPC is set
 
 ## The Northgate Auction, Fully Worked
 
-Here is one auction for the query "emergency ac repair columbus" at 9:14 p.m. on a July Tuesday, four eligible advertisers, Ad Rank threshold of 40 for the slots being filled.
+Here is one auction for the query "emergency ac repair columbus" at 8:14 p.m. on a July Tuesday, four eligible advertisers, Ad Rank threshold of 40 for the slots being filled.
 
 | Advertiser | Max bid | Quality index | Ad Rank (bid x quality) |
 | --- | --- | --- | --- |
@@ -211,7 +211,7 @@ What is it worth per month at Northgate's volume? Their canonical 30-day report 
 
 ```txt
 Framing A - hold clicks constant, bank the savings
-  Current:  390 clicks x $8.20 = $3,198   (matches the reported $3,200)
+  Current:  390 clicks x $8.20 = $3,198   (rounded-CPC model; report is $3,200)
   Improved: 390 clicks x $5.40 = $2,106
   Monthly saving                = $1,092
   Annualized                    = $13,104
@@ -239,7 +239,7 @@ Nothing in the auction is stable, which means your reports will move even in wee
 
 **Intraday and day-of-week movement.** Emergency HVAC queries spike in the evening and on weekends, when nobody can reach their usual contractor. Competition and thresholds move with them. A CPC measured on Sunday evening is not comparable to one measured on Tuesday morning.
 
-**Seasonality.** Northgate's demand is violently seasonal. The first genuinely hot week of summer and the first hard freeze of winter are the two events that define the year. In the first-freeze week, furnace repair query volume can triple in 48 hours. Every HVAC advertiser in the metro sees the same spike, raises bids in response, and the auction reprices upward for everyone. A plausible pattern for Northgate's furnace terms during that week:
+**Seasonality.** Northgate's demand is violently seasonal. The first genuinely hot week of summer and the first hard freeze of winter are the two events that define the year. In the first-freeze week, furnace repair query volume can triple in 48 hours. Every HVAC advertiser in the metro sees the same spike, raises bids in response, and the auction reprices upward for everyone. A separate illustrative normal-week versus first-freeze scenario for Northgate's Furnace Repair terms:
 
 | Metric | Normal winter week | First-freeze week |
 | --- | --- | --- |
@@ -249,7 +249,7 @@ Nothing in the auction is stable, which means your reports will move even in wee
 | Lost IS (budget) | 5% | 58% |
 | Lost IS (rank) | 49% | 23% |
 
-Two things went wrong at once, and they are separable. Lost impression share to budget went from 5% to 58% because the daily budget stayed at its normal level while both volume and price tripled. Lost impression share to rank actually improved, from 49% to 23%, because the flood of new competitors included many with worse quality than Northgate. The correct response is a temporary budget increase, not a quality project. If you had only looked at "impression share fell from 46% to 19%" you might have concluded the opposite.
+Two things went wrong at once, and they are separable. Lost impression share to budget went from 5% to 58% because the daily budget stayed at its normal level while volume roughly tripled and CPC rose about 50%. Lost impression share to rank actually improved, from 49% to 23%, because the flood of new competitors included many with worse quality than Northgate. The correct response is a temporary budget increase, not a quality project. If you had only looked at "impression share fell from 46% to 19%" you might have concluded the opposite.
 
 The general rule: when the auction moves, decompose the movement before you respond. Price moves are usually competitive or seasonal. Volume moves are usually budget. Position moves with stable price are usually quality or threshold effects.
 
@@ -275,32 +275,32 @@ Here is Northgate's impression share for the same canonical 30-day period:
 
 | Campaign / ad group | Search IS | Lost IS (budget) | Lost IS (rank) | Spend | Conv | CPA |
 | --- | --- | --- | --- | --- | --- | --- |
-| Brand - Northgate | 84% | 3% | 13% | $600 | 88 | $6.82 |
-| Non-brand - AC Repair | 41% | 34% | 25% | $3,200 | 43 | $74.42 |
-| Non-brand - Furnace Install | 29% | 6% | 65% | $1,600 | 12 | $133.33 |
-| Non-brand - Maintenance Plans | 62% | 5% | 33% | $680 | 9 | $75.56 |
+| Brand - Northgate | 82% | 1% | 17% | $600 | 88 | $6.82 |
+| Non-brand - AC Repair | 41% | 22% | 37% | $3,200 | 43 | $74.42 |
+| Non-brand - Furnace Install | 34% | 3% | 63% | $1,600 | 12 | $133.33 |
+| Non-brand - Maintenance Plans | 29% | 0% | 71% | $680 | 9 | $75.56 |
 
 Read it row by row.
 
-**Brand** at 84% impression share with only 3% lost to budget and 13% lost to rank is close to healthy. Some brand impression share is always lost to competitors bidding on your name, and some is lost to queries that mention your brand but are not really about you. At a $6.82 CPA against a $108 lead value, closing more of that 13% is nearly free money, but there is not much of it.
+**Brand** at 82% impression share with only 1% lost to budget and 17% lost to rank is close to healthy. Some brand impression share is always lost to competitors bidding on your name, and some is lost to queries that mention your brand but are not really about you. At a $6.82 CPA against a $108 lead value, closing more of that 17% is nearly free money, but there is not much of it.
 
-**AC Repair** is losing 34% to budget and 25% to rank. This is the interesting row, because it is both problems at once, and you must size the budget half before you spend a month on the quality half. Do the arithmetic:
+**AC Repair** is losing 22% to budget and 37% to rank. This is the interesting row, because it is both problems at once, and you must size the budget half before you spend a month on the quality half. Do the arithmetic:
 
 ```txt
 Impressions received = clicks / CTR = 390 / 0.064 = 6,094  (rounded)
 Total eligible       = 6,094 / 0.41 = 14,863              (rounded)
-Impressions lost to budget = 14,863 x 0.34 = 5,053        (rounded)
-Clicks foregone      = 5,053 x 0.064 = 323                (rounded)
-Conversions foregone = 323 x 0.11    = 35.5 -> 35
-Cost to capture them = 323 x $8.20   = $2,649
-Implied CPA on the incremental spend = $2,649 / 35 = $75.69
+Impressions lost to budget = 14,863 x 0.22 = 3,270        (rounded)
+Clicks foregone      = 3,270 x 0.064 = 209                (rounded)
+Conversions foregone = 209 x 0.11    = 22.99 -> 23
+Cost to capture them = 209 x $8.20   = $1,713.80
+Implied CPA on the incremental spend = $1,713.80 / 23 = $74.51
 ```
 
-So raising the AC Repair budget enough to capture what it is losing to budget would cost roughly $2,650 a month and produce roughly 35 more repair leads at about $76 each. That is above Northgate's $60 target CPA and below the $108 break-even. It is profitable but not on target, which makes it a judgement call rather than an obvious yes. It also makes the quality project from the previous section far more attractive: doing the quality work first drops the CPC to $5.40, at which point the same incremental clicks cost 323 x $5.40 = $1,744 and the incremental CPA falls to $1,744 / 35 = $49.83. Fix quality, then buy volume. That sequencing is worth roughly $900 a month on this row alone.
+So raising the AC Repair budget enough to capture what it is losing to budget would cost roughly $1,714 a month and produce roughly 23 more repair leads at about $75 each. That is above Northgate's $60 target CPA and below the $108 break-even. It is profitable but not on target, which makes it a judgement call rather than an obvious yes. It also makes the quality project from the previous section far more attractive: doing the quality work first drops the CPC to $5.40, at which point the same incremental clicks cost 209 x $5.40 = $1,128.60 and the incremental CPA falls to $1,128.60 / 23 = $49.07. Fix quality, then buy volume. That sequencing is worth roughly $585 a month on this row alone.
 
-**Furnace Install** is losing 65% to rank and only 6% to budget. Adding budget to this campaign would accomplish nothing at all, because the money is not the constraint. The account already cannot win these auctions. The options are a higher bid, better quality, or narrower targeting so the remaining budget concentrates on auctions that are winnable. Given that the row's $133.33 CPA is already under the $180 target for replacement leads, a bid increase is defensible here, but a quality project is cheaper. Lesson 06 covers how to raise bids without losing control of the CPA.
+**Furnace Install** is losing 63% to rank and only 3% to budget. Adding budget to this campaign would accomplish little at current Ad Rank, because the money is not the constraint. The account already cannot win these auctions. The options are a higher bid, better quality, or narrower targeting so the remaining budget concentrates on auctions that are winnable. Given that the row's $133.33 CPA is already under the $180 target for replacement leads, a bid increase is defensible here, but a quality project is cheaper. Lesson 06 covers how to raise bids without losing control of the CPA.
 
-**Maintenance Plans** at 62% share with 33% lost to rank is a mild version of the Furnace Install problem, on a small spend. It is not where you would start.
+**Maintenance Plans** at 29% share with 71% lost to rank and no budget loss has the strongest rank constraint, on a small spend. More budget will not fix it; investigate its bids, relevance, and page before scaling.
 
 The decision rule you can carry to any account: **budget loss means buy more, rank loss means earn more.** If lost IS (budget) is large, the question is whether the incremental CPA justifies the incremental spend, and you answer that with the arithmetic above. If lost IS (rank) is large, more money changes nothing until Ad Rank moves.
 
@@ -340,13 +340,13 @@ You will get this message from a client or a manager, in these exact words, seve
 
 **Step 3. Check the settings gates.** Is the search location inside the geographic target? Northgate targets a 25-mile radius, so a preview run from downtown Cleveland will always show nothing. Does the ad schedule cover the hour in question? Is the language setting compatible with the browser's? Is the campaign's network setting appropriate for where the person searched?
 
-**Step 4. Check budget.** Look at the campaign's lost impression share to budget for yesterday and for the last seven days. If it reads 34% as it does for Northgate's AC Repair, the ad genuinely stops showing part of every day, usually in the afternoon and evening once the budget has paced out. This is the most common cause of "it showed this morning and not tonight", and for an HVAC advertiser whose emergency queries peak at night, it is also the most expensive.
+**Step 4. Check budget.** Look at the campaign's lost impression share to budget for yesterday and for the last seven days. If it reads 22% as it does for Northgate's AC Repair, the ad genuinely stops showing part of every day, usually in the afternoon and evening once the budget has paced out. This is the most common cause of "it showed this morning and not tonight", and for an HVAC advertiser whose emergency queries peak at night, it is also the most expensive.
 
 **Step 5. Check rank.** Look at lost impression share to rank. Look at the keyword's Quality Score and its three component ratings. If lost IS (rank) is high and the component ratings are "Below average", you have a quality problem and no bid will fix it cheaply. If lost IS (rank) is high but the components are all "Average" or better, you are simply outbid, and the question becomes whether the auction is worth winning at the price it now costs.
 
 **Step 6. Check whether the query even matches.** Pull the search terms report for the period. If the query you are worried about does not appear there and does not appear as a keyword, the issue is matching, not the auction. A negative keyword added six months ago by someone else is a frequent culprit. Lesson 04 covers negatives and search terms mining.
 
-Applied to Northgate, on a real Thursday in July: the owner calls at 8 p.m. saying he cannot find his ad for "ac repair columbus". Step 1 says stop searching manually. Steps 2 and 3 come back clean. Step 4 shows lost IS (budget) at 34% and a daily budget that fully paces out by roughly 6 p.m. That is the answer. The ad was showing at 10 a.m. and stopped when the money ran out, and it ran out just before the evening emergency peak. The fix is not a bid change and not an ad rewrite. It is either more budget for this campaign, budget moved out of Maintenance Plans, or an ad schedule that concentrates spend in the evening hours when the emergency queries convert. Which of those three you choose is a structure and bidding question, and structure is the next lesson.
+Applied to Northgate, on a real Thursday in July: the owner calls at 8 p.m. saying he cannot find his ad for "ac repair columbus". Step 1 says stop searching manually. Steps 2 and 3 come back clean. Step 4 shows lost IS (budget) at 22% and a daily budget that fully paces out by roughly 6 p.m. That is the answer. The ad was showing at 10 a.m. and stopped when the money ran out, and it ran out just before the evening emergency peak. The fix is not a bid change and not an ad rewrite. It is either more budget for this campaign, budget moved out of Maintenance Plans, or an ad schedule that concentrates spend in the evening hours when the emergency queries convert. Which of those three you choose is a structure and bidding question, and structure is the next lesson.
 
 ## Practice
 

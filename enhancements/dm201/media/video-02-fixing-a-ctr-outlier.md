@@ -28,7 +28,7 @@ Learners who have completed lesson 06's title and meta description sections and 
 
 | Time | Visual / On screen | Narration |
 |---|---|---|
-| 0:00 | Talking head, then cut to Performance report filtered to /compare/meridian-vs-paycadence: 41,000 impressions, 574 clicks, 1.4% CTR, position 6.8. | "This page ranks on page one. Forty-one thousand people saw it last quarter. Five hundred seventy-four clicked. Something about this result is telling people to scroll past." |
+| 0:00 | Talking head, then cut to Performance report filtered to /compare/paycadence: 41,000 impressions, 574 clicks, 1.4% CTR, position 6.8. | "This page ranks on page one. Forty-one thousand people saw it last quarter. Five hundred seventy-four clicked. Something about this result is telling people to scroll past." |
 | 0:25 | Side panel: Meridian pages at position 6 to 8 average 4.1% CTR. | "How do we know 1.4% is bad? Not from an industry chart. From our own site. Other Meridian pages at the same position earn 4.1%. This one earns a third of that." |
 | 0:50 | Checklist overlay: 1. SERP furniture 2. Search appearance 3. Device split 4. Query breakdown. | "Before touching the title, rule out four things." |
 | 1:00 | Private window SERP for "meridian vs paycadence": two ads, then organic results. Our result shows title "Meridian Payroll \| Compare". | "One: what sits above us? Two ads, no AI overview. That's normal furniture; it doesn't explain a CTR this low. And look at our title. 'Meridian Payroll, Compare.' Compare to what?" |

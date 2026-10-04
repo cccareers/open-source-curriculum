@@ -81,7 +81,8 @@ Scope basis   Flow search across 30 days for 198.51.100.44 returns these two
               hosts only; server subnets negative (IR-2026-0031 timeline
               09:52Z, 09:55Z).
 Damage if not Active C2 on both hosts; svc_backup authenticated to FS-07 at
-              14:07Z yesterday, so lateral movement is in progress.
+              14:07:06Z on 2026-03-10 from WKS-2210, so unauthorized
+              server access has occurred; continued lateral movement is a risk.
 Evidence      Memory capture required before any reboot or reimage. Isolation
               preserves memory, processes, and disk. No power-off.
 Business cost Two users lose workstations, est. 1 day. No production service
@@ -110,7 +111,7 @@ You are asking people to do disruptive things to systems they are responsible fo
 
 **Know who owns what before the incident.** If you are working out who administers the finance file server while the finance file server is being encrypted, you have already lost twenty minutes. This is a preparation activity and it is a genuinely useful thing for an apprentice to own.
 
-**Ask for the outcome, and give the reason.** "We need WKS-4471 isolated from the network in the next ten minutes; it is beaconing to attacker infrastructure and we have confirmed lateral movement" gets a faster response than "please isolate WKS-4471." People move faster when they understand why, and they push back usefully when they know something you do not — "isolating that host will stop the payroll run" is information you needed.
+**Ask for the outcome, and give the reason.** "We need WKS-4471 isolated from the network in the next ten minutes; it is beaconing to attacker infrastructure and WKS-2210 has authenticated to FS-07 with svc_backup" gets a faster response than "please isolate WKS-4471." People move faster when they understand why, and they push back usefully when they know something you do not — "isolating that host will stop the payroll run" is information you needed.
 
 **Say what you need, what you do not need, and what must not happen.** The instruction that most often gets missed is the negative one: *do not reboot it, do not reimage it, do not log in with a domain administrator account.* Say those explicitly and confirm they were heard. A well-meaning technician who reimages a host to "get the user working again" destroys the investigation, and it happens constantly.
 
@@ -163,8 +164,8 @@ Recovery returns to normal operations and *proves* the return is safe. It has fo
 ```text
 Recovery criteria - IR-2026-0031
 [ ] All identified compromised hosts rebuilt from known-good images
-[ ] Data restored from backups dated before 2026-03-09 (first observed
-    compromise 2026-03-10 13:44Z; margin of one day applied)
+[ ] Data restored from backups completed before 2026-03-09T13:44:02Z (earliest
+    observed delivery 2026-03-10T13:44:02Z; 24-hour margin applied)
 [ ] All exposed credentials rotated - list of 14 accounts attached,
     identity team sign-off
 [ ] Entry vector closed: mail gateway rule for macro-enabled documents
@@ -221,5 +222,5 @@ Every one of these is common, and each has a one-line prevention.
 ## Check your understanding
 
 1. In a business email compromise, why is a password reset not enough? *Active sessions and tokens survive it; revoke them, remove attacker-created rules and forwarding, and check for authentication methods the attacker registered.*
-2. The timeline puts first compromise at 2026-03-10 13:44Z. Is a backup from 2026-03-10 06:00Z safe to restore? *It predates the observed start, but apply margin — the criteria in this lesson use backups dated before 2026-03-09 because the true start may be earlier than the first evidence.*
+2. The timeline puts earliest observed delivery at 2026-03-10 13:44:02Z. Is a backup from 2026-03-10 06:00Z safe to restore? *It predates the observed start, but apply margin — the criteria require backups completed before 2026-03-09T13:44:02Z, a full 24 hours before the earliest observed delivery, because the true start may be earlier than the retained evidence.*
 3. What two fields of a containment decision record are most often missing and most valuable later? *"Not doing" (options rejected and why) and "Coordination" (which teams must act).*

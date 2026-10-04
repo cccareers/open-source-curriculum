@@ -50,10 +50,10 @@ Record the result as a distribution, not a list:
 | 0–1 | 14 | Home, primary nav, footer legal |
 | 2 | 61 | Product, compare, pricing, help categories |
 | 3 | 118 | Help articles, templates, recent blog posts |
-| 4 | 173 | Blog posts on pagination pages 2–8 |
-| 5+ | 274 | Blog posts on pagination page 9 and beyond |
+| 4 | 173 | 110 blog posts plus 63 help and other content URLs |
+| 5+ | 274 | 160 older blog posts plus 114 help and other content URLs |
 
-That table is the diagnosis. Two-thirds of Meridian's site is at depth 4 or deeper, and all of it is blog content — which is exactly the content that is supposed to be earning informational traffic.
+That table is the diagnosis. 447 of the 640 audited content URLs (69.8%) are at depth 4 or deeper: 270 blog posts and 177 help and other content URLs. The remaining 40 of the 310 posts sit at depth 3. Deep burial affects more than the blog.
 
 ## URL Hierarchy
 
@@ -99,7 +99,7 @@ A hub is a real page, not a category listing with a title on it. It should defin
 ```txt
 meridianpayroll.com/
 ├── pricing
-├── payroll-software-for-small-business      [money page — consolidated from 3]
+├── payroll-software-for-small-business      [new money page; redirect landing page, retarget home and feature]
 ├── product/
 │   ├── payroll-runs
 │   ├── direct-deposit
@@ -109,7 +109,8 @@ meridianpayroll.com/
 ├── compare/
 │   ├── paycadence
 │   ├── wagebase
-│   └── sumner-hr
+│   ├── sumner-hr
+│   └── ...                     [3 other existing comparisons; 6 total]
 ├── help/
 │   ├── getting-started/          [category hub]
 │   ├── running-payroll/          [category hub]
@@ -117,7 +118,7 @@ meridianpayroll.com/
 │   └── troubleshooting/          [category hub]
 ├── blog/
 │   ├── payroll-taxes/                        [HUB — 71 spokes]
-│   │   ├── payroll-tax-deadlines
+│   │   ├── /blog/payroll-tax-deadlines [unchanged URL; linked spoke]
 │   │   ├── form-941-guide
 │   │   ├── deposit-schedules-explained
 │   │   └── ...
@@ -130,6 +131,8 @@ meridianpayroll.com/
     ├── payroll-calendar-template
     └── direct-deposit-authorization-form
 ```
+
+This is a hub-and-link plan: the indented spokes keep their current flat URLs, including `/blog/payroll-tax-deadlines`. The five spoke counts sum to 310; nesting shows relationships, not URL moves.
 
 Five hubs, 310 spokes, no post deeper than three clicks: home → blog → hub → spoke. The five hub URLs are new pages that have to be written, and they are the most valuable writing on the plan.
 
@@ -198,7 +201,7 @@ Open Performance, switch to the Queries tab, click a query, then switch to the P
 - Average position for each that is mediocre — say 12 and 16 — where the query's total impressions suggest one page could do better.
 - Positions that alternate over time: URL A is the ranking page in March, URL B in April, A again in May. That flip-flopping is the clearest fingerprint, because it means Google keeps changing its mind about which of your pages to show.
 
-Meridian has three pages competing for "payroll software for small business": the home page, `/product/payroll-runs`, and a landing page at `/small-business-payroll`. The query gets 18,000 impressions a quarter; the best of the three averages position 11.
+Meridian has three pages competing for "payroll software for small business": the home page, `/product/payroll-runs`, and a landing page at `/small-business-payroll`. This separately filtered architecture example covers the qualified query `payroll software for small business with automatic tax filing`, not lesson 04's broad family or lesson 11's exact head query. It gets 18,000 impressions in Jan–Mar 2026; the best of the three averages position 11.
 
 ### Three legitimate resolutions
 
@@ -295,7 +298,7 @@ Nothing here is verified in a week. Set the checkpoints before you start.
 2. **The rescued orphans.** Filter to those 25 URLs and compare the 90 days after against the 90 days before. They started near zero, so any consistent impression growth is real.
 3. **The hubs.** New URLs start with nothing. Watch impressions appear, then queries accumulate. A hub that has no impressions after eight weeks is a content problem, not a structure problem — go read the page.
 
-**Ongoing, site totals.** Meridian's baseline is 41,300 clicks, 1,240,000 impressions, 3.3% CTR, and average position 18.4. After a restructure, expect the position number to get *worse* before it improves, partly because newly discovered pages start low and drag the average. Judge the project on clicks to the pages you targeted, not on the site-wide average. Lesson 11 covers building that measurement properly.
+**Ongoing, site totals.** Meridian's baseline is 41,300 clicks, 1,240,000 impressions, 3.3% CTR, and average position 18.4. After a restructure, expect the position number to get *worse* before it improves, partly because newly discovered pages start low and drag the average. Judge the project on clicks to the pages you targeted, not on the site-wide average. Lesson 11 covers building that measurement properly. The shared Performance baseline covers Jan–Mar 2026; later diagnostic exports name their own scope.
 
 ## Practice
 

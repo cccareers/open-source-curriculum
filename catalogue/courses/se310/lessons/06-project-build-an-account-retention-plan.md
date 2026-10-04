@@ -29,9 +29,9 @@ Ardmore maintains refrigeration and cold-storage plant for supermarket and food-
 | Licensed seats | 310 |
 | Price | $24.90 per seat per month |
 | Annual contract value | $92,628 |
-| Term | 12 months, ends 31 December |
+| Term | 12 months, 1 January–31 December; month 1 is January |
 | Notice period | 45 days; auto-renews if no notice is given |
-| Mid-term amendment | 52 seats added in month 5 for the Scotland depot, acquired in April |
+| Mid-term amendment | 52 seats added in month 5 (May) for the Scotland depot, acquired in April; 258 seats before the amendment |
 
 ## The people
 
@@ -49,7 +49,9 @@ Ardmore maintains refrigeration and cold-storage plant for supermarket and food-
 | South | 84 | 72 | 86% | Live since month 2 |
 | North | 78 | 32 | 41% | Live since month 3; adoption fell from 71% in June |
 | Scotland | 52 | 6 | 12% | Seats added month 5; no onboarding was ever run |
-| **Total** | **310** | **197** | **64%** | Was 288 active in month 2 |
+| **Total** | **310** | **197** | **64%** | Was 230 active in month 4, across Midlands, South and North |
+
+The current usage snapshot is 3 September: 197 / 310 = 63.5%, rounded to 64%. The month-4 peak was 230 / 258 = 89.1%, before Scotland's seats were added; all three original depots were live by then. The $92,628 contract value is the annualized current seat run rate (310 × $24.90 × 12), not a claim that all 310 seats were billed for the full first year.
 
 ## The value contract, as agreed at kickoff
 

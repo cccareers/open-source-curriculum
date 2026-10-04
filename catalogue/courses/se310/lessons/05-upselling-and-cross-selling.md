@@ -143,7 +143,7 @@ One last discipline, from the customer's side of the table. Everything you learn
 
 ## Practice
 
-Return to **Bayfront Marine Services** from lesson 2, now fourteen months in and renewed once. The account is healthy: 140 seats, 88% active, work orders now captured digitally at all four marinas, and the un-invoiced rate has fallen from an estimated 15% to 2.8% with the figure produced monthly from their own finance export. Priya Raman is still your champion and is now Head of Operations. Elena Brandt, once the sceptic, runs the largest marina and has become the most vocal internal advocate. Your last two reviews produced these quotes:
+Return to **Bayfront Marine Services** from lesson 2, now twenty months in and renewed once. The account is healthy: 140 seats, 88% active, work orders now captured digitally at all four marinas, and the un-invoiced rate has fallen from an estimated 15% to 2.8% with the figure produced monthly from their own finance export. Priya Raman is still your champion and is now Head of Operations. Elena Brandt, once the sceptic, runs the largest marina and has become the most vocal internal advocate. Your last two reviews produced these quotes:
 
 - Priya: "The one thing that still eats us is parts. A technician finds a job needs a part, phones the office, someone checks a spreadsheet, and half the time it's wrong. We probably lose two or three jobs a week to a return visit."
 - Elena: "Customers ring us asking where their boat is in the queue. We just tell them we'll call back."

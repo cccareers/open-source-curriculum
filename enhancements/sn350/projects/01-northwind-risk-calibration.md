@@ -20,7 +20,7 @@ competency_ids:
 
 ## Scenario
 
-Northwind Health (the healthcare payer from lessons 2 to 10) has handed you its legacy risk spreadsheet: 24 rows written by four business units over three years. The risk committee meets in two weeks and wants (1) a published scoring methodology, (2) the spreadsheet triaged into risks, issues, and topics, (3) a first assessment cycle on the real register, and (4) proof that a risk acceptance cannot quietly become permanent.
+Northwind Health (the healthcare payer from lessons 2 to 10) has handed you its legacy risk spreadsheet: 24 rows written by seven business units over three years. The risk committee meets in two weeks and wants (1) a published scoring methodology, (2) the spreadsheet triaged into risks, issues, and topics, (3) a first assessment cycle on the real register, and (4) proof that a risk acceptance cannot quietly become permanent.
 
 ## What you will produce
 
@@ -35,7 +35,7 @@ Northwind Health (the healthcare payer from lessons 2 to 10) has handed you its 
 
 - A Personal Developer Instance (PDI) with Risk Management (and its GRC core dependency) activated. On a PDI, IRM applications are typically activated by request from the developer portal; plugin names and availability vary by release, so record exactly what you activated. If Risk Management is unavailable on your PDI, complete milestones 1, 2, and 5's design on paper and build the expiry sweep against a small custom table (`u_risk_acceptance` with `risk_name`, `state`, `expiry`, `approver`), and note this in your memo.
 - At least three entities (business services or applications from the PDI demo CMDB).
-- Starter legacy rows (use these 12 and invent 12 more in the same style; keep your key):
+- Starter legacy rows (use these 12 and invent 12 more in the same style from the seven units shown; keep your key):
 
 | # | Legacy row (as written) | Unit | Old rating |
 |---|---|---|---|

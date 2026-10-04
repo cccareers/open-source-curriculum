@@ -18,6 +18,8 @@ Every hour you have spent on keywords, match types, bids and copy has been spent
 
 That is why the landing page belongs in a paid advertising course rather than being handed off to a web team. It is the last third of the ad, and it is the third with the most leverage per hour of work.
 
+Use a separate Northgate CRO diagnostic scenario throughout this lesson. It deliberately reuses the baseline totals of 390 AC Repair clicks, 43 leads, and $3,200 spend, but supplies a different page and device breakdown to practice diagnosing poor mobile conversion. These are a teaching fixture, not the same observed 30-day period as lesson 06; do not merge their segments or carry this lesson's mobile diagnosis into the baseline bidding decision.
+
 Run the numbers on Northgate's biggest non-brand ad group. AC Repair spends $3,200 a month and buys 390 clicks at an average cost per click of $8.21. Hold both of those constant. Only the page changes.
 
 ```txt
@@ -57,8 +59,8 @@ Someone types "ac not blowing cold columbus" at 2pm on the first hot Tuesday in 
 
 ```txt
 Headline 1:  Same-Day AC Repair in Columbus
-Headline 2:  Tech at Your Door in 90 Minutes
-Headline 3:  Licensed, Insured, 24/7
+Headline 2:  Arrival Window Confirmed
+Headline 3:  Licensed, Insured, 7am-9pm
 Description: Emergency AC repair across the Columbus metro. Real technicians,
              upfront pricing, no overtime charges. Call now or book online.
 ```
@@ -70,21 +72,21 @@ They click. Here is the page they land on today:
 
   Welcome to Northgate Heating & Air
 
-  Founded in 1987, Northgate Heating & Air has proudly served central
-  Ohio families for three generations. Our commitment to craftsmanship
+  Founded in 1994, Northgate Heating & Air has proudly served central
+  Ohio families since opening. Our commitment to craftsmanship
   and community sets us apart...
 
   [ Learn About Us ]   [ Our Services ]   [ Careers ]   [ Blog ]
 ```
 
-The ad made a specific promise about a specific emergency and the page answered with a company history. The visitor's question was "can you get here today?" and the page's first sentence is about 1987. They are back on the results page in four seconds and Northgate paid $8.21 for it.
+The ad made a specific promise about a specific emergency and the page answered with a company history. The visitor's question was "can you get here today?" and the page's first sentence is about 1994. They are back on the results page in four seconds and Northgate paid $8.21 for it.
 
 Here is the same page doing its job:
 
 ```txt
   Same-Day AC Repair in Columbus
-  A licensed technician at your door in 90 minutes, or we tell you
-  before you book.
+  A licensed technician for your repair. We confirm the arrival
+  window before you book.
 
   [ CALL (614) 555-0142 ]     [ BOOK A VISIT ]
 
@@ -120,7 +122,7 @@ Work down the page and give a reason for every section. If you cannot state what
 
 **Headline.** Echoes the query and the ad promise. One line, plain language, no cleverness. Cleverness costs a beat of comprehension and you do not have a beat.
 
-**Subhead.** Adds the specific, checkable detail the headline could not carry. "A licensed technician at your door in 90 minutes" is better than "fast, friendly service" because the first one can be wrong and the second one cannot.
+**Subhead.** Adds the specific, checkable detail the headline could not carry. "We confirm your technician's arrival window before you book" is better than "fast, friendly service" because the first commitment can be checked and the second cannot.
 
 **The offer.** State exactly what the visitor gets if they act, and what it costs them. "Same-day diagnostic visit, $79, applied to the repair if you book it" is an offer — and it uses the same $79 the ads promise, because the page has to keep the ad's number. "Contact us for a free quote" is a form. The offer is the thing you are actually selling in the next sixty seconds, and it is not the repair, it is the visit.
 
@@ -176,7 +178,7 @@ Cut to a 3-field form (name, phone, ZIP)
   Contribution       $5,724.00 - $3,200.00 = $2,524.00
 ```
 
-Removing four fields moves cost per acquisition from $74.42 to $60.38, which lands on Northgate's $60 target, and it adds $1,080 of monthly contribution. That estimate is deliberately conservative because it holds form starts constant, when in practice a shorter form also raises the number of people willing to begin.
+Removing four fields moves cost per acquisition from $74.42 to $60.38, which comes within $0.38 of Northgate's $60 target, and it adds $1,080 of monthly contribution. That estimate is deliberately conservative because it holds form starts constant, when in practice a shorter form also raises the number of people willing to begin.
 
 Three rules follow.
 
@@ -245,7 +247,7 @@ Here are four for Northgate's AC Repair page, of deliberately varying quality.
 
 **H1.** Because segmented reporting shows mobile converting at 9.2 percent against 17.6 percent on desktop, and eight of ten mobile session replays show visitors scrolling past the phone number without pausing, we believe that adding a sticky tap-to-call bar pinned to the bottom of the mobile viewport will increase leads per click by at least 2 percentage points for mobile AC Repair traffic, measured by conversion rate on the AC Repair landing page, mobile segment only.
 
-**H2.** Because form field analytics show 33 percent of abandonments occur on the "preferred time window" field, and dispatch confirms they call every lead within ten minutes anyway, we believe that removing "preferred time window", "street address", "email" and "how did you hear about us" will increase form completion from 47 percent to approximately 74 percent for all AC Repair traffic, measured by form-start to form-submit rate.
+**H2.** Because form field analytics show 33 percent of abandonments occur on the "preferred time window" field, and dispatch confirms they call leads within ten minutes during the 7am–9pm staffed hours, with overnight submissions queued until reopening, we believe that removing "preferred time window", "street address", "email" and "how did you hear about us" will increase form completion from 47 percent to approximately 74 percent for all AC Repair traffic, measured by form-start to form-submit rate.
 
 **H3.** We believe a new design will improve conversions.
 
@@ -302,7 +304,7 @@ Beyond the obvious legal and advertising-policy exposure, this is bad business f
 
 You are auditing an underperforming Northgate landing page and proposing a change. Do all of this on a copy of the page, a staging build, or a wireframe. Do not modify a live page, do not change any live ad settings, and do not spend any ad budget.
 
-**The page as it exists.** The AC Repair landing page at `northgateheatingair.com/ac-repair` currently has: a full-width three-slide rotating carousel of stock house photos; the headline "Welcome to Northgate Heating & Air"; a paragraph about being founded in 1987; the full site navigation across the top with eight links including Careers and Blog; the phone number rendered as part of a header image; a "Request Service" form placed below three screens of scrolling, asking for name, email, phone, street address, service needed, preferred time window, and how did you hear about us; a footer strip with a five-star graphic and the text "Trusted by thousands"; and a main content render time of 5.8 seconds on mobile data. It receives all 390 monthly clicks from the AC Repair ad group. Segmented data, form drop-off data, and the field-count table are in this lesson.
+**The page as it exists.** The AC Repair landing page at `northgateheatingair.com/ac-repair` currently has: a full-width three-slide rotating carousel of stock house photos; the headline "Welcome to Northgate Heating & Air"; a paragraph about being founded in 1994; the full site navigation across the top with eight links including Careers and Blog; the phone number rendered as part of a header image; a "Request Service" form placed below three screens of scrolling, asking for name, email, phone, street address, service needed, preferred time window, and how did you hear about us; a footer strip with a five-star graphic and the text "Trusted by thousands"; and a main content render time of 5.8 seconds on mobile data. In this diagnostic fixture it receives all 390 monthly clicks from the AC Repair ad group. Segmented data, form drop-off data, and the field-count table are in this lesson.
 
 1. **Run the diagnostic stack.** Work through all five instruments against the page and the supplied data. For each one, write down what you would look at, what you actually found or would expect to find, and one limitation of that instrument on this specific page. Note explicitly where two instruments disagree and how you would resolve it.
 

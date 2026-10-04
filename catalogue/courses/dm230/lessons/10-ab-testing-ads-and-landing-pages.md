@@ -39,7 +39,7 @@ Every failure mode in the rest of this lesson is one of those five being violate
 
 ## One Variable at a Time
 
-Suppose Northgate Heating and Air runs an ad test where version B changes the headline from "24/7 Emergency AC Repair" to "AC Broken? We Can Be There Today," swaps the sitelink set, and changes the final URL to a different landing page. B wins by 30 percent on conversion rate.
+Suppose Northgate Heating and Air runs an ad test where version B changes the headline from "Emergency AC Repair, 7am-9pm" to "AC Broken? We Can Be There Today," swaps the sitelink set, and changes the final URL to a different landing page. B wins by 30 percent on conversion rate.
 
 What did you learn? That this bundle of three changes beats that bundle of three changes, in this account, at this moment. You cannot decompose it. Maybe the headline was worth plus 45 percent and the new landing page was worth minus 15 percent. Maybe the headline did nothing and the landing page did everything. You now have to keep all three changes forever because you do not know which one is load-bearing, and you have learned nothing you can carry to the furnace campaign.
 
@@ -58,7 +58,7 @@ Here is why that matters, with numbers. Two AC Repair ads, same ad group, same 3
 
 | Variant | Impressions | Clicks | CTR | Spend | Conversions | Conv rate | CPA |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| A: "24/7 Emergency AC Repair - Licensed Techs" | 9,800 | 627 | 6.40% | $5,141.40 | 69 | 11.00% | $74.51 |
+| A: "Emergency AC Repair, 7am-9pm - Licensed Techs" | 9,800 | 627 | 6.40% | $5,141.40 | 69 | 11.00% | $74.51 |
 | B: "Free AC Estimate - No Obligation, Call Now" | 9,750 | 796 | 8.16% | $6,527.20 | 58 | 7.29% | $112.54 |
 
 Work the arithmetic. B's CTR is 796 / 9,750 = 8.164 percent, rounded to 8.16 percent. A's is 627 / 9,800 = 6.398 percent, rounded to 6.40 percent. The relative CTR lift is (8.16 - 6.40) / 6.40 = 27.5 percent. If your primary metric were CTR, B is a clear winner and you would roll it out.
@@ -242,7 +242,7 @@ And the corollary: if hitting your sample size would take 18 months, extending t
 
 ## Reading a Result
 
-Northgate ran a genuine campaign-level ad experiment across all non-brand traffic for eight weeks, testing a rewritten responsive search ad that changed the offer emphasis from "24/7 emergency service" to "Same-Day Repair, Flat-Rate Pricing, No Overtime Charges" and matched it to the same landing page. This is a bundle test on the copy, deliberately, because the account cannot power an isolation test.
+In the historical May–June 2024 teaching scenario recorded below, Northgate ran a randomized campaign-level ad experiment across all non-brand traffic for eight weeks, testing a rewritten responsive search ad that changed the offer emphasis from "7am–9pm emergency service" to "Same-Day Repair, Flat-Rate Pricing, No Overtime Charges" and matched it to the same landing page. This is a bundle test on the copy, deliberately, because the account cannot power an isolation test.
 
 | Variant | Impressions | Clicks | CTR | Spend | Conversions | Conv rate | CPA |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -366,9 +366,9 @@ Account:          Northgate Heating & Air
 Surface:          Non-brand campaigns, responsive search ad copy
 Hypothesis:       Leading with same-day availability and flat-rate
                   pricing will raise conversion rate versus leading
-                  with 24/7 emergency positioning, because price
+                  with 7am–9pm emergency positioning, because price
                   uncertainty is the stated hesitation in call notes.
-Variants:         A = control RSA (24/7 emergency)
+Variants:         A = control RSA (7am–9pm emergency)
                   B = challenger RSA (same-day, flat-rate, no overtime)
 Changed:          Headline set and description 1. Landing page,
                   extensions, bids, budget, geo all held constant.
@@ -418,7 +418,7 @@ You are given this hypothesis for Northgate's Furnace Install campaign: *"Adding
 
 **Part 2: Interpret three results (deliverable: three written decisions).**
 
-Each table below is a completed test on Northgate's AC Repair traffic. All spend figures use the ad group's $8.20 average CPC. For each one, compute the relative lift on the primary metric, estimate whether the difference is distinguishable from zero, choose one of the three verdicts (winner, no difference detected, inconclusive because underpowered), and write two or three sentences telling Northgate's owner what you are going to do and why.
+Each table below is a separate illustrative completed test on Northgate's AC Repair traffic, not the baseline 30-day report. All spend figures use the ad group's $8.20 average CPC. For each one, compute the relative lift on the primary metric, estimate whether the difference is distinguishable from zero, choose one of the three verdicts (winner, no difference detected, inconclusive because underpowered), and write two or three sentences telling Northgate's owner what you are going to do and why.
 
 *Result 1*
 

@@ -91,24 +91,24 @@ Six specific places, all of which you should look for in an audit:
 
 ### Worked trace: five years of Maya Okonkwo
 
-Watch the entitlement set grow. Each individual decision is defensible; the endpoint is not.
+Maya joined Ashford Community Housing on 1 March 2021 and stayed with Ashford through every move below. Ashford uses GBP; its AP supervisor payment-approval limit in this example is £25,000, independently of Cedar Point’s USD limit. Ashford prohibits vendor maintenance combined with either invoice entry (`role-ap-clerk`) or payment approval (`role-ap-supervisor`). Watch the entitlement set grow. Each individual decision is defensible; the endpoint is not.
 
 | Date | Event | Entitlements after the event |
 | --- | --- | --- |
-| Mar 2021 | **Joiner** — Accounts Payable clerk | `role-base-employee`, `role-ap-clerk` |
+| 1 Mar 2021 | **Joiner** — Accounts Payable clerk | `role-base-employee`, `role-ap-clerk` |
 | Sep 2021 | Covers the AP supervisor's three-month leave | + `role-ap-supervisor` (payment approval) |
 | Jan 2022 | Cover ended; nobody removed the role | unchanged — **first creep** |
 | Jun 2022 | Joins the ERP upgrade project; needs to read finance configuration | + `erp-config-read`, + `fs-project-erp` |
 | Feb 2023 | Project closed; entitlements not reviewed | unchanged — **second creep** |
 | Aug 2023 | **Mover** — promoted to Procurement Officer | + `role-vendor-maintainer`; `role-ap-clerk` retained "for handover" |
 | Nov 2023 | Handover long finished | unchanged — **third creep**, and now a separation-of-duties break |
-| Apr 2024 | Asked to help the auditors; given read access to the HR share for one week | + `fs-hr-read` — no end date recorded |
+| 23 Apr 2024 | Asked to help the auditors; HR-share read approved for one week, until 30 April | + `fs-hr-read` — approval end date recorded, but no expiry configured |
 | Jan 2025 | **Mover** — moves to Procurement Manager | + `role-procurement-manager`, + delegated approval on the finance mailbox |
 | Mar 2026 | Access review; her manager approves the list without reading it | unchanged |
 
 By March 2026 this account can create a vendor, set that vendor's bank details, *and* approve a payment to it — the exact separation-of-duties pair lesson 04 designed the role model to keep apart. It can also read the HR share. No one ever approved that combination. Six people each approved one reasonable thing.
 
-Two lessons from the trace. First, **the removals are the whole job**; every failure above is a removal that did not happen. Second, **the review in March 2026 was worthless** because it presented a list of group names to a manager who could not evaluate them. Access reviews that ask "do you approve?" get "yes." Reviews that ask "this person can approve payments up to $25,000 and change vendor bank details — is that correct for their job?" get real answers.
+Two lessons from the trace. First, **the removals are the whole job**; every failure above is a removal that did not happen. Second, **the review in March 2026 was worthless** because it presented a list of group names to a manager who could not evaluate them. Access reviews that ask "do you approve?" get "yes." Reviews that ask "this person can approve payments up to £25,000 and change vendor bank details — is that correct for their job?" get real answers.
 
 ## Leaver
 
@@ -184,10 +184,10 @@ For each event write: what should have been added, what should have been removed
 
 **Part 2 — Write the leaver runbook.** Produce a runbook for Devendra's departure that a service-desk technician could execute without asking questions. It must cover: the trigger and who owns it, the ordered steps, the timing target for each, what is disabled versus deleted, session and token revocation, factor de-registration, the non-directory systems that need separate action and how you would know what they are, data and ownership transfer, what he owned that must be reassigned, who is notified, what is recorded, and who verifies. Add a short section on what changes if the departure is involuntary.
 
-**Part 3 — Find the orphans and the creep.** Two extracts follow: an HR active-employee list and a directory export. Identify every discrepancy, classify each as orphaned, dormant, unowned, entitlement drift, separation-of-duties break, or acceptable-with-documentation, and write a remediation with an owner for each.
+**Part 3 — Find the orphans and the creep.** Two Ashford extracts follow, both taken on 27 July 2026: an HR employee list including a recent leaver, and a selected directory-role/group export. Maya is the same employee traced above. This selected export omits ERP-project groups and mailbox delegations; their absence here does not establish that they were removed. Treat dormancy as more than 90 days without a logon. Review application entitlements separately. Identify every discrepancy, classify each as orphaned, dormant, unowned, entitlement drift, separation-of-duties break, or acceptable-with-documentation, and write a remediation with an owner for each.
 
 ```text
-HR ACTIVE EMPLOYEES (extract)
+HR EMPLOYEES — ACTIVE AND RECENT LEAVERS (extract, 2026-07-27)
   employee_id, name,            department,       job_title,          start,      end
   40881,       M Okonkwo,       Procurement,      Procurement Mgr,    2021-03-01, -
   41102,       D Rao,           Business Imp.,    Improvement Lead,   2022-06-13, 2026-04-30

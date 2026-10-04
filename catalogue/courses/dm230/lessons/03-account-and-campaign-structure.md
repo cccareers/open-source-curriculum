@@ -56,7 +56,7 @@ Four levels, and the level a setting lives on determines what you can and cannot
 | Bid strategy | Campaign (or a portfolio spanning campaigns) | One strategy per campaign. You cannot run manual CPC on brand and target CPA on non-brand inside one campaign. |
 | Networks (Search, Search partners, Display expansion) | Campaign | Turning on Display expansion inside a search campaign silently changes what you are buying. |
 | Locations and location options | Campaign | Northgate's 25-mile radius is a campaign setting, not an account setting. |
-| Ad schedule (dayparting) | Campaign | You cannot run brand 24/7 and non-brand evenings-only inside one campaign. |
+| Ad schedule (dayparting) | Campaign | You cannot run brand 7am–9pm and non-brand evenings-only inside one campaign. |
 | Languages | Campaign | |
 | Start and end dates | Campaign | How a seasonal campaign gets switched off cleanly. |
 | Device bid adjustments | Campaign, and ad group for some strategies | |
@@ -101,7 +101,7 @@ This is also the discipline that keeps accounts from sprawling. The most common 
 
 There are six axes on which real accounts get split. For each one, the test is the same: do you need separate budget, separate targeting, or separate reporting badly enough to pay the cost of another campaign?
 
-**Service line.** The most common and usually the right first cut. Northgate's AC repair, furnace install, and maintenance plans have different lead values ($108 versus $432 versus $108), different CPCs ($8.20 versus $8.99 versus $4.79), different conversion rates (11% versus 6.7% versus a small-volume number), and different seasons. They cannot share a budget or a CPA target without one of them subsidizing another invisibly. Split them.
+**Service line.** The most common and usually the right first cut. Northgate's AC repair, furnace install, and maintenance-plan campaign repair leads have different lead values ($108 versus $432 versus $108), different CPCs ($8.20 versus $8.99 versus $4.79), different conversion rates (11% versus 6.7% versus a small-volume number), and different seasons. They cannot share a budget or a CPA target without one of them subsidizing another invisibly. Split them.
 
 **Intent stage.** "emergency ac repair" and "how much does ac repair cost" are the same service line and completely different moments. The first person wants a phone number in the next ninety seconds. The second is researching and may buy in three weeks. If you want to bid differently on those, or send them to different pages, or hold them to different CPA targets, they need to be separated. At Northgate's scale, intent stage is usually an ad group split rather than a campaign split, because the volume does not justify two budgets.
 
@@ -121,7 +121,7 @@ Someone searching "northgate heating and air" and someone searching "emergency a
 
 **Failure one: budget cannibalization.** Brand clicks cost $1.90 and convert at 28%. Non-brand AC repair clicks cost $8.20 and convert at 11%. Under a shared budget and any strategy that chases volume, cheap clicks win, and brand quietly absorbs money that was supposed to go to acquisition. The reverse also happens and is worse. On the first genuinely hot day of summer, non-brand emergency traffic floods in, the shared $200 daily budget is exhausted by mid-afternoon, and Northgate's own brand ad stops showing at exactly the hour when the most people are looking them up after seeing their van. Buckeye Comfort's conquest ad shows in its place, on a query containing Northgate's name, for $1.90 a click.
 
-Size that. Brand takes 316 clicks over 30.4 days, about 10.4 clicks a day. Losing the last nine hours of a peak day costs roughly 10.4 x (9 / 24) = 3.9, call it 4 brand clicks, which at a 28% conversion rate is 1.1 leads, worth about $118 in gross profit. One day is trivial. Fifteen peak days across a summer is closer to $1,770, and that is before counting the leads a competitor picked up on your own brand name. Separate campaigns with separate budgets make this structurally impossible, because brand's $20 a day cannot be consumed by non-brand no matter what the auction does.
+Size that using an explicitly uniform click-rate assumption across the 14 staffed hours. Brand takes 316 clicks over the report's 30 days, about 10.53 clicks a day. Losing the final six staffed hours, 3pm to 9pm, costs roughly 10.53 x (6 / 14) = 4.51 clicks, which at a 28% conversion rate is 1.26 expected leads, worth about $136.51 in gross profit. Fifteen such peak days across a summer is about $2,048, and that is before counting the leads a competitor picked up on your own brand name. Separate campaigns with separate budgets make this structurally impossible, because brand's $20 a day cannot be consumed by non-brand no matter what the auction does.
 
 **Failure two: incompatible economics in one bid strategy.** A campaign has one bid strategy. Brand should be bid to hold near-total impression share cheaply. Non-brand should be bid to a CPA target. Those are different jobs and they cannot both be done by one setting.
 
@@ -160,12 +160,12 @@ Naive blended contribution (all 152 leads priced at $108):
   152 x ($108 - $40.00) = 152 x $68.00 = $10,336
 
 Correct segmented contribution:
-  Brand           88 x ($108 - $6.82)   = 88 x $101.18 = $8,903.84
-  AC Repair       43 x ($108 - $74.42)  = 43 x $33.58  = $1,443.94
-  Furnace Install 12 x ($432 - $133.33) = 12 x $298.67 = $3,584.04
-  Maint. Plans     9 x ($108 - $75.56)  =  9 x $32.44  =   $291.96
-                                                       -----------
-                                          Total         $14,223.78
+  Brand           88 x $108 - $600   = $8,904
+  AC Repair       43 x $108 - $3,200 = $1,444
+  Furnace Install 12 x $432 - $1,600 = $3,584
+  Maint. Plans     9 x $108 - $680   =   $292
+                                      -------
+                            Total     $14,224
 ```
 
 The naive figure understates total contribution by nearly $3,900 because it prices replacement leads as repairs, and it simultaneously overstates how well acquisition is working. Both errors come from the same cause: reporting units that do not match economic units. Structure is what makes reporting units match economic units.
@@ -176,7 +176,7 @@ A note on what "brand" means in practice. Brand campaigns hold the company name 
 
 An ad group exists to hold a set of keywords that can honestly be served by the same ads. That is the entire test. If you cannot write three headlines that are genuinely relevant to every keyword in the group, the group is too broad.
 
-Consider a group holding `ac repair`, `furnace install`, and `hvac maintenance plan`. The only headline that fits all three is something like "Heating and Cooling Services", which fits nothing well. Now consider a group holding only `emergency ac repair`, `ac repair emergency`, and `24 hour ac repair`. The headline writes itself: "Emergency AC Repair, Columbus", "Tech Dispatched Within 2 Hours", "24/7, No Overtime Charge". Every searcher sees their own words back.
+Consider a group holding `ac repair`, `furnace install`, and `hvac maintenance plan`. The only headline that fits all three is something like "Heating and Cooling Services", which fits nothing well. Now consider a group holding only `emergency ac repair`, `ac repair emergency`, and `same day ac repair`. The headline writes itself: "Emergency AC Repair, Columbus", "Arrival Window Confirmed", "Open 7am-9pm, No Overtime". Every searcher sees their own words back.
 
 That is message match, and it pays three times over. It raises click-through rate because the ad visibly answers the query. It raises the ad relevance component of Quality Score, which lowers cost per click through the pricing formula you worked in lesson 02. And it lets you point the ad at a specific landing page, `northgateheatingair.com/emergency-ac-repair` rather than the homepage, which raises the landing page experience component too. One structural decision moves all three quality components in the same direction.
 
@@ -186,7 +186,7 @@ Put a number on the first of those three. Ad copy craft is lesson 05's subject, 
 | --- | --- | --- |
 | emergency ac repair columbus | Heating and Cooling Services | Emergency AC Repair, Columbus |
 | how much does ac repair cost | Heating and Cooling Services | AC Repair Cost, Upfront Pricing |
-| hvac maintenance plan | Heating and Cooling Services | HVAC Maintenance Plan, $19/mo |
+| hvac maintenance plan | Heating and Cooling Services | HVAC Maintenance Plan, $189/yr |
 
 The left column is not badly written. It is structurally incapable of matching, because one ad has to cover three unrelated intents. Now price the difference at Northgate's volume, holding impressions fixed so that only the click-through rate changes.
 
@@ -201,7 +201,7 @@ fell to 4.4%, which is roughly what a generic ad earns on specific queries:
 
 At the ad group's 11% conversion rate:
   Conversions on 390 clicks = 42.9 -> 43   (matches the report)
-  Conversions on 268 clicks = 29.5 -> 29
+  Conversions on 268 clicks = 29.48 -> 29
   Leads lost = 14 per month
 
 Gross profit lost = 14 x $108 = $1,512 per month
@@ -209,7 +209,7 @@ Cost avoided on the 122 clicks not bought = 122 x $8.20 = $1,000.40
 Net contribution lost = $1,512 - $1,000 = $512 per month
 ```
 
-I rounded impressions and conversions to whole numbers. The $512 a month is the conservative figure, because it counts only the direct click effect. It ignores the second and third payoffs: the lower expected CTR also drags the quality index down, which raises the cost of every remaining click, and the generic ad has to point somewhere generic, which drags landing page experience down too. Those effects compound, which is why badly structured accounts do not perform slightly worse than well structured ones. They perform much worse.
+I rounded impressions to the nearest whole number and truncated conversions down to whole leads in this conservative example. The $512 a month is the conservative figure, because it counts only the direct click effect. It ignores the second and third payoffs: the lower expected CTR also drags the quality index down, which raises the cost of every remaining click, and the generic ad has to point somewhere generic, which drags landing page experience down too. Those effects compound, which is why badly structured accounts do not perform slightly worse than well structured ones. They perform much worse.
 
 The practical rule for a business Northgate's size: **three to six ad groups per campaign, each holding five to twenty closely related keywords, each with its own responsive search ad and its own landing page.** Fewer than three and you are probably under-segmented. More than eight and you should check the volume arithmetic in the next section before you commit.
 
@@ -217,23 +217,24 @@ Two failure patterns to recognize. The first is the "everything" ad group, usual
 
 ## The Northgate Account Tree
 
-Here is the account as it should look, with budgets that sum to the $200 daily cap and one representative keyword theme per ad group. Lesson 04 covers how those keyword themes get built and controlled; treat the keywords here as illustration of scope, not as a finished keyword list.
+Here is an illustrative account tree, with rounded daily budgets that sum to the $200 daily allocation. The baseline report totals $6,080; this simplified tree totals the same monthly allocation at 30.4 days, but its individual rounded campaign budgets differ slightly from the precise split in lesson 06. It shows one representative keyword theme per ad group and the proposed staffed-hour schedule, which removes the baseline report's outside-hours traffic. Lesson 04 covers how those keyword themes get built and controlled; treat the keywords here as illustration of scope, not as a finished keyword list.
 
 ```txt
 Northgate Heating & Air  (account)
-│  Conversion actions:  Phone Call >60s  [primary]
-│                       Book a Visit form submit  [primary]
+│  Conversion actions:  Phone Call >60s ($108 repair; separate replacement action) [primary]
+│                       Book a Visit - Repair ($108) [primary]
+│                       Book a Visit - Replacement ($432) [primary]
 │                       Contact page view  [secondary]
 │  Shared negative lists:  NGH_NEG_Jobs, NGH_NEG_DIY, NGH_NEG_OutOfArea
 │  Account assets: callouts, structured snippets, location, call
 │
 ├── NGH-SRCH-BR-Core-COL25                          $20/day   Manual CPC $3.00
-│   │  Geo: Columbus OH, 25 mi radius | Search network only | 24/7
+│   │  Geo: Columbus OH, 25 mi radius | Search network only | 7am-9pm, seven days
 │   ├── ag: brand-core            e.g. northgate heating and air
 │   └── ag: brand-plus-service    e.g. northgate heating air ac repair
 │
 ├── NGH-SRCH-NB-ACRepair-COL25                      $105/day  tCPA $60
-│   │  Geo: Columbus OH, 25 mi radius | Search network only | 24/7
+│   │  Geo: Columbus OH, 25 mi radius | Search network only | 7am-9pm, seven days
 │   ├── ag: emergency-ac-repair   e.g. emergency ac repair columbus
 │   │        -> /emergency-ac-repair
 │   ├── ag: ac-not-cooling        e.g. ac not blowing cold air
@@ -243,8 +244,8 @@ Northgate Heating & Air  (account)
 │   └── ag: ac-repair-cost        e.g. how much does ac repair cost
 │            -> /ac-repair-pricing
 │
-├── NGH-SRCH-NB-FurnaceInstall-COL25                $53/day   tCPA $180
-│   │  Geo: Columbus OH, 25 mi radius | Search network only | 24/7
+├── NGH-SRCH-NB-FurnaceInstall-COL25                $53/day   Max Conversions, no target
+│   │  Geo: Columbus OH, 25 mi radius | Search network only | 7am-9pm, seven days
 │   ├── ag: furnace-replacement   e.g. furnace replacement columbus
 │   │        -> /furnace-installation
 │   ├── ag: new-furnace-cost      e.g. new furnace cost installed
@@ -252,15 +253,15 @@ Northgate Heating & Air  (account)
 │   └── ag: hvac-system-replace   e.g. hvac system replacement
 │            -> /system-replacement
 │
-├── NGH-SRCH-NB-MaintPlans-COL25                    $22/day   Max Conversions
-│   │  Geo: Columbus OH, 25 mi radius | Search network only | 24/7
+├── NGH-SRCH-NB-MaintPlans-COL25                    $22/day   Manual CPC $5.00
+│   │  Geo: Columbus OH, 25 mi radius | Search network only | 7am-9pm, seven days
 │   ├── ag: hvac-maintenance-plan e.g. hvac maintenance plan columbus
 │   │        -> /maintenance-plans
 │   └── ag: ac-tune-up            e.g. ac tune up special
 │            -> /maintenance-plans
 │
 └── NGH-SRCH-NB-FurnaceRepair-COL25-SEASONAL        PAUSED  ($60/day when on)
-    │  Runs 15 Oct - 31 Mar | Geo: Columbus OH, 25 mi | Search only | 24/7
+    │  Runs 15 Oct - 31 Mar | Geo: Columbus OH, 25 mi | Search only | 7am-9pm, seven days
     ├── ag: emergency-furnace-repair  e.g. emergency furnace repair
     │        -> /emergency-furnace-repair
     ├── ag: furnace-not-heating       e.g. furnace blowing cold air
@@ -328,7 +329,7 @@ Apply the same discipline to shared assets: `NGH_NEG_Jobs` and `NGH_NEG_OutOfAre
 
 Everything above pushes toward more separation. There is a hard limit in the other direction, and it is a data limit rather than an aesthetic one.
 
-Automated bidding works by modelling conversion probability from observed conversions. A campaign that produces very few conversions per month gives the model almost nothing to learn from, and the model falls back toward broad averages. Precisely how many conversions are needed varies, but the working guidance for target CPA is roughly 15 to 30 conversions in a campaign per 30 days before the strategy has anything to work with. Below that, you are running an algorithm on noise.
+Automated bidding works by modelling conversion probability from observed conversions. A campaign that produces very few conversions per month gives the model almost nothing to learn from, and the model falls back toward broad averages. Precisely how many conversions are needed varies, but the working guidance for target CPA is roughly 30 conversions in 30 days at the strategy level for this course's planning and evaluation exercises. This is a teaching heuristic, not a universal platform eligibility requirement; sparse data makes local evaluation less reliable. Lesson 06 explains the distinction.
 
 Do the arithmetic on Northgate's Furnace Install campaign.
 
@@ -364,7 +365,7 @@ Two account-level features are really structural tools, and both exist to soften
 
 A **shared budget** lets several campaigns draw from one pool. Northgate could put the three non-brand repair-type campaigns on a single $180-a-day shared budget so that a slow furnace day releases money to AC repair automatically. The benefit is that money follows demand without you touching anything. The cost is that you lose the per-campaign spending cap, which is the whole point of a campaign boundary. Use a shared budget when the campaigns share an economic target and you genuinely do not care which one spends the money. Never put brand and non-brand on a shared budget, because the entire reason brand is separate is to protect its money.
 
-A **portfolio bid strategy** applies one bid strategy across several campaigns, so they pool their conversion data for the model. This is the correct answer to the thin-data problem when you need structural separation for message or reporting reasons but each piece is too small to learn on its own. Northgate could run Furnace Install and Furnace Repair as separate campaigns, for seasonal and landing page reasons, while both feed a single portfolio target CPA of $180. The pooled 30-odd monthly conversions give the model something real to work with, and you keep two campaigns you can budget and pause independently.
+A **portfolio bid strategy** applies one bid strategy across several campaigns, so they pool their conversion data for the model. This is the correct answer to the thin-data problem when you need structural separation for message or reporting reasons but each piece is too small to learn on its own. Northgate could pool AC Repair and Maintenance Plans in a repair-lead portfolio at a $60 target CPA: 43 + 9 = 52 monthly conversions, each worth $108. Keep Furnace Install separate at its $180 replacement-lead target; mixing $432 replacement leads with $108 repair leads under one shared target would erase their different economics. The seasonal Furnace Repair campaign can join the repair pool when active, while each campaign keeps its own budget and pause control.
 
 The general shape: use separate campaigns for control, and use portfolios to restore the statistical power that separation cost you. Lesson 06 covers the bid strategies themselves and when each one is appropriate.
 
@@ -374,7 +375,7 @@ Northgate's year has two events: the first genuinely hot week of summer and the 
 
 The **Furnace Repair** campaign in the tree above is paused for roughly seven months a year. Making it a campaign rather than an ad group is what allows a clean seasonal switch: pause it, and its budget is simply not spent, with no side effects on anything else. Had those ad groups lived inside the AC Repair campaign, pausing them in April would leave the AC Repair campaign's bid strategy and budget to redistribute across the remaining groups in ways you did not choose, and the campaign's historical performance data would be a blend of two unrelated seasons.
 
-The **Maintenance Plans** campaign is deliberately always-on at a small $22 a day. Maintenance plan demand is flat, the leads are cheap, and the plans produce recurring revenue and a customer list that pays off during emergencies. Always-on small campaigns also keep quality signals warm; a campaign that has been dark for five months restarts with stale data and usually needs two or three weeks to settle.
+The **Maintenance Plans** campaign is deliberately active year-round at a small $22 a day, during staffed hours. Its reported conversions are repair-type service leads worth $108, not completed plan purchases. Plans sold separately cost $189 a year and produce $95 of first-year gross profit; any recurring value requires a separate purchase and retention calculation. Always-on small campaigns also keep quality signals warm; a campaign that has been dark for five months restarts with stale data and usually needs two or three weeks to settle.
 
 Three seasonal moves worth planning in advance.
 
@@ -382,7 +383,7 @@ Three seasonal moves worth planning in advance.
 
 **Budget reallocation, planned in writing.** Northgate's $200 a day is a hard cap. When Furnace Repair activates at $60, that money must come out of AC Repair, which drops from $105 to $45. Decide this in September, not on the night of the freeze.
 
-**Seasonal ad schedules.** Emergency queries concentrate in the evening in summer and overnight in winter. Ad schedules are a campaign setting, which is another reason emergency campaigns are separate from research-intent campaigns.
+**Seasonal ad schedules.** Emergency queries concentrate in the evening in summer and can arrive overnight in winter. Northgate's baseline service and contact hours remain 7am to 9pm, seven days. Schedule call-led ads within those hours; overnight form submissions do not imply an answered call or overnight dispatch. Ad schedules are a campaign setting, which is another reason emergency campaigns are separate from research-intent campaigns.
 
 ## Restructuring an Inherited Mess
 

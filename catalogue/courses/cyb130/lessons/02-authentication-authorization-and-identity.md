@@ -31,7 +31,7 @@ Hold onto this framing for the rest of the course. Lesson 03 is entirely about s
 
 Four words that get used interchangeably in conversation and must not be in your notes.
 
-An **identity** is the record of a person, a service, or a device that the organization recognizes. Maya Okonkwo, hired 1 March 2021, employee number 40881, works in Accounts Payable. There is exactly one of her.
+An **identity** is the record of a person, a service, or a device that the organization recognizes. Maya Okonkwo joined Ashford Community Housing on 1 March 2021 as an Accounts Payable clerk, employee number 40881. Lesson 05 follows her subsequent moves within Ashford into procurement. There is exactly one of her.
 
 An **account** is a usable login bound to an identity in some system. Maya may have several: a directory account for her workstation and email, a separate named administrative account if she has elevated duties, a login in the ERP system, a badge record in the physical access system. One identity, many accounts. When people say "she still has access," they almost always mean one of her accounts survived somewhere.
 
@@ -162,7 +162,7 @@ Two accounting failures to name whenever you see them. **Shared accounts** destr
 
 ## Reading a login flow
 
-Practice tracing where each A happens. A user opens the expense application from a coffee shop:
+Practice tracing where each A happens. In a separate US-company example with expense amounts in USD, a user opens the expense application from a coffee shop:
 
 1. The application sees no session and redirects the browser to the identity provider. *No A yet — this is routing.*
 2. The user submits their username and password. *Authentication, factor one, knowledge.*

@@ -25,7 +25,7 @@ Budget roughly three hours. This is an analysis exercise, not a research project
 
 ## The client
 
-**Ravensworth Building Society** is a 180-person regional lender with a head office, four branches, and a small mortgage-processing team. They have never had an access-control audit. The IT team is four people, two of whom joined this year. The compliance officer has asked for an audit because their insurer's renewal questionnaire asked three questions the society could not answer.
+**Ravensworth Building Society** is a UK regional lender with 180 employees; monetary recommendations use pounds sterling (GBP). It has a head office, four branches, and a small mortgage-processing team. They have never had an access-control audit. The IT team is four people, two of whom joined this year. The compliance officer has asked for an audit because their insurer's renewal questionnaire asked three questions the society could not answer.
 
 What they run:
 
@@ -54,7 +54,7 @@ What the compliance officer has said, in her words: *"I need to know what we wou
 
 ## The evidence
 
-Everything below is what the IT team was able to export. It is incomplete in places, and noticing what is missing is part of the audit.
+The extracts are a snapshot as of 27 July 2026. The 180 employees exclude the four external MSP engineers and six non-human accounts. Everything below is what the IT team was able to export. It is incomplete in places, and noticing what is missing is part of the audit.
 
 ### Extract A — directory accounts
 

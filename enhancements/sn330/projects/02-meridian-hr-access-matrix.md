@@ -21,7 +21,7 @@ competency_ids:
 
 ## Scenario
 
-Meridian Logistics is about to put employee relations investigations into HRSD. Before go-live, the Chief People Officer wants proof, not assurances, that (1) HR shared services agents cannot reach an employee relations case by any path, (2) employees see their own cases but never internal work notes, (3) managers see only what a narrow requirement allows, and (4) compensation fields are hidden even from agents who can read the case. You will build the group and role model, write the minimum ACLs, and deliver an audit pack built around a predicted-versus-actual access matrix.
+Meridian Logistics, the roughly 4,000-employee US/UK/India employer from the onboarding capstone, is about to put employee relations investigations into HRSD. Before go-live, the Chief People Officer wants proof, not assurances, that (1) HR shared services agents cannot reach an employee relations case by any path, (2) employees see their own cases but never internal work notes, (3) managers see only what a narrow requirement allows, and (4) compensation fields are hidden even from agents who can read the case. You will build the group and role model, write the minimum ACLs, and deliver an audit pack built around a predicted-versus-actual access matrix.
 
 ## What you will produce
 

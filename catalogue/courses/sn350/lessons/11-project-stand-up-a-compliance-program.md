@@ -19,7 +19,7 @@ Complete means every link in the chain exists and connects: an authority documen
 
 ## Scenario
 
-Meridian Logistics is a regional freight company with roughly 900 employees. Their largest customer has imposed an information security addendum as a contractual condition of renewal, and the customer's audit team will test compliance in six months. Meridian has never run a formal compliance program.
+Crestline Freight is a regional freight company with roughly 900 employees. This is a fresh capstone client, separate from Northwind Health in lessons 2 through 10 and from Meridian Logistics in the HRSD course. Their largest customer has imposed an information security addendum as a contractual condition of renewal, and the customer's audit team will test compliance in six months. Crestline has never run a formal compliance program.
 
 What they have: a reasonably maintained CMDB covering their production estate, ITSM in daily use, a security manager who has written several internal policies in a document repository, and a spreadsheet of "controls" assembled last year by a departed consultant.
 
@@ -69,7 +69,7 @@ Implement one query-time restriction with a deny-by-default branch, then open th
 - **Nothing is deleted.** Superseded and retired records are retired, not removed.
 - **Evidence is attached, not described.** An assertion that a review happened is not evidence.
 - **No hard-coded people.** Owners, respondents, and approvers are derived from data. A named person in a filter is a defect.
-- **Time box.** Roughly two hours of build on top of the work you already have from Lessons 3 through 10. Reuse aggressively; this project is an integration exercise, not a rebuild.
+- **Time box.** Roughly two hours of build on top of the work you already have from Lessons 3 through 10. Reuse the configuration patterns aggressively; this project is an integration exercise, not a rebuild. Adapt the obligation, service population, owners, and evidence to Crestline Freight rather than carrying over Northwind Health records as this client's data.
 
 ## Definition of done
 
@@ -87,7 +87,7 @@ You are done when all of the following are true and you can demonstrate each one
 - [ ] The dashboard's operational widgets show different content to two different test users without any per-user report copies existing.
 - [ ] A user with no group membership sees nothing on the restricted table rather than everything.
 - [ ] The heaviest widget's row count is recorded, and any widget above the threshold has been moved to collected scores or narrowed.
-- [ ] A short handover note exists listing: what you invented about Meridian, every scope decision and its justification, every entity type filter and the agreement behind it, and the promotion classification (configuration, content, or operational data) of every record type you created.
+- [ ] A short handover note exists listing: the Crestline Freight client scope, what you invented about Crestline, how reused configuration was adapted to its freight-tracking service, every scope decision and its justification, every entity type filter and the agreement behind it, and the promotion classification (configuration, content, or operational data) of every record type you created.
 
 ## Hints
 

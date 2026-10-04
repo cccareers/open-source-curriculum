@@ -32,7 +32,7 @@ It is 15 September. Ruth wants an "early access" email for the Year-End Close Sp
 
 ## Before you start
 
-Reference date for engagement recency: **2026-09-15**. Dormant = no email engagement in 180+ days (before 2026-03-19). Schema and options are lesson 02's.
+Reference date for engagement recency: **2026-09-15**. Dormant = no email engagement in 180+ days (on or before 2026-03-19). Schema and options are lesson 02's.
 
 **`northlight_sample.csv`**
 

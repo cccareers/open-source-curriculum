@@ -27,15 +27,15 @@ Ashford Community Housing (lessons 04 and 05) liked your manual discrepancy list
 ## What you will build / produce
 1. `audit.py` (Python 3.9+, standard library only), usable as `python3 audit.py --asof YYYY-MM-DD FIXTURE_DIR OUT.csv`.
 2. `findings.csv` with columns `account,finding_type,detail`. `finding_type` is one of:
-   - `ORPHANED`: enabled account whose HR record is not `active`
+   - `ORPHANED`: enabled account with a matching HR record whose status is not `active`
    - `UNOWNED`: no HR record and no `owner`
-   - `DORMANT`: last logon more than 90 days before `--asof`
-   - `DRIFT`: one row per group held beyond the job role's expected groups and not covered by an unexpired add-on; `detail` is the group name
-   - `SOD_BREAK`: holds both groups of a pair
+   - `DORMANT`: enabled account whose last logon is more than 90 days before `--asof`
+   - `DRIFT`: for enabled accounts with active HR records, one row per group held beyond the job role's expected groups and not covered by an unexpired add-on; `detail` is the group name
+   - `SOD_BREAK`: enabled account holds both groups of a pair; one row per conflicting pair
 3. A one-page memo to Ashford's IT manager: the top five findings in business language (lesson 05's "this person can approve payments..." style), each with an owner and remediation.
 
 ## Before you start (prerequisites, starter files or data)
-Create `fixtures/` with these five files.
+Create `fixtures/` with these five files. This 27 July 2026 Ashford snapshot uses the selected directory groups from lesson 05; it does not inventory ERP-project access or mailbox delegations. Maya is employee 40881, hired by Ashford on 1 March 2021. Use GBP for monetary examples in the memo.
 
 `fixtures/hr.csv`
 ```text
@@ -141,7 +141,7 @@ for acct, t in must_not:
 print(f"ALL TESTS PASSED ({len(rows)} findings)")
 ```
 
-Expected output: `ALL TESTS PASSED (14 findings)`. The count can differ if you also report a group that is *missing* from a role. If you add that as a `MISSING` type, the tests still pass.
+Expected output: `ALL TESTS PASSED (14 findings)`. This includes two SOD_BREAK rows for Maya, one for each conflicting pair. The count can differ if you also report a group that is *missing* from a role. If you add that as a `MISSING` type, the tests still pass.
 
 ## Rubric
 | Criterion | Developing | Meets | Exceeds |

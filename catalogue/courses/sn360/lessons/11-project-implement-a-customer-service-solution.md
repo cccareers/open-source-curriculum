@@ -14,7 +14,7 @@ objectives: []
 
 ## The brief
 
-Meridian Instruments sells laboratory analyzers to hospitals and research labs. They have bought ServiceNow CSM and you are the implementation specialist on a short first phase. Their current support process is a shared mailbox, a spreadsheet of contracts, and one very tired team lead who assigns everything by hand each morning.
+Meridian Instruments sells laboratory analyzers to hospitals and research labs. It is a separate fictional business from Meridian Logistics in the HRSD course. This capstone uses a fresh analyzer supplier and its hospital customers; Northwind Manufacturing remains the industrial-controller customer in the worked lessons and supplemental projects. Reuse configuration patterns, but build this client's own accounts, contacts, analyzer models, and installed products. They have bought ServiceNow CSM and you are the implementation specialist on a short first phase. Their current support process is a shared mailbox, a spreadsheet of contracts, and one very tired team lead who assigns everything by hand each morning.
 
 You have their agreement on three outcomes for phase one:
 
@@ -57,7 +57,7 @@ Deliver a demonstrable CSM configuration for Meridian covering case management, 
 
 **D. Handover**
 
-- A design note of no more than three pages: the customer model, the lifecycle diagram with conditions on the transitions, the routing design, the access model, and a list of every decision you made that Meridian would need to confirm.
+- A design note of no more than three pages, naming Meridian Instruments and the hospital customers modeled for this build: the customer model, the lifecycle diagram with conditions on the transitions, the routing design, the access model, and a list of every decision you made that Meridian would need to confirm.
 
 ## Constraints
 
@@ -82,7 +82,7 @@ You are finished when every one of these is demonstrably true in your instance:
 7. Moving the case to the customer-waiting state requires a customer-visible comment, and the customer sees it on the portal in customer-facing wording.
 8. The customer can reopen the resolved case from the portal, and the case returns to an open state with resolution fields cleared.
 9. A resolved case left alone closes automatically after the configured period, and the customer received a notification before it happened.
-10. The design note exists, is under three pages, and lists at least five decisions requiring Meridian's confirmation.
+10. The design note exists, is under three pages, identifies Meridian Instruments and its hospital customer population, and lists at least five decisions requiring Meridian's confirmation.
 
 ## Hints
 

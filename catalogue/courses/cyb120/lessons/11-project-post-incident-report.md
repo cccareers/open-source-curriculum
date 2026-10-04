@@ -123,7 +123,7 @@ Prepare a real answer to the fourth one. The answer is never a name.
 
 **Recommendations that cost nothing are the most likely to happen.** Include at least one that requires no budget — a routing change, a checklist item, a naming convention, a query scheduled. A report where every recommendation needs a purchase order tends to produce no change at all.
 
-**Tie each recommendation to a specific moment in the timeline.** "If the scheduled-task creation alert had existed, we would have seen this at 13:58 instead of 09:14 the next day — a difference of nineteen hours" is an argument. "We should monitor persistence mechanisms" is a preference.
+**Tie each recommendation to a specific moment in the timeline.** "If the scheduled-task creation alert had existed, we would have seen this at 13:58 instead of 09:14 the next day — a difference of 19 hours 16 minutes" is an argument. "We should monitor persistence mechanisms" is a preference.
 
 **The posture section is where your value shows.** Anyone can list what happened. The judgment being assessed is your honest, evidenced answer to "what would we see if this happened again tomorrow?" — including the parts where the answer is "nothing."
 

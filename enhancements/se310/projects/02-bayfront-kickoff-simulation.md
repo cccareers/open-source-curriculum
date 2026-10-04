@@ -16,7 +16,7 @@ competency_ids:
 
 ## Scenario
 
-You've just closed **Bayfront Marine Services** (the Lesson 2 practice account): a 12-month term starting 1 March, 140 seats, $118,000 ARR. Work orders are handwritten on carbon-copy pads at four marinas, and roughly 15% are never invoiced, though nobody knows the real figure. The champion, **Priya Raman** (Operations Manager), has been in her role seven weeks. **Tom Okafor** (Managing Director) signed. **Elena Brandt**, Yard Supervisor at the largest marina, told you "the last system they tried lasted a month." Finance runs a 14-year-old package, and a file export needs about two days of a finance person's time. A fifth marina is being acquired in the summer.
+You've just closed **Bayfront Marine Services** (the Lesson 2 practice account): a 12-month term starting 1 March, 140 seats, $118,000 ARR. Work orders are handwritten on carbon-copy pads at four marinas, and roughly 15% are never invoiced, though nobody knows the real figure. The champion, **Priya Raman** (Operations Manager), has been in her role seven weeks. **Tom Okafor** (Managing Director) signed. **Elena Brandt**, Yard Supervisor at the largest marina, told you "the last system they tried lasted a month." Finance runs a 14-year-old package, and a file export needs about two days of a finance person's time. A fifth-marina acquisition is being considered, with timing unconfirmed.
 
 You'll write the handoff record, then run the kickoff working session with a panel playing Priya, Elena, and your delivery lead, and send the recap the same day.
 

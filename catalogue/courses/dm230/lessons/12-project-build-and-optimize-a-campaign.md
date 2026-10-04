@@ -52,7 +52,7 @@ At least 40 keywords, organized by ad group, each with a match type and a stated
 Write two responsive search ads per non-brand ad group: at least 10 headlines and 3 descriptions each. Give the **character count for every headline and description** and confirm each is within limits. Then run a written policy compliance check: for each ad, list any claim that would need substantiation, name the policy category it falls under, and either supply the substantiation or rewrite the claim. Pay particular attention to superlatives, guarantees, pricing claims, urgency, and anything implying insurance outcomes.
 
 **5. Budget allocation and bid strategy.**
-Split the $150 a day across campaigns and defend the split with the lead-value arithmetic from item 1, not with intuition. Choose a bid strategy per campaign and **apply the conversion-volume test**: state how many conversions per 30 days that strategy needs to learn, compare that to what the campaign will realistically produce, and pick accordingly. If a campaign cannot support automated bidding yet, say what you will run instead and what threshold would trigger a switch.
+Split the $150 a day across campaigns and defend the split with the lead-value arithmetic from item 1, not with intuition. Choose a bid strategy per campaign and **apply the course's conversion-volume heuristic**: state the planning/evaluation benchmark you use per 30 days, distinguish it from any platform eligibility rule, compare it to what the campaign will realistically produce, and pick accordingly. If a campaign cannot support automated bidding yet, say what you will run instead and what threshold would trigger a switch.
 
 **6. Targeting plan.**
 Geography, radius, location-intent setting, ad schedule, device bid considerations, and any audience layers, each with a one-line justification tied to the business. Address what happens to schedule and budget during a hail event.
@@ -123,7 +123,7 @@ A reviewer should be able to tick every line of this list.
 - [ ] Every headline and description carries a character count and every count is within limits.
 - [ ] Each flagged claim names a policy category and is either substantiated or rewritten.
 - [ ] The budget split is justified by lead-value arithmetic, and the arithmetic is shown.
-- [ ] Each bid strategy choice states the conversion volume it requires and compares it to what the campaign produces.
+- [ ] Each bid strategy choice states its planning/evaluation volume benchmark, distinguishes it from platform eligibility, and compares it to what the campaign produces.
 - [ ] The targeting plan covers geography, radius, location intent, schedule, devices, and audiences, each with a justification.
 - [ ] Every conversion action is listed with counting method, attribution window, primary or secondary status, and value.
 - [ ] The tracking QA checklist has at least eight executable checks with expected results, and names three defects it would catch.
@@ -160,7 +160,7 @@ Two things will fail an otherwise strong submission: a contribution table that d
 
 **The two product lines have different economics.** They share a margin but not a job size, so they do not share a break-even CPA. Any analysis that applies one lead value to the whole account is wrong before it starts.
 
-**Check the conversion-volume test before you choose a smart bidding strategy.** Automated bidding needs conversions to learn from, and the requirement is usually stated per campaign per 30 days, not per account. Look at the conversion column in the supplied table and ask which campaigns clear it. At least two do not. Deciding what to run in a campaign that cannot yet support automation is part of the assessment, not a gap in the brief.
+**Check the conversion-volume test before you choose a smart bidding strategy.** Use the course's roughly 30-conversions-in-30-days planning and evaluation heuristic at the strategy level; it is not a universal platform requirement. Look at the conversion column in the supplied table and ask which campaigns clear it. Roof Replacement (24) and Gutter Guards (3) do not. Deciding what to run in a campaign that cannot yet support automation is part of the assessment, not a gap in the brief.
 
 **The search terms report is where the money hides.** You do not have one for Kestrel, which is exactly why your negative list has to anticipate the leaks rather than react to them. Think about who else types roofing words: people looking for jobs, people looking for materials, people wanting free government programs, people in cities you do not serve, people researching how to do it themselves, and the aggregators' own brand names. Then write the negatives that would have caught those before they cost anything.
 

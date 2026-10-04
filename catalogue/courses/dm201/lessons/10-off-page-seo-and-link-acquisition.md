@@ -37,7 +37,7 @@ The original insight is simple: a link is a person choosing to send their own re
 
 Search engines do not count links. They weigh them, and the weight depends on things you can reason about:
 
-**Relevance of the linking page.** A link to `meridianpayroll.com/templates/payroll-register-template` from an article on bookkeeping close procedures is topically adjacent. The same link from "top 50 SaaS startups to watch" is not. Relevance is judged at the page level first, then the site level — a payroll article on a general business site can beat an off-topic page on a payroll site.
+**Relevance of the linking page.** A link to `meridianpayroll.com/templates/payroll-register` from an article on bookkeeping close procedures is topically adjacent. The same link from "top 50 SaaS startups to watch" is not. Relevance is judged at the page level first, then the site level — a payroll article on a general business site can beat an off-topic page on a payroll site.
 
 **Editorial intent.** Did a human place this link because it helped the reader, or did it appear because of a template, a plugin, a sponsorship, or a contributor paid per placement? Footer links, author-bio links, and sidebar "partners" blocks are structural rather than editorial, and are treated accordingly.
 
@@ -152,7 +152,7 @@ Before any of it: **fix your internal links first** — the cheapest authority y
 
 - *Effort:* 6–10 hours to build and check a list of 60 prospects.
 - *Realistic return:* low and falling — 1–4 links per 60 prospects. A steady background activity, not a strategy.
-- *Meridian example:* a state CPA society's "small business resources" page links to a payroll form that 404s. Tell the page owner which link is dead and offer `/templates/payroll-register-template`. The honest version means you report the dead link whether or not they take your suggestion.
+- *Meridian example:* a state CPA society's "small business resources" page links to a payroll form that 404s. Tell the page owner which link is dead and offer `/templates/payroll-register`. The honest version means you report the dead link whether or not they take your suggestion.
 
 **6. Integration and partner pages.** If your product integrates with anything, the partner usually has a directory.
 
@@ -228,7 +228,7 @@ Your "Payroll basics for new employers" post links to a payroll
 register template at forms.oldsite.com that now 404s — it's the
 third link under step 4.
 
-We publish a free one at meridianpayroll.com/templates/payroll-register-template.
+We publish a free one at meridianpayroll.com/templates/payroll-register.
 No email required to download, and it covers semi-monthly and biweekly
 schedules. Might be a clean swap.
 
@@ -293,8 +293,8 @@ Alongside it, keep a **referring-domain log**. One row per earned link:
 
 ```csv
 date_live,domain,url,target_url,play,rel_attribute,placement,score,hours,notes
-2026-03-04,smallbizbookkeeping.com,/payroll-basics,/templates/payroll-register-template,broken-link,none,in-body,21,1.5,Dana swapped it same day
-2026-03-11,hrleadersmonthly.com,/news/payroll-timing,/blog/payroll-timing-report,digital-pr,none,in-body,18,0.5,quoted the 31% amendment stat
+2026-03-04,smallbizbookkeeping.com,/payroll-basics,/templates/payroll-register,broken-link,none,in-body,21,1.5,Dana swapped it same day
+2026-03-11,hrleadersmonthly.com,/news/payroll-timing,/blog/small-business-payroll-timing-report,digital-pr,none,in-body,18,0.5,quoted the 31% amendment stat
 2026-03-19,statecpasociety.org,/resources,/templates/,resource-page,nofollow,list,19,2.0,nofollow but durable and relevant
 ```
 

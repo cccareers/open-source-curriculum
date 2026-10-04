@@ -37,7 +37,7 @@ Two things are going on at once in this data, and they need different owners. Fi
 
 ## Before you start (prerequisites, starter files or data)
 
-All data is from the Meridian Payroll domain property, comparing two 28-day windows (previous = P, current = C). Paste each block into a spreadsheet.
+All data is from the Meridian Payroll domain property, comparing two 28-day windows in 2026 (previous = P, August 4–31; current = C, September 1–28). Template landing pages have recovered from the April–July incident. The September theme release reintroduces the comparison canonical defect; this is a new regression, not the July audit snapshot. Paste each block into a spreadsheet.
 
 **File 1 — `page_groups_28d.csv`** (Search Console, Pages tab grouped by directory)
 
@@ -87,11 +87,11 @@ page_group,sessions_P,sessions_C,trial_starts_P,trial_starts_C
 
 ```text
 week,clicks
-1,3350
-2,3420
-3,3290
+1,3400
+2,3460
+3,3360
 4,3380
-5,3310
+5,3220
 6,3050
 7,2900
 8,2880
@@ -116,7 +116,7 @@ Manual SERP note, recorded on day 20 of window C in a private window: an AI over
 - [ ] The `/compare/` finding is diagnosed as a technical regression confined to one directory (Q1 = yes, Q2 = yes), linked to the theme update and the duplicate-canonical defect from lesson 08, and assigned to engineering with a verification step in URL Inspection.
 - [ ] GA4 is used to confirm both are real traffic changes, not a tracking break (GA4 moved in the same direction as Search Console).
 - [ ] The memo does not blame a Google update, and says why not.
-- [ ] The `/compare/` fix ranks first despite losing fewer clicks, with the trial arithmetic shown (19 to 12 trials, about 7 a month).
+- [ ] The `/compare/` fix ranks first despite losing fewer clicks, with the trial arithmetic shown (19 to 12 trials, about 7 per 28-day window).
 - [ ] The `/blog/` action is honest about the ceiling: you cannot remove an AI overview; the realistic responses are to accept the loss on simple-answer queries, re-point effort to queries that need a tool or file, or give the page a reason to click that the overview cannot satisfy.
 
 ## Evidence checklist
@@ -149,7 +149,7 @@ Manual SERP note, recorded on day 20 of window C in a private window: an AI over
 
 ## Instructor notes (common pitfalls, how to adapt for time)
 
-- Reference values: `/blog/` CTR 1.93% to 1.47%; `/compare/` CTR 5.45% to 5.28% (CTR roughly held there — the loss is impressions and position, a different branch from `/blog/`). Weeks 1 to 4 vary by about ±2% around 3,360; weeks 6 to 8 are 9 to 14% below that average and clearly real.
+- Reference values: `/blog/` CTR 1.93% to 1.47%; `/compare/` CTR 5.45% to 5.28% (CTR roughly held there — the loss is impressions and position, a different branch from `/blog/`). Weeks 1 to 4 vary by about ±2% around 3,400; weeks 6 to 8 are 10 to 15% below that average and clearly real.
 - The three AI-overview queries lost 370 + 220 + 210 = 800 clicks; `how to calculate payroll taxes` lost 180 with no feature noted, so learners should flag it as unexplained rather than force it into the same story.
 - Common error: treating the `/compare/` drop as a CTR problem because CTR is the first column people look at. Impressions fell, so Q1 is "yes."
 - Common error: recommending a title rewrite for the AI-overview pages and promising recovery. Credit answers that are honest about the ceiling.

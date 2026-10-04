@@ -172,19 +172,19 @@ UTC time      Source                        Event
                                        j.ruiz@corp from r.singh
 14:02:11  EDR, WKS-4471                WINWORD.EXE spawned script host,
                                        encoded command line
-14:02:19  Proxy log                    WKS-4471 retrieves same stage-2 script
+14:02:19  Proxy log                    WKS-4471 retrieves same script, upd.ps1
 14:03:00  Flow records                 WKS-4471 -> 198.51.100.44:443 begins
 14:06:44  Event log, WKS-4471          Scheduled task created, same name
 14:07:03  Directory auth log, FS-07    svc_backup: 12 failures from 10.14.9.22
                                        (WKS-2210), then success at 14:07:06
 14:19:02  File system, WKS-4471        finance_docs.zip created in
-                                       user temp directory, 118 MB
+                                       user temp directory, 118 MiB (123,731,968 bytes)
 14:31:40  Proxy log                    WKS-4471 POST to external file-sharing
-                                       service, 118 MB, first ever use by
+                                       service, 118 MiB, first observed use by
                                        this host
 ```
 
-That table answers questions no single artifact could. The entry vector was an emailed document. **WKS-2210 was first**, and the second infection came from an internal forward — meaning a user, not the attacker, spread it, which changes both the containment logic and what you tell people. The service-account attempts came from WKS-2210, tying credential access to the first host. And collection of 118 MB was followed twelve minutes later by an upload of 118 MB, which is the correlation that converts "possible data access" into "probable data exfiltration" — the finding with the largest consequences in the entire case.
+That table answers questions no single artifact could. The entry vector was an emailed document. **WKS-2210 is the first infected host in the retained evidence**, and the mail record plus execution timing strongly support infection of WKS-4471 through an internal forward — meaning user forwarding is the supported delivery path, which changes both the containment logic and what you tell people. The service-account attempts came from WKS-2210, tying credential use to the first host without establishing how the credential was obtained. And creation of a 118 MiB archive was followed 12 minutes 38 seconds later by an upload of 118 MiB, which is the correlation that converts "possible data access" into "probable data exfiltration" — the finding with the largest consequences in the entire case.
 
 Note also what the timeline *lacks*, and say so explicitly in the record: nothing here proves what was inside the archive. That claim needs the file server's access logs, and if they do not exist, the honest report says the contents are inferred from the source directory rather than confirmed.
 

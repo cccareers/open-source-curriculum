@@ -141,7 +141,7 @@ That last one is the most common self-inflicted measurement wound. **Never put U
 
 **Sessions, users, and engaged sessions.** A *user* is a browser or device identifier. A *session* is a group of events starting with `session_start`, ending after 30 minutes of inactivity by default. An *engaged session* lasted longer than 10 seconds, had a key event, or had 2+ page views. Engaged sessions are usually the more honest denominator for content pages, because a 4-second bounce is not a visit in any meaningful sense.
 
-**Key events and the attribution caveat.** GA4 counts key events (formerly conversions) as events, and an event can fire more than once per session, so key event counts are not visitor counts. More importantly, the default acquisition reports use last-click attribution, which systematically undercredits organic in a considered purchase. A Meridian buyer reads `/help/payroll-tax-deadlines` from a search on Tuesday, returns via a branded search Thursday, clicks a newsletter link the following week, and starts a trial. Last-click gives the trial to Email. The Advertising > Attribution section lets you compare models; the honest way to report is to show both the last-click and assisted views and say which one you used.
+**Key events and the attribution caveat.** GA4 counts key events (formerly conversions) as events, and an event can fire more than once per session, so key event counts are not visitor counts. More importantly, the default acquisition reports use last-click attribution, which systematically undercredits organic in a considered purchase. A Meridian buyer reads `/blog/payroll-tax-deadlines` from a search on Tuesday, returns via a branded search Thursday, clicks a newsletter link the following week, and starts a trial. Last-click gives the trial to Email. The Advertising > Attribution section lets you compare models; the honest way to report is to show both the last-click and assisted views and say which one you used.
 
 **Two more caveats.** *Thresholding*: when Google Signals is enabled and volumes are low, GA4 withholds rows to prevent identifying individuals, so small segments can silently under-report — a notice icon appears on the report. *Definition drift*: default channel groupings have changed between GA4 versions and can be customised, so a year-over-year comparison may be comparing two different definitions of "organic".
 
@@ -237,11 +237,13 @@ That last warning matters. "It was an update" is the most over-used diagnosis in
 
 ## 7. Five worked analyses
 
+These are separately scoped diagnostic slices, not five additive parts of one report. Analyses (i), (ii), and (v) use Jul–Sep 2026 page or query exports; (iii) compares February with March 2026; (iv) is a September 2026 landing-page cohort. The introductory 41,300-click baseline is Jan–Mar 2026.
+
 Each of these runs from raw numbers, through diagnosis, to **one** prioritized action with the expected impact shown as arithmetic.
 
 ### (i) Position 6.8, 41,000 impressions, 1.4% CTR — a click-through problem
 
-| Metric | `/compare/meridian-vs-paycadence` | Meridian pages at position 6–8 |
+| Metric | `/compare/paycadence` | Meridian pages at position 6–8 |
 | --- | --- | --- |
 | Impressions (90 days) | 41,000 | — |
 | Clicks | 574 | — |
@@ -281,15 +283,15 @@ Filter Performance to position between 11 and 20, export, sort by impressions.
 
 | URL group (top 8 of 23) | Impressions (90d) | Clicks | CTR | Avg position |
 | --- | --- | --- | --- | --- |
-| `/blog/payroll-tax-deadlines-2026` | 11,400 | 154 | 1.4% | 11.6 |
-| `/blog/semimonthly-vs-biweekly` | 8,900 | 98 | 1.1% | 12.9 |
+| `/blog/payroll-tax-deadlines` | 11,400 | 154 | 1.4% | 11.6 |
+| `/blog/semi-monthly-vs-biweekly-payroll` | 8,900 | 98 | 1.1% | 12.9 |
 | `/help/correcting-a-payroll-run` | 6,700 | 74 | 1.1% | 13.4 |
 | `/templates/new-hire-checklist` | 5,200 | 47 | 0.9% | 14.8 |
 | `/blog/payroll-for-seasonal-staff` | 4,300 | 39 | 0.9% | 15.2 |
-| `/compare/meridian-vs-wagebase` | 3,600 | 36 | 1.0% | 12.1 |
+| `/compare/wagebase` | 3,600 | 36 | 1.0% | 12.1 |
 | `/help/w2-vs-1099-basics` | 2,300 | 18 | 0.8% | 16.9 |
 | `/blog/first-payroll-checklist` | 1,600 | 11 | 0.7% | 18.0 |
-| **Subtotal (8 URLs)** | **44,000** | **477** | **1.1%** | **13.6** |
+| **Subtotal (8 URLs)** | **44,000** | **477** | **1.1%** | **13.4** |
 | Remaining 15 URLs | 24,000 | 212 | 0.9% | 16.4 |
 
 **Diagnosis.** These pages already rank; they are on the wrong side of the page break. They need incremental improvement — better intent match, stronger internal links, refreshed content — not new pages. This is the highest-leverage cluster on most sites.
@@ -302,20 +304,20 @@ Baseline, 8 URLs:      44,000 impressions,  477 clicks (1.1%)
 Assume 5 of the 8 reach positions 6-9 (be conservative:
 you will not move all of them, and some will move and slip back).
 
-Those 5 currently:     ~36,600 impressions,  ~412 clicks
+Those 5 (the first five table rows) currently:     36,500 impressions,  ~412 clicks
 
 Impression uplift from page 2 -> page 1: assume 2.0x
   (range 1.5x - 3.0x; this is the least certain number here)
-  36,600 x 2.0 = 73,200 impressions
+  36,500 x 2.0 = 73,000 impressions
 
 CTR at positions 6-9, Meridian's own benchmark: 3.8%
-  73,200 x 3.8% = 2,782 clicks / 90 days
+  73,000 x 3.8% = 2,774 clicks / 90 days
 
-Gain = 2,782 - 412 = +2,370 clicks / 90 days  (~790 / month)
+Gain = 2,774 - 412 = +2,362 clicks / 90 days  (~787 / month)
 
 Sensitivity, because the multiplier is a guess:
-  at 1.5x uplift -> 54,900 x 3.8% = 2,086 -> gain +1,674
-  at 3.0x uplift -> 109,800 x 3.8% = 4,172 -> gain +3,760
+  at 1.5x uplift -> 54,750 x 3.8% = 2,081 -> gain +1,669
+  at 3.0x uplift -> 109,500 x 3.8% = 4,161 -> gain +3,749
 
 Report as: "+1,700 to +3,800 clicks per quarter if 5 of 8 move
 to page one, with the range driven by the impression uplift."
@@ -357,7 +359,7 @@ That is unambiguous. Run **URL Inspection** on three sample help URLs; each will
 ```txt
 Lost: 4,100 - 590 = 3,510 clicks / month
 
-Recovery is not instant. Google must recrawl and reindex 175 URLs.
+Recovery is not instant. Google must recrawl and reindex the 172 newly excluded URLs (175 total noindex URLs, including 3 intentional exclusions).
 Expect a staged return over 2-6 weeks, depending on crawl frequency
 for that section. Do not promise a date.
 
@@ -373,12 +375,12 @@ One hour to recover roughly 3,500 clicks a month. Notice that this finding was h
 
 ### (iv) A template page with traffic and near-zero conversions
 
-| Metric | `/templates/payroll-register-template` |
+| Metric | `/templates/payroll-register` |
 | --- | --- |
-| Organic sessions / month (GA4) | 8,400 |
+| Organic sessions / month (GA4) | 2,400 |
 | Engaged session rate | 71% |
 | Average engagement time | 2m 14s |
-| Trial starts | 11 |
+| Trial starts | 3 |
 | Trial-start rate | 0.13% |
 | Site benchmark trial-start rate | 2.1% |
 | Referring domains earned (Search Console Links) | 34 |
@@ -387,22 +389,25 @@ One hour to recover roughly 3,500 clicks a month. Notice that this finding was h
 
 This is an **intent and page-type mismatch in the measurement, not in the page.** You applied the pricing page's metric to a top-of-funnel asset — and the table in section 5 says explicitly that direct trial conversion rate is the misleading metric for templates. Meanwhile 34 referring domains is a strong result that no conversion report was showing you.
 
-**Action:** change the measured outcome and add one appropriate next step — an email capture for a related resource, plus a contextual in-page link to `/product/payroll-software` for the minority who are shopping. Do not gate the download; gating destroys both the links and the goodwill.
+**Action:** change the measured outcome and add one appropriate next step — an email capture for a related resource, plus a contextual in-page link to `/product/payroll` for the minority who are shopping. Do not gate the download; gating destroys both the links and the goodwill.
 
 **Expected impact.**
 
 ```txt
-8,400 sessions x 3.5% email capture rate = 294 emails / month
+2,400 sessions x 3.5% email capture rate = 84 emails / month
   (3.5% is Meridian's measured rate on comparable ungated assets)
 
 Historical: 4% of resource-list emails start a trial within 90 days
-  294 x 4% = ~12 trials / month from nurture
+  84 x 4% = 3.36 trials per monthly cohort, within 90 days
 
 Plus contextual product link, 1.5% click-through:
-  8,400 x 1.5% = 126 product-page visits
-  126 x 6% trial rate on /product/ = ~8 trials / month
+  2,400 x 1.5% = 36 product-page visits
+  36 x 6% trial rate on /product/ = 2.16 trials per monthly cohort
 
-Total: ~20 trials / month vs the 11 currently recorded.
+These modeled routes produce about 5–6 trials from each monthly cohort,
+with nurture measured over the following 90 days, versus 3 direct trials
+currently recorded. Deduplicate before combining; these are not guaranteed
+incremental trials.
 
 And the honest framing for the report: this page's PRIMARY job is
 downloads and links (34 referring domains, see lesson 10). Trials
@@ -413,11 +418,11 @@ Effort: about 6 hours.
 
 ### (v) Two URLs alternating for one query — cannibalization
 
-Filter Performance to the exact query `payroll software for small business`, then switch to the Pages tab.
+This Jul–Sep 2026 example uses the exact query `payroll software for small business`, yielding 16,900 page-level impressions. Lesson 04's 41,600 is a Jan–Mar broad query family; lesson 07 uses a different qualified query. Filter Performance to this exact query, then switch to the Pages tab.
 
 | URL | Impressions (90d) | Clicks | Avg position |
 | --- | --- | --- | --- |
-| `/product/payroll-software` | 9,100 | 74 | 12.4 |
+| `/product/payroll` | 9,100 | 74 | 12.4 |
 | `/blog/best-payroll-software-small-business` | 7,800 | 61 | 14.1 |
 
 **Diagnosis.** Two of your own URLs are competing for one query, and neither is winning. Google is uncertain which page answers it, and the signals — internal links, external links, relevance — are split across both.
@@ -425,21 +430,21 @@ Filter Performance to the exact query `payroll software for small business`, the
 **How to confirm it, because two URLs on one query is not automatically cannibalization.** Sometimes both legitimately rank in the same result set, which is fine. The confirming evidence is *alternation*: export the query filtered by day, with the page dimension, and read the daily pattern.
 
 ```txt
-Day    /product/payroll-software    /blog/best-payroll-software...
+Day    /product/payroll    /blog/best-payroll-software...
 ----   -------------------------    -----------------------------
-Mar 03      pos 11.8, 142 impr            -- not shown --
-Mar 04      pos 12.1, 138 impr            -- not shown --
-Mar 05      -- not shown --               pos 13.9, 129 impr
-Mar 06      -- not shown --               pos 14.4, 121 impr
-Mar 07      -- not shown --               pos 14.0, 133 impr
-Mar 08      pos 12.6, 130 impr            -- not shown --
-Mar 09      pos 11.9, 141 impr            -- not shown --
-Mar 10      -- not shown --               pos 13.7, 126 impr
+Jul 03      pos 11.8, 142 impr            -- not shown --
+Jul 04      pos 12.1, 138 impr            -- not shown --
+Jul 05      -- not shown --               pos 13.9, 129 impr
+Jul 06      -- not shown --               pos 14.4, 121 impr
+Jul 07      -- not shown --               pos 14.0, 133 impr
+Jul 08      pos 12.6, 130 impr            -- not shown --
+Jul 09      pos 11.9, 141 impr            -- not shown --
+Jul 10      -- not shown --               pos 13.7, 126 impr
 ```
 
 They swap; they rarely appear together. That is the fingerprint. If both appeared on most days at stable, different positions, you would have two legitimate results and no problem.
 
-**Action:** consolidate. Pick the page whose type matches the query's intent — this query is commercial-investigational, so `/product/payroll-software` wins — redirect the blog post to it, fold any genuinely unique content across, and repoint the internal links (lesson 07 owns the internal linking method).
+**Action:** consolidate. Pick the page whose type matches the query's intent — this query is commercial-investigational, so `/product/payroll` wins — redirect the blog post to it, fold any genuinely unique content across, and repoint the internal links (lesson 07 owns the internal linking method).
 
 **Expected impact.**
 
@@ -482,7 +487,7 @@ Applied to the five findings:
 
 | # | Finding | Action | Impact | Conf. | Effort | Score | Rank |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| iii | `/help/` noindex regression | Remove `noindex`, request validation | 4 | 5 | 1 | **20.0** | 1 |
+| iii | `/help/` noindex regression | Remove `noindex`, request validation | 5 | 5 | 1 | **25.0** | 1 |
 | i | Compare page 1.4% CTR at position 6.8 | Rewrite title and meta | 4 | 4 | 1 | **16.0** | 2 |
 | ii-a | Striking distance, first 3 URLs | Refresh and re-link 3 pages | 4 | 3 | 2 | **6.0** | 3 |
 | v | Cannibalized commercial query | Consolidate and redirect | 3 | 3 | 2 | **4.5** | 4 |
@@ -491,15 +496,17 @@ Applied to the five findings:
 
 Three things to take from that table.
 
-**A regression fix beats an opportunity every time.** Finding (iii) has neither the largest impact nor the best story, but it is certain and takes an hour. Recovering something you broke is cheaper than earning something new.
+**A regression fix beats an opportunity every time.** Finding (iii) recovers roughly 3,500 clicks a month, the largest modeled click impact, and takes an hour with a proven mechanism. Recovering something you broke is cheaper than earning something new.
 
-**Splitting a large item changes its priority, legitimately.** Finding (ii) scored 3.75 as one 32-hour block and was buried. Split into a first batch of three URLs it scores 6.0, moves up, and teaches you whether the play works before you commit the other 20 hours.
+**Splitting a large item changes its priority, legitimately.** Finding (ii) scores (4 × 3) / 4 = 3.0 as one 32-hour block and was buried. Split into a first batch of three URLs it scores 6.0, moves up, and teaches you whether the play works before you commit the other 20 hours.
 
 **A low score is not a rejection.** Finding (iv) ranks last because its click impact is small and its confidence low — but its real value was reframing how the page is measured, which cost nothing and stopped someone deleting a page that has earned 34 referring domains. Record it; do it when there is room.
 
 ## 9. Reporting
 
 ### The monthly table
+
+This is a separate, hypothetical reporting exercise, not a snapshot of Meridian’s April–July 2026 noindex incident. It uses a 640-content-URL cohort to demonstrate a recovery report; its counts and monthly performance must not be merged with the observed datasets above or the 790-URL follow-up export. “This month,” “last month,” and “same month last year” are relative reporting periods for this exercise.
 
 | Metric | This month | Last month | Same month last year | Change (MoM) | Change (YoY) |
 | --- | --- | --- | --- | --- | --- |
@@ -514,7 +521,7 @@ Three things to take from that table.
 | Organic trial starts | 281 | 209 | 244 | +34.4% | +15.2% |
 | Referring domains | 412 | 406 | 361 | +6 | +51 |
 
-Report CTR changes in **percentage points**, never as a percentage of a percentage. "CTR rose 21%" is ambiguous and usually misleading; "CTR rose from 2.8% to 3.4%, up 0.6 points" is not.
+Report The branded and non-brand rows partition the visible query clicks in this reporting example; a real export may also need an anonymized remainder. Report CTR changes in **percentage points**, never as a percentage of a percentage. "CTR rose 21%" is ambiguous and usually misleading; "CTR rose from 2.8% to 3.4%, up 0.6 points" is not.
 
 ### The four-part narrative
 

@@ -90,7 +90,7 @@ Four tags carry a lot: `OBS` for observed fact, `INF` for inference, `ACT` for s
 
 **Say who.** Every entry names the analyst. On a busy case, four people are writing into the same timeline and "we checked the mail gateway" is useless three days later.
 
-**Record negatives.** "Searched all workstation event logs for scheduled-task creation matching the pattern; no results outside WKS-4471" is one of the most valuable lines you can write. Negatives define scope, they are the only evidence that a question was asked, and without them the report cannot distinguish "we looked and found nothing" from "nobody looked."
+**Record negatives.** "Searched all workstation event logs for scheduled-task creation matching the pattern; no results outside WKS-4471 and WKS-2210" is one of the most valuable lines you can write. Negatives define scope, they are the only evidence that a question was asked, and without them the report cannot distinguish "we looked and found nothing" from "nobody looked."
 
 **Never delete; correct forward.** If an entry is wrong, add a new entry that corrects it and mark the original as superseded. A record with visible corrections is credible. A record that has been silently tidied is not, and a tidied record is worse than a messy one in every forum where it will be read.
 
@@ -114,8 +114,8 @@ An evidence item is anything you preserved to support a finding: a disk image, a
 A cryptographic hash is the mechanism that makes integrity provable. Compute the hash of an item at the moment of collection, record it, and any later party can recompute it and confirm the item is unchanged. If the hash matches, the bytes are the same. If it does not, something changed and you have to find out what.
 
 ```text
-$ sha256sum WKS-4471_disk_2026-03-11.dd
-3f1c9b0d4a77e2f5c8ab1d6e90724c3fbb5a1e8d02c47f6a9b3d5e70118cc24a  WKS-4471_disk_2026-03-11.dd
+$ sha256sum IR-2026-0031-E002.dd
+3f1c9b0d4a77e2f5c8ab1d6e90724c3fbb5a1e8d02c47f6a9b3d5e70118cc24a  IR-2026-0031-E002.dd
 ```
 
 Practical rules that make hashing actually work:
@@ -132,7 +132,7 @@ Every item gets a unique identifier the moment it exists, and the identifier is 
 
 ```text
 IR-2026-0031-E001  Memory capture, WKS-4471, 14:31Z 2026-03-11
-IR-2026-0031-E002  Disk image, WKS-4471 internal drive, 15:52Z 2026-03-11
+IR-2026-0031-E002  Disk image, WKS-4471 internal drive, 15:04Z–15:52Z 2026-03-11
 IR-2026-0031-E003  Packet capture, VLAN 14 span, 14:05Z-15:00Z 2026-03-10
 IR-2026-0031-E004  Exported proxy logs, 2026-03-01 to 2026-03-10
 IR-2026-0031-E005  Laptop, WKS-4471, asset tag 88214, physical custody
@@ -228,7 +228,7 @@ Times UTC, 2026-03-11 unless dated. Lead: S. Vance. Record maintained by M. Okaf
               NOT CONFIRMED - mail gateway records for both users not yet
               reviewed. Confidence: low. Owner: L. Park.
 10:05Z [OPEN] Q1: Which host was first? Q2: Did either user receive the same
-              message? Q3: Is svc_backup activity at 14:07Z related?
+              message? Q3: Is svc_backup activity at 2026-03-10 14:07Z related?
               Owners: L. Park (Q1, Q2), M. Okafor (Q3).
 10:18Z [ACT ] Network isolation applied to WKS-4471 and WKS-2210 via endpoint
               agent. Authorized by S. Vance 10:16Z. Both hosts left powered
@@ -236,7 +236,7 @@ Times UTC, 2026-03-11 unless dated. Lead: S. Vance. Record maintained by M. Okaf
               confirmed isolated at 10:19Z; agents still reporting.
 ```
 
-Read it as a stranger would. The severity has a stated basis. The scope query is saved as evidence rather than described. There is a negative result establishing that servers were checked. The containment names its authorizer and its evidence-preserving choice. The most interesting idea in the passage is labelled as an unconfirmed inference with low confidence and an owner. And the open questions are numbered and assigned.
+Read it as a stranger would. The severity has a stated basis reflecting what was known at declaration; later evidence of data movement or server access requires reassessment. The scope query is saved as evidence rather than described. There is a negative result establishing that servers were checked. The containment names its authorizer and its evidence-preserving choice. The most interesting idea in the passage is labelled as an unconfirmed inference with low confidence and an owner. And the open questions are numbered and assigned.
 
 Nothing there required expertise. It required someone deciding, at the start, that the record was going to be worth reading.
 

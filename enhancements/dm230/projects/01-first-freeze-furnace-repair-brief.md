@@ -26,6 +26,8 @@ competency_ids:
 
 It is mid-September. Northgate Heating and Air's seasonal Furnace Repair campaign (`NGH-SRCH-NB-FurnaceRepair-COL25-SEASONAL` in the lesson 03 tree) has been paused since March. The owner wants it relaunched before the first hard freeze and asks for a one-document campaign brief he can approve in one sitting. Last year the campaign ran out of money during freeze week while the phones were ringing for competitors; he does not want that again, and he does not want to blow the November budget either.
 
+For this project only, assume Northgate has contracted an October–March after-hours answering service that forwards emergency calls to an on-call technician. This is an operational extension supplied by File 2, not part of the shared baseline: Northgate's own staffed service and contact hours are 7am–9pm, seven days. Overnight serving in your plan must depend on that contract being active and its coverage being verified.
+
 You have last year's weekly data (below), the account economics from the course, and the lesson 06 pacing plan (November daily account budget $260). The Furnace Repair campaign produces repair leads worth $108 in gross profit, with a $60 target CPA.
 
 ## What you will build / produce
@@ -77,8 +79,8 @@ No answering service April through September.
 - [ ] Freeze week is identified as budget-limited (58% lost to budget) with lost-to-rank actually improving from 47% to 23%, matching the lesson 02 pattern, and the brief says the fix is budget, not a quality project.
 - [ ] Eligible impressions in freeze week are computed (about 9,400) and the cost of capturing the full budget loss is shown (about 5,450 impressions, about 350 clicks at 6.4% CTR, about $4,700 at $13.50, about 46 leads at 13.2%, CPA about $103).
 - [ ] The brief concludes that full capture lands just under break-even and well above target, and recommends partial capture with a stated daily cap and reasoning (for example, raising the daily budget for three to five days rather than matching total demand).
-- [ ] The bid-strategy choice applies the volume test: about 50 conversions a month in season passes a roughly 30-per-30-days test, but the campaign restarts cold after seven months dark, so the brief either pre-activates two weeks early or starts on a conservative strategy and states the switch threshold.
-- [ ] The ad schedule uses File 2: overnight serving is justified only because the answering service is contracted October through March.
+- [ ] The bid-strategy choice applies the volume test: 56 conversions in the supplied 28 days (about 60 per 30 days) clear this course's roughly 30-per-30-days planning heuristic, not a universal platform eligibility requirement, but the campaign restarts cold after seven months dark, so the brief either pre-activates two weeks early or starts on a conservative strategy and states the switch threshold.
+- [ ] The ad schedule uses File 2: the project-only overnight serving is justified only because the answering service is contracted October through March.
 - [ ] Ad group negatives route install and replacement queries to the Furnace Install campaign.
 - [ ] Every headline is 30 characters or fewer and every description 90 or fewer, with counts shown; no unsupported superlatives, response-time claims are labelled with their source, and the $79 matches the landing page.
 - [ ] The freeze-week report section warns against judging CPA in the first days because of conversion lag (lesson 08).

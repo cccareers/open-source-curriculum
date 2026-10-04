@@ -69,7 +69,7 @@ That note is the raw material for the churn-risk assessment in the next lesson a
 
 ## A worked account review, annotated
 
-Month seven at **Tallgrass Facilities Group**, the account from lesson 2. Present: Dana Whitfield, Director of Field Operations, and you. Forty minutes. On paper the account looks healthy — the East and Central regions are live, late-billed call-outs are down from 12.4% to 4.1%.
+Month seven at **Tallgrass Facilities Group**, the account from lesson 2. Present: Dana Whitfield, Director of Field Operations, and you. Forty minutes. The planned day-45 executive touchpoint never happened; Marcus last heard an initial progress update on 12 January, over six months ago. On paper the account looks healthy — the East and Central regions are live, late-billed call-outs are down from 12.4% to 4.1%.
 
 > **You:** Before I go through the numbers — walk me through what a bad week looks like for dispatch now. Not an average week, a bad one. *(asks about their world, and about the exception rather than the average)*
 >
@@ -97,7 +97,7 @@ Month seven at **Tallgrass Facilities Group**, the account from lesson 2. Presen
 >
 > **You:** What else has that changed? Does anything downstream depend on West's data being a week behind? *(consequence, not sympathy)*
 >
-> **Dana:** Marcus's month-end. He asked me about it in April, actually. He wanted to know why we're paying for four hundred seats when three regions are on it.
+> **Dana:** Marcus's month-end. He asked me about it in April, actually. He wanted to know why we're paying for four hundred seats when only East and Central are using it.
 >
 > **You:** *(writes; does not respond immediately)* Say more about that conversation. *(the single most important sentence in the meeting has just arrived, in passing, as context for something else)*
 >
@@ -118,7 +118,7 @@ Note also what the rep did not do. No defending the product when the logout was 
 The note written that afternoon:
 
 > **Heard (Dana Whitfield, 14 Aug):** "West is still on paper" — crews abandoned the app because it logs out when signal drops and the form is lost, "twice a day" per Ray Nowak. Ruth keys a West spreadsheet ~4 hrs/week. Marcus Bell asked Dana in April for a utilization number ahead of a **software spend review in September**. Ray "has been talking to someone about a different scheduling app," seriousness unknown.
-> **Concluded (mine):** West non-adoption is a product-fit problem (offline session handling), not a training problem. Seat true-down risk at renewal is 400 to ~270 if West stays on paper. The September spend review is the real decision point, not the March renewal date.
+> **Concluded (mine):** West non-adoption is a product-fit problem (offline session handling), not a training problem. Seat true-down risk at renewal is 400 to ~270 if West stays on paper. The September spend review is the real decision point, not the 5 January renewal date.
 > **Committed:** I raise the offline logout with the delivery team by 16 Aug and come back to Dana with a date by 21 Aug. Dana gets me Ray's availability for a site visit. I ask Dana to introduce me to Marcus before the September review.
 
 ## How the same conversation goes wrong
@@ -139,7 +139,7 @@ For contrast, the version most reps have:
 >
 > **You:** Perfect. I'll send this over. Same time next quarter?
 
-Every sentence is pleasant, the meeting finishes early, and the account is now seven months from a renewal that nobody has any evidence for. Note the mechanics of the failure: a verdict question at the start, a number recited without asking what it hides, "any issues" asked in a tone that requests the answer "no," and the 68% adoption figure read aloud without anyone asking which region is missing. The information was available in both conversations. Only one of them went and got it.
+Every sentence is pleasant, the meeting finishes early, and the account is now five months from a renewal that nobody has any evidence for. Note the mechanics of the failure: a verdict question at the start, a number recited without asking what it hides, "any issues" asked in a tone that requests the answer "no," and the 68% adoption figure read aloud without anyone asking which region is missing. The information was available in both conversations. Only one of them went and got it.
 
 ## Practice
 

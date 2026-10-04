@@ -77,7 +77,7 @@ Here is a workable configuration for Northgate.
 | Closed Replacement Job | Purchase | One | $2,400 | 90 days | 1 day | No (observation) |
 | Sizing Guide Download | Other | One | none | 30 days | none | No |
 
-The $95 maintenance plan value is an assumption: a $149 annual plan at roughly 64 percent gross margin. State assumptions like that in the definition document so the next person can challenge them.
+The maintenance plan sells for $189 per year with $95 of first-year gross profit: $95 / $189 = 50.26% gross margin. The purchase action therefore carries $95 of gross-profit value, not $189 of revenue. The baseline Maintenance Plans campaign reports repair-type leads worth $108 each; its nine leads are not nine plan purchases. Keep these actions and their campaign goals distinct so one customer's lead and purchase are not accidentally counted as interchangeable acquisitions.
 
 ## Implementing the Tag
 
@@ -270,7 +270,7 @@ Run this every time, in order.
 5. **Confirm the payload.** The value is 108, the currency is USD, the transaction ID is populated and unique, the lead type is right.
 6. **Confirm it landed on the correct conversion action.** A tag can fire perfectly and be pointed at the wrong conversion label, which sends a repair lead into the replacement bucket at four times its value.
 7. **Wait for reporting latency and check it appears.** Conversions typically surface within a few hours, not instantly. Know the expected latency before you panic.
-8. **Check the attribution.** The test conversion should be credited to the campaign, ad group and keyword you clicked through on, not to direct or organic. If it is unattributed, your click identifier is being lost somewhere.
+8. **Check the attribution.** In a live account with approved spend, check that a real ad-attributed conversion keeps its click attribution. In this course's sandbox, use a test landing-page URL with a dummy `gclid` parameter and verify that it survives into the CRM field; do not click a live ad or expect a fabricated identifier to receive platform attribution.
 9. **Refresh the thank-you page and go back to it from history.** Confirm no additional conversion is recorded.
 10. **Repeat on a real mobile device**, not a desktop emulator, because mobile is where redirects and cross-domain handoffs break.
 11. **Exclude the test data.** Remove the test conversions, or run the whole exercise against a test conversion action and a filtered view, so your QA does not become the client's reporting.
