@@ -119,15 +119,15 @@ Containment usually comes in two stages. **Short-term containment** is fast and 
 You already know the mechanics of endpoint isolation from your endpoint security course, so this course does not reteach the button. What it teaches is the sentence you say before you press it:
 
 ```text
-Proposed containment, 14:22 UTC.
-Action:    Network-isolate WKS-4471 via the endpoint agent. Leave it powered on.
-Rationale: Host is beaconing outbound every 60s to 198.51.100.44. Isolation
+Proposed containment, 10:14 UTC, 2026-03-11 (IR-2026-0031).
+Action:    Network-isolate WKS-4471 and WKS-2210 via the endpoint agent. Leave both powered on.
+Rationale: Both hosts are beaconing outbound every 60s to 198.51.100.44. Isolation
            stops the channel while preserving memory and running processes.
-Cost:      User loses access to the workstation. No production service affected.
+Cost:      Two users lose access to their workstations. No production service affected.
 Evidence:  Memory capture will be taken before any reboot or reimage.
 Risk:      Attacker will observe loss of the channel and may have other footholds;
            scope on the two hosts that contacted the same address is not complete.
-Decision:  Approved by <name>, 14:24 UTC.
+Decision:  Approved by S. Vance, 10:16 UTC; executed 10:18 UTC; confirmed 10:19 UTC.
 ```
 
 That is a contained decision. It names the action, the reason, the cost, the evidence protection, and the residual risk, and it records who approved it. It takes ninety seconds to write and it is the difference between a decision and a reflex. Note the deliberate choice to leave the host powered on: unless the machine is actively destroying data, isolating while running preserves far more evidence than powering off. The detailed reasoning about what containment to choose in what situation is lesson 08's subject; here the point is only that the choice exists and is recorded.
@@ -184,6 +184,8 @@ The last question is the only one that produces value. A review that generates i
 
 An abstract lifecycle is hard to hold. Here is one small case, phase by phase, with the decision at each handoff called out.
 
+This simplified walkthrough is a separate incident from IR-2026-0031; its times are local office time on an unspecified Tuesday.
+
 **The signal.** At 09:14 on a Tuesday, the help desk logs a ticket: a finance clerk reports that a spreadsheet she opened from an email "did nothing," and that her machine has been slow since.
 
 **Detection and analysis.** The analyst pulls the endpoint telemetry for that workstation. At 09:02 a document opened, and four seconds later a script interpreter launched as a child process of the document application — an unusual parent-child relationship. At 09:03 that interpreter made an outbound HTTPS connection to a hosting provider address never before seen in the environment, and has repeated the connection roughly every sixty seconds since. Validation: the network egress logs independently confirm the connections and their regularity. Scoping: a search across the environment for the same destination address returns one other workstation, in a different department, showing the same pattern beginning at 08:51.
@@ -227,8 +229,14 @@ Read that case again and notice how little of it is tool operation. What carried
 2. A developer's laptop is beaconing to an unfamiliar address once an hour. Options: isolate the laptop; block the address at the perimeter for everyone; leave it and monitor for another two hours to complete scope.
 3. A service account is authenticating to systems it has never touched before. Options: disable the account; reset its credential; leave it enabled and alert on every use.
 
-**Exercise 4 — Audit a plan against reality.** Take the incident response plan from your workplace or lab environment (or a published sample plan your instructor supplies) and answer the nine preparation questions listed in this lesson from it, writing down the section and page for each answer. For every question you cannot answer within sixty seconds, write a one-paragraph gap note in this form: what the plan says now, what the responder would actually do at 2am, what specifically should be added, and which phase of a real incident the gap would hurt. Bring the three most serious gaps to the group.
+**Exercise 4 — Audit a plan against reality.** Take the incident response plan from your workplace or lab environment (or a published sample plan your instructor supplies) and answer the eight preparation questions listed in this lesson from it, writing down the section and page for each answer. For every question you cannot answer within sixty seconds, write a one-paragraph gap note in this form: what the plan says now, what the responder would actually do at 2am, what specifically should be added, and which phase of a real incident the gap would hurt. Bring the three most serious gaps to the group.
 
 **Exercise 5 — Build a phase-boundary checklist.** Produce a single-page checklist for your own use with four sections — declaring an incident, entering containment, entering eradication, and standing down. Each section lists the *evidence* required before that boundary can be crossed and the *named role* who crosses it. Test it by walking the finance-clerk case through it line by line, and mark any item you could not have satisfied from the case narrative. Those marks are the items you will find missing in real cases too.
 
 **Exercise 6 — Run the loop.** With two or three classmates, take any incident from the last year that has been publicly written up, and reconstruct it as a phase walk-through with the five handoff decisions named. Where the public account does not say, write "unknown" rather than guessing — then note, for each unknown, what documentation during the incident would have made it knowable. Finish by writing three post-incident action items in the form *change / owner / date*, and argue for which single one you would do first if you could only do one.
+
+## Check your understanding
+
+1. What decision is made at the end of detection and analysis, and what must exist before it is made? *Whether this is an incident and at what severity; it needs at least two corroborating sources, a first-pass scope, an incident type, and a stated impact — written down with a UTC timestamp.*
+2. Containment was "done" because the host was isolated. Why might the phase still not be over? *Containment ends when growth is verified to have stopped and evidence is preserved, not when an action was taken; check the monitoring for recurring beacons, logins, or new hosts.*
+3. Why is a severity rule like "start high and downgrade" safer than the reverse? *Standing people down is cheap; summoning them late costs the time the attacker needs.*

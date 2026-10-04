@@ -98,7 +98,7 @@ The Rule groups safeguards into three sections:
                                       authentication, transmission security
 ```
 
-The structural feature you must understand is **required versus addressable**. A required implementation specification must be implemented. An *addressable* one must be assessed: you implement it if it is reasonable and appropriate, and if it is not, you document why and implement an equivalent alternative measure. Encryption of ePHI at rest, at `§164.312(a)(2)(iv)`, is addressable. That does not mean optional, and a support technician who tells a clinic customer "encryption is optional under HIPAA" has created a problem for their employer. The correct sentence is: "That specification is addressable, which means the decision has to be documented by our security officer — let me route that to Dana."
+The structural feature you must understand is **required versus addressable**. A required implementation specification must be implemented. An *addressable* one must be assessed: you implement it if it is reasonable and appropriate, and if it is not, you document why and implement an equivalent alternative measure if that alternative is reasonable and appropriate (if neither is, you document how the standard is still met). Encryption of ePHI at rest, at `§164.312(a)(2)(iv)`, is addressable. That does not mean optional, and a support technician who tells a clinic customer "encryption is optional under HIPAA" has created a problem for their employer. The correct sentence is: "That specification is addressable, which means the decision has to be documented by our security officer — let me route that to Dana."
 
 That is also the boundary of this course. Whether a particular disclosure is permitted, whether a particular event is a reportable breach, whether a state law imposes a stricter duty than HIPAA does — those are legal determinations. You do not make them, and neither does this lesson.
 
@@ -261,3 +261,9 @@ Requirement 5 is a trap, and it is the most realistic item on the list. Write th
 **Exercise 5 — Find the double verb.**
 
 Requirement 3 contains more than one obligation, in the same way the audit-logging example did. Split it into the smallest set of separate control statements that fully covers it, and say which of them is most likely to pass a design review and fail an operating-effectiveness test a year later. Justify your pick in two sentences.
+
+## Check your understanding
+
+1. A colleague says "we have to do it, it's NIST CSF." What is the first question to ask? *Which instrument actually binds us here: a law, a contract, a certifiable standard, or a voluntary framework? CSF obliges nobody by itself, so the obligation, if there is one, comes from somewhere else.*
+2. HIPAA encryption at rest is "addressable." What does that require? *An assessment and a documented decision by the security officer. Implement it if it is reasonable and appropriate; otherwise document why, and implement an equivalent alternative if one is reasonable and appropriate. It is not "optional".*
+3. You are fairly sure the right SOC 2 criterion is CC6.3 but have not checked. What do you write? *"SOC 2 — CC6.x, unverified, confirm with compliance". Never a plausible-looking number.*

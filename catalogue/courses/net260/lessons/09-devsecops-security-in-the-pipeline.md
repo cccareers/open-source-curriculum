@@ -160,7 +160,9 @@ deny[msg] {
 }
 ```
 
-That rule enforces the key-scoping decision from lesson 05 automatically, forever, on every future change, without anyone remembering it. Turning a policy document into a rule that runs is the most durable thing you can do for a control.
+Two notes on reading that rule. First, as written it checks only that a restricted bucket *has* a server-side encryption configuration; to enforce the PHI key specifically, add a condition comparing the configuration's key ID to the designated key. Second, it uses the older Rego syntax (`deny[msg] { ... }`); OPA 1.0 and later expect `deny contains msg if { ... }`, or must be run with a v0-compatibility flag, so match the syntax to the OPA version your pipeline pins.
+
+With that extra condition in place, the rule enforces the key-scoping decision from lesson 05 automatically, forever, on every future change, without anyone remembering it. Turning a policy document into a rule that runs is the most durable thing you can do for a control.
 
 ### Container image scanning and signing
 
@@ -293,3 +295,11 @@ Write one policy-as-code rule that enforces an organization-specific requirement
 **Exercise 5 — Design the rollout and the exception path.**
 
 Your organization wants SAST enabled on a five-year-old codebase that has never been scanned. Write the rollout plan: report-only period and what you will measure, baselining approach, the precise blocking rule you will eventually enforce, and the timeline. Then write the exception process as a short procedure: who approves, what justification is required, maximum duration, what is created automatically, and what happens on expiry. Finally, write the three-sentence response you would give to a manager during an outage who asks you to turn the gate off entirely to get a fix out — an answer that ships the fix without deleting the control.
+
+## Check your understanding
+
+1. Why does DAST appear after deployment as a ticket-raising detector rather than a blocking gate?
+2. Gitleaks flags a cloud key in last week's commit. List the three remediation steps in the order the lesson requires.
+3. Why must signing happen *after* the image scan passes?
+
+**Answers:** (1) It needs a running application and takes tens of minutes; in the blocking path it would be disabled within weeks. (2) Rotate the credential, check the audit log for use from unexpected sources, then clean the history. (3) So the signature means "came from our pipeline and passed our gates," which is what deploy-time verification then relies on.

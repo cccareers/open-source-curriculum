@@ -148,11 +148,19 @@ STEPS
        aws iam generate-credential-report
        aws iam get-credential-report --query Content --output text \
          | base64 --decode > evidence/access-review/2026-Q2/prod-app-identities.csv
+       aws iam get-credential-report --query GeneratedTime --output text \
+         > evidence/access-review/2026-Q2/prod-app-identities.generated-time.txt
 
-     Expected: a CSV with one row per user, including mfa_active and
-     access_key_1_last_rotated. If the report is stale, wait 4 hours and
-     re-run — the service caches it.
-     RECORD: the CSV, filename as above.
+     Expected: a CSV with one row per IAM user, including mfa_active and
+     access_key_1_last_rotated. The CSV itself carries no generation
+     timestamp, so the second command records it. The service regenerates
+     the report at most once every 4 hours; if the recorded generated time
+     predates the quarter close, wait and re-run both commands.
+     NOTE: federated humans (POL-07 3.2) are not IAM users and will not
+     appear here. Their population comes from step 2 plus an export of the
+     roles they assume; do not treat a short credential report as a
+     complete inventory.
+     RECORD: the CSV and its generated-time file, filenames as above.
 
   2. Export role group membership from the corporate directory.
      [navigation steps]

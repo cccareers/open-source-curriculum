@@ -1,10 +1,10 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import path from 'node:path';
+import { createSampleCourses } from './fixtures/sample-courses.js';
 import { scanDirectory } from '../lib/course-scanner.js';
 
-test('Course Scanner: discovers courses, modules, and lessons', () => {
-  const sampleDir = path.resolve('sample-courses');
+test('Course Scanner: discovers courses, modules, and lessons', (t) => {
+  const sampleDir = createSampleCourses(t);
   const result = scanDirectory(sampleDir);
 
   assert.ok(result.courses.length >= 2, 'Should find at least 2 courses');
