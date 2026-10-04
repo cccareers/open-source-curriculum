@@ -81,6 +81,7 @@ import json
 import os
 import re
 import stat
+import shutil
 import subprocess
 import time
 import tempfile
@@ -118,7 +119,7 @@ def http(method: str, path: str, body: dict | None = None, timeout: int = 180) -
 
 def test_images_are_pinned():
     for name, svc in resolved_config()["services"].items():
-        if "image" not in svc or "build" in svc:
+        if "image" not in svc:
             continue  # built locally; its base image is checked in project x01
         image = svc["image"]
         tag = image.rsplit(":", 1)[1] if ":" in image.split("/")[-1] else None
@@ -164,8 +165,13 @@ def test_no_literal_secrets_and_env_example_complete():
 
 def test_env_is_ignored_everywhere():
     # Git evaluates the full rule set, including broad negations and tracked files.
-    result = subprocess.run(["git", "check-ignore", "-q", ".env"], cwd=ROOT)
+    result = subprocess.run(["git", "check-ignore", "-v", "-z", "--stdin"], cwd=ROOT,
+                            input=".env\0", capture_output=True, text=True)
     assert result.returncode == 0, "git does not ignore .env (or rag-stack is not a git repository)"
+    source = result.stdout.split("\0")[0]
+    tracked = subprocess.run(["git", "ls-files", "--error-unmatch", "--", source],
+                             cwd=ROOT, capture_output=True)
+    assert tracked.returncode == 0, "the effective .env ignore rule must come from a tracked ignore file"
     ctx = ROOT / "api"
     env = ctx / ".env"
     existed = env.exists()
@@ -185,11 +191,34 @@ def test_env_is_ignored_everywhere():
             env.unlink(missing_ok=True)
 
 
-def test_setup_script_is_executable_and_pulls_models():
+def test_setup_script_is_executable_and_pulls_models(tmp_path):
     script = ROOT / "scripts" / "setup.sh"
     assert script.exists(), "scripts/setup.sh is missing"
     assert script.stat().st_mode & stat.S_IXUSR, "scripts/setup.sh is not executable"
-    assert "ollama pull" in script.read_text(), "setup.sh must pull the models"
+    cfg = resolved_config()
+    model_env = cfg["services"]["api"]["environment"]
+    expected = {model_env["LLM_MODEL"], model_env["EMBED_MODEL"]}
+    sandbox = tmp_path / "repo"
+    shutil.copytree(ROOT, sandbox, ignore=shutil.ignore_patterns(".git", "__pycache__", ".pytest_cache"))
+    bin_dir = tmp_path / "bin"
+    bin_dir.mkdir()
+    log = tmp_path / "docker-calls"
+    stub = bin_dir / "docker"
+    stub.write_text("#!/bin/sh\nprintf '%s\t' \"$@\" >> \"$DOCKER_CALLS\"\nprintf '\\n' >> \"$DOCKER_CALLS\"\n"
+                    "case \"$*\" in *' config'*) cat \"$DOCKER_CONFIG\";; esac\n")
+    stub.chmod(0o755)
+    config_file = tmp_path / "config.json"
+    config_file.write_text(json.dumps(cfg))
+    env = dict(os.environ, PATH=str(bin_dir) + os.pathsep + os.environ["PATH"],
+               DOCKER_CALLS=str(log), DOCKER_CONFIG=str(config_file))
+    subprocess.run([str(sandbox / "scripts" / "setup.sh")], cwd=sandbox, env=env, check=True, timeout=30)
+    pulled = set()
+    for line in log.read_text().splitlines() if log.exists() else []:
+        args = line.rstrip("\t").split("\t")
+        for i in range(len(args) - 2):
+            if args[i:i+2] == ["ollama", "pull"]:
+                pulled.add(args[i+2])
+    assert expected <= pulled, f"setup.sh must pull both configured models: {expected - pulled}"
 
 
 # ---------- live checks ----------

@@ -6,7 +6,7 @@ status: draft
 ---
 
 ## Summary
-A tight, accurate, well-sequenced micro-lesson course: the running example (`acme/rag-api`, an Ollama + ChromaDB + FastAPI "rag-stack") threads cleanly from the first Dockerfile to the final Compose file, and almost every lesson ends in hands-on practice. The biggest opportunities are (1) a few commands that silently fail on the course's own default base image (`python:3.11-slim` ships without `ps` and `curl`), (2) the full-stack walkthrough contradicting the course's own "retry or health-gate your dependencies" advice, and (3) the complete absence of graded projects (`"projects": 0`) — learners never assemble the skills under acceptance criteria. Version pins (Ollama, Chroma, Python packages, model tags) are internally consistent but aging and need an owner decision.
+A tight, accurate, well-sequenced micro-lesson course: the running example (`acme/rag-api`, an Ollama + ChromaDB + FastAPI "rag-stack") threads cleanly from the first Dockerfile to the final Compose file, and almost every lesson ends in hands-on practice. Before this pass, the biggest opportunities were (1) a few commands that silently fail on the course's own default base image (`python:3.11-slim` ships without `ps` and `curl`), (2) the full-stack walkthrough contradicting the course's own "retry or health-gate your dependencies" advice, and (3) the complete absence of graded projects (`"projects": 0`) — learners never assemble the skills under acceptance criteria. Version pins (Ollama, Chroma, Python packages, model tags) are internally consistent but aging and need an owner decision.
 
 ## Clarity issues
 | Lesson | Location (heading) | Issue | Fix | Status |

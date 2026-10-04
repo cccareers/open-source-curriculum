@@ -45,6 +45,6 @@ A step-through H5P or web interactive. The learner drags Dockerfile lines into a
 
 ## Production notes
 - Build in Motion Canvas using one reusable `Step` component with `state: 'cached' | 'rebuild'`. The flip is a 0.3s Y-axis rotation that swaps fill, pattern, and badge together.
-- Strictly, `CMD` and `WORKDIR` only record metadata and don't add filesystem layers. They still take part in the cache chain, so showing them as blocks is accurate for this concept. Keep the "step" wording in the VO.
+- Strictly, `CMD` only records metadata; `WORKDIR` creates its directory if missing, so it can change the filesystem. They still take part in the cache chain, so showing them as blocks is accurate for this concept. Keep the "step" wording in the VO.
 - Stopwatch values are illustrative; keep them in brackets in the script until they are matched to the real recording from video v02 so the two pieces agree.
 - Export at 1920×1080, plus a 1080×1080 square cut for the lesson page. Provide captions and a one-paragraph text description for screen-reader users.

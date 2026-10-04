@@ -98,8 +98,16 @@ if [ ! -e "$CTX/.git" ]; then
 fi
 
 # 1. Static Dockerfile checks
-FROM_LINE=$(grep -Ei '^FROM ' "$CTX/Dockerfile" | tail -1)
-if echo "$FROM_LINE" | grep -Eq 'python:3\.[0-9]+(\.[0-9]+)?-slim'; then pass "final stage uses a pinned python:3.x-slim base"
+# Resolve stage aliases (including numeric references) to their original base.
+FROM_LINE=$(awk 'toupper($1) == "FROM" {
+  i=2; if ($i ~ /^--platform=/) i++
+  base=$i; key=tolower(base)
+  if (key in stages) base=stages[key]
+  stages[count++]=base
+  if (toupper($(i+1)) == "AS") stages[tolower($(i+2))]=base
+  final=base
+} END { print final }' "$CTX/Dockerfile")
+if echo "$FROM_LINE" | grep -Eq '^python:3\.[0-9]+(\.[0-9]+)?-slim(-[a-z]+)?(@sha256:[a-f0-9]+)?$'; then pass "final stage uses a pinned python:3.x-slim base"
 else fail "final stage base is not python:3.x-slim ($FROM_LINE)"; fi
 if grep -Eiq '^FROM .*(:latest|alpine)' "$CTX/Dockerfile"; then fail "Dockerfile uses :latest or alpine"; else pass "no :latest or alpine base"; fi
 
@@ -146,7 +154,7 @@ docker build -q -t "$IMAGE" "$CTX" >/dev/null   # rebuild from the restored sour
 # 5. Secrets
 HIST=$(docker history --no-trunc --format '{{.CreatedBy}}' "$IMAGE")
 ENVS=$(docker image inspect "$IMAGE" --format '{{json .Config.Env}}')
-if echo "$HIST $ENVS" | grep -Eiq '(api_key|secret|token|password)=[^ "]+|sk-'; then fail "possible secret baked into image history or ENV"
+if echo "$HIST $ENVS" | grep -Eiq '(api_key|[a-z0-9]+_key|secret|token|password)=[^ "]+|sk-'; then fail "possible secret baked into image history or ENV"
 else pass "no secrets in history or ENV"; fi
 if docker run --rm --entrypoint sh "$IMAGE" -c 'test ! -e /app/.env && test ! -e /app/.git && ! grep -rqs acceptance-sentinel /app'; then pass ".env and .git not copied into the image"
 else fail ".env, its contents, or .git found inside the image"; fi
@@ -156,16 +164,19 @@ if docker run --rm --entrypoint sh "$IMAGE" -c '! command -v gcc >/dev/null 2>&1
 else fail "compiler present in final image (use a multi-stage build)"; fi
 
 # 7. Starts with run-time config only, /livez answers
-docker run -d --name "$NAME" -p "$PORT:8000" \
+if ! docker run -d --name "$NAME" -p "$PORT:8000" \
   -e OLLAMA_HOST=http://nowhere:11434 -e CHROMA_HOST=nowhere -e CHROMA_PORT=8000 \
-  -e LLM_MODEL=placeholder -e EMBED_MODEL=placeholder "$IMAGE" >/dev/null
+  -e LLM_MODEL=placeholder -e EMBED_MODEL=placeholder "$IMAGE" >/dev/null; then
+  fail "container failed to launch (check the host port)"
+  exit 1
+fi
 OK=0
 for _ in $(seq 1 30); do
-  if curl -fsS "http://localhost:$PORT/livez" 2>/dev/null | grep -q '"ok"'; then OK=1; break; fi
+  if curl --max-time 1 -fsS "http://localhost:$PORT/livez" 2>/dev/null | grep -q '"ok"'; then OK=1; break; fi
   sleep 1
 done
 if [ "$OK" -eq 1 ]; then pass "container starts and GET /livez returns ok"
-else fail "GET /livez did not answer within 30s"; docker logs --tail 30 "$NAME"; fi
+else fail "GET /livez did not answer in 30 bounded attempts"; docker logs --tail 30 "$NAME"; fi
 
 echo
 if [ "$FAILED" -eq 0 ]; then echo "ALL CHECKS PASSED"; else echo "SOME CHECKS FAILED"; fi
