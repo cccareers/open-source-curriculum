@@ -27,9 +27,9 @@ This project gives you the cohort data Lesson 4 did not, asks you to price the l
 ## What you will produce
 
 1. A metric card (Lesson 2 format) with arithmetic.
-2. A cohort and stage-duration table, reconciled to your win rate.
+2. An outcome-count and stage-duration table, with win rate reconciled to the 100 resolved opportunities. Stage-entry counts are not supplied; do not invent a conversion cohort.
 3. A priced-cycle analysis: what the extra 60 days cost in deal slots.
-4. Four candidate causes (one measurement cause), each with a discriminating check and the result from the data below.
+4. Four candidate causes (one measurement cause), each with a discriminating check; state what the data below supports and which results still require deal history.
 5. One change with a target, a review date, and two dashboard tiles specified in full.
 6. A recorded 20-minute one-on-one with a partner playing Luis.
 
@@ -81,7 +81,7 @@ This project gives you the cohort data Lesson 4 did not, asks you to price the l
 
 1. **Metric card (45 min).** Win rate by count; mean deal; mean/median won cycle; mean lost cycle; velocity with the implied-opportunity sanity check.
 2. **Stage durations and pricing (45 min).** Identify the stage carrying the excess. Compute how many extra deal slots a year you would gain if proposal took the team's 14 days (state your assumption that freed days convert to slots at your mean won cycle, and label the result a capacity ceiling).
-3. **Causes and checks (45 min).** At least: (A) proposals sent without the economic buyer; (B) proposals sent too early, before validation is genuinely complete; (C) big-deal mix (check against $28,900 vs. team deal size); (D) measurement cause — close-date pushes or early opportunity creation inflating the cycle clock. Use the tables to support or rule out each.
+3. **Causes and checks (45 min).** At least: (A) proposals sent without the economic buyer; (B) proposals sent too early, before validation is genuinely complete; (C) big-deal mix (check against $28,900 vs. team deal size); (D) measurement cause — close-date pushes or early opportunity creation inflating the cycle clock. Use the tables to support or challenge each. Close-date pushes alone do not change the creation-to-actual-close clock. The 3-day versus 8-day creation lag suggests about five days of clock difference only if account-to-close durations and populations are comparable; it does not prove a five-day contribution. Validation exit evidence and matched account/actual-close timestamps are not supplied, so these checks remain open.
 4. **Change and tiles (30 min).** One change (e.g., "No proposal review is scheduled without the economic buyer invited"), a target (e.g., mean days in proposal from 61 to 35 on deals entering proposal in the next 90 days), a review date, what you stop doing, and two tile specs (decision → question → metric → filter → threshold → action), one of which detects the change failing.
 5. **One-on-one (20 min, recorded).**
 
@@ -91,7 +91,7 @@ This project gives you the cohort data Lesson 4 did not, asks you to price the l
 - [ ] The diagnosis names the cycle cause (Lesson 4's four-cause table) and rules out volume with evidence.
 - [ ] The proposal stage is identified as carrying ~47 of the 69 excess days (61 − 14), with the arithmetic.
 - [ ] The economic-buyer split is presented as a correlation with sample sizes (17 vs. 9), not as proof of cause.
-- [ ] The measurement cause is tested and its partial contribution stated.
+- [ ] The measurement cause has a concrete test; the potential five-day clock difference is conditional, and missing history is identified without asserting a measured contribution.
 - [ ] One change only, with start value, end value, review date, and a stop-doing.
 - [ ] Two tiles fully specified.
 - [ ] The recording shows the rep holding the diagnosis against the "more pipeline" theory without dismissing the manager.
@@ -110,7 +110,7 @@ This project gives you the cohort data Lesson 4 did not, asks you to price the l
 | Criterion | Developing | Meets | Exceeds |
 |---|---|---|---|
 | Arithmetic | Errors or unsupported figures | All figures correct and traceable | Adds the velocity sanity check and flags where it overstates |
-| Diagnosis | Defaults to "more pipeline" or a list of issues | Names cycle as the cause and locates it in proposal | Quantifies the volume plan's cost: what 170 opportunities at a 118-day cycle would demand in hours |
+| Diagnosis | Defaults to "more pipeline" or a list of issues | Names cycle as the cause and locates it in proposal | Quantifies the volume plan's cost: what 170 opportunities at a 118-day cycle would demand in concurrent deal slots, with the steady-flow assumption stated |
 | Causal discipline | Asserts cause from one split | States correlation, sample sizes, and one figure not trusted | Proposes the check that would distinguish A from B next quarter |
 | The change | Several changes, or no target/date | One change with target, date, stop-doing | Expected value stated as a range with assumptions labeled |
 | One-on-one | Defensive or concedes immediately | Answers each challenge with a figure | Turns Luis's volume theory into a shared test with a date |
@@ -127,6 +127,6 @@ This project gives you the cohort data Lesson 4 did not, asks you to price the l
 
 ## Instructor notes
 
-- The trap is accepting "big deals take longer." Rep C's average deal ($28,900) is close to the class dataset's team figures; the long stage is behavioral, not mix.
+- The trap is accepting "big deals take longer." Rep C's average deal ($28,900) is close to the class dataset's team figures; the long stage warrants a behavioral check; a similar mean deal size alone cannot rule out a different size mix or prove causation.
 - The economic-buyer split is deliberately small (9 deals). Reward learners who say so.
 - For a shorter session, skip the recording and have learners submit the 150-word manager note.

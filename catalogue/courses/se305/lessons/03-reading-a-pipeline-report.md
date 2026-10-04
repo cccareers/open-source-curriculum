@@ -196,7 +196,7 @@ All figures come from the tables in this lesson.
 
 **Exercise 2 — reweight the pipeline.** Suppose a review of your open deals finds that four opportunities currently sitting in proposal, worth $124,000 in total, have never had a proposal formally reviewed by the buyer and belong back in solution validation. Rebuild the open-pipeline snapshot with those four moved, then recompute the weighted total using your own cohort probabilities. State the new weighted figure, the change from $410,842, and what that change tells you about stage discipline.
 
-**Exercise 3 — the coverage argument.** Your manager looks at the same report and says coverage is 3.97x, which is fine. Write the four-sentence reply that changes their mind. It must name the seven stale opportunities, show the recomputed coverage and expected value, compare both to the $154,000 gap, and end with the specific thing you are asking for.
+**Exercise 3 — the coverage argument.** Your manager looks at the same report and says coverage is 3.97x, which is fine. Write the four-sentence reply that changes their mind. It must identify the seven stale opportunities as a group (account names are not supplied), show the recomputed coverage and expected value, compare both to the $154,000 gap, and end with the specific thing you are asking for.
 
 **Exercise 4 — read the flow.** Using the September movement table, answer three questions with arithmetic: how far below the sustaining rate was creation, what share of the open pipeline had its close date pushed, and what the six September losses were worth relative to a month's share of quota. Then write the single sentence you would put at the top of your monthly note.
 

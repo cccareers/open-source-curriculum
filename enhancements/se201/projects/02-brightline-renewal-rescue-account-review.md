@@ -33,9 +33,9 @@ You get 30 minutes with the newly promoted VP, **Joanne Reyes**, and Sam. You wi
 
 ## Before you start
 
-Compute the numbers first:
+Compute the numbers first. For the hypothetical third-division scenario only, assume 40 additional seats at the same rate, with no uplift or other fees; this is a sensitivity case, not a qualified opportunity. Use the stated $148,000 opening ARR as the denominator and label the small rounding difference from 240 × $51.39 × 12 ($148,003.20).
 - Share of book: $148,000 / $2,100,000 = 7.0%.
-- True-down exposure: (240 − 176) × $51.39 × 12 = $39,468, so renewal ARR would be about $108,532.
+- True-down exposure: (240 − 176) × $51.39 × 12 = $39,467.52, so renewal ARR would be about $108,532.48. True-down NRR is 73.33%; adding 40 seats contributes $24,667.20 and gives 90.00% NRR; a flat renewal is 100%.
 - Notice deadline: 45 days before 31 March, about 14 February. Every renewal milestone is planned against this date, not 31 March.
 
 **Persona cards (partner only)**

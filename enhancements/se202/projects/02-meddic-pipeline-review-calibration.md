@@ -89,6 +89,6 @@ Two weeks into an outbound campaign for the field-service scheduling platform (L
 
 ## Instructor notes
 
-- **Suggested key** (instructor's reading; confirm before use): Northwind 10 (M2 E1 D2 D0 I3 C2); Corbett 1 (all 0 except I1 at most); Pine Ridge about 7 (M2, E2 "named by" the director, D2 criteria not given so likely 0–1, process D2, I2–3, C1); Halvorsen disqualify; Brightwater about 6 (I2, E1–2, C2 for the introduction); Kestrel about 9 (M0–1, E3, D2 criteria, D1–2 process, I1–2, C1).
+- **Suggested key** (instructor's reading; confirm before use): Northwind 10 (M2 E1 D2 D0 I3 C2); Corbett 1 (all 0 except I1 at most); Pine Ridge 9–10 (M2 E2 D0 D2 I2–3 C1; criteria are unknown, and the stated two days of reconciliation may justify I3); Halvorsen disqualify; Brightwater 7–8 (M2 E1–2 D0 D0 I2 C2; three double-bookings per week supply a metric baseline); Kestrel 7–10 (M0–1 E3 D2 D1–2 I0–1 C1; no specific pain or metric was stated).
 - The common error is scoring Kestrel high because a COO is involved. Authority without a metric or pain is a sales-led opportunity, not a qualified one.
 - For a shorter session, score three accounts only.

@@ -129,7 +129,7 @@ Dana's blank cells are yours to compute. Do not guess them from the team column.
 
 Six parts, in this order, as one document.
 
-**1. The metric card.** Dana's baseline, each line showing the arithmetic. At minimum: win rate by count and by value; mean and median won deal size; mean and median won cycle and mean lost cycle; quota attainment and the annual gap; Q4 coverage as reported and after cleaning; break-even coverage at her win rate; expected value of the clean Q4 pipeline against the Q4 gap; and pipeline velocity in dollars per day, with the sanity check from lesson 2 comparing the opportunity count the velocity model implies against the count she actually created.
+**1. The metric card.** Dana's baseline, each line showing the arithmetic. At minimum: win rate by count and by value; mean won deal size, with median won deal size marked unavailable because individual deal values are not supplied; mean and median won cycle and mean lost cycle; quota attainment and the annual gap; Q4 coverage as reported and after cleaning; break-even coverage at her win rate; expected value of the clean Q4 pipeline against the Q4 gap; and pipeline velocity in dollars per day, with the sanity check from lesson 2 comparing the opportunity count the velocity model implies against the count she actually created.
 
 **2. The cohort table.** Opportunities reaching each stage, share of the 115, and step conversion, reconciled against her win rate. Show the reconciliation explicitly. Add the deaths table alongside it and verify that the weighted mean days-alive across the four death rows reproduces the 71-day mean lost cycle.
 

@@ -51,7 +51,7 @@ Load the twelve deals into any CRM from Lessons 3–5 (or a spreadsheet if you h
 - Ask about Cobalt: "Third push. Why is it still commit?"
 - Ask about coverage: "How much pipeline do you need, by when?"
 - If the rep's number equals or exceeds quota without explanation, say: "That looks like the quota. Convince me it isn't."
-- Close with: "What do you need from me?" Reward a specific ask (e.g., an executive sponsor call for Calder, or help sourcing $220,000 of pipeline).
+- Close with: "What do you need from me?" Reward a specific ask (e.g., an executive sponsor call for Calder, or help sourcing the recomputed pipeline gap after hygiene fixes).
 
 ## Milestones
 
@@ -67,7 +67,7 @@ Load the twelve deals into any CRM from Lessons 3–5 (or a spreadsheet if you h
 - [ ] Orchard's amount is re-derived (40 × $1,200 = $48,000) and the forecast recomputed accordingly.
 - [ ] Vale's close date is moved once to a date you believe, or the deal is closed out — with a reason.
 - [ ] Arbor's stage-to-date mismatch is resolved: either the date moves out of the quarter or the stage is evidenced.
-- [ ] The forecast names a method, states commit / forecast / upside separately, and does not equal quota.
+- [ ] The forecast names a method, states commit / forecast / upside separately, and is derived from the cleaned records rather than adjusted to equal quota. A coincidental match is acceptable if the arithmetic supports it.
 - [ ] Coverage is stated in dollars of additional pipeline needed.
 - [ ] The artifact is snapshotted with today's date.
 - [ ] The recording shows each challenge answered with record evidence, not adjectives.
@@ -79,7 +79,7 @@ Load the twelve deals into any CRM from Lessons 3–5 (or a spreadsheet if you h
 - [ ] Forecast artifact (dated)
 - [ ] Recording
 - [ ] Post-review note
-- [ ] Screenshots of the four Lesson 7 ritual views, empty after fixes
+- [ ] Screenshots of the four Lesson 7 ritual views (or equivalent spreadsheet filters), with unresolved items given an owner and date; retain genuine push-history warnings rather than erase them to empty a view
 
 ## Rubric
 
