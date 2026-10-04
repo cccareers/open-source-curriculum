@@ -48,7 +48,7 @@ Clients rarely say "I don't understand my deductible." They say "they said my in
 - **Network** — the providers the plan has contracts with. **In-network** costs less; **out-of-network** can cost dramatically more or not be covered at all.
 - **Primary care provider** — the assigned provider, often the required starting point for referrals in a managed care plan.
 - **Referral** — permission from the primary care provider to see a specialist.
-- **Prior authorization** — the plan's advance approval for a service. This is the step that silently derails more appointments than any other.
+- **Prior authorization** — the plan's advance approval for a service, usually requested by the provider's office, not the client. This is the step that silently derails more appointments than any other, because the client is often never told it is pending.
 - **Formulary** — the plan's list of covered drugs, usually in tiers. If a drug is not on it, ask about an exception or a therapeutic alternative.
 - **Explanation of benefits** — a statement showing what was billed and paid. It says "this is not a bill" because it is not one. Many clients pay it anyway.
 - **Denial and appeal** — plans deny claims and services, and denials can be appealed. A surprising share of appeals succeed. Clients usually do not know appealing is possible.
@@ -61,7 +61,7 @@ A workable sequence:
 
 1. **Establish where they actually are.** What coverage, if any. Whether they have a primary care provider. What has already been tried, and what happened. Ask for the card and the letters; do not reconstruct from memory.
 2. **Name the goal in the client's words.** "Get the knee looked at so I can go back to work" is a goal. "Complete referral" is a task.
-3. **Verify coverage and network before scheduling.** A confirmed appointment with an out-of-network provider is a bill waiting to happen.
+3. **Verify coverage, network, and whether a referral or prior authorization is needed before scheduling.** A confirmed appointment with an out-of-network provider is a bill waiting to happen.
 4. **Make the call together, not instead.** Put it on speaker. Let the client hear the script. Write down the name of the person you spoke to, the date, and the reference number every single time — this record is what wins disputes later.
 5. **Do the barrier check before the appointment day.** Transportation, work schedule, childcare, interpretation, documents needed, cost expectation. Solve these in advance, not in the waiting room.
 6. **Secure language access.** Clients have the right to an interpreter at no cost in most health settings receiving federal funds. Ask for one on the client's behalf, and coach the client to ask for one. Family members, especially children, should not be interpreting medical information.
@@ -83,3 +83,9 @@ Throughout all of it, the scope line from Lesson 2 holds. You can explain what a
 4. **Spot the qualifying event.** Write down five sentences you could plausibly hear from a client — a job ending, a move, a new baby, aging onto Medicare, turning 26 — and for each, write the one question you would ask next and the person you would hand off to.
 
 5. **Reconstruct a failure.** Think of a time you or someone you know got lost in a health, benefits, or housing system. Write the sequence as a numbered list of steps, marking each point where the system failed. Then mark the earliest point at which a CHW could have changed the outcome, and write what they would have said or done.
+
+## Check your understanding
+
+1. A client on Medi-Cal says, "I missed the enrollment window, so I have to wait until next year." What is inaccurate about that, and what do you say? *Medi-Cal enrollment is open year-round; the client can apply now. Connect them to an eligibility worker or certified enrollment counselor rather than deciding eligibility yourself.*
+2. A client tells you, "My job ended last week and I lost my insurance." Which coverage concept should this trigger, and who do you hand off to? *A qualifying life event that may open a special enrollment period for a marketplace plan, and possible Medi-Cal eligibility; hand off to a certified enrollment counselor or eligibility worker.*
+3. An imaging appointment was cancelled because "authorization didn't come through." Name two navigation steps from the sequence above that would have caught this earlier. *Verify coverage and whether prior authorization is needed before scheduling (step 3), and make the call together to confirm the authorization status, logging the name, date, and reference number (step 4). Rechecking it during the barrier check before the appointment day (step 5) is a second chance to catch it.*

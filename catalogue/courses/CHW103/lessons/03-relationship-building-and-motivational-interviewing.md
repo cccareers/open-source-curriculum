@@ -42,7 +42,7 @@ Reliability sounds like a soft skill. Treat it as a clinical one: the client who
 
 Motivational interviewing (MI) is a way of talking with someone about change that assumes the reasons for change have to come from them. Your job is not to supply motivation. It is to help the client hear their own.
 
-MI rests on a few observable moves.
+MI rests on a few observable moves, often remembered by the acronym **OARS**: open questions, affirmations, reflections, and summaries.
 
 **Reflective listening.** A reflection is a statement, not a question, that says back what you understood — including what the client implied but did not say. A simple reflection stays close: "Mornings are fine, nights are the problem." A complex reflection adds the meaning underneath: "You're managing this on your own and you're tired of it." Aim for more reflections than questions. If you are asking three questions in a row, you have slipped into interrogation.
 
@@ -52,7 +52,7 @@ MI rests on a few observable moves.
 
 **Summaries.** Every few minutes, gather what the client has said and hand it back, deliberately collecting the change-oriented pieces at the end: "So the cost is real, the clinic hours don't work with your shift — and you said you're tired of feeling like this and your daughter's been asking. Where does that leave you?"
 
-**Change talk** is any statement from the client pointing toward change: the desire ("I want to sleep better"), the ability ("I could probably do mornings"), the reasons ("my daughter's scared"), the need ("I can't keep going like this"), or a commitment ("I'll call Monday"). Your work is to notice it and ask for more of it — "say more about that" — rather than jumping to a plan the second you hear it.
+**Change talk** is any statement from the client pointing toward change: the desire ("I want to sleep better"), the ability ("I could probably do mornings"), the reasons ("my daughter's scared"), the need ("I can't keep going like this"), or a commitment ("I'll call Monday"). Your work is to notice it and ask for more of it — "say more about that" — rather than jumping to a plan the second you hear it. The opposite — statements in favor of staying the same ("it's not that easy," "I've always done it this way") — is called **sustain talk**. Sustain talk is normal and is not a reason to argue; reflect it and let the change talk carry the conversation.
 
 ```text
 Client: I know I should quit. Everyone tells me.
@@ -82,7 +82,7 @@ What to do instead:
 
 **Explore both sides on purpose.** Ask about the good things about the current situation first — "What do you get out of the way things are now?" — then the not-so-good. A client who feels their reasons were taken seriously will look at the other side honestly.
 
-**Ask permission before information.** "Would it be all right if I told you what the clinic said about that?" Then give the information plainly and hand it back: "What do you make of that?"
+**Ask permission before information.** "Would it be all right if I told you what the clinic said about that?" Then give the information plainly and hand it back: "What do you make of that?" This ask–tell–ask pattern is often called **elicit–provide–elicit**. Keep the "provide" inside your scope: share what the clinic or your program's materials say, never your own medical opinion.
 
 **Let the client choose.** Emphasize autonomy out loud: "This is completely your call. I'll help either way." That sentence removes the thing they were bracing against and often frees them to move.
 
