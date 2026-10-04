@@ -38,7 +38,7 @@ CHW105 learners at the start of Lesson 2. Presenters: five short "day in the lif
 | 3:40 | Host, closer. Text: "Supervision is the one people underweight." | HOST: "Supervision is the criterion people underweight. Good supervision turns an average site into a great placement. Its absence sinks a great site." |
 | 4:00 | Warning-signs card with icons + text: "No one can describe your day" • "Supervisor has never had an intern" • "No start date" • "All about unpaid help." | HOST: "Warning signs: nobody can describe what you'd do day to day; the supervisor's never had an intern; no one can commit to a start date; or the conversation is all about free help, not your learning." |
 | 4:30 | Host. Timeline graphic counting back from the packet deadline. | HOST: "And work backward from your deadline. Background checks and TB clearances commonly take one to three weeks. Start them the day your site says yes. Confirm every verbal agreement in an email the same day. And keep your second choice warm until the first is signed." |
-| 5:10 | Host. | HOST: "Why is demand growing? California covers certain CHW services under Medi-Cal, so many employers now have a funding stream for this work — and they care about documented training and supervision. The rules change, so check current guidance with your program. For you, the takeaway is simple: keep your training records and your planning packet clean." |
+| 5:10 | Host. | HOST: "Why is demand growing? California covers qualifying CHW services under Medi-Cal. Claims are submitted by enrolled supervising providers when member, service, CHW qualification, supervision, and documentation requirements are met. Coverage does not make every employer or activity billable. Check current DHCS guidance with your program. For you, the takeaway is simple: keep your training records and your planning packet clean." |
 | 5:40 | End card: "Practice 1: build a six-organization shortlist." | HOST: "Your turn: six organizations, at least one from each setting, scored on the four criteria." |
 
 ## On-screen assets and B-roll
@@ -57,3 +57,8 @@ CHW105 learners at the start of Lesson 2. Presenters: five short "day in the lif
 1. Which setting most often generates member lists from data and tracks outreach attempts? *Answer: Medi-Cal health plans.*
 2. Name the four fit criteria. *Answer: population and language, skills you'll build, supervision, logistics and capacity.*
 3. What is the most common reason a planning packet is late, and how do you prevent it? *Answer: onboarding clearances such as background checks and TB tests; start them as soon as the site is confirmed and work backward from the deadline.*
+
+## Source notes
+
+- [DHCS CHW provider requirements](https://www.dhcs.ca.gov/providers-partners/frequently-asked-questions-for-medi-cal-community-health-worker-services-provider-requirements/).
+- [DHCS CHW billing FAQ](https://www.dhcs.ca.gov/providers-partners/faqs-for-medi-cal-community-health-worker-services-billing/).

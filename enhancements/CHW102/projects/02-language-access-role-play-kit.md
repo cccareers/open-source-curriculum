@@ -45,7 +45,7 @@ Plus a one-page **CLAS crosswalk** linking each scenario to the CLAS theme it ex
 ## Before you start
 
 - Lesson 2, "The CLAS standards" and "Language access in practice."
-- Your program's language access procedure (or a fictional one your instructor provides).
+- Your program’s language-access procedure (or a fictional one your instructor provides), specifying interpreter access at no cost for these encounters and how to obtain approved translations of vital documents.
 
 ## Milestones
 
@@ -82,7 +82,7 @@ Plus a one-page **CLAS crosswalk** linking each scenario to the CLAS theme it ex
 
 ## Stretch goals
 
-- Add a fourth scenario: a consent form exists only in English. Write what you say instead of sight-translating it, and the gap report.
+- Add a fourth scenario: a consent form exists only in English. Write what you say instead of sight-translating it yourself, how you obtain approved translation and qualified assistance under program procedure, and the gap report.
 - Record a model run of Scenario B (actors only) for future cohorts.
 
 ## Reflection prompts

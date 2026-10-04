@@ -58,7 +58,7 @@ All data below is fictional and de-identified (client IDs only).
 
 1. **Pattern analysis** (one page): which entries are one-off problems, which form a pattern, and which are not yet determinable — using the four questions in Lesson 5, "Distinguishing the two."
 2. **Issue brief** (one page, no client names): observation, scope and time period, who is affected, likely cause, recommendation, and the specific ask — addressed to Ms. Park, with a routing recommendation (your organization, partner, county, or legislative).
-3. **Honest impact paragraph** (under 150 words): classify every line in the activity report as output, short-term, intermediate, long-term outcome, or impact; rewrite the ER claim so it attributes carefully; and write a 90-second "lead with an outcome, support with outputs, name one limit" statement.
+3. **Honest impact paragraph** (under 150 words): classify every line in the activity report as output, short-term, intermediate, long-term outcome, or impact; identify that the log supplies no ER-use data to substantiate the 30% claim and remove it unless supporting data are supplied; and write a 90-second "lead with an outcome, support with outputs, name one limit" statement.
 
 ## Before you start
 
@@ -80,7 +80,7 @@ All data below is fictional and de-identified (client IDs only).
 - [ ] Brief is one page, uses client IDs or counts only, and names the routing level and the specific ask.
 - [ ] Does not claim the cause is certain; names what would confirm it.
 - [ ] Every activity-report line is classified correctly (outputs: encounters, referrals made, enrollments, classes; intermediate outcome: referrals confirmed attended; long-term outcome: BP control).
-- [ ] ER claim is rewritten as an association unless the learner explains what study design would support a causal claim.
+- [ ] ER claim is marked unsupported and removed: no ER-use data or comparison design are supplied. An association requires supporting data too; causal attribution also requires an appropriate study design.
 
 ## Evidence checklist
 
@@ -98,7 +98,7 @@ All data below is fictional and de-identified (client IDs only).
 | Routing | Escalates to "the state" or the press | Routes to supervisor with correct level named | Proposes both an internal fix and an external channel |
 | Confidentiality | Includes identifying story details | Counts and IDs only | Representative story is clearly composite and labeled |
 | Outputs vs outcomes | Mixes categories | All lines classified correctly | Explains why "74 enrolled" is an output but "previously uninsured clients now covered" could be an outcome |
-| Honest claims | Repeats the 30% claim | Rewrites with careful attribution | Names one population the program did not reach |
+| Honest claims | Repeats the 30% claim | Removes unsupported ER claim and explains what evidence is missing | Names one population the program did not reach |
 
 ## Stretch goals
 

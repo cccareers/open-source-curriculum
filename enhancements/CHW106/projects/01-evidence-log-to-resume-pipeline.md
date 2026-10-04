@@ -68,7 +68,7 @@ Before you mine your own log, practice on someone else's. Below is a de-identifi
 
 ## Acceptance criteria
 
-- [ ] Sam's referral numbers are computed correctly: 23 referrals placed (9 + 14); 17 confirmed connected (6 + 11); about 74% — and no bullet claims more than the log supports (3 pending are not counted as connected).
+- [ ] The two tracked referral cohorts (weeks 2 and 8) are computed correctly: 23 referrals placed (9 + 14); 17 confirmed connected (6 + 11); about 74%. Week 1 also mentions referrals but gives no count or connection results; do not claim these are totals for all 12 weeks — and no bullet claims more than the log supports (3 pending are not counted as connected).
 - [ ] At least one bullet evidences each of: closed-loop referral, client-owned goals, and advocacy.
 - [ ] No bullet uses "assisted" or "helped" without a scale and outcome.
 - [ ] Every kept bullet has a named confirmer.
