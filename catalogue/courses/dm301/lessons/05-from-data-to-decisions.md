@@ -100,7 +100,7 @@ Even a difference that survives the arithmetic can be caused by something other 
   Total         46,200  1.32%   612         44,700  1.47%   659
 ```
 
-Mobile got worse. Desktop got worse. Tablet was flat. **Every single segment declined and the site-wide conversion rate rose from 1.32 percent to 1.47 percent** — because the mix moved toward desktop, which converts three times better. What actually happened was that a mobile-heavy paid social campaign was paused, removing low-converting sessions from the denominator.
+Mobile got worse. Desktop got worse. Tablet was flat. **Mobile and desktop declined, tablet was flat, and the site-wide conversion rate rose from 1.32 percent to 1.47 percent** — because the mix moved toward desktop, which converts three times better. What actually happened was that a mobile-heavy paid social campaign was paused, removing low-converting sessions from the denominator.
 
 Report the headline alone and you will be congratulated for a decline. The rule is simple: **whenever a blended rate moves, check whether the mix moved.** If the segment shares changed, the blended number is describing the mix and not the performance.
 

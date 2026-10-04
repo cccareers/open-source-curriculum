@@ -45,6 +45,6 @@ A browser-based simulator (for example a small p5.js or Observable notebook): le
 
 ## Production notes
 
-- Generate the single-run line from a seeded simulation so the day-9 crossing is reproducible; a baseline of 11% and about 40 sessions per arm per day is close to Northgate's pooled traffic.
-- The false-winner percentages shown must match lesson 10's table (5%, 8%, 14%, 20%); round the simulated counter to those in narration if the simulation differs slightly, and note that they are approximate.
+- Generate the single-run line from a seeded simulation so the day-9 crossing is reproducible; a baseline of 11% and about 12 sessions per arm per day is close to Northgate's 710 pooled clicks per month (assuming one session per click).
+- Label lesson 10's table (5%, 8%, 14%, 20%) as illustrative: actual false-winner rates depend on sample size, timing of looks, and test assumptions. Report the simulation's actual counter, seed, traffic, and look schedule; do not alter the output to match the illustrative table. Search seeds for the single-run crossing and disclose that the showcased trajectory was selected.
 - Keep the vertical axis labelled "z-score" in plain text; avoid introducing p-values in the main animation beyond scene 8.

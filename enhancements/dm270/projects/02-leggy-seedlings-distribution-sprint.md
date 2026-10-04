@@ -58,7 +58,7 @@ Performance so far (Mar 3 - Jun 30): 1,940 sessions (lesson 07 Q1),
 ## Milestones
 1. **Name the research**: one paragraph on what the piece cost and what it bought, listing the parts the article does not use.
 2. **Map**: six or more derivatives; each row names the research source; sum the hours; cut rows until it fits 12 hours with a little slack.
-3. **Produce three** derivatives for real. Suggested set: a carousel built from Elena's six-seedling light-distance chart; a 30-second vertical video answering "windowsill?" from existing footage; a newsletter feature leading with the "your kit ships hung too high" fact.
+3. **Produce three** derivatives for real. Suggested set: a carousel explaining the supplied 18-inch versus 3-inch tray comparison and the hanging-kit note; a 30-second vertical video answering "windowsill?" from existing footage; a newsletter feature leading with the "your kit ships hung too high" fact.
 4. **Schedule** six weeks with a comment/community pass, one re-share of the best derivative, and an evergreen loop timed to next February-March.
 5. **Tag and document**: one tagged URL per derivative with distinct `utm_content`; alt text written out; captions delivery stated.
 
@@ -94,4 +94,4 @@ Research paragraph, map with hours arithmetic, three finished derivatives (copy 
 - What did you cut to fit 12 hours, and what will you watch to know if that was wrong?
 
 ## Instructor notes
-Common failure: learners open the published article and summarise it nine times. Insist the research notes file is the only allowed source for derivative copy. The "kit ships hung too high" and "windowsill: rotate daily" lines are the strongest unpublished material; the six-seedling chart makes a natural carousel. The existing footage (22 clips) means the video derivative should cost two hours, not a reshoot. Lesson 07's arithmetic predicted about 93 signups at 1.60% on 5,800 sessions; Q2 delivered 88 on 5,200 (see project dm270-x01), so this sprint is the next step, not the first.
+Common failure: learners open the published article and summarise it nine times. Insist the research notes file is the only allowed source for derivative copy. The "kit ships hung too high" and "windowsill: rotate daily" lines are the strongest unpublished material; the six-seedling chart is mentioned but not supplied: do not invent its values. Use the provided comparison for the carousel, or obtain the notebook chart before proposing that derivative. The existing footage (22 clips) means the video derivative should cost two hours, not a reshoot. Lesson 07's arithmetic predicted about 93 signups at 1.60% on 5,800 sessions; Q2 delivered 88 on 5,200 (see project dm270-x01), so this sprint is the next step, not the first.

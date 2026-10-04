@@ -48,7 +48,7 @@ C4  "Saw your ad - 'the healthiest coffee in town'? Prove it."
 C5  "lol overpriced hipster bean water" (account created yesterday, no posts)
 ```
 
-Last month's post performance export (use it to choose pillars and cadence):
+Last month's post performance export (use it to choose pillars and cadence): `avg_*` columns are already per-post averages; `profile_link_clicks` is the total across that row's posts.
 
 ```text
 post_type,posts,avg_reach,avg_saves,avg_comments,profile_link_clicks
@@ -108,7 +108,7 @@ Assumption for the welcome sequence: new subscribers arrive through a website fo
 
 ## Instructor notes (common pitfalls, how to adapt for time)
 
-- Saves per post: brew guide carousels 32, roast-day videos 5.5, shop photos 0.3. Many learners keep shop photos because they are easy; push them to defend it with the numbers.
+- Saves per post (already averaged in the export): brew guide carousels 96, roast-day videos 22, shop photos 3. Link clicks per post: 63 / 3 = 21, 41 / 4 = 10.25, and 6 / 9 = 0.67 respectively. Many learners keep shop photos because they are easy; push them to defend it with the numbers.
 - Learners often write a reply to C4 that defends the claim. The point of the exercise is that the problem is the shop's own copy.
 - Do not let learners assert a definitive legal ruling on the counter list. Credit memos that state assumptions and recommend checking with counsel or the platform's consent guidance.
 - For a three-hour version, cut the calendar to two weeks and the sequence to three emails.

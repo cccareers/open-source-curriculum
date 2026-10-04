@@ -246,9 +246,11 @@ KESTREL OUTFITTERS - 28 days ending 5 April       (prior period in brackets)
     of which from guides        396  [352]     target 340    target met
 
   NOISE FLOOR THIS PERIOD
-  Session CVR moves smaller than +/- 0.11pp between 28-day periods
-  (+/- 0.21pp week to week) are not reported as changes.
-  28-day floor: square root of (0.013026 / 46,200) = 0.053pp; two of those = 0.11pp
+  Session CVR moves smaller than about +/- 0.15pp between these 28-day periods
+  are not reported as changes under the two-SE rule of thumb.
+  Difference SE: sqrt[pC(1-pC)/46,200 + pP(1-pP)/46,340]
+  where pC = 612/46,200 and pP = 598/46,340; SE = 0.075pp.
+  Two of those = 0.15pp. Recompute for other periods and sample sizes.
 ```
 
 Notice what that scorecard does. It puts the target next to the KPI. It labels the small moves as noise rather than dressing them up. It carries the counts beside the rates. And its most useful line is the mobile-versus-desktop checkout split, which is not a KPI at all — it is the diagnostic that tells you where next quarter's work is.

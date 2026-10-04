@@ -325,7 +325,7 @@ Effort: about 4 hours per URL x 8 = 32 hours.
 
 Always show the sensitivity range when a step in your arithmetic is an assumption. A single number implies a precision you do not have.
 
-### (iii) An 18% decline isolated to one directory
+### (iii) A 25% site-wide decline isolated to one directory
 
 Site organic clicks fell 25% month over month. Segment by page group first.
 

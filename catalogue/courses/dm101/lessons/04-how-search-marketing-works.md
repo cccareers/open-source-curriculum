@@ -211,6 +211,6 @@ Related: search results now increasingly include answers assembled directly on t
 
 ## Check your understanding
 
-1. A page returns nothing in a `site:` search of your domain. Which of the three search-engine jobs do you investigate first, and why not ranking factors? *(Answer: crawling and indexing — a page that is not in the index cannot rank, so ranking factors are irrelevant until it is.)*
+1. A page returns nothing in a `site:` search of your domain. Which of the three search-engine jobs do you investigate first, and why not ranking factors? *(Answer: check indexing with URL Inspection first, then investigate crawl/index exclusions if confirmed. A `site:` search is not exhaustive and absence there alone does not prove the page is unindexed.)*
 2. A query's first mobile screen shows three ads, a shopping block, and a map pack. What does that tell you about its organic value, regardless of its search volume? *(Answer: very little organic real estate is left above the fold, so the realistic click opportunity is far smaller than the volume suggests.)*
 3. Your paid campaign shows a term converting at 8% over 400 clicks. What does that tell the organic team? *(Answer: the term is strong evidence of commercial value, so it is a good candidate for longer-term organic investment.)*

@@ -104,7 +104,7 @@ July (from lesson 06): reach 118,400; profile visits 3,940; link clicks 731;
 ## Stretch goals
 
 - Re-run the money section on a first-month cash basis (subscription starts x $19 x 48%) and say which version you would show Priya first, and why.
-- Propose the September paid overlay for the one post that clears the gate, using lesson 05's cell-sizing check.
+- Propose the September paid overlay for one of the posts that clears the gate, using lesson 05's cell-sizing check.
 
 ## Reflection prompts
 

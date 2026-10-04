@@ -42,7 +42,7 @@ Misconception: "we published it, so it should rank" — or its sibling, "it isn'
 
 ## Interaction variant (optional)
 
-A scrubbable timeline (H5P interactive video or a small web widget): learners drag the date slider and the Search Console status ribbon, gate states, and metrics update. Add three "what would you do?" pause points (day 2, day 6, day 20) with multiple-choice answers; the correct answer at day 2 is "wait."
+A scrubbable timeline (H5P interactive video or a small web widget): learners drag the date slider and the Search Console status ribbon, gate states, and metrics update. Add three "what would you do?" pause points (day 2, day 6, day 20) with multiple-choice answers; the correct answer at day 2 is "inspect for obvious blockers, preserve the evidence, then monitor if the checks are clean."
 
 ## Production notes
 

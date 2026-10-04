@@ -127,12 +127,12 @@ Day 11  Searched the brand name, clicked the paid brand ad
 Day 11  Booked a trial session
 ```
 
-**Attribution** is the rule you use to assign credit across those touches. The common models:
+**Attribution** is the rule you use to assign credit across those touches. This teaching example assumes the day-1 impression is observable and eligible for credit. A click-only model excludes it: first click would credit organic search on day 3. The newsletter signup is an outcome within that visit, not an extra acquisition touch. The common models:
 
 | Model | Credit goes to | Bias |
 | --- | --- | --- |
 | Last click | Paid brand ad (day 11) | Overcredits closing channels; makes brand search look miraculous |
-| First click | Paid social (day 1) | Overcredits discovery; ignores what closed it |
+| First touch (including the observed impression) | Paid social (day 1) | Overcredits discovery; ignores what closed it |
 | Linear | Split evenly across the four channels (paid social, organic search, email, paid search) | Treats a passive impression as equal to the decisive click |
 | Time decay | Weighted toward day 11 | Reasonable default; still arbitrary |
 | Position-based | 40% first, 40% last, 20% middle | Recognizes discovery and close, undervalues nurture |
@@ -147,7 +147,7 @@ Three practical points:
 https://example-tutoring.com/trial?utm_source=newsletter&utm_medium=email&utm_campaign=parent_nurture_2
 ```
 
-`utm_source` names who sent the visit (the newsletter), `utm_medium` names the channel type (email), and `utm_campaign` names the specific effort. Keep values lowercase and consistent — `Email`, `email`, and `e-mail` show up as three different channels in most reports.
+`utm_source` names who sent the visit (the newsletter), `utm_medium` names the channel type (email), and `utm_campaign` names the specific effort. Keep values lowercase and consistent — `Email`, `email`, and `e-mail` can fragment source/medium reporting or affect channel classification; they do not necessarily create three default channel groups.
 
 **Expect gaps.** Cross-device journeys, privacy settings, ad blockers, cookie expiry, and app-to-browser hops all break the chain. A meaningful share of conversions will land in "direct" or "unassigned" and no amount of tooling fully fixes it. Report the gap; do not quietly redistribute it.
 

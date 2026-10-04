@@ -73,14 +73,14 @@ GA4: 115 purchase events, $9,900 revenue
 ## Milestones
 1. Read each capture and write, in one sentence, what fired and what should have fired.
 2. Map each defect to lesson 02's ten-step routine and admin settings.
-3. Reconcile Wednesday: explain how 63 real orders became 115 events and $9,900.
+3. Reconcile Wednesday: quantify the event and revenue gaps, distinguish DebugView fires from processed reports, and state which gaps these captures cannot explain.
 4. Write the re-test plan and the limitations note.
 
 ## Acceptance criteria
-- [ ] Capture B is identified as a double fire from the leftover hardcoded snippet plus the container tag (lesson 02: "pick exactly one").
-- [ ] Capture C is identified as a refresh re-fire with an empty `transaction_id`, which defeats GA4's de-duplication.
+- [ ] Capture B shows a double fire, consistent with the leftover snippet and container tag. Same-ID purchases from the same user in a web stream should be deduplicated in processed reporting; the capture alone does not prove inflated reported revenue.
+- [ ] Capture C is identified as a refresh re-fire with an empty `transaction_id`. An empty string is a reused ID: GA4 deduplicates purchases carrying it, risking collapsed orders; it is different from omitting the parameter.
 - [ ] Capture D's missing `currency` and string-typed `value` are flagged, with the effect on revenue reporting stated as uncertain rather than guessed.
-- [ ] Capture E is identified as a missing unwanted-referral exclusion that misattributes purchases to the payment provider.
+- [ ] Capture E suggests a payment-provider attribution problem. Confirm the checkout handoff and session continuity, then configure unwanted referrals where appropriate; the table alone does not establish the cause.
 - [ ] Capture A is recognised as correct behaviour (no purchase on checkout load).
 - [ ] The reconciliation shows its arithmetic and states what portion of the gap is explained and what is not.
 - [ ] The limitations note does not use "accurate" without "compared to what".
@@ -97,7 +97,7 @@ Defect table, reconciliation, verification report for the re-test, limitations n
 | Communication | Jargon | Owner can act on the note | Names the one number she should not reconcile against the order system |
 
 ## Stretch goals
-- Write the GA4 Exploration you would build to find refresh re-fires in historical data (hint: purchases with empty `transaction_id`).
+- Explain how you would investigate malformed IDs in collected payloads and processed transaction data. An Exploration cannot recover empty-ID events already deduplicated away.
 - Propose a key-event and data-quality changelog entry for this release (lesson 05, "Definition drift").
 
 ## Reflection prompts
@@ -105,4 +105,4 @@ Defect table, reconciliation, verification report for the re-test, limitations n
 - Which defect would have looked like a marketing result rather than a tracking bug?
 
 ## Instructor notes
-A plausible reconciliation: if every one of the 63 orders double-fired, that is 126 events, more than the 115 observed, so not every order double-fired (cached templates, ad blockers, or consent declines remove some); add refresh re-fires with empty transaction IDs, which GA4 cannot de-duplicate. Accept any reconciliation that shows its working and states its residual; the point is that a 115 vs 63 gap with revenue near 115 x $86 = $9,890 is a collection problem, not a sales spike. $9,900 vs $9,890 rounding is deliberate noise. Capture E is a separate attribution defect: it changes channel credit, not the purchase count. The string `"86.00"` and missing currency: GA4's handling of these has varied; teach "fix the payload to the documented shape" rather than predicting the report outcome.
+The observed gaps are 115 - 63 = 52 purchase events and $9,900 - $5,418 = $4,482. Neither can be reconciled exactly from these sampled captures. Capture B proves two fires but not two processed purchases: [Google documents web-stream deduplication for the same user's transaction ID, including empty-string IDs](https://support.google.com/analytics/answer/12313109?hl=en). Capture C can collapse malformed purchases instead of inflating them. Request a transaction-level export, stream and user identifiers, reporting scope, and tag logs before assigning counts to each defect. The $10 difference between $9,900 and 115 x $86 = $9,890 is unexplained, not rounding: all supplied orders are exactly $86. Accept a quantified residual and a concrete investigation plan rather than an invented reconciliation. Capture E concerns attribution rather than directly explaining the purchase-count gap. Capture D needs the documented numeric value and currency; do not infer its processed revenue from this capture alone.

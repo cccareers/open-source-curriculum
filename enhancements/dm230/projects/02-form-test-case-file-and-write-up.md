@@ -36,7 +36,7 @@ The owner has already seen the platform dashboard, which shows B at 16.1% agains
 
 ## Before you start (prerequisites, starter files or data)
 
-**File 1 — `form_test_weekly.csv`** (platform-reported, from the experiment report; pooled non-brand; blended CPC for both arms $7.80)
+**File 1 — `form_test_weekly.csv`** (platform-reported, from the experiment report; pooled non-brand; blended CPC for both arms $7.80; this simplified export assumes one paid click per recorded session, with no repeat sessions. In a real report, use observed spend rather than sessions x CPC)
 
 ```text
 week,A_sessions,A_conv,B_sessions,B_conv

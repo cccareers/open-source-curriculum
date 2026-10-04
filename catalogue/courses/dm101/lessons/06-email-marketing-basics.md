@@ -177,6 +177,6 @@ C   Delivered 2,700   Opens 33%    Clicks 9% of delivered
 
 ## Check your understanding
 
-1. A campaign has a 38% open rate, a 0.4% click rate on delivered, and a strong landing page. Which part of the campaign do you fix first? *(Answer: the body and the call to action — people open, then do not click, so the subject line is working and the problem is inside the email.)*
+1. A campaign has a 38% open rate, a 0.4% click rate on delivered, and a strong landing page. Which part of the campaign do you fix first? *(Answer: inspect the body, CTA, offer, and click tracking first, but verify opens by provider and account for automated loads before concluding the subject line worked. High tracked opens alone do not establish that people read the message.)*
 2. Why is open rate a rough comparative signal rather than an exact count? *(Answer: it relies on a tracking pixel that some mail clients load automatically or block, which inflates or hides opens.)*
 3. A subscriber books an inspection after email 2 of the welcome series. What should happen to emails 3 and 4? *(Answer: they stop; the exit rule removes converted subscribers so you do not pitch a service they already bought.)*
