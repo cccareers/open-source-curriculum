@@ -41,7 +41,7 @@ SEGMENTED - the same offer, sent only where it can land, copy adjusted
 
 Read that carefully, because the obvious conclusion is wrong. Segmentation did **not** produce more clicks — 120 against 137. It produced roughly the same result from 35 percent less sending volume, with fewer than half the unsubscribes and a third of the complaints.
 
-That is the actual case for segmentation, and it is worth stating plainly because the industry usually oversells it. A well-segmented send often wins modestly on the day. Where it wins enormously is over a year: the 2,060 people you did not email are still there next quarter, still opening things, still capable of becoming clients. The blast spent them. A list is a stock, not a flow, and every irrelevant email you send draws it down. Lesson 07 puts a number on what that drawdown costs in deliverability terms; for now, know that relevance is how you keep the right to keep sending.
+That is the actual case for segmentation, and it is worth stating plainly because the industry usually oversells it. A well-segmented send often wins modestly on the day. Where it wins enormously is over a year: avoiding an irrelevant send helps preserve relationships with the 2,060 excluded contacts, including 240 existing clients. Among the remaining 1,820 non-clients, those who qualify under future campaign eligibility rules may still become clients. The blast risks spending that future value. A list is a stock, not a flow, and every irrelevant email you send draws it down. Lesson 07 puts a number on what that drawdown costs in deliverability terms; for now, know that relevance is how you keep the right to keep sending.
 
 ## Strategy Before Tooling
 

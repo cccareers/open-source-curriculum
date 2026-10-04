@@ -149,7 +149,7 @@ Manual SERP note, recorded on day 20 of window C in a private window: an AI over
 
 ## Instructor notes (common pitfalls, how to adapt for time)
 
-- Reference values: `/blog/` CTR 1.93% to 1.47%; `/compare/` CTR 5.45% to 5.28% (CTR roughly held there — the loss is impressions and position, a different branch from `/blog/`). Weeks 1 to 4 vary by about ±2% around 3,400; weeks 6 to 8 are 10 to 15% below that average and clearly real.
+- Reference values: `/blog/` CTR 1.93% to 1.47%; `/compare/` CTR 5.45% to 5.28% (CTR roughly held there — the loss is impressions and position, a different branch from `/blog/`). Weeks 1 to 4 vary by about ±2% around 3,400; weeks 6 to 8 are 10 to 16% below that average and clearly real.
 - The three AI-overview queries lost 370 + 220 + 210 = 800 clicks; `how to calculate payroll taxes` lost 180 with no feature noted, so learners should flag it as unexplained rather than force it into the same story.
 - Common error: treating the `/compare/` drop as a CTR problem because CTR is the first column people look at. Impressions fell, so Q1 is "yes."
 - Common error: recommending a title rewrite for the AI-overview pages and promising recovery. Credit answers that are honest about the ceiling.

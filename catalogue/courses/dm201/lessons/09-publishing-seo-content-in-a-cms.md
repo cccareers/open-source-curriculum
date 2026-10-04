@@ -320,8 +320,10 @@ Every small employer I talk to has the quarterly rhythm down. Year-end is
 where it breaks, because three obligations land on the same square of the
 calendar and the Q4 one feels like it belongs to last year.
 
-The penalty for a late deposit starts at 2%; after an IRS notice,
-the highest tier can reach 15%. These are deposit penalties, separate from filing penalties.
+Late-deposit penalties start at 2%. The 15% tier applies if an amount remains
+unpaid more than 10 calendar days after the first notice requesting payment,
+or on receipt of an immediate-payment demand, whichever occurs first.
+Filing penalties are separate.
 On a $40,000 late deposit, $800
 becomes $6,000.
 

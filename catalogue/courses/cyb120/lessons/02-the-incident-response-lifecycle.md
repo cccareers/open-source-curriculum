@@ -89,9 +89,9 @@ SEV1  Confirmed compromise affecting production systems or regulated data;
       or active, spreading destructive activity (e.g. ransomware encrypting
       shares). Immediate 24/7 response. Executive and legal notified at once.
 
-SEV2  Confirmed compromise limited to workstations or accounts, with no
-      evidence yet of server compromise or data access; or a control failure
-      exposing sensitive data.
+SEV2  When no SEV1 criterion is met: confirmed compromise limited to
+      workstations or accounts, with no evidence yet of server compromise
+      or data access; or a control failure exposing sensitive data.
       Immediate response during any hours. Management notified within 1 hour.
 
 SEV3  Suspicious activity requiring investigation, contained by existing

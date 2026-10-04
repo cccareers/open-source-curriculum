@@ -272,7 +272,7 @@ You will move URLs. Three rules:
 | `/blog/payroll-tax-deadlines` | `/help/taxes-and-filings/deposit-schedules` | how deposit schedules are assigned | Body, deposit section | Answers the reader's next question at the moment they form it |
 | `/blog/payroll-taxes/` | `/blog/payroll-taxes/form-941-guide` | filing Form 941 quarterly | Hub body, Forms section | Hub-to-spoke; makes the spoke depth 3 |
 | `/blog/payroll-taxes/` | `/product/tax-filing` | Meridian files these for you | Hub body, closing section | Sends informational traffic to a commercial page once the question is answered |
-| `/templates/payroll-calendar-template` | `/blog/payroll-taxes/payroll-tax-deadlines` | the 2026 deadlines behind this calendar | Below download button | Second-strongest page by external links; supports a striking-distance page |
+| `/templates/payroll-calendar-template` | `/blog/payroll-tax-deadlines` | the 2026 deadlines behind this calendar | Below download button | Second-strongest page by external links; supports a striking-distance page |
 | `/templates/pay-stub-template` | `/help/running-payroll/reading-a-pay-stub` | what each line on a pay stub means | Body, after instructions | Orphan rescue with a genuinely relevant contextual link |
 | `/pricing` | `/compare/paycadence` | see how our pricing compares to PayCadence | Below plan table | Catches price-shoppers at the comparison moment |
 | `/compare/paycadence` | `/payroll-software-for-small-business` | our small-business payroll platform | Closing paragraph | Comparison pages attract links; route that value to the money page |

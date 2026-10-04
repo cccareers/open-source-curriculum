@@ -33,7 +33,7 @@ A page shows up in Google's results only if it passes three gates in order. Goog
 
 The gates are strictly sequential. A page never crawled cannot be indexed; a page not indexed cannot rank, however good the writing. When a stakeholder says "we published that page three weeks ago and it isn't ranking," your first job is not the title tag. It is finding which gate the page is stuck at. Optimizing a page Google has never fetched is like repainting a car with no engine.
 
-Your running example all course is **Meridian Payroll** (meridianpayroll.com), a small-business payroll software company with about 640 indexable URLs across `/pricing`, `/product/...`, `/compare/...`, `/help/...`, `/blog/...`, and `/templates/...`. Over the last three months Search Console reports **41,300 clicks, 1,240,000 impressions, 3.3% average CTR, and average position 18.4** — plenty of pages through all three gates and sitting on page two. The shared Performance baseline covers Jan–Mar 2026; later diagnostic exports name their own scope.
+Your running example throughout the course is **Meridian Payroll** (meridianpayroll.com), a small-business payroll software company with about 640 indexable URLs across `/pricing`, `/product/...`, `/compare/...`, `/help/...`, `/blog/...`, and `/templates/...`. Over the last three months Search Console reports **41,300 clicks, 1,240,000 impressions, 3.3% average CTR, and average position 18.4** — plenty of pages through all three gates and sitting on page two. The shared Performance baseline covers Jan–Mar 2026; later diagnostic exports name their own scope.
 
 ## Discovery: how a URL becomes known at all
 
@@ -280,7 +280,7 @@ Read what the log says. The sitemap was fetched five hours after publish; the `/
 | 10 Jan | Index | URL is on Google | Selected. Google-selected canonical matches the declared one |
 | 12 Jan | Serve | 3 impressions, avg position 61.2 | First appearances, deep on page six. Zero clicks |
 | 27 Jan | Serve | 190 impressions, 4 clicks, avg position 34.5 | Settling as Google gathers relevance evidence |
-| 17 Apr | Serve | 1,910 impressions, 71 clicks, avg position 12.7, CTR 3.7% | Established at the page two, in striking distance |
+| 17 Apr | Serve | 1,910 impressions, 71 clicks, avg position 12.7, CTR 3.7% | Established on page two, in striking distance |
 
 Four lessons live in that table.
 

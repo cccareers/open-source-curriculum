@@ -214,7 +214,7 @@ PINNING PLAN
 
 ### Critique of the three weak headlines
 
-**#13 "Fast, Friendly Service" (22).** Two adjectives and a noun, zero information. It fails the competitor test completely: all four of Northgate's rivals could paste this line into their ads unchanged. It also wastes 8 characters of unused budget - at 22 of 30, there was room to say something. Rewrite: "Open Until 9pm, Seven Days" [26], which is 26 characters and states an availability claim a competitor who closes at 5pm cannot copy.
+**#13 "Fast, Friendly Service" (22).** Two adjectives and a noun, zero information. It fails the competitor test completely: all four of Northgate's rivals could paste this line into their ads unchanged. It also wastes 8 characters of unused budget - at 22 of 30, there was room to say something. Rewrite: "Call to Book Your AC Repair" [27], which is 27 characters and adds a phone-booking call to action alongside headline 9's online-booking option.
 
 **#14 "Quality You Can Trust" (21).** Worse, because it is not merely uninformative, it is unfalsifiable. There is no version of the world in which this statement is checkable, which means the reader's brain discards it. Rewrite: "4.8 Stars, 900+ Reviews" [23] - same reassurance function, but it is a number, and a number can be verified on the landing page.
 

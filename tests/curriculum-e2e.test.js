@@ -1,6 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import http from 'node:http';
+import fs from 'node:fs';
+import path from 'node:path';
 import { once } from 'node:events';
 import { CoursePlayerServer } from '../server.js';
 
@@ -25,7 +27,9 @@ test('Curriculum end-to-end: affected courses render and navigate over HTTP', as
     await t.test(id, async () => {
       const course = courses.find((entry) => entry.id === id);
       assert.ok(course, `${id}: discoverable in catalogue`);
-      assert.ok(course.flatLessons.length > 0, `${id}: lessons discovered`);
+      const manifest = JSON.parse(fs.readFileSync(path.resolve('catalogue', 'courses', id, 'course.json'), 'utf8'));
+      assert.ok(manifest.lessons.length > 0, `${id}: manifest declares lessons`);
+      assert.equal(course.flatLessons.length, manifest.lessons.length, `${id}: all declared lessons discovered`);
       for (const [index, lesson] of course.flatLessons.entries()) {
         const params = new URLSearchParams({ course: course.id, path: lesson.relativePath });
         const rendered = await fetch(`${base}/api/lesson?${params}`);

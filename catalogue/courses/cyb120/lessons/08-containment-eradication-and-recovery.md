@@ -81,8 +81,9 @@ Scope basis   Flow search across 30 days for 198.51.100.44 returns these two
               hosts only; server subnets negative (IR-2026-0031 timeline
               09:52Z, 09:55Z).
 Damage if not Active C2 on both hosts; svc_backup authenticated to FS-07 at
-              14:07:06Z on 2026-03-10 from WKS-2210, so unauthorized
-              server access has occurred; continued lateral movement is a risk.
+              14:07:06Z on 2026-03-10 from WKS-2210. Unauthorized use is
+              inferred; server-resource access awaits server-side confirmation.
+              Continued lateral movement is a risk.
 Evidence      Memory capture required before any reboot or reimage. Isolation
               preserves memory, processes, and disk. No power-off.
 Business cost Two users lose workstations, est. 1 day. No production service

@@ -200,18 +200,22 @@ Impression share is the bridge between competitive data and budget decisions, be
 ```txt
 AC Repair campaign, baseline 30 days
   Clicks                = 390
-  CTR                   = 6.4%
-  Impressions           = 390 / 0.064 = 6,093.75
+  Spend                 = $3,200
   Impression share      = 41%
-  Eligible impressions  = 6,093.75 / 0.41 = 14,862.80
-  Impressions missed    = 14,862.80 - 6,093.75 = 8,769.05
+  Campaign CTR          = not supplied (6.4% is the ad-group benchmark)
+  Let c be the campaign CTR expressed as a decimal:
+  Impressions           = 390 / c
+  Eligible impressions  = (390 / c) / 0.41
+  Impressions missed    = (390 / c) x (0.59 / 0.41)
 
-Cost to capture ALL of it, at current CTR and CPC:
-  Extra clicks  = 8,769.05 x 0.064 = 561.22
-  Extra spend   = 561.22 x $8.20   = $4,602.00 (rounded at the end)
+Cost to capture ALL of it, assuming unchanged campaign CTR and CPC:
+  Extra clicks  = (390 / c) x (0.59 / 0.41) x c
+                = 390 x (59 / 41) = 561.22
+  Extra spend   = (390 x 59 / 41) x ($3,200 / 390)
+                = $4,604.88 (rounded at the end)
 ```
 
-Northgate's entire monthly search budget is $6,080. Closing the campaign's full impression share gap at unchanged CTR and CPC would add about 76% to the account's spend. This is a sizing assumption, not a budget-only forecast: 22 points are lost to budget and 37 to rank, so recovering the full gap also requires better Ad Rank. So the correct conclusion is not "raise bids until impression share is 100%." It is "impression share is a menu, and you buy the best-converting items on it." That means bidding up on `emergency ac repair` and the geo-qualified exacts, and letting Buckeye have the broad, low-intent volume they seem happy to pay for.
+Northgate's entire monthly search budget is $6,080. The campaign's aggregate CTR cannot be calculated from the supplied data, so its eligible-impression count remains unknown; the CTR cancels when estimating extra clicks under the unchanged-CTR assumption. Closing the campaign's full impression share gap at unchanged CTR and CPC would add about 76% to the account's spend. This is a sizing assumption, not a budget-only forecast: 22 points are lost to budget and 37 to rank, so recovering the full gap also requires better Ad Rank. So the correct conclusion is not "raise bids until impression share is 100%." It is "impression share is a menu, and you buy the best-converting items on it." That means bidding up on `emergency ac repair` and the geo-qualified exacts, and letting Buckeye have the broad, low-intent volume they seem happy to pay for.
 
 ### What to do about an aggressive competitor
 
