@@ -1,0 +1,113 @@
+{
+  "course_id": "VET103",
+  "pathway": "workforce-development-professional",
+  "title": "Helping Employers Become SkillBridge Providers",
+  "description": "Most employers do not know they can host SkillBridge participants. This course teaches staff to coach an employer through becoming an authorized provider, pairing SkillBridge with a registered apprenticeship, and earning the HIRE Vets Medallion.",
+  "hours": 3,
+  "projects": 1,
+  "notes": "Audience: Business services, LVERs, employer engagement staff. Format: LV. Hours assumed from format (LV = 3 hours).",
+  "lesson_length": null,
+  "learning_objectives": [
+    "Explain the SkillBridge provider application and MOU requirements.",
+    "Design a SkillBridge experience that flows directly into a Registered Apprenticeship.",
+    "Describe HIRE Vets Medallion criteria and how SkillBridge supports them.",
+    "Track SkillBridge-to-hire outcomes for the employer and the board."
+  ],
+  "prerequisites": [
+    "VET 101 (SkillBridge for AJCC Staff)",
+    "APP 101 (Registered Apprenticeship for Workforce Professionals)"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "VET103-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 0.25,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "VET103-02",
+      "order": 2,
+      "slug": "becoming-an-authorized-skillbridge-provider",
+      "title": "Becoming an Authorized SkillBridge Provider",
+      "kind": "lesson",
+      "objectives": [
+        "Explain the SkillBridge provider application and MOU requirements."
+      ],
+      "competency_ids": [
+        "D4-S3-C01"
+      ],
+      "hours_estimate": 0.75,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "VET103-03",
+      "order": 3,
+      "slug": "designing-a-skillbridge-to-apprenticeship-pathway",
+      "title": "Designing a SkillBridge-to-Apprenticeship Pathway",
+      "kind": "lesson",
+      "objectives": [
+        "Design a SkillBridge experience that flows directly into a Registered Apprenticeship."
+      ],
+      "competency_ids": [
+        "D4-S3-C02"
+      ],
+      "hours_estimate": 0.8,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "VET103-04",
+      "order": 4,
+      "slug": "the-hire-vets-medallion",
+      "title": "The HIRE Vets Medallion",
+      "kind": "lesson",
+      "objectives": [
+        "Describe HIRE Vets Medallion criteria and how SkillBridge supports them."
+      ],
+      "competency_ids": [
+        "D4-S3-C03"
+      ],
+      "hours_estimate": 0.5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "VET103-05",
+      "order": 5,
+      "slug": "tracking-skillbridge-to-hire-outcomes",
+      "title": "Tracking SkillBridge-to-Hire Outcomes",
+      "kind": "lesson",
+      "objectives": [
+        "Track SkillBridge-to-hire outcomes for the employer and the board."
+      ],
+      "competency_ids": [
+        "D4-S3-C04"
+      ],
+      "hours_estimate": 0.5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "VET103-06",
+      "order": 6,
+      "slug": "project-employer-coaching-plan",
+      "title": "Project: Employer Coaching Plan",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D4-S3-C01",
+        "D4-S3-C02",
+        "D4-S3-C03",
+        "D4-S3-C04"
+      ],
+      "hours_estimate": 0.2,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Lessons follow the catalog's learning objectives in the order a practitioner meets them on the job: Becoming an Authorized SkillBridge Provider; Designing a SkillBridge-to-Apprenticeship Pathway; The HIRE Vets Medallion; Tracking SkillBridge-to-Hire Outcomes. The closing project (\"Project: Employer Coaching Plan\") applies the earlier lessons to one realistic work product (an employer coaching plan covering the provider application, a SkillBridge-to-apprenticeship design, Medallion alignment, and outcome tracking) rather than introducing new content. Scope assumptions: hours are not stated in the source catalog and are assumed from the delivery format (LV; LV = 3 hours). Content is grounded in California and federal guidance named in the catalog description and objectives; the course cites those directives by number but does not reproduce their text, and every policy-specific claim must be checked against the current directive before delivery. Local board policy is treated as a variable the learner fills in from their own board, not something the course prescribes. Prerequisites reflect track order: VET 101 (SkillBridge for AJCC Staff); APP 101 (Registered Apprenticeship for Workforce Professionals).",
+  "proposed_competencies": [],
+  "assets": []
+}

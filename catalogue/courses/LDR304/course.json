@@ -1,0 +1,112 @@
+{
+  "course_id": "LDR304",
+  "pathway": "workforce-development-professional",
+  "title": "Building an Apprenticeship Strategy for Your Board",
+  "description": "For leaders deciding how far into apprenticeship to go: referrer, navigator, intermediary, or sponsor. Covers TEGL 05-25 waiver opportunities, the 10 percent co-enrollment goal, navigator staffing models, the pending federal reauthorization, and California's apprenticeship funding streams.",
+  "hours": 4,
+  "projects": 1,
+  "notes": "Audience: Executive directors, board members, program directors. Format: HD or executive briefing. Hours assumed from format (HD = 4 hours).",
+  "lesson_length": null,
+  "learning_objectives": [
+    "Assess their board's current apprenticeship capacity and outcomes.",
+    "Choose a role (referrer, navigator, intermediary, or sponsor) that fits their resources.",
+    "Set a co-enrollment goal and the staffing and training needed to meet it.",
+    "Identify the state and federal funding that can pay for the strategy."
+  ],
+  "prerequisites": [
+    "APP 101 (Registered Apprenticeship for Workforce Professionals) or equivalent executive familiarity"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "LDR304-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 0.25,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "LDR304-02",
+      "order": 2,
+      "slug": "assessing-your-boards-apprenticeship-capacity",
+      "title": "Assessing Your Board's Apprenticeship Capacity",
+      "kind": "lesson",
+      "objectives": [
+        "Assess their board's current apprenticeship capacity and outcomes."
+      ],
+      "competency_ids": [
+        "D6-S4-C01"
+      ],
+      "hours_estimate": 0.9,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "LDR304-03",
+      "order": 3,
+      "slug": "referrer-navigator-intermediary-or-sponsor",
+      "title": "Referrer, Navigator, Intermediary, or Sponsor",
+      "kind": "lesson",
+      "objectives": [
+        "Choose a role (referrer, navigator, intermediary, or sponsor) that fits their resources."
+      ],
+      "competency_ids": [
+        "D6-S4-C02"
+      ],
+      "hours_estimate": 0.9,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "LDR304-04",
+      "order": 4,
+      "slug": "setting-a-co-enrollment-goal-and-staffing-to-it",
+      "title": "Setting a Co-Enrollment Goal and Staffing to It",
+      "kind": "lesson",
+      "objectives": [
+        "Set a co-enrollment goal and the staffing and training needed to meet it."
+      ],
+      "competency_ids": [
+        "D6-S4-C03"
+      ],
+      "hours_estimate": 0.8,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "LDR304-05",
+      "order": 5,
+      "slug": "funding-the-strategy",
+      "title": "Funding the Strategy",
+      "kind": "lesson",
+      "objectives": [
+        "Identify the state and federal funding that can pay for the strategy."
+      ],
+      "competency_ids": [
+        "D6-S4-C04"
+      ],
+      "hours_estimate": 0.7,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "LDR304-06",
+      "order": 6,
+      "slug": "project-one-page-apprenticeship-strategy",
+      "title": "Project: One-Page Apprenticeship Strategy",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D6-S4-C01",
+        "D6-S4-C02",
+        "D6-S4-C03",
+        "D6-S4-C04"
+      ],
+      "hours_estimate": 0.45,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Lessons follow the catalog's learning objectives in the order a practitioner meets them on the job: Assessing Your Board's Apprenticeship Capacity; Referrer, Navigator, Intermediary, or Sponsor; Setting a Co-Enrollment Goal and Staffing to It; Funding the Strategy. The closing project (\"Project: One-Page Apprenticeship Strategy\") applies the earlier lessons to one realistic work product (a one-page board apprenticeship strategy with a capacity assessment, chosen role, co-enrollment goal, staffing plan, and funding sources) rather than introducing new content. Scope assumptions: hours are not stated in the source catalog and are assumed from the delivery format (HD or executive briefing; HD = 4 hours). Content is grounded in California and federal guidance named in the catalog description and objectives; the course cites those directives by number but does not reproduce their text, and every policy-specific claim must be checked against the current directive before delivery. Local board policy is treated as a variable the learner fills in from their own board, not something the course prescribes. Prerequisites reflect track order: APP 101 (Registered Apprenticeship for Workforce Professionals) or equivalent executive familiarity.",
+  "proposed_competencies": [],
+  "assets": []
+}

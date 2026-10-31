@@ -1,0 +1,112 @@
+{
+  "course_id": "APP105",
+  "pathway": "workforce-development-professional",
+  "title": "Selling Apprenticeship to Employers",
+  "description": "A consultative-selling workshop for workforce staff. Learners practice discovering an employer's hiring and skills problem, positioning apprenticeship (and OJT, incumbent worker training, or SkillBridge) as the solution, handling objections about cost and paperwork, and moving to a next step.",
+  "hours": 4,
+  "projects": 1,
+  "notes": "Audience: Business services representatives, LVERs, employer engagement staff. Format: HD. Hours assumed from format (HD = 4 hours). Gap addressed: 47 percent of practitioners say they cannot convene partners; business services training in California is minimal.",
+  "lesson_length": null,
+  "learning_objectives": [
+    "Run a discovery conversation that surfaces an employer's talent pain.",
+    "Present a business case for apprenticeship using wage, retention, and subsidy numbers.",
+    "Respond to the five most common employer objections.",
+    "Choose between starting a new program, joining an intermediary program, or using OJT."
+  ],
+  "prerequisites": [
+    "APP 101 (Registered Apprenticeship for Workforce Professionals)"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "APP105-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 0.25,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "APP105-02",
+      "order": 2,
+      "slug": "discovery-conversations",
+      "title": "Discovery Conversations",
+      "kind": "lesson",
+      "objectives": [
+        "Run a discovery conversation that surfaces an employer's talent pain."
+      ],
+      "competency_ids": [
+        "D2-S5-C01"
+      ],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "APP105-03",
+      "order": 3,
+      "slug": "building-the-business-case",
+      "title": "Building the Business Case",
+      "kind": "lesson",
+      "objectives": [
+        "Present a business case for apprenticeship using wage, retention, and subsidy numbers."
+      ],
+      "competency_ids": [
+        "D2-S5-C02"
+      ],
+      "hours_estimate": 0.9,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "APP105-04",
+      "order": 4,
+      "slug": "handling-the-five-common-objections",
+      "title": "Handling the Five Common Objections",
+      "kind": "lesson",
+      "objectives": [
+        "Respond to the five most common employer objections."
+      ],
+      "competency_ids": [
+        "D2-S5-C03"
+      ],
+      "hours_estimate": 0.9,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "APP105-05",
+      "order": 5,
+      "slug": "choosing-the-right-model-new-program-intermediary-or-ojt",
+      "title": "Choosing the Right Model: New Program, Intermediary, or OJT",
+      "kind": "lesson",
+      "objectives": [
+        "Choose between starting a new program, joining an intermediary program, or using OJT."
+      ],
+      "competency_ids": [
+        "D2-S5-C04"
+      ],
+      "hours_estimate": 0.6,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "APP105-06",
+      "order": 6,
+      "slug": "project-role-play-an-employer-meeting",
+      "title": "Project: Role-Play an Employer Meeting",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D2-S5-C01",
+        "D2-S5-C02",
+        "D2-S5-C03",
+        "D2-S5-C04"
+      ],
+      "hours_estimate": 0.35,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Lessons follow the catalog's learning objectives in the order a practitioner meets them on the job: Discovery Conversations; Building the Business Case; Handling the Five Common Objections; Choosing the Right Model: New Program, Intermediary, or OJT. The closing project (\"Project: Role-Play an Employer Meeting\") applies the earlier lessons to one realistic work product (a role-played employer meeting covering discovery, a numbers-based business case, objection handling, and a recommended model) rather than introducing new content. Scope assumptions: hours are not stated in the source catalog and are assumed from the delivery format (HD; HD = 4 hours). Content is grounded in California and federal guidance named in the catalog description and objectives; the course cites those directives by number but does not reproduce their text, and every policy-specific claim must be checked against the current directive before delivery. Local board policy is treated as a variable the learner fills in from their own board, not something the course prescribes. Design driver (catalog \"gap addressed\"): 47 percent of practitioners say they cannot convene partners; business services training in California is minimal. Statistics and audit findings quoted from the catalog have not been independently verified. Prerequisites reflect track order: APP 101 (Registered Apprenticeship for Workforce Professionals).",
+  "proposed_competencies": [],
+  "assets": []
+}

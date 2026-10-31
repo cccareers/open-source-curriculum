@@ -1,0 +1,111 @@
+{
+  "course_id": "APP103",
+  "pathway": "workforce-development-professional",
+  "title": "Braiding the Money: WIOA, AIF, RSI, CAI, and the GI Bill",
+  "description": "Who pays for what in an apprenticeship? This course maps every California and federal stream that can fund an apprentice or a program, the rules that prevent double-billing, and the sequence for stacking them. Includes a one-page braiding worksheet.",
+  "hours": 3,
+  "projects": 1,
+  "notes": "Audience: Case managers, business services, program managers. Format: LV. Hours assumed from format (LV = 3 hours). Gap addressed: 44 percent of practitioners cannot say who pays for each component; no California document maps these streams for frontline staff.",
+  "lesson_length": null,
+  "learning_objectives": [
+    "Match each apprenticeship component (OJT, related instruction, supportive services, program development) to its eligible funding sources.",
+    "Apply the no-double-dip rules, such as RSI hours not claimable when funded by a CAI grant.",
+    "Calculate an AIF-supported funding scenario for a sample apprentice.",
+    "Identify when GI Bill OJT and apprenticeship benefits apply and how the housing allowance steps down."
+  ],
+  "prerequisites": [
+    "APP 101 (Registered Apprenticeship for Workforce Professionals)"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "APP103-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 0.25,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "APP103-02",
+      "order": 2,
+      "slug": "mapping-components-to-funding-sources",
+      "title": "Mapping Components to Funding Sources",
+      "kind": "lesson",
+      "objectives": [
+        "Match each apprenticeship component (OJT, related instruction, supportive services, program development) to its eligible funding sources."
+      ],
+      "competency_ids": [
+        "D2-S3-C01"
+      ],
+      "hours_estimate": 0.75,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "APP103-03",
+      "order": 3,
+      "slug": "no-double-dip-rules",
+      "title": "No-Double-Dip Rules",
+      "kind": "lesson",
+      "objectives": [
+        "Apply the no-double-dip rules, such as RSI hours not claimable when funded by a CAI grant."
+      ],
+      "competency_ids": [
+        "D2-S3-C02"
+      ],
+      "hours_estimate": 0.6,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "APP103-04",
+      "order": 4,
+      "slug": "calculating-an-aif-scenario",
+      "title": "Calculating an AIF Scenario",
+      "kind": "lesson",
+      "objectives": [
+        "Calculate an AIF-supported funding scenario for a sample apprentice."
+      ],
+      "competency_ids": [
+        "D2-S3-C03"
+      ],
+      "hours_estimate": 0.6,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "APP103-05",
+      "order": 5,
+      "slug": "gi-bill-ojt-and-apprenticeship-benefits",
+      "title": "GI Bill OJT and Apprenticeship Benefits",
+      "kind": "lesson",
+      "objectives": [
+        "Identify when GI Bill OJT and apprenticeship benefits apply and how the housing allowance steps down."
+      ],
+      "competency_ids": [
+        "D2-S3-C04"
+      ],
+      "hours_estimate": 0.5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "APP103-06",
+      "order": 6,
+      "slug": "project-complete-the-braiding-worksheet",
+      "title": "Project: Complete the Braiding Worksheet",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D2-S3-C01",
+        "D2-S3-C02",
+        "D2-S3-C03"
+      ],
+      "hours_estimate": 0.3,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Lessons follow the catalog's learning objectives in the order a practitioner meets them on the job: Mapping Components to Funding Sources; No-Double-Dip Rules; Calculating an AIF Scenario; GI Bill OJT and Apprenticeship Benefits. The closing project (\"Project: Complete the Braiding Worksheet\") applies the earlier lessons to one realistic work product (a completed braiding worksheet for a sample apprentice that assigns each component to an eligible source with no double-billing) rather than introducing new content. Scope assumptions: hours are not stated in the source catalog and are assumed from the delivery format (LV; LV = 3 hours). Content is grounded in California and federal guidance named in the catalog description and objectives; the course cites those directives by number but does not reproduce their text, and every policy-specific claim must be checked against the current directive before delivery. Local board policy is treated as a variable the learner fills in from their own board, not something the course prescribes. Design driver (catalog \"gap addressed\"): 44 percent of practitioners cannot say who pays for each component; no California document maps these streams for frontline staff. Statistics and audit findings quoted from the catalog have not been independently verified. Prerequisites reflect track order: APP 101 (Registered Apprenticeship for Workforce Professionals).",
+  "proposed_competencies": [],
+  "assets": []
+}

@@ -1,0 +1,109 @@
+{
+  "course_id": "APP101",
+  "pathway": "workforce-development-professional",
+  "title": "Registered Apprenticeship for Workforce Professionals",
+  "description": "A plain-language foundation in how Registered Apprenticeship works in California and nationally, with emphasis on new-collar occupations in IT, healthcare, education, and advanced manufacturing. Covers the roles of DOL's Office of Apprenticeship and DAS, sponsors and intermediaries, IACA and CAC jurisdiction, related instruction, wage progression, and how apprenticeship fits inside WIOA.",
+  "hours": 3,
+  "projects": 1,
+  "notes": "Audience: All frontline and business services staff. Format: LV or SP. Hours assumed from format (LV/SP = 3 hours). Gap addressed: 51 percent of practitioners do not understand OA vs. state agency roles; 40 percent do not know their local programs (Safal/NAWDP 2023).",
+  "lesson_length": null,
+  "learning_objectives": [
+    "Explain the difference between Registered Apprenticeship, pre-apprenticeship, OJT, and internships.",
+    "Describe the roles of the Office of Apprenticeship, DAS, sponsors, intermediaries, and related instruction providers.",
+    "Identify new-collar apprenticeship occupations active in their region.",
+    "Explain why every registered program is automatically eligible for the ETPL under WSD25-02."
+  ],
+  "prerequisites": [],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "APP101-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 0.25,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "APP101-02",
+      "order": 2,
+      "slug": "apprenticeship-pre-apprenticeship-ojt-and-internships",
+      "title": "Apprenticeship, Pre-Apprenticeship, OJT, and Internships",
+      "kind": "lesson",
+      "objectives": [
+        "Explain the difference between Registered Apprenticeship, pre-apprenticeship, OJT, and internships."
+      ],
+      "competency_ids": [
+        "D2-S1-C01"
+      ],
+      "hours_estimate": 0.7,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "APP101-03",
+      "order": 3,
+      "slug": "who-does-what-oa-das-sponsors-intermediaries-and-instruction-providers",
+      "title": "Who Does What: OA, DAS, Sponsors, Intermediaries, and Instruction Providers",
+      "kind": "lesson",
+      "objectives": [
+        "Describe the roles of the Office of Apprenticeship, DAS, sponsors, intermediaries, and related instruction providers."
+      ],
+      "competency_ids": [
+        "D2-S1-C02"
+      ],
+      "hours_estimate": 0.8,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "APP101-04",
+      "order": 4,
+      "slug": "new-collar-apprenticeships-in-your-region",
+      "title": "New-Collar Apprenticeships in Your Region",
+      "kind": "lesson",
+      "objectives": [
+        "Identify new-collar apprenticeship occupations active in their region."
+      ],
+      "competency_ids": [
+        "D2-S1-C03"
+      ],
+      "hours_estimate": 0.6,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "APP101-05",
+      "order": 5,
+      "slug": "apprenticeship-inside-wioa-and-the-etpl",
+      "title": "Apprenticeship Inside WIOA and the ETPL",
+      "kind": "lesson",
+      "objectives": [
+        "Explain why every registered program is automatically eligible for the ETPL under WSD25-02."
+      ],
+      "competency_ids": [
+        "D2-S1-C04"
+      ],
+      "hours_estimate": 0.4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "APP101-06",
+      "order": 6,
+      "slug": "project-regional-apprenticeship-fact-sheet",
+      "title": "Project: Regional Apprenticeship Fact Sheet",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D2-S1-C02",
+        "D2-S1-C03",
+        "D2-S1-C04"
+      ],
+      "hours_estimate": 0.25,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Lessons follow the catalog's learning objectives in the order a practitioner meets them on the job: Apprenticeship, Pre-Apprenticeship, OJT, and Internships; Who Does What: OA, DAS, Sponsors, Intermediaries, and Instruction Providers; New-Collar Apprenticeships in Your Region; Apprenticeship Inside WIOA and the ETPL. The closing project (\"Project: Regional Apprenticeship Fact Sheet\") applies the earlier lessons to one realistic work product (explanations and a regional fact sheet that correctly distinguish apprenticeship models, agency roles, and local new-collar programs) rather than introducing new content. Scope assumptions: hours are not stated in the source catalog and are assumed from the delivery format (LV or SP; LV/SP = 3 hours). Content is grounded in California and federal guidance named in the catalog description and objectives; the course cites those directives by number but does not reproduce their text, and every policy-specific claim must be checked against the current directive before delivery. Local board policy is treated as a variable the learner fills in from their own board, not something the course prescribes. Design driver (catalog \"gap addressed\"): 51 percent of practitioners do not understand OA vs. state agency roles; 40 percent do not know their local programs (Safal/NAWDP 2023). Statistics and audit findings quoted from the catalog have not been independently verified.",
+  "proposed_competencies": [],
+  "assets": []
+}

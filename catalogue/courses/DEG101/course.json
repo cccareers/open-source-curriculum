@@ -1,0 +1,96 @@
+{
+  "course_id": "DEG101",
+  "pathway": "workforce-development-professional",
+  "title": "Apprenticeship Degrees: Earning College Credit on the Job",
+  "description": "Apprenticeship degrees let a learner earn a paycheck, a journey-level credential, and college credit at the same time. This course explains the models (credit for related instruction, credit for prior learning, degree-embedded apprenticeships), California's current examples including teacher apprenticeships under AB 1904, and how to advise participants who want both a career and a degree.",
+  "hours": 3,
+  "projects": 0,
+  "notes": "Audience: Career specialists, youth staff, education partners. Format: LV or SP. Hours assumed from format (LV/SP = 3 hours). Track note: California's apprenticeship-degree landscape is early. AB 1904 (credentialed educator apprenticeships) and the Chancellor's Office Apprenticeship Pathway Demonstration Project are the anchors; a CSU or Apprenticeship Degree Network footprint was not verified. These courses should be refreshed as the field develops.",
+  "lesson_length": null,
+  "learning_objectives": [
+    "Explain how apprenticeship hours and related instruction can convert to college credit.",
+    "Describe California's current apprenticeship-degree models and their requirements.",
+    "Advise a participant comparing a traditional degree, an apprenticeship, and an apprenticeship degree on cost, time, and earnings.",
+    "Identify how WIOA training funds and ETPL rules apply to degree-linked apprenticeships."
+  ],
+  "prerequisites": [
+    "APP 101 (Registered Apprenticeship for Workforce Professionals)"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "DEG101-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 0.25,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "DEG101-02",
+      "order": 2,
+      "slug": "how-apprenticeship-converts-to-college-credit",
+      "title": "How Apprenticeship Converts to College Credit",
+      "kind": "lesson",
+      "objectives": [
+        "Explain how apprenticeship hours and related instruction can convert to college credit."
+      ],
+      "competency_ids": [
+        "D3-S1-C01"
+      ],
+      "hours_estimate": 0.7,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "DEG101-03",
+      "order": 3,
+      "slug": "californias-apprenticeship-degree-models",
+      "title": "California's Apprenticeship-Degree Models",
+      "kind": "lesson",
+      "objectives": [
+        "Describe California's current apprenticeship-degree models and their requirements."
+      ],
+      "competency_ids": [
+        "D3-S1-C02"
+      ],
+      "hours_estimate": 0.7,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "DEG101-04",
+      "order": 4,
+      "slug": "advising-degree-apprenticeship-or-both",
+      "title": "Advising: Degree, Apprenticeship, or Both",
+      "kind": "lesson",
+      "objectives": [
+        "Advise a participant comparing a traditional degree, an apprenticeship, and an apprenticeship degree on cost, time, and earnings."
+      ],
+      "competency_ids": [
+        "D3-S1-C03"
+      ],
+      "hours_estimate": 0.75,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "DEG101-05",
+      "order": 5,
+      "slug": "wioa-training-funds-and-the-etpl-for-degree-linked-apprenticeships",
+      "title": "WIOA Training Funds and the ETPL for Degree-Linked Apprenticeships",
+      "kind": "lesson",
+      "objectives": [
+        "Identify how WIOA training funds and ETPL rules apply to degree-linked apprenticeships."
+      ],
+      "competency_ids": [
+        "D3-S1-C04"
+      ],
+      "hours_estimate": 0.6,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Lessons follow the catalog's learning objectives in the order a practitioner meets them on the job: How Apprenticeship Converts to College Credit; California's Apprenticeship-Degree Models; Advising: Degree, Apprenticeship, or Both; WIOA Training Funds and the ETPL for Degree-Linked Apprenticeships. There is no separate project lesson; each lesson ends in a practice exercise built on the same running case. Scope assumptions: hours are not stated in the source catalog and are assumed from the delivery format (LV or SP; LV/SP = 3 hours). Content is grounded in California and federal guidance named in the catalog description and objectives; the course cites those directives by number but does not reproduce their text, and every policy-specific claim must be checked against the current directive before delivery. Local board policy is treated as a variable the learner fills in from their own board, not something the course prescribes. Track caveat: California's apprenticeship-degree landscape is early. AB 1904 (credentialed educator apprenticeships) and the Chancellor's Office Apprenticeship Pathway Demonstration Project are the anchors; a CSU or Apprenticeship Degree Network footprint was not verified. These courses should be refreshed as the field develops. Prerequisites reflect track order: APP 101 (Registered Apprenticeship for Workforce Professionals).",
+  "proposed_competencies": [],
+  "assets": []
+}

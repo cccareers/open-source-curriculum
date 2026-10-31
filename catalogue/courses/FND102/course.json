@@ -1,0 +1,128 @@
+{
+  "course_id": "FND102",
+  "pathway": "workforce-development-professional",
+  "title": "Eligibility Judgment: Deciding, Documenting, Defending",
+  "description": "Eligibility errors are where monitoring findings start. This course covers the judgment calls the state Technical Assistance Guide (WSD24-04) leaves to staff: Dislocated Worker categories, \"unlikely to return,\" self-attestation, low income, Selective Service, Youth school status, and priority of service. Learners practice on realistic case scenarios, including separating service members and apprentices.",
+  "hours": 3,
+  "projects": 1,
+  "notes": "Audience: Eligibility technicians, case managers, supervisors. Format: LV. Hours assumed from format (LV = 3 hours). Gap addressed: No state eligibility credential; DOL OIG's August 2026 audit found 130 of 195 sampled apprenticeship grant files lacked eligibility documentation.",
+  "lesson_length": null,
+  "learning_objectives": [
+    "Apply Adult, Dislocated Worker, and Youth eligibility criteria to complex cases using the Acceptable Documentation List.",
+    "Determine when self-attestation is permitted and document it correctly.",
+    "Apply the priority-of-service order (WSD24-06, WSD24-15) and record status at eligibility.",
+    "Identify when work authorization must be verified under WSD18-03 now that federal TEGL 10-23 Change 2 has been rescinded.",
+    "Write an eligibility case note that a monitor can follow without asking questions."
+  ],
+  "prerequisites": [
+    "FND 101 (The Participant Journey) or equivalent familiarity with WIOA Title I programs"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "FND102-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 0.25,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "FND102-02",
+      "order": 2,
+      "slug": "applying-adult-dislocated-worker-and-youth-eligibility",
+      "title": "Applying Adult, Dislocated Worker, and Youth Eligibility",
+      "kind": "lesson",
+      "objectives": [
+        "Apply Adult, Dislocated Worker, and Youth eligibility criteria to complex cases using the Acceptable Documentation List."
+      ],
+      "competency_ids": [
+        "D1-S2-C01"
+      ],
+      "hours_estimate": 0.75,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "FND102-03",
+      "order": 3,
+      "slug": "self-attestation-done-right",
+      "title": "Self-Attestation Done Right",
+      "kind": "lesson",
+      "objectives": [
+        "Determine when self-attestation is permitted and document it correctly."
+      ],
+      "competency_ids": [
+        "D1-S2-C02"
+      ],
+      "hours_estimate": 0.4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "FND102-04",
+      "order": 4,
+      "slug": "priority-of-service",
+      "title": "Priority of Service",
+      "kind": "lesson",
+      "objectives": [
+        "Apply the priority-of-service order (WSD24-06, WSD24-15) and record status at eligibility."
+      ],
+      "competency_ids": [
+        "D1-S2-C03"
+      ],
+      "hours_estimate": 0.4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "FND102-05",
+      "order": 5,
+      "slug": "work-authorization-after-tegl-10-23-change-2",
+      "title": "Work Authorization After TEGL 10-23 Change 2",
+      "kind": "lesson",
+      "objectives": [
+        "Identify when work authorization must be verified under WSD18-03 now that federal TEGL 10-23 Change 2 has been rescinded."
+      ],
+      "competency_ids": [
+        "D1-S2-C04"
+      ],
+      "hours_estimate": 0.35,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "FND102-06",
+      "order": 6,
+      "slug": "eligibility-case-notes-a-monitor-can-follow",
+      "title": "Eligibility Case Notes a Monitor Can Follow",
+      "kind": "lesson",
+      "objectives": [
+        "Write an eligibility case note that a monitor can follow without asking questions."
+      ],
+      "competency_ids": [
+        "D1-S2-C05"
+      ],
+      "hours_estimate": 0.5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "FND102-07",
+      "order": 7,
+      "slug": "project-eligibility-case-clinic",
+      "title": "Project: Eligibility Case Clinic",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D1-S2-C01",
+        "D1-S2-C02",
+        "D1-S2-C03",
+        "D1-S2-C05"
+      ],
+      "hours_estimate": 0.35,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Lessons follow the catalog's learning objectives in the order a practitioner meets them on the job: Applying Adult, Dislocated Worker, and Youth Eligibility; Self-Attestation Done Right; Priority of Service; Work Authorization After TEGL 10-23 Change 2; Eligibility Case Notes a Monitor Can Follow. The closing project (\"Project: Eligibility Case Clinic\") applies the earlier lessons to one realistic work product (eligibility determinations on realistic case scenarios with the supporting documentation and case note a monitor would accept) rather than introducing new content. Scope assumptions: hours are not stated in the source catalog and are assumed from the delivery format (LV; LV = 3 hours). Content is grounded in California and federal guidance named in the catalog description and objectives; the course cites those directives by number but does not reproduce their text, and every policy-specific claim must be checked against the current directive before delivery. Local board policy is treated as a variable the learner fills in from their own board, not something the course prescribes. Design driver (catalog \"gap addressed\"): No state eligibility credential; DOL OIG's August 2026 audit found 130 of 195 sampled apprenticeship grant files lacked eligibility documentation. Statistics and audit findings quoted from the catalog have not been independently verified. Prerequisites reflect track order: FND 101 (The Participant Journey) or equivalent familiarity with WIOA Title I programs.",
+  "proposed_competencies": [],
+  "assets": []
+}

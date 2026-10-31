@@ -1,0 +1,117 @@
+{
+  "course_id": "LDR301",
+  "pathway": "workforce-development-professional",
+  "title": "Process Mapping Your AJCC",
+  "description": "A working session where a center's team maps its own intake-to-exit process as swim lanes, marking the responsible role, artifact, and governing rule at each step, and flagging every step that lives only in someone's head. Uses CCC's statewide base map so teams start at 70 percent instead of zero.",
+  "hours": 7,
+  "projects": 1,
+  "notes": "Audience: Managers, operators, policy staff. Format: FD workshop or facilitated engagement. Hours assumed from format (FD = 7 hours). Gap addressed: No California board publishes a process map; 20 to 30 percent of the process is tribal knowledge.",
+  "lesson_length": null,
+  "learning_objectives": [
+    "Map their center's process from sign-in to follow-up in swim-lane form.",
+    "Identify undocumented steps, duplicate data entry, and handoff failures.",
+    "Prioritize which procedures to write down first.",
+    "Maintain the map as policies and systems change, including the CalJOBS modernization."
+  ],
+  "prerequisites": [
+    "FND 101 (The Participant Journey) or equivalent"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "LDR301-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 0.5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "LDR301-02",
+      "order": 2,
+      "slug": "swim-lane-mapping-from-sign-in-to-follow-up",
+      "title": "Swim-Lane Mapping from Sign-In to Follow-Up",
+      "kind": "lesson",
+      "objectives": [
+        "Map their center's process from sign-in to follow-up in swim-lane form."
+      ],
+      "competency_ids": [
+        "D6-S1-C01"
+      ],
+      "hours_estimate": 1.75,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "LDR301-03",
+      "order": 3,
+      "slug": "finding-undocumented-steps-duplicate-entry-and-handoff-failures",
+      "title": "Finding Undocumented Steps, Duplicate Entry, and Handoff Failures",
+      "kind": "lesson",
+      "objectives": [
+        "Identify undocumented steps, duplicate data entry, and handoff failures."
+      ],
+      "competency_ids": [
+        "D6-S1-C02"
+      ],
+      "hours_estimate": 1.5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "LDR301-04",
+      "order": 4,
+      "slug": "prioritizing-procedures-to-write-down",
+      "title": "Prioritizing Procedures to Write Down",
+      "kind": "lesson",
+      "objectives": [
+        "Prioritize which procedures to write down first."
+      ],
+      "competency_ids": [
+        "D6-S1-C03"
+      ],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "LDR301-05",
+      "order": 5,
+      "slug": "keeping-the-map-current",
+      "title": "Keeping the Map Current",
+      "kind": "lesson",
+      "objectives": [
+        "Maintain the map as policies and systems change, including the CalJOBS modernization."
+      ],
+      "competency_ids": [
+        "D6-S1-C04"
+      ],
+      "hours_estimate": 0.75,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "LDR301-06",
+      "order": 6,
+      "slug": "project-map-your-center",
+      "title": "Project: Map Your Center",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D6-S1-C01",
+        "D6-S1-C02",
+        "D6-S1-C03"
+      ],
+      "hours_estimate": 1.5,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Lessons follow the catalog's learning objectives in the order a practitioner meets them on the job: Swim-Lane Mapping from Sign-In to Follow-Up; Finding Undocumented Steps, Duplicate Entry, and Handoff Failures; Prioritizing Procedures to Write Down; Keeping the Map Current. The closing project (\"Project: Map Your Center\") applies the earlier lessons to one realistic work product (a swim-lane map of the learner's own center with flagged gaps, a prioritized procedure-writing list, and a maintenance routine) rather than introducing new content. Scope assumptions: hours are not stated in the source catalog and are assumed from the delivery format (FD workshop or facilitated engagement; FD = 7 hours). Content is grounded in California and federal guidance named in the catalog description and objectives; the course cites those directives by number but does not reproduce their text, and every policy-specific claim must be checked against the current directive before delivery. Local board policy is treated as a variable the learner fills in from their own board, not something the course prescribes. Design driver (catalog \"gap addressed\"): No California board publishes a process map; 20 to 30 percent of the process is tribal knowledge. Statistics and audit findings quoted from the catalog have not been independently verified. Prerequisites reflect track order: FND 101 (The Participant Journey) or equivalent.",
+  "proposed_competencies": [],
+  "assets": [
+    {
+      "filename": "ldr301-swim-lane-example.png",
+      "description": "Swim-lane map of a fictional AJCC (Valley Regional AJCC) process from sign-in to follow-up: horizontal lanes for Customer, Front desk, Navigator, Eligibility technician, Case manager, Training services, Supervisor, and MIS; steps as boxes with role, artifact, and governing rule; decision diamonds; and arrows crossing lanes at each handoff, with one handoff marked with a question mark.",
+      "suggested_source": "Diagram, drawn in-house"
+    }
+  ]
+}

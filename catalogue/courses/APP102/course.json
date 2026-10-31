@@ -1,0 +1,130 @@
+{
+  "course_id": "APP102",
+  "pathway": "workforce-development-professional",
+  "title": "Writing Apprenticeship-Ready OJT Contracts and Cohort Training Plans",
+  "description": "California has no state OJT directive, and no local OJT template we found is built for a multi-year apprenticeship. This hands-on workshop teaches staff to write an OJT contract and a cohort training plan that fit apprenticeship: hours scaled to occupation, wage steps, reimbursement rates, the 90 percent small-employer waiver, combining OJT and ITA funds, employer documentation, and invoicing. Learners leave with a completed contract package and CCC's template toolkit.",
+  "hours": 12,
+  "projects": 1,
+  "notes": "Audience: Case managers, business services, OJT coordinators. Format: FD or CO (with template toolkit). Hours assumed from format (flagship FD/CO workshop = 12 hours). Gap addressed: Board OJT policies vary sharply (San Francisco 50 percent and $6,000; Orange County up to 90 percent and $20,000); Washington's 2026 evaluation names OJT rules that don't fit apprenticeship timelines as a design gap.",
+  "lesson_length": null,
+  "learning_objectives": [
+    "Determine the appropriate reimbursement rate (50, 75, or 90 percent) and document the justifying factors under 20 CFR 680.730 and WSD25-03.",
+    "Build a cohort training plan that covers multiple apprentices under one contract.",
+    "Set training duration and hours using occupation complexity and the apprenticeship's work process schedule.",
+    "Combine OJT and ITA funding for one apprentice without overlap.",
+    "Specify the employer records, invoices, and monitoring visits required to close the contract cleanly."
+  ],
+  "prerequisites": [
+    "APP 101 (Registered Apprenticeship for Workforce Professionals)",
+    "Working knowledge of WIOA Title I eligibility (FND 102 or equivalent)"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "APP102-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 0.5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "APP102-02",
+      "order": 2,
+      "slug": "reimbursement-rates-and-justifying-factors",
+      "title": "Reimbursement Rates and Justifying Factors",
+      "kind": "lesson",
+      "objectives": [
+        "Determine the appropriate reimbursement rate (50, 75, or 90 percent) and document the justifying factors under 20 CFR 680.730 and WSD25-03."
+      ],
+      "competency_ids": [
+        "D2-S2-C01"
+      ],
+      "hours_estimate": 2,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "APP102-03",
+      "order": 3,
+      "slug": "the-cohort-training-plan",
+      "title": "The Cohort Training Plan",
+      "kind": "lesson",
+      "objectives": [
+        "Build a cohort training plan that covers multiple apprentices under one contract."
+      ],
+      "competency_ids": [
+        "D2-S2-C02"
+      ],
+      "hours_estimate": 2,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "APP102-04",
+      "order": 4,
+      "slug": "setting-duration-and-hours-from-the-work-process-schedule",
+      "title": "Setting Duration and Hours from the Work Process Schedule",
+      "kind": "lesson",
+      "objectives": [
+        "Set training duration and hours using occupation complexity and the apprenticeship's work process schedule."
+      ],
+      "competency_ids": [
+        "D2-S2-C03"
+      ],
+      "hours_estimate": 2,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "APP102-05",
+      "order": 5,
+      "slug": "combining-ojt-and-ita-without-overlap",
+      "title": "Combining OJT and ITA Without Overlap",
+      "kind": "lesson",
+      "objectives": [
+        "Combine OJT and ITA funding for one apprentice without overlap."
+      ],
+      "competency_ids": [
+        "D2-S2-C04"
+      ],
+      "hours_estimate": 1.5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "APP102-06",
+      "order": 6,
+      "slug": "employer-records-invoicing-and-monitoring-visits",
+      "title": "Employer Records, Invoicing, and Monitoring Visits",
+      "kind": "lesson",
+      "objectives": [
+        "Specify the employer records, invoices, and monitoring visits required to close the contract cleanly."
+      ],
+      "competency_ids": [
+        "D2-S2-C05"
+      ],
+      "hours_estimate": 1.5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "APP102-07",
+      "order": 7,
+      "slug": "project-build-a-complete-contract-package",
+      "title": "Project: Build a Complete Contract Package",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D2-S2-C01",
+        "D2-S2-C02",
+        "D2-S2-C03",
+        "D2-S2-C04",
+        "D2-S2-C05"
+      ],
+      "hours_estimate": 2.5,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Lessons follow the catalog's learning objectives in the order a practitioner meets them on the job: Reimbursement Rates and Justifying Factors; The Cohort Training Plan; Setting Duration and Hours from the Work Process Schedule; Combining OJT and ITA Without Overlap; Employer Records, Invoicing, and Monitoring Visits. The closing project (\"Project: Build a Complete Contract Package\") applies the earlier lessons to one realistic work product (a completed OJT contract package and cohort training plan for a sample apprenticeship, with justified rates, hours, funding split, and closeout records) rather than introducing new content. Scope assumptions: hours are not stated in the source catalog and are assumed from the delivery format (FD or CO (with template toolkit); flagship FD/CO workshop = 12 hours). Content is grounded in California and federal guidance named in the catalog description and objectives; the course cites those directives by number but does not reproduce their text, and every policy-specific claim must be checked against the current directive before delivery. Local board policy is treated as a variable the learner fills in from their own board, not something the course prescribes. Design driver (catalog \"gap addressed\"): Board OJT policies vary sharply (San Francisco 50 percent and $6,000; Orange County up to 90 percent and $20,000); Washington's 2026 evaluation names OJT rules that don't fit apprenticeship timelines as a design gap. Statistics and audit findings quoted from the catalog have not been independently verified. Prerequisites reflect track order: APP 101 (Registered Apprenticeship for Workforce Professionals); Working knowledge of WIOA Title I eligibility (FND 102 or equivalent).",
+  "proposed_competencies": [],
+  "assets": []
+}

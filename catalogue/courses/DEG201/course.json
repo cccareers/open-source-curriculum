@@ -1,0 +1,113 @@
+{
+  "course_id": "DEG201",
+  "pathway": "workforce-development-professional",
+  "title": "Building Degree-Linked Apprenticeships with Education Partners",
+  "description": "For boards that want to move from referring to building. Covers convening an employer, a college, and a sponsor; aligning work processes with course outcomes; credit articulation; and funding the build through CAI, AIF, Regional Coordination Project funds (WSIN25-21), and WIOA.",
+  "hours": 4,
+  "projects": 1,
+  "notes": "Audience: Board staff, business services leads, community college and adult school partners. Format: HD. Hours assumed from format (HD = 4 hours). Track note: California's apprenticeship-degree landscape is early. AB 1904 (credentialed educator apprenticeships) and the Chancellor's Office Apprenticeship Pathway Demonstration Project are the anchors; a CSU or Apprenticeship Degree Network footprint was not verified. These courses should be refreshed as the field develops.",
+  "lesson_length": null,
+  "learning_objectives": [
+    "Identify the partners and roles needed for a degree-linked apprenticeship.",
+    "Crosswalk an apprenticeship's work processes to course learning outcomes.",
+    "Draft a funding plan for program development.",
+    "Write the partnership language for a local plan modification or grant application."
+  ],
+  "prerequisites": [
+    "DEG 101 (Apprenticeship Degrees)",
+    "APP 103 (Braiding the Money) recommended"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "DEG201-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 0.25,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "DEG201-02",
+      "order": 2,
+      "slug": "assembling-the-partnership",
+      "title": "Assembling the Partnership",
+      "kind": "lesson",
+      "objectives": [
+        "Identify the partners and roles needed for a degree-linked apprenticeship."
+      ],
+      "competency_ids": [
+        "D3-S2-C01"
+      ],
+      "hours_estimate": 0.8,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "DEG201-03",
+      "order": 3,
+      "slug": "crosswalking-work-processes-to-course-outcomes",
+      "title": "Crosswalking Work Processes to Course Outcomes",
+      "kind": "lesson",
+      "objectives": [
+        "Crosswalk an apprenticeship's work processes to course learning outcomes."
+      ],
+      "competency_ids": [
+        "D3-S2-C02"
+      ],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "DEG201-04",
+      "order": 4,
+      "slug": "funding-the-build",
+      "title": "Funding the Build",
+      "kind": "lesson",
+      "objectives": [
+        "Draft a funding plan for program development."
+      ],
+      "competency_ids": [
+        "D3-S2-C03"
+      ],
+      "hours_estimate": 0.8,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "DEG201-05",
+      "order": 5,
+      "slug": "writing-partnership-language",
+      "title": "Writing Partnership Language",
+      "kind": "lesson",
+      "objectives": [
+        "Write the partnership language for a local plan modification or grant application."
+      ],
+      "competency_ids": [
+        "D3-S2-C04"
+      ],
+      "hours_estimate": 0.7,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "DEG201-06",
+      "order": 6,
+      "slug": "project-draft-a-degree-linked-apprenticeship-proposal",
+      "title": "Project: Draft a Degree-Linked Apprenticeship Proposal",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D3-S2-C01",
+        "D3-S2-C02",
+        "D3-S2-C03",
+        "D3-S2-C04"
+      ],
+      "hours_estimate": 0.45,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Lessons follow the catalog's learning objectives in the order a practitioner meets them on the job: Assembling the Partnership; Crosswalking Work Processes to Course Outcomes; Funding the Build; Writing Partnership Language. The closing project (\"Project: Draft a Degree-Linked Apprenticeship Proposal\") applies the earlier lessons to one realistic work product (a degree-linked apprenticeship proposal with a partner map, work-process crosswalk, funding plan, and partnership language) rather than introducing new content. Scope assumptions: hours are not stated in the source catalog and are assumed from the delivery format (HD; HD = 4 hours). Content is grounded in California and federal guidance named in the catalog description and objectives; the course cites those directives by number but does not reproduce their text, and every policy-specific claim must be checked against the current directive before delivery. Local board policy is treated as a variable the learner fills in from their own board, not something the course prescribes. Track caveat: California's apprenticeship-degree landscape is early. AB 1904 (credentialed educator apprenticeships) and the Chancellor's Office Apprenticeship Pathway Demonstration Project are the anchors; a CSU or Apprenticeship Degree Network footprint was not verified. These courses should be refreshed as the field develops. Prerequisites reflect track order: DEG 101 (Apprenticeship Degrees); APP 103 (Braiding the Money) recommended.",
+  "proposed_competencies": [],
+  "assets": []
+}

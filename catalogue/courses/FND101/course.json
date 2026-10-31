@@ -1,0 +1,109 @@
+{
+  "course_id": "FND101",
+  "pathway": "workforce-development-professional",
+  "title": "The Participant Journey: From Front Door to Follow-Up",
+  "description": "A walk through the complete WIOA Title I journey for Adult, Dislocated Worker, and Youth customers: sign-in, registration, eligibility, participation, services, outcomes, exit, follow-up, and validation. Each step is taught with who does it, what document it produces, and which rule governs it, using California's state spine and the learner's own local policy.",
+  "hours": 4,
+  "projects": 1,
+  "notes": "Audience: All AJCC frontline staff, partner staff. Format: HD or LV. Hours assumed from format (HD = 4 hours). Gap addressed: No published process map of the California participant journey exists; the closest is San Bernardino County's prose desk manual.",
+  "lesson_length": null,
+  "learning_objectives": [
+    "Distinguish a reportable individual from a participant and identify the service that starts participation for each program.",
+    "Sequence the 12 major steps of the participant journey and name the artifact and governing directive for each.",
+    "Explain the 90-day exit rule and which activities do and do not extend the exit clock.",
+    "Identify which decisions in their center are governed by state rule and which are delegated to local policy."
+  ],
+  "prerequisites": [],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "FND101-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 0.25,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "FND101-02",
+      "order": 2,
+      "slug": "reportable-individuals-vs-participants",
+      "title": "Reportable Individuals vs. Participants",
+      "kind": "lesson",
+      "objectives": [
+        "Distinguish a reportable individual from a participant and identify the service that starts participation for each program."
+      ],
+      "competency_ids": [
+        "D1-S1-C01"
+      ],
+      "hours_estimate": 0.75,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "FND101-03",
+      "order": 3,
+      "slug": "the-12-step-participant-journey",
+      "title": "The 12-Step Participant Journey",
+      "kind": "lesson",
+      "objectives": [
+        "Sequence the 12 major steps of the participant journey and name the artifact and governing directive for each."
+      ],
+      "competency_ids": [
+        "D1-S1-C02"
+      ],
+      "hours_estimate": 1.25,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "FND101-04",
+      "order": 4,
+      "slug": "exit-and-the-90-day-clock",
+      "title": "Exit and the 90-Day Clock",
+      "kind": "lesson",
+      "objectives": [
+        "Explain the 90-day exit rule and which activities do and do not extend the exit clock."
+      ],
+      "competency_ids": [
+        "D1-S1-C03"
+      ],
+      "hours_estimate": 0.75,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "FND101-05",
+      "order": 5,
+      "slug": "state-rule-vs-local-policy",
+      "title": "State Rule vs. Local Policy",
+      "kind": "lesson",
+      "objectives": [
+        "Identify which decisions in their center are governed by state rule and which are delegated to local policy."
+      ],
+      "competency_ids": [
+        "D1-S1-C04"
+      ],
+      "hours_estimate": 0.5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "FND101-06",
+      "order": 6,
+      "slug": "project-map-one-customers-journey",
+      "title": "Project: Map One Customer's Journey",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D1-S1-C02",
+        "D1-S1-C03",
+        "D1-S1-C04"
+      ],
+      "hours_estimate": 0.5,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Lessons follow the catalog's learning objectives in the order a practitioner meets them on the job: Reportable Individuals vs. Participants; The 12-Step Participant Journey; Exit and the 90-Day Clock; State Rule vs. Local Policy. The closing project (\"Project: Map One Customer's Journey\") applies the earlier lessons to one realistic work product (a participant-journey walkthrough of a realistic customer file, naming the role, artifact, and governing rule at each step) rather than introducing new content. Scope assumptions: hours are not stated in the source catalog and are assumed from the delivery format (HD or LV; HD = 4 hours). Content is grounded in California and federal guidance named in the catalog description and objectives; the course cites those directives by number but does not reproduce their text, and every policy-specific claim must be checked against the current directive before delivery. Local board policy is treated as a variable the learner fills in from their own board, not something the course prescribes. Design driver (catalog \"gap addressed\"): No published process map of the California participant journey exists; the closest is San Bernardino County's prose desk manual. Statistics and audit findings quoted from the catalog have not been independently verified.",
+  "proposed_competencies": [],
+  "assets": []
+}

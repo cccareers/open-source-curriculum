@@ -1,0 +1,94 @@
+{
+  "course_id": "VET101",
+  "pathway": "workforce-development-professional",
+  "title": "SkillBridge for AJCC Staff",
+  "description": "DoD SkillBridge lets service members spend their final 180 days of service training with an employer while still on military pay. This course explains how the program works, enrollment windows, provider obligations, and why AJCC staff should care: SkillBridge participants are the best-prepared Dislocated Workers and apprentices a center will ever see.",
+  "hours": 1.5,
+  "projects": 0,
+  "notes": "Audience: All frontline staff, JVSG staff. Format: SP or LV (90 minutes). Hours assumed from format (stated as 90 minutes). Gap addressed: No California or DOL frontline guidance mentions SkillBridge; GAO found DoD lacks post-service employment data and the workforce system is absent from the program.",
+  "lesson_length": null,
+  "learning_objectives": [
+    "Explain SkillBridge eligibility, duration, and command-approval requirements.",
+    "Describe provider MOU obligations, including the post-service job-offer requirement.",
+    "Identify local SkillBridge providers and installations in their region.",
+    "Recognize a SkillBridge participant at the front desk and start the right conversation."
+  ],
+  "prerequisites": [],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "VET101-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 0.2,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "VET101-02",
+      "order": 2,
+      "slug": "how-skillbridge-works",
+      "title": "How SkillBridge Works",
+      "kind": "lesson",
+      "objectives": [
+        "Explain SkillBridge eligibility, duration, and command-approval requirements."
+      ],
+      "competency_ids": [
+        "D4-S1-C01"
+      ],
+      "hours_estimate": 0.35,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "VET101-03",
+      "order": 3,
+      "slug": "provider-mou-obligations",
+      "title": "Provider MOU Obligations",
+      "kind": "lesson",
+      "objectives": [
+        "Describe provider MOU obligations, including the post-service job-offer requirement."
+      ],
+      "competency_ids": [
+        "D4-S1-C02"
+      ],
+      "hours_estimate": 0.3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "VET101-04",
+      "order": 4,
+      "slug": "skillbridge-in-your-region",
+      "title": "SkillBridge in Your Region",
+      "kind": "lesson",
+      "objectives": [
+        "Identify local SkillBridge providers and installations in their region."
+      ],
+      "competency_ids": [
+        "D4-S1-C03"
+      ],
+      "hours_estimate": 0.25,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "VET101-05",
+      "order": 5,
+      "slug": "recognizing-a-skillbridge-participant-at-the-front-desk",
+      "title": "Recognizing a SkillBridge Participant at the Front Desk",
+      "kind": "lesson",
+      "objectives": [
+        "Recognize a SkillBridge participant at the front desk and start the right conversation."
+      ],
+      "competency_ids": [
+        "D4-S1-C04"
+      ],
+      "hours_estimate": 0.4,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Lessons follow the catalog's learning objectives in the order a practitioner meets them on the job: How SkillBridge Works; Provider MOU Obligations; SkillBridge in Your Region; Recognizing a SkillBridge Participant at the Front Desk. There is no separate project lesson; each lesson ends in a practice exercise built on the same running case. Scope assumptions: hours are not stated in the source catalog and are assumed from the delivery format (SP or LV (90 minutes); stated as 90 minutes). Content is grounded in California and federal guidance named in the catalog description and objectives; the course cites those directives by number but does not reproduce their text, and every policy-specific claim must be checked against the current directive before delivery. Local board policy is treated as a variable the learner fills in from their own board, not something the course prescribes. Design driver (catalog \"gap addressed\"): No California or DOL frontline guidance mentions SkillBridge; GAO found DoD lacks post-service employment data and the workforce system is absent from the program. Statistics and audit findings quoted from the catalog have not been independently verified.",
+  "proposed_competencies": [],
+  "assets": []
+}

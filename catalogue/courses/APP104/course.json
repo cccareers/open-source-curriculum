@@ -1,0 +1,97 @@
+{
+  "course_id": "APP104",
+  "pathway": "workforce-development-professional",
+  "title": "Co-Enrollment and Coding: Making Apprentices Count",
+  "description": "Apprenticeship completions are recognized credentials and apprenticeship progress counts as Measurable Skill Gains, but only if staff enroll and code correctly. This course covers co-enrollment strategy, CalJOBS activity codes (300, 301, 428), PIRL element 931, type-of-training code 09, and how to capture outcomes over a multi-year apprenticeship.",
+  "hours": 3,
+  "projects": 0,
+  "notes": "Audience: Case managers, MIS Administrators, data staff. Format: LV or SP. Hours assumed from format (LV/SP = 3 hours). Gap addressed: California's 2024 WIOA Annual Report publishes no apprenticeship co-enrollment figures; TEGL 05-25 sets a 10 percent sample goal.",
+  "lesson_length": null,
+  "learning_objectives": [
+    "Identify when to co-enroll an apprentice in WIOA Title I and which program fits.",
+    "Select the correct activity codes and PIRL flags for apprenticeship-related services.",
+    "Record credential attainment and Measurable Skill Gains for apprentices.",
+    "Plan exit and follow-up timing for a participant in a multi-year program."
+  ],
+  "prerequisites": [
+    "APP 101 (Registered Apprenticeship for Workforce Professionals)",
+    "FND 101 (The Participant Journey) or equivalent"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "APP104-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 0.25,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "APP104-02",
+      "order": 2,
+      "slug": "co-enrollment-strategy-for-apprentices",
+      "title": "Co-Enrollment Strategy for Apprentices",
+      "kind": "lesson",
+      "objectives": [
+        "Identify when to co-enroll an apprentice in WIOA Title I and which program fits."
+      ],
+      "competency_ids": [
+        "D2-S4-C01"
+      ],
+      "hours_estimate": 0.75,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "APP104-03",
+      "order": 3,
+      "slug": "activity-codes-and-pirl-flags",
+      "title": "Activity Codes and PIRL Flags",
+      "kind": "lesson",
+      "objectives": [
+        "Select the correct activity codes and PIRL flags for apprenticeship-related services."
+      ],
+      "competency_ids": [
+        "D2-S4-C02"
+      ],
+      "hours_estimate": 0.8,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "APP104-04",
+      "order": 4,
+      "slug": "credentials-and-measurable-skill-gains",
+      "title": "Credentials and Measurable Skill Gains",
+      "kind": "lesson",
+      "objectives": [
+        "Record credential attainment and Measurable Skill Gains for apprentices."
+      ],
+      "competency_ids": [
+        "D2-S4-C03"
+      ],
+      "hours_estimate": 0.6,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "APP104-05",
+      "order": 5,
+      "slug": "exit-and-follow-up-in-a-multi-year-program",
+      "title": "Exit and Follow-Up in a Multi-Year Program",
+      "kind": "lesson",
+      "objectives": [
+        "Plan exit and follow-up timing for a participant in a multi-year program."
+      ],
+      "competency_ids": [
+        "D2-S4-C04"
+      ],
+      "hours_estimate": 0.6,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Lessons follow the catalog's learning objectives in the order a practitioner meets them on the job: Co-Enrollment Strategy for Apprentices; Activity Codes and PIRL Flags; Credentials and Measurable Skill Gains; Exit and Follow-Up in a Multi-Year Program. There is no separate project lesson; each lesson ends in a practice exercise built on the same running case. Scope assumptions: hours are not stated in the source catalog and are assumed from the delivery format (LV or SP; LV/SP = 3 hours). Content is grounded in California and federal guidance named in the catalog description and objectives; the course cites those directives by number but does not reproduce their text, and every policy-specific claim must be checked against the current directive before delivery. Local board policy is treated as a variable the learner fills in from their own board, not something the course prescribes. Design driver (catalog \"gap addressed\"): California's 2024 WIOA Annual Report publishes no apprenticeship co-enrollment figures; TEGL 05-25 sets a 10 percent sample goal. Statistics and audit findings quoted from the catalog have not been independently verified. Prerequisites reflect track order: APP 101 (Registered Apprenticeship for Workforce Professionals); FND 101 (The Participant Journey) or equivalent.",
+  "proposed_competencies": [],
+  "assets": []
+}

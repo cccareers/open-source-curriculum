@@ -1,0 +1,111 @@
+{
+  "course_id": "CMP201",
+  "pathway": "workforce-development-professional",
+  "title": "Data Element Validation Readiness",
+  "description": "Prepare for EDD's annual Data Element Validation. Covers the sampling process, the 15-business-day document window, source-document requirements (WSD22-15), the 10 percent error threshold, and a self-audit routine staff can run monthly.",
+  "hours": 3,
+  "projects": 1,
+  "notes": "Audience: MIS Administrators, supervisors, case managers. Format: LV. Hours assumed from format (LV = 3 hours). Gap addressed: TEGL 23-19 Change 3 requires annual validation training; current state training covers it in one webinar.",
+  "lesson_length": null,
+  "learning_objectives": [
+    "Explain how DEV samples files and scores elements.",
+    "Match each commonly failed element to its acceptable source documents.",
+    "Run a monthly file self-audit using a CCC checklist.",
+    "Correct errors through the proper Data Change Request process before the annual report."
+  ],
+  "prerequisites": [
+    "FND 103 (IEPs and Case Notes That Survive Validation) recommended"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "CMP201-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 0.25,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "CMP201-02",
+      "order": 2,
+      "slug": "how-dev-samples-and-scores",
+      "title": "How DEV Samples and Scores",
+      "kind": "lesson",
+      "objectives": [
+        "Explain how DEV samples files and scores elements."
+      ],
+      "competency_ids": [
+        "D5-S1-C01"
+      ],
+      "hours_estimate": 0.6,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "CMP201-03",
+      "order": 3,
+      "slug": "source-documents-for-commonly-failed-elements",
+      "title": "Source Documents for Commonly Failed Elements",
+      "kind": "lesson",
+      "objectives": [
+        "Match each commonly failed element to its acceptable source documents."
+      ],
+      "competency_ids": [
+        "D5-S1-C02"
+      ],
+      "hours_estimate": 0.8,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "CMP201-04",
+      "order": 4,
+      "slug": "the-monthly-self-audit",
+      "title": "The Monthly Self-Audit",
+      "kind": "lesson",
+      "objectives": [
+        "Run a monthly file self-audit using a CCC checklist."
+      ],
+      "competency_ids": [
+        "D5-S1-C03"
+      ],
+      "hours_estimate": 0.7,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "CMP201-05",
+      "order": 5,
+      "slug": "correcting-errors-through-data-change-requests",
+      "title": "Correcting Errors Through Data Change Requests",
+      "kind": "lesson",
+      "objectives": [
+        "Correct errors through the proper Data Change Request process before the annual report."
+      ],
+      "competency_ids": [
+        "D5-S1-C04"
+      ],
+      "hours_estimate": 0.4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "CMP201-06",
+      "order": 6,
+      "slug": "project-self-audit-a-sample-file-set",
+      "title": "Project: Self-Audit a Sample File Set",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D5-S1-C02",
+        "D5-S1-C03",
+        "D5-S1-C04"
+      ],
+      "hours_estimate": 0.25,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Lessons follow the catalog's learning objectives in the order a practitioner meets them on the job: How DEV Samples and Scores; Source Documents for Commonly Failed Elements; The Monthly Self-Audit; Correcting Errors Through Data Change Requests. The closing project (\"Project: Self-Audit a Sample File Set\") applies the earlier lessons to one realistic work product (a completed self-audit of sample files that matches elements to source documents and routes corrections through a Data Change Request) rather than introducing new content. Scope assumptions: hours are not stated in the source catalog and are assumed from the delivery format (LV; LV = 3 hours). Content is grounded in California and federal guidance named in the catalog description and objectives; the course cites those directives by number but does not reproduce their text, and every policy-specific claim must be checked against the current directive before delivery. Local board policy is treated as a variable the learner fills in from their own board, not something the course prescribes. Design driver (catalog \"gap addressed\"): TEGL 23-19 Change 3 requires annual validation training; current state training covers it in one webinar. Statistics and audit findings quoted from the catalog have not been independently verified. Prerequisites reflect track order: FND 103 (IEPs and Case Notes That Survive Validation) recommended.",
+  "proposed_competencies": [],
+  "assets": []
+}
