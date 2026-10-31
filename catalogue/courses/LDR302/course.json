@@ -1,0 +1,109 @@
+{
+  "course_id": "LDR302",
+  "pathway": "workforce-development-professional",
+  "title": "AJCC Certification and Local Plan Evidence Workshop",
+  "description": "A deadline-driven workshop for the current certification and planning cycle. Focuses on certification indicator #6 (\"high-quality, well-informed, and cross-trained staff\") and the staff-training narrative required in local plan modifications due April 30, 2027. Learners leave with a draft evidence package and plan language.",
+  "hours": 4,
+  "projects": 1,
+  "notes": "Audience: Board staff, operators, managers. Format: HD (offered before May 15, 2027). Hours assumed from format (HD = 4 hours).",
+  "lesson_length": null,
+  "learning_objectives": [
+    "Interpret the seven certification indicators under WSD25-05 and what evidence each needs.",
+    "Assemble a cross-training evidence package for indicator #6.",
+    "Draft the frontline staff training section of a local plan modification.",
+    "Turn certification findings into a Continuous Improvement Plan with training actions."
+  ],
+  "prerequisites": [],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "LDR302-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 0.25,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "LDR302-02",
+      "order": 2,
+      "slug": "the-seven-certification-indicators-and-their-evidence",
+      "title": "The Seven Certification Indicators and Their Evidence",
+      "kind": "lesson",
+      "objectives": [
+        "Interpret the seven certification indicators under WSD25-05 and what evidence each needs."
+      ],
+      "competency_ids": [
+        "D6-S2-C01"
+      ],
+      "hours_estimate": 0.9,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "LDR302-03",
+      "order": 3,
+      "slug": "building-the-indicator-6-evidence-package",
+      "title": "Building the Indicator #6 Evidence Package",
+      "kind": "lesson",
+      "objectives": [
+        "Assemble a cross-training evidence package for indicator #6."
+      ],
+      "competency_ids": [
+        "D6-S2-C02"
+      ],
+      "hours_estimate": 0.9,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "LDR302-04",
+      "order": 4,
+      "slug": "drafting-the-staff-training-section-of-the-local-plan-modification",
+      "title": "Drafting the Staff Training Section of the Local Plan Modification",
+      "kind": "lesson",
+      "objectives": [
+        "Draft the frontline staff training section of a local plan modification."
+      ],
+      "competency_ids": [
+        "D6-S2-C03"
+      ],
+      "hours_estimate": 0.8,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "LDR302-05",
+      "order": 5,
+      "slug": "from-findings-to-a-continuous-improvement-plan",
+      "title": "From Findings to a Continuous Improvement Plan",
+      "kind": "lesson",
+      "objectives": [
+        "Turn certification findings into a Continuous Improvement Plan with training actions."
+      ],
+      "competency_ids": [
+        "D6-S2-C04"
+      ],
+      "hours_estimate": 0.7,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "LDR302-06",
+      "order": 6,
+      "slug": "project-draft-evidence-package-and-plan-language",
+      "title": "Project: Draft Evidence Package and Plan Language",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D6-S2-C02",
+        "D6-S2-C03",
+        "D6-S2-C04"
+      ],
+      "hours_estimate": 0.45,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Lessons follow the catalog's learning objectives in the order a practitioner meets them on the job: The Seven Certification Indicators and Their Evidence; Building the Indicator #6 Evidence Package; Drafting the Staff Training Section of the Local Plan Modification; From Findings to a Continuous Improvement Plan. The closing project (\"Project: Draft Evidence Package and Plan Language\") applies the earlier lessons to one realistic work product (a draft indicator #6 evidence package, local plan training language, and a Continuous Improvement Plan with training actions) rather than introducing new content. Scope assumptions: hours are not stated in the source catalog and are assumed from the delivery format (HD (offered before May 15, 2027); HD = 4 hours). Content is grounded in California and federal guidance named in the catalog description and objectives; the course cites those directives by number but does not reproduce their text, and every policy-specific claim must be checked against the current directive before delivery. Local board policy is treated as a variable the learner fills in from their own board, not something the course prescribes.",
+  "proposed_competencies": [],
+  "assets": []
+}

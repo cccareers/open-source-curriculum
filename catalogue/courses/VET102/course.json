@@ -1,0 +1,113 @@
+{
+  "course_id": "VET102",
+  "pathway": "workforce-development-professional",
+  "title": "From Uniform to Apprentice: Routing Transitioning Service Members",
+  "description": "A routing protocol for transitioning service members and military spouses. Covers veterans' priority of service, Dislocated Worker eligibility before separation, DVOP referral criteria, GI Bill approval checks for apprenticeship and OJT, and co-enrollment so the participant's outcomes count.",
+  "hours": 3,
+  "projects": 1,
+  "notes": "Audience: Title I staff, DVOPs, LVERs, EDD staff. Format: LV. Hours assumed from format (LV = 3 hours).",
+  "lesson_length": null,
+  "learning_objectives": [
+    "Determine Dislocated Worker eligibility for a separating service member or military spouse (20 CFR 680.660, TEGL 19-16).",
+    "Apply veterans' priority of service at every point of entry.",
+    "Refer correctly between Title I and JVSG staff under TEGL 03-24.",
+    "Check whether an apprenticeship or OJT program is GI Bill approved and explain the benefit to the veteran."
+  ],
+  "prerequisites": [
+    "VET 101 (SkillBridge for AJCC Staff) recommended",
+    "FND 102 (Eligibility Judgment) or equivalent"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "VET102-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 0.25,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "VET102-02",
+      "order": 2,
+      "slug": "dislocated-worker-eligibility-before-separation",
+      "title": "Dislocated Worker Eligibility Before Separation",
+      "kind": "lesson",
+      "objectives": [
+        "Determine Dislocated Worker eligibility for a separating service member or military spouse (20 CFR 680.660, TEGL 19-16)."
+      ],
+      "competency_ids": [
+        "D4-S2-C01"
+      ],
+      "hours_estimate": 0.8,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "VET102-03",
+      "order": 3,
+      "slug": "veterans-priority-of-service-at-every-entry-point",
+      "title": "Veterans' Priority of Service at Every Entry Point",
+      "kind": "lesson",
+      "objectives": [
+        "Apply veterans' priority of service at every point of entry."
+      ],
+      "competency_ids": [
+        "D4-S2-C02"
+      ],
+      "hours_estimate": 0.6,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "VET102-04",
+      "order": 4,
+      "slug": "title-i-and-jvsg-referrals",
+      "title": "Title I and JVSG Referrals",
+      "kind": "lesson",
+      "objectives": [
+        "Refer correctly between Title I and JVSG staff under TEGL 03-24."
+      ],
+      "competency_ids": [
+        "D4-S2-C03"
+      ],
+      "hours_estimate": 0.6,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "VET102-05",
+      "order": 5,
+      "slug": "gi-bill-approval-checks-for-apprenticeship-and-ojt",
+      "title": "GI Bill Approval Checks for Apprenticeship and OJT",
+      "kind": "lesson",
+      "objectives": [
+        "Check whether an apprenticeship or OJT program is GI Bill approved and explain the benefit to the veteran."
+      ],
+      "competency_ids": [
+        "D4-S2-C04"
+      ],
+      "hours_estimate": 0.5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "VET102-06",
+      "order": 6,
+      "slug": "project-route-three-transitioning-service-members",
+      "title": "Project: Route Three Transitioning Service Members",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D4-S2-C01",
+        "D4-S2-C02",
+        "D4-S2-C03",
+        "D4-S2-C04"
+      ],
+      "hours_estimate": 0.25,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Lessons follow the catalog's learning objectives in the order a practitioner meets them on the job: Dislocated Worker Eligibility Before Separation; Veterans' Priority of Service at Every Entry Point; Title I and JVSG Referrals; GI Bill Approval Checks for Apprenticeship and OJT. The closing project (\"Project: Route Three Transitioning Service Members\") applies the earlier lessons to one realistic work product (routing decisions for sample transitioning service members and spouses covering DW eligibility, priority of service, JVSG referral, and GI Bill approval) rather than introducing new content. Scope assumptions: hours are not stated in the source catalog and are assumed from the delivery format (LV; LV = 3 hours). Content is grounded in California and federal guidance named in the catalog description and objectives; the course cites those directives by number but does not reproduce their text, and every policy-specific claim must be checked against the current directive before delivery. Local board policy is treated as a variable the learner fills in from their own board, not something the course prescribes. Prerequisites reflect track order: VET 101 (SkillBridge for AJCC Staff) recommended; FND 102 (Eligibility Judgment) or equivalent.",
+  "proposed_competencies": [],
+  "assets": []
+}

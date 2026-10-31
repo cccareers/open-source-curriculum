@@ -1,0 +1,124 @@
+{
+  "course_id": "FND104",
+  "pathway": "workforce-development-professional",
+  "title": "Your First 30 Days in an AJCC",
+  "description": "A self-paced onboarding sequence a board can assign on day one: how the workforce system is organized, who the partners are, where local policies live, what security and confidentiality training is required (WSD24-12), how to shadow effectively, and when to escalate. Modeled on Virginia's three-week case-manager learning path.",
+  "hours": 6,
+  "projects": 0,
+  "notes": "Audience: New hires, staff of newly awarded providers. Format: SP series (6 modules). Hours assumed from format (6 self-paced modules at about 1 hour each). Gap addressed: No standard California onboarding path; staff learn from whoever sits next to them.",
+  "lesson_length": null,
+  "learning_objectives": [
+    "Describe the roles of the Local Board, AJCC Operator, Career Services Provider, EDD, and partners.",
+    "Locate their board's local policies and the state directives behind them.",
+    "Complete the CalJOBS access requirements and explain why they matter.",
+    "Follow a structured shadowing checklist and know which decisions require a supervisor."
+  ],
+  "prerequisites": [],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "FND104-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 0.5,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "FND104-02",
+      "order": 2,
+      "slug": "how-the-workforce-system-is-organized",
+      "title": "How the Workforce System Is Organized",
+      "kind": "lesson",
+      "objectives": [
+        "Describe the roles of the Local Board, AJCC Operator, Career Services Provider, EDD, and partners."
+      ],
+      "competency_ids": [
+        "D1-S4-C01"
+      ],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "FND104-03",
+      "order": 3,
+      "slug": "whos-who-board-operator-provider-edd-and-partners",
+      "title": "Who's Who: Board, Operator, Provider, EDD, and Partners",
+      "kind": "lesson",
+      "objectives": [
+        "Describe the roles of the Local Board, AJCC Operator, Career Services Provider, EDD, and partners."
+      ],
+      "competency_ids": [
+        "D1-S4-C01"
+      ],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "FND104-04",
+      "order": 4,
+      "slug": "finding-your-local-policies-and-the-directives-behind-them",
+      "title": "Finding Your Local Policies and the Directives Behind Them",
+      "kind": "lesson",
+      "objectives": [
+        "Locate their board's local policies and the state directives behind them."
+      ],
+      "competency_ids": [
+        "D1-S4-C02"
+      ],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "FND104-05",
+      "order": 5,
+      "slug": "caljobs-access-security-and-confidentiality",
+      "title": "CalJOBS Access, Security, and Confidentiality",
+      "kind": "lesson",
+      "objectives": [
+        "Complete the CalJOBS access requirements and explain why they matter."
+      ],
+      "competency_ids": [
+        "D1-S4-C03"
+      ],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "FND104-06",
+      "order": 6,
+      "slug": "shadowing-with-purpose",
+      "title": "Shadowing with Purpose",
+      "kind": "lesson",
+      "objectives": [
+        "Follow a structured shadowing checklist and know which decisions require a supervisor."
+      ],
+      "competency_ids": [
+        "D1-S4-C04"
+      ],
+      "hours_estimate": 0.75,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "FND104-07",
+      "order": 7,
+      "slug": "when-to-escalate-decisions-that-need-a-supervisor",
+      "title": "When to Escalate: Decisions That Need a Supervisor",
+      "kind": "lesson",
+      "objectives": [
+        "Follow a structured shadowing checklist and know which decisions require a supervisor."
+      ],
+      "competency_ids": [
+        "D1-S4-C04"
+      ],
+      "hours_estimate": 0.75,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Lessons follow the catalog's learning objectives in the order a practitioner meets them on the job: How the Workforce System Is Organized; Who's Who: Board, Operator, Provider, EDD, and Partners; Finding Your Local Policies and the Directives Behind Them; CalJOBS Access, Security, and Confidentiality; Shadowing with Purpose; When to Escalate: Decisions That Need a Supervisor. There is no separate project lesson; each lesson ends in a practice exercise built on the same running case. Scope assumptions: hours are not stated in the source catalog and are assumed from the delivery format (SP series (6 modules); 6 self-paced modules at about 1 hour each). Content is grounded in California and federal guidance named in the catalog description and objectives; the course cites those directives by number but does not reproduce their text, and every policy-specific claim must be checked against the current directive before delivery. Local board policy is treated as a variable the learner fills in from their own board, not something the course prescribes. Design driver (catalog \"gap addressed\"): No standard California onboarding path; staff learn from whoever sits next to them. Statistics and audit findings quoted from the catalog have not been independently verified.",
+  "proposed_competencies": [],
+  "assets": []
+}

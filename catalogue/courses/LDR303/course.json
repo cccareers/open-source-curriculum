@@ -1,0 +1,109 @@
+{
+  "course_id": "LDR303",
+  "pathway": "workforce-development-professional",
+  "title": "Surviving a Provider Transition",
+  "description": "When a contract changes hands, knowledge walks out the door. Drawing on LA County's 2024 transition, this workshop covers knowledge transfer, caseload handoff, onboarding a new provider's staff, and protecting performance data during the gap.",
+  "hours": 4,
+  "projects": 1,
+  "notes": "Audience: Board staff, incoming and outgoing providers. Format: HD. Hours assumed from format (HD = 4 hours).",
+  "lesson_length": null,
+  "learning_objectives": [
+    "Build a transition plan covering caseloads, files, open contracts, and data entry.",
+    "Identify the performance indicators most at risk during a transition.",
+    "Set up a rapid onboarding sequence for incoming staff.",
+    "Write transition and knowledge-transfer requirements into RFPs and contracts."
+  ],
+  "prerequisites": [],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "LDR303-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 0.25,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "LDR303-02",
+      "order": 2,
+      "slug": "building-the-transition-plan",
+      "title": "Building the Transition Plan",
+      "kind": "lesson",
+      "objectives": [
+        "Build a transition plan covering caseloads, files, open contracts, and data entry."
+      ],
+      "competency_ids": [
+        "D6-S3-C01"
+      ],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "LDR303-03",
+      "order": 3,
+      "slug": "performance-indicators-most-at-risk",
+      "title": "Performance Indicators Most at Risk",
+      "kind": "lesson",
+      "objectives": [
+        "Identify the performance indicators most at risk during a transition."
+      ],
+      "competency_ids": [
+        "D6-S3-C02"
+      ],
+      "hours_estimate": 0.8,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "LDR303-04",
+      "order": 4,
+      "slug": "rapid-onboarding-for-incoming-staff",
+      "title": "Rapid Onboarding for Incoming Staff",
+      "kind": "lesson",
+      "objectives": [
+        "Set up a rapid onboarding sequence for incoming staff."
+      ],
+      "competency_ids": [
+        "D6-S3-C03"
+      ],
+      "hours_estimate": 0.8,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "LDR303-05",
+      "order": 5,
+      "slug": "writing-transition-requirements-into-rfps-and-contracts",
+      "title": "Writing Transition Requirements into RFPs and Contracts",
+      "kind": "lesson",
+      "objectives": [
+        "Write transition and knowledge-transfer requirements into RFPs and contracts."
+      ],
+      "competency_ids": [
+        "D6-S3-C04"
+      ],
+      "hours_estimate": 0.7,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "LDR303-06",
+      "order": 6,
+      "slug": "project-transition-tabletop-exercise",
+      "title": "Project: Transition Tabletop Exercise",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D6-S3-C01",
+        "D6-S3-C02",
+        "D6-S3-C03"
+      ],
+      "hours_estimate": 0.45,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Lessons follow the catalog's learning objectives in the order a practitioner meets them on the job: Building the Transition Plan; Performance Indicators Most at Risk; Rapid Onboarding for Incoming Staff; Writing Transition Requirements into RFPs and Contracts. The closing project (\"Project: Transition Tabletop Exercise\") applies the earlier lessons to one realistic work product (a provider transition plan with an at-risk indicator analysis, an onboarding sequence, and RFP or contract transition language) rather than introducing new content. Scope assumptions: hours are not stated in the source catalog and are assumed from the delivery format (HD; HD = 4 hours). Content is grounded in California and federal guidance named in the catalog description and objectives; the course cites those directives by number but does not reproduce their text, and every policy-specific claim must be checked against the current directive before delivery. Local board policy is treated as a variable the learner fills in from their own board, not something the course prescribes.",
+  "proposed_competencies": [],
+  "assets": []
+}

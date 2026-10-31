@@ -1,0 +1,96 @@
+{
+  "course_id": "APP106",
+  "pathway": "workforce-development-professional",
+  "title": "Pre-Apprenticeship as an On-Ramp",
+  "description": "How to use pre-apprenticeship to move job seekers, especially youth and people with barriers, into Registered Apprenticeship. Covers quality pre-apprenticeship design, funding through ITAs when on the ETPL, counting youth pre-apprenticeship toward the 20 percent work experience requirement, and stipends under WSD23-08.",
+  "hours": 3,
+  "projects": 0,
+  "notes": "Audience: Youth providers, case managers. Format: LV. Hours assumed from format (LV = 3 hours).",
+  "lesson_length": null,
+  "learning_objectives": [
+    "Identify the elements of a quality pre-apprenticeship with a direct link to a registered program.",
+    "Fund pre-apprenticeship through WIOA Adult, Dislocated Worker, or Youth.",
+    "Count youth pre-apprenticeship toward work experience requirements.",
+    "Design a warm handoff from pre-apprenticeship to apprenticeship."
+  ],
+  "prerequisites": [
+    "APP 101 (Registered Apprenticeship for Workforce Professionals)"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "APP106-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 0.3,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "APP106-02",
+      "order": 2,
+      "slug": "what-makes-a-quality-pre-apprenticeship",
+      "title": "What Makes a Quality Pre-Apprenticeship",
+      "kind": "lesson",
+      "objectives": [
+        "Identify the elements of a quality pre-apprenticeship with a direct link to a registered program."
+      ],
+      "competency_ids": [
+        "D2-S6-C01"
+      ],
+      "hours_estimate": 0.7,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "APP106-03",
+      "order": 3,
+      "slug": "funding-pre-apprenticeship-through-wioa",
+      "title": "Funding Pre-Apprenticeship Through WIOA",
+      "kind": "lesson",
+      "objectives": [
+        "Fund pre-apprenticeship through WIOA Adult, Dislocated Worker, or Youth."
+      ],
+      "competency_ids": [
+        "D2-S6-C02"
+      ],
+      "hours_estimate": 0.7,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "APP106-04",
+      "order": 4,
+      "slug": "youth-pre-apprenticeship-and-work-experience",
+      "title": "Youth Pre-Apprenticeship and Work Experience",
+      "kind": "lesson",
+      "objectives": [
+        "Count youth pre-apprenticeship toward work experience requirements."
+      ],
+      "competency_ids": [
+        "D2-S6-C03"
+      ],
+      "hours_estimate": 0.6,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "APP106-05",
+      "order": 5,
+      "slug": "designing-the-warm-handoff",
+      "title": "Designing the Warm Handoff",
+      "kind": "lesson",
+      "objectives": [
+        "Design a warm handoff from pre-apprenticeship to apprenticeship."
+      ],
+      "competency_ids": [
+        "D2-S6-C04"
+      ],
+      "hours_estimate": 0.7,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Lessons follow the catalog's learning objectives in the order a practitioner meets them on the job: What Makes a Quality Pre-Apprenticeship; Funding Pre-Apprenticeship Through WIOA; Youth Pre-Apprenticeship and Work Experience; Designing the Warm Handoff. There is no separate project lesson; each lesson ends in a practice exercise built on the same running case. Scope assumptions: hours are not stated in the source catalog and are assumed from the delivery format (LV; LV = 3 hours). Content is grounded in California and federal guidance named in the catalog description and objectives; the course cites those directives by number but does not reproduce their text, and every policy-specific claim must be checked against the current directive before delivery. Local board policy is treated as a variable the learner fills in from their own board, not something the course prescribes. Prerequisites reflect track order: APP 101 (Registered Apprenticeship for Workforce Professionals).",
+  "proposed_competencies": [],
+  "assets": []
+}

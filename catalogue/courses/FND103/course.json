@@ -1,0 +1,112 @@
+{
+  "course_id": "FND103",
+  "pathway": "workforce-development-professional",
+  "title": "IEPs and Case Notes That Survive Validation",
+  "description": "Case-management practice is entirely local in California, and it is where turnover hurts most. Learners build an Individual Employment Plan (or Youth ISS) from an objective assessment, write case notes that document progress rather than opinion, and set activity dates that match real attendance.",
+  "hours": 3,
+  "projects": 1,
+  "notes": "Audience: Case managers, career specialists, youth staff. Format: LV or SP. Hours assumed from format (LV/SP = 3 hours). Gap addressed: San Joaquin WorkNet's Directive 23-04 catalogs repeated staff errors (late codes, opinions in notes, confusing eligibility with validation).",
+  "lesson_length": null,
+  "learning_objectives": [
+    "Write an IEP that documents interest, aptitude, and skills for a training or OJT placement.",
+    "Write case notes that are factual, timely, and tied to an activity code.",
+    "Set activity begin and end dates from provider attendance, not vouchers, and avoid system auto-closure.",
+    "Recognize the recurring documentation errors that fail Data Element Validation."
+  ],
+  "prerequisites": [
+    "FND 101 (The Participant Journey) or equivalent familiarity with WIOA Title I programs"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "FND103-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 0.25,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "FND103-02",
+      "order": 2,
+      "slug": "building-the-iep-from-an-objective-assessment",
+      "title": "Building the IEP from an Objective Assessment",
+      "kind": "lesson",
+      "objectives": [
+        "Write an IEP that documents interest, aptitude, and skills for a training or OJT placement."
+      ],
+      "competency_ids": [
+        "D1-S3-C01"
+      ],
+      "hours_estimate": 0.8,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "FND103-03",
+      "order": 3,
+      "slug": "writing-factual-timely-case-notes",
+      "title": "Writing Factual, Timely Case Notes",
+      "kind": "lesson",
+      "objectives": [
+        "Write case notes that are factual, timely, and tied to an activity code."
+      ],
+      "competency_ids": [
+        "D1-S3-C02"
+      ],
+      "hours_estimate": 0.7,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "FND103-04",
+      "order": 4,
+      "slug": "activity-dates-that-match-attendance",
+      "title": "Activity Dates That Match Attendance",
+      "kind": "lesson",
+      "objectives": [
+        "Set activity begin and end dates from provider attendance, not vouchers, and avoid system auto-closure."
+      ],
+      "competency_ids": [
+        "D1-S3-C03"
+      ],
+      "hours_estimate": 0.6,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "FND103-05",
+      "order": 5,
+      "slug": "the-errors-that-fail-data-element-validation",
+      "title": "The Errors That Fail Data Element Validation",
+      "kind": "lesson",
+      "objectives": [
+        "Recognize the recurring documentation errors that fail Data Element Validation."
+      ],
+      "competency_ids": [
+        "D1-S3-C04"
+      ],
+      "hours_estimate": 0.4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "FND103-06",
+      "order": 6,
+      "slug": "project-fix-a-failing-file",
+      "title": "Project: Fix a Failing File",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D1-S3-C01",
+        "D1-S3-C02",
+        "D1-S3-C03",
+        "D1-S3-C04"
+      ],
+      "hours_estimate": 0.25,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Lessons follow the catalog's learning objectives in the order a practitioner meets them on the job: Building the IEP from an Objective Assessment; Writing Factual, Timely Case Notes; Activity Dates That Match Attendance; The Errors That Fail Data Element Validation. The closing project (\"Project: Fix a Failing File\") applies the earlier lessons to one realistic work product (an IEP or ISS, case notes, and activity dates written for a sample participant file that would pass a validation review) rather than introducing new content. Scope assumptions: hours are not stated in the source catalog and are assumed from the delivery format (LV or SP; LV/SP = 3 hours). Content is grounded in California and federal guidance named in the catalog description and objectives; the course cites those directives by number but does not reproduce their text, and every policy-specific claim must be checked against the current directive before delivery. Local board policy is treated as a variable the learner fills in from their own board, not something the course prescribes. Design driver (catalog \"gap addressed\"): San Joaquin WorkNet's Directive 23-04 catalogs repeated staff errors (late codes, opinions in notes, confusing eligibility with validation). Statistics and audit findings quoted from the catalog have not been independently verified. Prerequisites reflect track order: FND 101 (The Participant Journey) or equivalent familiarity with WIOA Title I programs.",
+  "proposed_competencies": [],
+  "assets": []
+}

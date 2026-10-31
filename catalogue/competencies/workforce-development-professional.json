@@ -1,0 +1,841 @@
+{
+  "version": 1,
+  "domains": [
+    {
+      "code": "D1",
+      "name": "Foundations (FND)",
+      "delivered_weight_percent": 17,
+      "description": "The WIOA Title I participant journey in California, eligibility judgment and documentation, IEPs and case notes that survive validation, and structured onboarding for new AJCC staff."
+    },
+    {
+      "code": "D2",
+      "name": "Registered Apprenticeship (APP)",
+      "delivered_weight_percent": 30,
+      "description": "How Registered Apprenticeship works in California and nationally, apprenticeship-ready OJT contracts, braided funding, co-enrollment and coding, selling apprenticeship to employers, pre-apprenticeship on-ramps, and DAS registration."
+    },
+    {
+      "code": "D3",
+      "name": "Apprenticeship Degrees (DEG)",
+      "delivered_weight_percent": 9,
+      "description": "How apprenticeship hours and related instruction convert to college credit, California's apprenticeship-degree models, advising participants, and building degree-linked apprenticeships with education partners. Note: California's apprenticeship-degree landscape is early. AB 1904 (credentialed educator apprenticeships) and the Chancellor's Office Apprenticeship Pathway Demonstration Project are the anchors; a CSU or Apprenticeship Degree Network footprint was not verified. These courses should be refreshed as the field develops."
+    },
+    {
+      "code": "D4",
+      "name": "SkillBridge and Veterans (VET)",
+      "delivered_weight_percent": 13,
+      "description": "DoD SkillBridge for AJCC staff, routing transitioning service members and military spouses into Title I and apprenticeship, and helping employers become SkillBridge providers."
+    },
+    {
+      "code": "D5",
+      "name": "Compliance and Quality (CMP)",
+      "delivered_weight_percent": 13,
+      "description": "Data Element Validation readiness, the annual policy refresh on new and cancelled guidance, and monitoring-ready participant files and written procedures."
+    },
+    {
+      "code": "D6",
+      "name": "Leadership and Operations (LDR)",
+      "delivered_weight_percent": 18,
+      "description": "Process mapping an AJCC, AJCC certification and local plan evidence, surviving a provider transition, and building a board-level apprenticeship strategy."
+    }
+  ],
+  "subdomains": [
+    {
+      "code": "D1-S1",
+      "domain_code": "D1",
+      "name": "FND 101 — The Participant Journey: From Front Door to Follow-Up",
+      "description": "A walk through the complete WIOA Title I journey for Adult, Dislocated Worker, and Youth customers: sign-in, registration, eligibility, participation, services, outcomes, exit, follow-up, and validation. Each step is taught with who does it, what document it produces, and which rule governs it, using California's state spine and the learner's own local policy."
+    },
+    {
+      "code": "D1-S2",
+      "domain_code": "D1",
+      "name": "FND 102 — Eligibility Judgment: Deciding, Documenting, Defending",
+      "description": "Eligibility errors are where monitoring findings start. This course covers the judgment calls the state Technical Assistance Guide (WSD24-04) leaves to staff: Dislocated Worker categories, \"unlikely to return,\" self-attestation, low income, Selective Service, Youth school status, and priority of service. Learners practice on realistic case scenarios, including separating service members and apprentices."
+    },
+    {
+      "code": "D1-S3",
+      "domain_code": "D1",
+      "name": "FND 103 — IEPs and Case Notes That Survive Validation",
+      "description": "Case-management practice is entirely local in California, and it is where turnover hurts most. Learners build an Individual Employment Plan (or Youth ISS) from an objective assessment, write case notes that document progress rather than opinion, and set activity dates that match real attendance."
+    },
+    {
+      "code": "D1-S4",
+      "domain_code": "D1",
+      "name": "FND 104 — Your First 30 Days in an AJCC",
+      "description": "A self-paced onboarding sequence a board can assign on day one: how the workforce system is organized, who the partners are, where local policies live, what security and confidentiality training is required (WSD24-12), how to shadow effectively, and when to escalate. Modeled on Virginia's three-week case-manager learning path."
+    },
+    {
+      "code": "D2-S1",
+      "domain_code": "D2",
+      "name": "APP 101 — Registered Apprenticeship for Workforce Professionals",
+      "description": "A plain-language foundation in how Registered Apprenticeship works in California and nationally, with emphasis on new-collar occupations in IT, healthcare, education, and advanced manufacturing. Covers the roles of DOL's Office of Apprenticeship and DAS, sponsors and intermediaries, IACA and CAC jurisdiction, related instruction, wage progression, and how apprenticeship fits inside WIOA."
+    },
+    {
+      "code": "D2-S2",
+      "domain_code": "D2",
+      "name": "APP 102 — Writing Apprenticeship-Ready OJT Contracts and Cohort Training Plans",
+      "description": "California has no state OJT directive, and no local OJT template we found is built for a multi-year apprenticeship. This hands-on workshop teaches staff to write an OJT contract and a cohort training plan that fit apprenticeship: hours scaled to occupation, wage steps, reimbursement rates, the 90 percent small-employer waiver, combining OJT and ITA funds, employer documentation, and invoicing. Learners leave with a completed contract package and CCC's template toolkit."
+    },
+    {
+      "code": "D2-S3",
+      "domain_code": "D2",
+      "name": "APP 103 — Braiding the Money: WIOA, AIF, RSI, CAI, and the GI Bill",
+      "description": "Who pays for what in an apprenticeship? This course maps every California and federal stream that can fund an apprentice or a program, the rules that prevent double-billing, and the sequence for stacking them. Includes a one-page braiding worksheet."
+    },
+    {
+      "code": "D2-S4",
+      "domain_code": "D2",
+      "name": "APP 104 — Co-Enrollment and Coding: Making Apprentices Count",
+      "description": "Apprenticeship completions are recognized credentials and apprenticeship progress counts as Measurable Skill Gains, but only if staff enroll and code correctly. This course covers co-enrollment strategy, CalJOBS activity codes (300, 301, 428), PIRL element 931, type-of-training code 09, and how to capture outcomes over a multi-year apprenticeship."
+    },
+    {
+      "code": "D2-S5",
+      "domain_code": "D2",
+      "name": "APP 105 — Selling Apprenticeship to Employers",
+      "description": "A consultative-selling workshop for workforce staff. Learners practice discovering an employer's hiring and skills problem, positioning apprenticeship (and OJT, incumbent worker training, or SkillBridge) as the solution, handling objections about cost and paperwork, and moving to a next step."
+    },
+    {
+      "code": "D2-S6",
+      "domain_code": "D2",
+      "name": "APP 106 — Pre-Apprenticeship as an On-Ramp",
+      "description": "How to use pre-apprenticeship to move job seekers, especially youth and people with barriers, into Registered Apprenticeship. Covers quality pre-apprenticeship design, funding through ITAs when on the ETPL, counting youth pre-apprenticeship toward the 20 percent work experience requirement, and stipends under WSD23-08."
+    },
+    {
+      "code": "D2-S7",
+      "domain_code": "D2",
+      "name": "APP 107 — Navigating DAS Registration",
+      "description": "A practical guide to getting a program and its apprentices registered in California: standards, the DAS 1 apprentice agreement, 8 CCR 206 timelines, IACA vs. CAC jurisdiction, and how intermediaries shorten the path. Sets realistic timeline expectations for employers."
+    },
+    {
+      "code": "D3-S1",
+      "domain_code": "D3",
+      "name": "DEG 101 — Apprenticeship Degrees: Earning College Credit on the Job",
+      "description": "Apprenticeship degrees let a learner earn a paycheck, a journey-level credential, and college credit at the same time. This course explains the models (credit for related instruction, credit for prior learning, degree-embedded apprenticeships), California's current examples including teacher apprenticeships under AB 1904, and how to advise participants who want both a career and a degree."
+    },
+    {
+      "code": "D3-S2",
+      "domain_code": "D3",
+      "name": "DEG 201 — Building Degree-Linked Apprenticeships with Education Partners",
+      "description": "For boards that want to move from referring to building. Covers convening an employer, a college, and a sponsor; aligning work processes with course outcomes; credit articulation; and funding the build through CAI, AIF, Regional Coordination Project funds (WSIN25-21), and WIOA."
+    },
+    {
+      "code": "D4-S1",
+      "domain_code": "D4",
+      "name": "VET 101 — SkillBridge for AJCC Staff",
+      "description": "DoD SkillBridge lets service members spend their final 180 days of service training with an employer while still on military pay. This course explains how the program works, enrollment windows, provider obligations, and why AJCC staff should care: SkillBridge participants are the best-prepared Dislocated Workers and apprentices a center will ever see."
+    },
+    {
+      "code": "D4-S2",
+      "domain_code": "D4",
+      "name": "VET 102 — From Uniform to Apprentice: Routing Transitioning Service Members",
+      "description": "A routing protocol for transitioning service members and military spouses. Covers veterans' priority of service, Dislocated Worker eligibility before separation, DVOP referral criteria, GI Bill approval checks for apprenticeship and OJT, and co-enrollment so the participant's outcomes count."
+    },
+    {
+      "code": "D4-S3",
+      "domain_code": "D4",
+      "name": "VET 103 — Helping Employers Become SkillBridge Providers",
+      "description": "Most employers do not know they can host SkillBridge participants. This course teaches staff to coach an employer through becoming an authorized provider, pairing SkillBridge with a registered apprenticeship, and earning the HIRE Vets Medallion."
+    },
+    {
+      "code": "D5-S1",
+      "domain_code": "D5",
+      "name": "CMP 201 — Data Element Validation Readiness",
+      "description": "Prepare for EDD's annual Data Element Validation. Covers the sampling process, the 15-business-day document window, source-document requirements (WSD22-15), the 10 percent error threshold, and a self-audit routine staff can run monthly."
+    },
+    {
+      "code": "D5-S2",
+      "domain_code": "D5",
+      "name": "CMP 202 — Policy Refresh Clinic: What Changed in 2026",
+      "description": "An annual update that translates new and cancelled guidance into what staff do differently on Monday. The 2026 edition covers the cancellation of TEGL 09-22 (youth flexibilities), the rescission of TEGL 10-23 Change 2 (work authorization), the new ETPL directive WSD25-02, AJCC certification under WSD25-05, the 90 percent OJT waiver, and the CalJOBS modernization."
+    },
+    {
+      "code": "D5-S3",
+      "domain_code": "D5",
+      "name": "CMP 203 — Monitoring-Ready Files and Procedures",
+      "description": "What monitors look for and how to be ready every day, not just the week before a visit. Covers WSD24-11 local monitoring standards, EO monitoring, file checklists, written procedures as evidence, and corrective action plans."
+    },
+    {
+      "code": "D6-S1",
+      "domain_code": "D6",
+      "name": "LDR 301 — Process Mapping Your AJCC",
+      "description": "A working session where a center's team maps its own intake-to-exit process as swim lanes, marking the responsible role, artifact, and governing rule at each step, and flagging every step that lives only in someone's head. Uses CCC's statewide base map so teams start at 70 percent instead of zero."
+    },
+    {
+      "code": "D6-S2",
+      "domain_code": "D6",
+      "name": "LDR 302 — AJCC Certification and Local Plan Evidence Workshop",
+      "description": "A deadline-driven workshop for the current certification and planning cycle. Focuses on certification indicator #6 (\"high-quality, well-informed, and cross-trained staff\") and the staff-training narrative required in local plan modifications due April 30, 2027. Learners leave with a draft evidence package and plan language."
+    },
+    {
+      "code": "D6-S3",
+      "domain_code": "D6",
+      "name": "LDR 303 — Surviving a Provider Transition",
+      "description": "When a contract changes hands, knowledge walks out the door. Drawing on LA County's 2024 transition, this workshop covers knowledge transfer, caseload handoff, onboarding a new provider's staff, and protecting performance data during the gap."
+    },
+    {
+      "code": "D6-S4",
+      "domain_code": "D6",
+      "name": "LDR 304 — Building an Apprenticeship Strategy for Your Board",
+      "description": "For leaders deciding how far into apprenticeship to go: referrer, navigator, intermediary, or sponsor. Covers TEGL 05-25 waiver opportunities, the 10 percent co-enrollment goal, navigator staffing models, the pending federal reauthorization, and California's apprenticeship funding streams."
+    }
+  ],
+  "competencies": [
+    {
+      "id": "D1-S1-C01",
+      "subdomain_code": "D1-S1",
+      "domain_code": "D1",
+      "statement": "The learner can distinguish a reportable individual from a participant and identify the service that starts participation for each program.",
+      "description": "Demonstrated in FND 101 through a participant-journey walkthrough of a realistic customer file, naming the role, artifact, and governing rule at each step."
+    },
+    {
+      "id": "D1-S1-C02",
+      "subdomain_code": "D1-S1",
+      "domain_code": "D1",
+      "statement": "The learner can sequence the 12 major steps of the participant journey and name the artifact and governing directive for each.",
+      "description": "Demonstrated in FND 101 through a participant-journey walkthrough of a realistic customer file, naming the role, artifact, and governing rule at each step."
+    },
+    {
+      "id": "D1-S1-C03",
+      "subdomain_code": "D1-S1",
+      "domain_code": "D1",
+      "statement": "The learner can explain the 90-day exit rule and which activities do and do not extend the exit clock.",
+      "description": "Demonstrated in FND 101 through a participant-journey walkthrough of a realistic customer file, naming the role, artifact, and governing rule at each step."
+    },
+    {
+      "id": "D1-S1-C04",
+      "subdomain_code": "D1-S1",
+      "domain_code": "D1",
+      "statement": "The learner can identify which decisions in their center are governed by state rule and which are delegated to local policy.",
+      "description": "Demonstrated in FND 101 through a participant-journey walkthrough of a realistic customer file, naming the role, artifact, and governing rule at each step."
+    },
+    {
+      "id": "D1-S2-C01",
+      "subdomain_code": "D1-S2",
+      "domain_code": "D1",
+      "statement": "The learner can apply Adult, Dislocated Worker, and Youth eligibility criteria to complex cases using the Acceptable Documentation List.",
+      "description": "Demonstrated in FND 102 through eligibility determinations on realistic case scenarios with the supporting documentation and case note a monitor would accept."
+    },
+    {
+      "id": "D1-S2-C02",
+      "subdomain_code": "D1-S2",
+      "domain_code": "D1",
+      "statement": "The learner can determine when self-attestation is permitted and document it correctly.",
+      "description": "Demonstrated in FND 102 through eligibility determinations on realistic case scenarios with the supporting documentation and case note a monitor would accept."
+    },
+    {
+      "id": "D1-S2-C03",
+      "subdomain_code": "D1-S2",
+      "domain_code": "D1",
+      "statement": "The learner can apply the priority-of-service order (WSD24-06, WSD24-15) and record status at eligibility.",
+      "description": "Demonstrated in FND 102 through eligibility determinations on realistic case scenarios with the supporting documentation and case note a monitor would accept."
+    },
+    {
+      "id": "D1-S2-C04",
+      "subdomain_code": "D1-S2",
+      "domain_code": "D1",
+      "statement": "The learner can identify when work authorization must be verified under WSD18-03 now that federal TEGL 10-23 Change 2 has been rescinded.",
+      "description": "Demonstrated in FND 102 through eligibility determinations on realistic case scenarios with the supporting documentation and case note a monitor would accept."
+    },
+    {
+      "id": "D1-S2-C05",
+      "subdomain_code": "D1-S2",
+      "domain_code": "D1",
+      "statement": "The learner can write an eligibility case note that a monitor can follow without asking questions.",
+      "description": "Demonstrated in FND 102 through eligibility determinations on realistic case scenarios with the supporting documentation and case note a monitor would accept."
+    },
+    {
+      "id": "D1-S3-C01",
+      "subdomain_code": "D1-S3",
+      "domain_code": "D1",
+      "statement": "The learner can write an IEP that documents interest, aptitude, and skills for a training or OJT placement.",
+      "description": "Demonstrated in FND 103 through an IEP or ISS, case notes, and activity dates written for a sample participant file that would pass a validation review."
+    },
+    {
+      "id": "D1-S3-C02",
+      "subdomain_code": "D1-S3",
+      "domain_code": "D1",
+      "statement": "The learner can write case notes that are factual, timely, and tied to an activity code.",
+      "description": "Demonstrated in FND 103 through an IEP or ISS, case notes, and activity dates written for a sample participant file that would pass a validation review."
+    },
+    {
+      "id": "D1-S3-C03",
+      "subdomain_code": "D1-S3",
+      "domain_code": "D1",
+      "statement": "The learner can set activity begin and end dates from provider attendance, not vouchers, and avoid system auto-closure.",
+      "description": "Demonstrated in FND 103 through an IEP or ISS, case notes, and activity dates written for a sample participant file that would pass a validation review."
+    },
+    {
+      "id": "D1-S3-C04",
+      "subdomain_code": "D1-S3",
+      "domain_code": "D1",
+      "statement": "The learner can recognize the recurring documentation errors that fail Data Element Validation.",
+      "description": "Demonstrated in FND 103 through an IEP or ISS, case notes, and activity dates written for a sample participant file that would pass a validation review."
+    },
+    {
+      "id": "D1-S4-C01",
+      "subdomain_code": "D1-S4",
+      "domain_code": "D1",
+      "statement": "The learner can describe the roles of the Local Board, AJCC Operator, Career Services Provider, EDD, and partners.",
+      "description": "Demonstrated in FND 104 through a completed onboarding record: a system-roles map, a located local policy with its state directive, CalJOBS access steps, and a shadowing checklist."
+    },
+    {
+      "id": "D1-S4-C02",
+      "subdomain_code": "D1-S4",
+      "domain_code": "D1",
+      "statement": "The learner can locate their board's local policies and the state directives behind them.",
+      "description": "Demonstrated in FND 104 through a completed onboarding record: a system-roles map, a located local policy with its state directive, CalJOBS access steps, and a shadowing checklist."
+    },
+    {
+      "id": "D1-S4-C03",
+      "subdomain_code": "D1-S4",
+      "domain_code": "D1",
+      "statement": "The learner can complete the CalJOBS access requirements and explain why they matter.",
+      "description": "Demonstrated in FND 104 through a completed onboarding record: a system-roles map, a located local policy with its state directive, CalJOBS access steps, and a shadowing checklist."
+    },
+    {
+      "id": "D1-S4-C04",
+      "subdomain_code": "D1-S4",
+      "domain_code": "D1",
+      "statement": "The learner can follow a structured shadowing checklist and know which decisions require a supervisor.",
+      "description": "Demonstrated in FND 104 through a completed onboarding record: a system-roles map, a located local policy with its state directive, CalJOBS access steps, and a shadowing checklist."
+    },
+    {
+      "id": "D2-S1-C01",
+      "subdomain_code": "D2-S1",
+      "domain_code": "D2",
+      "statement": "The learner can explain the difference between Registered Apprenticeship, pre-apprenticeship, OJT, and internships.",
+      "description": "Demonstrated in APP 101 through explanations and a regional fact sheet that correctly distinguish apprenticeship models, agency roles, and local new-collar programs."
+    },
+    {
+      "id": "D2-S1-C02",
+      "subdomain_code": "D2-S1",
+      "domain_code": "D2",
+      "statement": "The learner can describe the roles of the Office of Apprenticeship, DAS, sponsors, intermediaries, and related instruction providers.",
+      "description": "Demonstrated in APP 101 through explanations and a regional fact sheet that correctly distinguish apprenticeship models, agency roles, and local new-collar programs."
+    },
+    {
+      "id": "D2-S1-C03",
+      "subdomain_code": "D2-S1",
+      "domain_code": "D2",
+      "statement": "The learner can identify new-collar apprenticeship occupations active in their region.",
+      "description": "Demonstrated in APP 101 through explanations and a regional fact sheet that correctly distinguish apprenticeship models, agency roles, and local new-collar programs."
+    },
+    {
+      "id": "D2-S1-C04",
+      "subdomain_code": "D2-S1",
+      "domain_code": "D2",
+      "statement": "The learner can explain why every registered program is automatically eligible for the ETPL under WSD25-02.",
+      "description": "Demonstrated in APP 101 through explanations and a regional fact sheet that correctly distinguish apprenticeship models, agency roles, and local new-collar programs."
+    },
+    {
+      "id": "D2-S2-C01",
+      "subdomain_code": "D2-S2",
+      "domain_code": "D2",
+      "statement": "The learner can determine the appropriate reimbursement rate (50, 75, or 90 percent) and document the justifying factors under 20 CFR 680.730 and WSD25-03.",
+      "description": "Demonstrated in APP 102 through a completed OJT contract package and cohort training plan for a sample apprenticeship, with justified rates, hours, funding split, and closeout records."
+    },
+    {
+      "id": "D2-S2-C02",
+      "subdomain_code": "D2-S2",
+      "domain_code": "D2",
+      "statement": "The learner can build a cohort training plan that covers multiple apprentices under one contract.",
+      "description": "Demonstrated in APP 102 through a completed OJT contract package and cohort training plan for a sample apprenticeship, with justified rates, hours, funding split, and closeout records."
+    },
+    {
+      "id": "D2-S2-C03",
+      "subdomain_code": "D2-S2",
+      "domain_code": "D2",
+      "statement": "The learner can set training duration and hours using occupation complexity and the apprenticeship's work process schedule.",
+      "description": "Demonstrated in APP 102 through a completed OJT contract package and cohort training plan for a sample apprenticeship, with justified rates, hours, funding split, and closeout records."
+    },
+    {
+      "id": "D2-S2-C04",
+      "subdomain_code": "D2-S2",
+      "domain_code": "D2",
+      "statement": "The learner can combine OJT and ITA funding for one apprentice without overlap.",
+      "description": "Demonstrated in APP 102 through a completed OJT contract package and cohort training plan for a sample apprenticeship, with justified rates, hours, funding split, and closeout records."
+    },
+    {
+      "id": "D2-S2-C05",
+      "subdomain_code": "D2-S2",
+      "domain_code": "D2",
+      "statement": "The learner can specify the employer records, invoices, and monitoring visits required to close the contract cleanly.",
+      "description": "Demonstrated in APP 102 through a completed OJT contract package and cohort training plan for a sample apprenticeship, with justified rates, hours, funding split, and closeout records."
+    },
+    {
+      "id": "D2-S3-C01",
+      "subdomain_code": "D2-S3",
+      "domain_code": "D2",
+      "statement": "The learner can match each apprenticeship component (OJT, related instruction, supportive services, program development) to its eligible funding sources.",
+      "description": "Demonstrated in APP 103 through a completed braiding worksheet for a sample apprentice that assigns each component to an eligible source with no double-billing."
+    },
+    {
+      "id": "D2-S3-C02",
+      "subdomain_code": "D2-S3",
+      "domain_code": "D2",
+      "statement": "The learner can apply the no-double-dip rules, such as RSI hours not claimable when funded by a CAI grant.",
+      "description": "Demonstrated in APP 103 through a completed braiding worksheet for a sample apprentice that assigns each component to an eligible source with no double-billing."
+    },
+    {
+      "id": "D2-S3-C03",
+      "subdomain_code": "D2-S3",
+      "domain_code": "D2",
+      "statement": "The learner can calculate an AIF-supported funding scenario for a sample apprentice.",
+      "description": "Demonstrated in APP 103 through a completed braiding worksheet for a sample apprentice that assigns each component to an eligible source with no double-billing."
+    },
+    {
+      "id": "D2-S3-C04",
+      "subdomain_code": "D2-S3",
+      "domain_code": "D2",
+      "statement": "The learner can identify when GI Bill OJT and apprenticeship benefits apply and how the housing allowance steps down.",
+      "description": "Demonstrated in APP 103 through a completed braiding worksheet for a sample apprentice that assigns each component to an eligible source with no double-billing."
+    },
+    {
+      "id": "D2-S4-C01",
+      "subdomain_code": "D2-S4",
+      "domain_code": "D2",
+      "statement": "The learner can identify when to co-enroll an apprentice in WIOA Title I and which program fits.",
+      "description": "Demonstrated in APP 104 through correct co-enrollment decisions, activity codes, PIRL flags, and outcome records for sample apprentice files."
+    },
+    {
+      "id": "D2-S4-C02",
+      "subdomain_code": "D2-S4",
+      "domain_code": "D2",
+      "statement": "The learner can select the correct activity codes and PIRL flags for apprenticeship-related services.",
+      "description": "Demonstrated in APP 104 through correct co-enrollment decisions, activity codes, PIRL flags, and outcome records for sample apprentice files."
+    },
+    {
+      "id": "D2-S4-C03",
+      "subdomain_code": "D2-S4",
+      "domain_code": "D2",
+      "statement": "The learner can record credential attainment and Measurable Skill Gains for apprentices.",
+      "description": "Demonstrated in APP 104 through correct co-enrollment decisions, activity codes, PIRL flags, and outcome records for sample apprentice files."
+    },
+    {
+      "id": "D2-S4-C04",
+      "subdomain_code": "D2-S4",
+      "domain_code": "D2",
+      "statement": "The learner can plan exit and follow-up timing for a participant in a multi-year program.",
+      "description": "Demonstrated in APP 104 through correct co-enrollment decisions, activity codes, PIRL flags, and outcome records for sample apprentice files."
+    },
+    {
+      "id": "D2-S5-C01",
+      "subdomain_code": "D2-S5",
+      "domain_code": "D2",
+      "statement": "The learner can run a discovery conversation that surfaces an employer's talent pain.",
+      "description": "Demonstrated in APP 105 through a role-played employer meeting covering discovery, a numbers-based business case, objection handling, and a recommended model."
+    },
+    {
+      "id": "D2-S5-C02",
+      "subdomain_code": "D2-S5",
+      "domain_code": "D2",
+      "statement": "The learner can present a business case for apprenticeship using wage, retention, and subsidy numbers.",
+      "description": "Demonstrated in APP 105 through a role-played employer meeting covering discovery, a numbers-based business case, objection handling, and a recommended model."
+    },
+    {
+      "id": "D2-S5-C03",
+      "subdomain_code": "D2-S5",
+      "domain_code": "D2",
+      "statement": "The learner can respond to the five most common employer objections.",
+      "description": "Demonstrated in APP 105 through a role-played employer meeting covering discovery, a numbers-based business case, objection handling, and a recommended model."
+    },
+    {
+      "id": "D2-S5-C04",
+      "subdomain_code": "D2-S5",
+      "domain_code": "D2",
+      "statement": "The learner can choose between starting a new program, joining an intermediary program, or using OJT.",
+      "description": "Demonstrated in APP 105 through a role-played employer meeting covering discovery, a numbers-based business case, objection handling, and a recommended model."
+    },
+    {
+      "id": "D2-S6-C01",
+      "subdomain_code": "D2-S6",
+      "domain_code": "D2",
+      "statement": "The learner can identify the elements of a quality pre-apprenticeship with a direct link to a registered program.",
+      "description": "Demonstrated in APP 106 through a pre-apprenticeship plan for a sample participant showing quality elements, the funding source, work experience counting, and a warm handoff."
+    },
+    {
+      "id": "D2-S6-C02",
+      "subdomain_code": "D2-S6",
+      "domain_code": "D2",
+      "statement": "The learner can fund pre-apprenticeship through WIOA Adult, Dislocated Worker, or Youth.",
+      "description": "Demonstrated in APP 106 through a pre-apprenticeship plan for a sample participant showing quality elements, the funding source, work experience counting, and a warm handoff."
+    },
+    {
+      "id": "D2-S6-C03",
+      "subdomain_code": "D2-S6",
+      "domain_code": "D2",
+      "statement": "The learner can count youth pre-apprenticeship toward work experience requirements.",
+      "description": "Demonstrated in APP 106 through a pre-apprenticeship plan for a sample participant showing quality elements, the funding source, work experience counting, and a warm handoff."
+    },
+    {
+      "id": "D2-S6-C04",
+      "subdomain_code": "D2-S6",
+      "domain_code": "D2",
+      "statement": "The learner can design a warm handoff from pre-apprenticeship to apprenticeship.",
+      "description": "Demonstrated in APP 106 through a pre-apprenticeship plan for a sample participant showing quality elements, the funding source, work experience counting, and a warm handoff."
+    },
+    {
+      "id": "D2-S7-C01",
+      "subdomain_code": "D2-S7",
+      "domain_code": "D2",
+      "statement": "The learner can outline the steps and documents required to register a new program and an apprentice.",
+      "description": "Demonstrated in APP 107 through a registration roadmap for a sample employer covering documents, jurisdiction, a realistic timeline, and a register-or-join decision."
+    },
+    {
+      "id": "D2-S7-C02",
+      "subdomain_code": "D2-S7",
+      "domain_code": "D2",
+      "statement": "The learner can determine which advisory body has jurisdiction over a program.",
+      "description": "Demonstrated in APP 107 through a registration roadmap for a sample employer covering documents, jurisdiction, a realistic timeline, and a register-or-join decision."
+    },
+    {
+      "id": "D2-S7-C03",
+      "subdomain_code": "D2-S7",
+      "domain_code": "D2",
+      "statement": "The learner can set an accurate timeline expectation with an employer.",
+      "description": "Demonstrated in APP 107 through a registration roadmap for a sample employer covering documents, jurisdiction, a realistic timeline, and a register-or-join decision."
+    },
+    {
+      "id": "D2-S7-C04",
+      "subdomain_code": "D2-S7",
+      "domain_code": "D2",
+      "statement": "The learner can decide when to use an existing intermediary program instead of registering a new one.",
+      "description": "Demonstrated in APP 107 through a registration roadmap for a sample employer covering documents, jurisdiction, a realistic timeline, and a register-or-join decision."
+    },
+    {
+      "id": "D3-S1-C01",
+      "subdomain_code": "D3-S1",
+      "domain_code": "D3",
+      "statement": "The learner can explain how apprenticeship hours and related instruction can convert to college credit.",
+      "description": "Demonstrated in DEG 101 through an advising conversation or comparison sheet that accurately contrasts degree, apprenticeship, and apprenticeship-degree paths and their funding."
+    },
+    {
+      "id": "D3-S1-C02",
+      "subdomain_code": "D3-S1",
+      "domain_code": "D3",
+      "statement": "The learner can describe California's current apprenticeship-degree models and their requirements.",
+      "description": "Demonstrated in DEG 101 through an advising conversation or comparison sheet that accurately contrasts degree, apprenticeship, and apprenticeship-degree paths and their funding."
+    },
+    {
+      "id": "D3-S1-C03",
+      "subdomain_code": "D3-S1",
+      "domain_code": "D3",
+      "statement": "The learner can advise a participant comparing a traditional degree, an apprenticeship, and an apprenticeship degree on cost, time, and earnings.",
+      "description": "Demonstrated in DEG 101 through an advising conversation or comparison sheet that accurately contrasts degree, apprenticeship, and apprenticeship-degree paths and their funding."
+    },
+    {
+      "id": "D3-S1-C04",
+      "subdomain_code": "D3-S1",
+      "domain_code": "D3",
+      "statement": "The learner can identify how WIOA training funds and ETPL rules apply to degree-linked apprenticeships.",
+      "description": "Demonstrated in DEG 101 through an advising conversation or comparison sheet that accurately contrasts degree, apprenticeship, and apprenticeship-degree paths and their funding."
+    },
+    {
+      "id": "D3-S2-C01",
+      "subdomain_code": "D3-S2",
+      "domain_code": "D3",
+      "statement": "The learner can identify the partners and roles needed for a degree-linked apprenticeship.",
+      "description": "Demonstrated in DEG 201 through a degree-linked apprenticeship proposal with a partner map, work-process crosswalk, funding plan, and partnership language."
+    },
+    {
+      "id": "D3-S2-C02",
+      "subdomain_code": "D3-S2",
+      "domain_code": "D3",
+      "statement": "The learner can crosswalk an apprenticeship's work processes to course learning outcomes.",
+      "description": "Demonstrated in DEG 201 through a degree-linked apprenticeship proposal with a partner map, work-process crosswalk, funding plan, and partnership language."
+    },
+    {
+      "id": "D3-S2-C03",
+      "subdomain_code": "D3-S2",
+      "domain_code": "D3",
+      "statement": "The learner can draft a funding plan for program development.",
+      "description": "Demonstrated in DEG 201 through a degree-linked apprenticeship proposal with a partner map, work-process crosswalk, funding plan, and partnership language."
+    },
+    {
+      "id": "D3-S2-C04",
+      "subdomain_code": "D3-S2",
+      "domain_code": "D3",
+      "statement": "The learner can write the partnership language for a local plan modification or grant application.",
+      "description": "Demonstrated in DEG 201 through a degree-linked apprenticeship proposal with a partner map, work-process crosswalk, funding plan, and partnership language."
+    },
+    {
+      "id": "D4-S1-C01",
+      "subdomain_code": "D4-S1",
+      "domain_code": "D4",
+      "statement": "The learner can explain SkillBridge eligibility, duration, and command-approval requirements.",
+      "description": "Demonstrated in VET 101 through accurate explanations of SkillBridge rules and a front-desk conversation that identifies a SkillBridge participant and routes them."
+    },
+    {
+      "id": "D4-S1-C02",
+      "subdomain_code": "D4-S1",
+      "domain_code": "D4",
+      "statement": "The learner can describe provider MOU obligations, including the post-service job-offer requirement.",
+      "description": "Demonstrated in VET 101 through accurate explanations of SkillBridge rules and a front-desk conversation that identifies a SkillBridge participant and routes them."
+    },
+    {
+      "id": "D4-S1-C03",
+      "subdomain_code": "D4-S1",
+      "domain_code": "D4",
+      "statement": "The learner can identify local SkillBridge providers and installations in their region.",
+      "description": "Demonstrated in VET 101 through accurate explanations of SkillBridge rules and a front-desk conversation that identifies a SkillBridge participant and routes them."
+    },
+    {
+      "id": "D4-S1-C04",
+      "subdomain_code": "D4-S1",
+      "domain_code": "D4",
+      "statement": "The learner can recognize a SkillBridge participant at the front desk and start the right conversation.",
+      "description": "Demonstrated in VET 101 through accurate explanations of SkillBridge rules and a front-desk conversation that identifies a SkillBridge participant and routes them."
+    },
+    {
+      "id": "D4-S2-C01",
+      "subdomain_code": "D4-S2",
+      "domain_code": "D4",
+      "statement": "The learner can determine Dislocated Worker eligibility for a separating service member or military spouse (20 CFR 680.660, TEGL 19-16).",
+      "description": "Demonstrated in VET 102 through routing decisions for sample transitioning service members and spouses covering DW eligibility, priority of service, JVSG referral, and GI Bill approval."
+    },
+    {
+      "id": "D4-S2-C02",
+      "subdomain_code": "D4-S2",
+      "domain_code": "D4",
+      "statement": "The learner can apply veterans' priority of service at every point of entry.",
+      "description": "Demonstrated in VET 102 through routing decisions for sample transitioning service members and spouses covering DW eligibility, priority of service, JVSG referral, and GI Bill approval."
+    },
+    {
+      "id": "D4-S2-C03",
+      "subdomain_code": "D4-S2",
+      "domain_code": "D4",
+      "statement": "The learner can refer correctly between Title I and JVSG staff under TEGL 03-24.",
+      "description": "Demonstrated in VET 102 through routing decisions for sample transitioning service members and spouses covering DW eligibility, priority of service, JVSG referral, and GI Bill approval."
+    },
+    {
+      "id": "D4-S2-C04",
+      "subdomain_code": "D4-S2",
+      "domain_code": "D4",
+      "statement": "The learner can check whether an apprenticeship or OJT program is GI Bill approved and explain the benefit to the veteran.",
+      "description": "Demonstrated in VET 102 through routing decisions for sample transitioning service members and spouses covering DW eligibility, priority of service, JVSG referral, and GI Bill approval."
+    },
+    {
+      "id": "D4-S3-C01",
+      "subdomain_code": "D4-S3",
+      "domain_code": "D4",
+      "statement": "The learner can explain the SkillBridge provider application and MOU requirements.",
+      "description": "Demonstrated in VET 103 through an employer coaching plan covering the provider application, a SkillBridge-to-apprenticeship design, Medallion alignment, and outcome tracking."
+    },
+    {
+      "id": "D4-S3-C02",
+      "subdomain_code": "D4-S3",
+      "domain_code": "D4",
+      "statement": "The learner can design a SkillBridge experience that flows directly into a Registered Apprenticeship.",
+      "description": "Demonstrated in VET 103 through an employer coaching plan covering the provider application, a SkillBridge-to-apprenticeship design, Medallion alignment, and outcome tracking."
+    },
+    {
+      "id": "D4-S3-C03",
+      "subdomain_code": "D4-S3",
+      "domain_code": "D4",
+      "statement": "The learner can describe HIRE Vets Medallion criteria and how SkillBridge supports them.",
+      "description": "Demonstrated in VET 103 through an employer coaching plan covering the provider application, a SkillBridge-to-apprenticeship design, Medallion alignment, and outcome tracking."
+    },
+    {
+      "id": "D4-S3-C04",
+      "subdomain_code": "D4-S3",
+      "domain_code": "D4",
+      "statement": "The learner can track SkillBridge-to-hire outcomes for the employer and the board.",
+      "description": "Demonstrated in VET 103 through an employer coaching plan covering the provider application, a SkillBridge-to-apprenticeship design, Medallion alignment, and outcome tracking."
+    },
+    {
+      "id": "D5-S1-C01",
+      "subdomain_code": "D5-S1",
+      "domain_code": "D5",
+      "statement": "The learner can explain how DEV samples files and scores elements.",
+      "description": "Demonstrated in CMP 201 through a completed self-audit of sample files that matches elements to source documents and routes corrections through a Data Change Request."
+    },
+    {
+      "id": "D5-S1-C02",
+      "subdomain_code": "D5-S1",
+      "domain_code": "D5",
+      "statement": "The learner can match each commonly failed element to its acceptable source documents.",
+      "description": "Demonstrated in CMP 201 through a completed self-audit of sample files that matches elements to source documents and routes corrections through a Data Change Request."
+    },
+    {
+      "id": "D5-S1-C03",
+      "subdomain_code": "D5-S1",
+      "domain_code": "D5",
+      "statement": "The learner can run a monthly file self-audit using a CCC checklist.",
+      "description": "Demonstrated in CMP 201 through a completed self-audit of sample files that matches elements to source documents and routes corrections through a Data Change Request."
+    },
+    {
+      "id": "D5-S1-C04",
+      "subdomain_code": "D5-S1",
+      "domain_code": "D5",
+      "statement": "The learner can correct errors through the proper Data Change Request process before the annual report.",
+      "description": "Demonstrated in CMP 201 through a completed self-audit of sample files that matches elements to source documents and routes corrections through a Data Change Request."
+    },
+    {
+      "id": "D5-S2-C01",
+      "subdomain_code": "D5-S2",
+      "domain_code": "D5",
+      "statement": "The learner can identify local policies that still cite cancelled or superseded guidance.",
+      "description": "Demonstrated in CMP 202 through a refreshed local procedure or desk guide with superseded citations replaced and a documented routine for tracking directive changes."
+    },
+    {
+      "id": "D5-S2-C02",
+      "subdomain_code": "D5-S2",
+      "domain_code": "D5",
+      "statement": "The learner can explain each 2026 change and its effect on frontline practice.",
+      "description": "Demonstrated in CMP 202 through a refreshed local procedure or desk guide with superseded citations replaced and a documented routine for tracking directive changes."
+    },
+    {
+      "id": "D5-S2-C03",
+      "subdomain_code": "D5-S2",
+      "domain_code": "D5",
+      "statement": "The learner can update a local procedure or desk guide to match current rules.",
+      "description": "Demonstrated in CMP 202 through a refreshed local procedure or desk guide with superseded citations replaced and a documented routine for tracking directive changes."
+    },
+    {
+      "id": "D5-S2-C04",
+      "subdomain_code": "D5-S2",
+      "domain_code": "D5",
+      "statement": "The learner can set up a routine for catching future directive changes.",
+      "description": "Demonstrated in CMP 202 through a refreshed local procedure or desk guide with superseded citations replaced and a documented routine for tracking directive changes."
+    },
+    {
+      "id": "D5-S3-C01",
+      "subdomain_code": "D5-S3",
+      "domain_code": "D5",
+      "statement": "The learner can describe what local, state, and EO monitors review in participant files and procedures.",
+      "description": "Demonstrated in CMP 203 through a mock monitoring review with a file checklist, internal sample results, policy-communication evidence, and a corrective action plan."
+    },
+    {
+      "id": "D5-S3-C02",
+      "subdomain_code": "D5-S3",
+      "domain_code": "D5",
+      "statement": "The learner can build a file checklist and a sampling routine for internal quality review.",
+      "description": "Demonstrated in CMP 203 through a mock monitoring review with a file checklist, internal sample results, policy-communication evidence, and a corrective action plan."
+    },
+    {
+      "id": "D5-S3-C03",
+      "subdomain_code": "D5-S3",
+      "domain_code": "D5",
+      "statement": "The learner can show evidence that local policies were communicated to and implemented by staff.",
+      "description": "Demonstrated in CMP 203 through a mock monitoring review with a file checklist, internal sample results, policy-communication evidence, and a corrective action plan."
+    },
+    {
+      "id": "D5-S3-C04",
+      "subdomain_code": "D5-S3",
+      "domain_code": "D5",
+      "statement": "The learner can write a corrective action plan that closes a finding.",
+      "description": "Demonstrated in CMP 203 through a mock monitoring review with a file checklist, internal sample results, policy-communication evidence, and a corrective action plan."
+    },
+    {
+      "id": "D6-S1-C01",
+      "subdomain_code": "D6-S1",
+      "domain_code": "D6",
+      "statement": "The learner can map their center's process from sign-in to follow-up in swim-lane form.",
+      "description": "Demonstrated in LDR 301 through a swim-lane map of the learner's own center with flagged gaps, a prioritized procedure-writing list, and a maintenance routine."
+    },
+    {
+      "id": "D6-S1-C02",
+      "subdomain_code": "D6-S1",
+      "domain_code": "D6",
+      "statement": "The learner can identify undocumented steps, duplicate data entry, and handoff failures.",
+      "description": "Demonstrated in LDR 301 through a swim-lane map of the learner's own center with flagged gaps, a prioritized procedure-writing list, and a maintenance routine."
+    },
+    {
+      "id": "D6-S1-C03",
+      "subdomain_code": "D6-S1",
+      "domain_code": "D6",
+      "statement": "The learner can prioritize which procedures to write down first.",
+      "description": "Demonstrated in LDR 301 through a swim-lane map of the learner's own center with flagged gaps, a prioritized procedure-writing list, and a maintenance routine."
+    },
+    {
+      "id": "D6-S1-C04",
+      "subdomain_code": "D6-S1",
+      "domain_code": "D6",
+      "statement": "The learner can maintain the map as policies and systems change, including the CalJOBS modernization.",
+      "description": "Demonstrated in LDR 301 through a swim-lane map of the learner's own center with flagged gaps, a prioritized procedure-writing list, and a maintenance routine."
+    },
+    {
+      "id": "D6-S2-C01",
+      "subdomain_code": "D6-S2",
+      "domain_code": "D6",
+      "statement": "The learner can interpret the seven certification indicators under WSD25-05 and what evidence each needs.",
+      "description": "Demonstrated in LDR 302 through a draft indicator #6 evidence package, local plan training language, and a Continuous Improvement Plan with training actions."
+    },
+    {
+      "id": "D6-S2-C02",
+      "subdomain_code": "D6-S2",
+      "domain_code": "D6",
+      "statement": "The learner can assemble a cross-training evidence package for indicator #6.",
+      "description": "Demonstrated in LDR 302 through a draft indicator #6 evidence package, local plan training language, and a Continuous Improvement Plan with training actions."
+    },
+    {
+      "id": "D6-S2-C03",
+      "subdomain_code": "D6-S2",
+      "domain_code": "D6",
+      "statement": "The learner can draft the frontline staff training section of a local plan modification.",
+      "description": "Demonstrated in LDR 302 through a draft indicator #6 evidence package, local plan training language, and a Continuous Improvement Plan with training actions."
+    },
+    {
+      "id": "D6-S2-C04",
+      "subdomain_code": "D6-S2",
+      "domain_code": "D6",
+      "statement": "The learner can turn certification findings into a Continuous Improvement Plan with training actions.",
+      "description": "Demonstrated in LDR 302 through a draft indicator #6 evidence package, local plan training language, and a Continuous Improvement Plan with training actions."
+    },
+    {
+      "id": "D6-S3-C01",
+      "subdomain_code": "D6-S3",
+      "domain_code": "D6",
+      "statement": "The learner can build a transition plan covering caseloads, files, open contracts, and data entry.",
+      "description": "Demonstrated in LDR 303 through a provider transition plan with an at-risk indicator analysis, an onboarding sequence, and RFP or contract transition language."
+    },
+    {
+      "id": "D6-S3-C02",
+      "subdomain_code": "D6-S3",
+      "domain_code": "D6",
+      "statement": "The learner can identify the performance indicators most at risk during a transition.",
+      "description": "Demonstrated in LDR 303 through a provider transition plan with an at-risk indicator analysis, an onboarding sequence, and RFP or contract transition language."
+    },
+    {
+      "id": "D6-S3-C03",
+      "subdomain_code": "D6-S3",
+      "domain_code": "D6",
+      "statement": "The learner can set up a rapid onboarding sequence for incoming staff.",
+      "description": "Demonstrated in LDR 303 through a provider transition plan with an at-risk indicator analysis, an onboarding sequence, and RFP or contract transition language."
+    },
+    {
+      "id": "D6-S3-C04",
+      "subdomain_code": "D6-S3",
+      "domain_code": "D6",
+      "statement": "The learner can write transition and knowledge-transfer requirements into RFPs and contracts.",
+      "description": "Demonstrated in LDR 303 through a provider transition plan with an at-risk indicator analysis, an onboarding sequence, and RFP or contract transition language."
+    },
+    {
+      "id": "D6-S4-C01",
+      "subdomain_code": "D6-S4",
+      "domain_code": "D6",
+      "statement": "The learner can assess their board's current apprenticeship capacity and outcomes.",
+      "description": "Demonstrated in LDR 304 through a one-page board apprenticeship strategy with a capacity assessment, chosen role, co-enrollment goal, staffing plan, and funding sources."
+    },
+    {
+      "id": "D6-S4-C02",
+      "subdomain_code": "D6-S4",
+      "domain_code": "D6",
+      "statement": "The learner can choose a role (referrer, navigator, intermediary, or sponsor) that fits their resources.",
+      "description": "Demonstrated in LDR 304 through a one-page board apprenticeship strategy with a capacity assessment, chosen role, co-enrollment goal, staffing plan, and funding sources."
+    },
+    {
+      "id": "D6-S4-C03",
+      "subdomain_code": "D6-S4",
+      "domain_code": "D6",
+      "statement": "The learner can set a co-enrollment goal and the staffing and training needed to meet it.",
+      "description": "Demonstrated in LDR 304 through a one-page board apprenticeship strategy with a capacity assessment, chosen role, co-enrollment goal, staffing plan, and funding sources."
+    },
+    {
+      "id": "D6-S4-C04",
+      "subdomain_code": "D6-S4",
+      "domain_code": "D6",
+      "statement": "The learner can identify the state and federal funding that can pay for the strategy.",
+      "description": "Demonstrated in LDR 304 through a one-page board apprenticeship strategy with a capacity assessment, chosen role, co-enrollment goal, staffing plan, and funding sources."
+    }
+  ]
+}

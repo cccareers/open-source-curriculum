@@ -1,0 +1,111 @@
+{
+  "course_id": "CMP203",
+  "pathway": "workforce-development-professional",
+  "title": "Monitoring-Ready Files and Procedures",
+  "description": "What monitors look for and how to be ready every day, not just the week before a visit. Covers WSD24-11 local monitoring standards, EO monitoring, file checklists, written procedures as evidence, and corrective action plans.",
+  "hours": 4,
+  "projects": 1,
+  "notes": "Audience: Supervisors, quality assurance staff, subrecipient managers. Format: HD. Hours assumed from format (HD = 4 hours).",
+  "lesson_length": null,
+  "learning_objectives": [
+    "Describe what local, state, and EO monitors review in participant files and procedures.",
+    "Build a file checklist and a sampling routine for internal quality review.",
+    "Show evidence that local policies were communicated to and implemented by staff.",
+    "Write a corrective action plan that closes a finding."
+  ],
+  "prerequisites": [
+    "CMP 201 (Data Element Validation Readiness) recommended"
+  ],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "CMP203-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 0.25,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "CMP203-02",
+      "order": 2,
+      "slug": "what-local-state-and-eo-monitors-review",
+      "title": "What Local, State, and EO Monitors Review",
+      "kind": "lesson",
+      "objectives": [
+        "Describe what local, state, and EO monitors review in participant files and procedures."
+      ],
+      "competency_ids": [
+        "D5-S3-C01"
+      ],
+      "hours_estimate": 0.9,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "CMP203-03",
+      "order": 3,
+      "slug": "file-checklists-and-internal-sampling",
+      "title": "File Checklists and Internal Sampling",
+      "kind": "lesson",
+      "objectives": [
+        "Build a file checklist and a sampling routine for internal quality review."
+      ],
+      "competency_ids": [
+        "D5-S3-C02"
+      ],
+      "hours_estimate": 0.9,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "CMP203-04",
+      "order": 4,
+      "slug": "evidence-that-policies-reached-staff",
+      "title": "Evidence That Policies Reached Staff",
+      "kind": "lesson",
+      "objectives": [
+        "Show evidence that local policies were communicated to and implemented by staff."
+      ],
+      "competency_ids": [
+        "D5-S3-C03"
+      ],
+      "hours_estimate": 0.7,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "CMP203-05",
+      "order": 5,
+      "slug": "writing-a-corrective-action-plan-that-closes-a-finding",
+      "title": "Writing a Corrective Action Plan That Closes a Finding",
+      "kind": "lesson",
+      "objectives": [
+        "Write a corrective action plan that closes a finding."
+      ],
+      "competency_ids": [
+        "D5-S3-C04"
+      ],
+      "hours_estimate": 0.8,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "CMP203-06",
+      "order": 6,
+      "slug": "project-mock-monitoring-review",
+      "title": "Project: Mock Monitoring Review",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D5-S3-C01",
+        "D5-S3-C02",
+        "D5-S3-C04"
+      ],
+      "hours_estimate": 0.45,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Lessons follow the catalog's learning objectives in the order a practitioner meets them on the job: What Local, State, and EO Monitors Review; File Checklists and Internal Sampling; Evidence That Policies Reached Staff; Writing a Corrective Action Plan That Closes a Finding. The closing project (\"Project: Mock Monitoring Review\") applies the earlier lessons to one realistic work product (a mock monitoring review with a file checklist, internal sample results, policy-communication evidence, and a corrective action plan) rather than introducing new content. Scope assumptions: hours are not stated in the source catalog and are assumed from the delivery format (HD; HD = 4 hours). Content is grounded in California and federal guidance named in the catalog description and objectives; the course cites those directives by number but does not reproduce their text, and every policy-specific claim must be checked against the current directive before delivery. Local board policy is treated as a variable the learner fills in from their own board, not something the course prescribes. Prerequisites reflect track order: CMP 201 (Data Element Validation Readiness) recommended.",
+  "proposed_competencies": [],
+  "assets": []
+}

@@ -1,0 +1,108 @@
+{
+  "course_id": "CMP202",
+  "pathway": "workforce-development-professional",
+  "title": "Policy Refresh Clinic: What Changed in 2026",
+  "description": "An annual update that translates new and cancelled guidance into what staff do differently on Monday. The 2026 edition covers the cancellation of TEGL 09-22 (youth flexibilities), the rescission of TEGL 10-23 Change 2 (work authorization), the new ETPL directive WSD25-02, AJCC certification under WSD25-05, the 90 percent OJT waiver, and the CalJOBS modernization.",
+  "hours": 3,
+  "projects": 1,
+  "notes": "Audience: Policy staff, supervisors, all frontline staff. Format: LV (refreshed each program year). Hours assumed from format (LV = 3 hours).",
+  "lesson_length": null,
+  "learning_objectives": [
+    "Identify local policies that still cite cancelled or superseded guidance.",
+    "Explain each 2026 change and its effect on frontline practice.",
+    "Update a local procedure or desk guide to match current rules.",
+    "Set up a routine for catching future directive changes."
+  ],
+  "prerequisites": [],
+  "status": "approved",
+  "lessons": [
+    {
+      "lesson_id": "CMP202-01",
+      "order": 1,
+      "slug": "course-overview",
+      "title": "Course Overview",
+      "kind": "overview",
+      "objectives": [],
+      "competency_ids": [],
+      "hours_estimate": 0.25,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "CMP202-02",
+      "order": 2,
+      "slug": "finding-policies-that-cite-cancelled-guidance",
+      "title": "Finding Policies That Cite Cancelled Guidance",
+      "kind": "lesson",
+      "objectives": [
+        "Identify local policies that still cite cancelled or superseded guidance."
+      ],
+      "competency_ids": [
+        "D5-S2-C01"
+      ],
+      "hours_estimate": 0.6,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "CMP202-03",
+      "order": 3,
+      "slug": "the-2026-changes-and-what-they-mean-on-monday",
+      "title": "The 2026 Changes and What They Mean on Monday",
+      "kind": "lesson",
+      "objectives": [
+        "Explain each 2026 change and its effect on frontline practice."
+      ],
+      "competency_ids": [
+        "D5-S2-C02"
+      ],
+      "hours_estimate": 1,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "CMP202-04",
+      "order": 4,
+      "slug": "updating-a-local-procedure-or-desk-guide",
+      "title": "Updating a Local Procedure or Desk Guide",
+      "kind": "lesson",
+      "objectives": [
+        "Update a local procedure or desk guide to match current rules."
+      ],
+      "competency_ids": [
+        "D5-S2-C03"
+      ],
+      "hours_estimate": 0.6,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "CMP202-05",
+      "order": 5,
+      "slug": "a-routine-for-catching-future-directive-changes",
+      "title": "A Routine for Catching Future Directive Changes",
+      "kind": "lesson",
+      "objectives": [
+        "Set up a routine for catching future directive changes."
+      ],
+      "competency_ids": [
+        "D5-S2-C04"
+      ],
+      "hours_estimate": 0.4,
+      "status": "draft"
+    },
+    {
+      "lesson_id": "CMP202-06",
+      "order": 6,
+      "slug": "project-refresh-one-desk-guide",
+      "title": "Project: Refresh One Desk Guide",
+      "kind": "project",
+      "objectives": [],
+      "competency_ids": [
+        "D5-S2-C01",
+        "D5-S2-C03"
+      ],
+      "hours_estimate": 0.15,
+      "status": "draft"
+    }
+  ],
+  "sequencing_rationale": "Lessons follow the catalog's learning objectives in the order a practitioner meets them on the job: Finding Policies That Cite Cancelled Guidance; The 2026 Changes and What They Mean on Monday; Updating a Local Procedure or Desk Guide; A Routine for Catching Future Directive Changes. The closing project (\"Project: Refresh One Desk Guide\") applies the earlier lessons to one realistic work product (a refreshed local procedure or desk guide with superseded citations replaced and a documented routine for tracking directive changes) rather than introducing new content. Scope assumptions: hours are not stated in the source catalog and are assumed from the delivery format (LV (refreshed each program year); LV = 3 hours). Content is grounded in California and federal guidance named in the catalog description and objectives; the course cites those directives by number but does not reproduce their text, and every policy-specific claim must be checked against the current directive before delivery. Local board policy is treated as a variable the learner fills in from their own board, not something the course prescribes.",
+  "proposed_competencies": [],
+  "assets": []
+}
